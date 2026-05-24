@@ -1,0 +1,32 @@
+# Environment
+.env
+*.env
+
+# Study materials — add your own, don't commit copyrighted PDFs
+docs/study-materials/*.pdf
+docs/study-materials/*.txt
+docs/study-materials/*.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+.npm
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Build
+dist/
+.cache/
