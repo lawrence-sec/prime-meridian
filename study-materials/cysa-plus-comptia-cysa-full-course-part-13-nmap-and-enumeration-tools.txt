@@ -1,0 +1,844 @@
+Enumeration is a process that's very
+simple to understand because it's just a
+way to list whatever is in your network
+like all the servers, the workstations,
+the network devices like routers and
+switches. You need to know about all the
+devices that are running in your network
+in order to be able to scan them for
+vulnerabilities. And it also just
+happens that this enumeration phase is
+the first phase that happens whenever an
+attacker also tries to discover more
+information about your network.
+All right. So the first step in your
+vulnerability management process is
+going to be to list all the systems in
+your network. And those systems can be
+servers, workstations, printers, IP
+cameras, IoT devices, maybe mobile
+devices, everything that can be
+connected to the network and can be a
+security risk. So enumeration basically
+means just scanning networks and hosts
+that all belong to some target. Now if
+you're an attacker, you want to do this
+to gather more information or
+intelligence and then use it in your
+attack strategy. But if you're on the
+defensive side, you can use the same
+techniques to identify your attack
+surface. So where are you the most
+vulnerable? Where are the places where
+you have to focus your attention to
+reduce the number of attack vectors?
+Most enumeration techniques will involve
+some sort of active interaction with the
+target. Even if it's something very
+small like attempting some TCP
+connections or a DNS name resolution.
+And even if some of these techniques
+don't really make a lot of noise, they
+can still be discovered if your target
+knows what to look for. And what I mean
+by discovered is the fact that the
+target might figure out that some
+scanning is happening right now, which
+might be proof for the first step in a
+larger attack. And we also have somewhat
+passive techniques which are also a type
+of active scanning except that their
+traffic should be indistinguishable from
+normal traffic that we expect to see in
+that network. That's because it's almost
+impossible to figure out that one
+connection attempt per hour or per day
+is actually part of a larger attack. It
+just doesn't look like one. Still there
+are such attacks called low and slow or
+sparse attacks that scan your targets so
+slowly that any defense security system
+or security software is simply not able
+to detect them unless they tune down
+their sensitivity so much that they will
+get an enormous amount of false
+positives and nobody wants that much
+work. So these semi-passive scanning
+techniques are basically going to use
+the same tools as the active techniques
+just that they will scan using a very
+low scan profile, very slow scan
+profile. And of course, we also have
+fully passive techniques which enumerate
+and scan networks without sending any
+traffic. Of course, this kind of depends
+on how lucky you are to just happen to
+catch relevant traffic and relevant
+information from that traffic that is
+just happening to be flowing. Now, of
+course, intercepting traffic is not so
+easy because it requires some physical
+interaction with the network. Either by
+configuring a port mirroring on a on a
+switch to duplicate all the traffic on
+one specific port or a tap device
+installed on the network link that again
+creates a copy of the traffic which you
+can intercept. One example of passive
+scanning tools is P0F or POFF which
+attempts to intercept TCP connections
+and look at the TCP flags and headers to
+determine the version, the operating
+system, the browser, even the uptime of
+some devices again without sending any
+probes or any synthetic traffic. Another
+such tool is Zeke, previously called
+Bro, which also operates as a passive
+traffic scanner and can also process
+previously captured PCAP files. Now just
+to get rid of this exam terminology
+here, active scanning techniques can be
+categorized into two. And the first one
+is footprinting. This refers to
+discovering the layout of the network
+like the subnets, the IP addresses that
+you're using, routing, DHCP options,
+perhaps even routing protocols. So
+that's footprinting. Then we have
+fingerprinting, which refers to
+discovering what is running on a
+specific host. What ports are open? What
+version of the operating system might be
+running in there? any public file
+shares, for example, anything that can
+be discovered just by looking from the
+outside at a specific device. And
+finally, NAP, the one thing that you
+should really know for the exam. This is
+the the Swiss Army knife, the holy grail
+of network scanning, of host scanning,
+of enumeration, the number one tool of
+every hacker or cyber security analyst.
+Let's dig in. Okay, so assuming that I
+want to scan my network, I'm going to
+start small with just one single host
+first. And I know that one of the hosts
+in my network is this one right here,
+1921 16815.99.
+And I want to check first if this host
+is up. So what can I do? Well, I can
+ping it. Good. We are up and running.
+But my entire network is a bit bigger
+than that. Actually, it's uh something
+like this. Now I cannot ping the entire
+network with a ping command, but I can
+just try all my hosts one by one. Well,
+that's one is up. This one isn't up. But
+obviously this is going to take a lot of
+time because a /24 network means that I
+have at most 254 hosts in this network.
+So what can I do to automate this? Well,
+I could use a script something like
+this. It's just one liner here which
+iterates through all the hosts from 1 to
+254. And now apart from the fact that
+this is kind of hard to remember, you
+can see that it also takes a whole lot
+of time. 15.1 15.2 to 15.3.
+Now, we're not going to wait for this
+one to finish. So, one of the way I can
+use N map to do this kind of a ping
+sweep is by using N mapap like this -
+SN. So, N MAPAP- SN you can see here in
+the middle. Basically means do no port
+scanning. So, this is just going to be a
+ping swipe. So, let's see this in action
+in three, two, one.
+Po password. All right. So much faster
+this time. Like 5 seconds. You see it
+right here at the bottom. And the
+results are actually much better than
+the original ping command. Not only I
+can see the hosts that are up in my
+network, but I can also see some of
+their manufacturers. So, I do have some
+Samsung TVs here, some Amazon, uh,
+Alexexas, uh, Raspberry Pi, some smart
+home devices in here, and so on and so
+forth. How does NMAP know this? Well,
+you probably know about this already,
+but the MAC addresses actually are made
+up of two parts. The first one is going
+to be an identifier for the
+manufacturer, right? There's a universal
+database for this. You can look it up
+online, but there are ways to identify
+to which manufacturer a MAC address
+actually belongs to. Now, one thing to
+keep in mind right here is the fact that
+you will only get to see these MAC
+addresses if you are in the same subnet
+or the same network as your target
+devices. So, if you were scanning from
+outside your local network, outside my
+home network in this case, then I
+wouldn't be able to see these MAC
+addresses here. Hope you know this
+already. And not only it's fast, but
+it's also more reliable if you do the
+scan from within the same subnet because
+if N map MAP is connected to the same
+local network as the targets, then it
+will also attempt some ARP ARP address
+resolution protocols and ND sweeps like
+neighbor discovery protocol in order to
+find out if a host is up. Usually that's
+going to be more reliable than just ping
+which can be filtered, you know, by
+hostbased firewalls, for example.
+Especially in, you know, Windows
+environments or Mac OS environments.
+going to filter these pings by default.
+So you're not going to detect those host
+as being up just by pinging them. Okay,
+so N MAP does have a couple more
+scanning options. Of course, it's not
+just a ping sweep utility. Let me clear
+the screen right here and go into the
+manual page for NAPAP. And if we scroll
+down just a bit here after a couple of
+examples, we're going to find some
+example scans right here. So first of
+all, we're going to look at host
+discovery. And the one that we've just
+used is - SN, ping scan, which basically
+means disable port scan. You might be
+able to find this in older documentation
+and in older versions of N map as - S,
+capital P, which was some way of saying
+scan using ping. But since it's not just
+using ping, it also use a neighbor
+discovery. They just removed this option
+here. It's still going to work, but
+nowadays it's just called - SN. So make
+sure you recognize this option in the
+exam if it comes up. All right. Now, as
+far as the scan techniques go, going to
+see some uh some examples here. So,
+let's have a look over these scan
+techniques right here. Uh two of them
+that are going to be of interest for us
+are going to be TCP sin and TCP connect
+options, which are SS and ST. Right now,
+ST is going to be a TCP connect scan or
+a full open scan. So, we can do it like
+this. Let's hit enter. Now, this one's
+also fast, but you can see now it
+provides you with a lot more details
+about this specific host right here.
+15.99. I can see all the open ports that
+I have running in here. This is actually
+a network attached storage from Synology
+and it's running a couple of services.
+HTTP, HTTPS, print server, file server,
+a lot of things here. And what it does
+in the background, it's actually
+conducting a three-way handshake. So
+attempts to complete the TCP connection
+by asking the operating system to fully
+connect just like a normal application
+to all these ports that it detects right
+at the end. end map is going to send an
+RST packet, a reset packet to close this
+connection. Now, what's an three-way
+handshake? I hope you know this already,
+but you know, just in case you need a
+refresher, this is what happens. So,
+let's assume that we have Alice and Bob,
+right? A wants to communicate with B.
+And the first thing Alice does because
+we're talking about TCP, which is a
+connectionoriented protocol, means that
+we have to set up the connection first
+before we send any data. So Alice
+basically sends a message to Bob saying,
+"Hi Bob, I want to talk to you and this
+is how I'm going to talk to you." All
+right. Now Bob on the other hand
+receives the message from Alice and
+replies saying, "Okay, I also want to
+talk to you and this is how I am going
+to talk to you back." Right? Because we
+do need a query and response type of
+communication. We need a birectional
+communication in there. And finally, the
+third message comes back from Alice as a
+reply to Bob's request saying just okay.
+I'm okay with how you want to
+communicate with me. So that's basically
+a three-way handshake. Now in TCP
+packets, this is going to be translated
+in a couple of flags that are set in
+those initial TCP packets that go
+between Alice and Bob. Now Alice sends
+the first packet and sets the sin the
+synchronization flag which is basically
+a way of saying hi Bob this is me Alice
+and this is how I want to communicate
+with you. Now Bob on the other hand
+sends back a packet which has two flags
+set. It's also going to have the send
+flag set because Bob is going to
+initiate a type of communication with
+Alice as well. So this is Bob's way of
+saying hi Alice this is how I'm going to
+communicate with you. But it also sets
+the act the acknowledgement flag which
+is a way of saying I agree with your
+method of communication. So Bob
+basically tells Alice I agree with the
+way you want to communicate with me.
+That's through that act packet. And
+finally Alice needs to confirm Bob's
+method of communication as well. So the
+last message is going to come from Alice
+and it's going to set the act flag the
+acknowledgement flag saying that okay I
+agree with your method of communication.
+So that's the three-way handshake. After
+this handshake, after these three
+packets are exchanged, you know, the
+normal data transfer can commence. So
+that's exactly what end map- ST does,
+right? Finishes the three-way handshake
+on all these ports, attempts a bunch of
+ports here, uh, just to discover which
+of them answer and which of them are
+open for communication. This is how
+we're able to see all these open ports
+here on our server. Now, by default, Nap
+is going to scan about 1,000 well-known
+or common ports. You can of course
+narrow down this search if you don't
+want to wait so much. Well, six seconds
+might not be so too too much, but if you
+have a larger network, you might incur
+some delays in here. So, you can do
+something like this. So, you can add an
+option to specifically scan just a
+couple of ports, which kind of looks
+like this. With the -B parameter, I can
+add a list of ports or a range of ports
+to be scanned. And you can see that the
+scan has finished in just 0.14 seconds
+here. And we see those two ports that
+are really open on the target device.
+Now another important type of scanning
+is the sin scan which is possible by
+using s capital s right here and map- s
+capital s using the same host. Let's try
+it out.
+You can see it's a bit faster this time.
+It's 2.8 seconds instead of six. And
+this happens because the sin scan is
+actually considered a halfopen scan. Now
+halfopen scan basically means that
+instead of finalizing the three-way
+handshake, we're just sending the first
+send. We're getting back the sin act
+response from the server. And this is
+faster because instead of finalizing the
+3A handshake, what actually happens is
+Alice sends the sin packet, Bob replies
+with a sin act and then Alice
+pretends like this never happened,
+right? Doesn't reply back. So leaves the
+connection half open. Leaves Bob hanging
+wondering what he did wrong. Where did
+he miss the Alice opportunity? But Alice
+doesn't reply back. So basically, we're
+not completing the three-way handshake,
+thus making the scan run a bit faster
+and also at least theoretically a little
+bit more stealthier. And actually, this
+type of - SS scan is called a stealth
+scan. Now remember this for the exam,
+right? Remember that this TCP scan is
+also called a stealth scan. It's also
+called a halfopen scan. Now depending on
+how the target responds to this sin
+scan, NM MAP can tell you more about
+that port. Also, this requires more
+privileges for NM MAPAP to craft those
+TCP thin packets. So, it doesn't rely on
+the TCP IP stack of the operating system
+anymore because the operating system
+behaves nicely and finishes the
+three-way handshake. We don't want to
+finish it right now. So, we need admin
+root privileges for end mapap to run and
+be able to craft those packages in a uh
+nonprotocol standard way. Now, this is
+called a stealth scan, but don't be
+fooled by this. Any fine-tuned IDS
+nowadays will immediately detect these
+scans as well. It might have been
+stealthy, I don't know, maybe 25 years
+ago with some very primitive firewalls,
+but nowadays, don't rely on this. It's
+called stealth scan. Remember this for
+the exam, but don't think that in real
+life it's going to be stealthy. Now,
+another thing to remember here is that
+by default, NAPAP is actually going to
+do a stealth scan if you don't provide
+any additional parameters in here. So,
+if I were to just scan my server here
+without any other additional parameters,
+what end map is going to do is actually
+going to be a stealth scan. It doesn't
+tell you, but that's what it does. And
+by default, it is going to scan a
+thousand ports. And you can see we kind
+of get the same results as before, but
+uh since we're in the same network and
+you know the the servers are replying
+nicely, we don't see any differences
+between the stealth scan and the TCP
+connect scan. Now there are ways to
+control the speed of the scan as well.
+If we go and look inside the manual for
+end mapap going to find the timing and
+performance section right here and it
+tells you that dash t capital t here
+with a value between zero and five sets
+the timing template higher is faster.
+Now, by default, it's something around
+uh T3, the default scanning speed. So,
+if you want to accelerate your scans,
+you can do something like this. So,
+let's go back to our um network scan,
+like this ping scan right here, and
+let's make it a t0
+and slow.
+I'm going to see it's going to take a
+lot of time. internet. This is useful
+because by going low and slow, you do
+have some chance of evading some
+specific IDS policies and some IDS rules
+that might be able to detect your scan.
+If you go just slow enough, they're not
+going to detect you, right? They're not
+going to figure out that all those
+packets sent over the length of an hour,
+for example, belong to the same scanning
+process. Now, you're going to it's going
+to take a lot of time here absolutely.
+So, I'm going to cancel this one out,
+but let's try it with a T5.
+And there you have it. Scanning the
+entire network in less than 3 seconds.
+That's going to a lot of scanning
+traffic. That's going to be noisy, but
+it's going to provide you with the
+results much faster. Some other scanning
+techniques that you need to know about,
+at least for the exam, are the scanning
+techniques that set specific flags in
+your TCP connections. So for example,
+you can do a TCP null scan which sets no
+flags and just see how the firewall
+reacts to those. A FIN scan which forces
+the closure of a TCP session even if the
+session wasn't initiated to begin with.
+And the Christmas scan here actually
+means that the flags of thin, push, and
+urgent are all set and kind of light up
+the TCP packet like a Christmas tree,
+right? That's the uh that's why it's
+called the Christmas scan. Now, these
+are weirder scan methods, but can
+confuse some older or very very basic
+firewalls. Fast mode, capital F is to
+scan fewer ports than default scan.
+Another one good to know for the exam.
+Don't forget that about the port range
+scan, which we've just seen before. You
+can specify one single port here or a
+range or just each port in turn
+separated by commas. You can also
+combine it with uh ranges as well. Trace
+route can be added to end map. You don't
+have to use trace route by itself to
+display the all the hops, the layer
+three hops that are between you and the
+target. And we've been talking about
+TCP, but of course, we can also do a UDP
+scan. Now, since UDP doesn't acknowledge
+packets, you knew that already, right?
+It's not connection oriented. We don't
+have a three-way handshake. Now, this
+type of scan kind of depends on the
+application that's being scanned. And
+end mapap can only wait for a couple of
+seconds for a response from that
+application and it can take a long time
+because it has no way of receiving an
+acknowledgement. It just has to wait to
+see if that application sends something
+on that port. So it's it takes a lot of
+time to scan using UDP ports. But if you
+do have to use it, you have the option
+here in end mapap as well. Finally,
+another type of scanning that's very
+useful to know for the exam are actually
+two flags here. The first one is - D,
+which uses a decoy. And uh actually a
+very similar one is this one right here,
+- S, capital I. That's a zombie host.
+Basically, also a decoy, also known as
+an idle scan. And that's a way of doing
+a stealth scan where another host, also
+known as a zombie or a decoy, appears to
+be doing a scanning so that you don't
+show your true IP identity. Very
+important for the exam. I can guarantee
+that you'll be asked about this. And
+since we're talking about firewall and
+IDS evasion here, you can also find this
+option useful as well. Spoof the source
+address. Basically, send your package,
+send your scanning packets with another
+changed spoofed IP address as a source.
+-f or MTU allows you to scan using
+fragmented packets. Now, fragmented
+attacks have been for some time a
+special attack technique because they
+were either ignored which allow you to
+to bypass the firewall or they could be
+used for a denial of service attack
+since reconstructing the original packet
+from multiple fragments takes up router
+or firewall memory. So, not so useful
+nowadays unfortunately or fortunately.
+Why did I say unfortunately? because we
+have some powerful devices nowadays
+which aren't fooled so easily and don't
+have their resources so easily eaten up
+by these uh fragmented packets. All
+right, so we know how to scan for open
+ports. We know what services are running
+on our devices. Uh let's see if we can
+get some even some more information,
+right? Because I know what devices I
+have running in my network. I know what
+ports I have open in my network. But
+what exactly is running on those ports?
+because just by looking at the port
+number might not be exactly the
+necessary giveaway that I need in order
+to deduce what kind of service is
+running in there. So you have different
+types of scanning options with NMAP for
+this as well. So if we scroll down here
+in the man page, I'm going to find
+another section here about OS detection.
+Capital O enable OS detection. Let's try
+this one in our network right now. So
+pseudo end map and add my entire network
+in here. Let's give it a few seconds to
+run
+and see what happens. Now, this is going
+to take a bit more time here. And if
+you're not sure if it's still running,
+you can just press enter from time to
+time, and it's going to tell you how
+much has elapsed, how many hosts have
+been completed, uh how much time we have
+remaining. So, about 1 minute. Don't
+worry, I'll fast forward. All right,
+scan done. Let's see what we have
+running in our network here. Now, the
+last one here was Harmony Hub from
+Logitech. So, this one actually runs a
+type of Linux 2.6. Did not know that,
+right? Let's see what else we have here.
+a Raspberry Pi. Of course, it's running
+Linux. This is my
+smart vacuum cleaner, which apparently
+also is running a Linux version here and
+has an SSH port open. That's
+interesting. Uh we also have an Amazon
+uh Echo here. This is the Alexa,
+which runs Google Android.
+All right. I know you didn't get that.
+Okay. Uh this is my uh network attached
+storage from Synology here which also
+runs a Linux operating system. A Samsung
+TV here doesn't behave very nicely. It
+says too many fingerprints match this
+host to give specific always details. So
+OS scanning provides you with a lot of
+details about the operating systems that
+are running on these hosts. Now there is
+one more level we can go to and that is
+try to determine what services are
+actually running on these operating
+systems. have a different set of options
+for this which is the service and
+version detection right probe open ports
+to determine service and version
+information -ash S capital V now there's
+a way to combine these two which is by
+using a capital A
+you can see it right here enable OS
+detection version detection script
+scanning trace route so basically throw
+everything but the kitchen sink to that
+device and try to find out as much as
+possible about it right so let's try
+doing this on our server right here
+because uh if we do it on the entire
+network that's going to take quite a
+long time. So I'm going to use the -ash
+capital a parameter here. Now while this
+scann is running let me tell you that
+the results here are going to include
+the actual protocol that's running on
+the port. So we can see that's already
+done here. So you can see the results
+include the actual applications that are
+running now on these ports. All right.
+So for example for AFP we have net talk
+for Sambbo we have SMB version three or
+four right we don't know exactly which
+version that is I have a web server here
+on 443 that's running over engine X we
+also have multiple ports open here
+starting from ports 5000 through 501
+7000 8000 and so on and they are all
+running on engine X. This is how you can
+determine that there's an actual web
+server running in there even though it's
+not running on the standard ports for
+HTTP like AD or 443. So that's protocol
+version scans, right? Remember - S,
+capital V or - A. One thing to mention
+here is the fact that you also get the
+CPE listing for all these devices.
+Remember this common platform
+enumeration. So this is a way of
+describing the platform that is actually
+running in there. So what type of device
+is it? Is it a smart home device, a
+printer, an an Xbox, a mobile phone,
+anything like this? If it can be
+identified by N MAPAP, then it's going
+to tell you the exact CPE code for it.
+Now, another way to find out about the
+scanning methods and the best practices
+in NMAP is to actually use their
+official documentation here on nmap.org.
+They're going to provide you with a lot
+more explanation here about all these
+scanning techniques, what they do, when
+they can be detected, how can they be
+detected, and so on. So have a look over
+the official end MMAP website here for
+more information about additional types
+of scan. Now end mapap can also be
+extended by using some specific scripts
+and those scripts are part of what's
+called the end mapap scripting engine.
+So you can basically use some scripts
+here to do some more advanced types of
+scanning or to combine multiple ways of
+scanning including application level
+scanning. So you can have some scripts
+for example that look for specific web
+application vulnerabilities or other
+types of vulnerabilities in other
+services which go a bit beyond N mapap's
+usual scanning techniques. So we can
+actually use N mapap for vulnerability
+scanning. We can either specify the
+exact script that we want to run here or
+just run all the vulnerability scripts
+at the same time. This is going to take
+some time here. So I'm going to fast
+forward this to the results and we're
+going to end up with something like
+this. As you can see here, the scan took
+almost 10 minutes here. Did take some
+time here to run all these vulnerability
+scripts, but it did find a lot of
+vulnerabilities on my home router. Here
+you can also see the CVE identifier. So
+this is one is vulnerable to a slow
+loris denial of service attack. It also
+gives you a nice explanation here about
+this this type of attack when it was
+disclosed.
+That's a bit worrisome that it hasn't
+been fixed just yet. Another one also
+vulnerable for slow luris den service
+attack in here also get the link for the
+CVE under the miter website as we've
+seen in our previous episodes so you can
+also use end mapap as a very basic
+vulnerability scanning tool it's free
+it's completely open use it if you don't
+have anything else in your environment
+but there are definitely better tools
+out there right so after the scan end
+map will return some results that
+describe the port states now we have
+reliable states when nmap can be pretty
+confident
+like opened, just what it says. It's
+open. It's reachable, awaiting
+connections. Closed, that's when the
+port responds with reset packets and
+there's no application accepting
+connections in there. Might be, for
+example, closed because it's not open on
+the device or a firewall is dropping the
+connections. And filtered, that's when
+the port cannot be probed, usually due
+to a firewall in between. Now the other
+port states are used when a firewall
+isn't really friendly to the outside
+world and doesn't supply enough
+information for end map to confidently
+determine the port state. So for example
+unfiltered which means it cannot
+determine if it's open or closed but
+it's reachable. This is normally
+generated by an axe scan an
+acknowledgement scan which is used to
+just map out firewall rules. But since
+an axan cannot initiate a connection it
+cannot determine whether the port is
+open or closed. Now, open or filtered
+again cannot be determined due to a
+limited scan like a UDP scan for example
+where the device doesn't reply with
+anything. Closed or filtered is again
+undetermined and this is generated by
+idle scans or decoy scans. That's a
+completely stealthy type of scan that
+uses a decoy host and IP spoofing to
+send scanning packets and relies on
+probing that decoys IP packet numbering
+to determine if a response is received.
+Pretty smart technique, but doesn't
+always work. Another important utility
+here is HP ping, which is kind of the
+younger brother of NAPAP. It's it's more
+than an advanced ping utility. Actually,
+that's a that's a true understatement.
+It's a very powerful packet crafting and
+packet spoofing utility, which is great
+for reconnaissance. Now, in the command
+line, you're going to find hping as the
+hping 3 command. You can add a -age
+parameter at the end to just list the
+possible options here in a very brief
+format. So for example, we can see how
+to set specific TCP flags here at the
+bottom. How to do a um an ICMP scan
+which is not very intuitive here. A -1
+means ICMP. A -2 means UDP. So it has
+nothing to do with IP protocol numbers
+for example. All right. So let's try
+doing a sin scan on a port on our victim
+server in our network which is going to
+be H being three followed by a S capital
+S for a sin scan. Port number 80 account
+of one. So I'm only going to attempt one
+single connection here and press enter.
+Right? You can see that it also provides
+you with some information here about the
+uh IP packet that was generated like the
+TTL, the flags, do not fragment flag
+here, source port, destination port,
+window size, roundtrip time, a lot of
+useful information here. And you can see
+that we did receive one packet in return
+which means that the port is open. We
+can also do an axe scan that is sending
+packets that don't have the sin flag set
+just the acknowledgement flag set. We
+can also do this with end mapap as well.
+And the behavior we expect to see with
+an axe scan and remember this for the
+exam as well is to receive a reset back
+if the port is open. So the port is
+answering. It's just that we're not
+sending the right first packet in order
+to create that three-way handshake.
+We're not sending a sin packet. We're
+sending an act packet and the port
+replies to us. Uh-uh. No, that's not how
+you start a conversation. So, let's try
+this one with an axe scan here. You can
+see we do receive an response here, but
+the flags that we receive and return is
+a reset flag just like we expected to.
+And this tells us that the port is open.
+Now, we can also try getting the system
+timestamp from a device. Let's see how
+long this device has been connected to
+the network. We can add the-tcp
+timestamp flag in here. And apparently,
+my home server here has been up for 35
+days. That's a pretty useful piece of
+information that you can get simply by
+being in the same network as your
+target. Now, Hping can do so much more.
+It can be used to generate fragmented
+packets, to perform attacks like ping of
+death or even denial of service attacks.
+Now, a lot of these older attacks don't
+work anymore on modern operating
+systems, but thanks to IoT devices and
+how oblivious many of them are about
+security, you might just get lucky or
+not, depending on which side you're on.
+Now, finally, one last tool here is
+called Responder, which is basically
+some sort of a men-in-the-middle tool,
+but a more specialized one because it's
+a tool to help you determine if you are
+vulnerable to LLMR, that's link local
+multiccast name resolution attacks.
+Usually happens if Windows falls back to
+another type of name resolution. So, if
+DNS fails, then it falls back to LMNR
+and then it falls back to net bias
+depending on your Windows configuration.
+And of course it can intercept those
+requests and inject some spoofed
+responses. Now responder can intercept
+those requests and inject spoofed
+responses just to check if you are
+vulnerable or not to this type of
+attack. Check this link right here for
+more information. Just remember about
+this tool what it does generally for the
+exam and you should be good to go.
+Right. So for the exam make sure you are
+familiar with the reconnaissance tool
+that we've covered here like end map and
+hping. Make sure you understand the
+difference between active and passive
+reconnaissance and also the difference
+between fingerprinting and footprinting.
+But before any of that, make sure you
+master the scanning options for NAPAP
+and HPING. The exam is most definitely
+going to ask you about those. So, good
+luck on the exam. Thank you for
+watching. Don't forget to like and
+subscribe and see you on the next video.
+[Music]

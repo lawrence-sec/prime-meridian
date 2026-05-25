@@ -1,0 +1,141 @@
+[Music]
+short discussion today because there's
+just not that much you need to know for
+the exam about these two topics but ai
+and machine learning are two terms that
+have become present everywhere basically
+you see decided by every vendor to like
+everything in computing marketing
+finance security
+even in your preferences for google
+searches
+the the videos that youtube suggests
+that you should watch next the tv series
+that netflix suggests i should what next
+the ads that you see on facebook it all
+has to do in some way with these two
+terms
+so what exactly is artificial
+intelligence now some people would say
+it's just a lot of if statements
+and well
+kind yeah as the name says
+is the science of creating machines that
+imitate the thought process of human
+beings
+human brain but we're not there yet ai
+is still very limited and it's actually
+limited by its
+knowledge base it does not have just yet
+a generalized
+reasoning ability so my personal advice
+is try to stay away from the term ai
+most of ai is actually just machine
+learning nowadays at least in consumer
+products
+so machine learning can be thought of as
+a subset of artificial intelligence and
+it's an algorithm that processes
+inputs and produces results or outputs
+with the difference that it actually
+attempts to slightly
+alter its decision process with every
+new piece of information that it is
+exposed to
+in general machine learning needs some
+human help to understand what's true
+what's false what matches what doesn't
+match
+what's useful and what's not otherwise
+it would not be able to learn anything
+new this process is called training
+where for example you provide an engine
+with 1000 images of different
+chihuahuas and you tell it these are all
+chihuahuas trust me all right then the
+algorithm attempts to learn the distinct
+features
+of a generic chihuahua from a thousand
+examples and hopefully next time you
+give it an image it will be able to tell
+the difference between a chihuahua and a
+cat
+another category here is called deep
+learning this can be considered as well
+a subset of machine learning the way
+deep learning works is that it tries to
+address this limitation that requires a
+lot of human intervention in machine
+learning and tries to abstract the
+logical network or
+so-called neural network
+as a hierarchy of multiple layers from
+complex to very simple classes of
+knowledge
+in cyber security for example deep
+learning would be able to figure out
+that malware is present in the network
+simply by analyzing hundreds of data
+points from network devices and deciding
+based on those that do not match
+unexpected behavior without any explicit
+prior learning
+machine learning has a lot of uses in
+cyber security for example in data
+enrichment
+a simple alert that hasn't yet been
+marked as a security incident can be
+enriched with data from a machine
+learning system that is able to
+correlate events that happened at the
+same time on different systems like user
+activity active connections and so on
+advanced theme products already do this
+now of course being able to understand
+that something is fishy in the network
+or inside of a workstation is the first
+step in understanding the behavior of
+malware and the creation of new
+signatures and this is where machine
+learning helps tremendously as it is
+able to
+define or refine a signature based on
+observed current and historical
+behaviors and finally automated response
+and seems nowadays is called security
+orchestration automation and response a
+sword deals with incident response but
+also with threat hunting its purpose is
+to fix the problem of tmi of too much
+information too many alerts not enough
+eyes and brains to understand them all
+so soar attempts to store and to use a
+database of security baselines and
+threat intelligence to react the moment
+a security incident is detected use that
+fine-tuned data with machine learning to
+automate the response and also to
+provide data enrichment for human eyes
+for better understanding of the incident
+and of the response taken
+now for the exam make sure you
+understand the difference between ai and
+machine learning and understand that
+they are supposed to adapt to modify
+their decision algorithm called a model
+just make sure you understand the basic
+concepts these are newly introduced
+topics and decision plus exams so
+they're not going to be a big focus on
+the exam but from a security perspective
+understand that they are both good for
+discovering malicious activity on
+endpoints on network traffic or for user
+behavior so if you found this
+informative simple enough and useful
+don't forget to like and subscribe and
+see you next time when we'll be talking
+about digital forensics bye bye and see
+you next time
+[Music]
+you

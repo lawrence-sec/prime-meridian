@@ -1,0 +1,278 @@
+when you first install an operating
+system the default configuration is
+rarely secure you may need to provide
+additional configurations to increase
+the security posture of that operating
+system knowing exactly which
+configuration settings to change could
+be challenging fortunately many
+manufacturers will create hardening
+guides that are specific to that
+application or that operating system and
+if you run across a device or a system
+that doesn't have a hardening guide you
+might try reaching out to the
+manufacturer or check some online
+message boards and you may find that
+some third parties have created their
+own security hardening guides helping to
+keep those devices secure for the entire
+Community the mobile devices we use
+every day are very good examples of
+devices that must be hardened
+fortunately the manufacturer of these
+devices often provide hardening guides
+and suggestions for keeping those
+devices secure manufacturers will
+release patches for bug fixes but many
+of these also include security updates
+when we install the patch we're closing
+any vulnerabilities that might be used
+to attack those devices another common
+hardening technique is to segment the
+data that is stored on these mobile
+devices if you're working for a company
+there's usually a segment that is set
+aside just for company data and another
+segmentation that's set aside for your
+user data this provides a logical
+separation between your personal
+information and information that might
+be proprietary to your company and if an
+attacker does find a way to gain access
+to one of those segments they would not
+necessarily have access to any other
+data on that device if you're managing a
+large group of mobile devices then
+you're probably using a mobile device
+manager or an MDM to be able to monitor
+those devices and push out any security
+updates of course it's not just our
+mobile devices that need hardening we
+also have to harden our workstations
+that are running Windows Mac OS Linux
+and other operating systems these
+platforms also have periodic updates
+these these are bug fixes security
+patches and they can apply to the
+operating system itself applications
+running on the operating system or the
+firmware of the device many of these
+companies will compile the security
+patches and then release all of them on
+one day of the month this allows you as
+the Security administrator to test all
+of those patches at one time before
+deploying them this simplifies the
+process and makes it much more efficient
+to get these patches out to those
+devices and of course a good security
+best practice is to always remove any
+software that you're not using on that
+device every piece of software is a
+potential opening for vulnerability so
+removing that from the system gets rid
+of that particular security risk our
+Network infrastructure is always working
+behind the scenes and we have to
+consider security hardening for our
+switches routers firewalls and other
+network infrastructure devices these
+devices generally don't run and
+off-the-shelf operating system so you
+probably won't find Windows Linux or Mac
+OS running inside of a switch Instead
+This embedded operating system has been
+created specifically to run this network
+infrastructure device and you'll usually
+have limited access to the operating
+system that is inside of these devices
+one common best practice for these
+devices is to always change the default
+credentials it's usually best to
+configure some type of authentication
+whether it's local on this device or
+whether it points back to a central
+authentication server and if you're not
+sure if there are any patches for these
+devices you should check with the
+manufacturer they're the only ones who
+have patches available for these purpose
+built appliances and they aren't usually
+updated that frequently because these
+updates are relatively rare a security
+release or patch from the manufacturer
+would be an important event so you
+should check those patches to see if
+that's something that should be deployed
+in your
+infrastructure many organizations will
+have centralized Cloud management
+workstations that are used to manage all
+of the cloud-based infrastructure this
+device tends to have complete access to
+the cloud-based systems so it's
+important that that workstation is also
+secure we can also use our Cloud
+management workstation to ensure that
+we're using least privilege this means
+that we are configuring applications and
+devices in the cloud to only have the
+minimum access required to perform their
+function so you would evaluate all of
+the services running in your Cloud any
+network settings application rights and
+permissions and anything else that might
+allow that particular application to
+work in the cloud it's also Ed to have
+inpoint detection and response or EDR
+installed on these cloud-based systems
+that way we can monitor for any
+potential attacks and confirm that those
+devices are up toate with the latest
+antimalware Technologies and of course
+you should always have a backup even
+cloud-based devices are prone to outages
+so you want to be sure that you're
+constantly backing up all of these
+systems and backing up to a separate
+cloud provider would also be a good best
+practice we also need to make sure that
+we're hardening all of the servers that
+we have in place place these are usually
+running Windows Linux or a similar
+operating system these may have
+individual updates for the operating
+system or there may be groups of updates
+referred to as service packs anytime
+there's a security patch for an
+operating system we want to be sure
+we're addressing and installing that
+particular patch to keep that OS secure
+these devices also have an
+authentication process so we want to be
+sure that we're using a minimum password
+length and that our passwords are
+properly complex we also want to set Le
+privilege for all of the accounts on
+these servers and disable any accounts
+that may not be used in some cases these
+servers may only be communicating with a
+set number of devices in that case we
+may want to set policies within the
+server itself or on our firewalls that
+would limit what devices may be able to
+access these servers and of course these
+servers should have EDR antivirus
+antimalware or some other client-based
+security
+technology if your organization uses
+large Industrial Equipment then you're
+probably familiar with SC this is the
+supervisory control and data acquisition
+system this might also be referred to as
+the industrial control system or IC this
+is a combination of network connectivity
+and platforms that manage Monitor and
+control all of these industrial devices
+so if your organization manages power
+generation you have manufacturing
+equipment or anything else that is large
+scale Industrial Systems and you're
+probably using data and IC these usually
+take advantage of a distributed control
+system to provide real-time information
+on how the system is performing and
+monitoring the ongoing process of that
+device if you ever need to make changes
+or control the device you can also do
+that from this centralized control
+system these devices tend to be very
+well secured to the point that in many
+cases these SK systems are on their own
+isolated Network that is separated from
+the rest of the organization by an air
+gap there's often very limited access to
+these systems and certainly no access
+from the internet embedded systems
+provide another challenge for device
+hardening because they have their own
+operating system running inside a
+purpose-built appliance we often see
+these embedded systems in things like
+SmartWatches televisions and
+purpose-built appliances because of this
+limited access to the operating system
+these devices can sometimes be
+challenging to upgrade and in the case
+of a purpose-- built Appliance it may be
+very unusual to receive a security patch
+this means if you do receive a
+notification for a security patch for an
+embedded device you should look into
+installing that as soon as possible
+because of this limited security that we
+often see with embedded systems we want
+to be sure that we always keep those
+devices up to dat with the latest
+security patches and you might even want
+to consider taking these embedded
+devices and specialized systems and
+putting them on their own segmented
+Network it might be useful not only to
+have them on their separate network but
+provide additional security by using a
+firewall in front of that
+Network some specialized equipment may
+include a real-time operating system or
+an rtos real-time operating systems tend
+to be deterministic which means that
+there's a certain expectation of time
+frames for every process to occur on
+those systems with a real-time operating
+system individual processes have a
+certain expectation of running in that
+OS in a particular time frame this is
+especially important for industrial
+equipment military equipment or
+automobiles where you need to make a lot
+of decisions in a very short period of
+time these should obviously be isolated
+from the rest of the network so that no
+other device can affect the running of
+the RT you should also consider running
+with the minimum amount of services that
+way you would have only those Services
+necessary running on those particular
+systems and if those devices need to
+communicate out to the network you may
+want to consider a separate firewall or
+a host-based security technology
+ology and if you're managing devices
+that are communicating across the
+network to control lighting Heating and
+Cooling or some other type of automation
+then you're dealing with security around
+internet of things or iot it's very
+convenient to be able to control and
+monitor these systems across the network
+but unfortunately the manufacturers of
+heating and cooling systems or Lighting
+systems are not necessarily Security
+Experts so it might make sense to add a
+little extra security when it comes to
+iot
+for that reason alone you'd probably
+want to put security patches at a higher
+priority when it comes to iot devices if
+there's a patch released for a cooling
+system or a lighting system you want to
+be sure to deploy those as soon as
+possible and if you want to limit the
+scope of any potential exploit you may
+want to segment those iot devices onto
+their own network if an attacker was
+able to gain access to one of those iot
+devices they would only be limited to
+the other iot devices on that segment a
+network

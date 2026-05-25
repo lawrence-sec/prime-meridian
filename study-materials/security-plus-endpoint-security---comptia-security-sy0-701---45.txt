@@ -1,0 +1,250 @@
+the endpoint is the device used by the
+user this might be a desktop a laptop or
+any type of mobile device applications
+running on this device can be exploited
+by an attacker to gain access to the
+user's data or other sensitive
+information to be able to identify any
+of this malicious software we need to
+not only monitor information that is
+inbound but also information that may be
+going outbound there are many different
+platforms to monitor we have systems on
+our desk we we have mobile phones that
+we're carrying around tablets that we
+use throughout the day and all of these
+devices may be susceptible to an attack
+for that reason we need more than just
+one single type of protection we need to
+have a layered approach and defense in
+depth means that we're going to have
+different types of Security Solutions on
+all of these different
+platforms the first place to look at
+security in most organizations is at the
+edge The Edge is the part of the network
+where the inside of the network meets
+the outside or Internet side of the
+network and usually we protect the edge
+through the use of a firewall that will
+monitor all traffic going from the
+inside to the outside and vice versa
+this is usually managed through a number
+of security rules that are on the
+firewall itself and those rules tend to
+be very static Access Control describes
+the ability to limit a device's access
+to a certain type of data this might be
+a user who's on the outside trying to
+get access to inside data or vice Versa
+we can usually create access control
+rules that list a number of different
+parameters for example we can limit
+access based on the username or the
+group that the user may belong to we can
+also create rules based on where this
+user happens to be or where the data
+happens to reside and we can also
+control which applications may be used
+to access that data Access Control list
+can be modified or even removed at any
+time this means the Security
+administrator can modify what type of
+access is available depending on the
+current security
+posture when you have employees that are
+using so many different devices there
+could be different configurations on
+every single one of these systems for
+that reason we need to constantly
+perform checks to make sure that that
+system is up to date with the latest
+security Technologies we refer to this
+check as a posture assessment this is a
+process that's usually done on all
+devices desktops laptops mobile devices
+and anything else we're looking for any
+part of the device that may not be up to
+the latest standards of security we need
+to make sure that antivirus is installed
+and running we need to make sure that
+the applications that are in use have
+been updated to their latest versions
+but if these devices are not up toate
+with the latest security Technologies
+then we need to limit their access to
+our production Network a good time to
+perform a posture assessment is when a
+device first connects to the network or
+logs into the network remotely from
+there we should check different
+parameters on that device for example is
+the device a trusted device many
+organizations will put a company
+certificate on that device and that
+identifies the device as being one
+that's trusted by the organization we
+then can look at security utilities like
+antivirus is antivirus installed and is
+it running and is it updated with the
+latest set of signatures does this
+device have all of the corporate
+applications installed and are all of
+those applications up to date with the
+latest versions and we may want to look
+at the storage on this device to ensure
+that if this is a Remote device we want
+to be sure that it's providing full dis
+encryption and this type of check is not
+specific to one operating system or a
+specific application this applies to any
+device running any operating system that
+might connect to our
+Network we can run these posture
+Assessments in a number of different
+ways we might have an agent that we have
+installed permanently onto these devices
+we refer to these as persistent agents
+this agent can run at any time not just
+during the login process and it can
+monitor any file and any application
+running on that system since this is
+software that's running on that
+particular platform we always have to
+make sure that it's updated to the
+latest versions and that we're providing
+the latest signatures another type of
+agent is called a dissolvable agent that
+means there's no formal installation
+required to get this software to run and
+it's usually something that executes
+during a login process or a connection
+process once this agent performs its
+checks it terminates itself and removes
+moves itself completely from that system
+another type of security control is an
+agent list network access control or
+Knack this type of agent is integrated
+with active directory and only runs when
+you log in or log out of the active
+directory database since this is
+integrated with the database it doesn't
+have a local agent so there's nothing
+that can be scheduled since there's no
+agent installed onto a device this can
+only operate when there's access to that
+active directory database such as during
+the login and log off process
+as a Security administrator you will be
+the one to determine what happens if a
+device does not pass the posture
+assessment you have a lot of different
+options when that occurs you might
+decide to quarantine this system put it
+on its own VLAN and provide them with
+instructions on how they can bring this
+system back into compliance once the
+user makes those changes they can then
+perform the posture assessment again and
+if everything passes they can continue
+with the login
+process it's estimated that their are
+over a million different virus variants
+being created every day this means that
+our antivirus software has to constantly
+be updated and we have to be sure that
+it's able to scale with these very large
+numbers of viruses given this large
+number of virus variants and the
+different ways that attackers are using
+to get into our systems we need a more
+modern way to monitor these endpoints
+one of those ways is through EDR this is
+an inpoint detection and response EDR is
+designed to take the idea of signature
+and extend its visibility into things
+like behavioral analysis or machine
+learning be able to monitor processes
+running on the system and correlate all
+of these together to determine if a
+threat might exist this usually runs as
+an agent that's running on the endpoint
+very similar to an antivirus or
+antimalware agent EDR takes this one
+step further than antivirus or
+antimalware by providing root cause
+analysis we are able to determine why
+that virus got onto that system and then
+work backward to find a way to remove
+the virus and then prevent it from
+infecting any other systems the response
+to anything that may be found as
+suspicious can be completely automated
+so if a virus or malware is suddenly
+discovered on a system it can be
+automatically isolated that particular
+malware can be quarantined and we can
+have the entire system rolled back to a
+known good configuration all of this
+happens automatically there's no user
+intervention required that system can be
+back up and running and that user
+working relatively
+quickly we can also build a more
+intelligent EDR by creating an extended
+detection and response we refer to this
+as xdr xdr provides additional
+intelligence and provides a larger scope
+of data input to discover any malicious
+software this means that we can catch
+detections that might have previously
+been missed and anything that may have
+come up as a false positive might now be
+properly categorized and the long invest
+ation times that would previously exist
+with different systems are now sped up
+through automation using xdr whenever
+there's a virus infection or an attack
+on a network it often involves more than
+one system so instead of having a single
+agent that only knows what's happening
+on a single device xdr can interpret
+data from many different systems
+simultaneously add another data source
+relating to the type of network traffic
+running over the network and you're now
+able to correlate information across
+multiple systems and very diverse data
+types this provides a much more
+efficient process for identifying
+investigating and removing the malicious
+code the key to xdr is being able to
+monitor a large amount of data and be
+able to correlate that data together one
+data source that's used for xdr are user
+Behavior analytics this interprets user
+activity to build a baseline xdr knows
+what users would commonly be on this
+network what devices these users would
+connect to the type of network traffic
+that would commonly be transferred and
+the data repositories that are accessed
+by these users if we look at all of
+these data points and have an
+understanding of what normal activity
+might be we can easily find when
+abnormal events occur this definition of
+unusual of course can change over time
+but it usually is referencing a set of
+rules that are configured in the xdr
+software maybe it's performing some type
+of pattern matching to unknown
+vulnerability or maybe it's based on
+statistical analysis and making a best
+guess as to what type of traffic there
+might be on the network the goal is to
+simplify the process of finding the
+malicious code and then stopping it in
+real time before it becomes a much
+larger
+problem

@@ -1,0 +1,212 @@
+let's say you're on a wireless network
+browsing the internet and then suddenly
+you're disconnected from the wireless
+network there's no warning no messages
+you've simply dropped off the network
+and now you no longer have internet
+access so you wait a bit you reconnect
+to the wireless network you go back to
+surfing and then the wireless network
+drops off again this is something that
+can happen over and over and over again
+and you may not be able to even stop it
+from occurring anyone on this Wireless
+Network could be susceptible to a
+wireless deauthentication attack this is
+a denal of service that takes people
+that are working normally on the
+wireless network and then suddenly
+disconnects them completely from any
+connectivity over that Network the main
+vulnerability associated with this
+deauthentication attack relates to the
+management frames that are sent and
+received by the access point these are
+frames that normally we don't see
+happening they're all going back and
+forth between your device and the access
+point behind behind the scenes but
+they're used to connect your device to
+the network manage its connection and
+then disconnect it when you're done
+using the network each time you bring up
+a list of the access points you want to
+connect to or you authenticate or de
+authenticate from an access point it's
+using these management frames to provide
+that functionality unfortunately earlier
+versions of the 802.11 specification did
+not provide any security for these
+management frames they're sent across
+the network in the clear there's no
+encryption of these frames and therefore
+an attacker could manipulate these
+frames in order to cause problems for
+people on that Network I took a packet
+capture of traffic that's on my 802.11
+network and I pulled up one of many
+different types of management frames one
+thing you'll notice immediately is that
+everything on this page is all in the
+clear nothing is encrypted so anyone
+who's close to this access point can
+view all of this information this
+happens to be an 802.11 radio
+information frame you you can see the
+receiver address the destination address
+the transmitter address and other
+details relating to the device itself
+then you can see the parameters for that
+device the SSID for this wireless access
+point is pmn that's the name of the
+wireless network you can see the
+supported rates for that Network and
+other details associated with that
+wireless access point let's look at an
+example of a deauthentication attack I
+have an attacker screen on the right
+side in black and you can see the user
+or victim's device is on the left side
+for this attack to work we need to know
+the MAC address or Hardware Wi-Fi
+address of the device we'd like to
+remove from the network in this case
+it's the user's iPhone and this iPhone's
+Mac address ends with two Echo Fox Delta
+we're first going to run a utility
+called aerody dump dng and we're going
+to specify the wireless card that we're
+using for this Linux device which in
+this case is wlan0mon when we run this
+command you'll notice that we have have
+a listing of all of the access points in
+this area this one is listed with the
+BSS ID and you can see the ESS ID
+associated with that address I also have
+a list of all of the devices that are
+communicating to that wireless access
+point and you'll notice that the last
+one in the list ends in two Echo Fox
+Delta and that matches the Wi-Fi address
+of this iPhone now that we have the
+hardware addresses for the wireless
+access point and the device that we'd
+like to remove from the network let's
+run a command to send some
+deauthentication frames across the
+wireless network we'll use this utility
+air replay dng and specify a-0 to send
+the deauthentication frames then we'll
+select the wireless access points
+Hardware ID and then the device that
+we'd like to remove from the network
+with its Mac address then we'll begin
+the air replay and you'll notice the PM
+Network on the left side suddenly
+disappears when the deauthentication
+frames are sent across the network as
+long as we continue sending these
+deauthentication frames this particular
+device will not be able to reconnect to
+this wireless network the engineers on
+the i e 802.11 committee realized that
+this particular problem is a significant
+security concern and they made updates
+to the specification to prevent this
+from occurring in the future these
+updates were incorporated into the
+802.11 AC standard and newer with this
+update a number of management frames are
+now encrypted so frames such as the
+disassociate de authenticate and channel
+switch announcements are now encrypted
+by default and would no longer be
+susceptible to this type of denial of
+service attack if you perform a packet
+capture on your 802.11 AC Network or
+newer you may still see management
+frames that are not encrypted this is
+because there are a number of important
+management frames that have to be in the
+clear prior to the encryption occurring
+so things like beacons probes
+authentication and Association frames
+are frames that you might still see if
+you take a packet capture the deor
+attack took advantage of a vulnerability
+within the 802.11 protocols themselves
+but there are other ways to prevent
+someone from connecting to a wireless
+network using radio frequency or RF
+jamming this is a type of denal of
+service attack that affects not just a
+single device but everyone trying to
+communicate over those Wireless
+frequencies the attackers will send
+interfering Wireless signals to anyone
+who may be nearby the goal is to have
+them decrease the signal to noise ratio
+so that that the user is hearing more
+noise than actual real data from the
+wireless access point and of course if
+your device can't hear anything being
+sent by the wireless access point then
+it's not able to send or receive traffic
+and communicate over that Network you
+may have even done this yourself without
+realizing what was happening it's very
+common for example for microwave ovens
+to cause problems with 2.4 GHz wireless
+networks and sometimes fluorescent
+lights can also cause jamming over these
+Wireless frequencies but if you're not
+running into a problem with an oven or
+with your lights then it is possible
+that someone is sending additional
+signals out to cause problems on your
+wireless network there are many
+different ways for an attacker to cause
+this type of jamming they could send a
+constant amount of information they
+could send random data across the
+network or they might send a large
+number of legitimate frames over this
+wireless network all of this would cause
+noise and problems for people that were
+trying to communicate to this access
+point the attack might also send data at
+random times to make the troubleshooting
+of this problem a little more difficult
+and this might be more of a reactive
+jamming normally when the network is
+quiet there's no Jam signal to see but
+as soon as someone tries to communicate
+with the access point the attacker turns
+up the volume and makes it impossible
+for anyone to communicate on this
+wireless network just like the
+deauthentication attack someone
+performing Wireless jamming needs to be
+local to that access point so somewhere
+nearby I is the user that's causing
+these Wireless jamming problems you just
+need to hunt them down and turn off the
+jam signal amateur radio operators often
+refer to this as a fox hunt the fox
+Hunter will often use a directional
+antenna that can be used to move around
+to locate exactly where a signal may be
+coming from as you get closer to the
+signal it becomes much louder and it's
+difficult to know exactly what direction
+it's coming from so a good Fox Hunter
+may also have an attenuator that will
+lower the signal strength and make it
+easier to tell what direction any signal
+might be coming from using these
+techniques you can eventually narrow
+down and triangulate exactly where a
+signal may be coming from and hopefully
+locate where a signal Jam may be
+occurring on your
+network

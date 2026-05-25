@@ -1,0 +1,1096 @@
+[Music]
+all right so starting with this episode
+we're going to talk about mitigating
+specific attack types and we're probably
+going to have multiple videos about this
+because there's just so many types of
+attacks out there you cannot imagine how
+creative the attackers can be but you
+will have a pretty good idea after we're
+done with this chapter and we're going
+to start with what i like to call the
+classics and the first one here is
+buffer overflows so what exactly is a
+buffer overflow well let's take it easy
+and think about what exactly is a buffer
+well a buffer is just a place in memory
+where you decide at some point to store
+some data you just pre-allocate it and
+say this is well i will store
+whatever you send me your username your
+profile picture your comment on a
+website anything that can be received
+from a user
+is going to be stored in an input buffer
+secondly right what's an overflow well
+you can probably imagine what's an
+overflow right well that's exactly what
+you think about when you talk about i
+don't know overflowing your sink your
+bathtub your beer glass
+that's basically what happens when you
+try to store more than the recipient can
+handle well when talking about buffers
+we're basically trying to store more
+data than the buffer can handle right
+now the question could be well so what
+okay i'm trying to write more data than
+the buffer allows me to and then
+you might think that right i'm gonna
+receive some error from the program and
+that's it i can try again i can just
+ignore it right life moves on
+why do we care about this why do we care
+about buffer overflows and what does
+this have to do with cyber security the
+way that you're thinking right now is
+pretty much okay the problem is
+that you're not going to be getting that
+error every single time so the question
+becomes what happens after a buffer
+overflow and the answer is unfortunately
+we don't know right it depends on a
+number of factors and it depends on
+whether the overflow was accidental or
+was intentional so in order to
+understand what all the possible effects
+the possible outcomes of a buffer
+overflow can be we need to take one
+state back
+and look at the big picture here
+and start by looking at how a program
+sees its memory when it first starts up
+alright so this right here is just a
+slightly simplified representation of
+how a program sees its memory as it is
+allocated by the operating system right
+after that program starts
+and the memory is a linear space which
+means that every position in this memory
+space has a specific address and in our
+example here we start from a
+theoretical zero address here at the
+bottom
+up to a maximum theoretical value right
+here at the top now the real values of
+course are much higher than this because
+we need to address a large amount of
+memory nowadays but generally we will be
+using hexadecimal digits just one like
+you see here to represent memory
+addresses for two reasons first of all
+because they allow us to write addresses
+using less characters and also because
+the hexadecimal system allows us to use
+two hex digits to represent
+one byte
+and that's actually because each
+hexadecimal digits ranges from 0 to 9
+followed by a
+through f so with two digits we're going
+to end up with 16 times 16 which is 256
+that's the maximum value of a byte
+because a byte is eight bits two to
+power f8
+is 256.
+right now coming back here let's see
+what all these memory regions are and
+we're going to start with the least
+interesting ones like the text area now
+the text here is going to store the
+actual program code those are the actual
+program instructions and most of the
+time they're going to be read-only so we
+don't really care about those because we
+cannot change those at the top we have
+the kernel area which is not the
+operating systems kernel but we are
+going to find in here stuff like the
+arguments that we use to launch the
+program and also some environment
+variables that the program might use
+then the data area stores variables
+initialized variables uninitialized
+variables doesn't matter they're all
+here then we have the heap
+now the heap stores what i like to call
+the big stuff that is files that you
+load in memory the document that you're
+currently editing in words for example
+or the level that you're currently
+playing in a game anything that's not a
+variable or a simple data structure and
+needs to be loaded into memory and takes
+up a lot of space it's going to be
+stored here in the heap and we're also
+going to find the global variables here
+as well and we left the stack at the
+very end because this is where things
+get interesting we're going to talk
+about the stack in just one second now
+before discussing about the stack
+there's one more thing here that you
+should know you've probably noticed that
+we have a
+big unpopulated area here in the middle
+so
+what's this
+what's this area now this data structure
+is by default empty but we have two
+memory areas that are constantly
+competing for it from two different
+sites and as you can guess just by
+looking at this picture the first one
+here is going to be the stack and the
+second one
+is going to be the heap and that's
+because both the stack and the heap can
+grow when needed
+and they will start taking up space
+from this empty area in the middle now
+the heap is going to grow of course
+whenever you need more memory to load
+more stuff into it like another document
+another pdf file another level now in
+order to understand how the stack grows
+and what exactly does a stack do
+let's have a look at a very short piece
+of code now don't freak out this is a
+very simple c program right here which
+doesn't do much actually doesn't do
+anything but
+you don't need to know c programming for
+this isoplus exam but we need a very
+simple example like this just to
+exemplify and show you what happens when
+a buffer overflow occurs now this simple
+program here like any other program is
+going to start its execution with the
+main function that's going to be the
+first function to be executed and the
+first instruction on line 10 is going to
+be a call to the my copy function now
+the my copy function also receives an
+argument this arg v that you see right
+here is going to be the first argument
+that i provide to the program when i
+launch it for example if my program is
+called
+hello
+right and i write in the command line
+hello andrew then andrew is going to be
+that first argument that gets passed to
+the my copy function
+and well when the execution the program
+execution sees this function call right
+here on line 10
+the program is basically going to jump
+its execution right here so it's going
+to start executing instructions one by
+one from this function right here
+until it reaches the end of the function
+and then the execution comes back to the
+following instruction in my main program
+just like you would expect whenever you
+call a function in any programming
+language now this type of execution here
+is going to involve the stack so before
+the program starts executing the my copy
+function it's going to store the
+following things on the stack first it's
+going to extend the stack to make room
+to store the arguments of the my copy
+function in this case the name parameter
+and it's going to store it right here
+all right next thing that ends up in the
+stack is going to be another place
+allocated to store the return address
+for this function now why do we need a
+return address before the program needs
+to remember somehow to put a bookmark to
+the place where it previously was before
+it started executing this function think
+of this just like the bookmark that you
+would use when you're reading a book and
+you want to just to perhaps peak a few
+pages ahead or just look at the table of
+contents you just use a finger or a
+paper bookmark
+just to mark the current page and then
+you look back or forward into some other
+location in that in that book right when
+you're done checking that outside info
+you know exactly at what page you need
+to go back to where you were before you
+digressed and accessed some other data
+now that's exactly what happens with
+functions as well the program execution
+actually left the main function to head
+over and execute the my copy function so
+when my copy is done the program needs
+to know where it's supposed to come back
+to in our case here would be line number
+11 which is actually the end of the main
+function as well but that doesn't matter
+right it's it could be any other
+additional instruction present in the
+main function so the return address is
+going to be a memory address that points
+to
+the next line to be executed in your
+main program and one more thing we're
+going to also store on the stack we're
+going to allocate more memory here and
+we're going to store any local variables
+or any variables that represent the
+current context of our function so in
+this case our buffer of 10 positions our
+character buffer of 10 characters here
+is also going to be stored right here on
+the stack now of course when we're done
+executing the my copy function all this
+information here is freed and the stack
+comes back to its initial size
+now a couple of weird things about this
+the stack behavior first you can see
+that the stack kind of grows downwards
+and
+it's just a bit weird the way it's
+implemented in operating systems because
+it actually grows from higher memory
+values towards lower memory values and
+that's just the way things are all right
+so that's one weird thing about the
+stack now another one is that by
+definition the stack is a data structure
+that behaves just like a let's say a
+stack of plates right let me see if i
+can draw a couple of plates here just
+imagine that these are plates and the
+idea of a stack is that you can only
+access the top most element in that
+stack the one right here we actually
+have a couple of operations and the most
+important ones are the operation of
+putting something on the stack and this
+one is called a push
+another operation is removing something
+from a stack which is called a pop
+and as you can see we can only work with
+the top most element and of course there
+is a another type of operation here
+which is called peak
+which allows us to uh just read the
+first element without removing it but
+the main idea here is that in a stack
+data structure which is a very widely
+implemented data structure in
+programming you can only access the top
+most element at any single time so in
+our case here our topmost element would
+basically be our local variables that
+would be our buffer now let's go back to
+the code for just a second here and look
+at what this my copy function actually
+does you can see it allocates a buffer
+right here which we've seen that it ends
+up on the stack and then we have a
+simple function called another function
+this one is built in into the standard
+library of c or c plus and what it does
+is actually copies one string into
+another a a string of characters into
+another and this string copy here is
+considered to be an unsafe function
+because it receives only two parameters
+first one is the buffer that's the
+destination where do we want to copy
+that content to
+and then the name which is actually the
+variable that we see the function
+receives right here at the top as an
+argument that's the source of the data
+so basically what this function does is
+reads the contents in this string of
+characters called name until it reaches
+a zero value a null terminating value
+and then puts its contents into this
+buffer which is pre-allocated right here
+now of course if name here is less than
+the 10 characters that we've allocated
+for this buffer everything would be just
+fine right we don't have any overflow
+happening here the buffer can hold as
+much data as we give it and inside of
+the stack things would probably look
+something like this now assuming that
+the argument that we've launched this
+program with is something like andrew
+then this uh string andrew right here is
+going to end up in this allocated space
+inside of the stack and another weird
+thing another weird behavior of the
+stack is that even though it grows from
+high values to low values well the way
+memory actually gets allocated is from
+low values to high values so what we're
+going to do here is actually not store
+andrew like this
+but instead we're going to store it in
+reverse order so that we can go from
+lower values to higher values so we're
+going to basically write it from right
+to left kind of like this
+this
+word is not word right here now remember
+this buffer
+only has 10 positions so we can only
+store at most 10 characters in here so
+what happens if andrew suddenly becomes
+andrew one two three
+four just like this
+well it's going to end up in the stack
+as four three two one word
+okay we still have a valid buffer here
+but what happens if android one two
+three four actually becomes
+andrew one two three four five six seven
+eight
+zero what happens with this string when
+we try to give it to the string copy
+function
+well remember when i said that the
+string copy function right here is
+considered to be unsafe well that's
+simply because as you can see it
+receives two arguments the one is the uh
+the destination and the one is source
+but there's no argument saying how much
+should i copy from the source
+to make sure that i'm not going to
+overflow the buffer in the destination
+and if you think about the fact that
+well the program is is going to take
+care of this the operating system is
+going to take care of this i mean the
+operating system sees that i only have
+10 values here how could it attempt to
+write beyond those values well that's
+another discussion here but actually the
+buff and name parameters that we have in
+here don't contain the entire string
+pre-allocated string these are just
+pointers to the beginning of the string
+so basically this string copy here what
+it does it says start copying from the
+name location to the buffer location as
+long as you find something in the name
+location there's no stopping it right
+there's nothing to tell it to stop after
+10 characters and this is where we're
+going to cause a buffer overflow now a
+buffer overflow like this
+is going to happen in the in the stack
+is going to occur in the stack in a very
+nasty way that's because the space that
+we just allocated in the stack for this
+buffer has depleted so there's no way
+for me to keep adding here five and six
+and seven and so on now what's gonna
+happen is it's going to continue writing
+onto the next available address inside
+of the stack and which one is the next
+available address well this field right
+here the return address and it's going
+to start overwriting the return address
+with the rest of the content that i've
+provided inside of my buffer
+now what's gonna happen now the problem
+is that whenever the my copy function
+finishes execution the program is going
+to try to read this return address right
+here
+to figure out where to jump its
+execution ideally this was supposed to
+hold
+line number 11 in our code right now
+i've just overwritten it with some
+arbitrary values now in most situations
+if this happens accidentally this is
+going to end up as a segmentation fault
+so that's going to be an error which is
+going to crash your program because
+there's probably not going to be a valid
+address like this for the program to
+jump to but imagine that you are an
+attacker if you are an attacker then you
+can actually craft the contents of this
+buffer right here
+to make sure that the end of it
+includes the exact return address that
+you want your program to read whenever
+it exits its current function
+now you're basically telling the program
+through a buffer overflow go ahead and
+execute
+some other piece of code some other type
+of code that i've provided you and
+that's a very dangerous type of attack
+because you're basically interfering
+with the normal program execution you're
+telling it just ignore your normal code
+start executing my code and this is how
+you take over you take control of a
+remote system you can tell that system
+well instead of executing your own
+functions execute
+a reverse shell for me or execute a
+denial of service attack for me or
+execute anything on my behalf which
+means that i currently have access to
+that machine i can control that machine
+and that machine has been breached and
+is under the attacker's control
+complicated stuff i know but it happens
+and it's actually the most common type
+of exploit unchecked
+boundaries unchecked buffers that can be
+overflown can be easily hacked using
+examples very similar to the one that
+i've just given you here so that a
+potential attacker can just send a valid
+request can be over http over the
+network it sometimes it can even be an
+email or just a file that you you trick
+someone into opening it and all that
+file is going to provide an input that's
+going to overflow a certain buffer which
+the attacker knows that it's going to
+allow him or her to overwrite a return
+address and to cause that program to
+jump its execution to some different
+piece of code provided by the attacker
+now most of most likely that additional
+piece of code that malware code that you
+convince the the program to execute
+instead of its own code is also going to
+be provided through that buffer overflow
+as well so the attacker can actually do
+something like this
+i mean you don't even need to jump that
+far you can just take this crafted jump
+address right here and tell it you know
+jump maybe a couple of positions
+downstairs in the stack and start
+executing code from there
+because
+this this area right here is most likely
+already part of that buffer that was
+provided
+as part of the overflow attack so you're
+basically providing the code as well as
+the jump instruction to that code to be
+executed on your behalf it's it's that
+easy and all in many cases the memory is
+randomized so perhaps the attacker
+doesn't know exactly where to jump
+because it doesn't know exactly where
+its buffer is going to end up in memory
+doesn't matter we have a solution for
+this as well if we don't know exactly
+where to jump that's okay we just fill
+in as much as possible with a huge
+buffer in here we take up all the memory
+or as much as possible and we fill it
+with do nothing instructions which are
+also called knobs or no operations in
+assembly language and at the very end
+we put the actual malware code right
+here so we don't know exactly where our
+code is going to end up where where our
+code is supposed to jump to execute it
+we just fill the memory with knob
+instructions like these and whenever we
+jump that code you just have to hit some
+position inside of this knob area
+doesn't matter where when it hits a knob
+instruction it just moves on to the next
+and then to the next and keeps going and
+keeps going
+until it reaches and executes our
+malicious code right here and this by
+the way is called a knob
+sled because uh the code basically
+slides down through all these
+instructions just ignoring them just
+like a sled would would go downhill
+until it reaches the executable code
+that's the the bottom of the hill
+and by the way if this happens inside of
+a stack i believe it's obvious enough
+that we're going to call this a stack
+overflow there are also heap overflows
+and other types of overflow but for the
+exam at least this should be enough
+right now and well at least now you know
+where the name of the website stack
+overflow comes from a buffer overflow
+exploits can be very dangerous because
+they can either allow the attacker to
+inject their own code or to perform
+privilege escalation basically
+or allow the attacker to read restricted
+areas from the memory like regions that
+store secret keys passwords and session
+ids for example one thing to keep in
+mind is that if you're using a buffer
+overflow to perform privilege escalation
+you can only escalate the privileges up
+to the privileges
+that the application is using to run
+because you're basically tricking the
+application into running your own code
+so your own code is going to run with
+the permissions that the application
+currently has now you've got not going
+to instantly become root but you will
+become a valid user on that machine
+all right so buffer overflows are bad or
+dangerous how do we prevent them from
+happening
+now first method would be of course
+write better code right safer code there
+are functions that are safer than others
+that perform boundary checking
+especially in situations where you're
+copying information from one location to
+another and secondly we also have
+different programming languages that
+behave differently when they manage
+memory for example c or c plus plus are
+going to leave the memory management
+mostly into the programmers hands now on
+the other hand we have higher level
+applications like dotnet or java or
+c-sharp or any application written in
+dot-net for example that have a more
+strict control over the the input that
+you're providing
+and their internal functions by default
+are safer now the second one is called
+aslr that's address space layout
+randomization which is basically just a
+way of confusing the attacker by
+randomly positioning those those memory
+blocks like the stack the heap the the
+libraries that get loaded in the memory
+all over the place which makes it harder
+or even impossible for an attacker to
+determine at which address his or her
+malicious code is located so they might
+not be able to execute it even though
+they might be able to inject it the
+stack canary is an interesting one it's
+a very small integer value that it's
+placed on the stack right before the
+return value of a function all right so
+in our example right here we could add a
+small value right here before the return
+address remember we're writing this from
+right to left and this one let's say
+it's 42 right here now now we monitor
+for this value so if a buffer grows
+beyond its intended intended size and
+start overwriting this value right here
+now if we lose it then we know that a
+buffer overflow has happened and that
+we're screwed all right so that's a
+stack canary that's a just a value that
+you're monitoring in order to figure out
+if and stack overflow it might be
+happening or not
+finally we have dep that's data
+execution prevention which is available
+only on windows and it basically marks
+specific memory regions as
+non-executable
+so in our example we could tell the
+operating system that this entire space
+right here reserved for the stack
+is not executable so it doesn't matter
+if somebody manages to add their own
+code in here it's never going to be
+executed because the operating system
+doesn't allow you to execute code from
+this location so those are pretty much
+the main ways in which we can protect
+against buffer overflows of course we
+start with input validation make sure
+you validate your inputs so that you
+won't even reach that situation where
+you have to worry about what would
+happen if a buffer overflow occurs and
+of course we have additional methods for
+example amd has something similar to
+data execution prevention as well but
+for now this should be more than enough
+next up we have race conditions this is
+a design flaw a coding flaw
+that allows a system to reach an
+inconsistent state
+simply because of the timing of its
+allowed operations
+now this might not sound like much but
+computers are designed to be predictable
+deterministic so having a
+sequence of operations that you cannot
+exactly predict
+what the outcome is going to be well
+that's really bad for computing an
+example of this would be a situation
+where multiple threads attempt to write
+data at the same memory location at the
+same time you cannot know for sure what
+the end result is going to be which one
+is going to
+manage to write that data last so which
+one is going to actually have a chance
+to store the data at that location
+and the problem is that these race
+conditions can sometimes be exploited by
+attackers
+a well-known example of such a
+vulnerability is was called dirty cow
+somewhere back in 2016 it was identified
+it's a
+privilege escalation vulnerability that
+can allow any application or malicious
+code to gain root level access and
+completely hijack the device how scary
+is this
+and the name comes from the copy on
+write mechanism you can look it up if
+you want to but the very badly
+implemented so programs can set up a
+race condition to modify what should be
+a read only root owned executable so
+basically a non-root user can change
+root-owned executable files on any
+machine so that's the definition of
+privilege escalation what's even worse
+is that sometimes these vulnerabilities
+end up completely unnoticed so this one
+was actually present in the linux kernel
+since 2007.
+and most likely it affected android
+devices as well because they're also
+based on the linux kernel now a
+specifically interesting and
+even commonly encountered vulnerability
+that relies on a race condition
+is the time of check time of use
+vulnerability which is abbreviated like
+this and it happens when programs try to
+modify a resource or a memory address
+but they check that memory address and
+then modify it in two different distinct
+operations why does this matter well let
+me give you an example
+so let's assume that we have two atms
+right atm one here and atm two right
+here and let's draw a timeline right
+here in the middle so that's this axis
+here is gonna be time and we also have a
+bank account with a hundred dollars now
+let's assume we have two people with two
+credit cards that point to the same bank
+account and they both want to withdraw
+that hundred dollars at same time this
+is one scenario that could happen the
+first atm
+right here is going to check how much
+money is inside that account
+and it's going to receive an answer that
+there are 100
+available immediately after the second
+atm
+asks for the same thing
+and of course it's going to receive a
+positive answer the account has 100
+now the first atm tries to withdraw the
+hundred dollars that it was told that is
+available inside of the account
+and the second atm
+was also told that there are a hundred
+dollars available so it's also going to
+try to withdraw
+that same amount the end result well we
+might end up with a bank account that
+currently has
+minus
+100 now with real life banking of course
+there's no point in trying to do this
+but in a badly designed software this is
+a type of situation that can happen
+quite often and can lead to corrupted
+execution to crashing programs and also
+to vulnerabilities that can be exploited
+the problem here is actually the fact
+that we failed to connect these two
+operations the check operations and the
+use operation so when the first atm
+checked the amount of dollars inside of
+that bank account it should have also
+executed the withdrawal at the same time
+or at least in the same atomic operation
+so that the other check here
+would not be able to happen at the same
+time and maybe it misrepresent the state
+of the bank account to a different atm
+at the bottom so what's the solution for
+race conditions and the time of check
+time we use vulnerabilities like this
+well design your code properly so you
+don't reach this situation you can
+implement locks or
+mutexes or semaphores or any kind of
+locking mechanism whenever you want to
+check a resource before changing it just
+to make sure that somebody else in the
+same time frame is not going to access
+it and be presented with a a false
+representation of the state of the
+resource and what i mean by somebody
+else it's probably going to be another
+thread another process maybe another
+user trying to access the same resource
+another situation where a race condition
+exploit can happen is if an application
+uses a cache file ideally located on the
+user's device and uses that cache to
+store a temporary file or a temporary
+value for future use now if the user or
+an attacker manages to change that value
+between the time that the value is
+stored in the cache and the time the
+value is used from the cache this is
+exactly the type of race condition
+exploit that we're talking about so the
+solution is to try to define atomic
+operations in your code operations that
+either execute entirely or not at all in
+other words don't program sequential
+independent operations when they could
+have been done together another one on
+the list of coding vulnerabilities is
+improper error handling
+now before we talk about what's proper
+and what's improper about error handling
+please make sure that you do handle
+errors in your applications don't just
+let the application crash into an
+unknown state make sure you catch those
+errors beforehand and you have some
+piece of code that handles that specific
+situation
+catching errors is called exception
+handling and it is done using special
+code that is executed when a specific
+error situation or condition is detected
+that's the code where you decide what
+you're about to do next instead of just
+scratching the application and since of
+course you cannot just prepare for any
+kind of possible crash scenario that
+might cause your application harm
+there's also a way to define in most
+programming languages sort of a
+catch-all exception so if it doesn't
+match any of the known or expected
+conditions for errors we also have a
+generic code that's going to handle any
+other type of condition that can lead to
+an application crash so bottom line here
+try to fail gracefully right don't just
+let the application crash handle that
+situation using your own code the point
+is that crashing an application is
+always very unpredictable and can leave
+your application in a very insecure
+state which is very bad for cyber
+security also part of the exception
+handling code make sure you deallocate
+memory when the exception occurs don't
+leave important data in memory when you
+don't know exactly in which state your
+application might end up also don't
+provide just to anyone to any user
+things like debug information don't fall
+back to default configurations or to
+default pages don't provide stack traces
+or the the full sql statement that
+caused the error don't provide more
+information to a potential attacker than
+they should be aware of it might be a
+relevant information for a normal user
+but it might be a gold mine for an
+attacker who just found out more about
+the back end of your application
+and i know i've said this before a
+number of times don't provide detailed
+authentication error details so if it's
+just the username that's bad don't tell
+this to the user if it's just a password
+don't tell this to the user just just
+tell them authentication failed that's
+it don't provide more information the
+more information you provide you're
+basically telling an attacker you did
+not attack me right this is what i
+expected you don't want to do this now
+here's an example here of badly managed
+errors so for example in this field
+right here if i add something like user
+id 2 right and press enter
+well i'm going to get some information
+about that user id but if i try to do a
+slightly
+easy sql injection attempt in here and i
+click submit
+the end result is that i'm going to be
+shown the exact error generated by the
+database engine in the site so at the
+very least i just found out that the
+back end is actually
+a mariadb server there you have it we
+did not know this a couple of seconds
+ago why would you tell this
+to any average user that would access
+your website this is not relevant
+information for them i'm sure you can
+remember a lot of websites where you
+accidentally
+mistyped some information and you ended
+up seeing some some part of the sql
+statement that generated that error
+that's also part of badly managed input
+validation and also
+badly managed error handling as well
+okay moving on to other software design
+issues that can lead to vulnerabilities
+one of them being using insecure
+components well developers don't like to
+reinvent the wheel so on each new
+software project on each new feature
+well we're going to look for somebody
+else who has invented the wheel before
+us so we're going to reuse some
+libraries some code
+that wasn't perhaps thoroughly analyzed
+for vulnerabilities so careful when
+reusing code and this also applies to
+third-party libraries
+and their vulnerabilities as well sdks
+or software development kits that are
+sometimes used by developers most often
+include some sample codes and sample
+applications that are used as code
+skeletons for the future application
+most likely these samples were not
+designed with security in mind so any
+problems any vulnerabilities that were
+in the sample code from the very
+beginning might end up in the final code
+at the end of the project and even if
+you're you're thinking well i'm not a
+programmer i don't need to worry about
+this well even if you're just managing a
+website that website is probably gonna
+be using something like joomla or
+wordpress and you're going to be using
+themes and plugins that you download
+from the internet well that's actual
+code that you're reusing and that might
+have certain vulnerabilities so if you
+must use third party code think about
+some mitigating control
+for example like a web application
+firewall that can put in front of your
+web servers and can protect you from
+well-known web oriented attacks secondly
+we have insufficient logging and
+monitoring and a lot of security
+incidents are detected and eventually
+avoided thanks to the magic of logging
+and recording all the events that
+happened when it happened who was
+responsible what was affected so make
+sure you log the behavior of your
+applications but be careful not to log
+too much information so that it becomes
+unmanageable at the very least design
+your logging mechanism to store at least
+information regarding uh you know
+successful operations failed operations
+make sure you don't expose any sensitive
+information your logs make sure you
+store the input validation errors in
+your log so that later on you can
+identify any attempts
+of breaching the security of your
+application any abnormal events like
+attempts to tamper with file integrity
+or to access application regions that
+are normally inaccessible for regular
+users any attempts to connect with
+invalid session ids that can suggest
+that somebody's attempting to perform
+some session stealing cookie stealing
+session hijacking any admin function
+usage make sure you log everything that
+is recorded as being performed by an
+admin just to make sure that there was
+an actual admin writing those commands
+and not somebody who escalated their
+privileges or impersonated an admin and
+i don't think i have to mention this but
+restrict access to those logs make sure
+that regular users cannot access those
+logs and not to mention make sure that
+they are not able to change or write or
+delete those logs
+and generally don't ignore logging it
+might sound like a a trivial uh habit
+you know the type of work that nobody
+wants to do
+but having continuous monitoring is very
+useful especially when your company
+doesn't really have a strong security
+posture now the chances are that when
+you get compromised you will find out
+after the incident has happened and if
+you don't have the proper monitoring
+tools in place you might not even know
+how it happened and what you need to do
+in the future to avoid finding yourself
+in the same situation to avoid being
+breached in the future as well then we
+have weak or default configuration and
+the main idea here is that regardless of
+how secure the code of an application is
+if an admin or a privileged user decides
+accidentally to expose some sensitive
+information well that's a vulnerability
+that was introduced from the
+application's configuration so somebody
+misconfigured the permissions in that
+application and accidentally exposed
+something that shouldn't have been
+visible very important don't forget
+about default configurations like
+default configs and wi-fi devices and
+iot devices and networking devices and
+and i don't know your home wireless
+router for example they all have default
+accounts with default configurations
+which are well known and there are
+automated tools out there that search
+for these uh exposed admin interfaces
+exposed to the internet and they just
+brute force try to connect using those
+default credentials and more often than
+not they succeed because people forget
+about those so make sure you change your
+default configuration and your default
+accounts and even the renaming the admin
+accounts is is a well-known practice for
+just obfuscating some
+sensitive information you know try to
+make the attacker's life a bit harder if
+every admin user all over the world
+would be called admin then the
+attacker's job would be only to crack
+the password but what if the attacker
+doesn't even know what is the name of
+the admin account
+why not use this finally broken
+authentication this one refers to an
+application that performs authentication
+and authorization for the user accounts
+that it has but it does them badly and
+this can be due to a number of faults
+like for example the application can
+accept very weak passwords you allow
+your users to use very weak passwords or
+it has a very weak password reset
+mechanism a badly implemented password
+reset would be for example to ask the
+user to provide the email address where
+the new reset link or even the new
+password is to be sent now of course an
+attacker would easily be able to reset
+anybody's password using a mechanism
+like this or even a system that resets
+all passwords to the same default one
+don't laugh you can find this in real
+life and it happens also it might happen
+that the application can expose some
+sensitive session information like
+unique session ids credentials or
+authentication tokens
+either because they're not encrypted or
+they are hard coded in the application
+were exposed somewhere like in the url
+of the password reset link another
+situation is when the application stores
+all these credentials in clear text
+which exposes them all if the system is
+accidentally compromised now for a full
+list of best practices have a look over
+this authentication cheat sheet hosted
+by osp it's going to provide you with a
+lot of guidance and cover
+most if not all the possible scenarios
+when the authentication implementation
+might be broken and vulnerable to
+outside compromise
+now i would like to mention one more
+here last but not least dereferencing
+now dereferencing is the operation of
+accessing the data stored at a specific
+memory address perhaps that address is
+stored in a pointer and while the
+operation of accessing that information
+is called dereferencing that pointer now
+there's a situation called the null
+pointer exception when an application
+tries to read a null memory address for
+example in an empty not yet allocated
+pointer this can result in a program
+crash most of the time is going to be a
+program crash but this can happen
+accidentally due to a a bug in the code
+which can be easily fixed by adding some
+sort of logic you know to check the
+pointer before trying to access the
+contents of that memory address or it
+can happen as a result of a code
+injection like a buffer overflow in
+either case it's going to warrant
+investigation because you're either
+going to crash your application or
+you're going to get breached and the
+neither situation is desirable all right
+that's it for today we're going to leave
+the rest of the attacks and the
+mitigation methods for the next episode
+and trust me we have so much still to
+cover
+don't forget to like and subscribe if
+you found this useful that's exactly
+what keeps me going and the least you
+can do to help me keep motivated to
+provide you with content like this thank
+you for watching and see you next time
+[Music]
+you

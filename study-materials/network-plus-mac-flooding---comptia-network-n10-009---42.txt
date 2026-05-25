@@ -1,0 +1,200 @@
+in a computer the MAC address is the
+media Access Control address this is the
+hardware address of the ethernet adapter
+that's inside of your device this is a
+unique address which means you should be
+the only one who has this particular Mac
+address so this allows us to send
+information specifically to your device
+and no one else's the format of a MAC
+address is 48 bits long or 6 bytes long
+and it's normally displayed as heximal
+for example this is a normal Mac address
+8 Charlie 2 Delta alpha alpha four Bravo
+98 alpha7 and you can see that we're
+separating each one of these bites with
+colons periods or some other delimeter
+the first three bytes of the MAC address
+are called the organizationally unique
+identifier or oui this is effectively
+the manufacturer of this particular
+network adapter the last three bytes of
+the MAC address are the network
+interface controller specific value or
+what is effectively the serial number of
+this particular network interface card
+so a manufacturer that creates network
+interface cards will always use those
+first three bytes that are specific to
+the manufacturer and they'll change the
+last three bytes of the MAC address for
+every adapter card that they manufacture
+this value is stored in the ROM or
+readonly memory of this network adapter
+and we often refer to this as the burned
+in address as we've mentioned before in
+this course the ethernet switching
+process uses this Mac address to
+determine where information should be
+forwarded the switch is constantly
+building a big table of Mac addresses
+that it sees on the network and it keeps
+track of not only what Mac addresses are
+on the network but what interface on the
+switch should be used to communicate to
+that Mac address this list is created
+based on the source Mac addresses that
+are inbound to the switch and this is
+only a temporary table switches often
+cach this information for a limited
+amount of time so it may learn of a MAC
+address and store that information in
+the table but about 5 minutes later it
+is discarding that Mac address and would
+have to relearn that address to know
+where that device happens to be these
+Mac addresses might also be used by
+other tasks on our Network for example
+spanning tree protocol or STP uses these
+Mac addresses to maintain the uptime of
+our Network and avoid any loops on the
+switch Network
+let's look at more detail about this
+learning process and how this Mac
+address table is created as we mentioned
+earlier the switch is going to examine
+all inbound traffic and look at the
+source Mac address associated with the
+frame if that source Mac address is
+unknown to the switch it will add that
+source Mac address to a table and keep
+track of all of the inbound source Mac
+addresses that it happens to see let's
+take a scenario where Sam is going to
+send information on this network Sam Mac
+address is 1,
+111111111 so that will be the source Mac
+address that's sent over this network in
+this particular case the destination Mac
+address is 1
+55555555 which also happens to be the
+MAC address of the SGC server Sam starts
+by sending this information to the
+switch this switch's Mac address table
+is currently empty so this Frame coming
+through with this source Mac from Sam's
+machine will be something the switch has
+not seen before and so it needs to add
+that to the table so it will take note
+of the source Mac address and it will
+add that source Mac address to the table
+it will also make a note of the
+interface that this Frame was received
+on in this case the interface is
+f0/1 and that is also added to the MAC
+address table now that this information
+is in the MAC address table any inbound
+frames to this switch that have a
+destination of 1,
+111111111 will be sent out switch
+interface
+f0/1 so if the SGC server is now going
+to send a frame to Sam's workstation it
+will have a source Mac address of 1
+55555555 because that is the MAC address
+of the SGC server and it's sending it to
+the destination Mac address of Sam's
+workstation since this source Mac
+address is also not known by the switch
+it will make a note of that Mac address
+and then send that frame over to Sam's
+workstation so now we have a complete
+Mac address table and any inbound
+traffic that has a destination to either
+of these Mac addresses will be forwarded
+out the appropriate output
+interface most switches have a number of
+different devices connected to them and
+once you have these devices plugged in
+and information starts to flow the MAC
+address table will become populated you
+can see this one has five different
+devices connected to this switch all
+five Mac addresses have been learned by
+the switch and we have all the output
+interfaces defined for each of those Mac
+addresses let's see what happens when
+information is sent from Sam's
+workstation we have a frame that has a
+destination Mac address of 1
+55555555 that's forwarded to our switch
+the switch is then going to refer to the
+MAC address table to see if that
+destination Mac address is in the table
+and in this case it certainly is and you
+can see that the output interface for
+that Mac address is
+f05 the switch now knows to send that
+frame out that particular interface
+where it will be received by the device
+with that destination Mac address notice
+that the conversation was direct between
+Sam and the SGC server although there
+are three other devices that are
+connected to the switch that frame was
+not sent to any of those devices because
+the switch is able to direct that
+traffic based on the destination Mac
+address one challenge with these Mac
+address tables is that they are only so
+big there's only a a certain amount of
+space allocated to store Mac addresses
+on any particular switch and you should
+be able to look at the specifications
+for your switch to see how many Mac
+addresses could be stored in that table
+at any particular time so if an attacker
+would like to take advantage of Mac
+flooding they will send many many frames
+to this switch all with different source
+Mac addresses this is going to quickly
+fill up that very limited space that's
+available for our Mac address table this
+is going to take advantage of a process
+that is normal to the switch where if a
+destination Mac address is not found in
+the MAC address table that particular
+frame is forwarded to every interface on
+that particular switch this means if we
+fill up the MAC address table with
+random Mac addresses and we send any
+traffic into that switch all of that
+traffic is going to be automatically
+forwarded to every other interface on
+that switch we now no longer have this
+Direct directed conversation from one
+interface to another interface on the
+switch we've now effectively turned this
+switch into a hub where every inbound
+frame into the switch is automatically
+forwarded to every other interface that
+happens to be on that switch this is the
+normal process for any switch so that
+you can always guarantee that traffic
+will always make its way to its
+destination the attacker's taking
+advantage of that normal process so that
+they can now capture Ure all traffic
+that is being sent to this switch even
+if that traffic was not originally
+destined for the attacker's workstation
+fortunately many modern switches have
+Port security configurations where they
+can limit how much flooding can occur
+from any particular interface on that
+switch so although you could still
+possibly flood the network by filling up
+the MAC address table with the port
+security settings enabled it now becomes
+much more difficult to fill up that
+table to begin with for

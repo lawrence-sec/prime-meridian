@@ -1,0 +1,92 @@
+a unicast is one of the more popular
+ways of sending information across the
+network it is when one station sends
+information directly to another station
+this is a onetoone relationship and
+nothing within that conversation is ever
+sent to anyone else on the network if
+you need two devices to be able to send
+information to each other and no other
+device on the network will be involved
+with that conversation then you're
+probably using a unicast so anytime
+you're connecting to a website you're
+transferring files or you're checking
+your email it's probably all taking
+place with a unicast communication this
+onetoone relationship is also one of the
+disadvantages of unicast especially if
+you need to send information to many
+people simultaneously with unicast you
+would have to build separate one-to-one
+Communications with all of those
+individuals and you would have to send
+separate data for each individual device
+but for single communication between you
+and another device whether you're using
+ipv4 or IPv6 you're probably going to
+use
+unicast to be able to efficiently send
+data to multiple devices at the same
+time then you'll probably want to use
+multicast unicast is a one to many of
+many communication so when you send
+information out it is sent to multiple
+recipients all simultaneously these
+recipients are usually subscribing to
+your multicast feed so if someone is
+trying to receive multimedia they're
+receiving Stock Exchange information or
+maybe a device is sending out routing
+updates it can send those out via
+multicast addresses multicast is
+relatively specialized and it requires
+that equipment understand and recognize
+how to deal with multicast communication
+this is why we don't use multicast when
+we're sending information across to a
+different network or even within a very
+large network but we do use multicast
+quite a bit with ipv4 and IPv6 and in
+the right environment it can be a very
+efficient way to send and receive
+traffic multicast is used where one
+device needs to send to many of many
+devices any cast is used when one device
+needs to send to one of many devices
+this is where a single destination IP
+address may be sent to one of many
+different devices that are on the
+network and it's something that you'll
+commonly find with both ipv4 and ipv six
+in this scenario the devices that are
+receiving the incast communication are
+all configured in very similar ways this
+allows the originating device to Simply
+send data to the unicast address and
+whatever device is closest is going to
+receive that traffic a good use case for
+incast would be something like incast
+DNS where a DNS query can be sent out on
+the network and the closest data center
+will be able to respond to that anycast
+DNS
+request and if you want to send a frame
+to everyone who's on your network then
+you'll want to send a broadcast this is
+a one-to-all relationship where a single
+packet is sent out and everyone on the
+network receives that single packet
+fortunately the scope of this is limited
+to your local broadcast domain so
+there's no way to send a broadcast frame
+from your local network and somehow have
+that frame appear everywhere else on the
+internet this is a type of communication
+that's best fit for something like
+routing updates or ar requests and
+although this is something that you will
+commonly find with ipv4 we decided with
+IPv6 to remove broadcasts completely and
+go to a multicast form of communication
+instead

@@ -1,0 +1,396 @@
+a digital certificate is a file that
+contains both a public key and a digital
+signature you can think of this as a
+digital version of an identification
+card but in reality it has so many more
+capabilities than simply providing
+authentication one of the
+characteristics we're constantly
+striving for in it security is that of
+trust whenever we're allowing someone
+access to a system we're trusting that
+the person using that username and
+password really is the person that we'd
+like to provide access a digital
+certificate is a way to provide that
+trust we can create a digital
+certificate have a certificate Authority
+digitally signed that certificate so
+that we know that if the certificate
+Authority trust that person then we
+should also trust that person as well
+there are other ways to provide trust
+with digital certificates one of those
+methods is through the use of a web of
+trust instead of having a centralized
+certificate Authority we can have
+multiple individuals sign each other's
+certificate thereby creating this web of
+trust if we trust our friend and our
+friend has signed the digital
+certificate of a third party then
+therefore we can trust the third party
+as well but of course you don't
+necessarily need a third party
+certificate authority to provide trust
+especially if you're just creating
+certificates within your own
+organization in that case you may want
+to use the certificate tools that are
+built into Microsoft Windows domain
+services and there are many other
+third-party software options to provide
+your own certificate get Authority if
+you're in a web browser and you're
+connected securely to a website you'll
+notice there's a lock in the address bar
+and if you click that lock you'll be
+able to see the details of the
+certificate associated with that web
+server you'll notice that your browser
+is able to show you the information
+about the certificate for that web
+server regardless of what website you
+might be connected to that's because all
+of these different websites are using a
+single certificate format that everyone
+can read the standard for that format is
+called an X5 9 format and sometimes
+you'll hear people refer to the x509
+certificate and they're referring to the
+standardized format for a digital
+certificate there is an amazing amount
+of information stored in these digital
+certificates you have a serial number a
+version and a signature algorithm you
+can see who issued the digital
+certificate the name of the holder of
+the digital certificate the public key
+and other information as well in this
+video we'll look at some of these
+characteristics inside of this
+certificate and we'll talk about how we
+can use those to help better secure our
+networks having a method of creating
+trust between yourself and someone
+trying to gain access to your systems is
+a foundational part of it security the
+real challenge of course is how do you
+trust something that up to this point
+has been an unknown entity for example
+when we use our browser to visit a
+website for the very first time how does
+our browser know that we're connecting
+to the right website and creates that
+trust between you and that Resource One
+way to provide this trust is to have a
+third-party vouch for the site that
+you're connecting to so that if the
+third party trusts the site then
+therefore I should be able to trust the
+site as well we often refer to this
+inherently trusted component as the root
+of trust this might be provided through
+Hardware or software or there may be
+firmware or some other component that
+provides trust for a particular system
+if we have a mobile phone or a website
+we may be using Hardware security
+modules secure Enclave a certificate of
+Authority or some other method that
+provides us with some level of trust for
+this particular system the method of
+trust that's built into all of our
+browsers is one that allows us to
+understand if we're connecting to a
+website that can be trusted or not
+trusted when you're connecting to a
+website for the very first time it would
+be great if we could get some feedback
+on whether this site can be trusted or
+whether it's untrusted so we'll use a
+trusted third party an authority of
+sorts called a certificate Authority the
+the certificate Authority is one that
+digitally signs the certificates that
+are stored on that website and your
+browser trusts the certificate Authority
+so when you visit this website for the
+very first time you can view their
+certificate and see that their
+certificate was digitally signed by a
+certificate Authority that your browser
+already trusts therefore you also will
+trust this thirdparty website this
+provides a real-time validation that
+this website is one we can trust and
+it's this process that occurs to every
+website we visit throughout our
+workday this process that a browser uses
+to trust a website is built into the
+internals of the browser that you're
+using and if you look at the list of
+certificate authorities that are trusted
+by your browser you will see there are
+hundreds of certificate authorities
+listed this means the website can
+purchase a certificate from any of these
+hundreds of certificate authorities put
+that digitally signed certificate on
+their web server and as long as they're
+in the list of your browser they'll be
+trusted in this example the certificate
+Authority is in charge of digitally
+signing this certificate that you'll put
+on your web server but we're not really
+purchasing a digital signature when we
+purchase a certificate we're really
+purchasing the validation process that a
+certificate Authority goes through the
+certificate Authority is going to go
+through a series of verifications to
+make sure that the person receiving that
+digital signature is truly the owner of
+that particular website that is the
+trust part that is built into this
+certificate Authority and it's how we
+trust any of these websites that we
+visit throughout the day let's say that
+we would like to create a certificate
+for our web server we'd like to send
+that certificate to a certificate
+authority to be validated have them
+digitally sign it and return that back
+to us the process to do this is
+relatively simple we would first create
+what is effectively a digital
+certificate by using our public key add
+the identifying information about what
+server this might be connected to and
+information about our organization and
+combine those together to create create
+a certificate signing request or a CSR
+that CSR is sent to a certificate
+Authority the certificate Authority now
+does the validation process they confirm
+that the certificate that you're asking
+for is one that is really for a web
+server that you own in control and if
+they agree that this is a valid
+certificate they will use their private
+key to digitally sign the certificate
+and send it back to you it's this middle
+part where the validation is occurring
+that is so important to this entire
+process
+if the certificate Authority doesn't
+provide this validation then we can't
+trust any of the certificates from that
+CA that's why this validation process is
+so important because that's where we get
+trust associated with this digital
+certificate so far we've been talking
+about using a public CA that is built
+into everyone's browser in the world to
+be able to provide trust but if you have
+your own internal applications and your
+own internal web servers and these will
+only be connected to by people in inside
+of your organization then you can be
+your own certificate Authority for this
+to work we would install our own
+certificate Authority software inside of
+our organization we would then take the
+public certificate for that certificate
+Authority and we would install it on
+everyone's computer inside of our
+organization that way everyone's machine
+would trust the certificate Authority we
+run internally the same way that they
+would trust a certificate Authority that
+was external and you'll find that this
+is relatively common for medium to large
+large siiz organizations that have their
+own internal Services they can create
+their own certificates using an internal
+CA there are many software packages that
+allow you to create your own certificate
+Authority Microsoft has their Windows
+certificate services that you see here
+there's opca and many other third-party
+software packages so now we've created
+our own certificate Authority for
+everything that is internal to our
+organization and if we have an
+application or a user that needs a
+certificate we don't have to go outside
+to a public CA we can simply use our
+internal CA to create those certificates
+the process for creating a digital
+certificate having the certificate
+Authority digitally sign that
+certificate and distributing it back to
+the in user is exactly the same as you
+would use with an external CA the only
+difference is we're using our internal
+CA to provide the trust and provide
+digital signatures for all of our
+certificates as long as you've installed
+your internal certificate Authority
+certificate to the trusted chain on all
+your devices it works exactly the same
+as an external or public CA all of these
+devices will inherently trust anything
+they're connecting to because you've
+digitally signed those with the internal
+CA if you're visiting a website in your
+browser and you click the lock that is
+in the address bar you'll be able to see
+all of the details of that certificate
+and if you scroll through this web
+server certificate you may see a section
+called subject alternative name
+sometimes we refer to this as a wild
+card certificate because it allows you
+to put the name of a domain with an
+asterisk associated with the name of the
+device this means the certificate that
+we've created can be used for any device
+that happens to share that fully
+qualified domain name listed in the
+subject alternative name for example in
+this certificate there are a large
+number of DNS names that are listed one
+of these is birdfeeder dolive which is
+one of my certificates and you can see
+it has an asterisk birdfeeder dolive
+that means that this certificate could
+be used for dubdub du. certificate. live
+FTP
+doctify to create a single certificate
+and distribute that certificate to a
+large number of devices within your
+organization as long as that device is
+associated with that domain name this
+certificate will be valid for that
+service there may be times when we're
+decommissioning a web server and we
+would like that certific certificate to
+no longer be valid or maybe we're
+concerned that an attacker has gained
+access to our certificates so we would
+like to revoke all of those certificates
+and create some that are new one of the
+ways that we can provide this revocation
+is through the use of a crl or a
+certificate revocation list this is a
+list of all of the CTS that have been
+revoked and we keep this list on the
+certificate Authority itself this
+administrative process of creating and
+then revoking certificates is one that
+is built into to any c certificate
+Authority but there might be other
+reasons for providing some way to revoke
+a certificate we found this out in April
+of 2014 when we discovered an attack
+that could have a web server provide a
+third party with the web server's
+private key we refer to this attack as
+heart bed and it was due to a
+vulnerability in the open SSL
+application Library we had to revoke all
+of our certificates and create brand new
+certificates once this open SSL code was
+was updated all of our old certificates
+were moved to the certificate revocation
+list and our newer certificates were
+then installed into all of our web
+servers you can see how important it is
+to have some method for revoking this
+trust which had previously been
+installed onto a particular service you
+can find where this list of revoke
+certificates happens to be by looking
+into the details of your certificate if
+you click the lock on the address bar of
+your browser you can scroll through the
+certificate and find a section that's
+called crl distribution points this will
+include a list of uis or uniform
+resource identifiers that are
+effectively a link to the crl file so
+this tends to be a multi-step process
+your browser connects to a thirdparty
+website that thirdparty website provides
+your browser with its certificate your
+browser then looks through the sech to
+find the crl distribution points and
+then follows one of those Uris to
+download the crl list from there your
+browser can look through this list and
+make sure that this certificate is not
+one that's listed as being revoked as
+long as it's not in the list you can
+continue with your browsing session but
+if this certificate from this thirdparty
+website is listed in this crl your
+browser knows that that is now a site
+that is not trusted this certificate is
+not valid and it will not allow you
+access to that web server as you can
+imagine it's not very efficient to have
+a single file that lists out all the
+revocations for a certificate of
+Authority it would be great if we could
+have a more efficient process that
+didn't involve us going to a thirdparty
+site and downloading a big list of
+revocations fortunately we've created a
+protocol that does exactly that this is
+ocsp or the online certificate status
+protocol relying on the certificate
+authority to provide a list of all of
+these revocations to anyone who might be
+visiting our website is inherently
+inefficient to make this process more
+efficient we can put the status of our
+certificates onto to our web servers
+itself this is accomplished by sending
+status messages about the validity of
+your certificate during the SSL
+handshake that occurs when you first
+connect to a web server this is referred
+to as ocsp stapling because we're
+embedding the status of this certificate
+within the handshake of This Server we
+obviously can't trust a thirdparty web
+server to truthfully tell us the status
+of the certificate so this ocsp protocol
+uses a digital signature by the ca to
+validate its status most browsers today
+support ocsp for the online certificate
+status protocol which means the browser
+itself can handle all of the checks for
+revocation when you visit a thirdparty
+website if you're not stapling the
+status into the handshake message you
+could use a third-party server to
+provide the ocsp status information this
+is easily added to the certificate and
+it's much more efficient than
+downloading an entire certificate
+revocation list from your ca if your
+organization is using very outdated
+browsers you may find that ocsp is not
+an option and even some of the newer
+browsers say that they support using
+ocsp but unfortunately don't implement
+the checks properly to be able to
+confirm the status of a certificate most
+modern browsers support ocsp but you
+might want to check your browser and see
+that it really performs the validation
+when you connect to a website so that
+you can tell what the status is of those
+certificates

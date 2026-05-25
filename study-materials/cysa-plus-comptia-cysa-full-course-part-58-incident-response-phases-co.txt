@@ -1,0 +1,741 @@
+[Music]
+and here we are the last video of this
+training congratulations for reaching
+this point and let's see what the last
+topic is about well the last topic is
+going to be about incident response
+phases and communication during an
+incident
+and
+when a security incident happens that
+will be your moment to shine and to
+prove that you as a security analyst are
+worthy investment
+for your company
+so a security incident will be your
+real life final exam so let's have a
+look at the phases of incident response
+so that you can pass that final exam
+first phase preparation well this is
+where you start thinking about incidents
+what if we had some secret incident what
+exactly should or are we supposed to do
+in this stage you have to make sure that
+you have an incident procedure defined
+if you don't already have one start
+defining one right now and then come
+back to this video okay i'm kidding the
+preparation is basically what you're
+doing right now hardening systems
+setting up policies setting up
+procedures don't forget to train and to
+test right check how ready the people
+are how well educated they are how much
+awareness you have built within the
+company define a call escalation list
+which dictates how to escalate if
+necessary from the first responder up
+and if you have absolutely no idea where
+to start from right here this is an
+incident form which you can freely use
+reproduce copy adapt to your environment
+next comes identification or detection
+and analysis
+this is where we determine if an
+incident
+happened and what exactly happened and
+how bad was it this is where you get to
+define whether
+it's just an event
+or it's a security event
+bad behavior
+for example it might just be you're
+monitoring a crappy application which
+wasn't restarted in a month it had a bad
+update perhaps some application ended up
+in an infinite loop and behaves
+erratically doesn't necessarily mean
+that's a security incident so if the
+answer is yes and we have a security
+incident in our hands you should try to
+do some triage or a severity
+classification now some factors to
+consider here would be system process
+criticality how critical are the assets
+affected by that security incident also
+think about if data was affected did the
+incident affect the cia of any of our
+systems or their data
+think about economic impact think about
+the sophistication of the security
+incident of course this is going to be a
+very subjective evaluation so you might
+want to get your lucky coin ready but if
+there is proof that it might be
+sophisticated then it might be more
+critical something like an apt group for
+example
+well after you identify the incident we
+have to start thinking about containment
+containment is a very important exam tip
+here by the way when faced with an
+incident always isolate contain the
+damage as much as possible try to
+remember this for the exam as well now
+this containment phase might be done
+using segmentation something that you
+should be doing as part of your normal
+it operations already something you
+should be doing in real life
+but you should also be doing during an
+incident response now this segmentation
+includes you know separating networks
+with vlans routers perhaps firewall acls
+and during incident response hopefully
+you can rely on some solutions that
+automatically react wouldn't that be
+nice and put all the affected devices
+inside of some sort of a quarantine vlan
+for example that's kind of a magic
+solution that well plays well plays
+extremely well especially for software
+defined networks
+now on the other hand we have isolation
+this is usually found only during
+incident response it's about completely
+cutting off the systems from its
+networks now this not only helps with
+stopping the spread of some network
+propagated threats
+like worms but can also cut the attacker
+off from your systems so isolation can
+be done physically from actually
+removing the network cable pulling the
+plug right or logically by disabling
+specific uh switchboards for example or
+blocking all the traffic using some sort
+of a firewall acl
+next we have eradication now once the
+incident has been contained we can think
+about removing the root cause also
+called mitigation okay so this is where
+you will probably run things like
+anti-malware anti-root kits
+validate the integrity of the affected
+files and databases and file servers now
+for some devices especially storage
+devices like hard drives or ssds
+eradication might mean some sort of a
+secure erase
+right now this security race can
+sometime
+require you to perform an operation
+called
+sanitization which is performed with
+specialized disk utilities and it's a
+method that writes zeros or random data
+over the entire surface of the disk now
+some variations can write random
+patterns or even
+perform multiple passes to ensure that
+no data will be recoverable uh ssds on
+the other hand remember that are not so
+easily overwritten because they have
+built-in mechanisms and algorithms that
+distribute rights to less used areas of
+the disks in order to improve its
+lifespan so that they are not going to
+be using reusing the same cells over and
+over so for ssds their vendors
+usually provide some specialized tools
+for sanitization also if the storage
+devices contain highly sensitive
+information or you suspect that malware
+has infected the firmware of the device
+itself the storage device itself
+such software methods might not be
+enough so for these types of situations
+you can consider physically destroying
+the device by shredding it if malware
+resides in the firmware or you're simply
+not confident enough that a simple erase
+will suffice
+next up we have recovery recovery means
+restoring the affected systems to their
+original level of functionality their
+original capabilities now this might
+require a restore for example from a
+backup
+after a data loss after a deletion after
+a corruption after a crypto malware for
+example cryptolocker or it might require
+a clean install of some software
+followed by a reconfiguration or
+reconstruction or a re-image of a system
+of a compromised host again this can be
+from a backup or from a template image
+now always verify each operation in this
+process to ensure that no functionality
+has been left behind because you're
+trying to rebuild something now you
+should bring it back to the same state
+as it was before the incident right so
+don't forget some functionality along
+the way don't forget some some
+elements of configuration for example or
+some applications along the way
+very important here part of the recovery
+itself is making sure that the incident
+doesn't happen again so we're doing
+something not just to recover but also
+to make sure that we are patching
+whatever caused the incident to happen
+in the first place so this time make
+sure you patch the vulnerabilities you
+edit the let's say problematic
+misconfigured
+applications might have been running in
+your systems perhaps even update the
+firewall rules or close some network
+ports if those were the cause of the
+incident now actually this is where you
+perform those security tasks that should
+have been done from the very beginning
+now if a system cannot be patched
+unfortunately what you'll be doing up to
+that point is going to be those things
+that somebody can point a finger at you
+and say well you should have been doing
+this from the very beginning
+now if a system cannot be patched
+investigate why maybe it's no longer
+supported by the vendor or it requires
+an upgrade on the underlying operating
+system now in any case don't just leave
+it unpatched and move on try to use some
+other kinds of mitigating controls maybe
+some network segmentation right to
+minimize your exposure
+finally we have the post-incident phase
+or the lessons learned phase
+after the incident it would be a shame
+to go through all that without learning
+something okay for our future
+selves
+so this is where an incident summer
+report or a lessons learned report or an
+after action report sometimes called
+will have to be written it should answer
+at least some questions here like what
+went right what went wrong what could
+have been better who attacked us was it
+someone on the inside outside or a
+combination of both
+what kind of data systems were affected
+where did it happen did it attack our
+internal resources or publicly facing
+resources
+when did it happen if it happened
+outside working hours it might help us
+identified in the future quicker this
+time how long took us to discover it how
+long took us to mitigate it and to
+repair it and to bring it back to to
+compliance how was the incident actually
+conducted or the attack actually
+conducted right what defense mechanisms
+were missing that made that attack
+possible and generally after each
+incident try to sit down and discuss why
+did this thing happen did we do
+something wrong or did we not pay enough
+attention to some systems and at this
+phase you might be tempted to start
+pointing fingers
+and it's possible to decide that
+employees are at fault right they're not
+properly educated they don't know how to
+properly secure their systems so patch
+your users okay train your users
+of course
+you have to think about your chosen
+solutions or your chosen mitigation
+techniques
+is this the best solution for a problem
+or is it just some temporary fix
+the equivalent of a duct tape or is it a
+solid security measure for the future
+right is there something else better out
+there and is it worth investing in
+now hopefully after you answer so many
+questions after the incident you will be
+able to properly update your incident
+response plan
+make the necessary changes in the
+policies
+train your personnel perform any
+additional tasks like reviewing logs
+more often performing patch management
+uh more more strictly
+also here from a legal standpoint you
+might be
+required to perform some evidence
+retention
+so if there's any kind of legal
+liability here try to document as much
+as possible and try to preserve as much
+information as possible so that it can
+further be investigated and after the
+clouds have cleared with proper analysis
+generate some new indicators of
+compromise integrate them into your
+current security solutions so that you
+won't be caught off guard next time and
+finally of course take care of reporting
+generating some reports it's important
+for your job as a security analyst
+because this is how you explain to
+non-technical audiences like management
+why
+your job is needed why your ideas and
+your findings are important why do they
+matter for the well-being of the entire
+company and try to address the reports
+according to their public right an
+executive summary might be enough for
+upper management while a more detailed
+technical report would be appreciated by
+the it manager and a detailed procedure
+would be adequate for your it networking
+and security staff right but think about
+your public think about your audience or
+in other words read the room we also
+have a pretty important topic which
+might show up on the exam called the
+ooda loop
+now instant response phases
+look nice on paper but
+they can look nice for a long period of
+time until they're actually needed that
+is because when an incident actually
+happens when you realize one dreadful
+day that you are being under attack
+right now everything becomes much more
+intense under pressure stressful
+so orienting yourself right in the
+middle of an incident or right after you
+realize that it's happening is something
+that the military inspired ooda loop can
+help you with uh start with observe
+right pay attention to the details of
+the incident
+see what's happening what is being
+affected and any points of interest then
+orient yourself figure out where you are
+what is your current state are we in the
+beginning of an attack or has it already
+happened for some time already
+then decide that's the toughest part
+what can we do right now
+what counter measures can we implement
+to minimize damage to keep the attack at
+bay or if it's too late to save anything
+start thinking about what forensic
+evidence we could gather
+finally act do something about the
+situation right implement a technical
+control disconnect something isolate
+something reconfigure something right
+the ooda loop is a loop because it
+requires constant re-evaluation of your
+decisions even more it's its purpose is
+to make you become proactive and not
+just reactive to whatever the attacker
+might be doing or even worse help you
+avoid analysis paralysis and the in
+which you simply get a mental block and
+you have no idea what to do
+there's an interesting document that i
+would like to share with you called the
+verizon data breach investigations
+reports if i'm not mistaken they're
+publishing this every year
+and it covers a lot of interesting
+information here and it also
+demonstrates the scale
+of the breaches that are happening all
+over the world and just to give you a
+couple of ideas here mentioned in this
+report
+about forty percent of attackers
+launching a successful attack managed to
+exfiltrate data within minutes the first
+minutes of the attack
+twenty percent of breaches
+took days to discover
+forty percent of breaches took months to
+discover
+only 10 of breaches were discovered
+within an hour right but we're still
+talking about a matter of minutes uh
+before the data was exfiltrated right so
+yeah assume that you won't be able to do
+everything by the book in a timely
+manner
+but
+what you can and what you should
+prioritize is
+first of all human life human safety
+preserve life and health don't forget
+this for your life and for the exam as
+well
+try to prevent the intrusion from
+continuing then try to identify if the
+intrusion you're looking at is the
+primary attack or just a decoy for
+something else happening at the same
+time
+avoid alerting the attacker if you catch
+him or her in the act don't let them
+know what you're doing don't let them
+figure out that you've caught on to them
+right
+and try to preserve as much evidence as
+needed just in case so this should be
+your list of priorities whenever you
+need to react under pressure during a
+security incident
+in real life incident responders might
+be part of a
+computer security incident response team
+right this team might work in a
+dedicated soc that's a security
+operation center or there might just be
+some cherry-picked staff members in any
+case it's very important to have a
+well-defined team to know exactly who is
+responsible for what and also to be able
+to define a single point of contact or a
+single team of contacts with the
+partners the clients the media even even
+law enforcement so talking about the
+communication plan right of course you
+you will need to have a team of people
+that are supposed to work together so
+communication is going to be essential
+now depending on the level of the
+intrusion itself of the security
+incident you might choose not to trust
+for example your internal communication
+channels like your internal voice over
+ip network or internal email or instant
+messaging so try to be creative and
+think about out-of-band communication
+channels that cannot be intercepted or
+at least cannot be affected
+by the current breach just in case they
+are now being intercepted or maliciously
+altered use the incident response team
+as a single point of contact for all the
+incident related communication right and
+even within this team
+within those team members treat
+information on a need to know basis
+perhaps not all members of the team need
+to be informed about all the incident
+details remember a security incident
+might expose very sensitive information
+but there's no reason to keep spreading
+that information to everybody simply
+because such an incident happened
+you also don't want information to start
+leaking to the press before you can
+prepare an official message just because
+some individuals happen to
+know too much
+even more keep in mind that your
+adversaries or attackers might be
+insiders or people who are already in
+contact with you or you don't want to
+give them too much information about
+what you're currently doing to mitigate
+the attack now depending on an incident
+you might also need to think about
+notifying outside parties as well
+especially if a data breach has occurred
+and the data well it's not entirely your
+own some examples of breaches when third
+parties need to be notified are data
+theft right exfiltration probably the
+most common type of breach remember that
+sometimes you will not be able to
+immediately determine if data
+exfiltration has happened or not you
+don't know if a file has been copied or
+not right you might be required to
+notify involved parties even if you just
+suspect that data theft has occurred
+also in case of insider data
+exfiltration conducted by your own
+employees
+in case of device theft or device loss
+especially if those devices hold
+confidential information in case of
+accidental data breaches if if they can
+happen due to misconfigurations like
+displaying confidential data for example
+to unauthorized users
+uh in case
+integrity and availability were affected
+during a breach which can result in the
+actual destruction of the data or of the
+system
+and or of the facility that is hosting
+that data
+so depending on the type and the breadth
+of
+of the information disclosed you may
+need to notify the public through media
+law enforcement business partners uh
+even direct clients each country has its
+own regulations regarding information
+theft so for example under gdpr in
+europe you are required to notify the
+affected parties in no more than 72
+hours since the discovery of the breach
+and coordinating response to an incident
+might require as well other departments
+so we might have to expect other
+departments to communicate with the
+incident response team including but not
+limited to senior leadership because
+they have to know how the incident
+affects the business in order to make
+further decisions
+then we should address the legal
+department for legal exposure compliance
+breaches perhaps or reporting even
+criminal activity to law enforcement if
+necessary or dealing with sensitive
+information exposure
+the iit or the networking department
+since they maintain the infrastructure
+affected by the incident and they're the
+first ones that can actually provide
+valuable insight into what actually
+happened that's where the information is
+going to be coming from think about hr
+human resources for people involved in
+the incident especially if personally
+identifiable information pii was
+involved in the breach also because
+there might be contracts or slas that
+have been breached hr is also expected
+to inform the rest of the employees
+about the incident and how it affects
+them after the incident is still going
+to be hr's job to ensure that training
+programs are conducted so that the risk
+of a similar incident in the future can
+be well at least minimized also you know
+some guilty people might need to be
+punished sorry disciplined
+fired warned eliminated from the secret
+santa group this year so hr should
+handle this as well even marketing or pr
+should be involved as the incident
+affected clients and partners and you
+want to be in control when you share
+the great news with them wow some
+regulations actually make this
+communication to the public mandatory so
+you should expect that most security
+incidents will come with uh bad
+publicity anyway so if you cannot avoid
+it at least you know keep it under
+control and as most security incidents
+address data let's see a couple of the
+relevant types of data that might be
+included or involved in a security
+incident starting with pii right
+personally identifiable confirmation
+that's data that can be used to identify
+a person this includes things like the
+full name the date of birth the address
+uh social security number or any other
+national identifier
+biometric data perhaps even data that
+might be linked to a person like an ip
+address or a gps location that also can
+be considered part of pii depending on
+where you live different legislation
+applies and different legislation
+handles pii but usually it's it's not
+free for all anywhere in the world we
+also have sensitive personal information
+this doesn't identify necessarily a
+person but it's information linked to a
+person it can bring a prejudice of
+opinion for example a person's
+religious orientation political
+orientation it's ethnicity
+sexual orientation personal life
+relationships genetic data and so on
+things that you usually don't want the
+public to know personal health
+information or protected health
+information is an information that
+refers to medical records lab test
+results medical insurance and so on
+hipaa defines how to properly handle and
+store medical information
+financial information is about you know
+bank accounts investment accounts how
+much money you have your credit card
+information how much bad debt you have
+or even uh even tax forms the pci dss
+defines how to safely handle uh this
+type of data when it comes to credit
+card payments operated by a commercial
+entity like an online store
+intellectual property is any type of
+information that is created by a company
+usually in relation to something that
+the company
+produces and sells this also covers
+copyrights patents and trademarks
+so ip must be protected to maintain
+market or financial advantages but in
+some cases it should also be protected
+for national security reasons a
+corporate information might not be
+exactly protected like ip
+but might still represent sensitive
+information like you know business plans
+list of customers product development
+plans
+financial operations you know contracts
+uh
+salaries in your company and so on now
+this type of information must be
+protected against public disclosure and
+also from reaching competitors eyes
+right financial information and future
+plans must be protected as they can be
+used to influence
+stock prices as well now internal
+procedures inside of a company might
+represent useful information to an
+attacker as well especially one that
+intends to use social engineering
+techniques so protect those as well and
+finally we have high value assets this
+is critical information systems critical
+means that if either the c the i or the
+a are affected or completely compromised
+the business is going to face a
+dangerously high risk or even going out
+of business so hva must be prioritized
+during incident response and in general
+considered anytime something within the
+company needs to be prioritized have a
+look over this link to understand
+exactly what those high value assets are
+and how to secure them finally this kind
+of makes a lot of sense but let me just
+put this here if you have an instant
+response plan well documented don't
+forget to train your people right train
+the people involved or even conduct
+security training for all your employees
+regardless if they are part of the ir
+team or not
+properly trained users can avoid a lot
+of the threats out there and not just
+technical training but also train them
+against social engineering phishing
+attacks train them to properly use the
+security measures at their disposal and
+secondly test your incident response
+plan testing can range from easy to and
+cheap too difficult and expensive and
+can include things such as a table top
+exercises where the incident response
+team pretends to have a security
+incident and runs through the stages
+just to check that everyone knows what
+to do it's kind of like a dungeons and
+dragons or every boardroom game right
+you really have to put some effort into
+it to make it useful now another type of
+test is penetration testing we talked
+about this as well where an actual team
+called red team dresses up like hackers
+with glasses and hoodies no kidding they
+just act like hackers and attempt to
+well penetrate your systems your network
+on the other side a blue team attempts
+to to fight them keep them out of your
+network and there are many variations to
+this for example having a white team
+made up of people who observe the
+exercise or the red team acting without
+the knowledge of the blue one taking
+them away by surprise right or having
+various level of knowledge before
+attacking such as
+we can have a black box penetration test
+where the attacker has no knowledge at
+all red team must go through all the
+stages of an attack a gray box approach
+this one is performed with partial
+knowledge kind of similar to what a
+non-technical insider employee would
+know or a white box approach where the
+red team knows everything about the
+system they're trying to attack to
+exploit and
+all the security measures in place kind
+of like similar to the knowledge an
+internal technical person would have
+and don't forget about rules of
+engagement for any penetration testing
+exercise remember that you are actually
+attempting to break some defenses and in
+the course of doing so you might crash
+some systems you might cause some
+downtime you might involve some unaware
+employees or
+gain access to some sensitive
+information which might get exposed so
+it's crucial to have a clear
+understanding of what is and what is not
+allowed during such an exercise now
+these agreements are called after the
+military term rules of engagement and
+this document right here as an example
+and this document right here is an
+example of best practice guide for pen
+testing and can be found in nist's
+publication 800-150
+well this time i'm going to thank you
+for watching but i'm not going to bore
+you again with all the topics that we
+just covered what i'm going to do is
+thank you so much for watching because
+this is the end of the cysoplus training
+if you reach this point congratulations
+and i really hope you found this content
+useful and it was a good investment of
+your time spent on youtube i'd like to
+thank you so much for
+liking for subscribing to this channel
+for encouraging me to create more
+content such as this
+so see you next time
+on the next certification bye bye
+[Music]
+[Music]
+[Music]
+[Music]
+you

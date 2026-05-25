@@ -1,0 +1,753 @@
+[Music]
+so keeping track of what happens inside
+of your network by monitoring and
+logging the important stuff is is a good
+thing we know this already but there are
+situations in which regardless of how
+well you log and monitor everything that
+happens inside of your network any
+single event
+will not be enough to determine that a
+security incident has happened now take
+take this example a random syslog entry
+that says that on a certain day my badge
+was used to enter some company office
+take another random syslog entry that
+says that i successfully connected on a
+certain day over the vpn from some other
+city
+they are both valid events they do not
+raise any alarms on their own nothing to
+worry about
+well what if both happen within a time
+interval of 5 minutes now that is a
+security incident and that's a security
+incident which you cannot determine just
+by looking at any single event
+you have to look at things in
+perspective
+so this sort of event correlation if you
+have the budget for it is usually done
+through a solution called a seam which
+stands for security information and
+event management
+so what is the theme actually well there
+is a lot of effort involved in gathering
+information or intelligence you know
+choosing what's relevant collecting it
+transforming it into a consistent form
+aggregating information from multiple
+data sources and then trying to make
+sense of it looking for patterns of
+security incidents and then doing
+something about it
+it's a lot of work and it takes a lot of
+time and time is
+the one resource that we don't really
+have information
+loses its relevance its value over time
+so what does the seam do well it kind of
+saves the day of course because it's
+able to automate
+pretty much everything that we just
+covered so a theme is going to be a
+centralized location for logs and alerts
+so then all your devices in your network
+should send their logs towards this cm
+device carefully only those logs that
+make sense from a security perspective
+at least remember that the seam might
+not be the right tool for archiving all
+your events or your logs as well so
+don't just dump everything on it and
+expect miracles it also does log
+analysis which most likely is going to
+involve some sort of machine learning
+algorithms this means that the seam is
+going to learn create some bass lines
+which in turn is going to use them in
+the future to detect patterns and then
+deviations from those patterns
+and correlation of logs from many places
+that usually cannot be correlated easily
+because they belong to different areas
+for example correlating logs generated
+by your applications with logs generated
+by your networking devices and perhaps
+even i don't know building access logs
+or vpn logs and very important here and
+this is actually a topic that we'll be
+covering later on as well
+a seam has to perform something called
+the normalization that is since it is
+some sort of device or solution that
+gathers information from so many
+different places well that information
+is most likely not going to look exactly
+the same when it comes from different
+vendors or different types of solutions
+normalization means making those logs
+making those events somehow match a
+consistent pattern so that they can all
+be queried at once so basically the
+theme becomes some sort of a solution
+that provides you with a high level
+overview of everything that is going on
+from a security perspective in your
+inner network
+and as far as the seam solutions out
+there that you can access there are a
+lot of them just to mention a couple of
+these uh splunk is one of the well-known
+seam solutions out there with many
+licensing and
+the methods arcsight another very well
+known security solution which also has
+the ability to check compliance or to
+alert you if you go out of compliance
+for the requirements of things like
+hipaa pci dss socks and so on
+elk or the elastic stack which is
+actually a set of tools working
+alongside each other and the elk acronym
+by the way means elastic search for
+querying and indexing log stash for
+collecting and normalizing logs
+and we'll explain normalization in a few
+seconds and kibana a component for
+drawing nice dashboards and you know
+presenting data in a readable format
+beats are additional components which
+can act as log collection agents
+installed on the endpoints ibm curator
+also worth mentioning alien vault os sim
+is an open source alternative to
+commercial scene products and it's free
+of course alienvault does have a
+commercial scene product as well and
+finally greylock also has an open source
+version as well as a subscription-based
+one
+all right so let's try to understand how
+the scene business works because
+nobody's gonna be so naive to think that
+a seam is just a black box where you can
+dump all your logs and information and
+then security intelligence just
+magically comes out out of it
+so in order for a seam to work properly
+we need to set it up properly first so
+the seam is just another box that will
+be generating security alerts and one of
+the first questions that we should
+answer is are those alerts valid or are
+they false positives
+and second question is the scene
+properly configured so that it actually
+provides valid alerts
+when they happen
+or is it ignoring without us even
+knowing the important stuff those are
+going to be false negatives real
+security incidents that get ignored and
+well sim alerts should be fired for
+specific use cases which is a specific
+condition a set of events that has some
+security significance like uh suspicious
+logons or a series of suspicious logons
+suspicious traffic
+suspicious use of privileged accounts
+and so on and such a use case is defined
+by the actual data sources like the logs
+or the alerts or the network traffic
+then a query string that correlates them
+for example events happening close in
+time or generated by the same user or
+different devices
+and the action triggered by that event
+now when such a use case is matched in
+real life conditions a theme should at
+least capture the following when the
+event started or when the event was
+stopped
+who was involved was it a person was it
+a device and
+ideally some sort of information that
+helps us uniquely identify that person
+or that device what exactly happened
+where it happened as in which devices
+generated the information
+and where the event actually originated
+as in was it a login attempt from the
+insider company was it a login item from
+the outside of the company internal
+outside vpn
+uh public network and so on so for a
+seam solution to work properly it needs
+a bunch of information so it needs to
+collect data
+uh and this can be done in number of
+ways first of all we have agents
+on hosts now each host can run a small
+piece of software from the scene
+manufacturer that runs as an agent or a
+plugin that collects information from
+that host and then sends it back to the
+same appliance
+we can also have listeners or collectors
+which instead of installing an agent on
+the host you might be able to configure
+the host or the monitor device to send
+or push its updates directly to the
+theme appliance using some standardized
+method or protocol like syslog or snmp
+for example or even netflow
+for sending traffic summaries about what
+kind of traffic was detected on that on
+that specific host or if nothing else
+works and we don't have any other kind
+of solution we can also rely on sensors
+and when we say sensors we're basically
+referring to network traffic sensors so
+actual devices virtual or physical that
+can
+intercept network traffic and
+generate some statistics based on it in
+hardware that is going to be performed
+using the span functionality on a switch
+or port mirroring depending on the
+vendor terminology or a tap
+a test access port and on the topic of
+normalization before you can start
+looking for security events inside of
+your sim solution
+from your entire infrastructure you
+should have all those events in a
+consistent format and to be able to
+search and to find something in that
+information it should be nicely
+organized in some sort of a database and
+all those events they kind of have to
+look the same or we have to make them
+look the same in order to be able to
+query them all at the same time and
+since we have hundreds of vendors and
+thousands of products and versions
+ranging from applications to networking
+devices to network appliances servers
+endpoints physical security systems and
+whatnot
+information coming from all these
+sources doesn't exactly look the same
+by default for example some vendors
+generate logs in binary format others
+generate them in csvs like comma
+separated value files or tsps tab
+separated value files
+some presenter contents in json or xml
+some might even use some different type
+of character encoding or even small
+differences like the the new line
+characters that are being used to like
+the differences between the new line
+characters between
+windows and linux not to mention the
+snmp information the mibs the management
+information base the databases inside of
+the snmp systems which is completely
+different altogether from one vendor to
+the next so a theme is going to try to
+unify these data formats and data
+structures using some plugins that read
+these various types of course plugins
+that were generated specifically for
+those vendors and they try to convert
+these types to a unified format which
+matches the the database and the
+querying formats of the internal sim
+database
+now this process is called normalization
+and don't forget about a clock as well
+because your devices might not have
+their clocks perfectly in sync or they
+might be set up on different time zones
+simply because
+nobody cared about the time zone
+timing is very important when
+correlating information because proper
+clock setup involves configuring your
+devices to use ntp network time protocol
+or you can even rewrite the event
+timestamps on the theme itself when you
+receive those events or when you
+normalize those events as you receive
+them to make sure that they are all
+consistent
+so when you query for a bunch of events
+generated by a bunch of vendors and
+appliances you can be sure that you will
+be getting as a result all those events
+that happened in the same time span so
+hopefully by now we collected only the
+relevant data all right we have
+normalized it into a consistent format
+now let's try to read the benefits
+and
+the first type of analysis and detection
+that we can perform the simplest type of
+correlation is to look for specific
+matches or signatures in your data in a
+some sort of an if then else scenario
+now if you're just looking for
+information based on some static rules
+it's going to be fast it's going to be
+deterministic it's going to be
+completely useless for unknown threats
+because undocumented attacks zero data
+attacks or any unknown ttps will
+be completely ignored now it doesn't
+mean that this method has to be ignored
+altogether though now the second
+simplest form of correlation is to use
+the same rules and matches but apply an
+heuristic algorithm to determine not
+just if a specific set of data points
+matches your if-then-else scenarios but
+also if they are similar enough to
+closely match your if-then-else
+scenarios not exactly but close by
+analyzing these past incidents and past
+results
+to this kind of heuristic fuzzy matching
+and learning from them brings us to
+machine learning using machine learning
+i seem can start from a
+fixed rule and then further refine it
+with every similar incident that is
+detected in the past thus your rules can
+become smarter and more finely tuned
+with each match to better match your
+environment and the potential threats
+another way for a scene to decide if an
+event is secured incident or not is to
+perform something called a behavioral
+analysis now this method is going to
+rely on building a a profile a a
+baseline or in other words defining what
+normal looks like for us for our network
+for a company now of course it doesn't
+really have to continuously record
+everything that is happening inside of
+the network but it can build a
+statistical model of what the baseline
+looks like now human interventions with
+slight tweaks that you know tell the
+system which is a false positive and
+which was a false negative helps us a
+lot with this initial baseline
+definition so it does require a bit of
+manual tuning anomaly analysis this one
+is about looking for the expected
+outcome or the expected behavior of a
+specific protocol or application
+this only works in environments where
+very strict rules can be enforced and
+where very strict rules have been
+established for example looking at the
+network traffic by validating any
+deviation
+from a protocol's rfc the request for
+comment document that specifies how a
+protocol should behave
+so any any deviation from an rfc might
+be indicator of an attack or an exploit
+even if you don't have an explicit
+signature which is matching that attack
+finally trend analysis this one helps
+you detect security events by looking at
+the historical patterns and using them
+to predict what the future might look
+like well if you if you trust your
+predictions of course
+but the future doesn't match them you
+might have a security incident on your
+hands
+again regardless of what the the
+commercial vendors out there
+would want you to believe the seam is
+not a magic black box that does your
+entire job for you it will have some out
+of the box correlations predefined rules
+predefined or sets of rules that will
+match at least a predefined list of
+vendors and events but at some point you
+will need to be able to customize at
+least some of those rules because your
+own environment is unique it's it's
+unlike any other out there so a sim rule
+is going to be basically just a
+statement that matches
+certain conditions
+by a number of parameters such as
+numerical values you know greater than
+equals less than and so on a string
+comparison
+just checking whether a specific string
+appears in an event or if a specific
+type of event by its name is identified
+within a time frame
+we can check for set membership as in do
+we get any type of events that belong to
+any specific category or do we get any
+type of events from devices that belong
+to a specific category and of course we
+can mix and match these results we can
+combine them especially since we are
+actually extracting information from
+multiple sources at the same time so in
+most cases these queries in style inside
+of the sim system will look very similar
+to what an sql query looks like like
+select something from a specific data
+set where a condition is matched uh sort
+by filter by and so on so it's going to
+look very similar to sql even though
+it's not exactly going to be sql in
+there
+and sometimes just sometimes
+even within the same system or even in
+the absence of a sim system some
+manual skills for searching for text
+information for searching for strings is
+going to be extremely valuable because
+all that information is basically going
+to be stored inside of a text file or in
+some sort of a text database and it
+doesn't really matter if you're looking
+inside of a huge log file or within the
+the same
+collection of log files the text
+searching methods are pretty much going
+to be the same so one very
+useful skill that
+you should
+develop at some point in life if you
+keep working in it if you keep working
+and interacting with
+with systems any kind of system like
+virtual machine clouds on-prem system
+doesn't matter which and that skill is
+to
+become at least a bit familiar with
+regular expressions now i'm not going to
+lie to you the exam might also ask you
+to interpret the result or the the
+truth value of evaluating a a regular
+expression but it's not going to be
+something very complicated so i would
+strongly suggest that you at least
+understand and remember uh these types
+of matching elements which you can see
+here on the screen for understanding how
+regular expressions work now of course
+this is not a a full tutorial for
+regular expressions i would advise you
+to search for a regex cheat sheet or
+something like this on google and it's
+it's going to provide you much more
+information you see that regular
+expressions can become really complex
+but you don't really need to go that far
+at least for the size of less exam
+here's a very useful website which you
+can use not to just discover but also
+test regular expressions with a lot of
+explanations
+right we can test your strengths right
+here in the middle you're gonna get an
+explanation here and how that regular
+expression actually was used uh to match
+the contents in your in your text input
+have a look over in the lower right hand
+corner as well for a quick reference of
+all regular expression tokens or at
+least the common ones
+uh make sure you understand how to match
+a specific word how to match the
+beginning of a string the end of the
+string how to match digits or an exact
+number of a specific character right not
+so complicated actually but it does
+require a bit of getting used to
+now let's not forget that we also have
+some powerful command line utilities
+that we can use to perform log analysis
+and string searching one of them is the
+grep utility this one comes with most
+linux distributions out there and it's a
+very powerful and quick tool for regular
+expression matching now we can even use
+it for example to quickly find all the
+occurrences of an ip address within a
+log file right it's going to look like
+this
+now as i said grep is very powerful and
+its power relies on the fact that it
+supports regular expressions but you can
+also
+use some some smart switches here that
+can help you when you're drilling
+through a number of log files looking
+for some specific information for
+example the dash i parameter here is
+going to ignore case so it's going to
+make your search case insensitive
+dash w will force the match to return
+only whole words
+dash v might be useful to select only
+non-matching lines so it's a way to
+invert the match to return only those
+lines that don't match a specific
+condition
+dash l it's useful to print the file
+names of any files that match your given
+search string especially if you're
+looking through a whole bunch of logs
+maybe hundred thousands of log files it
+might be useful first to identify which
+files uh present some interesting
+information and which don't
+another useful one is displaying the
+count please only a count of the
+matching lines per file just to see how
+many times a specific entry like an ip
+address shows up inside a log file so
+you can see that combining all these
+features here actually provides you with
+a lot of powerful searching tools out
+there you just need to have and those
+logs readily available and
+you can actually perform some log
+analysis without a dedicated team right
+for free using rep
+now if you look inside of log file you
+might notice that there are some
+specific fields that repeat
+on every line right like we have a
+timestamp we have a source a a facility
+the engine that generated the log the
+log contents and so on now you might be
+only interested in a specific field from
+these logs now we can use for this the
+cut utility which can perform a number
+of selections as to which part of the
+output you are actually interested in so
+it's going to filter everything else out
+now you can choose to to return only a
+specific character or to specify a
+delimiter in our case it's going to be
+the colon delimiter and then tell it
+which field number you're interested in
+now let's have a look again at the at
+the file that we just saw right so if we
+choose the colon here
+right which shows up here here and here
+right if we choose this as a delimiter
+and if we're interested in the actual
+contents
+of the log message then we should be uh
+choosing not the first
+item here from the first delimiter not
+the second not the third
+but the fourth one right this is going
+to be the fourth field delimited by the
+colon right so let's exit this
+and run a cut
+which is going to present us with an
+output like this right so we can see
+we're not seeing the timestamps not
+seeing the facilities anymore but we're
+basically just receiving the contents of
+the of the log message
+so that's the cut utility we also have
+the sort command which does exactly what
+it says receives an input and returns
+the sorted output of that input now in
+case of our log file here most of the
+time this log file is going to be by
+default sorted by its timestamp but you
+can choose a specific field and perhaps
+sort by that specific field like i don't
+know maybe ip addresses if that's
+relevant to you we can also perform a
+reverse sort which is going to revert
+the entries in this log file let's
+output this into another file rev.log
+and then let's have a look inside this
+this output now you can see here on the
+left hand side that it starts from june
+30 22 hours and goes down to 20 hours
+and so on right so it's
+so it reverse sorted alphabetically
+these these timestamps now the result
+here is now going to be sorted
+by the first character alphabetically
+now in this case it's not really
+relevant because the first character
+actually belongs to the the month of the
+year so
+it's alphabetically sorting months
+doesn't really make sense right but it
+does show you how a a sort command can
+be useful uh especially with specific
+fields and sorting information inside
+log files another useful method is
+piping which can be used to provide the
+output of one command as an input to
+another this can be used to change
+different commands with interesting
+results for example we can start from a
+simple graph here that looks for the
+connection from string so any initiated
+connection that shows up in those
+syslogs all right we're looking for
+inside of this log file then we're
+piping using the pipe character to the
+cut command now we're going to use the
+delimiter of space and we're going to
+select the eighth field now in those
+specific log entries which uh which
+describe an active connection that was
+in initiated the eighth field is
+actually the ip address from which the
+connection was initiated right now
+without this piece right here
+we would simply get a list of ip
+addresses now we can also pipe this one
+more time
+to the source command right the sort
+command as i said can also choose to to
+sort by a specific field in this case
+the delimiter is going to be the dot
+right because ip addresses are actually
+they only have dots as their delimiters
+and then we're going to select the
+second field in our case that's going to
+be the second octet so let's say that we
+want to sort these ip addresses by their
+second octet just press enter here and
+as you can see here they all end up with
+95 but above we're going to see ip
+addresses with 94 83
+and so on 74 right in the second octet
+so we do have a sorted list of all the
+ip addresses involved in successful
+connections
+uh in our log file and two additional uh
+very useful commands that can be used to
+quickly peek inside of your log files
+are head and tail now head is going to
+show you by default the first 10 lines
+of a file the first in lines of a file
+while tail is going to show you by
+default you guessed it the last 10 lines
+of a file depending on how those log
+files are generated or what exactly are
+you
+trying to to determine right these are
+some very useful and quick commands that
+can show you some quick results now if
+you want to see more or less than 10
+lines for both commands we can check for
+the dash n or dash dash lines parameter
+so it's going to look something like
+this
+with tail
+dash n let's say five
+right we're only going to see the last
+five lines within that log file
+now generally you will not be using
+these commands by themselves other than
+for testing purposes or for some quick
+insight so they will most likely be part
+of larger and more complex scripts when
+it comes to scripting bash is the
+default scripting language and the
+command shell for a link system the
+tools we mentioned before are already
+built into or accessible by bash on most
+systems just like a programming language
+bash supports additional functionality
+such as variables
+loops and functions and finally awk or
+g-ark it's another scripting language
+aimed at extracting data from files or
+data streams it's useful when you need
+to sanitize some input and prepare it
+for further analysis
+here for example is the command that is
+going to list all the usernames within
+the etsy password file
+now windows allows you to
+programmatically extract information
+from the event log using wmac that is
+windows management instrumentation
+command line
+here's an example it's gonna take a
+couple of seconds here before we receive
+the result and as you can see we've
+queried the log file called security so
+we're only looking inside security logs
+and looking for event types number five
+event type number five means audit
+failure we're going to get the source
+name the time when it was generated in
+the actual message and you can see the
+result right here right it's not the
+most user-friendly output out there but
+it's also a programmatic way of
+accessing the event log
+which by the way can still be accessed
+graphically by using the event viewer
+right and this is the security log that
+we just saw before
+of course in windows we also have
+powershell with a lot more functionality
+than the traditional command line in
+this case we have the get event log
+command let in which we are just looking
+for the last five log entries
+within the security log right then we're
+going to display on the screen just the
+time this time stamp when the log was
+generated and the actual message
+right actually a lot of things to talk
+about when it comes to some simple log
+entries so remember what a seam does how
+it does it and what are the
+prerequisites like tuning and trying to
+avoid false positives and false
+negatives
+remember what is correlation remember
+that we talked about normalization make
+sure you can define those and also you
+might be surprised that the exam is
+going to expect you to be familiar and
+know some of the command line utilities
+that we just covered so make sure you
+understand at least
+what they do on a very high level you
+don't need to know all these switches
+and all the parameters for each and
+every one of them but you should be able
+to
+determine at least approximately what a
+given command does and to be able to
+select the right output
+from the exam answers all right so thank
+you so much for watching see you next
+time when we're going to be talking
+about malware analysis if you found this
+useful like and subscribe and see you
+next time bye
+you

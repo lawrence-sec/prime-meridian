@@ -1,0 +1,137 @@
+if an organization has created a
+disaster recovery plan then they also
+need to test to be sure that they can
+execute on that plan recovery testing is
+usually something that's done on a
+regular basis so that everyone
+understands the process and procedures
+that take place if an actual disaster is
+called this recovery testing generally
+has a very specific scope and we want to
+be sure that anything we do will not be
+affecting the actual production systems
+usually there is a specific scenario
+that we would need to run through to
+recover and we would have a time frame
+already set aside to be able to perform
+the testing and once the test is done
+we'll need to evaluate how we perform
+for this particular kind of scenario and
+then make any changes to our recovery
+plan for the next test the problem with
+recovery testing is that it can be
+relatively involved and expensive to
+move everyone to a particular recovery
+site and build out a complete
+infrastructure only for a test one one
+way that you can minimize these costs is
+to go through the steps as if you were
+actually doing them this is referred to
+as a tabletop exercise and allows us to
+go through the steps that we've already
+outlined for a recovery system in a
+group of other people around a table
+toop this way we can work through all of
+the steps of our disaster recovery and
+work with other people in the
+organization to be assured that what
+we're doing works perfectly with their
+recovery plans as well and all this is
+not an actual recovery it does allow you
+to look at the logistics that you've set
+aside for any real recovery exercises
+and if there are any shortcomings or
+anything that you've missed in your
+existing recovery plans you can often
+identify those during the tabletop
+exercise another good recovery test is a
+failover test we would use this test to
+see if our redundant configurations are
+able to switch over if there happens to
+be a failure in an ideal failover test
+the failover would happen automatically
+users would be redirected behind the
+scenes to the appropriate resources and
+they would have no idea that they were
+now running on the backup systems for
+this to work properly we would need
+redundant systems to be able to perform
+the failover these could be multiple
+switches firewalls routers and anything
+else that might fail in your
+infrastructure many devices are already
+configured with the ability to fail over
+there are routers firewalls and switches
+that have failover functionality built
+into the software of those devices we
+might also be able to use protocols or
+processes that can also provide for some
+level of failover here's a diagram that
+describes how failover could be designed
+in an infrastructure we might have
+multiple internet connections from
+different providers those are connected
+to different routers inside of our
+organization which of course connects to
+redundant firewalls we would also have
+multiple switches and on the back end we
+might have multiple links from the
+individual servers if we do have a break
+in the link for our primary connection
+because a switch a firewall or router
+was to fail we've always got a secondary
+link that we could use to gain access
+out to the internet we could even extend
+this engineering of a failover by adding
+load balancers with multiple servers for
+each of these individual
+connections we might also want to test
+our security with simulations this might
+be a simulation of a fishing attack
+maybe a password reset process or maybe
+we try removing data from the network to
+see if it's identified by our automated
+systems a simulation that many users are
+accustomed to are fishing simulations we
+spend a lot of time training our users
+not to click links inside of email
+messages but there's only one way to
+tell if they would click a link if it
+was presented to them and that's by
+performing a fishing simulation we would
+create a fishing email attack that's
+probably something that would be
+interesting for our users and we would
+send that message message to everyone in
+the company then we would sit back watch
+our monitoring systems and see if we can
+find someone clicking those links inside
+of the email message the first test of
+this is to see if our internal automated
+systems can even detect that that's a
+fishing email and if that email does
+make it to the users we can see who
+clicked on the email and perhaps will'll
+need to assign additional training to
+those users another way to provide
+additional recovery options is by using
+parallel processing this allows us to
+have multi mle CPUs or processes that
+can be used simultaneously to process
+transactions this could be a single
+device that has multiple cores inside of
+it or we may be using an infrastructure
+with multiple computers to provide this
+parallel processing so instead of having
+a single CPU that's handling a large
+number of complex transactions we can
+spread those transactions across
+multiple CPUs and that would allow us to
+complete those transactions much more
+efficiently this also provides a level
+of resiliency if one of those processors
+happens to become unavailable we can
+still spread the load across the
+remaining processors in our parallel
+processing
+infrastructure

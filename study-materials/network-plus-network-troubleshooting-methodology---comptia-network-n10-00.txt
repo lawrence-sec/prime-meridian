@@ -1,0 +1,220 @@
+when you work with networks there will
+be problems that need to be resolved and
+issues that will need troubleshooting
+and in this video we'll look at a
+flowchart that takes you through the
+process of how you can troubleshoot
+different aspects of your network this
+is a highlevel overview and the idea is
+to apply these Concepts to any problem
+that you might run into in the field we
+start with identifying the problem
+understanding where the issue really is
+associated with this particular problem
+and then we need to establish theories
+test those theories and evaluate the
+results of those theories we can then
+establish a plan of action implement the
+plan verify full system functionality
+and document our findings for the first
+phase where we are identifying what the
+problem really is it might be very
+obvious you might walk up and there is a
+cable along the floor that is in two
+pieces that's an easy one to determine
+where the problem happens to be but
+often the issue is not quite so cut and
+dry and you might want to see if you've
+really found the problem by attempting
+to duplicate the issue one of the best
+places to go for more information is the
+users themselves what are they
+experiencing what have they seen
+associated with this problem those
+experiences can be combined with the
+statistics and metrics that you're
+Gathering from your routers and your
+switches to try to build a better view
+of what the problem actually is we often
+think of these problems as having a
+single symptom that we need to solve but
+in reality there might be multiple
+symptoms working together that are
+causing this particular issue one of the
+questions we should often ask ourself is
+what has changed from this configuration
+today to the one we were using yesterday
+is someone in the wiring closet is
+moving cables around is there a
+particular system that has been powered
+off did we make changes to a
+configuration in the meantime all of
+these questions need to be considered to
+help understand what the problem might
+actually be many Network professionals
+will build a lab where they can attempt
+to duplicate the problem if they can
+duplicate the problem then it's easier
+to find the root cause and ultimately
+resolve the issue and if the scope of a
+problem is too large you may want to
+break it into smaller pieces and take
+one unit at a time or one component at a
+time to try to determine where the
+problem is really
+happening now that we've gathered all of
+this information about the problem
+itself it's time to start creating
+theories of what could possibly be
+caused ing this issue we usually want to
+start with obvious problems and problems
+that can be solved very quickly is the
+issue related to a cable we can swap a
+cable and see if that changes the issue
+often though the problem is more complex
+and we need to dive into the specifics
+to really understand where the probable
+cause might be we might want to start
+with a top- down approach from the
+perspective of the OSI model so we would
+start with an application and work our
+way down into the network or maybe this
+is a new network implementation and we
+would prefer working from the bottom up
+you might want to verify the network is
+working properly and then move towards
+the application and if you can eliminate
+different aspects of the environment you
+might simplify the troubleshooting
+process if the issue appears in one
+operating system and it also appears in
+a different operating system then the
+problem obviously is not directly
+associated with the operating system now
+that we have a theory of what we think
+the probable cause might be let's let's
+put together a series of steps where we
+can test this Theory to see if it really
+might be the cause of the issue for
+example we may have a theory that the
+problem is associated with a
+configuration so in our lab we might
+change that configuration and evaluate
+the change did this change have a
+positive effect and effectively solve
+the problem or does the problem still
+exist if making that configuration
+change did not solve the problem then
+it's not fixed yet we can go back and
+establish a new theory of what we think
+the issue might
+be let's say that we have finally
+identified the configuration change that
+is going to solve this issue for
+everyone in our production environment
+now we have to come up with a plan of
+how we're going to implement that change
+into the existing production systems
+with some organizations and some types
+of changes you can make some updates
+during the day to help resolve that
+issue but many times the production
+Network cannot be touched during the day
+and you have to schedule change control
+to make any significant changes and of
+course if we're going to be making any
+changes to our production environment we
+need to be prepared for anything so we
+want to have a plan that we're going to
+use to put this change into effect and
+if we run into problems we'll need a
+plan B and if that runs into problems we
+might even need a plan C and of course
+if you're following the normal Change
+Control process there's probably also a
+roll back process just in case you need
+to go back to the way things were before
+you even
+started so now we've identified what we
+believe will fix the issue we've gone
+through the Change Control process and
+we've gotten some time during the day
+that we can make this particular change
+now it's time to implement the fix into
+our production environment usually
+during the Change Control window that
+was assigned to us and in some companies
+the folks that implement the change are
+different than the folks that determine
+what change needs to be made so you
+might have a troubleshooting team that
+determines what needs to be changed and
+that change is then handed off to the
+operations team team to make the actual
+change although we've had this in our
+lab and we made the appropriate changes
+and we believe those changes will
+resolve this problem it's never
+confirmed until we can get users to make
+sure that the problem they saw before is
+really now resolved we need to verify
+full system functionality and often this
+involves the enduser or the folks that
+identified the problem to begin with
+this might also be a good time to sit
+down with those users and talk about
+ways that we could prevent the this
+problem from occurring in the future
+they might have ideas of things that
+might help them work better and you
+might have ideas of how you could
+prevent this from a technology
+perspective and of course nothing is
+finished until it's documented we need
+to be sure that we are not only
+documenting the process we followed but
+we need to identify what change we made
+that resolved this issue this way if we
+happen to run into this issue a year
+from now we can refer back to our
+documentation to see exactly what we did
+to resolve this problem in many cases
+there's a help desk database or
+knowledge base where we can store this
+information search through those details
+and hopefully a year from now we'll be
+able to easily find and reference this
+information that we work so hard on
+today so that's the troubleshooting
+process we need to identify the problem
+which involves gathering information
+symptoms talking to users and
+determining if anything in our Network
+may have changed we then need to
+establish a theory on what we think is
+really causing this problem of course
+the only way to tell if our theory is
+correct is to put it to the test so we
+might go to the lab make those
+configuration changes and see if they
+had any effect on the problem that we're
+seeing if that theory did not fix the
+problem we can go back to a stablishing
+a theory and go through the process
+again once we've identified the fix in
+the lab we now need to put together a
+plan of how we're going to implement
+this in our production Network we would
+then get a change control window
+implement this into our prod production
+Network and then have our users test the
+fix to see if it really resolved the
+problem and of course we need to
+document this entire process so that
+ourselves or someone else can use what
+we did today if this problem happens to
+occur tomorrow that's our
+troubleshooting process hopefully that's
+given you some ideas of how you can make
+your troubleshooting process go as
+smoothly as possible

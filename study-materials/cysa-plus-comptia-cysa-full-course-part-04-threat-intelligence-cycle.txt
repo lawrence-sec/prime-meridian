@@ -1,0 +1,235 @@
+It's always difficult to begin talking
+about something completely new. You have
+to be very careful where you begin
+because things have to start making
+sense as soon as possible. Otherwise, I
+risk losing you, my audience, and I
+don't want that. So, I actually thought
+about this for a while and I thought
+that there is one thing about security
+that has always been a priority probably
+ever since the first human being told a
+secret to another human being. It's all
+about information. And since we're all
+cool people with technology and cyber
+security, we're not going to just call
+it information. We're going to call it
+intelligence.
+[Music]
+The intelligence cycle. It's a concept,
+an approach. It's pretty abstract at
+first sight, kind of like those things
+that you just have to learn for an exam
+and then instantly forget. But its
+purpose is to fill the knowledge gaps
+and establish a well structured set of
+information that you can use to make
+smart decisions about security. For
+example, to decide what firewall to buy,
+where to deploy it, which systems you
+need to patch, stuff like that. And the
+threat intelligence cycle helps you make
+these informed decisions based on your
+security vulnerabilities. what threats
+are out there and even some historical
+information and it's not just about
+gathering information but also about
+analyzing it and then putting it to good
+use. So this cycle is about determining
+the right steps you need to take in
+order to defend yourself. So let's have
+a look at each of these phases.
+The first phase planning and
+requirements it's all about answering
+the question why are we doing it? What
+is our goal? So from the very beginning
+it's very important to be aligned with
+business requirements because if some
+security effort is not relevant to our
+business then it's not going to happen.
+So why waste everyone's time? Also this
+is where you take into consideration any
+legal restrictions, obligations or
+regulations that might be in place
+depending on where your organization is
+located and its uh field of business.
+Sometimes you find yourself in the
+position where this entire cycle happens
+precisely because it's mandatory by law.
+Then as a highle overview, we need to
+decide as much as we can at this stage.
+What are the most likely threats that we
+are facing? Who might do us harm? And
+for what reasons, what enemies do we
+have? Okay, this might be a bit too
+much, but you get the idea. And if we
+manage to answer a few of these
+questions, then we have to think about
+how might they do us harm. So the
+planning and requirements phase, it's
+all about having a starting point. Next
+comes the collection and processing
+phase. So before we can brag about
+having a great deal of security
+intelligence, we need some raw
+information, something to work with. And
+this is where we start gathering that
+information. It must be done in an
+organized manner. It has to be very
+consistent. Otherwise, you would end up
+with a chaos of unorganized information
+that nobody can make sense of and nobody
+wants to touch. And I really hope it's
+obvious that the best way to do this is
+not manual. And we will get into much
+more detail on automating intelligence
+during this training. For now, suffice
+to say that we have specialized devices
+out there that deal precisely with
+collection of information like seam
+devices that we'll cover later. Now, of
+course, this information should be real.
+So, it has to come from real devices and
+real endpoints from all over the place.
+Your laptops and mobile devices, your
+servers, your switches, routers,
+firewalls, applications, even the even
+the cloud. So, another important step is
+the second part processing information
+from a thousand devices from tens of
+vendors must be normalized. has to be
+processed in a consistent format. So in
+order to process it all at once,
+information from everywhere must look
+pretty much the same. Well, that's
+normalization.
+When it comes to analyzing information,
+usually the more data you have, the
+higher the chances to get something
+useful out of it. In cyber security,
+this could mean some proof that there is
+a problem in your network or that an
+attack is currently happening. Now
+unfortunately the amount of information
+that you can collect from your network
+can quite easily become absolutely huge
+overwhelming for humans. So this is
+where simple automated tools like
+scripts will help you out a lot. Now
+sometimes you will have to perform some
+manual searches as well especially if
+you try to correlate some information
+from different sources and you don't
+have a smart enough device to do it for
+you. Again, this is where seam products
+help tremendously. And this analysis is
+usually mentioned in seam products as
+event correlation or automation. Newer
+tools have actually gone one step
+further and now have some sort of
+machine learning engine in the back end
+that helps with filtering useful
+information from a lot of noise and with
+the correlation of seemingly unrelated
+events. Dissemination. This is actually
+the process of communicating your
+findings from that previous analysis
+phase. Uh the focus should be on
+communicating findings internally of
+course in your own organization and you
+will probably want to address these
+findings to multiple people at multiple
+levels from the technical people that
+configure security devices and respond
+to incidents to the upper management
+even CEO level if you find some threats
+to the business as a whole. Uh this
+dissemination phase comes with an
+important challenge that is
+communicating the same findings, the
+same ideas to multiple audiences. A
+report for a security analyst will or
+should be very different from a report
+written for the CEO. Be aware that they
+all might have different objectives in
+mind. They might have a completely
+different set of priorities when it
+comes to where should we spend our money
+and they kind of speak different
+languages. Though to frame this for the
+exam, intelligence dissemination needs
+to happen at three levels. First,
+strategic intelligence, which addresses
+long-term objectives and priorities,
+things that we should think about but
+not right now. Second is operational
+intelligence focuses on day-to-day
+priorities of IT and security
+specialists as well as their managers.
+So, shortterm objectives.
+Third one is tactical intelligence. uh
+real time is the shortest term objective
+and if it's some intelligence that
+requires us to act right now it probably
+falls under the incident response
+procedures you know those tasks that
+have to be ready yesterday and remember
+we said the first focus is to
+communicate findings internally well if
+you don't have any fires to put out
+right now after we disseminate
+internally we could think about doing
+some good deeds and helping out some
+other poor organization need. This is
+where you have the chance to communicate
+those findings to other companies like
+yourself or to other consumers. Of
+course, if that intelligence is relevant
+to them as well. Now, nobody can really
+benefit if you tell the entire world,
+you know, we just found that our email
+server can be so easily hacked from the
+outside. Actually, that would be
+something that you might want to keep
+secret until you fix it, don't you
+think? Well, you might have noticed that
+we have a cycle here. So, the purpose is
+to continuously improve this process.
+So, the feedback phase is not about
+providing feedback to your colleagues,
+but about feeding new information back
+into this threat intelligence cycle.
+Things like what went right, what went
+wrong, any lessons we might have learned
+from the previous steps. Did we discover
+anything new since last time? Are there
+any new threats out there? new risks or
+threats that might have appeared in the
+meantime. Is there something new that we
+should be doing from now on? And you
+know, just before turning off the lights
+and calling a day, make sure you end
+this phase with a clear list of tasks
+for a clear list of people that will be
+responsible for making the cycle better
+next time. You might start from the
+actual findings and find out who wasn't
+doing what they were supposed to, but
+try to keep away from blaming each other
+and instead try to make these
+responsibilities as constructive as
+possible. Like there is always room for
+improvement and we can all do better
+next time.
+All right people, so for the exam, make
+sure you know and you understand all the
+phases of that threat intelligence
+cycle. you will definitely receive at
+least a couple of questions about which
+activity goes into which phase of the
+cycle. So, review this video if you
+need, but make sure it makes sense for
+you. Don't forget to subscribe to
+Certified Breakfast and see you on the
+next video.
+[Music]

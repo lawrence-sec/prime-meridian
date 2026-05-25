@@ -1,0 +1,243 @@
+cryptography is a technology we use many
+times a day but we often don't even
+think about what's happening behind the
+scenes if we encrypt data and we send it
+out to someone else is that information
+really secure and how would we know if
+that information is secure we need to
+investigate how the cryptography Works
+to be able to understand how secure it
+might be with most cryptography the
+piece of information that is the
+difference between something being
+secure and insecure is the key that's
+being used during the encryption process
+but very often the attackers don't have
+access to your encryption or decryption
+key and they have to find other means to
+be able to gain access to that data
+instead of trying to find the key to the
+safe they'll instead start attacking the
+safe itself so we have to examine the
+cryptography that we're using to make
+sure that it is secure and can't be
+attacked in any other way one
+interesting part of cryptography is we
+tend to make these protocols and
+algorithms public so that everyone can
+examine exactly the way this
+cryptography works this also means that
+we should be able to find weaknesses or
+workarounds within the cryptography that
+would allow us access to the data
+without the key of course if we do find
+a workaround we immediately choose not
+to use that cryptography any longer this
+means that the cryptography we use today
+has withstood the test of time and we
+can continue to trust these algorithms
+to protect our data since we know the
+algorithms are secure the attackers now
+focus on the implementation of the
+cryptography and very often it's the
+incorrect implementation of the
+cryptography that ultimately provides
+the weakest link that allows the
+attacker to gain access to our data
+let's first look at attacks that we can
+do against the algorithms themselves the
+first attack type we'll look at is a
+birthday attack and here's the question
+in a classroom of 23 students what is
+the chance of two students sharing a
+birthday the answer is about 50% that
+means if you've got 23 students in a
+room you've got a 50/50 chance of
+someone in that room sharing their
+birthday with someone else remember
+we're not asking if one student is
+sharing their birthday with anyone in
+the room we're trying to find out if any
+student is sharing their birthday with
+anyone else that means if you increase
+the number of students to about 30 the
+chance goes up to 70% in the world of
+cryptography the same thing applies
+except on a much larger scale we refer
+to this birthday attack as being a hash
+Collision where you have two different
+plane texts and they both result in
+exactly the same hash this is usually
+found through a Brute Force process
+which means that you would have to try
+every possible plane text and compare it
+to every resulting hash to see if you
+ever have any duplicates one way to
+prevent the attacker from using this
+method of finding multiple identical
+hashes is to use a very large hash
+output size the larger the hash the more
+difficult it will be to duplicate that
+specific hash ideally if we have two
+different PL Texs we should have two
+different hashes if we have a single
+hash that is exactly the same across two
+different PL Texs then we have a
+collision unfortunately this is exactly
+the situation we found with the md5
+hashing algorithm this is the message
+digest algorithm 5 this was first
+published in April of 1992 and
+researchers found collisions in
+1996 this became much more more
+important in December of 2008 when
+researchers created a certificate from a
+CA that appeared legitimate when the md5
+hash was validated this means they were
+able to create a certificate that was
+digitally signed by a certificate
+Authority but in reality this had never
+been signed by the ca so the industry
+very quickly realized that md5 would not
+be a good hashing algorithm to use in
+the future and we very quickly
+transition to using different types of
+hashing algorithms here here's what a
+hash Collision really looks like I have
+two types of plain text that I'm going
+to put into an md5 hashing algorithm and
+you can see that the plain Texs are
+almost identical you can see they both
+start with Delta 131 Delta Delta and
+everything that is the black letters are
+identical between both of those plain
+texts but there are minor differences
+between the plain text you can see that
+the letters that have a bold red are
+different between both of those plain
+texts because these are are different we
+would expect the resulting hash to also
+be very different but if you put both of
+these plain texts into the md5 algorithm
+you end up with exactly the same hash
+which means we found a
+collision in our previous example it was
+the md5 algorithm itself that had
+shortcomings that would create these
+hash collisions but earlier I also
+mentioned that it's the implementation
+of the cryptography that can often
+create these types of attacks for
+example the downgrade attack is an
+attack type that uses a perfectly secure
+algorithm but it's the implementation of
+the algorithm that creates the attack
+the purpose of a downgrade attack is for
+the two devices that are trying to send
+encrypted data to either use a weaker
+encryption algorithm or not encrypt any
+of the data at all one common form of
+downgrade attack is SSL stripping this
+is a combination of an onpath attack so
+you're sitting in the middle of a
+conversation and because you're sitting
+in the middle of the conversation you're
+able to perform a downgrade attack like
+most onpath attacks this can be
+challenging to be able to implement
+because the attacker really does need to
+be in the middle of the conversation but
+if the attacker is able to sit in the
+middle of this conversation it can send
+back information to the victim's browser
+page that the page that they're trying
+to visit really is not encrypted so you
+don't need to request an encrypted form
+of the page simply send all of the data
+across the network without any type of
+encryption this means the victim will
+use the non-encrypted HTTP protocol
+rather than the more secure encrypted
+https here's how SSL stripping Works
+normally you would have a website
+visitor that communicates directly to a
+web server but with SSL stripping there
+is an onpath attack so there's an
+attacker that sits in the middle of this
+conversation that normally would not be
+there it's this attacker in the middle
+who's stripping out the encryption part
+of the https to provide simply HTTP to
+the victim let's go through the steps
+that a website visitor might use to log
+into a web server let's include the
+attacker in the middle to do the SSL
+stripping the first step is for the
+website visitor to send a git request to
+the web server this git request would
+include HTTP instead of https which
+starts the process of the HTTP stripping
+this request is made over HTTP and not
+https although normally this is changed
+by the web server the initial request
+being made with http means that the
+attacker can now take advantage of SSL
+stripping the attacker will act as a
+proxy in the middle of this conversation
+and for the very first request which is
+that HTTP request it will simply pass
+through that request to the web server
+the web server recognizes that this
+request is being made in the clear
+there's no encryption because the user
+is using HTTP so it will send a message
+back to the user saying let's use a
+different web page that includes
+https obviously the attacker doesn't
+want that information to get to the user
+so it simply doesn't send that answer
+back to the user's workstation instead
+the attacker sends a second request to
+the web server but this one has the
+https included as part of the
+conversation since the attacker is the
+one initiating this conversation it has
+complete access to all of the data that
+would go back and forth over that
+encrypted connection so so the web
+server sees the proper request is being
+made to the https page and it sends back
+an okay message saying everything looks
+great the attacker then sends the okay
+message to the website visitor that's
+the response to the initial get that
+occurred and notice that is sent over
+HTTP and not the original
+https the Second Step would be for the
+user to log in so they'll send their
+username and password information but
+again they're sending it over HTTP
+because they were never redirected to
+https the attacker sees this information
+being sent can read everything in the
+request including the username and
+password and simply uses that username
+and password to log into the web server
+with the appropriate
+https the web server responds with an
+acknowledgement that the login was
+successful and the attacker simply
+passes that acknowledgement back down to
+the visitor from this point on all
+subsequent communication will take place
+in the clear between the website VIs
+visitor and the attacker and of course
+all of the information between the
+attacker and the web server will
+continue to run over the encrypted
+https this means that anything that is
+sent back and forth between the visitor
+and the web server will always be
+captured viewed and in some cases
+Modified by the attacker sitting in the
+middle of this SSL stripping

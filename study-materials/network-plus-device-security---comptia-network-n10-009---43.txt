@@ -1,0 +1,239 @@
+there are a number of different ways to
+help protect our Computing devices and
+in this video we'll look at device
+security as we've already seen in this
+course port numbers are used extensively
+to be able to transfer information
+across the network but these port
+numbers can also be a way into your
+system each network-based service
+running on your system has an open port
+number that can be seen by others on the
+network that port number is effectively
+an entry point into that service that
+running on your system if that service
+is actively in use then we need to keep
+that Port open but if that service is
+one that you're no longer using then you
+should close the service and make sure
+that port number is not accessible from
+the outside one way to control access to
+this open port would be to use a
+firewall a firewall can give you control
+over what devices are able to connect to
+your computer so you could decide
+whether you would like individuals on
+the inside of your network to have
+access to this port number or if you'd
+like to open it up to a wider audience
+sometimes port numbers are open on our
+computer and we have no idea why that
+port number is open often this is
+because there's a service that's running
+on your system that you were simply not
+aware of and that service opens a port
+number to the outside there is a large
+range of port numbers that could be
+opened on your computer specifically
+port numbers 0 through
+65,535 any service running on your
+system can use any of those numbers to
+enable access from other others across
+the network if you're wondering just
+what services or port numbers may be
+open on your computer you can use a
+third party tool such as inmap to scan
+your system and see what port numbers
+are advertised to the world from there
+you can decide whether that's a port
+number that needs to stay open so that
+service is available to others or you
+can choose to shut down that service and
+remove that port number from your
+system if you've ever installed a switch
+a router a firewall or any other
+networking device then you know there is
+commonly a set of standard credentials
+to be able to log into that device many
+devices will require you to change those
+credentials the first time you log in
+but a large number of devices simply
+have those default credentials available
+for anyone to use at any time obviously
+keeping those default credentials on a
+system mean that anyone who happens to
+know that default username and password
+could potentially gain access to that
+system and in many cases these default
+credentials provide administrative
+access to the entire system leaving
+these available would effectively allow
+anyone to have complete control over
+that system if you're wondering what the
+default credentials might be for a
+particular device there's a database of
+those that you can find on router
+passwords.com this website provides a
+database of all of the default usernames
+and passwords for these devices that you
+may already have installed on your
+network one of the challenges Alles with
+securing a switch network is that you
+can't physically be watching every
+single interface on every single switch
+all the time but there are features
+within the switch that can provide you
+with additional security specifically
+Port Security Port security is a feature
+built into a number of switches that
+prevent someone from unplugging an
+existing system and plugging in their
+own system into that same interface the
+switch will recognize that a new system
+has now plugged in and it will prevent
+that system system from communicating on
+the network this is based on the Mac
+address or media Access Control address
+of this device that Mac address
+describes the physical interface on that
+network interface card and by
+configuring your switch to look for
+those Mac addresses you can prevent
+someone from effectively changing the
+MAC address in the middle of the day the
+configuration for Port security usually
+starts by telling the switch how many
+Mac addresses should be associated with
+a particular interface you can decide if
+one particular Mac address should be
+associated with one single interface or
+if there should be multiples associated
+with that interface you can also specify
+the exact Mac address that is allowed to
+communicate over that physical switch
+interface the switch will then monitor
+every device that connects to that
+particular interface and it will record
+the MAC address of all of those devices
+if you then connect a device that the
+switch is not expecting to see you will
+see that Port Security will activate on
+that switch the default on many switches
+is to immediately disable the interface
+and send a message to the network
+administrator another good security best
+practice for protecting your devices is
+to disable any unused interfaces on
+those switches if you've ever walked
+into a conference room or break room you
+may have seen ethernet interfaces on the
+wall and those interfaces may or may not
+be enabled the best practice of course
+is to disable those interfaces until
+someone needs to use that particular
+port
+this requires a bit more administration
+because you have to keep track of what
+interfaces are enabled and what
+interfaces have been disabled and
+occasionally you'll be asked to enable
+an interface that is currently not
+operational although this takes
+additional time and effort to be able to
+maintain it also makes your network much
+more secure some organizations take this
+to the next level by having each
+interface require authentication before
+you can communicate on the network this
+is referred to as network access control
+or Knack you'll often see it implemented
+as
+802.1x when you connect any device to
+the network or you connect to a wireless
+network it will first prompt you for
+authentication you have to provide your
+username and password and only then are
+you allowed to communicate on the
+network some administrators will even
+use MAC address filtering to keep out
+devices that they would not like to have
+on their Network as you recall the media
+Access Control address is the hardware
+address of a device so you can
+effectively limit access to the network
+based on the physical device that may be
+communicating across that Network this
+is very useful for keeping out devices
+that are not authorized to be on the
+network but when new devices appear or
+you have someone visit you may need to
+enable their Mac address in the filter
+so that they can communicate on the
+network one of the challenges with a
+media Access Control filter is that the
+MAC address on a device can be
+administratively changed you can change
+change the software configuration of the
+network adapter card to be any Mac
+address you'd like this might allow
+someone to perform a packet capture to
+see what Mac addresses are on the
+network wait for one of those Mac
+addresses to leave and then use that Mac
+address to gain access through that Mac
+address filter for that reason we would
+categorize Mac filtering as security
+through obscurity this means that if you
+know the method that's being used for
+security it becomes very easy to
+circumvent that
+security if you've worked in it for any
+amount of time you know there are
+authentication details certificates
+encryption keys and many other security
+keys that have to be managed in your it
+environment often there's thirdparty
+software you can install to keep all of
+these Keys managed from this single
+console you can create keys for a
+specific service or perhaps for a
+specific cloud provider you might even
+associate these keys with a specific
+user or a specific service from there
+you can manage those keys you'll know
+exactly when the keys will expire you
+can renew the keys or revoke those keys
+and you can even see when the keys are
+being used or when someone may be using
+a key to gain access to another system
+here's the dashboard of a key management
+system you can see there are
+certificates and keys that are
+configured as part of this key
+management system you can see the
+certificate Authority associated with
+those keys vulnerabilities SSH keys
+license details and much more if you
+have many different web servers and you
+need to find a way to manage those SSL
+Keys you can use the SSL feature of the
+key management software to be able to
+list all of the keys know when they
+expire and be able to renew them all
+from this console you might also want to
+manage SSH Keys which can be used to log
+into a Linux server or some other SSH
+compatible service all of these keys are
+also listed in the key management device
+and you can see what users are gaining
+access to these keys and what devices
+they're authenticating to since all of
+these keys are in one central place you
+can then start creating reports on how
+these Keys have been used there are SSH
+reports Landing server reports private
+key reports and so much more all of this
+is contained within this single Key
+Management server which makes the
+process of managing all of your keys
+much easier

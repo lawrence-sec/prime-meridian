@@ -1,0 +1,138 @@
+with today's cloud-based infrastructures
+we can build virtual machines at a
+moment's notice and we can build many
+virtual machines simultaneously if
+you've ever managed a laptop computer or
+a desktop computer you know what the
+security concerns might be for a device
+like this but if you're managing a cloud
+you may have situations where virtual
+machines are constantly created and torn
+down during a normal workday this makes
+it more challenging to manage the
+security posture of these virtual
+devices consider also that these virtual
+machines may all be built with different
+configurations these virtual machines
+might all have a different number of
+CPUs operational and those CPUs may have
+different capabilities they might have a
+different amount of memory or different
+amount of storage and each one of these
+systems may be slightly different in how
+it operates and of course these virtual
+machines do have aspects of the VMS that
+are very similar to os's you may be
+running with other physical devices so
+the VM M does run a version of an
+operating system such as Windows or
+Linux and you should be applying the
+same type of security best practices to
+your virtual machine as you have to your
+physical devices but there are some
+security vulnerabilities that are
+specific to the virtual world
+vulnerabilities such as a local
+privilege escalation command injection
+information disclosure and others can
+still be found in these virtual
+environments if you've ever used a VM
+you know that that VM is its own
+self-contained system with its own CPU
+memory storage and other resources and
+it's not possible to somehow move from
+inside one virtual machine on a
+hypervisor to things that may be on a
+different virtual machine on that same
+hypervisor however there have been
+instances where researchers have found
+ways to jump between these VMS this is
+called a VM escape and it allows the
+attacker to get access to one virtual
+machine and then somehow find their way
+to connect to other virtual machines on
+that same hypervisor some hypervisors
+may manage tens or even hundreds of
+different virtual machines which means
+if you can escape from one VM and move
+to another VM on that same hypervisor
+you would have a great deal of data that
+you would be able to access this would
+obviously be an enormous exploit that
+would allow an attacker to gain access
+to many systems simultaneously and all
+of the data contained within those
+systems a practical example of a VM
+Escape occurred in March 20177 at the
+pwn to own competition this is a hacking
+contest where if you can pone the device
+then you would be able to physically own
+it you get to take that laptop or that
+computer with you at the end of the
+contest in this competition attackers
+were able to use a bug in the JavaScript
+engine of Microsoft Edge to gain access
+to a Sandbox that's built into the edge
+browser from that sandbox they were then
+able to exploit a vulnerability within
+the Windows 10 in kernel this allowed
+them to gain full access to that guest
+operating system from there they were
+able to take advantage of a hardware
+simulation bug within VMware and hop
+from one VM to another VM within that
+same hypervisor fortunately this
+vulnerability was only demonstrated for
+the first time during this competition
+which allowed VMware to have some time
+to create a patch roll out that patch
+and make sure that no one else could
+take advantage of this VM Escape another
+security concern concern for virtual
+machines is a resource reuse let's
+consider what a hypervisor is doing for
+all of the virtual machines connected to
+a particular piece of Hardware a
+hypervisor is managing this relationship
+between the physical world and the
+virtual world so the hypervisor is
+allocating a certain amount of memory to
+1 VM a certain amount of storage and a
+certain amount of network and CPU access
+although the hypervisor is allocating
+this amount of resource use for a VM
+doesn't mean that that VM has exclusive
+access to that particular resource for
+example a hypervisor host may have a
+total of four physical gigabyt of RAM on
+that particular device but that
+hypervisor is managing three separate
+virtual machines and each of the VMS is
+allocated 2 gbt of ram each obviously
+the VMS are allocated 6 gabt and we only
+have four physical gigabytes available
+for the hypervisor we're relying on that
+hypervisor to only allocate memory where
+it's needed which would allow us to use
+effect ively 6 gig of storage space on a
+machine that is only equipped with 4 GB
+this means at certain times that there
+may be certain memory areas that are
+shared between different virtual
+machines and it's the sharing of
+information where we could run into a
+problem if the hypervisor has a bug that
+doesn't properly allow for the sharing
+of resources it is possible that one VM
+could write to a memory area and that
+memory area could be read by a different
+VM normally the hypervisor would be the
+component restricted that sharing of
+information between VMS in this example
+we can see that the hypervisor does have
+some type of memory management issue
+once that code is updated that
+particular sharing would no longer take
+place and we can avoid any type of
+resource
+reuse

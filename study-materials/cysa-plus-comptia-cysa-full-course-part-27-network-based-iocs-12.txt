@@ -1,0 +1,1015 @@
+[Music]
+hello everyone welcome back today we're
+going to be talking about iocs that's
+indicators of compromise and i know
+we've briefly covered this topic a few
+episodes ago but now we really need to
+go in depth in this in this topic and
+it's actually not just because it's a
+very big part of the exam itself but
+also because there's just so many of
+them there's so many iocs out there and
+we couldn't possibly just glance over
+them without providing just a bit of a
+little bit of detail all right so let's
+get started so first things first what
+exactly is an ioc well just like the
+name says indicator of compromise
+it's any sort of clue or proof that you
+can find during or right after an attack
+that can point to and say this right
+here this piece of information this file
+this log entry this whatever it is is
+proof that i've been breached or i've
+been hacked or that an attack has
+happened so let's start looking for
+clues
+and while the first type of value you'll
+see that we'll be covering is related to
+one of the most common types of attacks
+out there and that is the dos that's the
+denial of service now generally the term
+denial of service means or represents an
+attack that attempts to exhaust the
+resources of a server so that it won't
+be able to function properly take let's
+take a web server as an example right
+and a denial of service attack might
+attempt to cause that server's cpu to
+spike to the max exhaust all its
+available memory or the disk space or
+all the available bandwidth or try to
+max out the number of simultaneous
+connections that it can process of http
+requests that it can respond to so that
+legitimate requests when they come in
+from legitimate users just like you and
+me
+will receive an error will not be
+processed by that server anymore so it's
+not about stealing data it's not about
+tampering with anything it's just a sort
+of bringing the network down or bringing
+a service down now when it comes to
+networking then the purpose of such an
+attack is to exhaust to saturate all
+your network bandwidth all your server
+all your
+load balancing power using synthetic or
+fake traffic so that legitimate users
+cannot access your resources anymore and
+if we're talking about resource
+consumption i don't need to tell you at
+this point that you should always
+monitor your services anything that's
+running in your data center in your
+company should be monitored or at least
+configured to report when
+some specific value cpu utilization disk
+usage anything else goes way above a
+normal baseline a spike in traffic or
+network utilization that's going to be
+your number one indicator that a
+potential denial service is happening so
+you could do this in two ways either you
+just configure your servers or your
+monitoring software to alert you when
+let's say cpu usage goes above a
+specific threshold like eighty percent
+nine percent or even better you could
+store
+a baseline of your normal usage so that
+you know how a normal day looks like so
+if your server has a normal load of
+let's say five percent then a sixty load
+might indicate that something nasty is
+happening in there you don't need to
+wait until 99 so that's why having a
+baseline is really useful because you
+can point exactly when something just
+doesn't look right now if a denial of
+service attack is carried out using a
+high number of compromised hosts all of
+them under the same attacker's control
+then those hosts are going to be called
+a botnet and the attack itself is going
+to be called a distributed denial of
+service attack and even the largest and
+the most well-secured networks in the
+world even those belonging to isps or
+cloud providers or social media giants
+they can still fall victim to really
+powerful large-scale distributed denial
+of service attacks and they can look
+like this right so you're going to start
+with a victim server and then an
+attacker takes control of a number of
+infected machines that's what we call
+the botnet those machines under the
+attackers control start sending
+synthetic traffic that overwhelm that
+victim server and we're not talking just
+about three compromised hosts like in
+the picture here but we're talking about
+thousands or tens of thousands of hosts
+or compromised hosts under the same
+attacker's control now with tens of
+thousands of hosts all attacking a
+single server at the same time there is
+simply no possible server in this world
+that can withstand this kind of traffic
+and this amount of connections now
+unfortunately this kind of attack is
+very difficult to mitigate you can
+detect it but there's not much you can
+do about it some solutions rely on
+working with the isp with internet
+service provider and try to filter that
+traffic from within the isp network
+which is considered to be of much higher
+capacity than yours and secondly you
+could just wait for that traffic and
+then simply send it into a sinkhole or a
+black hole so that it's not going to hit
+your real routers but still you will
+have to react somehow to that type of
+traffic be able to detect it in time and
+perhaps just
+pray that you still have enough
+resources to redirect that traffic and
+that your entire network infrastructure
+has not been overwhelmed to the point
+where
+you simply cannot even manage it anymore
+but wait things get even worse there's
+also another type of attack called
+distributed reflection denial of service
+and this is a type of amplification
+attack that spoofs the victim's ip
+address and sends small requests to
+public servers that generate
+disproportionate large responses now
+there are a couple of protocols out
+there that are very well suited to this
+type of approach among them as http
+dns or ntp they're very suited for this
+type of attack because they can generate
+responses that are hundreds of times
+larger than the initial requests and
+sending all those requests back to a
+single victim can saturate all the
+bandwidth available in the victims
+network let me just show you what i mean
+with an example of dns now here's a
+simple linux terminal and i'm gonna use
+the now here's the simple linux terminal
+and i'm gonna use the host command to
+list all dns information about
+microsoft.com
+all right so that's a bunch of
+information that's a bunch of data
+that's
+1484 bytes in a dns response now at the
+same time i've been running wireshark
+and here's the first request that i just
+sent look here it's 73 bytes in length
+that's 73 bytes in length for the
+request and
+1484 bytes for the reply now what would
+happen if i were to just spoof the
+source ip address right here in my
+packets then all those replies would
+come back to a single victim if i start
+doing this from a distributed botnet
+then i'm going to overwhelm that victim
+quite fast and for some protocols you
+don't even need to spoof the source ip
+address in your packets that information
+is sometimes even stored within the
+payload itself of the request so this is
+an example of a reflected attack or an
+amplification attack and there's one
+more very interesting type of denial of
+service attack and it doesn't even
+require hacking skills or illegal
+methods at all it's simply about posting
+a link to a website now this one used to
+be called slash dotting because it
+referred to the act of posting a link to
+a website on slash dot nowadays it can
+be social media it can be reddit
+whatever source of traffic you can
+choose but it might generate just so
+much traffic towards that specific link
+that specific website that it's going to
+act like a true denial of service this
+might not even have malicious intent of
+course but could be used as a nice
+distraction for an actual denial of
+service that is happening at the same
+time i really hope i'm not giving you
+any ideas here
+but you could actually create a nav
+service using viral content nowadays
+next up we have beaconing iocs but first
+let's remember that a botnet is a
+network of compromised hosts under the
+same attacker's control all of them most
+likely infected with the same malware
+now a cnc also sometimes called a c2 is
+a command and control or command and
+conquer if you're
+nostalgic but you're going to call it
+command and control and that is going to
+be the infrastructure used by the
+attacker to control those hosts that
+botnet that's the infrastructure that
+the attacker uses to send commands and
+make those compromise hosts conduct
+attacks on the attacker's behalf now
+with beaconing iocs we're looking for
+this specific type of traffic that is
+not just the commands that the attacker
+sends towards the botnet but also the
+heartbeats or the keeper lives that
+those compromised hosts are sending back
+to the attacker saying i'm still here
+i'm still up i'm still under your
+control i'm still available to conduct
+an attack and we're looking for that
+type of specific traffic now in theory
+beaconing traffic should be very easy to
+detect because it's kind of like a
+heartbeat and it's very regular it has a
+really small footprint and sometimes it
+can even be just a sin packet and that's
+it but you're going to find it if you're
+looking for
+similar traffic that is coming from a
+bunch of hosts all of them going to an
+unknown ip address or to frequently
+changing ip addresses or domain names
+now in practice it might be a bit
+difficult sometimes to detect this
+traffic because malware is not the only
+type of software that does this kind of
+beaconing that's because ntp network
+time protocol cluster synchronization
+protocols periodic update checks
+all rely on similar mechanisms so you
+might end up trying to identify this
+malware beaconing traffic by using a
+list of reputation for ip addresses or
+for domain names now what kind of
+traffic can you expect to find in this
+beaconing traffic there are a couple of
+protocols that we often see as being
+used as command and control traffic
+starting with irc internet relay chat
+since it's not so popular nowadays as it
+used to be sometimes irc is
+automatically flagged by security
+devices and or blocked as soon as it is
+detected so irc is rarely seen nowadays
+as a beaconing protocol next up is going
+to be http of course widely used because
+outgoing http or https connections are
+most likely going to be allowed in
+almost any network through the company
+proxies through the firewall through the
+ips the ids plus it can be encrypted and
+encrypted http again it's not something
+worth raising on alert since most
+websites nowadays use encrypted
+connections so it's a very let's say
+comfortable protocol for hiding
+beaconing traffic another protocol used
+for beaconing can be dns also because
+it's most likely allowed by default at
+least on the outbound direction from
+pretty much any company and any network
+and as an added bonus over http is it's
+sometimes not even inspected and this
+happens simply because it is assumed
+that it cannot do much damage in itself
+or just sending a simple dns request is
+not going to do any harm
+and well if it is a dns request it's not
+going to do any harm but if it's some
+beaconing traffic hidden in that dns
+request then you're going to have a
+problem and it's not just about
+beaconing traffic unfortunately there
+are free tools out there among which dns
+cats right here which allow you to
+create an encrypted command and
+controlled tunnel through dns just by
+using dns traffic which is by default
+allowed in any organization so you can
+use this for data exfiltration for
+remote controlling machines inside of an
+organization which you would normally
+not be able to reach just think about it
+tunneling something through dns that's
+going to bypass pretty much 90 of all
+the networks in this world nobody
+expects the dns to contain anything
+other than simple harmless dns traffic
+and things don't stop here we can even
+use social media websites like facebook
+twitter linkedin can be used to covertly
+issue commands to botnets by simply
+uploading
+comments or pictures that are
+automatically read by the malware
+software installed on some machines as
+instructions
+so their obfuscated malware code
+inside public postings so you're
+basically hiding command and control
+traffic in plain sight one example of
+malware that did this is black gear
+which
+hides information that is regarded as
+commanding control traffic so
+instruction traffic for the botnet
+within public postings on social media
+websites so the infected hosts know how
+to connect that social media website and
+look for specific articles or specific
+blog posts which contain the necessary
+instructions for them now how smart is
+this here's another one malware for
+apple's mac os with malware that uses
+twitter as a command and control channel
+for controlling the botnet and let's not
+forget about cloud services since you
+can host pretty much anything on a cloud
+nowadays of course you can also host
+instructions for your botnet also
+relying on a cloud service
+from amazon from google from microsoft
+from oracle ensures that your commanding
+control server has proper uptime backups
+and guaranteed performance isn't that a
+nice service
+what more can you wish for last but not
+least we have media files and generic
+documents office documents music files
+mp3 files video files images all all of
+them have some sort of metadata stored
+into them that is text information that
+is attached to that media music album
+names document authors uh details about
+the camera that took a picture or
+recorded the video most of the time
+security tools don't even look at the
+metadata and some cloud services just
+leave it untouched unsanitized because
+that's input as well so malware can be
+directed to download apparently
+inoffensive you know cat pictures and
+get videos from the internet that has
+embedded command and control information
+and its xf data in its metadata next up
+we have peer-to-peer iocs now
+peer-to-peer traffic is normally already
+a red flag in your network because there
+are a lot of file sharing programs out
+there illegal programs that
+use this kind of communication so in
+most enterprise networks peer-to-peer
+traffic is by default not allowed
+fortunately it's really easy to identify
+it because normal legitimate traffic
+usually looks like a connection that
+gets initiated from the inside of the
+network and the server
+is located somewhere outside of the
+network if not even on the internet now
+with peer-to-peer this type of
+communication happens within your own
+network so the client and the server are
+both in the same network and that's a
+behavior that is often encountered with
+malware as well especially with worms
+that try to propagate within the same
+network from one workstation to another
+and infect as many machines as possible
+now what is unfortunate is that in many
+situations malware that uses
+peer-to-peer communication actually
+hides itself within traffic such as smb
+that's the you know the file sharing
+protocol or
+internet printing protocol which is used
+inside of a network to just connect to
+the local printer and then send your
+commands in your documents over there
+and malware uses these type of protocols
+because we expect to see these kind of
+protocols within our network and and we
+don't consider them to be malicious now
+a special mention here would be worth
+making for arp that's address resolution
+protocol that's the protocol that we use
+in local networks when we know the ip
+address of a host but we need to find
+out its mac address in order to build to
+the layer 2 frame to reach that host now
+the arp protocol in essence is still a
+peer-to-peer protocol even if most
+people don't see it that way and it's
+relevant because arp traffic is also
+used in man-in-the-middle attacks and so
+we need to inspect that type of traffic
+as well so for a man-in-the-middle
+attack using arp we need to perform arp
+spoofing that is redirecting an ip
+address to a specific mac address
+usually the one that is owned by the
+attacker and we also need to perform our
+flooding that is overwriting forcefully
+overwriting the arp tables of all the
+involved hosts in the network now this
+overripe process is usually performed as
+a flood so that's one very good
+indicator of a man in the middle
+happening inside of your network if you
+see a huge amount of arp traffic being
+generated by a single host because
+that's not something you can see the r
+protocol doing in its average days next
+up we have rogue devices now what
+exactly is a rogue device now a rogue
+device is some device that you don't
+know that is currently in your network
+or some device that you wouldn't
+normally allow to be connected to your
+network or it can even be both this
+might range from a simple usb stick
+inside of some workstation or some
+server a wi-fi adapter mounted somewhere
+in any workstation in your network even
+a wi-fi router
+that is connected directly to one of
+your switches actually even a smartphone
+left behind by some attacker or a new
+printer that gets connected to your
+network can also expose you to some risk
+so how can you detect this how can you
+detect rogue devices first of all well
+keep your eyes open just be on the
+lookout for new devices or some new
+cables that weren't there yesterday you
+can also perform network mapping from
+time to time just scan the entire
+network and see which hosts pop up which
+hosts respond on those local segments
+this works in many cases because many
+enterprise networks don't do this quite
+often so a lot of the attackers rely on
+the fact that nobody is going to see
+that new device that has suddenly become
+member of your you know production vlan
+now on the wireless side
+wireless devices are a bit difficult to
+hide simply because wireless signal
+simply goes everywhere and you can use
+dedicated tools to find rogue access
+points or even use the existing access
+point network that is under your control
+to find any new interference sources
+that might be located within the same
+space because any kind of device that
+emits in the same spectrum as the rest
+of your wi-fi network is going to cause
+at some level some interference and you
+can detect that some more expensive
+solutions like those from cisco even
+allow you to see where those
+interference sources are located and
+pinpoint them on the map of your office
+floor then of course if we're talking
+about rogue network devices then those
+devices are probably generating some
+type of traffic
+keeping track of what kind of traffic
+what protocols usually are encountered
+in your network can help you quickly
+determine if something new suddenly
+appears someday so just by looking at
+the traffic doing some traffic
+inspections or traffic captures from
+time to time you can detect new traffic
+sources can use solutions based on
+network access control that is some sort
+of security mechanism that you can
+configure at the switchboard level so
+that no devices outside of the company's
+control can connect to those ports so
+this is how you keep rogue devices out
+don't even let them connect in the first
+place and secondly can use intrusion
+detection that is simply analyzing the
+traffic patterns on analyzing who is
+generating them from which vlan to which
+destination and figuring out if that
+particular source of traffic is
+malicious or at least we don't know
+anything about it and it might be worth
+investigating and at a minimum ip
+address management can also help you now
+ip address management is simply keeping
+track preferably using some automated
+tool
+of all the allocated ip addresses within
+your network if you have the hdb servers
+that dynamically allocate those ip
+addresses well you should also have a
+tool that keeps track of what addresses
+have been allocated during the last few
+days for example periodically reviewing
+these logs can also show that at some
+point devices have been connected to
+your network and they have requested
+this ip address configuration
+information that they are going to show
+up in those logs and you might be able
+to find out where exactly they were
+connected and when and also if they're
+still there now don't really rely on
+this as a solid method of detecting
+rogue devices because a smart rogue
+device is not going to contact your dhcp
+server and make itself visible that way
+it's simply going to be automatically
+configured using a static ip address but
+it's still worth taking a look in those
+dhcp logs
+network scanning events and iocs now
+network scanning can be conducted in one
+of two ways first
+as a way to discover which hosts are up
+inside of a network also called the
+network sweep and secondly for each host
+we can also perform a deeper port scan
+that reveals which services are running
+on that host a port scan can even go
+deeper than that and try to find out
+more information like the actual version
+of the software that is running on those
+host devices even the operating system
+type maybe even the patch level that was
+installed on the operating system or the
+application itself now this process is
+also called fingerprinting uh because it
+builds a much more complete description
+of that host and what exactly is
+installed and it's running on it just
+like a fingerprint now most ips's and
+ids's out there are tuned by default to
+detect these scanning events because
+they are almost never
+signaling good news to you especially
+when they originate from outside your
+network
+they are easy to detect because their
+connections usually cover a large number
+of ip addresses and port numbers
+especially when they are scanned right
+one after another in a consecutive
+manner which does not look like any
+other type of traffic that you would
+encounter in a normal network now you
+probably know this already or you should
+know this already things like http is
+running on port 80 by default or 443 if
+it's secured
+telnet is running on port 23 ssh is
+running on port 22. smtp emails go
+towards port 25. actually the entire
+range of ports
+up to
+1023 is considered to be the well-known
+range of ports
+which most applications will most
+well-known applications are going to use
+and these are assigned by iana so that
+is internet assigned
+number authority not a very original
+name
+now the next range
+starts from 1024 up to
+49151 this is also assigned by ina as
+the registered ports range and we have a
+lot of applications using these ports as
+well now the rest of the range up to 65
+000 and by the way that's simply because
+we only allocate two bytes
+in the tcp header for the port number so
+2 to the power of 16th that's 65
+536 right uh that's the dynamic and
+private range and they cannot be
+registered or assigned in any way
+everybody is just free to use them
+however they want also don't think that
+the rest of the numbers from the from
+first ranges are set in stone in any way
+actually any application can use
+absolutely any port number out there
+there is no high level rule or overview
+that compels an application to use a
+specific port number but the clients
+should also know about that port number
+in order to reach that application that
+that's why most web servers are going to
+use port 80 and 443
+that's simply because most web clients
+that is our browsers know to reach to
+connect to those ports 80 or 443. now
+for a more complete list of words i'm
+going to leave here a link from nmap
+which
+lists the most commonly used port
+numbers both tcp and udp i would
+strongly encourage you to remember at
+least these first
+20 items here both tcp and udp because
+these are the most used type supports
+that are encountered in most
+applications in most networks out there
+and of course in your
+lovely exam now with that being said if
+traffic for a specific dynamic port
+appears frequently on the same port in
+your network it might be an indicator of
+malicious traffic another indicator
+might be the detection of normal let's
+say http traffic or dns traffic
+but on non-standard ports especially in
+the dynamic range this is also called a
+mispatched port or application ioc
+doesn't necessarily mean it's bad
+traffic but it's something weird and you
+should investigate it
+of course you will need some tools to
+perform some deep packet inspection to
+look inside those packets up to layer 7
+to figure out what type of application
+traffic
+is traveling on that port on that
+connection so you can actually see the
+http requests and replies and figure out
+well this is http traffic but it's
+happening on port 50 000. now companies
+that don't have the resources or don't
+want to investigate so much and perform
+the packet inspection usually block all
+non-standard port traffic by default
+that's not always a solution you might
+break some applications functionality
+but it is a first step also speaking of
+non-standard port usage don't forget to
+look after suspicious reverse shell
+traffic now a reverse shell is an
+exposed command interpreter or a shell
+right on a compromised host but instead
+of the attacker connecting directly to
+the compromised host which is most
+likely difficult because in most
+enterprise network traffic initiated
+from the outside is blocked by default
+by any kind of firewall out there
+well instead of connecting from the
+outside we make the compromised host
+initiate the connection the shell
+session to the outside to the attacker's
+machine this type of shell access is
+much easier to obtain because outbound
+traffic from within the company to the
+outside is most likely going to be
+permitted by the firewalls the result is
+that we have a steady connection between
+a compromised host and an attacker that
+the attacker can use
+to control that host remotely some of
+the tools that you often find on your
+infected host that can perform this type
+of reverse shell
+are first of all the swiss army knife of
+networking also called the netcat
+crypt cat for transferring encrypted
+traffic or encrypted files from from
+compromised hosts
+so cat and of course pupi or puppy puppy
+right it's written in python is it puppy
+or puppy i can never figure this out
+next up on the nasty list is the data
+exfiltration iocs and that's because in
+most cases the purpose behind an attack
+of a data breach is to steal some data
+the malicious transfer of presumably
+sensitive data is called data
+exfiltration now you might think okay so
+why don't we just encrypt everything so
+that if the files get stolen at least
+they won't be able to read them right
+well first it might not even be possible
+feasible to encrypt every piece of data
+in your organization and secondly if an
+attacker gains valid privileges admin
+rights they will be able to decrypt that
+piece of data anyway also keep in mind
+that data can only be used when it is
+unencrypted so at some point some
+computers some applications some service
+is going to have to decrypt that
+information in order to use it that's
+when your data is going to be vulnerable
+so let's try to catch that data before
+it gets too far so how does it happen
+how do we lose data for well for network
+exfiltration a very common channel is
+the is the actual http protocol or https
+especially with public storage services
+like dropbox or onedrive or google drive
+given that many companies
+use onedrive are as part of their office
+365 subscription for example an attacker
+can either compromise a user account and
+directly access their shared files with
+from within the cloud or can compromise
+the workstation and make it upload
+sensitive files to the attacker's own
+onedrive account now in both cases
+outbound traffic carrying sensitive data
+to one drive will most likely be allowed
+by the organization to prevent this from
+happening there are dedicated tools
+security solutions out there called data
+loss prevention or data leak prevention
+solutions and their sole purpose is to
+inspect whatever traffic is leaving your
+company
+be it through a tunnel an email a
+facebook post or a file gets getting
+uploaded to onedrive but that's a
+discussion for another chapter now don't
+forget that
+a big part of data is hidden behind web
+applications that allow you to access
+customer records patient records
+employee information or or intellectual
+property now any successful attacks
+against those web applications like sql
+injection or cross-site scripting
+cross-site request forgery any
+successful attack can potentially give
+an attacker access to information that
+was previously protected behind
+that web application security mechanism
+so don't forget to look for web
+application attacks just like we
+discussed in the previous episode from
+the perspective of data loss as well you
+might not believe this but dns can be
+used as a data exfiltration channel as
+well a compromised dns server might be
+configured to hide confidential
+information for example in txt records
+just waiting for someone to request them
+over the internet and don't forget that
+the dns protocol itself can be used to
+create an encrypted tunnel that is a an
+open highway for any files that are
+about to leave your company and don't
+forget about the regular tools like
+instant messaging peer-to-peer protocols
+email ftp connections to remote servers
+basically any type of application that
+is allowed within your company and is
+supposed to communicate with the outside
+world is a potential exfiltration risk
+and actually the worst one is the vpn
+because vpn sessions are most likely
+going to be permitted allowed to be
+initiated from within the company to the
+outside simply because it might be
+required by you know customers business
+partners uh vendors that you're working
+with to connect to their applications to
+their networks providing remote support
+or assistance to your customers so you
+will permit those encrypted connections
+now what if those encrypted connections
+are created towards a
+an attacker that wants to steal some
+information from your company you will
+not be able to inspect that traffic you
+will not be able to identify what is
+leaving through that encrypted tunnel to
+make sure you keep an eye on active vpn
+sessions and if you want to inspect vpn
+traffic now there are some smart
+solutions out there but they don't
+exactly provide the same visibility as
+with clear text traffic but there are
+solutions that you can install on the
+endpoints themselves on there on the
+hosts that are initiating the vpn
+connections because on the host on your
+computer you can find that traffic in
+clear text before it gets encrypted on
+the tunnel interface so that's where you
+should be scanning for potential
+data loss next up is covert channels now
+covert means stealthy as opposed to
+overt which is in plain sight for
+everybody to see so a covert channel is
+any method of sending data outside of an
+organization
+without raising any alerts while being
+completely stealthy how is this possible
+well the first method is to exploit the
+fact that many companies don't even
+inspect outbound traffic at all so
+problem solved now if outbound traffic
+is filtered and inspected then we need
+to think a bit outside the box for
+example encoding data in protocol
+headers or use certain protocols beyond
+their intended purposes i we just
+mentioned the example where sensitive
+data can be hidden within the txt
+records of dns servers then we have
+fragmentation fragmenting sensitive
+files and data and sending them in in
+separate sessions or even separate
+channels so that no sensitive content
+signature is going to be triggered we
+might have a dlp solution that looks for
+specific excel files that shouldn't
+leave the company well what if we split
+that excel file in 10 different pieces
+and send them in 10 different channels
+over the
+time span of 10 different days good luck
+catching that obfuscation that's another
+very simple method it's simply about
+converting the character set to a
+different one or use a different
+encoding so that you're not going to
+match the same signatures that you might
+have in place
+also encryption good old encryption
+encrypting the contents of the file that
+you want to exfiltrate is going to make
+sure that any other tools that are
+looking for that traffic are not going
+to figure out what exactly you're trying
+to get out of the door what kind of file
+is in there sometimes even a password
+protected zip file is enough to pass
+through the checks of a dlp solution of
+a data loss prevention solution and then
+we have steganography that is basically
+the definition of security by obscurity
+and that's hiding useful information
+secret information within
+seemingly uninteresting
+image files or video files
+by slightly changing some color bits
+invisible to the human eyes and slightly
+changing some color information within
+that image or by hiding the actual
+information within the file's metadata
+let me show you an example of how this
+works all right for this i'm going to
+use a very simple program called open
+stego but first let me show you what we
+have in here so let's assume that i have
+a
+secret file here that i want to protect
+so that's my very secret message and a
+password doesn't matter which one it is
+and then i also have a jpeg file that's
+an image with an island it doesn't
+matter what kind of image all right
+let's see how we can hide the super
+secret stuff inside of this image file
+using openstack oh first i'm going to
+open my secret message file i'm going to
+point it to my txt
+all right and then we're going to choose
+the cover file that's going to be the
+file in which we're going to hide this
+information so let's open this one as
+well choose an output name
+and encrypt
+info open this one here i can choose the
+encryption algorithm you can optionally
+set a password as well i'm going to skip
+this one for now and click hide data
+message embedded and as expected you can
+see the initial picture right here and
+the encrypted info picture
+right next to it which is identical so
+let's see if the information was really
+hidden inside of this file i'm going to
+delete my super secret stuff and then go
+back to openstack oh and try to extract
+the information back again so i'm going
+to choose the file with the hidden
+information and let's also choose an
+output folder let's choose the same one
+i haven't set a password i don't need to
+provide one right now so click extract
+data and i can see that my super secret
+stuff txt has been revealed right here
+right so that's steganography using
+image files and that's just one of the
+many tools out there that allow you to
+play with this functionality and since
+we're here let me show you another
+example this is actually even more
+interesting because we're using a tool
+in our case that's going to be the snow
+tool to hide information within the
+white spaces
+of a normal text file so whoever gets to
+look at the text file is only going to
+see the readable text not the white
+spaces but we can encrypt something we
+can hide something within that white
+space let me show you this so let's
+assume that i start with a harmless txt
+file like this readme right here nothing
+else in it that's the entire text
+information you can see how much i can
+select from within this file that's all
+this reading txt file contains right now
+let's switch over here to snow and let's
+use this file to hide some secret
+information all right so i can use this
+no utility like this i can provide the
+message that i want to encrypt to
+protect like the money back is buried in
+the backyard i don't want anybody to
+know this and i can also protect it with
+a password which in my case is going to
+be secret right i provide the file in
+which i want to hide this information
+and the resulting file which is going to
+include
+this secret right here let's press enter
+all right so we have an extra five lines
+that were added to this file let's see
+what actually happened here so this is
+my first readme file right here
+and this is my readme secret file
+on the right hand side
+huh they kind of look the same right but
+somehow in this second file i have my
+hidden information where is it
+well
+this is the amount of information in the
+first file and this is the amount of
+information in the second file notice
+the additional white space in here well
+this white space is what actually
+encodes
+that secret information this is
+steganography within white space and let
+me show you that it actually works so
+that we can actually retrieve that
+information back from the readme secret
+file so for this let's go back to the
+command line and let's use the same tool
+this time just with the secret password
+right here and the only file that we
+have this information stored in right so
+let's decode this
+and there you go the money back is
+buried in the backyard somehow this
+information was extracted
+from this file right here from this
+white space now isn't this awesome
+and there are two more types of covert
+channels that is storage and timing
+channels now storage channel kind of
+works like this one process rise to a
+location another one reads from it
+there's no direct communication between
+them just like you know leaving a bag of
+random money under a park bench you know
+like in uh you know police tv series
+on a timing channel on the other hand
+we're using the response time to
+communicate some specific piece of
+information ever thought about using
+pink to communicate using morse code
+some secret information
+well now you have and good luck to
+anyone trying to detect this
+[Music]

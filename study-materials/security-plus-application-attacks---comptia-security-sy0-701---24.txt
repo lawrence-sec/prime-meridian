@@ -1,0 +1,309 @@
+an injection attack is a very common way
+to attack an application because an
+attacker can easily add additional
+malicious code to input that is going to
+a server or a client device normally
+this injection attack would be stopped
+by the application but occasionally
+you'll find an application that does not
+provide the proper checks of any input
+going into the application and this is a
+perfect place for an attacker to put
+their own malicious code a very common
+type of injection attack is a SQL
+injection but there are other types that
+can include HTML XML ldap and other data
+types a similar application attack is
+one called a buffer overflow with a
+buffer overflow you're adding
+information into a particular area of
+memory reserved for a variable but
+you're putting more information than
+that variable can hold and the extra
+data overflows into the buffer of memory
+that is next to this variable this is
+another attack that is enabled because
+the application itself is not doing any
+type of checks for input into the app
+this means the attacker can add much
+more information to the input and the
+application will improperly allow that
+information to be written into memory
+fortunately this is a relatively
+difficult exploit for an attacker to
+discover there are many different
+variables memory Works in different ways
+depending on the application in use and
+very often this simply crashes the
+application instead of providing any
+functional use for the attacker but if
+the attack ER does find a buffer
+overflow that they can repeatedly use
+and has consistent results then they may
+have a very powerful attack against this
+application some applications will allow
+an attacker to gather information from
+the network directly or from a victim's
+computer and Replay that information to
+the server to gain additional access to
+the application this is referred to as a
+replay attack with a replay attack the
+biggest challenge for the attacker is
+finding the information that they can
+use to replay back to the server
+sometimes this can be captured directly
+from the network using a network tap or
+art poisoning or simply putting malware
+on the victim's computer once the
+attacker has a username and password
+hash or they have a session ID they can
+use that to replay against the server to
+gain access in some situations this is
+two different attack types that are
+being used together you might use an
+onpath attack to gather information from
+the network and then use the replay
+attack to send that information to the
+server when a user logs into an
+application they're often provided
+permissions that are appropriate for
+their role a user would not commonly be
+granted administrator rights or higher
+level permissions by simply logging into
+the application but of course an
+attacker is looking for these elevated
+rights and permissions and if there is a
+known vulnerability in this application
+or a bug that they can take advantage of
+they may be able to get privilege
+escalation we obviously want to limit
+the individuals that would have this
+level of access so this is something we
+would commonly see from a system
+administrator but we certainly don't
+want to have an attacker with this
+elevated level of access this is a
+relatively common attack type and
+obviously you would want to quickly
+patch any vulnerabilities that would
+allow an attacker to perform a privilege
+escalation although the best case from
+an attacker's perspective for a
+privilege escalation is to get
+administrator access but it's possible
+that the attacker could perform a
+horizontal privilege escalation with
+this type of privilege escalation the
+attacker isn't moving to an
+administrator access but instead is
+moving from user a access to access that
+user B would normally have to block a
+privilege escalation your first step is
+to close any vulnerabilities that might
+be on the system by patching the
+application then you might want to
+update your antivirus or antimalware
+especially with the signature Fe es so
+that they can look for known attacks
+that might focus on this type of
+privilege escalation some operating
+systems are equipped with data execution
+prevention which limits what areas of
+memory a particular executable can run
+this might also be able to block certain
+exploits because those exploits are not
+running in an area of memory
+specifically allocated for the
+application and along those same lines
+many operating systems can randomize
+where data may be stored within memory
+when the applic is running this means
+that each time the application runs data
+may be located in a different location
+which makes it more difficult for an
+attacker to find a
+vulnerability here's an example of a
+privilege escalation vulnerability this
+is cve 2023
+29336 this is a win 32k elevation of
+privilege vulnerability and it was
+announced in May of 2023 this
+vulnerability affected the win 32k
+kernel driver in Server 2008 8 2008 R2
+2012 2012 R2 and 2016 and it also
+affected Windows 10 if an attacker was
+able to take advantage of this
+vulnerability they would be granted
+system privileges in the Windows
+operating system and system privileges
+are the highest level of privilege you
+can have in the Windows operating
+system another application attack is the
+cross-site request attack cross-site
+requests are things that occur normally
+when you visit a website for example if
+you visit professormesser.com your
+browser is going to load a page and on
+that page is text that comes from the
+professormesser.com web server your
+browser might also load a video that is
+loaded from YouTube and it might also
+have pictures and other information that
+might come from Instagram all of this
+loads into a single screen and from the
+user's perspective it looks like all of
+this information is coming from one
+server when in reality all of this
+information on the screen is being
+loaded from different servers this is a
+normal process that occurs when you
+visit almost any website you'll also
+notice that this information on the
+screen is being loaded from all of these
+different servers but there's no
+authentication requirement so when this
+page is loaded on the professor.com
+website even though it includes YouTube
+and Instagram information you don't have
+to include your YouTube username and
+password or your Instagram credentials
+if we were to look into the code of
+what's really running when you visit a
+website you'll see that it's separated
+into two different types of code some
+code will run on the web server itself
+and some code will run on the client
+side the client side code that runs
+inside of your browser is commonly HTML
+or JavaScript this is rendering all of
+the information inside of your browser
+in a way that the website administrator
+originally authored there are also
+processes occurring on the server side
+or the web server side itself that the
+browser doesn't see this may be the web
+server accepting a request from the user
+user and processing that request with
+HTML and PHP it could be transferring
+funds from one account to the other
+behind the scenes or posting information
+onto YouTube this is something the
+server does only on its side and your
+browser is not involved with any part of
+that process the attackers of course
+know that some of these processes are
+happening on the client and some of
+these processes are happening on the
+server and they can create attacks that
+take advantage of this difference
+between the client side and the server
+side many of these attack types consists
+of cross-site request forgeries this is
+sometimes referred to as a oneclick
+attack or session writing this is
+abbreviated as xsrf or csrf we often
+refer to this as curf this attack exists
+because you've logged into a website and
+now that website trusts your browser the
+attacker also knows that your browser is
+trusted and they're hoping to have your
+browser make requests on their behalf to
+a server that is already trusted for
+example if you're already logged into
+Facebook the attacker may be able to
+create code that would cause your
+browser to begin posting status
+information on your Facebook account
+many web-based applications recognize
+the danger of this type of forgery and
+they've already built antiforgery
+techniques into the application itself
+one way to provide this type of
+antiforgery is to use a cryptographic
+token that is used whenever a request is
+made by the client this way the web
+server knows that not only have you
+authenticated properly but you're
+presenting the correct token to use for
+this particular transaction here's the
+way that an attacker might take
+advantage of a cross-site request
+forgery we have in this example an
+attacker a website visitor and this
+website visitor has already
+authenticated to the bank's web server
+the first step is the attacker is going
+to create a funds transfer request but
+it needs to get that request into the
+hands of the bank site visitor so they
+might send a hyper link to a user to
+have them click on it perhaps it's
+included with an email or it's included
+as a message that's sent separately to
+the user if the victim is logged into
+the bank and they click one of those
+malicious links there may be information
+sent to the web server that causes that
+victim's account to transfer information
+and money to the attacker's account this
+all happens behind the scenes and it's
+very common for the victim to not even
+realize that this transfer has taken
+place because they happen to click on
+one of those malicious
+links a directory traversal is not
+necessarily an application vulnerability
+but it is a vulnerability associated
+with a web server configuration this
+misconfiguration allows an attacker to
+read or write files to a web server that
+are normally outside the scope of the
+website's directory for example if you
+looked at all of the different folders
+that were installed on a Windows
+computer you would see folders for
+Windows that included program files the
+window Windows directory the users
+directory and others everything that's
+in Gray are directories that normally
+would not be accessible by the web
+server running on this Windows machine a
+user visiting the website should only be
+able to see and write to files that may
+be located in the dubdub duub root
+directory of that server but if this web
+server is not configured properly it's
+possible for an attacker to gain access
+to other parts of this system sometimes
+the web server is configured properly
+but it's a software vul vulnerability
+within the web server software that
+allows an attacker to use a specially
+crafted attack to gain access to these
+other directories and of course there
+might be an application running on this
+web server that could allow an attacker
+to write to other parts of this file
+system that are not part of the web
+server itself here's an example of a
+line that is in a web server log that
+shows a user performing a git request
+for a specific web page on that server
+and you can see that the URL says it's
+looking for
+www.example.com
+show.as and you can see there are
+additional parameters in this URL that
+include do do do
+dowis
+system.ini the dot dot slash is very
+indicative of a directory traversal
+because that is the command that allows
+you to move backwards One Directory in
+that particular file system so if you
+happen to see someone trying to use do
+do slash whenever they're accessing
+files on a web server they're probably
+checking to see if this server is
+susceptible to a directory
+traversal

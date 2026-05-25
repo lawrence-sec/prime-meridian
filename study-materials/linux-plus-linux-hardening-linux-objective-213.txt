@@ -1,0 +1,522 @@
+hi I'm Sean powers and this is your
+Linux plus Tech tip of the day there's a
+bit of a throwback for the Linux Journal
+folks in the room uh today we are
+continuing on the Linux plus objectives
+for the security section that we're on
+let's look at what we're covering today
+okay again this is to remind me more
+than anything else we're just here to
+summarize the purpose in use of security
+best practices it's it's really tempting
+for me to just go through these things
+and demonstrate and try to configure
+each one but that's really not the goal
+here it would take us all week
+I'm gonna need you to go ahead and come
+in tomorrow
+so if you could be here around
+nine that would be great okay
+well basically what we're here to learn
+is why Linux hardening is so important
+and it's because if you're going to have
+a public facing system you want to make
+sure that you're not exposing any
+vulnerable services or any obvious
+weaknesses to the public internet
+because it will constantly be attacked
+and so there are a bunch of things here
+I'm just going to go through and explain
+each one what they would mean to your
+system and maybe we'll look at one or
+two of them I don't know we'll see along
+the way but anyway we have uh security
+scanning now security scanning can mean
+a bunch of different things but when
+you're hardening a system it's a good
+idea to scan it and that can mean using
+tools designed for pen testing or it can
+just mean something like from the
+outside of where it's going to be
+exposed you use a program like nmap and
+just scan for open ports
+um or you can use like I said specialty
+tools designed for nmap that look for
+not only Expo boost ports but
+vulnerabilities in the versions of the
+software that is available but in its
+most basic sense using a system scan or
+an external scan is important because
+you want to make sure that you don't
+have any other servers running and
+listening that you don't need which I
+know is a later bullet point later on
+but it's just important for you to know
+what's exposed and and it's really
+important to scan not only from the
+outside where you're exposed to the
+internet but also scan from your
+internal Network especially if it's not
+just like a closed environment if there
+are people who are going to be on the
+same local network you need to scan your
+server from inside as well to make sure
+that you're not exposing things to
+somebody who might be sneaking in and
+yes I did recently make a pen test exam
+for a previous employer so our pen test
+course for a previous employer so I'm a
+little bit on the hyper paranoid side of
+things but it's important to know what's
+vulnerable from inside your network as
+well as outside because a person from
+the outside could potentially get into
+the inside and you don't want that uh
+that feeling of safety just because your
+firewall is stopping people from getting
+into your services you want to actually
+Harden the server itself against all the
+attacks that might be possible and one
+of the I mean most hard like Basic Metal
+level metal not like like metal metal
+but like the bare metal way of securing
+a system and hardening a system is to
+use secure boot now secure boot is a
+feature of UEFI and UEFI we talked about
+in this course or Linux Essentials or
+maybe both
+UEFI is uh the replacement for bios
+which used to be like the thing that
+before an operating system even started
+uh same with UEFI before an operating
+system even starts it is what
+initializes the hardware and it's like
+the layer between the hardware and the
+operating system on a computer but if
+there's a root kit installed on an
+operating system if it's not if you're
+UEFI or your bios is not secure it could
+overwrite that firmware and before you
+even install an operating system it
+could have malicious code and so the
+idea behind secure boot is that it is
+digitally signed and we covered
+signatures and encryption a couple
+videos ago it's digitally signed to make
+sure that it is uh it's verified that
+it's not malware like it hasn't been
+compromised and there's a little bit of
+frustration with secure boot because
+most systems have a set of keys built in
+kind of like the certificate Authority
+for websites you know where like
+browsers build in all of those Cas so
+that they know who to trust well
+UEFI Hardware manufacturers have done
+the same thing but unfortunately the
+only keys are generally from Microsoft
+and that was a real issue for Linux
+users because guess what Microsoft
+doesn't necessarily support Linux now
+thankfully thankfully Microsoft has
+agreed to sign Linux kernel so like if
+you install Fedora you can use secure
+Boot and it will put this little shim
+the signed shim that guarantees you know
+secure boot will work and it's signed
+actually by Microsoft for the Linux
+kernel which is really bizarre and it's
+not all puppies and Roses because they
+use they don't use their main uh key to
+sign it they have like a third-party key
+it's still a Microsoft key but it's like
+they're third party other people key
+that they signed the Linux kernel shims
+with and so some Hardware manufacturers
+may only have the official Microsoft uh
+Keys built in like the Microsoft
+operating system keys not the Microsoft
+third-party Keys built into their UEFI
+in that case you can't install using
+secure boot but thankfully in UEFI you
+have to be able to turn off secure boot
+which wasn't the case originally but now
+all UEFI systems you have the ability to
+turn off secure boots so if it isn't
+signed or it doesn't support that
+third-party Microsoft signature whatever
+whatever you can just turn off secure
+Boot and install it just like the days
+of BIOS but you do lose that security
+feature of secure boot so love it or
+hate it at least you know what you're
+getting into now when you're dealing
+with secure boot on a system next up is
+system logging configurations and this
+could mean a bunch of different things
+but it's important to understand how
+logging works now we've covered some
+logging in this video and in other
+videos as well I there's even a I'll try
+to remember to put like a link up there
+where I talk about like rotating logs if
+you haven't set that up the thing about
+logging is you can log to a centralized
+server now there's multiple reasons to
+do that one it's a One-Stop shop for
+checking your logs uh two it's great to
+have a place that logs get sent to in
+case something gets compromised or lost
+your logs are not stored on that
+compromise server you can centralize
+where they go there's also some like
+third-party devops tools that will help
+you with all of your logging and sort
+through things and identify problems so
+centralized logging is generally a good
+thing not just for convenience but for
+security because if it's on another
+server generally it's not going to be
+deleted if somebody logs in and they're
+like deleting all the logs so that you
+know you don't see what's happening if
+you have centralized logs that isn't
+necessarily going to be the case uh
+setting the default U mask now if you're
+not familiar with umask it is uh when
+you create a file there's a default set
+of permissions and that default set of
+permissions is determined by umask now
+you can set UMass uh immediately on your
+system and it will change the it's like
+an environment variable type I think I
+don't know if it's actually an
+environment variable it probably is
+that's how everything works in Linux but
+you can set it for your local instance
+and then when you log out or reboot
+it'll reset to the system default it's
+also possible to change the system my
+default it's part of the Pam modules
+thing you need to either change it there
+or like in ETC default uh UMass or
+common there's multiple places to to
+change its system wide but again this is
+not a how you do it video this is why
+you would want to do it video the thing
+about UMass is it it sets the default
+permissions for files and folders that
+are created I am going to show you what
+that means
+um but when you set a system-wide one
+you can make things more secure out of
+the bat so when you when a file is
+created it's not accessible by everyone
+you can really lock it down if you want
+to make sure that all new files are very
+very secure by default okay so I'm here
+on an Ubuntu system and if you just type
+umask it's going to show you the current
+default
+UMass on a system and it's zero zero
+zero two what that means is if we were
+to touch a file so touch test file and
+then do LS minus L it's going to create
+it with read write read write read if we
+create a folder it'll be a little bit
+easier to see what the umesk is doing so
+uh make directory test a folder
+and here you'll see it's read write
+execute read write execute read execute
+and basically it takes the octal
+notation
+of this let's say it takes the octal
+notation of 777 and it would subtract
+the two from it so what that would mean
+is our default would be 775 which if you
+do the permission string that's what
+this is seven
+seven and then four plus one is five
+yeah check out the permissions video
+earlier on if this is really confusing
+but it's using octal notation to figure
+this out so basically
+umask says okay with all the bits turned
+on
+if we subtract this that's what the
+default is going to be but for a file it
+doesn't make it executable be just it
+that's just the default it doesn't make
+it executable but let's say we made our
+U mask
+zero zero two two
+and now we touch test file two Ls minus
+L you'll see the difference here test
+file 2 now has the right bit off because
+it's subtracted that 2 because now if we
+do U mask
+we'll see it's zero zero two two and so
+it removed that from uh that bit if we
+did a u mask zero zero two
+seven
+and now we touch test three LS minus L
+now we're going to see the other has
+absolutely no permissions on this
+because we set that umask to 7 for the
+last bit and it subtracted all seven
+bits and so it's left with nothing and
+boom there we have there's nothing there
+so UMass is just a way that it takes
+permissions away from when a file is
+created and again there's a couple ways
+that you can set this system wide it's
+going to differ for every distribution a
+little bit but it's part of the Pam
+plugable authentication modules system
+that generally is where you would set
+that up but again this isn't a how-to
+this is just a why you would want to do
+that
+this next section disabling or removing
+insecure Services now even if they're
+not insecure things that aren't used
+should not be enabled now obviously if
+they're if they're insecure well I don't
+know why they even exist in in the
+system I mean I guess you don't want to
+have a telnet session exposed somebody
+might use it and that you know just uses
+plain text so anyway but disabling or
+removing insecure Services is talking
+about using like system CTL which again
+we've covered a little bit before and
+doing disable for a particular service
+that you don't need running on the
+computer if you don't need it running
+there's no reason to have it running and
+expose that even if it's a very secure
+service you don't want to have it
+exposed so somebody could try to take
+advantage of that so if the server is
+not using a service disable the service
+or uninstall it if you're concerned that
+somebody might start a backup just
+completely remove it from the system you
+know app get remove or app get Purge to
+get rid of that because you don't want
+anything extra or running on your server
+that's just asking for somebody to you
+know attack a new Vector that you didn't
+even have to have there in the first
+place
+enforcing password strength
+this is done again with pluggable
+authentication modules it's generally in
+ETC pam.d common password or password
+common you can specify like how long a
+password has to be how complex it has to
+be and sure there are reasons that you
+you know you don't want somebody's
+password to be one two three four
+but at the same time a little story you
+know put on your story cap or your your
+night cap here for a story when I was a
+young system administrator
+I wanted our system to be as secure as
+possible and so at the school district I
+worked at I forced everyone to use a
+very complex passwords they were like
+they had to be a minimum of 12
+characters long
+I had to have numbers uppercase and
+lowercase and you know random other
+characters etc etc
+and everybody had to do it I was very
+very proud of myself until one day when
+I went up to central office where all of
+the paychecks are created and the school
+like the superintendent's office was I
+walked into the central office and I
+looked in on everyone's monitor was a
+sticky note with a really complex
+password right there because they
+couldn't remember it and they wanted to
+have it so they could log in
+so yes you don't want people to be able
+to use really dumb short passwords but
+if you force somebody to use a really
+complex password they're going to put a
+sticky note on their monitor and all of
+your security
+plans are just out the window so with
+great power comes great responsibility
+and this is another one of those
+instances removing unused packages this
+is uh pretty much just like the one up
+here insecure Services uh yeah don't
+have extra stuff installed on your
+system because even if it's not a
+service running there might be a program
+with a vulnerability that somebody who
+has access to the server could use as a
+vector for attacking so again don't have
+any you know unnecessary Services
+running or installed and don't have any
+unnecessary packages installed because
+everything can be
+a compromise to your system and so the
+fewer things you have to worry about the
+fewer things that can go wrong so this
+is just another good idea to Think
+Through what do I really have to have on
+this computer uh let's see tuning kernel
+parameters this can be a whole bunch of
+things like when you're setting up a
+server you want to make sure that uh
+things like there's enough page files
+that's something that a number of files
+that can be opened on a system so you'll
+need to tweak kernel things like for
+example you might you don't want to have
+IP routing turned on if you're not doing
+IP routing between your interfaces so
+tweak the kernel parameters that you
+need and don't like make changes that
+you don't need now by default most
+distributions are going to give you a
+sane kernel configuration out of the box
+but just know that there might be things
+that you can tune not just to harden
+your Linux box but also to make it more
+performant and you know a crashed system
+is a vulnerable system so uh while yeah
+we want to lock things down by hardening
+we also want to make sure that it
+functions efficiently and things like
+number of files that can be open on a
+system with the with the limits.com file
+is something that you want to consider
+make sure your kernel is tuned for
+specifically what that server is going
+to be doing
+um securing service accounts now service
+counts are things like uh when you have
+Apache 2 running for example and it's a
+web server it doesn't run as the root
+user it runs as a
+www.data and again when you install it
+on a distribution it generally has some
+pretty sane default settings right the
+password isn't enabled on that user uh
+you can't you know some nobody's gonna
+be able to log in with that user but
+it's important to keep in mind that uh
+just because things are generally by
+default configured good out of the box
+you should understand why those are
+configured that way you don't want
+somebody to log into your system as
+www.data that is a service account that
+is never meant to be logged in as it's
+meant to only run that service and it
+runs that service with the notion that
+nobody's going to become that user
+because if if somebody could log in as
+that user on your system they could
+wreak havoc anywhere that the you know
+the web server has access to the that
+user would have access to so you don't
+want that to be something that people
+can log in as it might be tempting
+though right I mean you know if all the
+files need to be owned by
+www.data shouldn't I just log in as that
+user to create my files no no you should
+not because again it's a service account
+designed to run the service and not be
+an interactive account at all lastly I
+touched on this a little bit at the very
+beginning configuring the host firewall
+and this is important because yes your
+assist your your whole network will
+almost certainly have a firewall that is
+protecting you from outside people
+coming in right only certain ports are
+opened and forwarded to your internal
+server however it's also best practice
+to have a firewall configured on the
+server itself on the local machine that
+we're hardening there should be a
+firewall again to protect you from
+people who might be trying to attack
+from the inside but also
+just because uh having a firewall
+configured is just one less way that
+people can you know attack your system
+so have a firewall on your server even
+if you have a firewall on your entire
+network don't think that just because
+your network is protected or you know
+firewalled off from the internet that
+doesn't mean that you don't need
+firewalls inside every server should
+have its firewall enabled and only open
+the ports that have to be opened on that
+firewall to you know have remote access
+even if that remote is inside your
+network so again that was just a list of
+like security hardening things that the
+Linux plus objectives wanted you to kind
+of be able to consider and think about
+when you're hardening a server with
+security in mind but that doesn't cover
+everything and I don't normally plug
+books and stuff but this Linux hardening
+and hostile networks is uh from my
+written by my friend Kyle Rankin who
+I've talked about before I purchased
+just this book myself with my own money
+those that's my own coffee stains on it
+I've used this book I used it when I set
+up my mail server that I'm you know I'm
+running post fix I used Kyle's book to
+make sure that I was doing uh smart
+things as I set it up and exposed it to
+the network etc etc so this is a really
+really good book and I'm plugging it yes
+because he's my friend but also this is
+the best book I know on a practical
+guide to hardening a Linux system I'll
+put a link in the description as well if
+you want to order it like I said I
+bought this myself it's not like a
+signed copy it's not something that Kyle
+just sent to me because he's a friend uh
+but yeah it's awesome you want to check
+this out this will uh yeah it'll help
+you pass the Linux plus exam objectives
+but also it will make you a much better
+and security minded system administrator
+anyway I hope you're still here I know
+this was a less Hands-On type of video
+than we normally do but it's important
+to think through all these security
+things and uh speaking of sticking
+through thank you to to my patreon
+supporters who continue to stick with me
+month after month y'all are awesome
+thank you so very much I appreciate it
+and it gives me incentive but also gives
+me the ability to invest time making
+these videos and giving them away for
+everyone who may benefit from them so
+thank you very much and with that
+remember to learn everything do what you
+love and most importantly
+be kind thank you and I will see you at
+the next video
+oh yeah um check out the check out the
+whole uh playlist thing right there
+that's all the videos that we've been
+working on so far so if you want to see
+more that's where to go thanks again

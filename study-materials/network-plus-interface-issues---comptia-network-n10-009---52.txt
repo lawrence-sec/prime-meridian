@@ -1,0 +1,252 @@
+Network administrators use a great deal
+of their time to monitor different
+interfaces on important devices this
+allows us to see any problems that might
+be developing either with a bad cable or
+a bad interface and we may be able to
+resolve that problem before it becomes
+an outage sometimes these interface
+statistics can warn us of congestion or
+overutilization on a network and we may
+be able to make some decisions about how
+to change the design of the network to
+better deal with that oversaturation
+many operating systems can also give you
+a great deal of feedback on how your
+interface may be performing in your
+device you can look at this under the
+network configurations depending on what
+operating system you're using network
+administrators obviously don't have time
+to log into every single system to watch
+these interfaces so they automate the
+process using the simple Network
+management protocol or SNMP many devices
+will support a standard set of SNMP
+statistics known as a MIB 2 this is a
+management information base MIB 2
+provides us with a set of standard
+statistics that are common across many
+different devices but you may find that
+your firewall or your switch might have
+some statistics that are unique to that
+particular device and there may be a
+proprietary MIB that you can integrate
+into that process to get even more
+visibility into that
+interface one piece of information that
+we can gather using these techniques is
+to determine whether the link is up up
+or the link is down this is our link
+status this may be a problem with the
+cable an interface or it may be an issue
+with the device rebooting utilization is
+also a great metric to monitor
+especially if you're concerned about
+total throughput through the network you
+want to be sure that you have enough
+bandwidth for all of the services
+running over that network connection and
+if you're not quite sure the total
+amount of throughputs you can get over a
+link you may want to run some bandwidth
+tests and see what the throughput might
+be and if you want some typ of
+notification that problems might be
+brewing with that particular connection
+then you'll want to look at all of the
+errors that are on that particular
+interface this includes CRC errors runts
+Giants drops and other interface errors
+as well this often points to a problem
+with the cable or a problem with the
+interface so we may need to do
+additional troubleshooting to determine
+what's causing these specific
+errors before we dive into those errors
+let's look at the structure of an
+Ethernet frame the first part of an
+Ethernet frame is a part we normally
+don't see it's the Preamble and the sfd
+or the start frame delimiter these two
+Fields identify the beginning of an
+Ethernet frame and lets a system know
+that everything after the start frame
+delimeter is a normal ethernet frame if
+you are capturing these frames on a
+packet analyzer you probably would not
+see the Preamble and the start frame
+delimeter instead you would see the
+beginning of the frame with the
+destination Mac address and the source
+Mac address this identifies the device
+that is sending this particular frame
+and the destination of where this Frame
+should be going this destination Mac is
+one that is used by switches for example
+so that it knows where to forward a
+particular frame the next field of the
+frame is The Ether type this describes
+what type of data we would expect to see
+in the rest of this particular frame
+then you would have the payload of the
+frame itself and at the very end we have
+the frame check sequence this is a check
+sum that can be calculated very quickly
+that tells us if all of the information
+that we've received for this particular
+frame came through without any type of
+corruption and when this Frame check
+sequence does not match the rest of the
+data in the frame we have a cyclic
+redundancy check check sum error or CRC
+error the CRC error is often our first
+warning that there's some type of
+problem with the signal on this
+particular connection and we might want
+to look at our cable or our interfaces
+to remove those CRC errors that CRC is
+calculated when you receive the frame
+that CRC is recalculated internally on
+your ethernet adapter and it's compared
+to the check sum that is included in the
+frame check sequence if those two match
+then we've received the frame without
+any type of corruption but if there is a
+mismatch between that data in the frame
+and the information that's in the frame
+check sequence we know that there is an
+error and the CRC counter is incremented
+by one if your error counter for runs is
+increasing it means that we've received
+a frame that is less than 64 bytes 64
+bytes is the minimum size of a frame
+that you should see so if you happen to
+see a frame that is less than 64 bytes
+that would be qualified as an error we
+don't often see runts any longer because
+most of our switch networks are full
+duplex but if you happen to be working
+with a network that is running at half
+duplex you may very well find runts
+occurring whenever there's a collision
+the default maximum frame size on
+ethernet is 1, 1518 bytes and if you
+have to have a frame come across the
+network that is larger than that value
+we describe that as a giant of course
+you can also have jumbo frames that are
+much larger than 1 1518 bytes but those
+jumbo frames are defined within the
+switches and the devices that you're
+using so those also have a maximum size
+and if those frames are larger than the
+maximum size that's configured those are
+also defined as a giant and of course if
+there's some type of contention or
+buffering problem with the devices on
+your network
+these frames may be lost because there's
+no room to hold them in any type of
+buffer in that case you may see the drop
+counter is incremented on your system
+and that may indicate that you have some
+type of communication problem on your
+network most devices and operating
+systems give you a way to view these
+error counters this is a set of counters
+from a Cisco device you can see I'm
+showing the interface statistics for one
+of the fast ethernet interfaces and you
+can see that I've highlighted the
+section for run mons Giants crc's and
+you can see there are some other errors
+associated with this list as well this
+is where we could start to get a warning
+that something might be going wrong if
+we happen to see the CRC error is slowly
+incrementing that may indicate that
+we're having a problem with a cable or
+an interface we may need to have some
+downtime to replace either one of those
+you may find that some interface issues
+create a much larger problem if they're
+left to their own devices it might be a
+better idea to turn off certain
+interfaces if we happen to run into a
+particular kind of problem if you can
+see the problem happening you can log
+into a device and administratively
+disable a particular interface that
+obviously isn't fixing the problem we're
+more addressing the symptom but at least
+we've now gotten the interface into a
+mode where it won't cause additional
+problems on the network instead of you
+as the network administrator having to
+interactively log into a device and
+administratively disabling an interface
+it would be much easier easier if the
+device would automatically recognize
+this problem and automatically disable
+that interface we refer to this state as
+error disabled where the device has
+disabled this interface without any type
+of human intervention you might see this
+happen if an interface on a switch is
+flapping which means that the interface
+is up then the interface goes down then
+the interface comes up again then the
+interface goes down so a switch might
+error disable that interface so that
+it's no longer flapping up and down and
+causing problems with space Banning tree
+and other switch functions or we may be
+limiting how many devices can connect to
+any particular switch interface so if we
+have configured this port security and
+someone unplugs a device and plugs their
+own laptop into it your switch will go
+into an error disabled state for that
+interface or there might be a
+configuration problem or an increase in
+number of errors and all of those can
+cause the interface to move into an
+error disabled State when a switch
+disables one of its interfac
+because of these errors it's not going
+to turn that interface back on you have
+to log into the switch and
+administratively reenable that
+particular interface only then will that
+interface be able to operate again but
+if that interface has the same problems
+occur again it could possibly move back
+into an error disabled
+State instead of error disabled you
+might see an interface is
+administratively down that means that an
+administrator logged into that system
+and specifically turned off that inter
+interface this was an intentional act by
+the administrator and it wasn't
+something that was done automatically to
+be able to use that interface again you
+would have to log into that device and
+administratively enable that interface
+and on some switches we have a mode
+that's very similar to error disabled
+except it's an error that occurs the
+moment you turn that interface on this
+is a suspended Port status and this
+means that we've connected this
+interface to a configuration that is
+incompatible with the settings of that
+interface for example you may be
+configuring link aggregation between two
+switches and you've enabled the link
+aggregation control protocol or lacp if
+you configure lacp on one side but you
+don't configure lacp on the other you
+may find that the interface immediately
+moves into a suspended state

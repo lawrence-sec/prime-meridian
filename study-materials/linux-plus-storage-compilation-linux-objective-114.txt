@@ -1,0 +1,705 @@
+hey everybody I'm Sean powers and I am
+here to help you learn everything do
+what you love and most importantly be
+kind now today we are looking at section
+1.1.4 of the Linux plus CompTIA exam
+objectives whether or not you're looking
+forward to you're preparing to take that
+exam this is great material uh that's
+kind of the case for the entire course
+but specifically what we're going to
+cover today is everything in these
+sections right here that everything else
+we've covered so this is the last
+section and again I'm calling this 1.1.4
+the objectives only break it up into 1.1
+but I broke this up into four different
+sections so this is 1.1.4 and uh we're
+going to cover things like different
+types of storage we're going to touch on
+what raid is and how it works not the
+the command line stuff just conceptually
+what it does because again this is
+storage Concepts we're going to touch on
+raid later in the series but this is
+just so we get an understanding of what
+it is uh so yeah we're going to cover
+that we're going to just talk about
+About Storage stuff here also we're
+going to learn how to compile a package
+from Source honestly it has nothing to
+do with the storage Concepts it's just
+that's the last little bit so I'm just
+kind of tacking it on the end of this
+video rather than making like a two
+minute video to stand alone for just
+that so it's like bonus content for this
+thing about storage anyway I did blow
+this up because if you look a partition
+it's supposed to be partition type or
+partition types but they actually made a
+typo partition typo which I just thought
+was a hilarious sort of inception based
+typo right a typo of typo anyway
+nonetheless that amused me so I wanted
+to point that out but right out of the
+gate I want to cover the most text Heavy
+slide because hopefully your attention
+is still you're not bored yet right I'll
+fix that we'll bore you uh no but there
+are three types of storage Concepts that
+are specifically mentioned in the
+objectives and these are I mean it's a
+it's a good explanation of the the three
+different kinds of ways to think about
+storing data now the first one is file
+storage and that's what we think of
+generally when we think about storing
+files is you know you have a file names
+and directories and uh this is just
+where we store our files with a file
+name.extension or whatever uh General
+file storage on a hard drive that has a
+file system like ext4 butterfs or NTFS
+if you're in Windows that sort of a
+thing this is the traditional way that
+we think about storing files but there's
+other ways too for example block storage
+now block storage is a way that we store
+data in big chunks it doesn't have
+metadata it doesn't have file names it's
+just Big Blocks of storage where we
+write whatever we want to it right the
+the blocks don't know what they contain
+they just know that they're a block of
+data stored somewhere the thing that is
+great about block storage is it's
+extremely fast so we'll do things like
+use block storage for databases a lot
+which they have to write constantly they
+need really good performance block
+storage is is where that happens again
+there's no metadata the block storage is
+just a block of data you have to know
+what's there kind of at a different
+layer right when you're writing to block
+storage you need to keep track of what
+data you're putting where because the
+block you don't know all right file
+systems are often built on top of block
+storage hopefully that makes sense you
+might remember from a previous video we
+talked about block devices like hard
+drives and that's kind of the same
+concept but file systems are often built
+on top of block storage so that we know
+what data is in those blocks and some
+things you've probably heard of like
+iSCSI iSCSI is blocked storage and we
+usually use iSCSI to connect remotely to
+a storage system like a sand again right
+here a storage area network and on top
+of that iSCSI chunk of blocks we will
+often
+put a file system so that we can do file
+storage but block storage is its own
+Beast right it's it's how we store data
+and then the new kit on the Block that
+is all cloudy if you will is object
+storage and this doesn't just have to
+happen in the cloud but that's where
+it's most commonly used and and it's
+very unique and very different from the
+other types in that the entire object
+that you're storing whatever that that
+object can be anything but it's just a
+thing like it can be a file it can be
+whatever that object is we reference it
+as an object and each object has a uuid
+a unique Universal identifier and that
+is how we reference it it doesn't have a
+file name I mean I guess you could name
+the file whatever the uuid is in the end
+but you access it via API right this is
+how programmers can store data without
+writing to a file system it's object
+storage where they can store it like in
+a database with blob storage so if
+you've heard of blob storage I think I
+got ahead of myself down there blob
+storage is is object storage Amazon S3
+where you store things and reference
+them using a programming API
+that's the big difference with object
+storage is that you can only access it
+via API now there can be a third-party
+tool like add another layer where you
+you sort of map the API onto some local
+file system so you can see the contents
+of like a bucket or something but the
+actual file and not files that's a poor
+choice of word the actual object is uh
+accessed via API now it is slower it
+does contain a bunch of metadata so you
+can you can put a description of what
+that chunk of data is that's stored as
+an object but it's generally slower than
+like Box Storage and it's also a lot
+cheaper but the big thing is it's
+programmatically accessed and it's very
+easy to scale right I mean everybody's
+familiar with Amazon S3 these days and
+you basically just store and pay for as
+much data as you need via the API using
+S3 and that's where object storage is
+and again you can store objects like in
+the mySQL database it's not a terribly
+great way to go I mean it's good for
+some things the bigger a thing gets I
+don't know that my sequel is ideal but
+sometimes you can store thumbnail pics
+as blobs inside of a database so it's
+possible to do something other than just
+Amazon S3 but that's the most common
+thing when we think about object storage
+at least for me I think of you know
+programmatic stuff that references S3
+and that's the different types of
+storage Concepts now this objective did
+specifically mention the different types
+of partitions actually a reference typo
+partitions or partition typo but the
+types of partitions we already covered
+this so I'm just going to gloss over it
+mentioning one more specific thing we
+basically have two different types of
+partitioning schemes right if your
+system is running bios it uses MBR
+Master boot record and that's where the
+information about what's on the hard
+drive is stored at the very beginning of
+the hard drive and then you can chop it
+up into partitions using the master boot
+record it's kind of like a table of
+contents that points to where the
+partitions are on the hard drive if you
+have a UEFI system it uses the GPT the
+which is this is kind of cool it's like
+I've said Inception already in this
+video but guid the globally unique
+identifier that's what this acronym is
+but GPT you know is the is the corollary
+to MBR GPT the G actually references a
+different acronym so it's like an
+acronym wrapped inside of an acronym so
+this is a GUI ID partition table or
+globally user a globally unique
+identifier partition table if you run a
+spell it all out and this is just a
+newer version of MBR now the thing I
+wanted to mention we talked about this
+before where you know it has its little
+partition table but it also scatters the
+information in multiple places in the
+drive in case one gets corrupted and
+there's CRC error checking you can have
+more than four partitions but the thing
+I wanted to point out notice I painted
+this blue the cool thing that GPT does
+is what when you partition a drive using
+GPT it creates kind of like an emergency
+or or a fake Master boot record and the
+reason it does that this is it's a fake
+Master boot record and all it does is it
+says I'm a master boot record and I have
+one partition that fills the entire
+drive and the reason that's important if
+you put a part a hard drive that is
+partitioned this way into a computer
+that is running bios and MBR it and it
+didn't have this like safety feature the
+BIOS computer would say oh look it's a
+blank hard drive there's no master boot
+record and you might accidentally just
+format it and wipe everything out what
+this does is it gives you like a safety
+net where if you put a GPT partitioned
+drive into a system running bios that
+expects MBR it's going to see this tiny
+little MBR or fake MBR that says I'm not
+empty I'm full and that's enough to give
+you a hint like oh there's already
+something on there so that's really kind
+of a neat feature that was backwards you
+know looking back and trying to it's not
+exactly backwards compatible but it's
+backwards honoring I guess if I had to
+pick away say it and that's just a
+really cool thing about GPT and good to
+know uh that if you put a drive in and
+it says there's one full partition
+it probably means it's a GPT Drive okay
+so now you know now the next thing we
+need to cover is fuse or
+[Music]
+and the Assyrians Dr Julius strangeport
+yeah okay a file system in user space is
+what few stands for it's kind of a weird
+acronym it's like the F and file system
+and then use in user space but what this
+means is you can mount something on your
+local system as a user you don't have to
+be rude to do this because normally
+because mounting a file system requires
+kernel access and root level kernel
+access normally you can't do that but
+what fuse does is it allows you as a
+user without elevated privilege to mount
+a file system on something that you have
+local permission to do like in your home
+directory and it allows you to mount and
+unmount something without needing root
+access it's just a really great way and
+there's lots of things that that take
+advantage of this I mean I think USB
+drives to you can actually Mount like a
+tar gz file and have it appear as the
+file system and you're just kind of
+looking inside the compressed file as
+the file system there's a lot of cool
+things you can do one of my favorite is
+SSH FS which I'll demonstrate right now
+so here I'm just on my Ubuntu Mate
+system I installed the package SSH FS
+it's just a package you can install and
+let's do LS okay I'm going to first of
+all SSH to a server on my network called
+Whisker alright so we'll go into whisker
+I'll put in my password
+if I typed it right yes and if we do an
+LS we're going to see we have two files
+remote server file.txt and a symbolic
+link to dhcp.conf okay so this is a
+symbolic link this will be actually cool
+to point out later too so dhcp.com
+points to Etc DNS mask in my dhcp.com
+file okay so that's on my remote server
+called Whisker so let me exit I'm back
+on my um Ubuntu mate box I want to
+create a folder so mkdir whisker and now
+we just see it's a folder if we look
+inside whisker there's nothing there I
+just created an empty folder but if we
+were to do SSH FS
+and mount the remote or specify the
+remote server so in this case whisker
+kill in home s powers and I want to and
+then tell it where I want to mount it on
+the whisker folder that I just made
+press enter it's going to ask me for my
+password and I type the password wrong
+okay I typed the password right that
+time and now if we look in whisker we're
+going to see those same files because
+right now using SSH we've actually
+mounted a fuse file system or a file
+system in user space right here on the
+thing if we do DF minus H we're going to
+see whisker home as Powers is right here
+mounted on that local folder and that
+allows us to use it as part of our local
+file system but it's mounted over SSH
+and you'll notice I didn't type sudo for
+any of those things so if we do LS minus
+L whisker this is the cool thing I
+wanted to show you a symbolic link
+points to Etc DNS mask dhcp.com but it's
+pointing to that folder it doesn't exist
+on Ubuntu mate so that's why it's red
+it's a broken link on this computer but
+it still is mounted on my local uh file
+server on my local file system in Ubuntu
+mate and again I didn't have to become
+root that's really the big thing is that
+it's user space uh file system mounting
+because I can type umount for unmount
+whisker and it unmounts it and now if we
+look inside
+there's nothing there because I've
+unmounted that remote SSH file system so
+fuse is actually really cool and it
+allows you to do a lot of things that
+you normally would have to have root
+access to do I know this seems like just
+a pew pew shotgun effect of a way of
+teaching things but there's just a bunch
+of Concepts that are Loosely related one
+of them being raid or a redundant array
+of independent or inexpensive depending
+on who you heard the the acronym from uh
+disk so a redundant array of independent
+disks is how I've heard it most commonly
+used and this allows you to take a group
+of hard drives or disks or block devices
+and use them in a way that have pros and
+cons for different levels we're going to
+look at three different raid levels
+which are three different ways that we
+can use uh drives for either speed or
+redundancy or just to get the most space
+out of a bunch of drives because raid
+also allows you to use multiple disks as
+one volume so to speak and that's kind
+of a really really cool thing to do but
+that requires like parity and I will
+show you in the picture but here's the
+thing too I'm going to use I'll show you
+just here let's let's go to the let's go
+to the slide so if you trained with me
+before you probably recognize this guy
+he is my RAID dragon and I I used it
+over 10 years ago and it was such a poor
+drawing and it made me laugh I decided
+to use it every time I explain raid so
+this is one of those times and I want to
+talk about conceptually what raid does
+now what raid is is what you take a
+bunch of drives like in this case every
+one of these purple boxes is
+representing a hard drive and they're
+each 10 gigabytes in size and that'll be
+important we talk about how much usable
+space and stuff the metaphor that I'm
+using here is this is the crown and this
+is our data loss dragon or our data
+corruption dragon and every purple box
+is a knight who is trying to protect the
+king or queen from data corruption
+anyway
+um basically the dragon can't get to uh
+the crown or the data is corrupted
+that's the metaphor it's a loose
+metaphor but you know the dragon's cute
+anyway
+RAID 0 is our first level of rate and
+this is the first arrangement of drives
+that we can use and basically uh when
+you have raid zero it's called a stripe
+and the reason it's called that is
+because all of these drives are added
+together and that gives you the total
+usable space so we have four 10 gigabyte
+drives and that means that we have 40
+gigabytes of usable space and it gets
+even cooler when you write a file let's
+say we have a file here and let's say
+it's a four megabyte file because that
+makes for easy math on my part when you
+write the file to the raid array which
+is this group of four disks it actually
+writes a quarter of the file to every
+drive so that means it's going to write
+like if you save this file it's going to
+at the exact same time save one megabyte
+or 1 4 of the file to the drives that
+means you can save a four megabyte file
+in the amount of time that you would
+normally save a one megabyte file
+because each Drive is saving at the
+exact same time so reading and writing
+from a striped array is very fast it's
+it's very very fast that's actually why
+people use Raid 0 is because well one
+you get full use of all of the hard
+drive storage space but also it's
+extremely fast because of the way that
+it it writes data in stripes on each
+hard drive in the array but there is a
+downside and you've probably already
+figured it out like yes if we do this we
+have 40 gigabytes of usable space and
+it's extremely fast how however what
+happens if one of the drives fails let's
+say that our Dragon Here takes this
+drive out it Flames this Knight and this
+Knight is now dead well now our entire
+array all of the data that we have
+stored is useless uh in the dragon
+metaphor it's because now the dragon can
+go right through and get to the king but
+in our data world and our data metaphor
+if you will
+what good is three-fourths of anything
+you know I mean if you have a file and
+then all of a sudden you have
+three-fourths of the file that's no good
+it's useless and because of the way it's
+striped across all these drives if you
+lose one drive no matter how many drives
+are in your striped array if you lose a
+single drive all of your data is
+corrupted and no good so it's fast and
+it's high capacity but it's really
+dangerous and you don't want to store
+data on there that you couldn't lose so
+that's what rate zero is now raid 1 is
+almost the opposite approach because
+with raid 1 which is called a mirrored
+array
+you have the same thing the four 10
+gigabyte drives however you only have 10
+gigabytes of usable space because every
+single Drive
+is a mirror of the other drives that
+means no matter how many drives you have
+in a mirror they all have a copy of the
+same data now you get no speed increase
+from this because every time you write
+that file
+it is writing the entire file to all
+four disks in our array so you get no
+speed increase it takes the same amount
+of time as it would to save to a single
+hard drive because you're saving to four
+hard drives at the same time so no speed
+increase
+um no file size increase because uh up
+here we had 40 gigabytes of usable space
+here since there's a copy on every
+single drive we only have that 10
+gigabytes of usable space so there's no
+speed increase there's no storage size
+increase well what on Earth would we
+want to do this for well of course again
+you've already figured it out
+redundancy every our data is stored on
+every one of these drives so if the
+dragon were to take out this one we
+still have three copies we're still fine
+and then the dragon keeps going and
+takes out this one still fine takes out
+this one still fine three-fourths of our
+drives are gone and we still have a
+complete set of our data and we're all
+good so that's what a mirror does it
+sacrifices is the potential speed and
+the storage of all of the drives and
+gives you redundancy so you don't have
+to worry about a bad Drive ruining and
+deleting all of your data now raid 5 is
+a little bit different it kind of tries
+to split the difference and it uses
+technology that I won't be able to
+explain super fast but how raid 5 works
+is we have these same four drives but
+instead of adding all of the space
+together or just taking the one how raid
+works is the total number of drives in
+your array minus one drives worth is how
+much storage you have how that works is
+when data is written to a raid 5 array
+it is written across multiple drives
+kind of like a stripe however each drive
+also has a little section on it
+called the parity section or where it
+stores parity information
+and how that works again is beyond the
+scope of this video but how what it
+means is in practice you have so n
+that's a terrible n
+minus 1
+is how much storage you have so we have
+uh four drives here so we have four 10
+gigabyte drives so n minus one means
+that we have 30
+gigabytes of storage okay so that's how
+much storage you have which is quite a
+bit it's obviously more than raid one
+not quite as much as RAID 0 but here's
+where the magic happens since the drives
+store data across multiple disks along
+with a a small portion of each disk for
+parity that parity allows us to rebuild
+any single drive if it fails so that
+means if if the dragon were to take out
+this drive these three drives along with
+the parity on those three drives will
+allow us to still have a full copy of
+all 30 gigabytes of data and it doesn't
+just have to be this single drive it
+could be any Drive well it can be it can
+only be a single drive but it doesn't
+have to be a specific drive that can
+fail any of these drives as long as it's
+just one can fail and the remaining
+three still have a full copy of all the
+data on the array it's really really
+amazing and raid 5 is a great way to
+take advantage of the bulk of your
+storage while still giving you the
+ability to lose one drive and not lose
+any of your data so let's storage
+Concepts again the bonus content I just
+want to finish off this objective is how
+to compile from Source a package and
+install it on your computer it's a
+little bit weird of a throw off you know
+throw out thing they put in here but
+basically if you have ever heard of like
+um like compiling a program make make
+install that sort of a thing that's what
+we're going to do and it's basically
+taking the source code compiling it on
+your computer and installing the binary
+that comes from there so you can use it
+on your computer it's not usually how we
+install packages on a Linux box usually
+we use the package manager that comes
+with the distribution but sometimes like
+if you've written the code or it's a
+package that's not in the package
+manager you may have to compile
+something and that's what we'll do
+really quick and there's a cool package
+out there it's called hello for like
+hello world where it allows us to do the
+whole process but it's a pretty simple
+uh throwaway program now Linux
+distributions almost never come with the
+compiling tools the build tools
+installed by default and it's different
+to install them on a red hat based
+system versus an Ubuntu based system so
+I'm going to show you really quick how
+you would install the programs that
+would allow you to compile a package and
+so here we are on Rocky Linux which is
+like red hat Enterprise Linux and we
+would just do sudo dnf or you could do
+yum depending on what version you're on
+and it's group install we'll look at
+package Management in a later video but
+group install and I gotta look it's
+called development tools development
+tools and we install this as for the
+password because I did sudo and then it
+will install a package a it's a group
+where it installs all the things you
+might need for making and compiling a
+local program so we would say yes and we
+would install that and then we could go
+through the process of downloading and
+compiling a package I'm going to do the
+same thing over here in Ubuntu in Ubuntu
+it's a little bit different you actually
+just do sudo apt install build Dash
+essential again different process but
+same type of thing slightly different
+packages but this is going to give us
+the ability to install stuff and it
+looks like I already did it all right
+it's already I already did that earlier
+but that's how we do it on Ubuntu is uh
+install build Dash essential okay and
+then like I said it's not very common to
+do it anymore but the gnu.org website
+has a really cool package it's just
+called hello so I just went to
+ftp.gunu.org forward slash gnu forward
+slash hello and this is the package I'm
+just going to download it by clicking
+hello it looks like version
+2.12.tar.gz this is the source code so
+I'm going to click on that it's going to
+download it it completed because it's
+super tiny
+go back to the command line here let's
+go into my downloads folder we should
+have sure enough hello and I'm going to
+extract this so tar z x v f
+hello it will extract it and now we have
+a folder called hello so we'll go into
+there
+and now this is what a source code uh
+package looks like like if you download
+a GitHub repository this is what it's
+going to look like a lot of the time if
+it's designed to be compiled this is
+what it's going to look like and
+basically we start with uh running so
+dot forward slash
+configure which is going to be a script
+in this folder you can see it it's right
+here an executable script and this will
+do a couple things depending on the
+package it will make sure that you have
+all of the libraries it's going to need
+to compile itself and it will tell you
+if it doesn't and it'll error out and
+say ah you know I need like python this
+before I will compile and then you'll
+download that install it and then run
+configure again it checks to make sure
+everything it needs is there and then it
+will create the files that will be used
+at the next step okay so always run
+configure until it completes without any
+errors so in this case we'll do dot
+configure press enter it's checking for
+all of the things to make sure that we
+have everything that we need
+okay no errors so it created see at the
+end here once it checks that it has
+everything it creates all the files it
+needs for compilation and then we just
+type make and then it will actually
+compile the code using the appropriate
+compiler and again this is a small
+program so it's done before I finish the
+sentence and now if we look there's
+probably going to be an executable in
+here that wasn't before basically hello
+is the executable but there's one more
+step we can do most make files not all
+most make Files come with an install
+option as part of make and so we can
+type we have to type sudo because what
+what install does is it takes the binary
+that was just compiled and puts it
+somewhere on the system like in your bin
+folder your usual user local bin folder
+so that you can execute it without the
+using the entire path right it just
+installs it so it can be used on your
+system and sometimes it will install
+other parts that it needs like let's say
+it compiled its own libraries it will
+copy those Library to the appropriate
+folder on your system so we're going to
+do sudo make install
+and it did it it copied all of the stuff
+to where it needed to go it looks like
+it installed a man page for hello uh it
+installed uh yeah so user local there
+and it installed it in user local bin
+which is the place that you would
+normally install something for a local
+package we covered that in the uh you
+know directory video a couple videos ago
+but it installed it in user local bins
+so we could type which
+hello and it will tell us where it lives
+use our local bin hello so now it's an
+executable on our system
+hello and it will say hello world I mean
+that's all this package did but that
+takes you through the entire process of
+downloading uh compiling and installing
+a package from Source on a Linux system
+and that's the end of this video
+um I hope you're enjoying this course we
+finished up 1.1 so that objective is
+completely done and I'm gonna close with
+a line stolen from Hank and John Green
+don't forget to be awesome see you next
+time

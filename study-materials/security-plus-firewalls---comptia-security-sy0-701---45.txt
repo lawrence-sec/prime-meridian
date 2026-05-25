@@ -1,0 +1,288 @@
+a network-based firewall is an appliance
+that sits in line in your network and
+makes decisions about whether traffic
+should be allowed or disallowed through
+the firewall these decisions can be made
+looking at Port numbers which is
+associated with a traditional firewall
+or with an application itself those
+would commonly be associated with the
+more modern Next Generation firewall but
+these firewalls are more than simply a
+security device that allows or disallows
+traffic they're many other services that
+you can also run inside of these
+firewalls these firewalls can also be
+VPN endpoints or VPN concentrators where
+you might have point-to-point
+connections between different sites or
+used as a remote access VPN and many
+firewalls are configured to also act as
+a router or layer 3 device these will
+often be used on the Ingress egress
+point of the network so it's usually at
+the point where the outside Network
+meets the inside Network and because
+it's a router you can also perform
+Network address translation Dynamic
+routing and other routing functions a
+common firewall type that you'll find on
+Mini networks today is the next
+Generation firewall or ngfw this next
+Generation firewall is able to analyze
+the traffic flowing through the firewall
+and recognize the specific application
+that's currently being used we can then
+make decisions about whether that
+application is allowed through the
+firewall or not sometimes the Next
+Generation firewall is referred to as an
+app application layer Gateway a stateful
+multi-layer inspection device or a deep
+packet inspection device there's a lot
+more work that goes into deciding
+whether traffic should be allowed by
+application versus simply looking at
+Port numbers an NextGen firewall has to
+be able to analyze all of the traffic
+passing through so we have to perform
+packet captures categorize each of those
+captures into their appropriate
+applications and then make security
+decisions on how this traffic should be
+handled traditional fire walls didn't
+have the ability to understand what the
+applications were traversing the network
+all they knew was what port numbers were
+communicating from point A to point B
+and we can make security decisions based
+on that port number obviously Next
+Generation firewalls provide us with
+much more flexibility in understanding
+the exact application but we can also
+apply port numbers to our
+decision-making process as well so in a
+Next Generation firewall you can allow
+or disallow web server traffic on a
+traditional firewall would be specifying
+that this was TCP Port 80 or TCP Port
+443 Next Generation firewalls would
+understand SSH as it's passing by
+whereas a traditional firewall would
+focus on TCP Port 22 the same thing
+applies for Microsoft Remote Desktop
+protocol which can easily be recognized
+by NextGen firewall but you would have
+to know TCP port 3389 on a traditional
+firewall Next Generation firewalls are
+very good at identifying DNS queries
+which of course run over UDP Port 53 and
+an exgen firewall will know about the
+network time protocol a traditional
+firewall would only be able to control
+INTP traffic by allowing or disallowing
+UDP Port 123 here is a security policy
+from a Next Generation firewall and you
+can see that there are a number of
+different parameters that can be chosen
+for example we can see the name that is
+associated with the rule where the
+source of the traffic is coming from
+where the destination is going to and
+then you can specify information about
+IP addresses Services which would be
+port numbers the user that is associated
+with that traffic flow and then of
+course the application web category URL
+list or other matches that you can then
+add into that nextg firewall rule most
+firewall rules will start at the top of
+the rule base and begin evaluating each
+rule individually until it matches a
+rule that is listed in that rule base
+this means we usually put the more
+specific rules at the top of the
+firewall so we can recognize them
+quickly and then more generic or broad
+rules can go lower down in the firewall
+rule list most firewalls will also
+include an implicit deny as part of the
+rule base that means that it will step
+through each rule in succession from the
+very top to the very bottom but if no
+rule matches in the firewall rule base
+we have to know what to do with the
+traffic once we reach the bottom of the
+rules and in the case of an implicit
+deny firewall everything that doesn't
+have a specific match in the rule base
+will automatically be denied once it
+reaches the bottom of that list another
+way to describe a rulebase or policy
+list in a firewall is an access control
+list or ACL so it would be common to see
+in a firewall a rule that has a source
+IP address a destination IP address a
+port number time of day the name of an
+application and other variables as well
+so let's look at a list of firewall
+rules and understand what might be
+allowed or what might be blocked through
+this particular firewall this rule base
+has a very simple set of parameters
+we're looking at the number of the rule
+a remote IP address a remote port number
+a local port number a protocol and an
+action or disposition the first rule
+that's in our firewall will accept all
+traffic that is coming from a remote IP
+address and remote port number and it's
+looking for any traffic that may be
+destined for local port 22 using the TCP
+protocol knowing what we've already
+learned about protocols we know that is
+SSH and any SSH traffic inbound from a
+Remote device to our local network is
+allowed through this firewall the next
+rule is also one that is allowed from
+all remote IP addresses and any remote
+port numbers to a local port number of
+80 so this would be HTTP traffic this is
+also traffic that is allowed through the
+firewall Port three also allows traffic
+for from the outside over any IP address
+and port number to a local port number
+of 443 that would be https that traffic
+is also allowed rule number four also
+allows Microsoft Remote Desktop protocol
+we know that because it allows all
+traffic from any remote IP address and
+port number to a local port number of
+3389 using TCP and all of that traffic
+is allowed rule number five is for all
+traffic from a remote IP address using
+Port 53 to be allowed into any local
+port number using UDP this would be DNS
+traffic and all of that traffic is
+allowed rule 6 allows another type of
+inbound traffic from any remote IP
+address using a port number of 123 so
+this is the network time protocol and
+that can communicate to any local port
+number over UDP and the action is set to
+allow and lastly we have a rule for any
+remote IP address this particular rule
+does not have a remote port number
+number or local port number because the
+protocol that's being used is icmp which
+is commonly associated with a ping and
+icmp does not use UDP or TCP if there's
+any inbound traffic over icmp that
+traffic is denied in the firewall and
+let's assume that this firewall is also
+configured as an implicit deny that
+means if the traffic coming through the
+firewall does not match any of these
+rule numbers it is automatically dropped
+by the firewall most organizations will
+put their firewall at the Ingress egress
+point of the network this is the point
+that separates the internet from the
+internal part of the network and in this
+diagram we do have a firewall that sits
+between the rest of our networks and the
+internet at large this firewall is
+actually connected to two different
+networks on the inside one is the
+internal Network this would be where all
+of our confidential data might be and
+the other is a screened subnet a screen
+subnet commonly holds services and
+devices that need to be accessed by
+individuals on the Internet by putting
+these devices on a screen subnet we can
+take all of that traffic from the
+internet and direct it to a subnet that
+does not contain any of our sensitive
+devices or data that means all of the
+traffic from the internet can be
+directed to the screen subnet and back
+to the internet again and it would
+prevent anyone from the internet from
+accessing the internal
+Network just as we have rules that are
+built into our firewalls we also have
+rules for our intrusion prevention
+systems or our IPS often today an IPS is
+included as part of a Next Generation
+firewall and it has its own rule base
+within that firewall specific to the IPS
+an IPS is also monitoring traffic in
+real time as it's passing through and
+it's able to use signatures that have
+been loaded on that IPS to be able to
+recognize any type of malicious software
+that may be traversing the network many
+of the rules built into an IPS use a
+signature this is an example of an IPS
+signature that has been written for the
+conficker worm this signature is looking
+for a very specific type of traffic to
+pass through the IPS and if that traffic
+matches the signature the IPS can then
+react to that and make decisions on
+whether that traffic should be allowed
+or blocked some intrusion prevention
+systems can also work without specific
+signatures by looking for anomalies to
+occur the IPS may have been configured
+to recognize what a generic intrusion
+might look like such as a database
+injection and if any type of database
+injection passes through the IPS it will
+be blocked even if a specific signature
+doesn't exist the rule base of an IPS is
+also very similar to the rule base of a
+firewall there will be a list of
+vulnerabilities and you can decide
+whether the IPS should allow those
+vulnerabilities to pass through or
+whether you should block them at the IPS
+most intrusion prevention systems will
+have thousands of these signatures
+inside and you can make decisions over
+what signatures are allowed through your
+network and which might be blocked by
+the IPS because there are so many rules
+in an IPS you can often summarize the
+rules and make broad decisions about
+what's allowed or blocked by grouping
+these rules into a group those groups
+are often selected automatically by the
+IPS software or you can make groups
+yourself this allows you to set very
+broad dispositions based on all of the
+rules that may be in a group for example
+you could set a policy that says if any
+of the rules associated with a database
+injection are identified block all of
+that traffic at the IPS with so many
+rules in an IPS it's not uncommon to
+occasionally find a false positive but
+if you customize the rules inside the
+IPS you can find the right balance
+between providing security and
+identifying something that might be a
+false positive here's an example of
+rules that you might find in an IPS many
+of these are based on malware you can
+see port numbers that might be used and
+the name of the malware that would be
+identified by the IPS there might also
+be other rules this one is for an FTP
+protocol where there is a worm that can
+be identified as part of the FTP login
+process and you can configure your IPS
+to identify that worm logging in and
+block it before it gets inside of your
+network

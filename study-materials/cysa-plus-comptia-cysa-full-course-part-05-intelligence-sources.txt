@@ -1,0 +1,404 @@
+If you're an intelligent person, and I
+know you are because you're watching
+this, well, that intelligence probably
+comes from your parents, either genes or
+education. But when it comes to security
+intelligence, well, that's a completely
+different story. And it takes some real
+effort before you can brag about it.
+So what is security intelligence? It's
+an entire process where information that
+comes from well pretty much everything
+that can generate information in your
+company is collected is analyzed and
+then we draw some conclusions based on
+it. Well, if those conclusions refer in
+any way to how secure is our
+organization or our systems, then that
+is security intelligence. And as you can
+probably guess, if this intelligence is
+about computer systems or electronic
+data, we're going to call it cyber
+security intelligence. Now, CTI, keyword
+threat, is about that information or
+intelligence of the world outside this
+time. How bad is the neighborhood that
+we live in? How bad is the internet? Uh
+what attacks are currently happening in
+the world? Are there companies similar
+to ours that are being targeted? Zero
+day exploits, uh, active hacker groups,
+zero day exploits, active hacker groups,
+anything bad that is currently happening
+out there. So, security intelligence and
+cyber threat intelligence together help
+you know exactly who is out there to get
+you, how are they doing it, and what you
+need to do about it. Now, that sounds
+like intelligence, right?
+But how exactly do you get this
+information? Where should we look for
+this intelligence? Well, first you can
+just read about them. What types of
+attacks are out there or have been
+detected in the past? Uh what attack
+methods or vulnerability types are more
+common? This is a very useful
+information when you need to buy some
+security equipment and you have to
+decide on a vendor and a specific
+feature set and also when you need to
+reconfigure some stuff in your network.
+For example, when you're extending your
+network or your company, how do you
+secure that new branch? Or when you add
+a new application in your company? Now,
+I don't need to tell you that this
+requires a lot of manual effort and
+expensive people if you want a job well
+done. So, an alternative to the manual
+effort is the data feed or the threat
+feed that is an online source of data
+designed to be queried automatically by
+applications, security, and networking
+devices. The data feed provides a
+continuous flow of information about
+specific things to look out for like
+back domains or uh URLs that host
+malware, IP addresses with bad
+reputation, uh attack signatures, spam
+sources, even your antivirus database
+and the updates that it receives can be
+considered a threat feed. The purpose is
+to minimize manual intervention. Data
+feed updates can be automated and
+ideally they would also be always up to
+date and sometimes they can even provide
+real-time information about attacks or
+threats that are currently happening
+right now in the world. Of course, if
+you want it to be automated, reliable
+and cheap, I can only choose two. So, a
+good threat feed will cost you some
+money for the subscription. Another very
+important source of information is
+looking into the historical or trend
+information. We'll get back to this
+later, but just to keep things short,
+where do you think is the largest amount
+of information located? Well, obviously,
+if it's already out there, then it must
+have been generated sometime in the
+past. So, it should be in your logs, in
+your alerts, in your historical trends
+that you've generated over time. That is
+where you can look and where you can
+start seeing patterns uh like in the
+matrix. I hope you're not studying it or
+cyber security without having seen the
+movie matrix. So patterns is where you
+can learn from mistakes and know when
+something goes off pattern and it might
+signal a threat even before you know
+what the threat is. And of course it
+depends on how you look at this
+information. One might be some mundane
+information like an employee logging in
+twice in uh 10 minutes but correlated
+with some other factors like the first
+connection came from the US and the
+second one came from China it might
+indicate some problems. So we are
+talking about computer threats cyber
+security threats and later on we'll see
+how to mitigate them or avoid them
+completely but until we reach that point
+let's start with the basics. Say you
+want to defend yourself against
+potential attackers. Where do you start?
+A good starting point are those
+intelligence sources that we've
+mentioned, which are also a source for
+reconnaissance. And reconnaissance
+basically means finding out more stuff
+about your target that you can leverage
+when you're about to attack that target.
+But we're the good guys. All right? We
+don't usually attack, but we need to
+know the mindset of the attacker in
+order to properly defend ourselves. And
+this starts with the question, what
+could a potential attacker find out
+about us? Well, the first category is
+open- source intelligence or OENT.
+That's data available in public sources
+uh which are just as easily accessible
+for you as they are for the hackers. Uh
+these sources give a lot of information
+without actually being involved or
+interacting with a company or a person.
+So, it's information that you can find
+in the media, on the internet, in public
+government data, including financials or
+online publications. Your website is
+another very important source of
+information. For example, if you're
+listing all your staff members in there,
+LinkedIn can also provide a lot of
+information about your company. And be
+very careful with job descriptions that
+you're posting. You might be giving up
+valuable information about your IT
+systems. If you're looking for a
+firewall engineer or of a specific brand
+or module, there you go. Everybody knows
+that you own those firewalls. Now, in
+general, be aware that you're probably
+giving out more information than you
+think the outside world. Go ahead,
+search your name or a work colleague or
+the company you work for on Google and
+uh well, see what you can find. By the
+way, open source means overt or publicly
+accessible. It's not related to open-
+source software in any way. Of
+course, dedicated tools for
+reconnaissance can make your life just a
+bit easier by automating your
+reconnaissance efforts like correlating
+information from multiple search
+engines. We'll have a look over some of
+these tools in a moment.
+And you also have open-source feeds.
+Well, they give you access to reputation
+databases and malware signatures without
+any subscription.
+Government agencies are one such open
+source. For example, in the US, you have
+the NCAS,
+no, not NCIS, which is the National
+Cyber Awareness System.
+The Alien Vault guys are nice enough to
+provide some free threat intelligence as
+well. The MISP project is another
+standardized collection of open- source
+feeds.
+And you might not think about it and you
+probably know about virus total that it
+can be used to analyze malware files but
+it can also provide some insight into
+the reputation of specific URLs.
+And don't forget about blogs or
+convention websites. A lot of smart
+people are constantly contributing to
+the security blogs and publications. at
+least have a look over this list of top
+50 security blogs and try to figure out
+which one of these apply to you and to
+your company.
+Finally, closed source intelligence is
+collected and organized by security
+vendors. They're usually
+subscription-based, which means that
+you'll have to make some payments from
+time to time, but they should be better
+maintained than the open- source ones.
+Just be careful. Some smaller vendors
+out there just repackage open source
+content and uh ask you money for those.
+Some examples here would be uh IBM's
+force exchange from surprise IBM.
+Fire Eye another very well-known
+security vendor
+foret is another very popular security
+vendor and they have their own
+subscription service called Forguard.
+And of course, we should mention Cisco
+with their Talos cloud service, which
+not only provides you with security
+intelligence, but also learns from
+current Cisco customers. And um given
+just how widespread Cisco is within the
+enterprise environment, Telos has become
+a very powerful tool. Before digging
+into more advanced tools, don't forget
+about the most basic tools either like
+who is. This is a free public database
+about who is responsible for pretty much
+every internet resource. Uh websites, IP
+addresses. Also, this database can be
+accessed on a number of websites. Uh
+Google a couple of them. Just pick one
+and go.
+DNS can also be queried for a lot of
+interesting information, especially when
+looking for alternate domains,
+subdomains, mail servers, web servers,
+and sometimes you can even find out some
+information about internal servers of
+some company if the DNS server is not
+configured properly.
+On Linux and Mac OS, you can also use
+mostly out ofthe-box tools like Dig and
+Host, or you can use a web service
+instead, like the uh dig utility from
+Google Toolbox.
+Finally, zone transfers can sometimes be
+attempted on badly configured DNS
+servers. Normally, a zone transfer is an
+internal operation used by admins to
+replicate a DNS database between
+multiple servers. But sometimes it just
+happens mostly because somebody was not
+careful that this functionality is
+exposed to the internet as well. When
+this happens, you can simply request the
+entire DNS information on the server and
+uh it will be handed to your client, no
+questions asked.
+The number of tools at your disposal for
+gathering open- source intelligence is
+huge. I'm mentioning just a few of them
+here that might help you on the exam,
+but for the exam purposes, you really
+only need to recognize them and be aware
+of how they work in general. FOCA or
+fingerprinting organizations with
+collected archive. If it sounds weird,
+it might be because it seems to be
+translated from Spanish. Anyway, it's a
+tool for scanning document metadata. So,
+anything that can be extracted from
+office files, uh, PDF files, XF
+information and images, uh, uses a
+couple of search engines to find out
+more information about that extracted
+data. The harvester sounds like a
+wrestler's name, uh, determines a
+company's external threat landscape on
+the internet. So, it answers the
+question, how exposed are we? searches
+for names, email, subdomains, valid IP
+addresses, and URLs using multiple
+public sources on the internet. By the
+way, this is not illegal. Everything is
+just public information. You're not
+hacking anything or anyone.
+Showdan, it's a search engine for
+anything connecting to the internet.
+Widely used to identify unsecured
+servers, IoT devices, home routers, and
+webcams. Maltiggo uses open- source
+intelligence information and can
+determine relationships between
+companies, even between people.
+Reckon NNG, it's a Python tool that
+performs web reconnaissance and can also
+be used in pentesting scenarios
+sometimes. Census, it's another device
+search engine. searches among any
+devices connected to the internet and
+provides you with as much information as
+can be gathered from the outside.
+Website rippers are another category.
+They simply clone an entire website's
+files on your machine. Of course, you
+will not be able to copy the uh perhaps
+the PHP or the ASP scripts in the back
+end and neither you will be able to copy
+the database. But webpage code might
+reveal some forgotten information. Might
+expose some vulnerabilities. Uh might
+include some email addresses in there.
+Not to mention that you could find out
+that you have access to specific website
+regions that are normally hidden from
+normal user navigation. A very special
+mention has to be made for Google.
+Google in itself indexes a large portion
+of the public internet which means that
+there is a lot of useful information in
+its index. You just have to be able to
+look for it. Uh, some examples here. You
+can use quotes to search for specific
+phrases. You can add a minus sign in
+front of a word or a quoted phrase to
+exclude it from results. You can return
+pages that include both search terms
+because by default, Google assumes an or
+operator between all your search words.
+You can search for specific file types,
+titles, or URL components.
+Most of them can be accessed from the
+advanced search page on Google as well.
+Google hacking database includes some
+very smart examples that extensively use
+these operators.
+Finally, the last step in your
+intelligence gathering twist will be
+answering the question, is this source
+trustworthy? And is this specific piece
+of information true? Also, I might tell
+you that I trust this source and I
+believe this information. Is this enough
+for you to trust the same source and
+believe the same information? So the
+criteria that we should be looking for
+would be timeliness. Information should
+not be old. That's especially important
+in cyber security because simply
+discovering a threat, talking about it,
+showing up in the media. This tells the
+attacker that their attack has become
+public knowledge. So that makes the
+threat evolve. So is the Intel source up
+to date or not?
+Relevancy. Does it apply to you? You
+might have an Intel source about a
+specific threat that attacks systems or
+protocols or processes that are
+completely absent in your environment.
+It has to be relevant to you. Accuracy.
+Is the source so specific that it'll
+allow you to immediately build some sort
+of defense and control against it? or is
+it just something uh generic, some
+threat out there to think about that we
+don't really know how it looks, how it
+behaves, and we have just a general idea
+about how to protect ourselves against
+it. And of course, now more than ever,
+be aware of fake news and fake
+information. Sometimes a clickbait is
+just that. Nowadays, everybody has a
+voice on the internet, so it's up to you
+which ones you listen to.
+And since all this sounds terribly
+subjective to interpretation, well, for
+the exam, we need to know something
+called the Admiral T system or the NATO
+system, which is a method for evaluating
+the reliability of a source and the
+credibility of the information. Now, of
+course, government organizations would
+be more in touch with this rather than
+the private sector, but unfortunately
+also is your dear exam.
+Now for the exam, make sure you
+understand the different intelligence
+sources that we've discussed about and
+you can provide some examples of them
+and you can also recognize some of those
+threat information sources. Remember
+that even simple tools like Google or
+LinkedIn or utilities like Ping, who is
+or simple DNS lookups can provide with
+you a lot of valuable information about
+the person or a company. And keep in
+mind that you need to always be on top
+of this information because hackers have
+access to it too. Thank you for your
+time. Don't forget to subscribe to
+Certified Breakfast. Good luck and see
+you on the next video.
+[Music]

@@ -1,0 +1,233 @@
+as a network administrator you'll be
+working with a lot of cables there may
+be hundreds of cables in large bunches
+coming out of the ceiling and going into
+an IDF or MDF where you're punching it
+down or putting it in patch panels and
+very often you'll need to find one cable
+that's located in this large bunch of
+cables that's in your data center one of
+the ways you can easily find this cable
+is through the use of a tone generator a
+tone generator puts in analog tone on
+The Wire and you can listen into that
+tone using an inductive probe this means
+that you only need to get the probe
+close to the cable to be able to
+identify where that tone might be this
+makes the process of finding a single
+cable and a large bunch of cables very
+very easy you would connect the tone
+generator on one end of the wire this
+can be connected through a modular Jack
+there's coax connections or you might
+even punch it down into a punch down
+block there could also be alligator
+clips so you can manually connect it to
+a piece of copper you would then use the
+probe to locate where that might be in
+that large grouping of cables and
+eventually when you come across the tone
+you know you found the right cable let's
+use a tone generator and an inductive
+probe to find where the end of a cable
+might be I've connected one cable to a
+tone generator and you can see the
+flashing light that's on the tone
+generator tells me that there is a
+analog signal that's being sent over
+this wire so I have this group of cables
+and at the end of one of these cables is
+the tone generator I will use this
+inductive probe that is listening in to
+try to find that particular signal on
+this wire to be able to test it all you
+have to do is touch the outside of the
+cable we can start to hear some of that
+signal coming through but it's not very
+strong for that particular cable let's
+try a different cable and see if we have
+a different response that one has about
+the same signal level we'll try this
+third wire and we finally come across
+the wire that is connected to the other
+end where the tone generator happens to
+be so by simply using that tone
+generator and moving back and forth
+across these wires we're very easily
+able to identify where the end of that
+cable might be another useful tool to
+have around is a cable tester this is a
+relatively simple tester that checks
+continuity from one end of the cable to
+the other if you want to know if pin one
+is connected to pin one and pin two is
+connected to pin two the cable tester
+will tell you very very quickly this
+also means that you can identify pins
+that are not connected so if you have a
+short in the cable it will identify that
+or if there are crossed wires you will
+see that pin one connects to pin three
+or pin two connects to pin six you'll
+notice that in the cable tester as well
+these are usually very simple continuity
+tests they don't show you any
+information about how much signal can be
+supported over that link or what
+category of cable this happens to match
+but it can provide you with verification
+that you've performed the punch down
+properly or that you have the right
+connectors on both ends of the cable the
+tone generator and the inductive probe I
+used earlier also double as a cable
+tester so I plugged in one end of the
+cable to what is the tone generator and
+I put it into the mode of being used as
+a cable tester on the inductive probe
+there is an RJ45 connector at the bottom
+of the inductive probe I'm going to plug
+that in and it's going to act as a cable
+tester and as long as it lights up from
+pins one through pin 8 in that order
+it's telling me that each one of those
+is wired correctly and I have continuity
+for all eight of those
+connections if you'd like to capture
+data from the network itself you may
+need to use some type of external tap
+this allows you to intercept Network
+traffic and send a copy of that traffic
+to a protocol analysis tool or packet
+capture device for a physical tap you
+would physically break the connection
+and put the tap in the middle of this
+connection so this might requires some
+downtime to initially install the tap
+this could be a passive tap which means
+that it's not powered you often see
+passive Taps used for optical fiber or
+it might be an active tap that requires
+additional power to be able to
+regenerate that signal through the tap
+if you don't have a physical tap you may
+be able to perform a similar function
+inside of the switch itself many
+switches support a port mirroring or a
+span connection span stands for switched
+Port analyzer where you you can tell the
+switch to take any data from any of
+those interfaces and send a copy of that
+data to a different interface on the
+switch where of course you've plugged in
+a protocol analyzer one of the
+challenges with a port mirror or span
+connection is that there's a limited
+amount of bandwidth available you may be
+tapping a connection that could send a
+total of two gigabits per second that
+would be 1 gigabit in each connection
+but obviously the port you're connecting
+to the analyzer only has 1 gigabit down
+into the analyzer so for very large
+bandwidth uses you may not want to use a
+port mirror you may instead want to use
+a physical tap here's an example of a
+coax tap but it works very similarly
+whether you're using fiber or twisted
+pair of copper you would be connecting
+two devices one on each side of the
+network you can see there are a transmit
+and a receive pair on each side and
+those will go into the in andout
+connection so you would complete a
+circuit on one connection and complete
+the circuit on the other connection
+there's a copy of the this information
+that is being sent to monitor ports on
+the to and that is where you would plug
+in your analysis tools or your protocol
+analyzer if you have a wireless network
+you may want to gather details about
+what's going over the air with a
+wireless survey tool Wireless survey
+tools can tell you information about the
+coverage of the signal that's being
+received on the network you may be able
+to identify potential interference
+especially if it's coming from another
+access point this might be a tool that's
+built into your operating system or a
+wire wireless access point or it might
+be a third party tool like this one that
+you can install into your operating
+system and be able to gather these
+Wireless statistics if you need detailed
+Wireless information it may require
+specialized hardware and you can use a
+Wi-Fi analyzer to provide that level of
+detail this would be able to see all of
+the 802.11 information that's going
+through the air and in many cases show
+you other information that sharing those
+same frequencies this can provide you
+with Channel strengths you can see what
+channels are in use see what access
+points might be in the area and identify
+any potential sources of interference
+and if you have a more advanced version
+of a Wi-Fi analyzer it may include a
+spectrum analyzer where you can see an
+entire range of frequencies and see
+every signal that's being broadcast on
+any of those frequencies whether it's
+associated with an 802.11 wireless
+network or some other source if you're
+concerned that there's interference
+coming from a thirdparty piece of
+equipment or from a microwave oven you
+can verify that using a spectrum
+analyzer here are the results of
+information that was gathered with a
+Wi-Fi analyzer you can see in this case
+that we have a little bit of noise at
+the bottom of this signal and then a
+little bit of Wireless signal on top of
+that you can see that the signal to
+noise ratio in this particular example
+is very narrow it's very close to each
+other this is very different than
+another view of the network where we can
+see there is a much stronger signal
+there's much more signal than there is
+noise at the bottom our Wi-Fi analyzer
+is able to provide us with a lot of
+detail about just how well our wireless
+network is
+operating if you work a lot with fiber
+optics you might be concerned about
+having Brakes in the fiber optics
+especially if there's a lot of bends in
+a particular fiber optic or maybe you're
+unsure if a particular fiber is in good
+condition one of the ways that you can
+check this is with a visual fault
+locator you can think of this as a
+flashlight that has been specifically
+designed for optic IC fiber the light
+that you shine down the fiber with this
+visual fault locator can be used to
+identify any Brakes in the fiber because
+you'll see the light leaking out from
+around that particular brake you may
+need to turn the lights off in the room
+to see this a little bit better but it
+will be very obvious Once you turn on
+your visual fault locator this is a
+relatively lowtech device but it is very
+effective at finding problems with this
+fiber so you may be able to locate those
+faults before you ever install that
+particular fiber patch into your networ
+work

@@ -1,0 +1,110 @@
+in a relatively short period of time
+companies have really embraced the cloud
+and today practically every organization
+has one or more applications that they
+run in a public Cloud but of course
+along with these applications we're
+putting a great deal of data into the
+cloud as well these applications are
+often accessing sensitive data and it's
+important that we find ways to maintain
+security for all of these cloud-based
+applications and their data
+unfortunately we're not always using the
+best practices for security to protect
+these systems for example it's estimated
+that 76% of organizations aren't even
+using multiactor authentication to log
+into the central console for their
+cloud-based systems and we've also found
+that up to 63% of the code that's in the
+cloud is currently unpatched these are
+not minor patches either these are
+significant security concerns and in
+some cases these vulnerabilities have a
+common vulnerability scoring system or a
+CVSs that is greater than or equal to
+seven on a scale of 10 if you have an
+application that's in the public Cloud
+then anyone in the world would be able
+to at least attempt to connect to that
+particular application that is the point
+of putting your applications in a public
+Cloud unfortunately this also means that
+anyone in the world could try to disable
+that application through a deny of
+service or Doss this may also be a
+distributed deny of service since it
+could be done by many different devices
+simultaneously anywhere in the world we
+we also have to think about the
+authentication method that's used to
+allow access to the application and this
+data if we have a weak process for
+authentication or we've misconfigured
+the authentication process to allow
+people in this application without the
+proper credentials this could cause a
+significant breach of data when you have
+anyone in the world that's able to
+connect to an application you have to
+make sure that the configurations are
+set properly for the app and for the
+security surrounding that application
+one common misconfiguration we often see
+with webar servers is the ability for
+people to manually move around the
+structure of that web server into
+different folders or different
+subdirectories we refer to this as
+directory traversal and it's something
+that should not commonly be allowed and
+of course if a system is unpatched an
+attacker may be able to take advantage
+of vulnerabilities existing for that
+application or operating system and it
+may be very easy for them to run a
+remote code execution and effectively
+run any application they'd like on your
+cloud-based system not only do we have
+to make sure that our underlying
+operating systems and other components
+in the cloud are up to date we also have
+to make sure that our applications have
+been properly patched there have been
+cases where an attacker is taken
+advantage of an application
+vulnerability to then gain access to the
+system underneath and then other systems
+within that same Cloud a good example of
+this are the vulnerabilities we found in
+recent years with log 4J and the spring
+Cloud function these are very easy to
+exploit you don't need a lot of
+knowledge in it security to be able to
+take advantage of these vulnerabilities
+and because you effectively have full
+control of the system afterwards the
+rewards for running this exploit are
+very extensive if the application
+developer has not properly provided
+input validation for the fields in this
+application this could be a case where
+cross-site scripting is used by an
+attacker to gain access to this system
+attackers might also try to take
+advantage of an outof bounds right this
+is when they're able to right
+information into memory even though that
+section of memory is unauthorized to
+that user this might allow the attacker
+to run a remote codex secution or to
+Simply crash the system and make it
+unavailable for others and of course if
+the application is in the cloud then the
+data itself is also in the cloud so the
+attacker may try to take advantage of
+code injection such as SQL injection to
+be able to gain access to the data
+that's in that
+database

@@ -1,0 +1,307 @@
+a distribution frame is an area of the
+network where you are passively
+terminating cables this usually involves
+punch down blocks like the ones we see
+here could be patch panels or any other
+method where we are terminating those
+cables usually in a data center or some
+other large facility you will usually
+find this distribution frame on the back
+wall of the data center and it's often
+terminating cables that are coming in
+for your local area network and voice
+communication and although the punchdown
+blocks and Patch panels that we have on
+the wall are technically the
+distribution frame we often refer to the
+entire room as the distribution frame
+room for example the primary
+distribution frame is called the main
+distribution frame or MDF and we often
+refer to the entire room where it's
+located as the MDF facility the MDF is
+usually a single room it's often the
+data center or Central Point of the
+network and this is where we might bring
+in wide area network connections and
+punch those down along with all of our
+internal local area connections as well
+since we have all of this connectivity
+in one place it is a perfect testing
+Point especially if you need to test
+both your internal local networks and
+your external wide area network
+connections and even if your network
+doesn't have this large set of punch
+down blocks in the back we sometimes
+even often refer to this Central data
+center room as the
+MDF here's a view of one MDF this one
+contains a number of of different racks
+with computer equipment and the
+networking components as well here's
+another MDF you can see a large number
+of punch down blocks or patch panels
+that are on the single rack and some on
+individual racks as well and it's
+intermixed with the equipment that we
+need to run inside of this data
+center another type of distribution
+frame is the intermediate distribution
+frame or the IDF usually the IDF is in a
+separate floor or a separate building
+and it's often Direct ly connected to
+the MDF most idfs these days include
+switches routers and other equipment
+that you need to be able to connect this
+area of the network to the larger MDF
+you usually find this combination of
+mdfs and idfs in medium to larger scale
+environments where you need to have many
+different remote rooms all connecting
+back to the central data center here's a
+view of what that would look like where
+you have the MDF maybe this is where our
+internet connection comes in there might
+be a core router and a core switch you
+might even have file servers and
+database servers in the MDF maybe on
+different floors of the building you
+would then have individual idfs in this
+case there are two but there might be
+more than that in this particular
+environment and in the IDF you might be
+connecting users on the floor to a
+central switch in the IDF and that
+switch is connecting back to the main
+core switch in the
+MDF we've already seen an example of an
+IDF and MDF and one of the of the things
+that you'll notice is there are racks
+that are very common in each of those
+environments that's because the racks
+that we use in these environments are
+standardized and most rack sizes are
+19in racks they're 19 in across in each
+of these and we design our equipment to
+fit perfectly into that 19in width you
+also notice that the equipment in these
+racks might also have different heights
+and we have a standard for those Heights
+known as a rack unit or or a u one U
+would be 1.75 in and we can measure a
+different number of units based on that
+value so you can easily tell somebody
+that we need two U or three U of space
+to be able to install a piece of
+equipment and most racks like the ones
+we see here are generally about 42 u in
+height although the width is
+standardized the depth of these racks
+can often vary there might be racks that
+are very shallow or others that might
+support a much longer piece of equipment
+that you would install fortunately most
+devices follow this standardized form we
+know that if we're receiving a piece of
+equipment that is rack mountable that it
+will most likely be 19 in wide we'll
+just need to make sure that we have a
+rack that is deep enough to handle that
+particular piece of equipment since we
+have these standard widths we can start
+stacking this equipment and using every
+bit of real estate that we might have
+available for example this system
+administrator has installed a server
+that's about 3 u in height and they're
+installing another set just above it so
+that they can stack them one right on
+top of the other now that we have all of
+this equipment in the data center and
+it's all running constantly it's
+creating quite a bit of heat we need to
+make sure that we have a way to cool
+this data center so that all of this
+equipment continues to work optimally we
+would do this by implementing an HVAC or
+HVAC system this stands for heating
+ventilating and air conditioning this is
+very different than simply purchasing a
+window mounted air conditioner and
+turning it on there's a lot of
+engineering that goes to designing and
+implementing an hva system in these
+large data centers for example we not
+only need to make sure that the HVAC can
+support the amount of heat that's going
+to be created by these systems we also
+need to make sure we have enough power
+to run the HVAC and we also need to make
+sure this is integrated into the fire
+system so that we're able to turn this
+off automatically if a fire is detected
+one thing that you'll notice in a data
+center is that the different aisles of
+the data center may be designated as a
+hot aisle or a cold aisle this hot and
+cold aisle is an important designation
+especially as we're installing new
+equipment into the data center we want
+to be sure that we're installing the
+equipment in a way where the hot air is
+being blown into the hot aisle and it's
+pulling in cold air from the cold aisle
+here's a cross reference of a data
+center on the left and right sides we
+have our h HVAC system and in this
+particular environment the cold air is
+going under the floor and the hot air is
+being pulled out of the ceiling the
+cycle starts with the HVAC creating the
+cold air and that cold air is going
+underneath the floor in this raised
+floor environment there are vents and
+Holes in the Floor that will allow the
+cold air to flow into a cold aisle this
+is often the front of the servers and
+the servers are pulling in that cold air
+to cool the inside of the server itself
+once that air is heated up it will be
+sent out the back of the server into a
+hot aisle and that hot air is going to
+rise into the ceiling where it will then
+be pulled back into the HVAC recooled
+and the entire system repeats again
+here's a data center where we can see
+both the hot aisles and the cold aisles
+you'll see the cold aisles are covered
+with this plastic to keep that cold air
+inside and the hot aisles would be the
+ones on the outside with out the plastic
+you'll also notice this is a bit
+different than the previous diagram
+because there is a concrete floor and
+there's no way to have a raised floor in
+this environment so it looks like
+they're blowing the cold air directly
+into the cold aisle from above it's
+being pulled through into a hot aisle
+and then it goes back into the ceiling
+where the entire process
+repeats when we install network cabling
+one of our goals is to not move or touch
+that cabling again we want to be sure
+that once it's installed we can trust
+that that cable will always be working
+optimally one of the things that we'll
+commonly do is have all of the desks
+that are on a floor of a building all
+have single runs of wire all the way
+back to an IDF inside of the IDF closet
+will have a patch panel and commonly we
+might have a patch panel with a one0
+block where we will punch down those
+wires onto the back side of the patch
+panel and on the other side of the patch
+panel will be the traditional RJ45
+modular connectors this means that if we
+need to connect any user on the floor to
+any switch on our switches all we have
+to do is run the appropriate cable from
+the RJ45 connector we no longer have to
+touch any of the cable that's running
+from the back of this patch panel to the
+end user's desk so we can begin
+installing all of the connections we
+need through these patch cables from the
+patch panel itself into the switch that
+we might be using this also allows us to
+address any type of moves ads or changes
+if someone out on the floor moves to a
+different desk we can simply move where
+their patch cable happens to be and plug
+them into a different connection and of
+course if we hire new employees and we
+want to make sure that they have the
+correct network connectivity we don't
+have to run additional cables because
+we've already run those cables all we
+have to do is add new connections from
+our patch panel to the appropriate
+switch
+connection here's what this patch panel
+looks like in our IDF you can see on
+this side of the patch panel we have the
+RJ45 connection
+and we're coming out of those RJ45
+connections and we're plugging them into
+the switches that are directly
+underneath this means we can keep all of
+those cables in place between the patch
+panel and the desk out on the floor all
+we have to change are the internal
+connections inside of our IDF here's
+another view of a patch panel this one
+is connecting from the patch panel
+directly to the switch that's above it
+and notice there are numbered
+connections on that patch panel so we
+know exactly which desk we're connecting
+or disconnecting
+there are similar but slightly different
+configurations for fiber optics this is
+a fiber optic distribution panel where
+we're bringing in fiber runs from
+another building or another floor and
+we're bringing all of those back to
+connections that we have access to on
+the distribution panel one of the
+important characteristics when
+installing fiber optics is making sure
+that we don't exceed the bend radius and
+you'll notice in this distribution panel
+that we are looping together in a very
+large loop the fiber to make sure that
+we don't break the fiber by bending it
+too far in the panel itself and it looks
+like in this distribution panel we have
+some additional fiber that is wrapped
+around we refer to this as a service
+loop so that if we need to move this
+distribution panel or add additional
+fiber we can simply extend it with the
+fiber that's already run this gives us
+flexibility in the future to be able to
+make changes without having to rerun a
+very expensive fiber optic
+Connection in some of the previous
+pictures of the data centers you saw
+that some of the racks were open but
+there were some racks that were
+completely closed that had locks on the
+front of the rack this is not uncommon
+in any type of data center because it
+allows the system administrator a level
+of additional security and control over
+the components inside of the rack we'll
+often install these racks side by side
+directly to each other to optimize the
+space that we have in the data center
+and it's not unusual to have a door on
+the front of the rack where we can have
+a lock and a way to prevent others from
+Gaining access to the equipment inside
+of the rack here's a good example of
+racks that are completely locked up you
+can see in this case that we do have
+ventilation in the front there's often
+ventilation in the top and the bottom as
+well so that the equipment inside is
+able to be cooled properly here's a
+closer view of these racks you can see
+that each of these racks has a handle
+with a lock on it and you can see where
+you would add the key to be able to gain
+access to the equipment that's on the
+inside

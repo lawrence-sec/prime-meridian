@@ -1,0 +1,129 @@
+it Security Professionals have to be
+aware of regulations associated with the
+organization that they work for and the
+type of data that they're collecting
+this may not only include information
+stored by an application but also log
+files that are created by that
+application there may also be a
+requirement to retain certain types of
+information over an extended period of
+time for example some organizations are
+mandated to store email for a certain
+number of years and be able to access
+that data at any time one regulation
+that many organizations are mandated to
+follow is sarbanes Oxley you may see
+this abbreviated as socks this is
+officially the public Company accounting
+reform and investor protection act of
+2002 and it focuses on the finances
+associated with an organization sarban
+Oxley is relatively Broad and it can
+affect many different parts of the
+organization from an IT perspective we
+want to be sure that all of our
+financial data is protected and all of
+that information is available to the
+proper individuals within our
+organization and if you're in healthcare
+you're certainly familiar with HIPPA
+this is the health insurance portability
+and accountability act and it's
+abbreviated
+Hippa or Hippa this mandate ensures that
+our healthc care information is
+protected this covers not only the data
+that's being stored by our Healthcare
+professionals but it also covers how
+that information is transferred and how
+that information is disclosed to a third
+thir party if you're working in it
+security there's certainly going to be
+legal requirements associated with part
+of your job this means there needs to be
+a set of formal processes and procedures
+for the IT team to be able to report any
+illegal activities the it security team
+is also responsible for responding to a
+legal hold this ensures that data will
+be available for any future legal
+proceedings many jurisdictions also have
+rules in the books regarding the
+disclosure of security breaches this
+means if your organization discovers a
+security breach they are legally
+mandated to disclose that breach in an
+appropriate time frame the rules and
+regulations around disclosures are
+different depending on the geography so
+you'll need to make sure that you follow
+the legal requirements in your
+particular area and although cloud
+computing is a significant advantage to
+the technologist it does create a number
+of challenges from a legal perspective
+with cloud computing we can create
+application instances anywhere in the
+world and the data associated with those
+applications may also be stored anywhere
+in the world however there might be
+legal guidelines as to where information
+can be stored for example some countries
+require that if any data is collected
+from their citizens that data must stay
+within that country's borders we might
+also have different security
+considerations for different Industries
+different organizations certainly work
+in different ways and there will be
+differences in how it security is
+handled between different environments
+ments for example if we're dealing with
+Public Utilities or electrical power
+generation there may be a set of very
+strict requirements on how someone can
+access that information this often means
+that our power generating Technologies
+are often air gapped from any other part
+of the network this might be very
+different than someone who works in
+medicine where the information needs to
+be available to everyone but it needs to
+be highly secure this is why in a
+medical environment you may find
+extensive data encryption and other
+protection Technologies this allows the
+medical professionals to have access to
+our private medical information but
+keeps all of that information private
+from anyone else we also have different
+security considerations depending on the
+scope of the organization if there's a
+local or Regional Focus for an
+organization all of the data tends to be
+associated with what's happening in that
+specific area for example a city or
+state government May collect records and
+other information that they can use to
+help manage a city or County as the
+geography increases to more of a
+national level we're now dealing with
+issues associated with a much larger
+federal government and things like
+National Defense this might also include
+communication between multiple States
+who make up that National Organization
+and since the need for confidentiality
+is a much larger scope at the national
+level we may introduce new technologies
+for encryption and data protection a
+global company has additional security
+concerns since they have offices that
+are located in different countries this
+can be a relatively complex Endeavor
+especially since there are different
+laws for data protection and data
+security depending on where you happen
+to go in the
+world

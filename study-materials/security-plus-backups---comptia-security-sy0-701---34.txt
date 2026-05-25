@@ -1,0 +1,329 @@
+if you've watched any of my training
+courses for any amount of time you've
+probably heard me say that it's
+incredibly important that you always
+have a backup a backup allows you to
+recover relatively easily and often very
+quickly if you ever lose any type of
+data but simply saying that you need to
+perform a backup is only the first step
+you need to think about all of the
+different variables and configuration
+options associated with the backup
+process for example how much data do you
+need back up is it a few megabytes is it
+terabytes of data or is it more and what
+type of backup are you planning to
+perform and we'll talk about some of
+those types in this video we also have
+to think about the type of media that
+we're going to use are we going to back
+up to a local tape or hard drive or are
+we going to back up to the cloud we also
+have to think about where we're going to
+store that backup media once the backup
+is complete are we going to store it on
+site do we store it offsite or do we
+store it in the cloud we also have to
+think about the software that we're
+going to use to backup the data and what
+software is used to restore that
+information is this something that comes
+from a third party or is it built into
+the operating system that we're using we
+also have to think about the schedule
+that's associated with these backups do
+we back up everything every day or do we
+only back up updates every day and then
+perhaps perform a full update every week
+all of these decisions have an impact on
+the type of backups that you'll use and
+the process that you'll go through to
+create those backups
+as the name implies an onsite backup is
+a backup where the data and the backup
+media is located at the same location
+you don't need a separate internet link
+or Wan link to be able to transfer that
+data across the network the data is
+immediately available because it's
+located at the same location as you and
+this is generally less expensive than
+going offsite because an off-site
+storage facility would commonly charge
+you for that service an offsite backup
+is one where we can transfer the data to
+a different location and store that data
+elsewhere we might also take physical
+tapes or backup media from our facility
+and ship them to a third-party site
+since that off-site location is Network
+connected we should be able to recover
+that data regardless of where we might
+be because you are network connected to
+the offsite backup location you could
+easily restore that information from
+your new data center facility and in
+many instances an organization will use
+both of these strategies they'll use an
+on-site backup to have information
+stored locally that can very quickly be
+restored and they might use an off-site
+backup for a long-term storage
+option now that you have a location for
+this backup data you need to think about
+when you're able to perform these
+backups some organizations might back up
+every week or every day and in some
+cases every hour sometimes these
+intervals are determined based on the
+total amount of data that needs to be
+backed up these intervals may also be
+different depending on what the system
+has happens to be doing you may have
+some servers that rarely change the
+information that's stored on disk so an
+hourly backup may not be necessary it
+may be very reasonable to back up a
+device like that once a week there might
+also be multiple backup sets where each
+set is backed up at a different interval
+for example you might have a backup set
+that performs a daily backup so at the
+end of the month you have about 30
+backups that have occurred every single
+day or you might have weekly backups so
+four backups every month or there might
+be month backups so that you have 12
+separate backups that you can reference
+every year as you can tell there is
+significant planning that goes into
+determining how much data you're backing
+up and when you're going to back it up
+there are many different options to
+consider you may have multiple backup
+sets those backup sets may be backing up
+on different days you might have
+different types of data that you're
+backing up depending on the server and
+you might have different types of media
+that you're using as a backup
+destination from a security perspective
+the backups that were we're creating can
+contain very sensitive information or
+private information for the organization
+and we need to think about how we're
+storing that data and who might have
+access to it this is something we can
+control very closely if the backups are
+on site but if those backups are moved
+to a different location or transferred
+to a different site then we may want to
+consider other ways of protecting that
+data there have been cases where backup
+tapes were put into an employees vehicle
+that vehicle was used to transfer the
+tapes to a third party storage facility
+but before reaching that facility the
+employees stopped their car to run some
+errands and while they were out of the
+car someone broke in and stole the
+backup tapes everything that was on
+those backup tapes is now potentially in
+the hands of a third party this is why
+many organizations will encrypt all of
+the information that they're storing in
+a backup this means that everything
+written to tape or transferred to a
+separate location is all being encrypted
+and is therefore unreadable by a third
+party this also requires a bit of
+planning because you have to be sure
+that you have all of the recovery keys
+in case you ever need to restore from
+these backups and if you're storing
+information in the cloud encryption is
+almost required you have no idea who
+might have access to this information
+when it's stored on those Cloud servers
+and you want to be sure that if someone
+does gain access to that cloud storage
+that they won't be able to make any use
+of that
+data another type of backup that became
+very popular with the roll out of
+virtual machines is a snapshot a
+snapshot is a very common backup method
+for virtual machines and in cloud-based
+infrastructures a snapshot allows a
+system administrator to effectively back
+up an entire system with the click of
+one button effectively a copy of that
+virtual machine is now created and set
+aside so if you make any changes to that
+virtual machine or decide that you'd
+like to roll back to a previous
+configuration you can simply apply a
+previous snapshot one strategy for this
+type of backup is to take a snapshot
+every 24 hours that way you always have
+a daily update of that particular VM
+these snapshots are very similar to an
+incremental backup where only the
+changes every day are saved to the
+backup file since this is such an easy
+backup process it's used before making
+any significant changes and it's very
+easy to perform this every day if you
+need to revert back to a previous
+configuration it's just a few clicks to
+find the snapshot that you're looking
+for and then just a few moments to have
+that snapshot update the current virtual
+machine here's an example of how you
+might be able to take a snapshot every
+day and what the contents of that
+snapshot might look like let's take an
+example where we have a virtual machine
+and let's say the total amount of
+storage space on that VM is around 1
+tbte since this virtual machine is
+relatively new we're only using a
+fraction of that available space and the
+total data that's on that virtual
+machine is 100 GB of data when you take
+the first snap snapshot of that virtual
+machine it captures all of the data
+that's contained within that VM this
+would be in this example our Monday
+snapshot let's say that we have an
+automated process that performs this
+snapshot every day and on Tuesday a
+second snapshot is taken but on Tuesday
+you can see there have been changes to
+the data that's stored on this device
+the users have changed approximately 40
+gabt of that 100 that we started with so
+our Tuesday snapshot still has 100 GB of
+data but only 40 G gabt of that
+information is different from Monday and
+on Wednesday additional information was
+stored on this drive to bring it up to
+120 gabyt of data and you can see the 20
+gbt of new data is listed here at the
+bottom so we can continue taking daily
+snapshots of this VM and continue to add
+them to this list this will ensure that
+we have a backup of all of the data on
+that virtual machine for at least the
+last 24 hours if you're going through
+this process of backing up all of this
+data in your organization it's also
+important that you test these backups to
+see if you're able to properly restore
+it seems like this should be a
+relatively obvious strategy but
+unfortunately not every organization
+performs tests and this is something
+that can be a significant problem if you
+now run into a disaster and you need to
+recover that data some organizations
+perform tests of their backups on a
+regular basis perhaps a disaster is
+simulated or a particular database is
+selected as a test subject assuming that
+your organization is performing
+different backups in different ways this
+would allow your organization to ensure
+that all of those different methods are
+working properly once this data is
+restored you're only halfway through the
+test you need to make sure that
+applications are able to properly use
+that data or be able to restore a system
+from a full backup so if you're backing
+up data every day every week or every
+month make sure you run through some
+tests to be sure that you can restore
+from any of those backup
+sources another type of backup that
+allows you to copy data in almost real
+time is a replication replication allows
+you to take a single source of data and
+copy that data to one or many locations
+simultaneously if any data changes with
+the original Source all of those remote
+backups are also updated in near real
+time this means that if you make any
+changes to your local data that in a
+matter of seconds or minutes you'll have
+those changes pushed out to all of those
+replicated sites this means that there
+will always be a real-time copy of that
+data located in another location and
+that can certainly be used as a backup
+in some cases the replicated data will
+never be used until there is a disaster
+or some need to recover from that data
+all of your local users are going to
+have their information stored on the
+local site the replicated data could be
+used for backup storage a replicated
+infrastructure or Disaster Recovery site
+this can be especially useful if you
+perform disaster recovery at a hot site
+you'll have all of your data constantly
+updated to that site and if anything
+happens to your primary location you can
+easily switch over to moment's notice
+and still maintain the latest version of
+data a concern for many it professionals
+is when you are writing information to a
+drive and during the middle of that
+writing process you lose power to the
+system this means that some data will be
+written to the drive and other data will
+be lost this may leave the database or
+the information that you're saving into
+a format that can no longer be used by
+the application if you do find yourself
+with corrupted data after you have a
+power outage then you'll need to remove
+that corrupted data and restore all of
+that data from backup this is obviously
+time consuming and not having access to
+that data could be a financial loss for
+your organization to avoid this
+corruption you may want to implement
+some type of Journal journaling some
+applications will have their own methods
+of Performing journaling and there may
+be options within the operating system
+or file system that you're using to also
+provide a journaling function journaling
+works by first writing the data to a
+journal that is stored on that drive
+once the journal is written that
+information can then be copied into the
+final version of that data if you lose
+power while writing to the journal then
+obviously the data inside of the journal
+will be lost but since no data was
+written to the database when the power
+went out the database is not going to be
+corrupted but let's say that power goes
+out between the time that the journal is
+writing into the database when the power
+comes back on the database will
+obviously have a corruption but it will
+look at the last journals to be able to
+update the information that is missing
+this means that corruption can then be
+corrected in real time as the system is
+starting up once we know that
+information is correctly written to the
+journal and then correctly written to
+the database we can then delete
+everything in the journal and start the
+process
+again

@@ -1,0 +1,507 @@
+hello i'm sean powers and i'm here to
+help you learn everything do what you
+love and most importantly be kind i'm
+here in my green shirt today along with
+my friend funky here who was actually
+not one of the original pac-man ghosts
+he was introduced in pac-mania and funky
+is his name anyway today is a lot of
+talking head video there's not a lot of
+demo i'm going to show you some stuff on
+the command line but it's going to be
+just a lot of me saying things about
+linux i will try to make it a little bit
+more exciting with jump cuts but i'm not
+a terribly exciting guy so we'll just
+jump right into it and see what happens
+now this of course is part of the linux
+plus training this will be good
+information even if you're not trying to
+get the linux plus certification from
+comptia but in this video we're going to
+specifically cover devices as they
+appear
+in the linux dev file system we're going
+to look at what block devices are
+character devices some special character
+devices and then i just want to show you
+some tools to look at the hardware in
+your particular computer all right but
+first of all let's talk about block
+devices and character devices now
+they're very very similar in what they
+do they're a way to get
+data in and out of your linux system
+it's how your linux system communicates
+with things like a hard drive which is a
+block device or a serial port which is a
+character device and the way that you
+can tell the difference between them is
+basically a block device uses buffers
+and caches to make the transfer of large
+amounts of data much smoother think
+writing a huge block of data to a hard
+drive that's a blocked device and any
+file storage devices are going to be
+block devices the the data is
+put two blocks and you know usually
+cached and buffered so it's smooth but
+writes huge chunks of data at one time
+whereas a character device is literally
+one character at a time i don't mean a
+character like like funky over there but
+characters like uh letters or or numbers
+or any character and it's just a string
+it's like think about drinking from a
+fire hose that's what a character device
+is and there are some advantages and
+disadvantages to both and so that's why
+they both exist a character device is
+basically like i said a fire hose a
+stream of data and it's either going in
+or out it can be bi-directional
+but there's no buffering involved right
+there's it's it's real time as real time
+as you can get in a non-real-time kernel
+that's another whole video but we're
+basically talking about a stream that
+isn't buffered it's just like as soon as
+you the data comes you get it right so
+back and forth very very quickly um it
+can be less efficient because of that
+fire hose thing as opposed to like a
+large block and writing it but the
+difference between character and block
+is i guess if i had to say it in one
+sentence which i clearly don't feel the
+need to because i've said it in like 27
+sentences
+is
+the buffering or the not buffering you
+know the data when it's going in if it's
+buffered or not buffered character
+devices are not buffered it's just like
+a raw feed directly uh to and from
+whatever device it might be so let me
+show you where devices live on our
+system and then we'll talk about a few
+specific kind now you might remember
+from one of our previous videos that the
+devices are going to be created in the
+dev
+directory of your file system and again
+this these are devices these are not
+actual files but in linux everything is
+a file so i guess maybe they are files
+anyway we're going to look at a few of
+these and i'm just going to describe
+them quickly like sda
+sda is the
+sata drive and this is a virtual machine
+but it's a virtual sata drive and then
+these are the individual partitions sda1
+sda2 sda3 your system might have like
+nvme drives in here there's also going
+to be character devices remember we just
+talked about something like devp is
+going to be a
+character device and you can tell
+without guessing like i'm doing here by
+doing ls minus l because they will show
+up and the first character is either a c
+for character or if let's look for a
+block device up here sda is going to be
+a block device so it starts with a b you
+can tell what kind of device they are
+and i mean at the end of the day it
+doesn't mean a whole lot as far as
+what type they are but it's important to
+know what they are especially for the
+exam and know what the difference is but
+hard drives are always gonna be block
+devices and uh you know like serial
+ports and printer ports are all gonna be
+character devices they just kind of like
+shoot the data uh there's not a lot of
+buffering that takes place they're not
+any buffering at the character device
+level that takes place and so there are
+two i think two yes two specific types
+uh that we are two specific character
+devices that are mentioned and i also
+want to look at one is dev zero so this
+one right here dev zero it's a character
+device and the other one is dev null
+which
+if i know my alphabet dev no those are
+both character devices and they're two
+character devices that they're kind of
+like virtual devices right and they're
+very unique and used a lot it's
+important to understand the difference
+so dev0 is a character device that just
+when you
+query it or when you get data from it
+it's just a constant stream of null
+characters now that's not the same as
+dev null and that's where it gets a
+little bit confusing a null character is
+a binary zero it's not the ascii zero
+it's not like the number zero over and
+over and over it's a null
+character which is a little confusing i
+know but it's basically
+it just sends out a stream of null
+characters that's what dev zero does
+dev no
+again i know confusion a dev no is kind
+of like a black hole a lot of times it's
+referred to as a bit bucket and
+basically it's a write only file system
+you can put anything you want into devno
+and it will never ever let anything come
+out nothing ever comes out of dev know
+if you cat it you know like if you cat
+devno
+nothing comes out because it's a write
+only
+character device you can only put things
+in nothing ever comes out and a lot of
+times we use that like to redirect um
+standard output or standard error we'll
+just redirect it to devno so that it
+just goes away if we don't care what the
+message is we can just redirect it to
+devno and it goes away forever dev0 we
+often use when we're zeroing out like a
+hard drive you know we want to write
+over all of the data we don't write ask
+key zeros when we zero it out what we
+write on there is a bunch of null
+characters and that's the difference
+between
+a null character and dev null hopefully
+that's clear i want to show you really
+quick what happens if you try to create
+a file so it kind of cements it a little
+bit more so i'm going to
+just go to the i'm root user because
+we'll need that in a little while but uh
+in this folder uh well there's a folder
+called snap but anyway we're going to
+create a file i'm going to say cat
+dev
+0
+into
+file name okay and it's an unending
+thing so i'm going to hit ctrl c to stop
+because it basically like i said it's a
+fire hose because it's a character
+device and it's just shooting that null
+character over and over forever and ever
+and ever and ever it's a never-ending
+fount of a null character uh when you
+query it and if we look ls minus l it
+just in that amount of time that i was
+talking before i hit ctrl c it looks
+like we got let's see that's 1.5
+gigabytes i think yeah 1.5 gigabytes of
+data dumped into file name and it's all
+null characters just one right after
+another that's why it's pretty easy to
+zero out a hard drive
+using dev zero because we just write all
+of those null characters over and over
+and it's just a fire hose that shoots
+but let's do this let's erase it so rm
+file name all right so nothing there now
+if we were to say cat dev no
+i gotta spell it right into
+file name
+all of a sudden nothing comes out of it
+it immediately gives me back the command
+line and if we do ls minus l we're gonna
+see zero file length right because
+remember nothing ever comes out of dev
+null it's it's just
+a black hole or a bit bucket and so data
+goes in data never comes out so that's
+the difference between them and there is
+one more specific character device that
+is mentioned and i'm gonna talk about
+two now the other character device
+mentioned in the objectives is dev
+u the letter u random so dev you random
+and the other one i wanna talk about is
+dev random because you'll see them both
+in there and they're close to the same
+but slightly different and basically
+what they do is they will give you a
+fire hose stream of random characters
+now they're not always characters that
+you can display on the screen they're
+not just ascii characters they're just a
+stream of randomness basically the
+difference is dev random which is older
+will not return any information until
+there's enough entropy built up in the
+system now this gets into weird
+cryptology random theory stuff but
+basically let's say that you had a
+virtual machine in a saved state when
+you restored that
+it would be
+the exact same no matter who restored it
+like you give somebody a save state they
+restore it if they were to get stuff
+from devrandom it would be exactly the
+same as the other person who had just
+started it the randomness would be based
+on the state of the machine and so as a
+computer runs and different things
+happen and you type stuff and
+electricity happens all sorts of stuff
+it builds up what's called entropy which
+is just random
+randomness in the system and so dev
+random will not return anything until it
+determines enough entropy has built up
+in the system and that means that if
+you're writing a program that queries
+devrandom for information it could lock
+things while it's waiting for enough
+entropy to build up and that would be
+really bad if you're running a program
+that has to quickly get a random number
+and it's just like oh we're gonna wait
+do nothing until we get enough entropy
+built up in the system and so that's
+where dev you random comes into play it
+will always return randomness whether
+there's a ton of enter entropy built up
+or not it will always return randomness
+and to be quite honest unless we're
+talking about public and private key
+pairs and and cryptography and all that
+kind of stuff you're gonna have plenty
+of randomness from dev you random it's
+it's fine if you're just looking for a
+random way to randomize something in
+your program
+w random is what you want and that's why
+it's mentioned in the objectives and to
+be honest if you're writing scripts and
+stuff it's not terribly useful w random
+like i said it's a fire hose string of
+random characters but not usable
+characters generally you just want like
+a random
+number or something right well
+thankfully the the command line like
+bash specifically has an environment
+variable all set up for you so you don't
+have to actually figure out a way to get
+randomness from the dev you random
+device which i mean we can look in there
+dev uh or ls minus l dev and we'll grep
+for
+random we'll see both of them random and
+you random both character devices rather
+than trying to get information out of
+there into a usable form you can just
+use the random
+environment variable included in recent
+versions of bash so if we were to just
+do echo
+random we're going to get a random
+32-bit number okay and it uses the
+internal entropy of the system to
+convert it to a number but this will
+just give you a 32-bit random number
+every time you query it which is usually
+all you'll need if you're writing a
+script so that's not actually in the the
+exam objectives but if you want to use
+this on a practical level that's usually
+something you can quickly grab
+randomness from just the random
+environment variable and you'll get a
+random 32-bit integer the other thing i
+want to look at in this video is
+the actual devices on your system so you
+can look and see what physical devices
+you have on your system and it's a lot
+more interesting if we go to a bare
+metal install because a lot of
+virtualized hardware is kind of generic
+and lame to look at so i'm going to ssh
+into one of my bare metal servers
+on my personal network and we'll just
+look at some of the tools there to see
+the actual hardware installed so i just
+sshed into my local box it's called
+pookie from the garfield
+comic obviously i'm a garfield fan if
+you've seen my office and the first tool
+notice i'm root some of these you need
+to be root to get the information out of
+so i just became root and the first is
+lspci which will show you a list ls of
+pci devices on your system and it will
+give you all of the pci devices even if
+they're integrated onto the motherboard
+these are just all of the pci devices
+that are on the system like i said these
+could be on the board these could be
+add-on cards uh if you want to look for
+something specific like let's clear the
+screen uh i'll do lspci and let's grep
+dash i so it ignores case and we're
+gonna search for network i don't know if
+network is capitalized or not so that's
+why we're just doing it with the dash i
+so we'll grep for network and we'll see
+uh this has uh two ethernet controllers
+looks like it's a dual ethernet ports
+and that they are intel gigabit network
+ports uh and there are two of them so
+this is a way that you can look at pci
+devices on your computer there's another
+one very similar ls usb and it will show
+you the usb devices obviously there are
+far fewer usb devices even though some
+of these are still on the motherboard uh
+these there are fewer devices here and
+let's see if we can pick something out
+so i have um this this server that is in
+my basement does not have built-in
+bluetooth so i have a little bluetooth
+usb dongle that i plug into it and
+that's how i query my radon detector in
+the basement but anyway so it shows up
+as a usb device because it is a
+bluetooth usb adapter so that's shown
+right there uh this hub that's just
+built into the motherboard uh root hub
+built into the motherboard
+um wind bond herma i think this must be
+something built onto the motherboard too
+the only thing i have plugged into it is
+that that bluetooth chip but these are
+all the usb devices and you'll be able
+to see them uh regardless of what you
+have plugged into your system they will
+show all the usb devices and then the
+last one i want to look at is called dmi
+decode and dmid code i'm going to show
+you a slide real quick so dmid code has
+a bunch of things it'll show you it will
+basically if you've ever used something
+like ansible where it queries the system
+for like everything there could possibly
+be about the system that's a little bit
+like what dmi d code does it just shows
+you everything but you can narrow it
+down based on topic and here's just a
+list of the topics so for example if you
+want to see as much information as you
+can about uh the particular
+bios of the system or
+the cpu or the memory in particular you
+can narrow it down by topic and it will
+show you just that topic or just the
+information related to that topic i'll
+show you really quick i mean this is
+just the more information gathering than
+anything else but this is the one you
+have to be root to use so dmi
+decode and if we just press it it's
+going to show us everything and i know
+you didn't see how fast i went but i
+mean i can scroll forever all of the
+information is dumped if you don't
+specify um and actually it's as far up
+as my terminal buffer went but it will
+just dump all of the information it
+knows right onto the screen and so let's
+clear this and we're going to use dmi
+decode t and let's just look at
+processor information did i spell
+processor right processor yeah okay and
+this will give us information about the
+processor uh for example this is a an
+intel xeon processor and this is why i
+wanted to use the bare metal server
+instead of a vm because the vm doesn't
+show you as interesting of information
+uh but this is the actual cpu in this
+server in my basement um it looks like
+it's three gigahertz um and there's
+interesting let's it's older based on
+the it's an x 3470 so it's not a super
+big one um let's clear the screen
+because there's interesting stuff about
+dmid code t i'm gonna go memory here
+and i'm gonna pipe it through more so we
+can look page at a time
+and let's see so this has six memory
+slots we can see it talks about the
+stuff the maximum memory module size is
+only four gigabytes that means i can
+only put four gigabyte memory chips into
+each slot on the motherboard this is an
+older server obviously right i mean
+pretty old four gigabytes is not big for
+a memory chip anymore but that's the
+maximum size chip i can put in which
+means the total maximum memory size is
+going to be 24 gigabytes because
+there are six memory slots and so this
+is the kind of information you can get
+using dmi decode and it will tell us
+about each
+ram slot in the system so
+let's see this one let's see there's a
+four gigabyte sim in there awesome
+this one has
+another four gigabyte sim
+let's see this one
+not installed this one has a four
+gigabyte sim
+uh
+this one has a four gigabyte sim and
+this one is not installed so it looks
+like i have
+four chips in there and they're four
+gigabyte the max size they can be so i'm
+gonna hit q
+and
+using our map skills let's see if we can
+figure out how many gigs of ram this
+server has well if there were four that
+were populated with four megabyte chips
+there should be 16 gigs in the server so
+let's see free dash h
+and sure enough 15 gigs it rounds down
+because of megabytes and and and bytes
+etc but yeah that's how much is
+available in the system and that's
+really it that's where devices are
+stored on the system you know the
+difference between character devices and
+block devices uh you learn some extra
+stuff like the random environment
+variable and look and see if you can
+identify the hardware in your system
+using lspci lsusb dmid code and all that
+stuff it's just kind of cool to get a
+feel for how you can investigate what a
+computer is using command line tools it
+will tell you about itself anyway that's
+it for this video i hope look forward to
+seeing them on the next one um and we're
+just about done with this section i
+think next time we're going to talk
+about compiling our own software and a
+couple other things but anyway i'll see
+you next time take it easy

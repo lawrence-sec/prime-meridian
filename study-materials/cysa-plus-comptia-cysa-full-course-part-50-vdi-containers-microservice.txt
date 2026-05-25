@@ -1,0 +1,549 @@
+[Music]
+we've got a lot of terminology in this
+title actually some of these are new to
+the site supplies exam as well as for
+the entire cyber security domain now a
+few years back you couldn't find
+anything related to containers or
+microservices in data centers or cloud
+environments and now they're everywhere
+and if it's a new technology and if it's
+growing rapidly it's probably awesome
+but how do we secure it
+now before we dive into all these things
+in the title let's just get one thing
+straight virtualization virtual machine
+i really hope you're not studying cyber
+security without knowing what's a
+virtual machine anyway just to be sure
+virtualization means
+the ability of running multiple
+operating system instances on top of a
+single hardware computer now this is
+made possible by running just a single
+piece of software on top of the hardware
+which is called the hypervisor and this
+hypervisor is responsible for creating
+launching managing resources and
+maintaining all the operating system
+running
+on top of it now some people would say
+from a security perspective that vms are
+more secure than physical servers simply
+because they are located by default
+behind an additional layer the
+hypervisor so that's one more step to
+overcome when attempting to compromise a
+vm kind of like a defense in depth
+without
+intent
+and they can be more secure also because
+the hypervisor provides
+much better visibility into what's
+happening behind the scenes now how your
+vms are behaving how many resources
+they're using and so on but don't forget
+two ideas here that the hypervisor is
+also an additional piece of software in
+itself that can be attacked and
+exploited just like any other software
+it's basically a minimal operating
+system that can be exploited and that
+any virtual infrastructure will have
+some management software
+in the back end that controls the entire
+virtual environment so unauthorized
+access to that management interface to
+that management console
+thinking about something like vcenter
+for example for vmware means that all
+your virtual systems can be compromised
+so take this security discussion with a
+grain of salt all right so let's talk
+about vdi right a more specific type of
+virtualization is vdi that's virtual
+desktop infrastructure the main idea
+behind vdi is to use virtual machines
+instead of physical machines or desktops
+or laptops to provide workstations to
+our employees now since the user cannot
+really work with an empty desk
+vdi is going to use something called a
+thin client
+or a thick client or you know it depends
+on the terminology anyway it's going to
+be a minimal computer with a small
+operating system a screen a keyboard a
+mouse some peripherals in there some usb
+ports and the network connection to your
+data center now when the vdi client
+starts it doesn't do much but it
+initiates a kind of a remote desktop
+connection to its corresponding virtual
+machine in your data center now vdi is
+great from a management perspective it's
+extremely easy to deploy new desktops to
+repair to rebuild to apply security
+policies
+if user gets infected with malware you
+can simply restore its desktop from a
+base image in a matter of seconds or a
+minute or two perhaps
+not to mention that the user gets the
+same experience and the same files the
+same desktop the same environment same
+resources regardless of the user's
+location or even regardless of the
+device that he or she are using i mean
+they they can even connect from from a
+smartphone to the same desktop and it
+all sounds great from a from a marketing
+perspective right but with vdi be
+careful with backups and redundancy
+because
+all the workers now depend on one single
+infrastructure an issue in the vi data
+center leaves your employees without all
+their desktops and i'm not just talking
+about a fire or a flood in the data
+center but just a misconfigured policy
+that locks everyone out and nobody's
+able to authenticate or a misconfigured
+firewall policy that blocks everyone
+else's traffic to the data center
+any issue with this
+is going to bring down
+productivity all over the place right so
+basically you'll need to send everyone
+home because they won't be
+won't even have notepad to work with
+or at least not the digital version of
+notepad
+so it's a single point of failure your
+data center and the connection to your
+data center becomes a single point of
+failure of course the cloud is a great
+environment for vdi because we already
+have everything virtualized in there
+also we have solutions from citrix from
+vmware from microsoft just a few of the
+many vendors out there providing
+cloud-based and cloud-managed
+virtual desktop environments
+just to give you some starting points
+here's the partnership between citrix
+and google for virtual desktop
+environments there's also a partnership
+between vmware and microsoft for running
+horizon cloud microsoft azure or you can
+even use the built-in solution readily
+available from microsoft azure for
+virtual desktops
+another concept here that's worth
+mentioning is soa that's service
+oriented architecture and the story goes
+like this now traditionally designing an
+architecture based on a computer network
+was all about choosing the
+right devices or boxes with their
+specific functions and deciding where to
+place them within the network now with
+virtualization the issue of placing
+those boxes has become highly flexible
+which leads to a business focused design
+so we can think about the business first
+and then design the network or the
+applications
+in such a way to match the business
+requirements right and then we
+reconfigure them whenever those
+requirements change we live in such an
+interesting world so soe relates to this
+concept by introducing the design of
+virtual services closely mapped to
+business workflows now in order to
+accomplish this each service must have
+well-defined inputs and outputs and can
+be regarded as a sort of some sort of a
+black box with a simple interface
+they can be composed of other
+sub-services so we have this type of
+flexibility they must not rely on any
+kind of external state and this
+decoupling of services means that we can
+upgrade them completely independently
+and of course we can even code them
+independently we can use any programming
+language as long as they're still
+compatible with the interconnecting
+services and they can talk to each other
+there is a much simplified
+interoperability between the services
+compared to the monolithic applications
+where we had all the code in one big
+piece of code one big block of
+application where all the functionality
+was was built in was baked in because
+services have much simpler interfaces
+and of course we need to ensure that
+these services can communicate to one
+another right and they can be
+interconnected using an abstract
+communication method called a mesh and
+or sometimes called an esb that is an
+enterprise service bus
+and we do have to mention containers as
+well now containers are some sort of a
+weird animal here some would say
+that they are the next technological
+iteration after virtual machines
+which is why they are referred as
+user space virtualization sometimes now
+containers don't run on top of a
+hypervisor and don't even run operating
+system instances instead containers are
+just isolated
+environments dedicated to running a
+single application
+built on top of a single operating
+system and managed by something called a
+container engine now these isolated
+environments can have their own
+resources allocated to them their own
+file systems they can see their own
+processes so any application that runs
+in such an isolated environment that is
+a container thinks that is the only
+application running on a dedicated
+system so we have a type of isolation
+between containers
+very similar or we try to make it very
+similar to what we had with virtual
+machines except that we don't need to
+boot up a separate operating system for
+each environment all the containers on a
+host are all going to be using the same
+operating system the same kernel that is
+installed on that host
+now having the operating system overhead
+removed now containers can be extremely
+fast actually a new container can be
+created in just a few milliseconds
+adding some time for the application
+that runs inside of that container to
+start as well and just as easily
+destroyed or recreated and of course the
+most popular technology out there is
+docker right now but it's definitely not
+the only one and the flexibility makes
+containers useful for
+things like development now we have
+developers instantly creating and
+destroying test environments to test a
+new piece of code a new to perform even
+a unit test for a minor change and also
+allows developers to quickly switch
+between environments and test different
+types of environments with the same code
+it's also very good for packaging and
+distribution because it makes it so easy
+to ship applications to download to make
+them available for download for the
+customers and to run them as container
+images you don't need to worry about
+dependencies and how the application is
+supposed to be installed anymore because
+the container already has everything in
+it
+batteries included as docker says right
+it has the application and all the
+necessary dependencies in one single
+place so you get a break from all that
+dependency hell that you're used to
+managing when running multiple
+applications with different dependency
+library requirements on the same machine
+now each and every application is
+isolated in its own environment
+right next to its
+exact and perfectly matched
+library requirements
+containers also come with additional
+technologies for storage for managing
+networking for managing security of
+course everything is virtual so the
+storage is abstracted in software the
+networking is actually software-defined
+networking as you can probably expect
+and one more benefit here for example
+docker also lets you describe the
+infrastructure as code now you have
+docker files that describe the the build
+process
+that is uh is executed is performed in
+order to build container images we also
+have docker compose files that describe
+environments entire environments like
+the containers the networking that binds
+those containers the storage that
+attaches to those containers everything
+that you need in one single file of code
+and of course we need to talk about
+security here and the absence of a
+hypervisor does not immediately mean
+that containers are not as secure as vms
+but in my personal opinion they are not
+as secure out of the box which means
+that you have to take some additional
+precautions to keep containers secure
+or to
+make them as secure at least as virtual
+machines out of the box containers are
+pretty permissive
+also keep in mind that containers are
+running on top of a full linux or
+windows operating system which can have
+lots of weaknesses and an increased
+attack surface at least in comparison
+with a minimal hypervisor so make sure
+you really patch and
+validate from a security perspective the
+operating system that's running on a
+containerized host because compromising
+that operating system means compromising
+all the applications that are running as
+containers on that single host and we've
+closely touched on the subject of
+microservices by talking about
+containers and we already said that soa
+service oriented architectures allows us
+to map an it architecture to business
+processes now microservices are
+very similar to the soa approach because
+they also involve splitting larger
+functionality in a bunch of
+smaller interacting subsurfaces but the
+reason that we're doing this is because
+it's easier to combine these
+microservices we don't need to know how
+they work we just need to know that they
+do one job and they do it very well we
+can consider these microservices as
+black boxes self-contained but with very
+clearly defined inputs and outputs and
+of course just like in soa we can
+replace we can upgrade we can change any
+component individually without affecting
+the entire application as a whole even
+from different vendors what we do need
+to make sure that it happens is that
+microservices can communicate to each
+other properly and as you can see
+microservices are really similar to the
+soa approach and in fact they are but
+soa is focused on mapping business
+workflows to those i.t systems that we
+talked about that support them and
+allows the service to be built from
+other sub-services while microservices
+bring the same concept to software
+development and do not allow any
+sub-services to be defined that's also
+why they're called microservices there
+is no smaller functional component
+smaller than a microservice and the
+concepts behind microservices also
+closely relates to first of all agile
+development
+and secondly to the unix-based
+philosophy which you might have heard
+about
+that is that each piece of software
+should do just one single thing
+and should do it extremely well and the
+good news is that cloud environments are
+extremely friendly with this approach
+and regardless of where they are
+implemented containers are the number
+one solution for a pure microservices
+oriented architecture
+now soap has to receive a special
+mention here simply because it has been
+around for so long
+remember when we mentioned that those
+services in the service oriented
+architecture can be written in any
+language as long as they can properly
+interact with each other well this
+compatibility was for a long time
+ensured by soap that is simple object
+access protocol now soap manages this
+business of sending and receiving
+messages between application components
+in soa using xml messages and along with
+its complexity it is a very high
+overhead protocol and soap is not just
+complex for the sake of being complex
+but it also has some
+welcomed built-in features also called
+security extensions so it implements
+authentication it supports encryption it
+can support asynchronous communication
+and advanced error handling and because
+soa and soap create new communication
+pathways between services we are facing
+new risks as well we're increasing the
+attack surface
+first of all we have risk of probing
+this is similar to a scan or a brute
+force attempt probing allows an attacker
+to discover the
+various requests accepted by a web
+service and even view all its functions
+so it's basically scanning web services
+and of course since we're talking about
+inputs any unvalidated input can lead to
+data disclosure privilege escalation or
+simple crashes
+we also have coercive parsing you know
+that's a mouthful and basically this uh
+relies on the fact that the web service
+will attempt to internally process any
+xml request that we sent to it
+again input validation at least to
+figure out if it's a valid one
+excessively large payloads or the
+so-called xml bombs can act as a denial
+of service for the web service itself
+don't forget about external references
+again a type of attack facilitated by
+some improper xml validation which might
+lead to either a denial service or data
+disclosure malware simple malware the
+traditional problem of unvalidated input
+that might include executable code
+performing buffer overflows executive
+malicious code privilege escalation and
+so on
+sql injection even sql injection knowing
+that some xml input to a web service is
+used in sql queries later on
+can expose the application to the same
+risks
+as a non-sanitized input field on a web
+page where sql injection could be
+possible but nowadays we have something
+modern instead of that soa approach and
+those xml messages and we call this
+method rest apis i'm sure you heard
+about them so finally apis are a very
+popular way to interact with systems
+with applications with services with web
+services and they are used in scenarios
+such as interacting with web services in
+a programmatic way like from scripts or
+tools automated tools orchestration
+tools
+including programmatically creating and
+managing resources in cloud environments
+also they're used to enable machine to
+machine communication
+or web services communicating to each
+other
+now initially the standard was soap
+which was based on xml now we have rest
+apis which use http hopefully s https
+and uh
+rest stands for representational state
+transfer which
+in essence it's a much simpler
+implementation and specification
+compared to soap now from a security
+perspective you should know about apis
+because they are definitely a solid
+attack surface they are a gateway into
+your applications your services and
+depending on your level of
+virtualization they might even be a
+doorway into your infrastructure as well
+we are using api keys to interact with
+the services to interact with the
+infrastructure which work as a secret
+key used for authentication so you
+should make them secure and since
+nowadays you'll probably see rest apis
+everywhere and they use http
+do the world a favor and i know i'm
+repeating myself here make sure you
+actually use https everywhere so in rest
+each resource should be accessible by a
+distinct url which can be accessed using
+http verbs get requests post requests
+and so on instead of xml documents like
+in soap so for example in an online shop
+let's say an url that ends with slash
+electronics might point to a collection
+of all the electronic products on the
+website while a url that ends with slash
+electronics a specific id would point to
+a specific unique product by its
+numerical id and rest responses that we
+receive from the api endpoint can be in
+any format depending on how the api has
+been configured most of the time you can
+even choose the format of the data to be
+returned back to you most of the time
+it's going to be json but they can also
+be xml or csv or any type of implemented
+output format and just to wrap things up
+here we also have some principles that
+define how rest apis should be designed
+first of all we have the requirement
+that all the requests should look the
+same so we need uniformity and resources
+should be uniquely identified using a
+unique url
+secondly we need a decoupling between
+the client and the server they must be
+completely decoupled and the rest api
+should be the only means of
+communication
+between those two entities between the
+client and the server so no back
+channels in there
+they shouldn't store any state
+information uh that's where the
+state transfer comes from in rest
+uh that is each request must encapsulate
+all the information required for
+processing including any kind of state
+information that might be relevant so
+there shouldn't be any server side
+sessions at least not as part of the
+rest api design this is supposed to help
+with both performance and scalability on
+both the server and client side
+basically making both their jobs easier
+and finally information should be
+cacheable when possible again for the
+same reasons of improving performance
+and response time
+so that's it for today a lot of
+terminology here but make sure you can
+explain and you understand for
+yourselves
+how containers work what's an uh service
+oriented architecture what's vdi what's
+the difference between a virtual machine
+and a container and so on right so
+remember all the things that we talked
+about because they will be useful
+on the exam day alright so thank you so
+much for watching if you like this
+like the video and subscribe and see you
+next time when we're going to be talking
+about infrastructure as code cicd and
+devops so good luck and see you next
+time
+[Music]
+you

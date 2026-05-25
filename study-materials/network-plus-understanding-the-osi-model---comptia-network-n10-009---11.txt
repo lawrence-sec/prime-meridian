@@ -1,0 +1,324 @@
+we'll start our Network plus course with
+a broad discussion of something we refer
+to as the OSI model this is referring to
+the open Systems interconnection
+reference model and it's a model we use
+in it to describe the process that data
+takes as it traverses our networks The
+OSI model is not designed to be a
+detailed description of this data but
+instead is intended to describe a broad
+overview of how data Travers our systems
+we're also not describing the OSI
+protocol Suite indeed most of the
+protocols we use today are based on
+tcpip but the OSI model is one that we
+can apply to many different protocols
+and it works perfectly with the tcpip
+protocols that we use today also keep in
+mind that there are many different
+protocols that might operate at an
+individual layer of the OSI model so as
+we step through an individual layer keep
+in mind there might be tens or even
+hundreds hundreds of protocols that
+might exist and work at that particular
+layer by understanding this OSI model we
+can converse with other people in
+information Technologies in a way that
+we would all understand it doesn't
+matter if they're working inside of your
+own company or with a different
+organization When you mention OSI layer
+7 or OSI layer 4 everyone understands
+what that means and what effect it has
+on the overall operation of the network
+if we start at the top of of the OSI
+layer or OSI layer 7 and work our way
+down to OSI layer 1 we have layer 7
+being the application layer layer six is
+the presentation layer layer five is the
+session layer layer four is transport
+Layer Three is Network Layer Two is the
+data link layer and layer one is the
+physical layer there are many different
+pneumonics that people use to memorize
+this but if you start at the top and
+work your way down you can take the
+first letter of each one of these layers
+and you might have a term such as all
+people seem to need data processing
+that's application presentation session
+transport network data link and
+physical let's start our conversation of
+the OSI model at the bottom of the OSI
+model or layer one we refer to this as
+the physical layer because it's
+describing the physical signals that we
+send through the cable and fibers on our
+Network at this layer we really don't
+have many protocols to speak of because
+we're really just talking about getting
+a signal from one part of the network to
+another when we refer to a physical
+layer problem with the network we are
+referring to the OSI layer one physical
+layer this means that we might have a
+bad cable a bad fiber there might be
+interference on a wireless network and
+it may require us to do a series of
+tests to determine if we are really able
+to get a signal across this particular
+wire or this particular fiber so that we
+can keep this network running a lot of
+the troubleshooting that you do at layer
+one is running loot back tests testing
+cables and fibers and checking different
+adapter cards and other devices to make
+sure they're working properly on the
+network One Step Up from the physical
+layer is Layer Two the data link layer
+this is the fundamental layer that's
+used to communicate between two devices
+on the network we often refer to this as
+the MAC address layer because that is
+the data link control layer or DLC layer
+that is commonly associated with the
+network cards that are in our devices
+and most of the time these are ethernet
+adapters or wireless adapters and we
+refer to that physical address on that
+device as the data link control address
+or the MAC address in this case Mac
+address is not referring to an operating
+system it's referring to the media
+Access Control address so anytime you
+hear someone talk about a Mac address
+they're referring to the hardware
+address of that particular adapter card
+since the network switches that we use
+on our Network determine how to forward
+traffic based on the destination Mac
+address this is a layer that we often
+refer to as the switching layer so
+anytime we're referring to a MAC address
+a problem with a switch being able to
+operate or anything else that may be
+associated with this particular Hardware
+address we're referring to OSI layer 2
+the data link layer the next layer up is
+OSI layer 3 or or the network layer we
+often refer to this as the routing layer
+because this is the layer that routers
+use to determine how to forward traffic
+and they are specifically looking at the
+destination IP address in order to
+determine what the next hop might be for
+traffic traversing the network this is
+also the layer that we're able to
+fragment these frames into multiple
+pieces especially if we're sending it
+across a network that may require
+smaller frames than what is on our local
+network so we can cut those frames up
+into smaller pieces to be able to fit
+them through the network and then put
+those pieces back together on the other
+side anytime we're referring to a
+problem relating to IP addressing subnet
+masks anything related to an IP address
+or anything about routing then we're
+probably referring to layer three the
+network layer layer four is the
+transport layer and as the name implies
+we're referring to the ability to
+transport information from one device to
+another
+you might also refer to this as the post
+office layer because this is responsible
+for getting your letter or your
+information from one side of the network
+to the other the protocols that are
+often used and operate at layer four of
+the OSI model is TCP that stands for
+transmission control protocol and UDP or
+user datagram protocol these two
+Protocols are commonly responsible for
+getting all of the information within
+our IP packets from one device to the
+other in many cases this involves taking
+a large amount of data putting it into
+smaller pieces to be able to get it
+across the network and then putting
+those pieces back together on the other
+side before we can send that information
+from one side of the network to the
+other we may need to create a session so
+that a device is able to receive that
+data layer five is the session layer and
+it provides communication management
+between point a and point B anything
+relating to the initiation of a session
+stopping the session or restarting the
+session can commonly be associated with
+that layer five session layer
+communication if an application is using
+some type of control protocol or you're
+tunneling information within existing
+data then you're probably using OSI
+layer 5 OSI layer 6 is responsible for
+putting all of this data into a format
+that we will eventually see with our
+human eyes this refers to character
+encoding application cryption and
+decryption and it's often combined and
+discussed in conjunction with the
+application layer at layer 7 layer six
+or the presentation layer is the layer
+that is commonly in operation just prior
+to us seeing this data on our screen and
+the top layer of the OSI model is OSI
+layer 7 or the application layer this is
+the layer that we see on our screen so
+anytime that we are interacting with an
+application we are operating at layer 7
+of the OSI model common applications
+that would operate at OSI layer 7 are
+HTTP and https FTP DNS POP 3 and
+thousands of other application protocols
+well that's a broad overview of the OSI
+model but how do we fit things in the
+real world into each of those layers
+let's start down at the bottom with
+layer one or the physical layer when we
+refer to cables fiber optic connections
+the signal going across cross those
+connections or a wireless network then
+we're operating at OSI layer 1 or the
+physical layer when we refer to OSI
+layer 2 or the data link layer then
+we're talking about ethernet frames Mac
+addresses or addresses referred to as
+extended unique identifiers or eui there
+are eui 48 addresses and eui 64
+addresses for example and as we
+described earlier anytime we're
+referring to the switching process we
+are referring to OSI later ler 2 at OSI
+layer 3 or the network layer we're
+referring to IP addresses so anything
+that has an IP address or subnet mask or
+referring to the way that routers
+forward traffic all happen at OSI layer
+3 if you're referring to a TCP port or a
+UDP Port then we're operating at OSI
+layer 4 which is the transport layer at
+OSI layer 5 or the session layer we're
+using control protocols to start and end
+different sessions or we may be
+tunneling traffic using protocols that
+operate at OSI layer 5 we often
+associate the encryption of application
+data with OSI layer 6 or the
+presentation layer so if you're
+communicating to a website and you're
+using SSL or TLS to be able to encrypt
+and decrypt that data that process is
+occurring at OSI layer 6 and at OSI
+layer 7 or the application layer is
+where you are interacting with the
+application itself anything that you're
+seeing on the screen the application
+itself or any messages from the
+application are often referred to as
+layer 7 information if you wanted to
+drill down a little bit further into the
+OSI model you might want to capture some
+data on your network and view that data
+inside of an application such as
+Wireshark I have a wire shark protocol
+decode on my screen where I've captured
+data on my network and this wi shark has
+three separate windows that is
+displaying different views of the same
+data the top window is a frame byf frame
+breakdown for example I have highlighted
+frame 88 on this top window the middle
+window describes more detail of what
+different information is contained
+within that single frame and on the
+bottom window we have a heximal and asy
+breakdown of the data itself let's focus
+our view on this middle window which is
+a summary of this highlighted frame 88
+you can see that there are 1 two 3 four
+five different lines of data inside of
+the single frame where the protocol
+decode has separated out the individual
+protocols within the single ethernet
+frame let's start with the one at the
+very top which describes frame 88 which
+has 2005 bytes on the wire and 2005
+bytes were captured by wire shark if you
+wanted to associate that line with the
+OSI model that would be best associated
+with layer one or the physical model
+next down is ethernet 2 which has a
+source Mac address and a destination Mac
+address and since we are describing Mac
+addresses everything within that line of
+the wire shark decode is associated with
+layer two of The OSI model or the data
+link layer the next line down describes
+the Internet Protocol or IP and as we
+described before IP fits squarely in
+layer three of the OSI model or the
+network layer and in fact there are
+individual IP addresses listed here for
+the source IP address and the
+destination I IP address and you can see
+there is a DNS resolution here that
+shows that the IP address of
+7242431072 the transport layer and
+indeed you can see TCP port numbers for
+the source and the destination of this
+traffic since the destination Port is
+Port 443 wi shark has already filled in
+that we're communicating over an
+encrypted Channel using
+https and if we go one layer down into
+the secure socket layer this effectively
+encapsulates the top three layers of the
+OSI model so secure socket layer and
+everything underneath it are referring
+to layer five the session layer layer
+six presentation layer and layer 7even
+the application layer here's a summary
+of that protocol decode broken out into
+the different layers of the OSI model we
+had electrical signals at the physical
+layer Layer Two at the data link layer
+had ethernet frame information our IP
+addresses were at layer three or the
+network layer our TCP encapsulation with
+our TCP port numbers is at the transport
+layer our session layer linked the
+presentation information to the
+transport presentation layer was
+obviously performing that SSL or TLS
+encryption and decryption and layer 7 or
+the application layer is referring to
+that Google Mail front end and being
+able to send and receive emails using
+mail.google.com
+hopefully you're now able to see how
+this very broad description of an OSI
+model can be applied to practically any
+communication that's occurring over the
+network and this allows us to talk with
+other IT professional
+and communicate in a way where everyone
+understands exactly what we're referring
+to when we talk about a layer one
+physical problem or a layer 7
+application problem

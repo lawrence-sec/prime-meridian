@@ -1,0 +1,257 @@
+if you need to protect data that you're
+storing on an SSD a hard drive or any
+other type of storage device then you'll
+need to work on encrypting all of this
+stored data sometimes you'll hear this
+referred to as encrypting data at rest
+this includes not just individual files
+that you might have on these storage
+devices but in some cases everything
+that's on the storage devices using full
+dis or volume level encryption in the
+Windows operating system you may be
+using bit Locker to Lish this if you're
+using Macos you may be using file Vault
+and other operating systems have other
+ways for encrypting everything on a
+single volume you might also need to
+encrypt a single file that is on a
+system and not the entire volume in
+Windows you can use EFS this stands for
+the encrypting file system it's a file
+level encryption that's built into the
+NTFS file system and if you're using Mac
+OS Linux or even Windows there are many
+third-party utilities that can perform a
+a similar function in Windows you would
+look at the properties of a file or
+folder and inside the advanced
+attributes you can select encrypt
+contents to secure data to enable
+EFS a lot of the data that we use online
+is stored in a database and of course
+there are different techniques to be
+able to protect the data that's inside
+of these database files for example you
+may be able to configure transparent
+encryption this uses a symmetric key to
+encrypt everything that might be in that
+database and you would need to perform
+an encryption or decryption of that data
+each time the information is pulled from
+the database some of the information in
+your database might not be private or
+sensitive so you might have some data
+inside of the database that is protected
+or encrypted and other data which is
+still available in plain text here's an
+example of a table inside of a database
+this is an employee database that has
+employee ID numbers first names last
+names names and Social Security numbers
+of course you could encrypt the entire
+database by applying a symmetric key so
+that all of this data is now encrypted
+and you can see we have no idea what
+part of this may have anything to do
+with an employees name their ID number
+or their social security number but of
+course there's overhead involved in
+being able to view this information and
+every time we need to search through the
+entire database we would effectively
+need to decrypt all of the data Within
+that single database one way to avoid
+some of that overhead is to only encrypt
+a certain type of data in the database
+in this example we're performing column
+level encryption where the employee ID
+the first name and the last name are all
+displayed in plain text and if you
+needed to search for a name or search
+for an ID you can perform this very
+quickly without having to decrypt any
+other type of data but if you needed
+access to a person's social security
+number you would either need to decrypt
+the entire column or that single record
+to be able to gain access to that
+data another common place to perform
+this encryption is when we're sending
+data across the network we want to be
+sure that everything we're sending
+between two devices is protected and if
+someone does tap into this connection
+and view that data they wouldn't be able
+to make sense of any of those details
+for example you're probably using a
+browser right now to watch this video
+and all of the communication that's
+taking place in your browser is most
+likely using https which means that
+everything Travers ing the network is
+encrypted if you need to connect
+different sites to each other or need to
+connect individuals for remote access we
+commonly would use a VPN to provide this
+encryption this stands for virtual
+private Network and it effectively
+creates an encrypted tunnel where you
+can send all information into the tunnel
+to the other side and anything within
+that tunnel is going to be encrypted
+this is commonly used with client-based
+vpns using SSL or TLS and if you're
+connecting two sites together we
+commonly we use use IPC to provide that
+VPN
+connectivity to be able to have a
+successful encryption and decryption
+both sides must be using the same
+encryption algorithms this is the
+formula that's used to not only provide
+the encryption process but it also
+provides you with the way to decrypt
+that data on the other side generally
+both sides would agree from the very
+beginning to use one or more encryption
+algorithms so that both sides know
+exactly what to expect when information
+is received many times the enduser
+doesn't see the details of the
+algorithms that are being used but they
+know that they're using a particular
+application and they want to be sure the
+person on the other side is using a
+similar application so that the
+encryption and decryption processes will
+be compatible there are obviously
+advantages and disadvantages depending
+on what encryption algorithm you're
+using some algorithms have a better
+security level some work faster than
+others some have a more complex method
+for implement mation but once both sides
+agrees on the application that will be
+used for encryption and decryption
+everything else generally takes care of
+itself automatically usually the
+Security administrator will have a
+pretty good idea of what the
+requirements are for the users and
+they'll make sure that the proper
+encryption algorithms are used here's a
+good example of why it's so important
+that both parties in a conversation are
+using the same encryption algorithm
+these are very broad comparisons between
+the desk encryption algorithm and the
+AES encryption algorithm these stand for
+the data encryption standard and the
+advanced encryption standard you do not
+need to know the specifics of these
+block diagrams for the Security Plus
+exam but you can visually see that there
+are quite a few differences between both
+of these algorithms the desk encryption
+algorithm has five different steps which
+include breaking up the data into a left
+plane text and right plain text to
+finally come up with a 64-bit Cipher
+text you can see that AES Works a little
+a little bit differently where you take
+a plain text and a secret key add it to
+a cipher and finally get the cipher text
+there are also different versions of AES
+that can produce different levels of
+output you obviously would not be able
+to encrypt with desks and somehow
+decrypt with AES you have to be sure
+that you're using compatible encryption
+and decryption algorithms on both sides
+of the
+conversation here's another interesting
+part about encryption algorithms is we
+know exactly how they work the
+algorithms themselves are usually public
+you can read the code or look through
+the math and see exactly the process
+that occurs the algorithm is usually a
+very well-known thing in fact it makes
+the algorithm more trustworthy because
+we can see the math and the process
+that's used to create the encryption the
+one major piece of information that we
+don't have is the key and although we
+know how the algorithm works we still
+are not able to reverse engineer
+anything unless we have that key this is
+very similar to the way that a door lock
+operates we know how door locks work we
+know how to manufacture door locks we
+know what happens inside of a door lock
+when you put a key in but just knowing
+that information doesn't somehow allow
+you access through a lock door you have
+to have the proper key just as you do
+with encryption and decryption that key
+helps determine the final output if
+you're encrypting data or hashing data
+or creating a digital signature it's all
+based around that key and even though we
+have the algorithm and understand
+everything about the math you still need
+the key to be able to gain access to the
+data this is why we always tell you to
+keep those private Keys private if
+somebody gains access to your key
+they're able to use it on your door lock
+and now they have access to all of your
+data like anything else your encryption
+and decryption keys are subject to Brute
+Force attacks which means that an
+attacker could go through every possible
+permeation to be able to determine what
+a public or private key might be we can
+effectively prevent these Brute Force
+attacks from being successful by
+creating a very very long key in the
+world of encryption a symmetric key of
+128 bits or larger would be very common
+and today would be very protected as
+time goes on and our processors become
+more powerful and we're able to tie many
+different processors together we may
+increase the size of our keys to make
+them that much more difficult to Brute
+Force this extension of the key links
+also applies to asymmetric encryption as
+well even though an asymmetric key
+involves complex mathematics surrounding
+very large prime numbers an attacker can
+still perform a brute force and it's not
+uncommon to see asymmetric keys that
+have a key length of 372 bits or even
+larger this means as time goes on we may
+have to create larger and larger Keys
+just to keep up with the changes in
+technology but there are some other
+things we can do to make our existing
+keys that much more secure and and one
+of the ways to do that is to perform the
+encryption process multiple times on the
+single type of data for example you may
+want to Hash a password then hash the
+hash of that password then hash the hash
+of the hash of that password and so on
+this is referred to as key stretching or
+key strengthening this means if someone
+wanted to Brute Force some data that's
+been encrypted multiple times using this
+key stretching method that they would
+need to decrypt multiple times to see if
+their brute force was successful and
+this adds an additional overhead and
+certainly would create more time during
+the Brute Force
+process

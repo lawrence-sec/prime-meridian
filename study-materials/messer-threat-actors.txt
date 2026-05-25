@@ -1,0 +1,261 @@
+in many networks you'll find that once
+you're through the firewall the inside
+of the network is relatively open people
+are able to move from system to system
+without any type of checks or balances
+there are relatively few security
+controls in place and this not only
+allows authorized individuals to move
+anywhere they'd like but also allows
+unauthorized individuals and malicious
+software to do the same but many
+security administrators are changing
+their Network to be zero trust this
+means that you have to authenticate or
+prove yourself each time you want to
+gain access to a particular resource
+this applies to every device on the
+network every process that's running and
+every user on the network as the name
+implies with zero trust nothing is
+trusted and everything is subject to
+some type of Security checks this means
+you might be using multiactor
+authentication during your login process
+you may be encrypting data that's stored
+and encrypting data as it's traversing
+the network there may be additional
+system permissions or additional
+firewalls that you're installing and
+there are number of different security
+policies and different controls that may
+need to be added to create this zero
+trust environment one of the ways that
+we can start examining and implementing
+zero trust on our networks is taking our
+security devices and breaking them into
+smaller individual components we
+commonly refer to this as separate
+functional planes of operation so
+whether it is a physical device a
+virtual device or a security process
+that's running in the cloud we can apply
+these different control planes to every
+single one of these security controls
+broadly speaking we can look at these as
+having two different planes of operation
+one of them is the data plane the data
+plane is the part of the device that is
+performing the actual security process
+so this might be a switch router or
+firewall that's processing frames
+packets and network data data in real
+time the data plane on these devices is
+processing any forwarding Network
+address translation routing processes or
+anything else that helps move data from
+one part of the network to another but
+of course all of this movement of data
+needs to have some type of management
+and control and we perform that control
+in the control plane this is where we
+manage all of the actions that are
+occurring in the data plane this means
+we may be configuring policies or rules
+for a device to determine whether data
+may be traversing the network or maybe
+we're setting up a forwarding policy or
+understanding how routing may be
+configured so anytime you're referencing
+a routing table you're looking at a
+firewall rule or understanding how
+Network address translation should be
+handled you are configuring in the
+control plane one way to get a better
+understanding of the data plane versus
+the control plane is to see how this
+might be implemented on a physical
+device here we have a physical switch
+and we want to be able to break out the
+different planes of operation down at
+the bottom of the switch are all of the
+different interfaces that are used to
+move data from one part of the network
+to another and as we've already seen all
+of the traffic that we're forwarding all
+happens on the data plane of the device
+but of course this device needs to have
+configurations there needs to be Network
+address settings or changes to how data
+might be trunked and all of those
+changes would take place in the
+configuration of the device under the
+control plane of course the separation
+of data plane and control plane is not
+just specific to physical devices you
+might have a virtual switch or virtu
+firewall that can also be separated into
+these two different planes this same
+separation also applies to cloud-based
+security controls for zero trust we not
+only need to implement additional
+security controls but we need to be a
+lot smarter on how we evaluate those
+security controls for example we can
+Implement a technology called adaptive
+identity this is where we are examining
+the identity of an individual and
+applying security controls based on not
+just what the user is telling us but
+other information that we're Gathering
+about this authentication process for
+example we might want to look at the
+source of the requested resources
+perhaps someone who is requesting data
+that's located in the United States is
+using an IP address that's in China and
+if that occurs we may want to perform
+additional security to really confirm
+that this user is who they say they are
+this might also include an examination
+of the relationship of this person to
+the organization so are they an employee
+are they a contractor do they work
+full-time or part-time and of course all
+of this goes into the evaluation of this
+authentication process we also want to
+look at things like physical location
+the type of connection that's in place
+IP addresses and anything else that can
+help us identify information about this
+user once we examine all of these
+different variables we we can have our
+systems automatically create a stronger
+authentication if it's needed in this
+particular case another way to control
+this trust is to limit how many places
+can be used to get into the network so
+you may want to limit entry points to
+only being people that are inside of the
+building or connecting through a VPN
+there may be no other methods to gain
+access to this particular Network and
+once you have all of this information in
+place we can now start creating what's
+called a policy driven an access control
+that examines all of these individual
+data points puts them all together and
+then decides what type of authentication
+process should be used to truly
+understand if the person trying to
+identify themselves is really that
+person another good way to qualify the
+identity of a person is to understand
+where they're connecting from and very
+broadly we categorize these as security
+zones this allows us to expand from
+something that is simply a onetoone
+relationship where a user is logging
+into a server and instead looks at the
+overall path of the conversation these
+security Zones look at where we're
+connecting from and examine where we're
+trying to connect to so this may be on
+an untrusted Network and we're trying to
+connect to a trusted Network or maybe
+it's an internal Network or external
+network and if you wanted to have even
+more granularity you could create
+separate VPN connections or separate
+groups of different departments within
+your organization this allows you to now
+start setting rules on what zone has
+access to all of the other zones for
+example you might want to have a rule
+that automatically denies access if
+someone is coming from an untrusted Zone
+and trying to communicate to a device
+that's in a trusted Zone we can also use
+these zones to create an implicit trust
+for example if someone is in our
+corporate offices they might be in a
+trusted Zone this user in The Trusted
+Zone May be accessing data on a database
+server that's in our data center and the
+data center exists in the internal Zone
+this might allow us to create some
+policies that says if anyone's
+communicating from The Trusted Zone to
+the internal Zone that portion of the
+communication is implicitly trusted to
+be able to set these policies and
+procedures along this pathway we need to
+have something in place that allows us
+to create an enforcement of these
+policies this is our policy enforcement
+point and any subjects and systems that
+are communicating through this network
+will be subject to evaluation by the
+policy enforcement Point these subjects
+and systems commonly are in users they
+individual processes running on a system
+or they may be applications that are in
+use you can think of this policy
+enforcement Point as a gatekeeper all of
+the traffic traversing the network must
+pass through the policy enforcement
+point so that we can make decisions on
+whether we would like to allow or
+disallow this traffic and although this
+policy enforcement point is shown as a
+very broad abstraction in this diagram
+you can think of this as multiple
+devices working together to be able to
+provide identification of the users and
+the traffic the policy enforcement point
+doesn't provide the decision on whether
+traffic should be allowed or disallowed
+instead it gathers all of the
+information about the traffic and
+provides that to a policy decision point
+this policy decision point is
+responsible for examining the
+authentication and making a decision on
+whether that should be allowed on the
+network your policy engine is looking at
+all of the requests that are coming
+through it examines the request and
+Compares it to a set of predefined
+security policies and then makes a
+decision on whether that is granted
+denied or revoked the policy
+administrator's job is to take that
+decision and provide that information to
+the policy enforcement point there may
+be access tokens or credential that are
+created as a result of these policy
+decisions and all of those credentials
+are then sent to the policy enforcement
+Point using this policy
+administrator now we can put all of this
+together to create a single zero trust
+model which starts with our subjects and
+systems communicating from an untrusted
+Zone over the data plane and
+communicating through the policy
+enforcement point if there is a policy
+enforcement that needs to take place
+this enforcement point will provide that
+to the policy administrator which then
+communicates to the policy engine to
+make the decision about whether this
+traffic is allowed that result is then
+passed down to the policy administrator
+which provides that to the policy
+enforcement point and if this traffic is
+allowed the policy enforcement point
+then provides access to this trusted
+Zone and ultimately the enterprise
+resource requested by the subjects or
+the
+systems

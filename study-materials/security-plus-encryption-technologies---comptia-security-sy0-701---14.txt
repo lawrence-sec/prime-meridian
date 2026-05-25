@@ -1,0 +1,180 @@
+if you were to look on a modern
+motherboard you would find a chip or a
+subsystem called a trusted platform
+module or
+atpm this is a standardized bit of
+Hardware that is specifically designed
+to provide cryptographic functions for
+that computer if you want to do anything
+with cryptography such as generating
+random numbers or Keys you can do that
+by using the TPM the TPM also has
+persistent memory so you can have keys
+that have been created and burned into
+this TPM that are unique to only this
+machine this becomes especially helpful
+if you need some type of secure key
+generation that you could use for
+something like full dis encryption this
+can also securely store these keys on
+your local machine so if you wanted to
+use a different set of keys for bit
+Locker you could have the TPM create and
+store those keys on that system this is
+also password protected and there's no
+way to use a brute force or dictionary
+attack to gain access to the information
+stored in your TPM
+you can think of a TPM as providing
+encryption functions for a single device
+but in our data centers we need to
+provide cryptographic functions for
+hundreds or thousands of devices for
+that large scale cryptographic use we
+would want to use a Hardware security
+module or HSM hsms in large environments
+are usually clustered together and
+there's redundancy such as power
+supplies and network connectivity so
+that you will always have access to the
+HSM imagine having a thousand web
+servers in your data center and you need
+someplace to securely store all of the
+encryption keys for all of those servers
+in that scenario you would use the HSM
+to provide the Secure Storage for all of
+those systems for this large scale
+cryptography it's more efficient if you
+were able to perform these cryptographic
+functions in the hardware of the device
+itself so many HSM devices will have a
+separate plug-in card or separate
+Hardware that can connect to the HSM
+that is specifically designed to perform
+very fast cryptographic functions these
+devices are also specially designed to
+securely store keys this allows you to
+store all of those sensitive keys on a
+centralized HSM but prevents
+unauthorized access to those keys and
+additional Hardware such as
+cryptographic accelerators can be used
+on an HSM especially if the HSM needs to
+perform encryption and decryption in
+real time in large scale Computing
+environments so now we've got encryption
+keys that are used used for our web
+servers we have encryption keys for full
+dis encryption on our individual devices
+each individual user may have their own
+certificates so we need some way to
+manage all of these Keys fortunately we
+can provide this type of management
+through a centralized key management
+system you can run these Key Management
+systems on devices that are on your
+premises or it may be a cloud-based
+system that can be accessed from
+anywhere this allows you to manage all
+of these very different keys from one
+sing single Management console and this
+also keeps all of the keys separate from
+the data that you're trying to protect
+so you might create a series of keys
+maybe it's an SSL or TLS key for a web
+server maybe it's an SSH key to provide
+remote access to a console or it's keys
+that you would use for active directory
+or for bit Locker once you create the
+keys you would associate those with
+specific users in the software of the
+key management system and you can set up
+an automatic key rotation so that are
+constantly changing out Keys as time
+goes on this is also a great place to
+provide logging and reporting of all of
+the keys and how you're using them in
+your environment here's the dashboard of
+a key management system which gives us a
+summary of the types of keys that we're
+using we can see what certificate
+authorities have been used when
+certificates might expire details for
+licenses and more if you wanted to see
+the keys we were using for our web
+servers we can click on SSL and now we
+can see what keys have been created and
+what server they're associated with we
+can look up similar key information for
+SSH console communication where you
+could see the key name the fingerprint
+and other details and where this key
+might be used and of course we can
+create reports that can give us
+information on how these keys are being
+used what keys are currently active
+which keys are inactive and we can get a
+summary of how often these keys are
+being
+utilized when all of our data was stored
+on one Central Mainframe computer it was
+relatively easy to provide security we
+just had to keep anyone from Gaining
+access to that one source of data but of
+course today our data is spread across
+many different systems we have data on a
+laptop a mobile phone on our computers
+at home and many other locations so how
+do we maintain the privacy of our data
+even though we seem to be Distributing
+this data onto many different systems
+another challenge we have is that as
+soon as we find a secure way to store
+data the attackers find ways to gain
+access to that data it's a constant race
+to stay one step ahead of people that
+are trying to get their hands on your
+information another challenge is that
+all of this data that we're using is
+constantly changing so we not only need
+to protect and keep this data private
+but we also need ways to easily change
+that data at any time one way that we're
+providing this privacy of our data is
+through the use of a secure Enclave a
+secure Enclave is a security processor
+that's built into the systems that we're
+using you probably have one on your
+mobile phone perhaps even in your laptop
+or even your desktop systems this is not
+considered the primary CPU of your
+system this is a separate processor
+whose job is solely dedicated to the
+privacy of your data different
+manufacturers will also have different
+names for this security processor but we
+generally refer to it generically as a
+secure Enclave this is the technology
+that allows you to keep all of your data
+private even if your phone and other
+devices were to fall into the hands of
+someone else this is a separate secure
+processor that has its own boot ROM it
+manages and monitors all of the
+processes on your system especially
+during the boot process it has a true
+random number generator it can do
+realtime encryption of all of the data
+as it moves in and out of memory it has
+cryptographic keys that are built in
+that cannot be changed and that can be
+used as a root for all of the other
+cryptography on your system and it does
+AES encryption in the hardware of your
+device this is just a summary of the
+things that are available inside a
+secure Enclave but you can see that the
+power of these processors Works to keep
+all of your data private regardless of
+where it happens to
+be

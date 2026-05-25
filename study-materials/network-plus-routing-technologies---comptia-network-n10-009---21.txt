@@ -1,0 +1,402 @@
+the job of a router is to evaluate
+incoming traffic determine what the
+destination might be for that traffic
+and then send it out the appropriate
+interface the router is effectively
+determining what direction a packet
+might go to depending on the knowledge
+it has about the rest of the network to
+be able to make this decision about
+where traffic goes we need a routing
+table and fortunately most devices have
+a routing table the workstation that
+you're using has a routing table table
+the servers that you're accessing have
+routing tables and of course the routers
+themselves maintain their own routing
+tables as well for the router to be able
+to make the right decision on what the
+best route would be to a destination it
+refers to this routing table so
+everything that we do when we're
+troubleshooting a router will begin and
+end with the information contained
+within that routing table one thing you
+might even find with a router is that
+there may be multiple ways to get to a
+location and there will be a tie as to
+which route a router might choose
+fortunately there are ways to break the
+tie within the router and in this video
+we'll look at a number of ways that that
+tiebreaking process might occur let's
+look at a routing table this is a
+routing table I pulled from a Cisco
+router but it's almost identical in Form
+and Function to routing tables that you
+would find in a workstation in a server
+or in any other manufacturer's router in
+this particular example this routing
+table table was built based on a number
+of networks that were directly connected
+and routes that were received using the
+rip Dynamic routing protocol
+specifically rip version 2 if we look at
+the routing table the top part of this
+routing table is a legend that gives us
+more information about the codes that
+are used within the routing table itself
+in the bottom is the routing table and
+you can see that the first set of
+letters on each one of these lines
+corresponds back to a different set of
+codes that are shown in that legend for
+example you can see the first line of
+this routing table starts with the
+letter c which means that that
+particular route is directly connected
+to this router if we want to see the
+route that was added using rip version 2
+then we need to find a line that starts
+with an r and indeed there is a line
+that has an R which means that
+everything on this line was created
+because of information that was received
+by this router using the rip version 2
+Dynamic routing protocol and you can see
+there is a lot of information contained
+within this line we can make out some IP
+addresses there are different values
+such as
+1201 and it does appear there are even
+counters here along with information
+about specific interfaces let's break
+out just this line of information to
+determine what is contained within this
+line of a routing table let's break out
+this line of information to see which
+each one of these provides we know that
+that first r at the beginning of the
+line is the route code code and if we
+refer back to the r in the list of codes
+it does say that this was received using
+the rip protocol the next one is 101030
+do0
+sl24 this is the destination subnet that
+has been added into the routing table
+along with a prefix length of
+sl24 we also have the 120 SL1 this is
+actually two different values the 120 is
+an administrative distance we'll learn
+more about administrative distance in a
+moment and the next is a metric we'll
+also talk about metrics in this video
+you can also see that it's via 101050
+two this would be the next hop or the
+destination that we would be sending
+this traffic if we needed to go to this
+particular location we also have this
+time value this is a time stamp that
+tells us how long this route has been
+active inside of this routing table and
+in this case this route has only been
+active for 14 seconds and lastly you can
+see the outgoing interface that would be
+used sometimes this interface is
+included sometimes it's optional
+depending on the routing protocol or the
+router that you're using but it's
+sometimes nice to see that this
+particular next hop is one that we would
+reach by going out a specific physical
+interface in that router so when the
+router is making its routing decision on
+where traffic should go it's evaluating
+everything in this routing table to
+determine if this would be the best
+possible route to use to forward this
+traffic along to the next hop one of the
+first things that a router is going to
+evaluate is where this particular
+traffic is destined we need to be able
+to look at the destination IP address
+and compare that to the subnet IDs and
+prefix links that are contained within
+the routing table if there's a match
+then we'll know where to forward this
+traffic this means that this IP address
+range and prefix length becomes an
+important consideration when we begin to
+forward traffic we need need to look at
+both of those together to determine if
+this is the best possible route for this
+traffic and if you were to look at a
+routing table you may find that there
+are multiple routes listed to a
+particular subnet but there might be
+different prefix lengths in each one of
+those lines so you might need to
+evaluate each individual line of a
+routing table to determine which one is
+the most specific for this particular
+route for example let's say that you
+need to communicate with a device that's
+located at one
+192.168.1 6 and your routing table has
+three different routes that would match
+that particular IP address one of them
+is
+192.168.0.0 20116 the other is
+192.168.1.0 24 and the third is
+192.168.1
+632 all of these would be valid routes
+to that particular destination but only
+one is the most specific we need to
+evaluate not just the subnet ID but also
+the prefix link to determine which one
+of these is the most specific for that
+particular destination and if we were to
+look at
+192.168.1.0 we would know that
+192.168.1
+632 would be the most specific route in
+fact that is the most specific route
+because a sl32 is specific to an
+individual IP address in this case
+192.168.1 6 now if this route was not in
+our routing table we would have to
+choose between
+192.168.0.0 2016 and
+192.168.1.0 sl24 the sl24 is the more
+specific route than the sl16 so we would
+choose the middle route if we had a
+choice between those two
+locations this can get even more
+complicated if your routing table
+happens to have identical routes to a
+location that go to different next tops
+how do you know which Next Top would be
+the correct one if everything else was
+identical and the one way that you would
+be able to make that determination is by
+examining the administrative distance
+different routing Protocols are assigned
+different administrative distances
+within the router itself this allows the
+router to pick the best route based on
+the type of protocols or the type of
+information that it is received for
+example if this is a local connection it
+is phys physically connected to the
+router this is the best possible way to
+get to that subnet so it has an
+administrative distance of zero as you
+can see here the lower the
+administrative distance the better the
+route might be if you have manually
+configured a static route the router
+assumes that you must be the most
+knowledgeable person for that particular
+route so static routes have an
+administrative distance of one if this
+route was added to the routing table
+using eigrp the administrative distance
+is 90 and and if you receive this route
+via OPF the administrative distance is
+110 you can see that other Dynamic
+routing protocols and methods are listed
+in this table with the appropriate
+administrative distance for a Cisco
+router in some cases the routing
+protocol itself may be in a position
+where there might be duplicate routes to
+a particular location and the routing
+protocol has to make a decision on where
+the best route might be in that case we
+will want to look at the routing metric
+to be able to break that tie routing
+metrics are an internal value that are
+used by the routing protocol itself so
+bgp has its own set of routing metrics
+OPF has a completely different set of
+routing metrics and eigrp uses its own
+set of routing metrics as well this
+means that you can't compare routing
+metrics across different routing
+protocols the routing metrics used for
+bgp are very different than the routing
+metrics used for errp and there's no way
+to compare or contrast those routing
+metrics across routing protocols but
+similar to an administrative distance
+bgp might create its own set of routing
+metrics to a particular site and then it
+can determine what the best route might
+be based on its own internal set of
+routing metrics for example the routing
+metrics for bgp might be one or two it
+will choose the route for one because
+that is the lowest routing metric let's
+look at our routing table for rip
+version 2 again we have that one line in
+the routing table to tend 030.0 sl24 it
+has an administrative distance of 120
+because it is Rip version 2 and it has a
+routing metric of one rip uses the
+number of hops to a location as its
+routing metric so we know that this
+particular destination is one hop away
+to be able to reach that particular
+Network we would go to 101050 do2 and we
+would get to that particular location by
+sending this traffic out serial 0/3 SL1
+on this router if you were to use a
+different routing protocol for example
+eigrp you would have a very different
+routing metric here is the same routing
+table to the same location but we've
+enabled eigrp instead of rip 2 you can
+see this line in the routing table was
+created with the code D and if we refer
+back to our Legend we can see that D
+does refer to
+eigrp everything in this line is very
+similar to what we saw with rip version
+2 although you'll notice the
+administrative distance is different
+it's a 90 because eigrp has a higher
+priority in its administrative distance
+than rip version 2 but you'll notice
+that the routing metric that is
+determined by eigrp is very different
+than the routing metric that we saw for
+rip version 2 rip version 2 uses the
+number of hops whereas eigrp has a
+completely different calculation that it
+uses to determine what the best route
+might be as you work more with routing t
+and begin evaluating these routes on the
+Fly you'll become much more comfortable
+with determining where the best next hop
+might be for a particular packet one of
+the challenges we have when working with
+routers is that there is only one best
+route to a different location if you
+were to look at the IP configuration of
+your device you'll notice that you have
+a default gateway that default gateway
+is your local router that allows you to
+communicate outside of your local IP
+subnet but you'll notice that there is
+only one IP address available to list as
+the default gateway you can't list
+multiple gateways in that list and this
+brings up a challenge especially when
+you'd like to have redundant routers on
+a single Network one way to provide
+redundancy even though you only have
+places for a single default gateway is
+to create a virtual IP address for the
+router that's in use we refer to this
+virtual IP as a VIP and the idea is that
+if the primary router disappears we can
+move that virtual IP to another router
+on the subnet so that you don't have to
+change everyone's workstation to
+maintain the uptime and availability of
+the network this means you as the in
+user may have no idea how many different
+redundant routers might be on your local
+subnet and if the primary router on your
+network was to fail and the virtual IP
+address was to move you would seamlessly
+continue to have connectivity using that
+redundant router
+here's how this would work you as the in
+user would communicate to a router or a
+default gateway on your network and that
+default gateway gives you access to
+other subnets or allows you to
+communicate out to the internet in this
+particular example we're going to use
+the first hop redundancy protocol or
+fhrp in conjunction with a virtual IP
+address that we've associated with
+router 1 this is our active router also
+on the same subnet is a standby or
+backup router that our router 2 our
+default gateway is going to be
+associated with the virtual IP address
+that we've got associated with router 1
+and that means that all of our traffic
+will flow out of our Network through
+router 1 if router 1 was to fail there
+would need to be some type of method to
+fail over to router 2 but router 2 has a
+completely different IP address in this
+configuration router 1 and router 2 are
+always in communication with each other
+but if router 2 suddenly realizes that
+it's not able ble to communicate with
+the active router it then removes that
+as the active router and becomes the
+active router itself then it takes
+control of that virtual IP address so
+that everyone on the network is now able
+to communicate out to the internet
+through router to using that original
+virtual IP address all of the traffic
+will flow just as it normally did and
+then user has no idea that it's now
+using a completely different router to
+be able to perform that communication
+another interesting characteristic of
+switches and routers is that you can
+assign multiple interfaces to a single
+physical interface we refer to these as
+sub interfaces so even though there
+might be a single ethernet interface on
+a router we can take that single
+ethernet interface and separate it into
+multiple virtual interfaces for example
+we might have a trunk connection that
+has multiple IP subnets connecting to a
+single physical connection
+but we may need to reference each
+individual VLAN in a trunk with a
+separate IP address on our router we do
+that by assigning that physical
+interface with an additional parameter
+called a sub interface so although the
+physical interface on that router is
+referred to as ethernet
+1/1 we would have separate sub
+interfaces within that physical
+interface that might be called ethernet
+1/110 ethernet
+1/120 and ethernet 1
+sl1100 this means that we can set
+different configurations for each of
+these sub interfaces so that we can
+reference them with the appropriate IP
+address for that VLAN here's how this
+would look on a network configuration
+you can see there are three devices all
+three of these devices are in separate
+vlans there's the red VLAN the green
+VLAN and the blue VLAN and of course
+they're connecting to separate physical
+interfaces on a switch the switch then
+has a single cable between the switch
+and the router and it's trunking each
+individual VLAN within that single
+gigabit connection on the router side
+we've configured three sub interfaces
+for that ethernet connection sub
+interface G
+0.12 and do3 and then we can assign IP
+addresses subnet masks and have
+completely different routing tables for
+each of these individual sub interfaces
+as if they were physical interfaces on
+that router

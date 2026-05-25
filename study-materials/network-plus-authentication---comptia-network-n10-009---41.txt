@@ -1,0 +1,333 @@
+many of us are very familiar with the
+process of authenticating we put in a
+username a password sometimes there's an
+additional authentication factor and
+that provides us access to a system but
+behind the scenes there is a lot more
+happening so let's dive into the process
+of
+authentication the process of
+authentication uses something called the
+AAA framework we'll look at all three of
+the A's associated with the AAA
+framework in a moment but first we start
+with a piece of information
+that everyone has access to and that
+would be the identification that we use
+when we're logging in this is often our
+username it might be an email address
+but it's information that is usually
+available to pretty much everyone this
+is public information and just because
+someone happens to know our email
+address or happens to know our login
+name does not give them access to our
+systems the first a in the AAA framework
+is authentication this is the process
+where you prove that you are really who
+you say you are this is often done with
+some type of private information such as
+a password or some other type of
+authentication Factor once you go
+through the authentication process and
+you prove that you are who you say you
+are we now need to be sure that you're
+provided the access associated with that
+particular user this is provided through
+the second a in the AAA framework
+authorization we need to be sure that
+you're provided the proper access to
+files directories or areas of the
+network work based on who you say you
+are and of course we need to be sure
+that we track the people that are
+logging in and the people that are
+logging out we do that through the third
+a in the AAA framework or accounting we
+want to be sure that we document when
+someone logs in logs out we also want to
+be sure that we document when someone
+does not complete the authentication
+process properly there might also be
+other pieces of information associated
+with identification authentication or
+authorization that we might also store
+as part of this accounting process there
+may be many different processes that
+occur behind the scenes when you provide
+your username and password but let's
+look at a very common scenario where
+we're logging into a VPN concentrator
+from somewhere out on the internet from
+our laptop we will need to send this VPN
+concentrator information about who we
+are we need to provide a username a
+password or some other type of
+authentication Factor this is usually
+sent to a AAA server which contains all
+of this username information stored
+passwords in a protected form and
+anything else that can help prove that
+we really are the person we say we are
+if the information that we've provided
+matches what's contained on the AAA
+server that server will send a message
+back saying that those credentials have
+been approved at that point we're able
+to Traverse the network because we've
+gone through the entire authentication
+process and we were confirmed by this
+AAA server on many networks we only have
+to provide that authentication
+information one time during the day and
+from that point forward we can access
+all of the resources that would normally
+be accessible to us we refer to that
+one-time process as a single sign on
+when we sit down at our desk in the
+morning we provide our username our
+password any other authentication
+details required and from that point
+forward for the rest of the day we don't
+have to provide that information again
+we obviously don't want to provide that
+access indefinitely so there's usually a
+time frame associated with this often 24
+hours so when we step back into the
+office the next morning we will probably
+have to go through this process again
+single sign on is a function that is
+directly associated with the
+authentication process and not all
+authentication methods support single
+sign on so you want to check with the
+authentication method that you're using
+to see what options might be available
+for SSO or single sign on one very
+common protocol used during the
+authentication process is the remote
+authentication dial-in user service or
+radius radius has been around for a very
+long time and is supported on many
+different operating systems and many
+different devices and although it has
+the word dial in in the name of the
+protocol it is a protocol that can be
+used on our modern networks as well so
+when someone is logging into their VPN
+concentrator their concentrator may be
+communicating to the triaa server using
+the radius protocol this could also be
+used for other authentications such as
+authenticated with a server or logging
+into your wireless network using
+802.1x and because radius is so well
+supported across so many different
+operating systems it's common to have
+this as an option on most authentication
+systems so if you're installing a newvpn
+concentrator or new firewall you may see
+radius as one of the options available
+for
+authentication some authentication
+databases are effectively a list of
+usernames and passwords and although
+that can be a useful way to store
+authentication details it doesn't tell
+us anything about who that user might be
+or where they might be located to
+provide additional context we might want
+to use a more capable way to reference
+these details for instance we might want
+to use the lightweight directory access
+protocol or ldap ldap is a way to read
+and write information from a centralized
+directory on the network this is very
+similar to a phone directory or a phone
+listing where you could search for users
+you could look different departments and
+you can find information based on a
+phone number ldap is also a
+well-established standard it was created
+by the international telecommunications
+Union or itu and it uses a standard
+known as X500 the original version of
+this protocol was known as the directory
+access protocol and a lightweight
+version of this protocol was created and
+we put the L in the front to designate
+this as the lightweight version so if
+you're using Windows Active Directory
+you're logging into an app Apple open
+directory system or a Noel e directory
+then you're probably using the
+lightweight directory access protocol or
+ldap I mentioned that ldap allows us to
+add additional context to a particular
+user or particular device we do this by
+using this standard known as
+x.500 X500 allows us to associate
+attributes to a user or to a device for
+example let's say that we have a web
+server obviously this web server has a
+name it may be called widget web and by
+itself we know that we can use that name
+to reference that web server but it
+would be nice to have more context about
+where that server was located who owns
+that server and where that server might
+be maintained so we might add additional
+attributes to that particular server's
+name for example we could add an
+organizational unit name this particular
+organizational unit is marketing which
+means this web server is managed by the
+marketing department it may be part of a
+larger organization ation known as
+widget that organization may be located
+in London and it may also be part of the
+widget.com network having this
+additional context allows us to
+understand where the server might be
+located who manages the server and where
+we can go to find out more information
+about that particular
+device with these attributes we can now
+start to build a hierarchy of
+information associated with that device
+and all of the other devices and users
+in our Network we can then build build a
+tree containing these objects that we've
+built in our ldap database we might be
+dividing this particular database up by
+different countries these different
+countries might have different
+departments within them and ultimately
+you might have individual users or
+individual devices that will be part of
+that tree we refer to these higher level
+objects as containers and the individual
+users and devices would be Leaf objects
+this means during the authentication
+process we can provide a lot of content
+text about exactly who may be logging in
+and where they may be associated in the
+overall scheme of our
+organization One open standard for
+authentication and authorization is
+known as saml this stands for the
+security assertion markup language one
+of the goals of samle was to make the
+authentication and authorization process
+open so that we can then apply it to
+many different types of applications one
+of the challenges though with saml was
+that it was not built for mobile devices
+so if we need to authenticate to a
+device we may need to do that across
+multiple devices if we need to use them
+all simultaneously the authentication
+flow with saml is a little bit different
+than the flows we've seen earlier
+there's usually three different
+components associated with the
+authentication flow there is a resource
+server there's the client which is
+usually you using a browser and there is
+an authorization server when a user
+tries to access a resource on a server
+and they don't already have
+authentication that resource server will
+redirect that client to communicate to
+an authorization server to be able to
+gain access username and password
+information is then passed to the
+authorization server it's confirmed
+through those processes we spoke of
+earlier through an ldap database or
+radius and then if that information is
+successful a token is generated and
+provided to the client the client then
+proves that they've authenticated by
+presenting that token to the resource
+server and the server will confirm that
+based on the cryptographic signature
+and then provide an access granted
+information back to the
+client and one of the last
+authentication protocols that we'll look
+at is known as tacx this is the terminal
+Access Controller access control system
+this is another Authentication Protocol
+that's been around for quite some time
+it was originally used to control access
+to dialup lines over modems at arpanet
+the latest version of TAC ax is known as
+Tac ax plus and it's one that was very
+commonly associated with with Cisco
+devices and even today people consider
+tacx plus to be a very Cisco Centric
+authentication method however many
+aspects of TAC ax and Tac ax plus were
+made public and an open standard in 1993
+and today anyone should be able to
+integrate Tac ax plus within their
+authentication
+system it's very common during the
+authentication process to provide login
+details such as your username and your
+password but of course someone else
+could have access to that information so
+very often we have other authentication
+factors that we need to provide when
+we're adding additional factors to the
+authentication process we refer to that
+as multiactor authentication this means
+we may need to provide a password there
+might be a mobile app with a particular
+number that we need to provide or we
+might be including GPS details that show
+that we're located within the corporate
+facility itself some popular multiactor
+authentication factors might be
+something you know that might be a
+password something you have that might
+be your mobile phone with the app that
+you're using it might be something you
+are such as a biometric reading for
+example your fingerprint or it might be
+somewhere you are which would certainly
+be a GPS location one or more of those
+could be used during the authentication
+process to help prove that you are
+really who you say you
+are the factor of something you have is
+often associated with a top this would
+be a time-based onetime password
+algorithm that is integrated into an app
+that you might have on your mobile
+device this usually has a secret key
+associated with it and it uses the time
+of day to be able to provide what is
+considered to be a sudo random type of
+numbering system this number tends to
+change occasionally so every 30 seconds
+you may get another randomized number
+that appears on the screen in reality
+this is not a randomized number it's a
+number that only seems to be random and
+it's a number that is expected by both
+sides of the authentication process this
+is accomplished by creating a secret key
+ahead of time and then synchronizing
+both the client and the server using a
+protocol such as the network time
+protocol so during the authentication
+process you may be asked for your
+username your password and then the code
+that appears in the app on your mobile
+phone this is becoming a very common way
+to authenticate and it's one that's used
+by Google Facebook Microsoft and many
+other organizations to add additional
+factors to the authentication process

@@ -1,0 +1,114 @@
+when you log into a website it's very
+common to use a username and password
+there might be a mobile app that
+provides a pseudo random code or it may
+take into account your GPS location we
+refer to these different types of login
+parameters as authentication factors and
+some very common authentication factors
+might be something you know something
+you have something you are or somewhere
+you are although these are very popular
+authentication factors there are others
+you could use as well something you know
+is probably one of the most popular
+authentication factors because this
+includes the password that you've
+memorized obviously your password is
+made up of a string of characters or a
+particular phrase and it's something
+that's only known to you another good
+example of something you know is a
+personal identification number if you
+put your card into an ATM you're
+commonly asked to provide a four-digit
+pen this personal identification number
+isn't written down anywhere so it
+clearly would be something that only you
+know and you might have a mobile phone
+or a tablet that uses some type of
+pattern to be able to unlock that system
+this is also referred to as something
+you know since you're the only one who
+knows the specific pattern that allows
+you access to that
+device another type of authentication
+factor is something you have for example
+you might have an ID and that ID is part
+of a smart card that smart card can be
+inserted into a device and usually it's
+used in conjunction with the personal
+identification number to provide
+multiple types of authentication another
+good example of something you have is a
+USB security key the security key has a
+certificate on that key that is specific
+to you so if you plug in that key it's
+assumed that that must be you because
+you're the only one with that USB drive
+you might also have a hardware device
+that creates a seemingly randomized set
+of numbers and those numbers are also Al
+duplicated on the server so when you log
+in with the username and password you
+might also be asked to input the number
+that happens to be on your hardware
+token there are also software tokens
+available that you can use on your
+mobile phone so that you don't have to
+carry around yet another device and
+carrying your phone with you also is
+something you have and it's not uncommon
+to use SMS or text messages to send a
+code to your phone that you can use
+during the login process a type of
+authentication factor that is personal
+is something you are this is commonly
+used with biometric authentication where
+you're using a fingerprint a voice print
+or something else that is specific to
+you as a person this works by storing a
+mathematical representation of the
+biometric so a picture of your
+fingerprint itself is not being stored
+and compared it's actually a
+mathematical representation of your
+fingerprint this is also a very
+difficult type of authentication factor
+to change or modify since it's very
+difficult to change something like a
+voice print or a fingerprint and usually
+this type of authentication factor is
+used in conjunction with other factors
+at the same time especially since we've
+seen situations where Biometrics can be
+circumvented so you may want to include
+this something you are along with one of
+the other authentication factors as
+well our mobile devices are very good at
+determining our location and we can use
+that location information as an
+authentication Factor we call somewhere
+you are for example if a login is
+attempted from a country that's
+different than where you were 10 minutes
+ago the system may not allow that login
+to occur because it's checking on
+somewhere you are we can also get an
+idea of where someone might be based on
+their IP address this is not a perfect
+representation of where someone might be
+and it becomes much more difficult when
+we start having much larger addresses
+such as the ones found with IP version 6
+and of course we could use multiple typ
+types of location services to determine
+where someone might be we could query
+their IP address combine that with GPS
+coordinates to help understand where a
+person may physically be located and
+once that geolocation process is
+complete it can all be used as another
+authentication factor to allow you to
+log into the
+system

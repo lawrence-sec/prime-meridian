@@ -1,0 +1,226 @@
+scripting allows for the automation of
+functions that normally you would have
+to perform manually this means when
+situations occur you don't necessarily
+have to be there to resolve the problems
+you have a script that does that for you
+this also means that you don't have to
+receive a phone call in the middle of
+the night disrupting your sleep as
+you're trying to resolve a problem
+manually and you can sometimes identify
+problems before they occur and automate
+the process of resolving them before
+anyone knows an issue was even there
+another great advantage of scripting is
+that it's fast it runs as fast as the
+Computing systems that it resides on and
+you don't have to worry about somebody
+typing things in or misspelling anything
+once you've set up a script and tested
+it it can run without any type of delay
+or errors and if we have a script that's
+performing processes for us we can do
+other things that are much more
+interesting than typing at a command
+line scripting certainly saves a lot of
+time we can run these scripts whenever
+we might need them they can perform
+their functions over and over again and
+you won't have to provide any type of
+human intervention automation can also
+help us enforce security baselines we
+might have a script that is providing an
+update or upgrade with security patches
+and that script waits for the patch to
+arrive in a particular folder identifies
+that a new patch exists and then
+automatically deploys that patch to all
+of the systems that need it I've also
+configured scripts for infrastructure
+configurations especially when setting
+up multiple systems that all need to
+have exactly the same security you might
+set up a script that automatically
+builds a default router configurations
+with all the unique settings that your
+organization requires maybe you have a
+script that creates firewall rules
+anytime you deploy a new firewall to a
+remote site or maybe there's a script
+that runs IP configurations set security
+rules or configur standard configuration
+options within a single device by using
+a script to provide this configuration
+we not only know that we're putting in a
+correct configuration but it's one that
+includes all of the security controls
+required you're probably familiar with
+the process of scaling up or scaling
+down a cloud-based application
+infrastructure when you're scaling these
+systems up you're adding new servers and
+new databases but you also need to add
+new security features and you can scale
+up the security along with everything
+else for that application in the cloud
+you just have to make sure that you
+build your scripts to not only include
+the servers and databases but also the
+firewalls and other security devices
+along with it this is also great for
+members of your information technology
+staff instead of everyone manually
+typing in and dealing with problems on
+an ad hoc basis you can create scripts
+that perform many of those functions
+automatically and they can move away
+from the boring tasks and concentrate on
+something that's much more
+interesting automation has the ability
+to react very quickly when a problem is
+identified we can set up constant
+monitoring of a system and if anything
+changes in that system that needs to be
+addressed we can automatically apply
+those changes for example we might
+monitor a server for available dis space
+and if we identify that the dis space is
+becoming low we can have a script go
+into temporary files and clear out some
+of that space so that the system remains
+up and running and since these scripts
+run 24 hours a day and 7 days a week we
+don't have to have an individual Main
+ually monitoring a server for dis space
+we can simply have the scripts take care
+of all of that for us many organizations
+will automate the process of onboarding
+and offboarding when you're onboarding
+there are a core set of resources that
+almost every employee needs access to
+for example they will need their own
+home directory they'll need access to a
+printer that's near them and they'll
+need access to email an onboarding
+script can automatically create the
+users's account assign them to the
+correct groups and make sure they have
+access to the files and resources they
+need need automation can also be used to
+stop humans from making mistakes we
+refer to these as guard rails the guard
+rail is an automated verification of
+information going into a system so a
+human might be typing into a server but
+an automated script is going to verify
+the information that's being input and
+make sure that the information is not
+going to cause a problem with that
+destination system for example a
+technician may try to delete a folder on
+a server but mistakenly chooses a much
+larger area of the server to delete
+by using guard rails we can have this
+automation monitor that process and
+block anything that would cause critical
+files to be
+deleted throughout a normal workday
+there may be constant changes to the
+security groups associated with the
+employees in your organization and
+because of that you might want an
+automated system to be able to add and
+remove users from particular security
+groups this can also be very useful for
+monitoring security groups for example
+you may want to create a report or an
+alert that monitors the administrator
+group and if a person is added to the
+administrator group you would be
+informed immediately if you work in an
+organization with a help desk you may be
+already using automation many help desks
+support the ability to email the help
+desk the automation can take an email
+submission turn that email into a help
+desk ticket and based on the information
+that's in the email can even assign that
+ticket to the appropriate person and if
+we're monitoring the right Resources
+with our Scripts we can identify
+problems before they become an issue
+normally this issue would occur and we'd
+have to escalate the problem to a higher
+level technician but if we're constantly
+monitoring these resources we may be
+able to have the script resolve the
+problem for us without any human
+intervention if the script is not able
+to resolve this problem it can
+automatically escalate the issue to the
+technician who's on call automation can
+also be used to enable or disable
+services for example if a service needs
+to be used for a certain amount of time
+you can have the script enable the
+service and then after that time frame
+is complete it can then disable the
+service without any human intervention
+application developers can use scripting
+to provide constant development and code
+updates and push those code updates
+automatically out to systems and when
+you're working with a cloud-based
+infrastructure a firewall or almost any
+other device in your infrastructure you
+may want to use automation to speak
+directly to the application programming
+interfaces or apis on those devices
+this allows you to programmatically
+control those devices without manually
+having to log in and click things on the
+screen the script handles the process of
+communicating to the API and making any
+changes necessary on that
+device but of course scripting is not a
+Panacea and there are important concerns
+when implementing any type of automation
+for example scripts are relatively
+complex and they have to interact with
+other devices and other systems this
+requires a great deal of testing to make
+sure that all of these will work well
+together these scripts also don't create
+themselves someone does have to sit down
+and go through the process of coding out
+all of these different scripts that
+means that there's not only time
+involved but also a cost associated with
+that script creation and like any other
+device that may be in your network that
+script could be a single point of
+failure if that script stops working
+there could be a significant problem
+with the devices that rely on that
+automation I've personally worked with
+organizations that spend a a lot of time
+working on issues that come up
+throughout the day and a lot of this
+work seems to revolve around solving the
+symptoms that have been created instead
+of addressing the core root of the
+problems we refer to this as technical
+debt and sometimes creating a script to
+hide a much bigger problem can increase
+the amount of technical debt in your
+organization and of course someone has
+to support this script going forward
+this script may be working fine today
+but later on you might change the type
+of operating system associated with the
+service the scripting language might
+have modifications and someone will need
+to update these scripts to bring them up
+to the latest
+versions

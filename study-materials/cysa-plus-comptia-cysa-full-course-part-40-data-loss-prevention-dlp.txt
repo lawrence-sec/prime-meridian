@@ -1,0 +1,303 @@
+[Music]
+all right we have dlp today that is data
+loss prevention also sometimes called
+data leak prevention and it's all about
+methods for
+preventing the loss of confidential
+sensitive information or in other words
+keeping these confidential files in the
+databases and the records inside of our
+company don't let them be disseminated
+sent over email
+web cloud storage services instant
+messages services anything that can
+transfer files outside your company keep
+an eye on those channels and make sure
+that confidential information doesn't
+get out that's all dlp is about now the
+story behind dlp solutions is actually
+not that complicated and it all starts
+with the necessity of having some sort
+of an engine that performs two functions
+first of all we need classification we
+need to identify which documents are
+considered by us to be confidential or
+not secondly we need data engine to be
+able to enforce those policies because
+we could try to classify those documents
+but if we don't enforce a policy that
+actually blocks the user denies that
+user the action of attaching that
+sensitive file to a personal email
+message and then sending it on its merry
+way well that dlp solution does nothing
+it it's not data loss prevention it's
+it's data loss and a notification
+so we do have some methods here for
+implementing this uh first one is manual
+that is just for small companies now the
+manual implementation of dlp can only
+work so much as far as the
+classification part because you cannot
+manually block traffic right nobody is
+paid that well
+secondly we have an on-premises box that
+looks at the traffic it can rely on some
+sort of a network agent that inspects
+the network traffic uh knows to look for
+new application level uh information
+like finding files within uh http
+requests and you know http messages that
+are being sent outside
+uh then we can rely on a cloud service
+this is much easier implemented if your
+entire infrastructure or even the uh
+the file storage services like
+sharepoint or the email services like
+office 365 or or gmail google apps are
+also inside of the same cloud
+environment implement the dlp policy
+when all your data is already in the
+cloud it's much much easier
+and finally we can work with agents
+installed on the hosts those are just
+small applications that we install on
+the user hosts and they just look at the
+operations that the user is performing
+is the user trying to access a sensitive
+file okay let's see what the user is
+about to do with that file is it trying
+to attach it to an email message is it
+trying to
+push it through an ftp connection
+right we might get a chance to catch it
+before it actually happens because we we
+actually have access to the to the
+actions of the user right on the host
+where the the data leakage is about to
+happen now the client-side
+implementation is mostly considered to
+be the best way to protect
+against dlp risks because you can also
+address
+usb data exfiltration like for when the
+user tries to copy that file to an
+external drive and then you know go home
+with that drive or give it to somebody
+else on the server side on the other
+hand you're gonna have to rely on some
+proxy device that can intercept and
+decrypt all the connections all the
+outbound connections that users are are
+making and look for that sensitive data
+or sensitive files now
+while the client base method is going to
+create more admin overhead the server
+side method can create other problems
+like
+how are you actually able to decrypt or
+analyze encrypted traffic or where do
+you draw the line because users might
+not be so comfortable having some sort
+of a proxy appliance that looks inside
+each and every of their
+email maybe personal email messages that
+they send during office hours
+just to look for sensitive data and of
+course most dlp products are going to
+have some sort of a policy server or a
+management dashboard where you can
+configure
+the behavior of the solution what to
+scan uh what do you do if you find some
+sensitive info what to do if the file
+cannot be scanned for example if it's uh
+if it's within a password encrypted
+archive
+and some dlp products can manage that
+classification part of the files as well
+others
+allow you to integrate with some sort of
+a content management database or
+documents management system
+and just to give you a couple of
+examples here of dlp solutions we have
+digital guardian we have office 365 dlp
+built into office 365. symantec also has
+a very competent solution and there are
+tons of vendors out there that deal with
+this just google dlp solution actually
+now as far as the dlp rules that we're
+using for classification and for
+matching we can look for a number of
+things starting with the file names or
+the file types we know that
+specific office documents that start
+with specific file names are restricted
+or the contents of those files are
+restricted we can also look inside the
+contents of the file by using some
+pattern matching just looking for
+looking for specific sets of data or
+strings
+that pertain to some sensitive
+information now as far as the actions
+that we can take of course we can just
+block the transfer we can block the
+connection that tries to exfiltrate the
+data we can create a notification which
+also helps with user training because
+this is how we tell users this is
+sensitive information you shouldn't be
+sending this out next up we have
+quarantine we use this when we detect
+unauthorized access to a file or an
+unauthorized sharing attempt and we just
+place that file in a restricted area and
+await human intervention to unlock it
+most of the time we do this
+to avoid a huge flow of alerts generated
+by that file especially if the file was
+mistakenly placed in some publicly
+accessible area where employees think
+that it's you know it's free for all
+free to share so we just place it
+temporarily in a quarantine area so we
+don't get overwhelmed with a lot of
+alerts of people trying to access that
+specific file or to share it and finally
+we have tombstone this is a this is a
+replacement file that we place instead
+of the actual file uh usually a generic
+file file placeholder with a description
+or a text content saying that the
+original file was replaced due to a
+policy violation and as we said in the
+beginning we need proper classification
+in order for a dlp solution to work
+properly if we don't know exactly what
+is sensitive to us
+it's going to be next to impossible to
+define some actual rules and policies to
+protect that information so this
+classification for dlp can be done in a
+number of ways starting with file tags
+this is just tagging specific files on a
+file server
+specifying whether it is confidential or
+not right ideally this would be
+automated as well so we would have
+another type of policy that identifies
+sensitive information which then in turn
+helps us
+determine which files should be tagged
+as sensitive or not
+another one is dictionary we can just
+search for specific keywords or regular
+expression patterns that we know
+should be should represent sensitive
+information like credit card numbers or
+personally identifiable numbers or
+anything that looks like the way we uh
+let's say number our
+internal uh contracts or sq numbers any
+kind of string or number that looks like
+something that is supposed to be secret
+we can also use some policy templates
+these
+basically just do the job for us the
+classification job instead of us because
+they are predefined in most dlp
+solutions to match the
+regulatory requirements of hipaa gdpr
+pci dss and so on you just load that
+policy the policy knows already what to
+look for and you just let it scan your
+entire entire document base to identify
+those potentially sensitive sources of
+data we can go one step further and do
+edm this is not electronic dance music
+but its exact data match which means
+scanning our outgoing data our feeds for
+exact values things like social security
+numbers phone numbers credit card
+numbers contact information i don't know
+passport numbers since you're scanning
+for exact matches of that sensitive
+information you cannot
+upload all that data to the dlp tool but
+instead scanning is done by one-way
+hashing that sensitive data as well as
+the outgoing data fields and then
+comparing the hashes so in other words i
+cannot say that
+this specific passport or social
+security number shouldn't be allowed to
+leave our company but i can just hash
+that information and whenever the dlp
+solution finds a passport number or
+social security number
+compares those hashes all right so we
+don't defeat the purpose of sharing that
+information if we don't want to share
+that information we're not going to
+share it with the dlp solution either
+which makes a lot of sense especially
+for regulatory requirements again then
+we have document matching this is simply
+providing samples of specific documents
+that should not leave the company this
+is how an invoice looks like this is how
+a i don't know
+a cv from a resume from hr looks like
+this kind of sounds good because it it's
+the way people work usually they just
+learn from examples
+it doesn't work so well with uh with
+machines with with automated software
+because this method is extremely
+susceptible to fail if minor changes in
+those documents occur or even format
+conversion is is performed like for
+example okay this is how resume should
+look like and we want to block these
+from going outside with company but what
+if the resume is in a in a doc format
+instead of instead of a docx or a pdf
+format or rtf format rich text format
+whatever type of format right the that
+exact document match is not going to
+work anymore now of all these methods
+edm
+it's the most difficult one to implement
+but it's also the method that
+generates the least amount of false
+positives also keep in mind that dlp
+solutions are not only
+technical controls against let's say
+insider threats but also against
+unintentional data leakage like
+attaching the wrong file to an email or
+attaching the right file to an email and
+then accidentally sending that email to
+the wrong email address so not all data
+exploration is malicious intent in
+nature all right short episode on dlp
+make sure you remember for the exam what
+precisely dlp does and what it is good
+for make sure you can enumerate some of
+the methods of performing dlp
+how those rules should look like what
+those rules should be looking out for
+and remember that most dlp solutions
+also have some sort of an automatic
+response like blocking alerting you know
+tombstoning and and other examples just
+like the ones we we've mentioned alright
+so until next time when we will be
+talking about endpoint security i wish
+you good luck i would kind of remind you
+to like and subscribe and hope to see
+you on the next episode bye bye
+[Music]
+you

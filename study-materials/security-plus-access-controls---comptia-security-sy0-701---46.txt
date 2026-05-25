@@ -1,0 +1,208 @@
+once someone authenticates to a network
+we still need to provide them with
+access to the resources they need to be
+able to perform their job function we
+refer to this as access control and it's
+a process of enforcing the policies that
+would allow or disallow someone access
+to data this Access Control can be
+associated with an individual or a group
+of individuals there's usually a process
+that defines the policy of what someone
+may need access to and then the IT team
+needs to take that policy and change it
+into the process required by the
+operating system to allow or disallow
+rights to data there are very broad
+Access Control models and we'll look at
+those models in this video there are
+slight differences between these
+different types of access controls and
+different organizations can choose the
+access control that's best for them
+we'll first start with a security best
+practice that can be applied across any
+of these access controls and that best
+practice is least privilege least
+privilege means that we will assign
+rights and permissions to a user that
+gives them exactly what they need to
+perform their job we don't give them
+additional rights and permissions and we
+certainly wouldn't provide them with
+administrator access this means by
+default every user will have limited
+privileges to the operating system if a
+user does happen to run malicious
+software that software would only have
+the rights and permissions associated
+with that user and would hopefully limit
+the scope of any
+damage if you're working in a highly
+secure area you may be working with an
+access control called a mandatory Access
+Control mandatory Access Control assigns
+a label to each resource that someone
+may need access to so a particular file
+or folder may be tagged as confidential
+secret top secret or a number of other
+types of mandatory Access Control labels
+one important aspect of a mandatory
+access control is that the administrator
+of the system is the one that defines
+what type of Rights and permissions a
+user might have so a user in the
+shipping and receiving department may
+have access to confidential data but
+someone who's higher up in the
+management chain might have access to
+top secret
+data one very common type of Access
+Control is a discretionary access
+control with a discretionary control
+model the user that creates the data has
+the control on who can access the data
+and how they can access that information
+for example if you create a spreadsheet
+you get to decide who else has access to
+that spreadsheet and you can also set
+different permissions to the users who
+may have access where some people can
+modify the spreadsheet and others might
+only be readon this allows the owner of
+the data to have complete control on who
+can access that information this Access
+Control gives the owner of the data a
+great deal of flexibility when
+determining who has access to that data
+unfortunately this also means that this
+level of access is also less secure
+because you're relying on each
+individual user to set the appropriate
+security controls for every piece of
+data they
+create a more centralized control model
+would be a role-based Access Control
+this access control is based on your job
+function so if you are a manager you
+have a certain type of Rights and
+permissions to data if you're a director
+you have a different set of Rights and
+permissions and if you're a team lead or
+project manager there are different sets
+of permissions for those roles as well
+this starts with the administrator of
+the system creating a number of
+different groups there might be a
+manager group a director group a team
+lead group and a project manager group
+they would then assign rights and
+permissions to the group itself knowing
+that managers have a certain type of
+Rights and permissions director have a
+completely different set and so on once
+this group is created by the
+administrator and rights are assigned to
+the group the administrator will add
+users to that group each user added to
+the group receives the rights and
+permissions associated with that group
+so we don't have to assign specific
+permissions directly to a user we can
+simply add that user to the group and
+they receive all of those permissions
+implicitly in Windows this is referred
+to as groups and you can associate a
+role-based Access Control to each group
+for example you might have a group for
+shipping and receiving and you can
+associate rights and permissions to the
+shipping software for anyone who might
+be in that group you might also have a
+group for managers of shipping and
+receiving and managers might have
+additional access that allows them to
+view the shipping log
+some access control methods have a list
+of rules and those rules are associated
+with rights and permissions we refer to
+this as a rule-based access control
+because there are a number of system
+enforced rules that are created by the
+system administrator this means the user
+does not control any of the rights and
+permissions or create any of the rules
+the administrator is responsible for
+configuring and assigning all of those
+permissions with a rule-based Access
+Control we would first create a rule and
+then we would associate that rule with a
+specific object each user that accesses
+that object is then checked in the rule
+base to see if any of those rules might
+apply to that individual for example
+there might be a user that needs to
+access data that's located in a lab but
+there is a rule associated with that
+data that says you can only gain access
+if the time is between 9:00 a.m. and
+5:00 p.m. and if somebody tries to
+access the data that's outside of that
+schedule that rule would not allow
+access
+or the rule might be that a form on a
+web page can only be filled out by
+someone using the Chrome browser this
+rule-based Access Control allows an
+administrator to set any type of
+criteria and Associate that criteria
+with a specific object a more modern
+style of Access Control is the
+attribute-based access control with an
+attribute based Access Control there are
+many different criteria that you can use
+to determine whether someone would have
+access to data or not this allows
+administrators to create very complex
+rule sets that determine whether certain
+types of data are accessible or not you
+can think of this as a next generation
+of an authorization model so a type of
+Access Control that takes into account a
+number of different criteria may be
+evaluating the IP address of the person
+making the request the time of day the
+desired action whether their writing or
+reading information and what
+relationship they might have to the data
+the administrator can combine many
+different criteria together to determine
+exactly what type of control someone
+might have over any
+object one type of restriction that can
+be applied across many of these
+different control models is a time of
+day restriction this means an
+administrator can allow or disallow
+access to a certain type of data or
+resource object based on what time of
+the day it happens to be this may not be
+the only access control method but it
+does provide the administrator with
+options when configuring access to data
+of course when you're working with the
+time of day or the day of the week this
+can become very complicated if you are a
+worldwide organization so an
+administrator might include not just the
+time of day restriction but what time
+zone is native for that particular user
+so a good example of some time of day
+restrictions might be that a training
+room network is inaccessible between the
+hours of midnight and 6:00 a.m. or it
+may be that conference room access is
+limited after after 8:00 p.m. and if you
+want to access certain types of data the
+R&D databases are only available between
+the hours of 8:00 a.m. and 6:00 p.m.

@@ -1,0 +1,291 @@
+one primary goal of every Security
+administrator is to create
+confidentiality integrity and
+availability or will we often abbreviate
+as CIA to provide this CIA we need rules
+or policies that everyone follows to be
+able to maintain this type of security
+these security policies might be very
+broad goals for example you might have
+data storage requirements or certain
+event procedures that have to be
+followed there's also a need for
+detailed security policies for example
+you might have a set of rules and
+regulations on how the Wi-Fi network
+should be used or there should be
+certain requirements to be able to
+obtain remote access to the network the
+security policies are there to provide
+us with what we should be doing and why
+we should be doing it the actual process
+of maintaining and administering those
+policies are associated with the
+technical security controls that we
+covered in a previous
+video most organizations with the
+security team will have detailed
+information security policies this is a
+master list of all of the policies that
+should be followed to maintain the
+uptime availability and security of the
+network in some organizations these
+security policies are more than just a
+recommendation they may be a mandate
+that is required for the organization to
+have and to follow these security
+policies can help the organization
+answer questions about the security of
+their infrastructure for for example
+what happens when somebody discovers a
+virus on somebody's workstation what
+happens when someone wants to connect to
+our VPN concentrator from their home
+computer and what happens when we find
+that someone has taken advantage of a
+vulnerability to gain access to one of
+our services the answers to all of these
+questions should be found inside of your
+organization's security policy the
+security policy also has a list of the
+roles and responsibilities for everyone
+associated with security in the organ
+organization this way we know exactly
+who we should be communicating with
+whenever we have questions regarding
+some of our security concerns and as
+with any list of policies this is simply
+information that we've written down and
+documented it's up to the organization
+to enforce the policies that they've
+created and written into their security
+policy
+documentation one set of policies that
+applies to everyone in the organization
+is the AUP or the acceptable use
+policies this defines what users are
+able to do with the technology that's
+been provided to them the AUP defines
+what is acceptable for everyone in the
+organization when they're using their
+computers their telephones their mobile
+devices and any other type of Technology
+this is not only documentation that can
+be used to inform everyone in the
+organization of the appropriate use but
+it can also be used to protect the
+organization in the case of any legal
+liability if someone is dismissed from
+the organization because they did not
+follow these policies you have
+documentation that helps describe why
+this particular person is no longer with
+the
+organization on a normal business day we
+have access to our laptops our mobile
+devices our networks and any other
+technology owned by the company we're so
+used to using our technology that we
+often don't even think of a circumstance
+when that technology is no longer
+available which is another good reason
+to have a set of business continuity
+policies let's say you work for a retail
+organization but today the network
+that's commonly used to process credit
+card transactions is not available if
+you refer to your business continuity
+plan you'll know that the process would
+be to perform manual transactions and
+use phone calls to the credit card
+company to manually approve any credit
+card transactions the challenge with
+business continuity is you have to plan
+for this before the particular issue
+arises there's normally a great deal of
+documentation and testing to ensure that
+all of the business continuity plans you
+put in place will be able to work
+properly if a disaster occurs and if
+this is the type of disaster that occurs
+on a very widespread basis or for an
+extended period of time you'll need a
+formal set of policies as a disaster
+recovery plan you can think of this as a
+business continuity plan that applies to
+everyone in the organization affected by
+this disaster one of the challenges with
+creating a disaster recovery plan is
+there are so many different kinds of
+disasters that could occur this could be
+a natural disaster such as a tornado
+hurricane or a flood it might be a
+technology or system failure where you
+lose connection to a particular resource
+or it might be a disaster created by a
+human all of these can affect the
+organization's ability to perform its
+duties so we should make sure that we
+have extensive Disaster Recovery plans
+to cover any of these situations for
+example you may need a separate recovery
+location if your primary location is
+suddenly unavailable there needs to be
+some type of method to recover data in
+the case that data is lost there should
+be application restoration so the
+systems can get back up and running and
+the IT team and employees in the
+organization would need to be available
+wherever that recovery location might be
+we should also have detailed
+documentation on how to deal with
+different security incidents for example
+let's say a user receives an email and
+inside that email is an attachment they
+doubleclick the attachment and run that
+executable and now malware has been
+installed on that person's device and
+that malware immediately begins
+communicating with an external server
+there should be a set of security
+policies that determines next steps for
+handling that type of issue of course
+that's not the only type of security
+incident we need to consider there might
+be something like a Dos a distributed
+deny of service attack or a botnet
+attack that would cause your systems to
+be unavailable we might also want to
+consider security incidents where the
+information inside of our organization
+is made available to others outside of
+our organization if any of our
+confidential information is stolen we
+need a set of security incident policies
+so that we know what to do next to be
+able to react to these types of security
+incidents we need a specialized team
+that knows exactly how to handle each
+and every one of these situations we
+refer to these as incident response
+roles and there are many different kinds
+of roles that may be within in your
+organization we'll look at a number of
+those here we'll start with the incident
+Response Team itself this is a
+specialized team that has trained and
+tested themselves to be ready for any
+type of security event we might also
+rely on the it security management team
+to be able to obtain the proper
+resources and people to be able to
+address these types of incidents if the
+organization has a significant
+compliance requirement then you probably
+have compliance officers that are hired
+by the or organization to make sure that
+all of the data and all of the systems
+are compliant with the mandates
+obviously the folks that will be working
+in the trenches to solve the technical
+problems that arise when these events
+occur will be your technical staff and
+of course our user Community can provide
+extensive information about what was
+seen during this security event if
+you're curious as to the process that an
+organization might follow when these
+security incidents occur you might want
+to read through the National Institute
+of standards and Technology document
+called nist special publication
+800-61 revision 2 this is titled the
+computer security incident handling
+guide this guide steps through a
+response life cycle for security
+incidents including the preparation
+prior to the incident occurring the
+detection and Analysis of a security
+incident the containment eradication and
+recovery process and lastly the PO
+incident activity the details of this
+document are a bit outside the scope of
+the Security Plus exam but it might help
+you provide a bit more context for
+security
+incidents if you're an application
+developer there are a set of processes
+and procedures associated with creating
+software we refer to this as the
+software development life cycle or sdlc
+the goal of the software development
+life cycle is to move from the idea
+phase all the way through until we have
+an application this might involve
+creating requir ments working with the
+in users and then creating the
+application testing that app and then
+deploying it not only on schedule but on
+budget and although there's not a best
+way to go through the process of a
+software development life cycle having
+some type of structure can help keep
+everyone focused and on track to get
+that application developed two of the
+most common application development life
+cycles are agile and waterfall the
+waterfall life cycle is a linear cycle
+that starts with the requirements
+follows through the development process
+the testing the deployment and finally
+the ongoing maintenance of an
+application the agile life cycle is
+designed to be a much faster way to
+create applications and those are
+usually done by designing developing
+testing deploying and reviewing
+constantly throughout the entire process
+once the agile process has gone through
+a number of different Cycles to create
+the application it can finally be
+launched another important set of
+policies in every or organization is
+that of change management if you need to
+make some type of change there should be
+a process associated with that for
+example there might be an application
+that needs updating or there might be a
+configuration in the firewall that needs
+to be modified or it could be a change
+to a router or switch configuration in
+all of these situations there's a change
+that needs to occur and we have to be
+sure that that change is not going to
+have a negative effect to the
+organization you'll also find that this
+change management process is is one that
+is constantly occurring It's Not Unusual
+to have weekly meetings on what changes
+are being planned for the next week
+unfortunately in many organizations the
+change management process is either
+overlooked or not used at all and this
+could have dramatic impacts on the
+ability of the organization to function
+this change management process provides
+clear documentation on how often this
+change will be occurring the duration of
+the change the process that's involved
+to install this change and perhaps most
+importantly a fallback procedure if the
+change does not go as planned
+organizations that have a well-defined
+change management structure are able to
+implement these changes with the lowest
+risk to the organization and if your
+organization doesn't have a formal
+change management process you may want
+to start working now on creating those
+policies and implementing them in your
+organization

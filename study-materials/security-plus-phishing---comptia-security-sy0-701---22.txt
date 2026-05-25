@@ -1,0 +1,171 @@
+fishing is a term we use to describe
+social engineering that uses a number of
+different Communications method to make
+you think that something is real when in
+fact it really isn't this is usually
+delivered by mail text message or some
+other communication method in order to
+have you give up information that
+normally would be private this might be
+a username and password you use to log
+into a service or it may be some private
+information about yourself we can
+usually check the links in these
+messages to see if they're pointing
+towards a well-known and well trusted
+site but if it's a fishing message it
+probably is going to a different
+location than what you would normally
+expect and very often there's something
+not quite right with the information
+that's being provided for example this
+is the Web Mail login to Rackspace or at
+least it's pretending to be that you can
+see that it tends to have a problem with
+the spacing and some of the fonts inside
+of this message which might lead us to
+believe that this is not really the
+Rackspace login page I got to that page
+by following this email that was inside
+my spam folder and it says Dear user we
+notice your email has not been confirmed
+for the new upgraded service well I
+certainly want the upgraded service it
+says I will be blocked from sending and
+receiving emails if not confirmed so now
+they're giving us a deadline on when we
+need to click this link and we can
+simply click the confirm email now if
+you look closely at the sender of this
+message it's associated with an iCloud
+cl.com address which is an apple service
+this is obviously a message for someone
+who has email on a Rackspace service
+this means the information contained in
+this message doesn't quite ring true we
+might want to do a little bit of extra
+research before clicking any of these
+links as a good best practice in fact
+you would never click a link that's
+inside of your email but for the
+purposes of showing you what can really
+happen I went ahead and clicked the link
+that said confirm email now it brought
+me then to a Rackspace login page and it
+almost looks like a real Rackspace page
+there are a few things that are a little
+bit different if we put these side by
+side you can see that the fishing email
+took me to the image that you see on the
+top but the actual Rackspace login page
+is the one on the bottom it's
+interesting that they added the same
+suspicious email image to try to make
+you think that you really were logging
+in a legitimate Rackspace page in that
+previous example the attacker was trying
+to get us to give up our username and
+password into that email service and
+that's what these email messages are
+trying to do is convince you that
+they're someone else and convince you to
+give up some of your information we tend
+to trust email sources and because of
+that we tend to click on links that are
+inside of the email but obviously this
+can run into some significant security
+problems as we noticed with the message
+that was in my spam folder the email
+addresses that were used as the sender
+were not quite what we expected in some
+cases they might spoof an actual email
+address from that company or they'll use
+an address that's very close to the
+email of that company for example if you
+receive an email that says it's from
+Professor
+professor.com you might say that that
+looks like the same domain name but in
+reality my last name is spelled
+me.com and that's how you would know
+that this particular address probably
+wasn't sent by Professor Messer
+someone getting access to my email could
+certainly allow them to send other
+emails from my account or they could
+look through the emails that are already
+in my account to see if there's some
+financial information or logins that
+they could use for instance they could
+go to PayPal they could use the reset
+password feature it's sent back to my
+email which now the attacker has access
+to or they may just be trying to have
+you click that link and if you click
+that link it takes you to a website that
+downloads malware and and infects your
+system the attackers use a number of
+different ways to trick and misdirect
+you into clicking the links or believing
+that what you've received is from a
+legitimate Source this might be
+something like typo squatting if you
+look at the destination for the link
+they've provided you might see that the
+destination is professormesser.com we've
+already seen that that is not a
+legitimate fully qualified domain name
+which normally would be
+professormesser.com
+we refer to this time typ of
+misdirection or hijacking as typo
+squatting but what the attackers are
+really good at is outright lying we
+refer to this as pretexting they're
+going to make up a story and drag you
+into this particular drama in the hopes
+that you'll click a link or log in to a
+site and they can gain access to your
+username and password or maybe they call
+you on the phone and say hi we're from
+Visa this is about an automated payment
+to your electrical services it didn't go
+through so you'll need to give me those
+details over the phone in reality of
+course they're not from Visa there's not
+any problem with your automated payments
+but they're trying to gain access to
+your credit card
+information we even categorize that type
+of over the- phone communication as
+Vishing or voice fishing where someone
+will spoof a caller ID say that they're
+from your bank and then get you to give
+up information about your account
+details your login and other private
+information if you have a mobile phone
+you've probably seen this type of
+fishing delivered as a text message we
+refer to this type of fishing as
+smishing which is a reference to SMS or
+the short message service which is the
+formal name for this text messaging I
+get text messages like this one all the
+time this one says it's from USPS and it
+says that I have a package that needs to
+be delivered but it's been suspended due
+to an incorrect delivery address and
+they're hoping that you click that link
+to be able to log in to your account and
+at that point they have your username
+and password and of course there are
+many many many other scams that they can
+go through there's the fake check scam
+the phone verification code scam and
+many others I would highly recommend you
+become familiar with these types of
+scams and fishing techniques you may be
+the person that's able to stop your
+friends or family from falling victim to
+one of these
+scams

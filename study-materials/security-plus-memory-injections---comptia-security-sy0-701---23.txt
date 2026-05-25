@@ -1,0 +1,63 @@
+the software that runs on your computer
+all runs inside of memory nothing
+executes on your computer unless it's
+loaded from disk runs inside of memory
+and processed by your CPU so obviously
+malware itself has to somehow get into
+memory to be able to operate and there's
+a lot of different running processes
+that you'll find inside of your memory
+there's DLS or dynamic link libraries in
+Windows there are threads buffers memory
+management functions and other things
+that are stored and operate inside of
+the memory of your computer the malware
+then has a number of choices to be able
+to run on your computer it can run as
+its own process in memory or it can find
+an existing process and inject itself
+into the middle of that process here's a
+block diagram that describes a process
+or an application that's running inside
+of memory in this process there is a
+starting address and an ending address
+and if you wanted to to inject malware
+into this process you would need to
+inject it somewhere between those two
+addresses not only does this allow
+malware to avoid detection by
+anti-malware that's just looking for a
+malicious process but it also allows
+this malware to have the same rights and
+permissions as the process that it's
+injecting into this means it's a very
+easy way for the malware to suddenly
+have privileged escalation or higher
+rights and permissions than what it
+would normally have on that system one
+of the most common forms of malware
+injection is called dll injection dll
+stands for dynamic link Library so it's
+effectively a type of executable on your
+system that many different processes and
+applications can use for this to work
+the attackers first need to get this
+malicious dll installed onto some
+storage that your system can access the
+attacker wants this dll to run as part
+of this target process but obviously the
+dll is not already part of this
+application the implementation of this
+though is relatively easy for the
+attacker the attacker puts a path to
+where the malicious dll is located
+somewhere on a storage drive and will
+put that path or a link to that path
+inside of the target process as the
+process is executing it reaches the
+point where it needs to reference that
+dll it goes out to dis pulls in the
+malicious dll and it is loaded into
+memory and now the malware is running on
+that
+system

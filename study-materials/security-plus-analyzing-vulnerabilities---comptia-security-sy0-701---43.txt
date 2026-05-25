@@ -1,0 +1,279 @@
+one of the challenges when looking
+through log files or receiving reports
+of vulnerability scans is that you'll
+often have to sip through information
+that is simply not correct we refer to
+this false information as a false
+positive we've been given information
+that this particular vulnerability
+exists in this operating system but
+after looking into it you see that that
+vulnerability really does not exist in
+that OS in that scenario you've been
+given a positive but that positive is
+false when you look at a report of all
+of the vulnerabilities that may exist on
+a system they're usually in order of
+severity so there may be high severity
+or critical vulnerabilities and there
+may be some that are low or
+informational sometimes these
+vulnerabilities marked as low or
+informational are referred to as a false
+positive although these vulnerabilities
+are marked at a lower priority they're
+still valid vulnerabilities and they
+should not be referenced as a false
+positive the reverse scenario to a false
+positive would be a false negative and
+in many ways a false negative is much
+worse than a false positive a false
+negative means that the vulnerability
+does exist on that operating system but
+your scanning software did not detect it
+that means in your report of known
+vulnerabilities you won't see that
+vulnerability listed anywhere and if an
+attacker does come across that system
+they may be able to exploit that
+vulnerability that you had no idea even
+existed
+if you're planning to perform a
+vulnerability scan it's always a good
+idea to update your signatures that way
+you'll minimize the number of false
+positives and hopefully you won't run
+into a situation where there's a false
+negative and if you have questions about
+whether something is legitimate or not
+legitimate in the final output you can
+always work with the scanning
+manufacturer directly to see if they can
+give you an updated set of
+signatures this categorization of
+severity is an important one because the
+critical vulnerabilities will probably
+need to be addressed first and the low
+and informational vulnerabilities may be
+the last thing to address without any
+type of context it may be difficult to
+take a single vulnerability and
+determine what priority needs to be set
+fortunately there are a number of
+publicly available vulnerability lists
+that have already set these priorities
+this would allow you to take the list of
+vulnerabilities that you found and put
+them in order from most critical to
+least critical if you'd like to see one
+of the scoring systems they are
+available in the National vulnerability
+database that you can find at nd.
+nist.gov this list of vulnerabilities is
+synchronized with the main cve list and
+you can search through to find exactly
+what you're looking for each
+vulnerability in this list is assigned
+to score we refer to this as the common
+vulnerability scoring system or
+CVSs each vulnerability has a score
+between 0o and 10 where 10 would be the
+most critical these scoring systems have
+changed a bit over time so often there
+will be multiple scores available with
+the version number of the scoring system
+for example you might see a
+vulnerability that has different scores
+associated with it and one of those
+scores might be the CVSs 2.0 score the
+other might be a CVSs 3.x score the
+industry wants to make these
+vulnerability lists valuable and having
+a separate score allows you to
+prioritize them based on your specific
+needs you'll often be referenced these
+vulnerability lists especially when you
+see something unknown pop up in your
+vulnerability scanner fortunately all of
+these lists are available online and
+most vulnerability scanners will specify
+what cve is associated with that
+vulnerability you can cross reference
+this against the national vulnerability
+database at
+mvd.gov you can also look at the common
+vulnerabilities and exposures database
+or the cve at cv. miter.org
+cve if the vulnerable ility is specific
+to Microsoft you might even check the
+Microsoft website and the URLs listed
+here for the Microsoft security
+bulletins most manufacturers will have a
+database of their own vulnerabilities so
+once you've referenced the cve database
+you may want to go directly to the
+manufacturer to see what other
+information they can provide some
+vulnerability scanners are very good at
+identifying specific vulnerabilities and
+their related cve but some
+vulnerabilities may be very generic or
+it may not have a cve associated with it
+so you may either want to verify that
+that vulnerability really exists or do
+additional research against the cve
+database to see if you can identify it
+your vulnerability scanner is going to
+identify any vulnerabilities that it
+finds and then provide you with
+additional context of how that
+vulnerability is associated with a
+severity the key to the vulnerability
+scanner is the database of
+vulnerabilities that it knows about so
+before you begin any type of
+vulnerability scan you want to make sure
+you're always using using the latest set
+of signatures vulnerability scans are
+also able to search for many different
+types of vulnerabilities for example
+they can perform application scans to
+look for vulnerabilities inside of
+desktop applications or mobile apps for
+example cve 2020-1 1889 was a
+vulnerability that allowed a bypass in
+the Whats App desktop vulnerability
+scanners can also SCAN Web applications
+located on a web server cve 2020
+24981 is specific to an incorrect Access
+Control vulnerability in ucms version
+1.4.8 which is a web-based application
+and your vulnerability scanner may be
+able to identify vulnerabilities inside
+of firewalls switches routers and other
+network devices cve 2020
+25079 found an issue inside of dlink
+software and provided an option for
+fixing that particular
+issue once we've identified a
+vulnerability in our net Network we want
+to understand how risky it might be to
+have that vulnerability existing on
+those systems one of the ways that you
+can quantify that is with an exposure
+Factor an exposure factor is usually
+represented as a percentage for example
+if this vulnerability might cause this
+particular service to become unavailable
+half the time we can specify that that
+is a 50% exposure factor or we know that
+this particular vulnerability doesn't
+have any patches it's available on our
+public web servers and if somebody does
+exploit that vulnerability they may be
+able to completely disable a service in
+that situation we might want to consider
+that a 100% exposure Factor the CVSs
+scores and your own exposure factor
+numbers can help you understand where to
+prioritize the fixes for these
+particular vulnerabilities especially if
+you have limited
+resources another consideration when
+planning for patching is understanding
+the environment this vulnerability might
+exist on a public cloud or it might be
+in a test lab and we would handle the
+patching for those in very different
+ways we would obviously want to patch
+both of those different environments but
+something that is on a public Cloud
+that's accessible to everyone on the
+internet would obviously have a much
+higher priority than a single system
+located in a lab which has no other
+connectivity to the rest of the network
+every organization has a different set
+of metrics when it comes to determining
+what's important and what isn't but
+usually you would look at the number and
+type of users that would be accessing
+that system and whether the system is
+one that's only internally facing or
+whether it's one that may be available
+to others outside the organization we
+might also want to consider if this
+application is a key or critical
+application for the company and if this
+application happens to be Revenue
+generating and of course if this is a
+relatively easy vulnerability to exploit
+it may be at the highest priority for
+fixing as quickly as
+possible the impact can also be very
+different depending on the type of
+organization it might be some
+organizations are much more sensitive to
+any type of outage than others for
+example Tallahassee Memorial Healthcare
+in February of 2023 was hit with
+ransomware and they were closed for 2
+weeks during that time frame they had to
+divert all emergency cases to different
+hospitals and anything that was
+scheduled for surgery during that time
+frame had to be cancelled there's a
+different set of considerations if your
+organization is one that is a power
+generator for example in March of 2019
+in Salt Lake City Utah and LA County
+California there were distributed Den
+Olive service attacks that brought
+systems down for both of those
+organizations all of these attacks
+obviously had a dramatic impact on all
+of these organizations but depending on
+the type of organization you are the
+same exploit could have a very different
+effect across different
+organizations one of the challenges of
+managing security patches is that you
+can't patch all devices all at the same
+time you have to set some type of
+priority over which patch is installed
+first which is installed second and so
+on the process of determining which
+device may be more important than
+another may depend on how risky it is to
+have that vulnerability exist on that
+device we refer to this prioritization
+as a risk tolerance this describes how
+much risk an organization is willing to
+accept by having that particular
+vulnerability still unpatched it would
+be great if we could take a patch from a
+manufacturer and immediately install it
+the moment it's available but of course
+we can't deploy the patch until we know
+the patch is going to work properly in
+our environment and that requires us to
+perform a great deal of testing while
+we're going through this testing process
+we're obviously still vulnerable and so
+the organization needs to decide how
+much or little testing needs to take
+place so that we can close that
+particular hole and minimize the amount
+of risk in most organizations there's a
+middle ground we want to be able to
+perform as much testing as we can but we
+also want to be sure that our
+organization is secure and if this
+particular vulnerability is one that
+affects many of our systems and it's a
+relatively easy vulnerability to exploit
+we may have a very low tolerance and we
+may want to rush through that testing
+process so we can patch those systems as
+quickly as
+possible

@@ -1,0 +1,184 @@
+the routers that we use in our homes and
+our offices have an important job of
+forwarding traffic between one IP subnet
+and another it's a relatively
+straightforward process although there
+is a lot of Technology under the surface
+that makes this happen but if we were to
+look at this in a very simplified form
+we could see that the router is
+performing a series of relatively simple
+steps the first step is to identify what
+the destination IP address might be for
+incoming traffic into the router it
+looks into the packet identifies what
+the destination IP address is and makes
+a note of where it should be sending
+this traffic the router then examines
+some tables to determine what the best
+route will be for this particular packet
+if the destination IP address of this
+particular packet is associated with a
+subnet that is directly connected to
+this router then the router simply sends
+the packet onto that local subnet but in
+many cases the destination IP address is
+on a subnet that is not locally
+connected to this router the router will
+examine that routing table determine
+what the best next hop might be and then
+send the traffic out that particular
+interface this next hop is the IP
+address of the next router down the line
+and when that router receives this
+packet it performs the same process
+again until the packet finally makes its
+way to its final destination as you can
+imagine that routing table becomes very
+important and when we're troubleshooting
+routers we refer often to the routing
+table what the next hop might be and
+determining where these packets should
+be going once they leave our router if a
+router refers to its table and does not
+find a next hop for that destination IP
+address it will simply discard that
+traffic so you can see why having a
+valid routing table becomes very
+important let's look at this network
+diagram there are three separate routers
+in this network diagram and three
+individuals that would like to
+communicate with each other in this case
+let's focus F us on router 1 you can see
+router 1 is connected to three different
+subnets we have a subnet 10.10.10
+Z24 there's another subnet between
+router 1 and router 2 that is the 101040
+network and then another subnet between
+router one and router 3 that's the
+101050 subnet those three subnets are
+directly connected to router 1 so if we
+were to look at the routing table for
+router 1 it would see the route for
+101102
+4
+101040
+Z24 and
+101050 sl24 and all of those networks
+are locally connected to this router the
+problem occurs if Sam would like to
+communicate to Jack although router one
+knows about the local networks it has no
+idea that there are more networks on the
+other side of router 2 and of router 3
+and those particular networks of
+10.10.20
+Z24 and 101030
+0/24 are nowhere in this routing table
+this means if Sam wants to send traffic
+to Jack Sam will put this packet out on
+the network it gets to router 1 router 1
+examines the destination IP address of
+10.10.20 do2 and then looks through its
+table and realizes there is no 10.10.20
+network in the routing table and the
+packet is discarded and never makes its
+way down the
+network one way that we could create a
+more complete routing table is to build
+it ourselves this administrative
+creation of a routing table is referred
+to as static routing and if you would
+like to build static routes as the
+administrator of your routers then you
+will manually be configuring these
+routes inside of every router that you
+use static routing is a very quick way
+to configure a route inside of the
+router and if you're managing a smaller
+Network this might be a perfectly
+reasonable way to manage where the
+routes might be because we're static
+rout rting there's no overhead that you
+would normally see from a dynamic
+routing protocol we'll talk about
+Dynamic routing in a future video so
+there's no CPU Cycles there's no memory
+usage we are simply adding the route
+ourselves and we don't have to do any
+additional processing to the routing
+table from there this is very common for
+remote locations where you might have a
+single internet connection into that
+remote site and all communication takes
+place over that single connection we
+often refer to these as stub Networks
+and because we don't have to worry about
+any type of dynamic routing updates or
+having any changes to the router
+configuration because of those Updates
+this is a relatively secure form of
+routing however this can be challenging
+to configure on larger networks
+configuring a handful of routers with
+their own static routes is relatively
+straightforward but if you're managing
+hundreds or thousands of routers
+manually configuring a static route in
+each of those routers could take quite a
+bit of time this also relies on you
+adding the correct routes to every
+router there have been times when I've
+configured static routes and I've set up
+my own routing Loop within my network
+because of a misconfiguration and as the
+name implies these routes are static
+they don't change once you've configured
+them so if there are changes to your
+network you'll need to manually log into
+your routers and make those
+configuration updates to the routing
+table that match the changes to your
+network this also means that there is no
+automatic re in if something happens on
+your network you will need to manually
+configure these routes if anything needs
+to be routed in a different direction so
+let's configure some static routes for
+router 1 we know that we have our three
+locally connected routes but we also
+have these additional two routes one
+that's behind router 2 and one that's
+behind router 3 this would be the
+10.10.20 network and the 101030 network
+so we might SSH into router 1 and at the
+command line we would begin to add add
+additional static routes for example we
+might tell router one that if it
+receives any packet coming through with
+a destination IP address that matches
+the range of 10.10.20
+Z24 then send that particular packet to
+101040 do2 so if the packet does come
+through with that destination that needs
+to go to the local network that Jack is
+connected to it will send all of that
+traffic to the IP address
+101040 two which is located on router 2
+at that point router 2 will examine its
+own routing table and know that the
+10.10.20 network is locally connected
+and send that packet on its way we can
+do the same thing with the 101030 do0
+network so we will manually configure
+static route that if any destination
+traffic is going to 101030
+Z24 that send all of that traffic to
+101050 do2 which means all of that
+traffic will go to router 3 now that
+we've configured those static routes in
+router 1 anytime those additional
+networks are seen as a destination IP
+address router one will know exactly
+where to send that traffic

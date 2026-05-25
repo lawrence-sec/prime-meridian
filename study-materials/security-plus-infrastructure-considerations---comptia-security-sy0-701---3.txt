@@ -1,0 +1,369 @@
+when we connect to a website or start an
+application we want to log in run
+transactions or use the capabilities of
+that website we expect that those
+resources will be up and running and we
+refer to that as availability in the
+world of security there's a bit of a
+Nuance with availability we want to make
+sure that our systems and resources are
+available but we only want to be sure
+they're available to the right people
+information technology is very focused
+on availability we spend a lot of money
+on purchasing redundant systems we
+install very large and complex
+monitoring systems just so we can get
+information on how available our systems
+and resources might be this is such an
+important metric that our success is
+often described as how much availability
+we've had you'll often hear the summary
+of uptime described as a percentage for
+example our network has been available
+for
+99.999% of the time over the last 12
+months even with this emphasis on
+providing availability there will still
+be times when a device or resource is no
+longer available when that occurs we
+want to know how quickly we're able to
+recover this is probably one of the most
+common questions you'll get whenever you
+run into an outage or you experience
+downtime the problem is it's difficult
+to determine just how quickly it's going
+to take to get everything back up and
+running we have to first determine what
+the root cost of the outage happen to be
+if Hardware is our issue we may need to
+replace that Hardware there's a process
+for that to occur if the issue is with
+software we would need to provide a
+patch or a fix for that software and if
+there are redundant systems we may need
+to install or replace those redundant
+components one good measurement of
+resilience is mttr or meantime to repair
+this describes the length of time that
+it would take to replace something that
+is no longer available with components
+that are
+available although the cost of a
+component or software to install in your
+infrastructure is not the only basis for
+making a decision it's still a very
+important consideration whenever we're
+putting together a plan to install a
+particular technology one of the very
+first questions we ask is how much is
+this going to cost it can be difficult
+to calculate this cost value because
+it's not any one thing for example we
+may have an initial installation cost
+and that installation cost may be
+different depending on the platform that
+we're installing it on of course once
+it's installed it will need to be
+maintain and there are certainly costs
+associated with maintaining that
+software or that resource those costs
+for maintaining may go directly to the
+manufacturer of the technology or these
+may be internal costs that we have to
+cover and of course if something breaks
+or it needs to be replaced there's a
+cost for doing that as well and if you
+ask the accounting team how much this
+costs the answer becomes much more
+complex
+we have to consider depreciation if this
+is a capital expense we have to think
+about the operational costs associated
+with this and there most likely will be
+tax implications for all of those
+another important infrastructure
+consideration is responsiveness when we
+send a request to a service we're
+expecting a response back as quickly as
+possible and as humans we tend to be
+very sensitive if there's a delay in a
+response this is a common metric
+associated with interactive applications
+where we're asking a request of a
+service and then we're waiting to
+receive the response responsiveness can
+also be challenging to quantify in some
+cases because there may be multiple
+steps that occur for a single
+transaction that means that the
+responsiveness May Vary widely depending
+on what is happening with that
+particular application when we calculate
+responsiveness we tend to look at the
+overall functions of an application some
+of those functions may be occurring very
+quickly and are very responsive whereas
+others may require additional work and
+it might take more time to receive a
+response from that app many of the
+applications we use may be subject to a
+different amount of usage depending on
+what time of the day it might be or
+whether it's the end of the quarter if
+an application is highly used we might
+want to increase the capacity of that
+app so that everybody can use that
+particular application without running
+into delays we often refer to this as
+elasticity to describe how quickly we
+may be able to expand and and contract
+the footprint of that application you
+might naturally think why wouldn't you
+build out the application to be the
+largest that it could possibly be and
+the quick answer is that it costs money
+to have that type of scalability one way
+that many organizations deal with that
+is to build out an application instance
+that matches the current load for that
+application and then as more people need
+to use that app we might extend or scale
+this application to be much larger
+sometimes this can be done automatically
+behind the scenes and the enduser has no
+idea that you're increasing scalability
+as the load increases from a security
+perspective we need to make sure that
+we're monitoring the entire application
+regardless of how it might scale so we
+might have security tools that are able
+to monitor the base configuration but we
+also need to extend those tools if we
+happen to increase the scalability and
+add more resources to that application
+instance we often refer to Applications
+as if they are one single thing but in
+reality there are many moving parts that
+make up a single application instance
+for example we might need a web server
+that web server communicates with a
+database server you're able to increase
+performance by adding a caching server
+and to protect all of this you might
+need a firewall and those might be just
+the base components of any application
+instance this may be a relatively
+complex implementation with tens of
+different components all working
+together when deploying these
+applications you not only need to
+consider the technical infrastructure
+but you've also got resources on the
+hardware that's available you might have
+certain budgets for building these out
+in the cloud and of course you always
+need to consider the process of Change
+Control for many cloud-based deployments
+this might be a relatively easy process
+this may be completely automated through
+orchestration which is a description of
+building out a cloud-based
+infrastructure automatically on demand
+this is one of the significant advant
+vantages of a cloud-based infrastructure
+is that you can very easily and
+programmatically build out an entire
+application instance in a moment's
+notice this is why project management
+and project planning is so important
+during the deployment phase you have to
+consider where this particular
+application instance will be deployed
+who will be deploying it and any
+additional resources you might need if
+any one of those happens to be missed
+it's possible that this could delay the
+entire
+implementation with the complex ities
+and risk associated with today's
+Technologies it would not be unusual for
+an organization to want to transfer that
+risk to a third party one common way to
+do this in the world of Information
+Technology is to take out cyber security
+Insurance one common use of cyber
+security insurance is to protect against
+ransomware this obviously doesn't stop
+ransomware from occurring but if your
+organization does have a financial loss
+based on a ransomware attack you may be
+able to recoup some of that loss through
+cyber security insurance this insurance
+might cover any outages that occurred
+during that particular security event
+and if you do have some business
+downtime and financial losses this might
+be able to provide some recovery of that
+Financial loss this might also help an
+organization to minimize the risk
+associated with what happens after a
+security event it's not unusual for a
+downtime that causes Financial loss to
+the customers to result in some type of
+legal proceeding the cyber security
+Insurance may be able to assist with
+costs associated with hiring a lawyer in
+dealing with that legal
+process it's certainly true that the
+longer it takes to perform a particular
+task the more money that's costing an
+organization and that's why if you're
+trying to recover from some type of
+outage you should already plan to have
+that outage recovery process be as
+efficient as possible for example let's
+take the situation of a malware
+infection we know that this system has
+malware on it we know that the best
+practice is to delete everything on that
+system and start over again one way that
+you could do this is by reloading the
+operating system from the original
+installation media and that might take
+as long as an hour or perhaps you've
+already made images of your systems and
+you can easily recover from an image
+backup in approximately 10 minutes
+although both of these recovery
+processes result in the same working
+system one of them is much easier to
+process and indeed much less expensive
+if you're planning on implementing a new
+application or a new service in your
+organization you might also think about
+what it will take to get this system
+back up and running if it runs into a
+problem and find the easiest way to
+recover from that particular
+situation they say that the only
+constant is change and that certainly
+applies to the process of patch
+availability we spend a great deal of
+time going through the patching process
+to fix bugs provide sec updates or make
+our systems more available usually once
+we install an operating system or an
+application one of the very first things
+we do is check to see if there are any
+updates before deploying this into
+production and very often we will need
+to install additional patches that were
+released after this installation media
+was created in most organizations this
+is a normal part of the it process we
+know that we will get monthly Patches
+from Microsoft and patches will arrive
+from other organizations through
+throughout the month our organization of
+course will need to test all of these
+patches make sure that it's not going to
+break something that's currently working
+in our production environment and then
+we will need to deploy those to
+production as quickly as possible if
+you're working for an organization that
+doesn't seem to have an emphasis in the
+patching process then you might want to
+reconsider your security posture as it's
+associated with those systems if you're
+not going to patch a system or an
+application you leave it open and more
+susceptible for some type of exploit and
+from a security perspective we want to
+be sure to limit any instances of a
+security
+risk but in some cases you might find
+that an organization doesn't release
+patches and there's no process in place
+to patch that particular system we see
+this often with embedded systems like
+HVAC controls for your heating
+ventilation and air conditioning or it
+may be time clocks these are
+purpose-built systems there's no
+internet access or other type of
+connectivity to this device device so
+there's no way to easily patch what's
+inside of that embedded system this is
+relatively shortsighted these days
+because ATT attackers will find any
+technology and find a way to exploit
+that technology there may certainly be
+security issues associated with the
+software that's running on these systems
+but until you find a patch it will
+remain vulnerable it might be a good
+idea to provide additional security
+around this particular device for
+example if these devices are connected
+to theet Network you might want to have
+a firewall between this device and the
+rest of the world if only to provide
+another layer of
+security one thing that today's
+technology can simply not do without is
+power we must have electricity to be
+able to run all of these systems whether
+it's something that is on premises or in
+the cloud unfortunately we often don't
+think about our power infrastructure as
+being something that we might want to
+monitor but in fact it is one of the
+most most important components of
+everything that we do in technology it's
+often a good idea to bring in a licensed
+electrician who can look at your current
+power usage and give you plans for
+extending this power in the future and
+those requirements may be quite
+different depending on what you're doing
+for example if you have a data center
+your requirements for power will
+probably be very different than the
+power requirements for an office
+building for most organizations there is
+a single primary power provider for your
+particular geography but if you're
+living in a very populous area you might
+have multiple options for bringing power
+into your facility but there may be
+times when primary power is simply not
+available and you may need some type of
+backup in those cases you might want to
+look at a UPS which is an
+uninterruptible power supply or
+something like a generator that can
+provide some or all of your
+organization's power
+requirements in today's cloud-based
+environments we tend to take the
+resources we need for an application
+instance and break them into their
+smallest components one of the
+components that's going to provide the
+heavy lifting and processing is the
+compute component this is something
+that's more than a single CPU and in the
+cloud it's probably called a compute
+engine this is the part of the entire
+process that does the actual thinking
+and processing of the data it might be a
+single processor running in a server
+that's in our data center or may be
+multiple processors that are located on
+multiple cloud based Technologies and
+we're able to scale those systems to be
+whatever size we might need for the
+Computing requirements of our
+applications

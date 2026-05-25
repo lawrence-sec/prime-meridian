@@ -1,0 +1,659 @@
+[Music]
+nowadays the cloud should not be
+anything new to us it's everywhere it's
+elastic it's scalable it's on demand
+it's full of features but with great
+features comes great
+security responsibility
+did i get that right
+anyway there's a great misconception
+that the cloud is just a remote data
+center and the same security control
+should apply and in yes some of them do
+apply at least indirectly but they're
+not enough let me just give you one
+example here the cloud is made up of
+virtualized resources accessible from
+anywhere in the world right and while a
+traditional on-premises data center is
+by default isolated from the outside
+world simply because it cannot be
+accessed from the internet an attacker
+could access a cloud infrastructure
+using just a stolen password or a stolen
+api key
+so first things first let's have a look
+at the cloud deployment models that we
+have at our disposal which are just
+descriptions of how a cloud can be
+deployed
+starting with a public cloud now with a
+public cloud there's nothing installed
+on premises and all the infrastructure
+is offered and managed by a csp also
+known as a cloud service provider now
+the major public ones you probably heard
+about them microsoft with azure amazon
+with aws amazon web services google with
+gcp google cloud project and oracle with
+oci oracle cloud infrastructure
+infrastructure for running public cloud
+resources is going to be spread all over
+the world in specific regions and zones
+most public cloud providers cover the
+entire globe with a lot of data centers
+each of them located in a specific
+region now the resources that the
+customers can access are going to be
+mostly virtual and they usually don't
+have direct access to the hardware
+devices behind the scenes now there are
+some exceptions where certain providers
+allow you to rent actual physical racks
+or servers in their data centers but
+most of the time all the resources are
+going to be virtualized so we're talking
+about virtualized compute services like
+basic virtual machines and containers
+software defined networks software
+defined storage and everything else
+defined in software now one very
+important attribute of the public cloud
+is the fact that it is considered to be
+multi-tenant by default that is you have
+multiple customers or users that are
+sharing the same hardware resources
+of course isolated using virtualization
+and security policies and other internal
+security measures and well of course
+these measures are good enough most of
+the time but there's always the
+possibility that mistakes and breaches
+can happen and this is one of the
+reasons why
+many companies or people are
+not so trustworthy when it comes to the
+public cloud simply because they're
+going to be sharing some computers with
+somebody they don't even
+know who they are other customers out
+there also billing or paying in a public
+cloud is
+well flexible of course depends on the
+on the sales team of the csp
+but most of the time is going to be on a
+pay as you go scenario since you don't
+own any resources you just rent them you
+just pay for what you use and how long
+you use them now a public cloud doesn't
+just bring the risk of public access to
+your resources but also increases the
+risk of exposing your data so ask
+yourself or even better ask the cloud
+provider if the data is encrypted at
+rest right how it is protected in case
+of a breach if the data is encrypted in
+transit when you're transferring data
+between the public cloud and your
+company or between different public
+cloud regions
+is it stored in correct regions in the
+correct countries to comply with any
+geographical restrictions or the
+industry or any country-specific
+regulations that you might have to obey
+now keep in mind that while the
+isolation and the availability of
+resources
+falls under the cloud service providers
+responsibility
+the servers the operating systems and
+the applications running on top of them
+are entirely your responsibility now a
+special category of public clouds are
+sometimes called community clouds a
+community cloud is just a pool of
+resources virtualized resources uh
+belonging to multiple organizations that
+are used by those same companies as well
+as by external customers this is why
+they're considered a variant of the
+public cloud now this is usually done
+for a common purpose like research or
+compliance now the main disadvantage of
+this model is not knowing exactly who is
+responsible for what
+which kind of creates a lot of blaming
+going around blaming each other
+especially when it comes to security
+there's also a multi-cloud concept and
+of course if your company uses multiple
+clouds or multiple cloud providers then
+of course we're gonna need a new word
+for it and that is multi-cloud now this
+happens a lot in companies where one
+provider handles things like email for
+example another one handles things like
+file storage another one handles you
+know chat and video conferencing and so
+on now we have the private cloud now the
+private cloud is pretty simple a private
+cloud is just a virtualized data center
+of basically any size that is located in
+your own backyard or basement
+or data center right or whatever you
+keep your servers the private cloud is a
+pure example of single tenancy you are
+the only one using that infrastructure
+you are not sharing the cake with anyone
+else but also the entire responsibility
+falls inside of your arms from the power
+plugs of the servers to the application
+configurations and of course security
+and staying compliant with industry or
+regional regulations country regulations
+also falls under your responsibility now
+don't forget that the cost of
+maintaining a private cloud is usually
+higher so nowadays it is done
+when the requirements for privacy and
+data localization that is where do you
+keep your data actually are very strict
+governments and banks usually do this or
+companies that don't have enough money
+to refresh their infrastructure or move
+to the cloud so they keep using their
+you know 10 year old servers until they
+die
+now on the issue of security many
+companies especially state companies
+when they think about the public cloud
+they think well it's not secure it's
+public it's shared it's no no accessible
+over the internet i don't want to keep
+my data in there and they go to the
+private cloud thinking that
+what they own and what they control has
+to be the absolute definition of
+security
+it's here i can touch it i can secure it
+it's mine i don't trust anyone else i
+make my own security rules and that's
+how many companies actually think
+now i'm not personally affiliated with
+any cloud provider out there so you can
+check my linkedin profile and these
+videos are not sponsored by anyone
+but let me ask you this if you are
+a small bank a medium online store and
+um i don't know an online business with
+100 employees or something
+do you really think that those two or
+three it guys and the intern
+are going to be better prepared to
+secure your data than the thousands of
+employees and the billions in security
+investments from microsoft amazon or
+google
+do you really trust those two guys that
+much with your data do they know better
+than the the tech and security giants
+out there
+wouldn't you sleep better if you put
+your security in the major cloud
+vendor's hands instead
+just something to think about
+and of course the middle ground is
+called hybris cloud it's a deployment
+model where some infrastructure runs in
+one or more public clouds and some of it
+runs on premises now this is often
+deployed for
+two major purposes you might be able to
+think about a couple more
+first one as a model that allows quick
+scalability of on-premises resources for
+example allowing an online store to
+dynamically increase its capacity during
+holidays or black friday
+now also in scenarios where one or more
+specific services are
+just more convenient to be purchased
+from a public cloud as opposed to being
+hosted and installed and maintained
+locally like email or video conferencing
+and also actually a third reason here
+would be i would say for regulatory and
+compliance reasons that require you to
+keep some data on site and not push it
+outside of your data center now hybrid
+cloud sounds like the best of two worlds
+but it's also the worst of two worlds
+you will be
+facing both cloud and on-premises
+threats at the same time so from a
+security standpoint you'd better be
+prepared
+also management and monitoring of
+on-premises as well as of cloud
+resources is going to be slightly more
+difficult because it has this type of
+decentralized nature in this kind of
+deployment there is just no uniformity
+in there
+finally demonstrating compliance in
+hybrid cloud scenario is going to be
+much more difficult as you will have to
+prove that proper
+coordination between the two clouds in
+place and the private and the public one
+is in order and no data leaks or there
+there's no risk of mishandling data as
+possible when processing sensitive
+information like
+like
+health information or personally
+identifiable information or credit cards
+now besides the cloud deployment models
+that have just shown us the different
+ways in which we can deploy and use
+cloud resources we also have cloud
+service models that describe the
+features offered by a cloud
+infrastructure
+and starting with the most basic one on
+the left we have the on premises or the
+pure private cloud where you manage
+everything
+you make them you break them you buy the
+servers you configure them you install
+the apps you manage the apps you take
+care of the
+power cables and the internet connection
+there's no one else to
+help you or to blame right that's it
+private cloud next up we have
+infrastructure as a service or iaas
+this one provides you the customer with
+access to
+virtual or hardware infrastructure
+inside
+of a public cloud provider so the
+infrastructure is owned by the csp
+but can be administered by you so you're
+basically paying for as many servers
+storage entities virtual networks load
+balancers databases whatever you're
+using but they don't belong to you
+example services here are amazon ec2
+elastic compute cloud right that was
+that's the the virtual machine service
+in amazon basically
+azure virtual machines or gcp compute
+resources
+in this model the cloud provider is
+going to be responsible for keeping
+those resources up and running so if you
+are renting
+virtual infrastructure then the cloud
+provider has to take care of that
+virtual infrastructure to run properly
+right also it's going to make sure that
+the internal the back end components
+like the servers and the storage in the
+network and the hypervisors behind those
+virtual machines
+work properly the cloud provider is also
+going to take care of any authentication
+mechanisms that you will be using in
+order to gain access to your resources
+and also it's going to take care of any
+you know patches and security updates
+that pertain to the actual physical
+infrastructure but apart from that
+everything from the operating system up
+including the operating system is your
+responsibility the next one
+is platform as a service this is some
+sort of a middle ground between software
+as a service and infrastructure as a
+service its goal is to provide
+everything that you need to run an
+application
+like the computer resources the virtual
+machines are storage networking
+infrastructure the databases but you
+have to bring your code you have to
+bring the application code and run it in
+there one example of this is google app
+engine
+uh managed databases like oracle
+database or microsoft sql database are
+also
+examples of platform as a service
+offerings so in paths the application is
+yours all the application
+vulnerabilities are also yours and your
+problems any web issues any
+configuration issues any
+user accounts that you create and any
+data that you manage in your application
+is still going to be your responsibility
+and finally the last one is software as
+a service this one is basically full
+responsibility of the cloud provider
+almost right
+this one provides applications on demand
+most of the security responsibility is
+on the shoulders of the cloud provider
+and that might even be the very reason
+why you bought something
+software as a service so you're gonna
+get rid of all that responsibility
+but
+user accounts and permissions are still
+going to belong to you so it's going to
+be your responsibility to create users
+to create permissions and to ensure
+access to that application also backing
+up data and
+the actual data that the application
+uses is also yours right you don't have
+access to the application code
+but whatever the application processes
+well that's your business all right you
+are still very vulnerable to things like
+credential stealing a weak
+authentication configuration if you
+don't take care of that
+phishing attacks like social engineering
+no cloud provider is going to protect
+you against social engineering right
+so when it comes to the basic comparison
+here between on-premises and cloud
+deployments you have to remember that a
+lot of the traditional security
+solutions along with their
+monitoring software counterparts are now
+becoming available for on-premises as
+well as cloud deployments so
+you can you now get the choice of
+whether you're buying a physical box
+that protects your physical network or
+you're just buying a license for a
+virtual machine that you instantiate
+inside of a public cloud so we're
+talking here about things like endpoint
+management software identity management
+siem solutions dlp solutions firewalls
+network and performance monitoring and
+so on
+having these applications as services
+running inside of a cloud still requires
+some data collection from the
+on-premises networks or endpoints if you
+want to protect those as well but the
+management server and the collection
+database are now located inside of the
+cloud
+another term you should be familiar with
+is called a casby that is a cloud access
+security broker
+and what is that well by now you should
+know that an enterprise security policy
+addresses methods of managing things
+like roles users groups devices and data
+in general now how do you apply this
+in a cloud environment and casper is
+just a type of software that controls
+access to cloud services to cloud
+infrastructure to the applications
+running in in your clouds to the
+identities mapped inside of the cloud
+environment and implements those
+security policies
+just a couple of examples of casb
+solution come from of course the major
+cloud vendors first and foremost like
+oracle with the oracle casbay
+microsoft implements microsoft defender
+for cloud apps that's their solution and
+also we're going to find solutions from
+vendors like cisco in this example it's
+called cloud lock which provides some
+sort of a casper functionality but for
+multiple cloud vendors out there
+so what do we mean exactly when we say
+that a caspian manages access to cloud
+resources what exactly does it do well
+first of all it takes care of
+authentication and it can ensure
+that we're allowed to perform single
+sign-on between on-premises and the
+cloud environment so for this we're
+gonna have to match to sync to map the
+users from the on-premises environment
+to the users in the cloud environment so
+we can have the same users the same
+permissions
+and perhaps even the same policies in an
+ideal world you can also scan devices
+for compliance so that access is not
+granted for things like non-compliant
+devices or devices that don't belong to
+the company
+you can also monitor what users are
+doing and how are they using cloud
+resources so that's basically accounting
+it can also help
+with data exploration actually can help
+against data exploration right somewhat
+like a dlp a data loss prevention
+solution by preventing access to
+sensitive data that is stored in the
+cloud and the way casb software is
+designed to function differs from vendor
+to vendor of course but we can focus on
+about three generic modes of operation
+first of all we have the forward proxy
+operation this is based on a dedicated
+solution it can be installed in a
+virtual or a physical appliance
+which intercepts all the cloud requests
+as they leave your network and head over
+to the cloud
+it's going to validate those requests
+before allowing or denying them and of
+course it's going to require some sort
+of configuration on the client devices
+to use that proxy the second one is a
+reverse proxy where the users make their
+requests directly over the internet and
+the proxy is located somewhere in the
+cloud at the so called entry
+inside of the cloud environment
+and it's going to filter those requests
+the good news is that your clients don't
+need any kind of configuration on the
+client side but you need a cloud
+provider that can handle this kind of
+proxying of requests within its
+environment and finally the last
+implementation method is called api
+based application programming interface
+this one is
+pretty much referred to as an out of
+band solution because
+first of all we don't have any dedicated
+appliances to implement it it is meant
+to integrate with your own security
+devices such as firewalls and proxies
+and the amount of integration of course
+depends on the complexity of the api and
+of the capabilities of your local
+devices now all cloud providers i don't
+think i should mention this but all
+cloud providers out there especially
+public ones have
+all their services and all their
+resources accessible over apis so we can
+programmatically talk to the cloud
+provider itself and with your resources
+and its environment so one usage of this
+api based integration is a situation
+where let's say a user account is
+disabled on our local network on
+premises and then the casvi
+automatically revokes that user's
+permissions through an api by talking to
+the cloud api endpoint and revokes that
+user's permission from the cloud
+environment as well finally the last
+topic here is about cloud infrastructure
+assessment tools now just to introduce
+this concept
+most of this course assumes that
+whatever infrastructure you need to
+protect and whatever
+tools you choose to do so are located in
+your own network on premises nowadays
+this is becoming less and less true
+because many companies are moving if not
+entirely at least a few services to some
+public cloud out there and when your
+data your your users your applications
+start living outside of your premises
+protecting them and managing the
+security risks that they bring inside of
+cloud becomes an entire new job for your
+security engineers so security in the
+cloud is likely to be at least partially
+dependent on the cloud provider itself
+so before starting to blame the cloud
+provider for a data breach
+it's important to understand and agree
+where the responsibilities lie
+and make sure that the cloud provider
+reports any results of its security
+assessments back to you so in the
+category of trust with verify we have a
+couple of tools that we can use to
+assess
+by ourselves the security posture of a
+cloud environment so we're basically
+talking about testing how secure the
+cloud provider really is and the list of
+tools that we have at our disposal start
+with scout suit which you can find at
+this address right here it's just a
+smart python script that uses the api of
+public cloud providers like aws like
+azure gcp and collects data and compiles
+a report of all the findings like what
+instances it finds in there what
+accounts what are their permissions the
+acls attached to the resources and so on
+the second tool that's worth mentioning
+is called prowler located right here but
+keep in mind this is aws only it can
+only be used to evaluate the security
+posture
+of an amazon web services account
+and what it does is actually evaluating
+the security posture against the cis
+benchmark which refers to the center of
+internet security a well-known
+organization that deals with testing
+benchmarks and security evaluations and
+great news is that you can use most of
+them for free to test your
+infrastructure now prowler can also run
+specific scans
+for regulations such as hipaa or gdpr
+compliance another one is paku
+i think that's the right pronunciation
+it's not just an assessment tool
+so be careful with this one it's also an
+exploitation framework it's a tool for
+pen testers it's very similar to
+metasploit so it's basically designed to
+attack infrastructure in aws it has
+plug-ins that attempt to exploit the
+uh things like exposure of api keys for
+aws and gaining control of instances
+running in there now as you can see paco
+is a bit more aggressive so my advice
+talk to aws before deploying it
+otherwise you might raise some red flags
+alarms expect aws to be
+less than friendly when it identifies an
+attack which is indistinguishable from a
+pen test so read the pen testing policy
+and get a proper confirmation from aws
+before running tools like paku and in
+general be careful with cloud scanning
+and especially pen testing you might
+think that you're scanning your own
+account in your own environment in your
+own resources but at the end of the day
+you're basically attacking somebody
+else's infrastructure so be careful and
+just as the last mention here we have to
+mention digital forensics in the cloud
+as well
+and have to mention them because
+traditional forensic methods are a bit
+more difficult to implement in the cloud
+simply because most resources are
+virtualized and you don't have access to
+the underlying hardware
+um so you cannot just remove the hard
+drives that stores your storage bucket
+in your virtual machine's disk and then
+inspect it or you know put it in a
+ziploc bag and then present it as proof
+in a trial
+so most of the time it's going to be
+close to impossible to figure out
+where data is actually stored in the
+cloud and where are the traffic flows
+going to and if this was not enough they
+the on-demand model of the cloud means
+that resources can be created and
+destroyed at any point in time without
+even the slightest chance of recovering
+some of that data for forensic purposes
+do you want more should i mention chain
+of custody
+what a bad joke
+so this is why in most cases digital
+forensics in public clouds
+uh it's something to discuss directly
+with your cloud provider
+and preferably agreed upon in a contract
+or sla if you don't have the cloud
+service provider's help and support your
+hands are pretty much tied when it comes
+to digital forensics in the cloud
+alright so that's it for now this was
+the first video on the cloud we're gonna
+have one more
+where we're gonna talk about cloud
+automation and other cloud threats but
+for now make sure you understand the
+cloud deployment models the service
+models that you have at your disposal
+uh what's a casbi the exam is going to
+ask you about this i'm pretty sure about
+that and also understand that the cloud
+infrastructure assessment tools work
+slightly different when it comes to
+scanning or pen testing
+somebody else's infrastructure right so
+i hope you found this informative thank
+you for watching see you next time where
+i'm going to talk about the second part
+of our cloud discussion like and
+subscribe and see you next time
+[Music]
+you

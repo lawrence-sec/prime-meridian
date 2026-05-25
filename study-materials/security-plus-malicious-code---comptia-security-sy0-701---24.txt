@@ -1,0 +1,95 @@
+as we've already discussed in this
+course attackers have many things they
+can do to try to gain access to your
+systems they might use social
+engineering to trick you into giving up
+access to an area or a username and
+password or they might try using default
+credentials that unfortunately may not
+have been changed on newly installed
+equipment and of course
+misconfigurations can easily leave a
+door open for an attacker to walk right
+into your network these attacks may
+require some knowledge of the
+organization or of the users but they're
+not solely technical attacks logging in
+with default credentials or
+misconfigurations are errors that were
+left by the user and don't require a
+huge amount of technical knowhow but if
+the users are not susceptible to social
+engineering techniques and the device
+has not been misconfigured or left with
+the default credentials then the
+attacker needs some other method to gain
+access to those systems instead of
+walking in an open door that was left
+unlocked because of default credential
+malicious code requires a bit more
+Technical knoow and in this video we'll
+look at some of the techniques that
+attackers use with malicious code to
+gain access to your network when we
+mention malicious code we are really
+referring to many different methods that
+could be used to gain access to these
+systems this malicious code could be
+packaged in and executable there could
+be scripts that are running on that
+system there might be macr viruses or
+Trojan horses or many other methods of
+malicious code that can gain access to
+this system because there's so many
+different methods that could be used we
+have to present a very strong defense
+against any possibility of malicious
+code so we might be using antimalware to
+block executables and perhaps some
+scripts or macr viruses we have a
+firewall to block traffic that may be
+known malicious passing through your
+network we have continuous updates and
+patches that will always close these
+vulnerabilities if a security issue does
+exist and of of course we need to train
+our users to use secure Computing habits
+so that they don't give people
+information over the phone or click
+unknown links inside of an email
+malicious code was used with the w to
+cry ransomware attacks to infect devices
+that were Windows systems that had a
+vulnerability using SMB or server
+message block version one this
+vulnerability allowed for arbitrary code
+execution so the attacker could
+effectively run any software they like
+on a user's machine this allowed the
+attacker access into the operating
+system and from there they could install
+additional mware to run the ransomware
+software another type of malicious code
+was the one that affected British
+Airways with cross-site scripting the
+attackers were able to gain access to
+the British Airways website and they
+placed 22 lines of malicious JavaScript
+code on the pages used to check out when
+purchasing a flight this allowed the
+attackers to start collecting credit
+card information
+and by the time this was discovered
+approximately 380,000 victims
+potentially could have had their credit
+cards stolen for this cross-site
+scripting attack and another type of
+malicious code was used with the
+Estonian Central Health database this is
+a database for the entire country of
+Estonia and it was accessed using SQL
+injection as the malicious code this
+allowed attackers access to the entire
+database effectively breaching all
+health information for citizens of
+Estonia

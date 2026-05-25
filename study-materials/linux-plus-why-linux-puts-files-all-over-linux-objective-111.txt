@@ -1,0 +1,634 @@
+hi i'm sean powers and i want to help
+you learn everything do what you love
+and most importantly be kind now today
+we are starting our linux plus
+series where we're going to learn all
+the objectives to take the linux plus
+exam to get certified with comptia linux
+plus or if you just want to learn about
+linux great place to be as well now this
+very first section is
+basically a summary of the linux
+fundamentals and if you are already a
+linux user great if not if linux is a
+little intimidating you can check out
+i'll put a link up here to my linux
+essentials course it's a full course
+that you can take just to gain a
+familiarity with linux before you dive
+into linux plus
+full on but anyway it's not too bad and
+we're starting with section
+1.1.1 i'm just going to cover this
+section today and this is basically just
+a look at
+the fhs or the file system hierarchy
+standard
+which just means that linux systems all
+use the basic same locations for
+different types of files now you'll
+notice this is just a list of
+directories and i could just like
+explain this and you could take notes
+but that's kind of boring so let's
+actually look at the command line for
+how files and directories work and then
+i'll take these by section not just to
+tell you what they do but kind of like
+why they do what they do so that they
+can stick in your brain a little bit
+easier than just rote memorization now
+the reason it's so important for there
+to be a standard for how files are
+stored on a linux system is because in
+linux
+everything is a file and i do mean
+everything like of course files are
+files but a hard drive on your system is
+represented as a file in the dev folder
+uh if you uh insert a usb drive that
+drive is represented as a file on your
+system it's it's mounted on a folder on
+your system so every single thing
+is a file like i said a file's a file
+hardware is referenced as a file now i
+should take a second because i will
+probably get comments if i don't address
+this
+directories are the actual proper name
+for
+on a file system like a container of
+other files or other directories
+directory is the absolutely correct term
+but folders is often used synonymously
+because it's a good metaphor for what a
+directory actually is again it's not a
+perfect metaphor but i will say folders
+or directories and when i do that i'm
+going to use them synonymously meaning
+the exact same thing if you don't like
+it when people say folders i apologize
+it's just the way that i often explain
+it and so directories and folders when i
+say them during this whole series
+they're going to mean directories on the
+linux system so yes files are files
+hardware is files
+network shares are mounted on
+directories so you don't actually have
+like a c drive or an a drive you just
+have a folder or a directory location
+and that's where the remote file system
+lives even kernel configurations are
+stored as files on the running system
+we're going to look at that in just a
+second but like kernel configuration
+stored in a file it's a virtual file
+there's a little more complexity there
+but it's still represented as a file so
+everything is a file and that's why it's
+important to have standards on a linux
+system so when somebody creates software
+for linux and they install it the
+different files which represent either
+files or hardware etc live in the same
+place regardless of the distribution
+that the
+the person is actually installing the
+application on now there's a couple cool
+little things here i'm in the documents
+folder and i'm going to type ls and
+you'll see these are directors in fact
+let me say ls minus l
+these are directories and inside of
+these directories are some files so i
+can say
+ls minus l to show a listing inside
+the home folder and we'll see oh there's
+another folder inside there and if i
+look inside that folder there are a
+couple files in there okay directories
+or folders exist files or folders can
+exist inside of there and it just makes
+this hierarchy wherever you are in the
+system it's a whole
+file system based on directories and
+files that can be nested within a bunch
+of different directories and that sort
+of thing this is probably perfectly
+clear if you're if you're watching this
+video this probably isn't new
+information but i do want to show you if
+we do ls minus l it'll show a listing
+and then a will show all and we're going
+to have a couple other directories that
+are shown here but they're strange these
+are actually relative as opposed to like
+these are actual directories named home
+secret treehouse notes work
+these the one called dot dot and the one
+called dot
+are dynamically created or relative i
+guess is a better term they're relative
+to whatever folder you're in because dot
+the single folder or a single directory
+named dot means the current directory so
+whatever directory we're in in fact
+right now on this system we're on
+in the documents folder inside of our
+home directory
+documents is
+the dot folder because that's where we
+are currently located on our system
+dot dot
+means the parent directory or the one
+above it okay so if i were to say cd for
+change directory to dot dot we're going
+to go up a directory or to the parent
+directory which is just my home folder
+and now if we do ls we'll see documents
+as in this folder because we
+change directory to the parent directory
+of documents which is just the s powers
+folder and there is documents now if you
+want to see it laid out there's a cool
+program this is this is just bonus
+material right this isn't you're not
+going to see this in the linux plus exam
+but if you go to let's go back into our
+documents folder because i set up some
+things in there and if you type the
+command tree just like you know tree
+growing outside
+it will show you all the files and
+directories and a nice little
+chart thing so you can visually see what
+it looks like so like we have the home
+folder or directory and then inside
+there is the ap english with a couple
+text files secret treehouse notes looks
+like there's a video
+the oath the rules inside of our work
+directory there are two directories
+accounting and tps reports
+the expenses dot xls is a file inside
+the accounting directory and then tps
+reports contains january 1980 word star
+document
+and then also memo i don't know if you
+read the memo on tps reports but anyway
+that's how directories and files are set
+up they just work i mean you you
+understand this but i wanted to show you
+and especially that dot and dot dotting
+so if we say like cd2 dot what do you
+think will happen
+we stay in the same directory right
+because dot means current directory so
+we change directories to our current
+directory boom we're still in the same
+exact directory all right now let's look
+at some of those um
+standards as far as where the files are
+always going to be on a freshly
+installed system not inside like not
+like our own stuff like we did here with
+our english and work folders and stuff i
+mean like the system as a whole the fhs
+that this uh video is about let's look
+at what those things are actually set up
+to do and maybe why they're set up that
+way now again this is just a cut and
+pasted version of that entire list of
+things but i kind of chopped them up
+into pieces so we can look at them
+individually so for example we're just
+going to go through these and talk about
+them the home directory this is like
+forward slash right off the root
+directory of our hard drive of our
+system doesn't have to be a single hard
+drive off of our system uh home is where
+user directories are stored so it's
+going to be like home
+as powers that would be like my home
+directory now the root user's home
+directory is not in that folder usually
+it's just right at the root level which
+i know root and root but uh the root
+level is generally what we just call the
+very top of the file system and then the
+the word root rot is where the root
+user's home directory is and that's
+because a lot of times the home
+directory is on a separate either
+partition or on a network share or in a
+separate hard drive and we want the root
+user to be able to have access to their
+files even if we boot in like recovery
+mode or single user mode so root is
+generally not stored their home stuff
+isn't stored inside the home folder like
+every other user on the system all right
+so that's the section let's look at over
+here these are just kind of a couple
+other root level folders or directories
+uh the boot directory this is where the
+bootloader and the kernel files live
+okay
+this
+can have specific needs that for some
+reasons which we'll discuss a little bit
+later it might need to be on a very
+small partition so the boot
+directory is often its own partition not
+always sometimes just a folder but this
+is a place where the bootloader and the
+kernel files live um etc it's funny this
+is a little bit of a controversy like
+where did it come from everybody i know
+calls it the etc folder etc or sometimes
+it's shortened to etsy you'll hear
+people call it etsy like
+e t and then c at c it's just easy to
+say uh
+we're pretty sure it just came from like
+etc where all the these are where all of
+the text configuration files go for
+installed applications but some people
+don't like that and they try to like
+wedge in an acronym and i don't even
+remember the silly acronyms but what you
+need to know for the for the test is
+that this is where configuration files
+for programs go this is where all
+configs go right if you have a if you
+have an application installed or the
+system itself all of the configuration
+files are going to be in the etc folder
+um opt is one that's not used terribly
+often this is for add-on packages like
+third-party add-ons that have all the
+stuff they need a lot of times
+proprietary software won't use system
+libraries they'll just have everything
+self-contained so if you have like a
+third-party application it'll often go
+in the opt folder that's kind of what
+that folder is used for
+i kind of
+use it for my docker configuration stuff
+which isn't perfect
+but it kind of fits the bill right i
+mean it's an application that is not
+like standard part of the system so i
+usually put like if i have a mounted
+volume i'll usually have that in the opt
+folder i'll usually do opt to docker and
+then for every one of my docker
+containers i'll have like a directory
+inside there that's where i store the
+you know the persistent information but
+that's just my personal preference
+that's not part of fhs fhs just says
+that opt is where add-on packages go
+media this is where removable media is
+mounted remember i said like a usb drive
+you plunk it in there
+two things are going to be created a
+device file like in the dev folder which
+we'll look at in a second uh to the
+actual hard drive itself that you're
+plugged in but then the contents are
+going to be mounted in a directory and
+that directory is going to be inside the
+media folder now
+hold on i kind of scribbled over my
+stuff here the mnt or mount folder this
+is where temp mounted file systems go
+like if you need to mount a file system
+temporarily you create a directory
+inside mnt so mount something and then
+that's where you mount it i have to be
+honest the mnt folder is generally where
+i put
+things that don't fit elsewhere like
+let's say i have a giant video
+collection and i want to mount that
+network share on my local computer i
+will usually make something like
+mnt slash videos directory and i will
+mount that remote share on there and
+have it mount on boot it's technically
+designed for temporary mounted file
+systems but i usually put things in
+there that i want to keep permanently
+anyway again these are guidelines not
+rules when it comes to the individual
+user um it's when you drop when you
+develop software and distribute it that
+you have to make sure you're following
+the rules more precisely but that's
+where i usually put stuff when i mount
+it uh the temp folder is just that it's
+temporary files so a lot of times when
+you're when a software is running it
+will need to temporarily store stuff
+somewhere and that temp
+directory is where those things are
+stored now this is important to know
+at the root level the forward slash tmp
+folder is usually deleted all the stuff
+in there is usually deleted when you
+reboot the system so if there's
+if it's like not super temporary it's
+something that you hope sticks around
+for a while like and persists between
+reboots do not put it in the temp folder
+there's another place i'll tell you in
+just a second where you can but the temp
+folder is for temporary files but it's
+usually deleted on reboot
+let's see let's go down over here i know
+i'm kind of going out of order but i
+just kind of scattered them around the
+page
+um
+s bin this is where binary files go but
+essential is key here essential means it
+has to be available in single user mode
+so
+like recovery like when the system first
+boots up it has to be in that
+that essential class where we can't
+mount another hard drive we can't mount
+any you know remote network share if
+this is something that is essential for
+the system to run it has to be in this
+s-pen folder and then essential binaries
+that aren't system specific like um if
+it doesn't necessarily have to be run as
+root but it's essential in a single user
+mode
+situation it's going to be in bin like
+bin bash like the the shell interpreter
+is in that folder because you're going
+to need that um even in a single user
+mode system so it's essential but it's
+not only run by root right other users
+can run stuff in the bin folder and then
+the lib these are system libraries like
+shared libraries that are needed for
+essential
+binary files right so this is library
+files but only library files for these
+two things go in there because the user
+folder or usr which is up here which
+we're looking at now
+this is uh
+things that are not needed for single
+user mode this is like after it's booted
+you know we're not recovery mode
+anything like that it's actually a fully
+running system
+most things go in this user directory
+the user directory user slash bin this
+is where most of the files that are
+going to be on a system are located user
+lib these are libraries like shared
+library files for the
+actual command binaries that are in user
+bin
+user local is a little bit different
+user local is specific to the computer
+you're on and one that's really common
+is user local bin i usually put my
+custom scripts for a particular computer
+in user local bin and that way it's
+accessible for anybody on the system but
+it's not something that is generally
+shared between systems or installed like
+if you download a package from like a
+repository it's not going to put stuff
+in in user local that's for the local
+system right and that's like i said
+usually where i put like bash scripts
+that i write go in there
+and that's the
+all of these are in the usr directory
+and that is not essential that's like
+it's considered a secondary i couldn't
+think of the word it's considered
+secondary because it doesn't have to be
+available like these down here do in
+single user mode so that's why they
+exist in different places and on the
+test they might ask you like
+let's say we have a program
+that is used for
+word processing
+where would you expect to find that
+binary file and where you would expect
+to find it is in user bin because a word
+processor is not something that would be
+considered essential for single user
+mode so it's going to be in the user bin
+folder and that's the kind of question
+that you'll get on the exam all right
+let's see what else do we have here oh
+i'm going to save the virtual file
+systems for last so over here which is
+kind of sideways and hard to read but it
+wouldn't fit any other way um var so var
+this is where
+files that change a lot live so like log
+files that are constantly being written
+to are in var log um files that uh will
+come and go like mail files like if it's
+a mail server like email um they will go
+in like var mail spool or anything that
+is written to deleted moved around a
+whole lot is gonna go in a var
+uh inside the var directory and the
+reason these are all chopped up like
+this is a lot of times there are a hard
+drive will be partitioned so like if the
+var partition fills up it doesn't crash
+the entire system you know like all of
+the other stuff like their
+boot folder and and s bin and stuff they
+aren't going to crash if the var folder
+or var partition on the hard drive fills
+up or sometimes it'll be a whole
+separate hard drive that you have
+for var so for like something that a
+little more robust and isn't going to
+wear out from constant constantly being
+written right hopefully that makes sense
+that's why it's split up like that and i
+did promise earlier i'd talk about like
+remember up here this temp folder is
+usually erased when the system is
+rebooted if you have something that is
+considered a temp file like you're
+running a program and it just
+temporarily stores stuff but you don't
+want that stuff to disappear if the
+system is rebooted
+var temp is the directory you want to
+store those temp files because it works
+the same as the temp folder
+the difference is this one is generally
+not erased like everything in there
+isn't going to be erased when the system
+is rebooted so it's a little bit safer
+to store things there that will persist
+between reboots and then lastly i know
+this is just a lot of rote memorization
+but hopefully at least this helps
+make it stick in your brain a little
+better but virtual file systems remember
+i said everything is a file well that
+includes like hardware is represented as
+files so in the dev folder that stands
+for device and that's going to be all
+the devices on your system like your
+sound card your hard drive your
+nvme drive your
+com ports like you know like serial
+ports your usb ports all of those are
+going to be represented
+as files inside the dev directory and
+they're going to be populated as the
+kernel recognizes that hardware it's
+going to create
+files that represent those different
+devices and then there's a little bit of
+a story behind behind the other two proc
+and sis
+proc is um
+it's generated on the fly so it's all
+virtual sword and ram but they are
+actual like files in your file system
+and what these are these represent
+process information that's the word proc
+it stands for process so every running
+process on your system will store its
+like in-state memory configuration in
+folders inside here okay
+however they also started putting other
+stuff in there so the process folder was
+very convenient for processes to store
+their running information well they
+thought hey you know what it'd be nice
+to have some kernel information stored
+in there too and and some driver
+information
+and networking information and they just
+started dumping all sorts of live
+configuration information in the proc
+folder and after all you know what this
+is getting kind of messy the proc folder
+was designed for processes so why don't
+we create a different virtual file
+system called sys and that's where we
+will put things specifically about like
+device configurations driver
+configurations kernel configurations and
+that was great in concept the problem
+was a lot of the stuff was already in
+proc people knew it was there moving it
+would just be unnecessary work so what
+we end up with is kind of a messy proc
+file system
+and a slightly underused sys file system
+oh let's look at it really quick just to
+show you what i'm talking about alright
+so here we are let's go into just proc
+it's just like i said it's just a
+directory and if we do an ls we're going
+to see a couple things one all of these
+numbers represent process ids all of
+these are different processes that are
+running on the system and inside each
+one of these so like ls 18
+72 there on the bottom
+inside there
+these are files and some more
+directories but all of this is running
+information these are all stored in the
+ram on our system generated on the fly
+as the process starts up this is just
+where it stores its information in a
+place that can be accessed by other
+programs or by itself
+and all of these are just settings
+memory settings but they're all
+represented as files again everything in
+linux is a file and you can see that
+that is great all these process numbers
+are here but there's also a bunch of
+other stuff over here that like i said
+kernel stuff was starting to get put in
+there and network stuff is starting to
+get put in there and so they said you
+know what it's getting too cluttered so
+we're going to make the sys directory
+and if we go into the sys directory
+we'll see this is much neater isn't it
+very neat very organized there's the
+kernel there's power hypervisor
+information file system information
+devices firmware all of these and what
+like let's look inside
+firmware
+again even these are very very organized
+the only problem is it's not terribly
+utilized or it's it's it's underutilized
+as a whole because people have been
+using the proc file system so
+this is where technically kernel
+information driver information
+for more information that is generated
+in real time when the system boots up
+this is where the configuration
+information should be stored but a lot
+of it is still over in the proc file
+system too so it's kind of a half and
+half transitional type thing will it
+ever be neat and tidy in the proc file
+system i have my doubts it works and you
+know people don't normally go in there
+so it is what it is but that's what
+those uh two things are doing the proc
+and the syst are both virtual file
+systems that show you
+um and like on the fly generated files
+that represent the currently running
+system now i know that there was a whole
+bunch of like information about why
+stuff is where but what i encourage you
+to do is one i'll put a link to the
+wikipedia page that has like the actual
+full-blown explanation for all of the
+fhs standard uh directories and what
+they are for and why they're for that
+etc etc so look at that but then go into
+your system whatever system you're using
+your vm and look inside of those
+directories and see if it makes sense
+like why this is here what sort of files
+or what binaries are going to be in
+s-pin
+in s-bin versus bin versus user bin see
+if you can see why things are considered
+essential uh why things are considered
+system essential why things are
+considered not essential but secondary
+that sort of a thing and hopefully
+you'll get a better grasp for why things
+are where they are on the limit system
+and with that
+you go play and i'll get ready for our
+next video and that's where i'll see you
+see you next time

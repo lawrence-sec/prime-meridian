@@ -1,0 +1,617 @@
+hey everybody i'm sean powers uh if
+you're following along as we're making
+this linux plus course i'm sorry that i
+was not able to record for an entire
+week um my voice is mostly back i'm a
+little bit rough sounding but i'm gonna
+get through this video and we'll keep
+training again my name is sean powers um
+i'm here to help you learn everything to
+do what you love and most importantly be
+kind now we are covering comptia's linux
+plus objectives to prepare you for the
+exam and specifically today we are
+covering
+uh
+1.2.1 now they don't actually break it
+up that way it's actually just 1.2 this
+objective but i'm going to chop it up a
+little bit and we're going to cover
+i kind of gerrymandered this objective
+and we're going to cover all the things
+that i've circled in this in this blob
+here um basically i want to cover uh
+like general command line tools for
+getting around directories and and stuff
+like that on your system and then i want
+to talk about uh hard links and soft
+links or symbolic links and do some
+other stuff with file metadata just a
+quick show you how it works now we've
+covered these in the linux essentials
+course so if i go too fast
+you can
+please go back and watch that entire
+playlist
+but
+this is pretty simple stuff we should be
+able to get through this in pretty short
+order um if you're not familiar with my
+other stuff these are just some of my
+comic characters i thought uh after a
+week of being gone they would help cheer
+me up so this is blue and blue's dog
+spot you can check them out at
+mybigroundworld.com
+um but anyway let's get right to the
+command line where we can start covering
+uh some of these commands okay so i'm
+here in my ubuntu box and
+i'm just uh in my home directory and the
+first command we'll look at is pwd which
+stands for present working directory and
+it will just tell you what your current
+directory is on the system like if we
+were to go over to the etc folder and
+type pwd it would just tell us that we
+are in the etc folder all right
+if we type cd that stands for change
+directory and if you type it on its own
+and press enter it'll actually take you
+back to your home directory and if we
+pwd that's my home directory that's
+it'll take us right back to there all
+right so we are in our home directory
+now another command i want to show you
+i'm just going to shotgun through all of
+these is the touch command now touch if
+you touch an existing file it will
+update metadata however if you touch a
+file that doesn't exist like uh actually
+before i do touch let's do ls we've seen
+ls in other videos so far but it's just
+to give a directory listing of what's in
+our current directory if we do the dash
+l flag it'll give us in long form uh
+what's in here and there's just uh one
+file that we can see textfile.txt
+and it shows that it is uh 12 bytes long
+if we were to touch a new file so
+touch
+file.txt let's say
+and now if we do ls minus l we're going
+to see we still have the file that was
+already in there text file.txt but now
+we also have a file called file.txt
+and it is zero length so it's not taking
+up any space on the hard drive there's
+nothing in it it's just an empty file
+okay so that's one of the things we can
+do with the touch command now if we want
+to make a directory we would actually do
+mkdir for make directory mkdir and then
+what directory we want to call so i'm
+going to say well stuff we'll have a
+folder or a directory called stuff and
+if we do ls minus l we're going to see
+we have a folder here
+called stuff and
+way over here in our permissions field
+it actually starts with a d for
+directory
+the dash here means that it's a regular
+file and so that's uh that's right there
+all right we can then go into a folder
+with cd so remember when we typed cd and
+then i typed a folder we changed to that
+directory so cds change directory so
+let's change directory to stuff okay and
+now you'll see that we are in the stuff
+folder and now really quickly if you if
+you look down here
+see this kind of gives us the pwd the
+present working directory
+that is the tilde symbol and if we were
+to say cd to
+tilde
+tilde is just a shortcut for i'm going
+to type pwd it's just a shortcut for our
+home directory so tilde you can
+reference tilde and that is just a a way
+of saying the current user's home
+directory so it's different for every
+user but the s powers user tilde is the
+same as home s powers hopefully that
+makes sense let's go back into the stuff
+folder and i'm going to touch a file in
+here so i'm going to say
+touch
+test file all right if we do ls we're
+going to see now there's a file in there
+called test file okay
+uh so let's go back now okay i'll show
+you something in here really quick too
+so ls
+dash
+l a a means show me everything even
+hidden files
+and the two hidden files i want to look
+at are the the folder or the directory
+see it's a directory it says back here
+directory
+just titled dot
+and this one titled
+dot dot
+and these are dynamic so every every
+directory that you're in will have
+these other directories listed the dot
+the single period is just a way of
+saying current directory so that's the
+current directory is the dot folder that
+you're in like you're in dot right now
+so if i were to say cd
+to dot
+it takes us right to the same folder
+that we're in so see we're in the stuff
+folder
+dot dot is the parent directory so if i
+were to say cd dot dot it will take us
+up a folder and now pwd we are in home s
+powers if i were to do it again cd dot
+dot remember every directory has the dot
+and the dot dot in it
+if i were to do that
+now all of a sudden i'm in the home
+folder so pwd shows us the present
+working directory is the home folder all
+right so i'm going to say cd remember i
+could just press enter to get back to my
+home directory or i could do cd
+to tilde
+boom and there i am in my
+home directory again
+i'm going to make one more folder so i'm
+going to say mkdir
+test folder or test directory i use
+folder and directory interchangeably
+usually and now if we do ls minus l
+we're going to see we're starting to get
+a pile of stuff in here right so let's
+say we wanted to remove a directory well
+we know we can create a directory with
+mkdir but if we want to remove it it's
+rmdir and so let's get rid of that test
+folder that we just did
+so rmdir test folder you can put the
+slash after it or you don't have to
+either way
+and press enter and now it's gone ls
+minus l okay it's all gone let's try to
+do the same with the stuff folder and
+see what happens he says ominously
+rmdir
+stuff
+it will not let me because it's not
+empty and so that's like a safety
+feature of the rmdir is that it will not
+remove a folder or a directory it will
+not remove a directory if there's
+something in there and if you remember
+let's do an ls of the stuff folder we
+created a file in there called
+test file now there's a couple things
+that we could do to get rid of stuff in
+there we could remove it we could just
+say
+i'll show you how to remove a file we'll
+say rm
+file.txt that will remove the file in my
+current directory see it's up here
+file.txt so if we do rm file.txt and now
+if we do an ls minus out we'll see that
+file is gone so we could do
+um rm
+stuff
+test file and it would remove it and
+then we could run rmdir because the
+folder would be empty and we could
+remove the stuff folder or directory
+but there's another way we could
+actually remove folders
+using the rm command if we go rm
+minus r for recursive and then if you
+don't want to get prompted for like are
+you sure
+f for force so rm minus rf is like a
+super powerful way to destroy the whole
+world um basically every file that you
+have permission to delete you can delete
+with rm minus rf it's a pretty scary
+file or a pretty scary command anyway we
+could do rm minus rf
+stuff
+and that's just going to remove it
+including that test file that was inside
+it just recursively removed everything
+in the stuff directory which can be kind
+of scary now did i cover everything
+let's see mkdir copy rmdir dot dot dot
+tilde touch cd
+yeah i think i got everything
+covered except oh i guess there's one
+more thing and i think we looked it i
+know we looked at this in the in the um
+uh linux essentials course uh but the
+tree command so if you just type tree it
+was listed here it just shows you a
+thing i'm gonna quickly type see if you
+can follow along and see what i'm doing
+so i'm gonna do kdir
+test one
+touch
+test one
+file
+mkdir test one
+dir two
+touch test wonder two file
+touch test wonder to
+file two
+all right so if we look in here now we
+have this but now since i've done like i
+created a tree of files and folders if
+you will now if we type tree it's a
+little more interesting if we type tree
+we can see that it just gives us this
+really nice uh display of all the files
+and directories from where we are uh on
+out right so we could do
+like give me a tree of just test one and
+then it would show us that just that
+directory and all the stuff inside of it
+recursively and it's just a nice little
+ascii format that shows us what it looks
+like all right let's clean up everything
+in here r minus rf star for like
+everything star asterisk there's a glob
+for everything it'll just remove
+everything in this current directory
+scary scary but now everything is gone
+all right the other thing that we need
+to cover in this video are is the
+concept of hard links and soft links and
+uh soft links or or symbolic links i
+like i kind of like the idea of calling
+them symbolic links a little bit more
+but you'll see them referred to as
+either soft links or symbolic links and
+the difference is
+what it's actually doing so a hard link
+is uh first of all let me take a step
+back when a file is stored on a hard
+drive like there's a name like this one
+file.txt and what this does is it points
+to a spot on the hard drive where the
+file lives right so this is like the
+first sector and it probably goes a few
+sectors and it points to that spot on
+the hard drive so a file name is
+pointing to a spot on a hard drive if
+you have a hard linked file that means
+that you create another
+name or another link to the exact same
+spot on the hard drive so when we talk
+about hard links we're just talking
+about a file name that points to a hard
+drive and you can have more than one
+file name pointing to the same file
+position on the hard drive okay so in
+this case file and file two are the
+exact same file they just have two
+different spots on the file system that
+point to the same spot on the actual
+hard drive now a symbolic link or a soft
+link is different now the original file
+doc.txt for example is pointing to a
+spot on the hard drive where the file
+lives right the sectors on the hard
+drive are here doc.txt is pointing to
+this group of sectors on the hard drive
+but a symbolic link you have another
+file name just like up there with a hard
+link but instead of the file name
+pointing to that spot on the hard drive
+it actually points to the file name
+in the file system and so doc2.txt
+is pointing to
+doc.txt it's not pointing to the hard
+drive hopefully that makes sense because
+it is significant with how things happen
+uh on the system itself okay so
+these are hard links and these are this
+is a soft link or a symbolic link
+pointing to a file name
+this is not pointing to the hard drive
+itself it's just pointing to another
+file name on the file system so let's
+create them both so we can see how they
+work and how they might affect things
+on a day-to-day
+operation of your system all right so
+i'm going to clear the screen here
+and let's um we're going to echo
+hello into
+file.txt so we have a file there and now
+let's just look at it real quick i guess
+so there's our file file.txt if i cat
+the file and look at the contents of it
+it contains hello i don't know if i
+mentioned cat earlier but cad is how we
+look at the contents of a file
+it actually is short for concatenate
+which
+it doesn't make necessarily a lot of
+sense when you're just looking at the
+contents of a file but cat will show you
+the contents of a file so cat file.txt
+shows us the contents are the text hello
+alright and then if we wanted to make a
+hard link we would just do ln
+file dot txt
+and what was our example i think
+file2.txt
+alright and now if we do ls minus l
+we're gonna see both of these files
+are six bytes in length okay if we were
+to cat
+file two it's the same thing and here's
+where it gets really cool so let's say
+we were to uh edit now this is going to
+be another video but i've used editing
+tools before so just bear with me if
+this doesn't make a lot of sense we're
+going to explain in the next video or
+two
+let's edit file.txt
+i'm going to add a line
+dude
+for some reason
+i'm going to save that
+and now if we were to look at file.txt
+we would expect it to be hello dude
+right but if we look at
+file2.2
+it's also hello dude
+pretty neat right and if you remember
+it there both of these file names are
+pointing to the same spot on the hard
+drive so if we remove one so rm
+file2.txt
+all we've done is erased one of the
+links to that spot on the hard drive
+even though there's only file.txt here
+if we look at it it's still there it's
+still perfectly fine because that spot
+on the hard drive is still in existence
+in this one of the two links we're still
+pointing to it so a hard link creates a
+new file that points to the hard drive
+but
+what if we were to do
+ln
+minus s for symbolic or soft it's
+actually really nice that that works
+that way whichever way you like to think
+of it so instead of a hard link we're
+gonna do a symbolic with dash s
+file one and we're gonna name this one
+file dot txt
+okay and now if we do ls minus l we're
+going to see something cool what i
+really like is that when you do ls minus
+l it shows you what it actually is doing
+so we have our original file here uh it
+is 11 bytes because remember we added
+the dude to it so it's that original
+file and now soft file.txt they give you
+like this little arrow it's pointing to
+file.txt so it's it's actually showing
+you right here in the listing that it is
+a link that is pointing to the file here
+it's not pointing to a spot on the hard
+drive but for some things it works the
+same for example if we were to edit
+soft file.txt
+and we were to get rid of hello so it
+just says dude
+if we were to then look at the contents
+of file.txt
+it's just dude because we edited that
+one file right soft file is just
+pointing to file.txt so when we edited
+soft file we edited file.txt but here's
+where things get really
+dicey or different
+with a symbolic link or a soft link if
+we were to get rid of file.txt so rm
+file.txt
+okay it's gone now guess what now okay
+soft file is now doing what it doesn't
+point to the hard drive it points to
+file.txt but we just removed that while
+ls minus l shows us what happens here
+it's like um okay soft file is pointing
+to file.txt but you'll notice it's all
+in red and that's because it doesn't
+exist and so if we try to look at it
+so look at the contents of softfile.txt
+and no such file or directory i mean
+this the soft link is here but the file
+that it actually references is gone so
+that's the difference between a hard
+link and a soft link and you'll find
+both of them uh in use but it's kind of
+hard to identify a hard link unless you
+start looking at
+like specific inodes on the hard drive
+and stuff like that
+but with a soft link it shows you this
+really nice
+kind of like error like okay this is
+just a link pointing to you know this
+thing over here so that's actually a
+really nice thing about uh bash is that
+it shows you exactly what a soft link is
+doing so let's build up a couple more
+things so i can show you the last two
+commands before we're we're done here so
+i'm gonna do i'm gonna echo hello into
+file.txt and this will actually fix our
+soft link too look at that now it's all
+better yeah now if we were to cat
+soft think it's going to cut it right
+out because sure enough it's pointed to
+a file that does exist and we're going
+to make a directory called folder
+and touch new file dot txt
+and clear the screen okay so we do an ls
+we have these folders let's do ls minus
+l so this is what we have in there and
+there's two commands that will give us
+some metadata on the individual
+files themselves the first one is just
+going to be file so the file command on
+file.txt and this will tell us what kind
+of file it is and so it's an ascii text
+file what if we were to look at folder
+file of folder it's going to say folder
+is a directory
+now what would you expect new file to be
+it's a just a an empty thing that i
+touched let's see
+file
+new file
+empty okay even though dot txt is here
+that doesn't really mean anything right
+we don't that's just like a convention
+that's just like a standard operating
+procedure it doesn't matter if it has
+txt that doesn't make it a text file a
+text file or ascii text
+it's an ascii text file if it has ascii
+text in it which this one did because
+remember we put the word hello in there
+but since new file.txt has nothing in it
+it's empty it just says that it's an
+empty file okay and then let's do one
+last one we're going to do what kind of
+file is softfile.txt
+and this will just tell us it's a
+symbolic link to file.txt and so it just
+tells us what kind of
+uh directory entry you know whether it's
+a folder or a file or a symbolic link so
+the file command just kind of gives us
+what that information is now the other
+one that gives us more information i'm
+going to clear the screen again
+ls minus l
+is going to be the stat command and it's
+like statistics right so
+stat of
+file.txt and it will give us all sorts
+of information okay
+it tells us the size the name
+the actual inode that it's stored on in
+the hard drive
+that there's only one link to it which
+okay let's let's do this real quick so
+ln
+file.txt to
+file2.txt now i'm creating a hard link
+right so now if we were to say
+stat of file.txt which is what we just
+did so i'm looking at the stats on the
+same file
+now we're going to see there are two
+links to this inode on the hard drive
+it can tell that just because there are
+two different links or file entries that
+point to the same spot in the hard drive
+they have the same
+inode that they're pointing to anyway
+these are other things that it tells us
+the birth is when it was created uh when
+it was
+changed this means when permissions were
+changed or the metadata was changed on
+the file
+modify means when were the contents of
+it modified and then access is when is
+the last time somebody looked inside of
+it so if we were to do
+cat file
+two dot txt
+and we can see it has hello in it now if
+we do stat
+file two dot txt it's going to tell us
+that it was last accessed just now right
+because that was the last thing we did
+is access it by looking into it and if
+we made a change modify would change
+okay so that's what uh stat will do
+it'll give you all sorts of information
+about it including when it was created
+when it was modified when it was
+accessed all of that really cool stuff
+when the metadata of it was changed and
+let's do let's see what it will do with
+the
+um
+actually i don't let's do an ls minus l
+i kind of forgot the names of the files
+soft file that was it okay so let's do a
+stat on
+soft file and see what it tells us about
+that it says that uh it's a file
+pointing to file.txt and then it tells
+us when it was accessed and created and
+all that sort of stuff but notice even
+though it points to file.txt it's giving
+us access information about the soft
+link itself because up here we were
+looking at file.txt and it was
+last accessed at this time but down here
+it still has this older time because
+although we accessed file.txt
+we did not
+access the soft link that points to it
+so this statistic this stack command is
+looking specifically at the symbolic
+link not the actual file that it points
+to hopefully that makes sense i honestly
+don't know what stat does to a folder
+let's uh let's look at a folder soon it
+says same thing okay it shows us all the
+the same sort of stuff uh when it was uh
+modified changed et cetera et cetera
+when it was created uh but anyway that
+those are the commands uh that we needed
+to cover remember these are just all the
+how to manage the command line system
+and then we looked at a stat and file
+and of course learn the difference
+between soft and hard links that might
+have been really really simplistic and
+if so i apologize uh but if it was a
+little more complicated than you thought
+you were going to get into again be sure
+to check out that linux essentials
+course it's a playlist on my youtube
+channel and it goes through all the
+basics so that you aren't overwhelmed by
+linuxy things as we introduce them as
+this course goes on anyway again sorry
+for the week-long delay um hopefully
+this was useful and i look forward to
+the next video with you until next time
+take it easy

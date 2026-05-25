@@ -1,0 +1,416 @@
+hey everybody it's Sean powers and it
+has been a minute let's learn some Linux
+now specifically I mean let's learn some
+of the Linux plus stuff that will help
+us prepare for the Linux plus objective
+specifically we're looking at this all
+section 1.4 of the objectives I'm
+calling it section 1.4.3 and we're going
+to talk about signals now they're called
+kill signals I'll talk about that in a
+second but I want to talk about signals
+a little bit more than they mentioned
+here and also some of the tools down
+here that we can manipulate jobs or
+tasks that are running in multiple ways
+so first of all let's talk about signals
+and what they are and I don't mean like
+standard input standard output not like
+sending data back and forth but like to
+get its attention when it's running like
+it's doing stuff with standard input
+standard output but you need to get its
+attention and when we do that when we
+get its attention we send it signals and
+there's kind of this this channel that
+we can talk to running applications and
+send them signals and there's a bunch of
+different signals that we can send it
+but the most common is a kill signal
+basically we want to tell the program
+stop running if you do Ctrl C that
+actually is sending the computer or the
+the program a signal to stop running so
+what various signals are there I'm glad
+you asked now for the Linux plus
+objectives they specifically mentioned
+three different signals that we can send
+to a running application Sig term which
+is signal terminate this is actually the
+default signal so if you send a kill
+command to a program it's going to send
+the Sig term signal or the signal
+terminate now why did I say kill it's
+because kill is not only the most common
+reason we might want to interact with an
+application but it's actually the
+program that we use to send a signal to
+a running program so the kill command
+sends things other than kill but it's
+just the program that we use to send
+signals anyway well one of the ways it's
+the program we use but there's a a
+couple other ways before he foreshadows
+uh down here that we can send a signal
+to a running application but anyway
+there are multiple signals there's
+actually a whole bunch of them I only
+listed five of them here but there's
+probably I don't know 20 or 30 different
+signals that you can send very rarely do
+we do anything other than the ones on
+the list here so I just want to talk
+about what they are and how they work so
+Sig term again is the default and that
+stands for Signal terminate and it also
+has a number associated with them each
+of these signals has a number associated
+with it so like Sig term is also signal
+15 okay so that just says to a running
+program hey please stop and the police
+part is important because if you send
+Sig term that's like the the default way
+to kill it again that's the default
+level so if you say kill an application
+it sends Sig 15 or Sig term and it's
+basically telling it hey please stop you
+know stop running close yourself and and
+stop
+a lot of times a program will be like
+nah bro I'm I'm busy doing something I'm
+not going to respond if I were to stop
+now bad things would happen and that's
+where you can send Sig kill or signal 9
+and that basically says stop now and it
+it short circuits the program and unless
+something is going wrong with the
+program there should be no reason that a
+program doesn't respond to signal 9. if
+you send Sig kill it should kill it
+you've probably heard people say kill
+minus nine well that's how you send it
+you say kill minus nine and it sends the
+Sig kill signal and that absolutely
+kills it now the other one specifically
+mentioned in the Linux plus objectives
+is Sig Hupp which stands for Signal hang
+up and this is signal one again this
+isn't the default signal but it is
+signal number one and it basically well
+it says a couple of things so this is
+Sean's little rant break basically Sig
+Hub existed because people used to dial
+in in to a computer and if that signal
+was interrupted if they got hung up on
+it would send that signal to any program
+that the person was running when they
+got disconnected when they got hung up
+on and that program would respond
+accordingly like okay the users who who
+is running me is no longer here I'm
+gonna stop I'm gonna stop executing and
+so if it got a Sig Hub it would quit
+running that that was why Sig Hub
+existed it was just a way that you could
+tell the program not just you know you
+should quit but because this person is
+no longer here you should quit
+unfortunately this has kind of been
+hijacked and now many many programs if
+they see a Sig hup they will reload
+their configuration file why it means
+that is beyond me but a lot of times now
+if you see somebody do kill minus hup
+you can do Sig Hub or just hop hup it
+will reload the configuration file it
+makes no sense but that's what Sig Hub
+generally does now so
+rather than telling a computer or a
+running program that the person is no
+longer connected a Sig Hub generally
+means reload your configuration file but
+there are still some programs that if
+they receive a Sig Hub they will
+terminate and that's why the program no
+Hub exists so if you say no hop like the
+program n-o-h-u-p and then run a program
+if that program by default will listen
+for uh Sig Hub and then
+quit if it receives that if you run no
+Hub it'll never hear that signal no hop
+blocks it from them so anyway that's the
+frustrations around the signal hop uh
+and kind of how we got where we are
+today but anyway
+signal Hub now our Sig Hub will
+generally reload the configuration file
+but sometimes it will also get the
+program to terminate itself because of
+the old usage of that that signal all
+right I know that was a lot I'm sorry uh
+but that just drives me nuts if they
+kind of hijacked the whole meaning
+behind Sig Hub another couple I wanted
+to mention uh Sig int this is signal
+interrupt and this is what a program
+gets sent if you type control C so
+you're running a program on the command
+line
+Ctrl C it sends Sig int and most
+programs will quit if they if they get
+Sig int again they can be programmed to
+not respond to a Sig int so sometimes
+you do Ctrl C and it won't respond it's
+because the program has been uh
+programmed in a way that it will not
+respond to Signal interrupt and so
+control C won't stop it and then there
+are a whole bunch of other ones one that
+I see used periodically though is signal
+user one and this is one that doesn't
+have a specific use a program can do
+whatever it wants with this if it
+receives Sig user1 which is signal 10
+sorry signal interrupt is signal too if
+it receives signal 10 it can do whatever
+it's programmed to do so for example
+some programs will like update their
+progress like if you send Sig user one I
+think to DD as it's running it will
+print on its screen like how far along
+it is and so signal user one there's
+also signal user two these can be used
+by programs to respond in whatever every
+way the the developer wants them to but
+again these three are the ones
+specifically mentioned in Linux plus and
+now you know more about them than you
+probably needed to again to execute
+these you do kill that's the command to
+send a signal what signal unless you can
+leave this off if you actually want to
+send Sig term because that's a default
+but kill -9 and then the PID is the
+process ID of the application or the
+program that you want to send the signal
+to that's how we tell it what
+application we're sending the signal to
+you could also instead of specifying the
+number you could say kill Dash Sig kill
+and the PID these are the exact these
+are the equivalents they're the same
+exact thing you can specify either by
+number or by name and you still need to
+know that process ID now we are going to
+do this on the command line I promise
+but process ID there's a number of ways
+you can get that now you can do
+something like PS Dash aux and then grep
+for the name of the program and then you
+will get the process ID uh but there's a
+program called PID of and if you type
+PID of and then the name of the process
+it will return the PID so then you can
+use that in the kill command now you
+could kind of combine those two and you
+can say kill all
+and then whatever signal level again Sig
+term or 15 is default but you can
+specify a signal to send kill all and
+then the process name and it will send
+that signal to every instance of the
+process name that you specify so this is
+a way that you can send a signal to
+multiple things at once without ever
+actually needing to know the PID itself
+it will just send it to the PID of every
+process that matches exactly what you
+put here but it requires an exact match
+you have to know the name of the running
+program and if you don't get it exactly
+right it's not going to find the program
+and that's where our last set of tools
+comes into play p grep in pkill so p
+grep is a basically like a process ID
+grep tool it will look for the process
+ID of
+anything close it uses regular
+expression so you basically if you can
+get something close to the name of the
+process it will then let me get rid of
+my face it's in the way here
+it will return the PID Eve as long as
+you're close Okay I'm going to
+demonstrate exactly what I'm talking
+about but p grep is just a better way uh
+than using PID of because again it just
+matches better you don't have to have
+the exact name in the process and then
+there's another just like kill all will
+do the exact process name p kill is a
+version that will use the same regular
+Expressions to find any matching process
+name that is close to you know matches
+the regular expression of what you're
+searching for and it will send a signal
+to all of those processes I know that
+was pretty slide heavy for one of my
+videos and there's a lot to take in so
+let's go to the command line and do all
+of the things we talked about and you'll
+see why it's important to know things
+like PID of exists but you might not use
+it all the time okay so first of all
+let's demonstrate some signals in action
+so let's do a command uh sleep so we'll
+do sleep 1000 I'm going to say Ampersand
+which will put it in the background
+we're going to actually cover foreground
+and background processes probably in our
+next video but just know that this will
+run sleep in the background okay so
+press enter it's running it in the
+background now this really is Handy that
+it shows us the process ID of sleep
+however uh we could do something like
+PID of sleep and it will return that
+Force because we knew the exact command
+that it has so let's uh let's do kill uh
+Dash first of all let's do Sig hop
+7831 press enter now it sent the Sig hup
+signal and look at that it has stopped
+it it's no longer running uh in fact if
+we do PID of sleep it's not going to
+return anything because it exited that's
+what this means and it tells us why it
+exited because it received a hang up
+command so this is one of those programs
+that rather than reloading its
+configuration file sleep doesn't really
+have a configuration file it will act
+actually stop if it receives a Sig hup
+now let's do this again we're going to
+do the exact same thing we're going to
+put in the background sleep 1000 now we
+could do a PID of sleep again and of
+course it gives us that one that we just
+got printed out on the command line but
+I want to show you that you can you can
+figure it out using that uh now let's do
+kill minus
+um let's just leave it so kill and then
+seven eight three five now this should
+send what this should send TIG
+Sig term or signal terminate let's see
+what happens
+terminated okay so it's sent Sig term
+and again it exited so same thing sleep
+1000 in the background I'm not going to
+do pidf again if we do kill Dash nine
+of seven eight three seven
+boom it killed it using Sig kill okay so
+all those signals are going to kill the
+Sleep command but we have to know the
+PID if we're going to do that now one
+more time sleep 1000 in the background
+let's say I don't know what that that
+process ID is well if I do kill all
+sleep
+it terminated it because again it found
+that it had that sleep running based on
+the name sleep it looked up the PID and
+it killed it and sure enough it used the
+default Sig term because it said it was
+terminated okay so that's how you can do
+it if you know the exact name however
+what if you think you know the exact
+name and you don't let me clear the
+screen
+you'll see over here above my head I
+have a browser window here this is
+Mozilla Firefox all right so Firefox if
+I were to say
+kill Firefox
+uh oh first of all yeah that's the pi or
+I need a PID Keel doesn't do that I'm
+like oh that's right I don't care about
+the PID though I just want to kill it so
+I'm going to say kill all Firefox
+no process found oh what the heck what
+if I do p-i-d of
+Firefox
+nothing is returned
+well that's really bizarre right and
+that's where it can be frustrated now we
+can do some other things like we could
+do a PS command and then grep for the
+word Firefox but that's where the other
+tools that I mentioned are really really
+useful especially if you're not 100 sure
+of the process name like I thought it
+would be Firefox but it's not so let's
+do p graph
+Firefox
+okay it says the Firefox it found it PID
+of didn't find it but pgrep did and so
+then I could kill it using you know I
+mean that process ID but I could also do
+P kill
+Firefox
+and it killed it right away okay so P
+kill can be extremely extremely
+dangerous especially if you run it with
+root privileges but let's start Firefox
+up again and I'll show you what the what
+the problem was okay if we were to do PS
+Dash aux and then grep for Firefox
+uh we can see I made kind of a mess of
+everything here uh but we can see
+the reason that it didn't find it is the
+actual executable that's running is
+Firefox Dash ESR okay oh that's behind
+my head here
+okay it's Firefox Dash ESR and so it
+couldn't find a running program called
+just Firefox now if now that we know
+that it's Firefox Dash ESR we could do
+something like let me clear the screen
+we could type kill all Firefox Dash ESR
+and then it's going to kill it but we
+didn't even have to know the exact name
+if we use something like P kill or P
+grip to find the actual process ID
+hopefully that makes sense so anyway
+that's how signals work in Linux you can
+send them to programs using the kill
+command and like I said generally
+killing it off is the most common thing
+that you do it's usually a good idea to
+send a Sig term the default first to
+give the program an opportunity to quit
+well you know like close all of its open
+files and all that sort of thing it's
+like a polite way of saying hey I need
+you to stop if it doesn't respond like
+if it's hung or something a lot of times
+kill -9 or kill Dash Sig kill will be
+one of the only ways you can get a
+program to stop if it's like hung for
+some reason or not responding to
+anything else so anyway that's how
+signals work remember the nuances with
+hup it's a little bit strange it's kind
+of changed some programs use that to uh
+intercept a signal that tells it to
+reload its configuration files some
+programs just quit sometimes if you
+disconnect from a remote session the
+program will quit sometimes not it can
+be really complicated but no especially
+what Sig Hub means that the user has
+been hung up on or disconnected and that
+different programs can respond in
+different ways anyway learn everything
+do what you love and most importantly be
+kind and I will see you on the next
+video

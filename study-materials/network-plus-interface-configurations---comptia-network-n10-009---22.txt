@@ -1,0 +1,169 @@
+when you're configuring a router
+interface a switch interface or an
+interface that's in your local computer
+there are number of options available in
+this video we'll look at some of those
+interface
+configurations we can start with the
+basic connectivity that we have to the
+network when we plug in an ethernet
+cable there are a number of ethernet
+settings we need to consider and two of
+the most important are the ethernet
+speed and the duplex the speed is
+obviously going to be how fast this
+conect connection is going to run this
+might be a 10 megabit connection 100
+megabits 1,000 megabits which would also
+be 1 gig connection 10 gig or even
+faster we have to be sure that this
+configuration is the same on both sides
+so if we have a computer that's
+connecting to a switch the speed on both
+of them has to be configured the same in
+many cases we would set this to
+automatically configure itself so you
+can simply plug in any device and the
+switch will automatically adjust to the
+configured speed the other option we
+might have available is either half
+duplex or full duplex in most cases this
+is also set to automatic but if you do
+set these manually on both of these
+devices you have to make sure that both
+of them are set to be the same if you
+have the speeds mismatched on both sides
+the connection will not work at all
+you'll never get a link light but if you
+mix the duplex configuration where one
+side is set to half duplex and the other
+side is set to full duplex you'll find
+the connection does operate but you'll
+notice that it is not quite as efficient
+as it should be and in fact you'll have
+very poor performance if you start
+putting a lot of traffic over that link
+this is why one of the initial
+configurations we'll look for when we're
+troubleshooting ethernet is the speed
+and the duplex and make sure that
+they're the same on both sides of the
+connection if those match then we'll
+shift our Focus to the Internet Protocol
+or the IP configuration for that
+interface face this might be an ethernet
+connection it might be a VLAN config we
+might be setting up management
+interfaces and all of these will need an
+IP address a subnet mask a default
+gateway and perhaps other IP
+configurations as well these will
+usually be values that have been
+assigned by a network administrator so
+we'll want to configure and make sure
+that the IP address subnet mask default
+gateway DNS settings and everything else
+matches the configuration that we've
+received from our admin if this
+configuration doesn't match what we've
+been given let's say we've used a
+different default gateway IP address or
+we put in the incorrect subnet mask then
+we may find that we're not able to
+connect to other IP devices on this
+network fortunately this is a relatively
+easy configuration to validate we can
+simply look at what we've been given and
+look at what we've configured in the
+system and make sure that both of those
+match another useful configuration
+especially between switches would be one
+for link aggregation this is sometimes
+referred to as Port bonding or you might
+see it abbreviated as lag for link
+aggregation this means that we are
+connecting multiple interfaces together
+on these two devices which normally we
+would not want to do because we would be
+creating a loop but if you've configured
+all of those interfaces as link
+aggregation the switch will interpret
+them as one very large connection rather
+than four individual connections so if
+all four of these were gigabit Ethernet
+connections between this switch we would
+configure those as lag and you now have
+4 gigabits of throughput to be able to
+communicate between those two devices
+some switches will support an automatic
+configuration of this link aggregation
+using a protocol called lacp This is the
+link aggregation control protocol this
+allows you to Simply configure the
+interface as lacp plug in the interfaces
+and all of the underlying link
+aggregation configs will automatically
+configure themselves between those two
+devices if you were to capture traffic
+between these two devices you would see
+lacp traffic being transferred from one
+switch to the other to be able to have
+the most efficient communication from
+one device to another we need to be able
+to send packets across that will not be
+fragmented along the way since we don't
+always know what networks are located
+between the two devices there may be
+times when our data is fragmented mented
+and therefore is less efficient to
+transfer across the network fragmenting
+a packet tends to slow down the overall
+communication and if we lose one of
+those fragments then we have to resin
+the entire frame again normally the
+determination of the most optimal MTU or
+maximum transmission unit is done
+automatically when you first connect to
+a device but sometimes filtering and
+firewalls won't allow the automated
+process to work properly and you may
+need to manually configure an MTU on
+your system
+system on some networks we're not trying
+to minimize the size of our
+communication instead we're trying to
+maximize the size of our frames and one
+of the ways we can do that is through a
+method called jumbo frames ethernet
+frames by default are 1500 bytes in
+length if we're transferring large
+amounts of data we may want to increase
+the size of those frames to make the
+communication that much more efficient
+and with jumbo frames you can increase
+the size of an Ethernet frame up to 9
+9,216 bytes of an MTU on many devices
+you'll find that they'll use 9,000 as
+the accepted highend of a jumbo frame in
+fact here is the configuration from my
+computer that says that I can configure
+frame sizes on my network to be between
+1280 and 9,000 bytes this means I can
+transfer a single frame that contains
+the same amount of information as six
+normal frames on the same network this
+means there are fewer pack to have to
+switch or route through my network and I
+can transfer much more in a shorter
+amount of time the challenge though is
+all of the devices that are in that
+Communications path must understand
+jumbo frames so all of your switches all
+of your routers and the other devices
+your communicating to have to also be
+configured to use these jumbo frames if
+there is any device in the middle of
+this communication that doesn't
+understand jumbo frames then they will
+drop these frames and you won't be able
+to communicate to that device at all

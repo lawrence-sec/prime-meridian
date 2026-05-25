@@ -1,0 +1,348 @@
+as you're aware we use applications on
+many different systems in many different
+locations we have applications that run
+on our desktop computers our laptop
+devices and our mobile devices and the
+data we're accessing can be located
+anywhere it might be locally on that
+device it might be in a data center or
+we might store that data in the cloud
+we've also got many different kinds of
+users that need access to different
+types of data employees of the company
+are accessing data different than
+vendors contractors or even the
+customers from a security perspective we
+need to give the right permissions to
+the right people at the right times to
+provide them with the access that they
+need we refer to this as identity and
+access management or
+Imam Imam begins with the process of a
+user needing access and it ends with
+removing that access from the user this
+might be a process that occurs during
+onboarding and offboarding there's many
+times in between where we need to make
+changes to these permissions I am is
+responsible for determining access
+control so when someone starts with the
+company they may have a list of
+priorities they may need access to email
+access to a primary application and
+access to the internet the
+authentication and authorization process
+requires the user to identify themsel in
+some way generally with a username a
+password or perhaps some other type of
+authentication factor and once the user
+has the access they need we need to log
+and monitor all of the access to this
+data not only is this a good best
+practice for security but this may be
+something that is regulated and required
+based on the organization you're working
+for this I am process generally starts
+with the creation of a user account and
+it generally ends when that user account
+is deactivated this of course commonly
+happens during onboarding and
+offboarding but this might also change
+if someone was promoted or moves to a
+different part of the company if we were
+to look into the details of the
+information provided in I am we would
+see that we have a name of a user any
+attributes for that user we have group
+permissions and then any other
+permissions for application access this
+process of provisioning a user and
+de-provisioning the user account is the
+core to the I am process and it's one
+that is required to be assured that the
+right permissions are being assigned not
+only does this assign the user with the
+right permissions for them to be able to
+do their job but it limits any type of
+ongoing and extended access for example
+you would not assign administrator
+access to every person who comes on
+board in the organization one of the
+primary goals with IAM is to ensure that
+the permissions assigned to a user are
+the ones necessary for that user to do
+their job and no permissions extended
+beyond that particular goal in many
+organizations we have mandatory Access
+Control where there is a group that is
+associated with those rights and
+permissions so if a new user is hired
+and they need email permissions they're
+simply added to the email group any
+documents that user creates are private
+to that user by default if someone else
+logs into that same device they would
+not be able to access the files created
+by the original user this is an
+important part of the permissions
+associated with a user's rights and of
+course we would limit a user's access to
+the core operating system on that device
+this not only keeps the user from making
+any changes to the operating system it
+also keeps any thirdparty applications
+and M where from making changes to the
+OS another big part of IAM is verifying
+who a user might be we refer to this as
+identity proofing there should be a
+formal process especially during the
+creation of an account to verify that a
+user really is who they say they are
+this process is referred to as
+resolution and it's an important step to
+ensure that we're not assigning rights
+and permissions to someone who should
+not be on this network it's also
+important that we're able to obtain
+additional valid validation from the
+user this means the user needs to
+provide something that only they know
+such as a password and they might also
+need to provide additional information
+such as the answers to security
+questions and of course all of this
+needs to be verified through a process
+called attestation this is one where we
+need additional details to really verify
+that person's identity many times this
+is done through the use of government
+documents like a passport or driver's
+license and it might also include an
+in-person meeting there are also a
+number of automated verification options
+that might look at a user's credit
+report and ask specific questions about
+where person may have lived or the type
+of assets that they might have owned
+when a user needs to gain access to a
+resource on the network they need to
+provide some type of authentication this
+usually begins with the client sending
+information into a central point that
+can be used for authentication this
+might be on a VPN concentrator or
+logging into an active directory
+infrastructure the user will provide
+authentication details such as a
+username and password and there's
+usually a centralized authentication
+server that will be used to validate
+that information if that login
+information is correct the
+authentication server will send back a
+notice saying that those credentials
+have been approved and the user is then
+able to gain access to that
+resource if you work in a Windows
+environment you're probably familiar
+with single signon or SSO this is the
+process where you would log in one time
+to the network and from that point
+forward you gain access to all of the
+resources that you might need regardless
+of where those resources may be located
+without SSO every time you would need to
+access a new printer or access a
+different share on the network you would
+have to provide your username and
+password every time this is usually on a
+timer so once you log in the first time
+you may have access to all of the
+resources you need for 24 hours after
+that 24-hour period you would need to
+provide authentication again for the SSO
+to apply this means that your login
+credentials and the under underlying
+authorization process have to support
+SSO one common Authentication Protocol
+is ldap ldap stands for lightweight
+directory access protocol and it's a
+protocol for accessing large directories
+of data on a network this is a very
+standardized protocol the standard is
+the x.500 specification and it was
+written by the international
+telecommunications Union or the it one
+of the original versions of this
+protocol was the directory access
+protocol or dap and ran using the OSI
+protocol this was updated to a type of
+protocol that would work with other
+operating systems much more efficiently
+so it was renamed the lightweight
+directory access protocol if you ever
+work with ldap you'll see a very
+standard format for listing out what's
+called distinguished names in x.500 and
+it starts with an attribute an equal
+sign and the value of that attribute for
+example CN which stands for common name
+refers to an individual device and of
+course this is built in a way that you
+can have a structure within the database
+this structure allows you to build a
+tree where you can organize all of the
+different devices users and other
+components on your network these
+container objects could refer to the
+country where these objects are located
+an organization within that country
+different organizational units or
+departments and even individual devices
+within that department we refer to this
+as the directory information tree and
+each of these individual components in
+the tree are referred to as Leaf
+objects another standard protocol for
+authentication and authorization is
+samle this is the security assertion
+markup language samle allows for the
+authentication of a user to a thirdparty
+database so instead of maintaining your
+own database of users you can simply use
+one that's already been created
+Elsewhere One of the challenges with
+samle however is that it was never
+designed for mobile devices and of
+course these days we use our mobile
+devices extensively and are often logged
+in from multiple devices at the same
+time we'll discuss some other
+authentication methods in a moment that
+work a little better when you have
+multiple devices especially those that
+are mobile a basic samle process
+involves three different devices one
+would be the device you're using that
+would be the client device and you're
+usually in a browser you also are trying
+to gain access to a resource there's
+your resource server on the network and
+the process of authentication and
+authorization takes place on a separate
+authorization server this process starts
+on the client where the client wants to
+access a URL on the resource server
+since this user is not logged in the
+resource server sends an encrypted SLE
+request and redirects that to the
+authorization server the user then
+provides user credentials to be able to
+gain access to that resource and the
+authorization server checks those
+credentials approves that the
+credentials were correct and creates a
+samle token the client now has a copy of
+this token that was generated by the
+authorization server and now they only
+only need to present the sample token to
+the resource server to then gain access
+to the resource and the application that
+they want to
+use an Authentication Protocol that was
+built to work with our more modern and
+mobile systems is ooth ooth is an
+authorization framework and once you
+authenticate ooth determines what
+resources a user may have access to the
+ooth authorization framework was built
+by some of the largest companies in the
+industry since these companies wanted to
+provide access for all of their users
+wherever they might be and from whatever
+systems they may be using ooth was the
+solution since ooth isn't authorization
+framework there still needs to be
+something providing authentication so
+you often see open ID used in
+conjunction with ooth to combine both
+the authentication and the authorization
+here's an example of an ooth
+authorization screen this is one where
+we would like to access resources that
+are located in my Google account and I
+want to use a third-party applic to be
+able to do that in this case the third
+party application is zapier to provide
+this access I visit my zapier website
+until zapier I would like to use
+resources on my Google account zapier
+then asks me for authorization to gain
+access to those resources on my Google
+account specifically to see edit create
+and delete anything that's in my Google
+Drive once I click allow I've now
+created a link between zapier and my
+Google account using ooth there may be
+times when you would like to log into a
+resource but you don't want to create
+another account on that particular
+resource instead you may want to take
+advantage of Federation Federation
+allows network access without using a
+local authentication database this can
+be done from many third parties that can
+then use a separate authentication
+database for logging in you've probably
+seen a screen like this when logging in
+on a website you could of course use a
+separate email and password that is
+local to that site or you can simply use
+your Twitter Facebook or LinkedIn
+accounts on this site to be able to
+authenticate into that thirdparty site
+for this to work properly the website
+has to set up some relationship with
+Twitter Facebook and Linkedin so that
+this authentication process can occur
+but once that link is made any users who
+visit the site can use their existing
+login credentials on those services to
+log into this third party
+website in this video we've talked about
+a number of different Technologies and a
+number of different authentication and
+authorization Services when an
+organization is making a decision on
+which Technologies they should be using
+they have to make sure that all of these
+are
+interoperable sometimes this
+interoperability decision is based on
+what resources you happen to have at the
+time for example let's say that you're
+installing a brand new VPN concentrator
+and looking at the options available on
+this VPN concentrator you can see that
+it does support access to an ldap server
+for authentication if your company
+already has an active directory ser
+server or some other type of ldap server
+for authentication that is a perfect
+match between what the VPN concentrator
+needs and the resources you currently
+have available or perhaps you're
+installing a new application and this
+application uses ooth as a way of
+authorization this means that you'll
+need to include some method of providing
+authentication through an API or
+application programming interface so
+that you can then pass that information
+onto ooth to use for authorization these
+interoperability decisions obviously
+need be made with a much broader
+perspective of what the organization is
+trying to accomplish and what their
+goals might be for the
+future

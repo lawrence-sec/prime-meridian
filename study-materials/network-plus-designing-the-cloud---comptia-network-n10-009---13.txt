@@ -1,0 +1,243 @@
+cloud computing has undeniably changed
+the way we approach technology with one
+click of a button we can deploy an
+application and multiple Services all
+seemingly with unlimited resources we're
+able to scale up and scale down these
+applications as we need providing
+elasticity especially in times when we
+have large demand and then scale it back
+down when that demand goes away we also
+have applications that we can scale up
+or scale down and access those
+applications from anywhere in the world
+cloud computing also uses multi-tenancy
+where many different customers are using
+the same Cloud infrastructure this
+allows for efficiency in the use of
+technology and efficiency in how much it
+costs to use this
+technology not only do we have virtual
+servers that can live in that cloud
+computing infrastructure we can also
+have virtual networks let's take the
+scenario where we might have a 100
+individual servers that are running in
+our data center that's a relatively
+large farm of servers we've designed
+this infrastructure to have redundancy
+in the network there are multiple
+servers we've got load balancers and
+multiple firewalls and we've designed it
+for uptime and availability but now
+let's take this entire physical
+infrastructure and let's move this
+infrastructure to the cloud we're going
+to migrate 100 physical servers to
+effectively one very large physical
+server inside that one very large
+physical server we will run 100 virtual
+servers inside of it now that we've
+taken these 100 physical servers and
+migrated them to a cloud infrastructure
+what do we do with our networking
+infrastructure not surprisingly we will
+virtualize this network infrastructure
+as well this is referred to as Network
+function virtualization or nfv or we can
+replace our routers and our switches and
+our other network networking devices
+with virtual versions of those
+networking devices that are running in
+this virtualized environment Although
+our firewall and our switches and our
+routers are no longer physical they
+still have the same functionality we can
+see those devices our network interfaces
+and everything about the network
+configuration all from our hypervisor so
+we have the same functionality it's just
+now in a virtual Appliance just as we're
+able to push a button and deploy a new
+server we can push a button and deploy a
+new firewall or a new Switch or make a
+router configuration all within this
+virtualized world this gives us a lot of
+flexibility for deploying applications
+designing the network connectivity for
+those applications and connecting our
+different Cloud infrastructures wherever
+they might be in the
+world a common application instance
+inside of a cloud infrastructure might
+include a web server a database server
+there could be load balancers virtual
+switches and routers and virtual
+firewalls all of these will run inside
+of a virtual private cloud or a VPC it's
+very common especially in larger
+environments that you would have
+separate vpcs for different application
+instances or different parts of the
+company this allows you to keep all of
+these systems separated but still allow
+you to manage all of them as individual
+virtual appliances although these vpcs
+may be different application instances
+we might still want to have devices
+within those separate vpcs be able to
+communicate with each other to provide
+that communication we need a device in
+the middle called a Transit gateway to
+be able to connect all of these vpcs
+together you can think of this Transit
+Gateway as a cloud router that allows us
+to connect and allow communication
+between all of our different vpcs if you
+need connectivity to these vpcs from the
+outside you may need to add additional
+Security in the form of a VPN connection
+this allows someone who may be at a
+remote s to be able to bring up a VPN
+tunnel connect to the transit Gateway
+and effectively have communication to
+all of your different
+vpcs it's very common to use a VPN at a
+remote site or from a user's workstation
+to be able to gain access to these
+private vpcs but there may be times when
+you want to make your application
+instances available to anyone on the
+internet in that scenario you might want
+to use a VPC Gateway or what we refer to
+as an internet gateway so that users
+anywhere in the world will have access
+to your applications we might also want
+to have these devices in each of our
+vpcs communicate outbound over the
+internet to other resources we would use
+a VPC natat gateway to provide this
+communication and the net stands for
+Network address translation our vpcs and
+the private networks that we're running
+inside of those vpcs can translate to a
+public IP address to be able to
+communicate out over the Internet this
+includes security rues so that your vpcs
+can connect outbound to Internet
+Resources but you may not necessarily
+allow inbound access from external
+devices and it's not uncommon for many
+organizations to use multiple Cloud
+providers but still require connectivity
+between those Cloud providers we can
+provide that connectivity through the
+use of a VPC endpoint where we create a
+direct connection from a VPC on one
+cloud provider to a VPC on another cloud
+provider
+here's an example that has a number of
+different vpcs we've got a virtual
+private cloud with a public subnet for
+public applications that people can
+access from anywhere on the internet we
+also have a private subnet on the same
+cloud provider where we have a private
+virtual machine well if we have a
+different storage Network which
+certainly could be at a different cloud
+provider that cloud storage can easily
+connect to the public subnet over the
+existing internet and using a VPC
+internet gateway
+but our private subnet is not accessible
+from the internet so we need to add a
+VPC endpoint that will allow our cloud
+storage to communicate directly to what
+is a private subnet and virtual machine
+Min Cloud providers will include
+additional security that you can layer
+on top of your vpcs security groups and
+lists are effectively a firewall that's
+created for your cloud-based services
+this allows you to control what traffic
+can go outbound and inbound to your vpcs
+most of these are based around a series
+of port numbers and protocols so you can
+define a TCP or UDP port number and add
+that to your inbound or outbound rules
+in your security groups you can also add
+layer three addresses to this so you can
+add IP addresses that are individual
+addresses maybe an entire block of
+addresses using CER block notation or
+specify ipv4 or IPv6 ranges directly
+within your security groups this is very
+similar to configuring a traditional
+firewall which operates looking at TCP
+or UDP port numbers in this example the
+inbound rules have a number of
+predefined rules but you can customize
+these as well with your own port number
+specific to your application in your
+Cloud providers front end you would
+include in your network security list
+the list of rules that you would like to
+assign for example I have a rule that is
+inbound using TCP Port 443 and any IP
+address is is allowed to communicate
+inbound with that rule I have another
+rule that's an inbound rule for TCP Port
+22 and it's the same broad range of any
+IP address once you define your network
+security list it will be applied to all
+of your virtual private clouds and you
+can see that I have a virtual Cloud
+Network for subnet X subnet Y and subnet
+Z and these very broad network security
+lists will automatically be assigned to
+each one of those individual networks
+one of the challenges with these network
+security lists is that they don't
+provide a lot of granularity when you
+configure a network security list it's
+automatically assigned to all of your
+virtual Cloud networks even if you don't
+need that particular rule in that cloud
+Network and even if you need additional
+rules for one of the individual Cloud
+networks fortunately there are ways to
+add additional granularity using a
+network security group with a network
+security group I can assign rules to
+individual virtual network interface
+cards or v-x so you can see I have
+similar security rules that I've defined
+as a network security group I have
+Network Security Group a which is
+inbound TCP to Port 443 and I have a
+network Security Group B which is also
+an inbound rule to TCP Port 22 I've
+identified these as the network security
+group a with the green shield and the
+network Security Group B with the blue
+shield and you can see that I can assign
+those network security groups to
+individual Network interface cards that
+may be inside of a virtual Cloud Network
+this one is on a single subnet where
+I've defined different rules for
+different interface cards within the
+same virtual Cloud Network subnet you
+can see by using these network security
+groups that we do have additional
+granularity that we could bring down to
+the individual interfaces but this also
+increases the amount of administration
+required to manage all of these
+different lists if you find that you
+need additional security above this you
+might want to look into a virtual
+firewall or other virtualized platform
+to include additional security to your
+application instances

@@ -1,0 +1,223 @@
+determining levels of risk can vary
+widely on how many different variables
+are involved one way to evaluate risk
+may be to create a qualitative risk
+assessment this type of evaluation will
+look at individual risk factors and the
+different criteria for each one of those
+factors you can often display a
+qualitative risk assessment in very
+broad terms in our particular case we're
+going to use a Traffic Light Grid to
+show a low medium or high risk in each
+of these categories we'll start with
+Legacy Windows clients we may perform an
+assessment in our organization and find
+that we have a medium level impact for
+that particular risk factor our
+annualized rate of occurrence will Mark
+in red to signify a high value in this
+case we may have a large number of
+Legacy Windows clients that need to be
+updated the cost of these controls would
+be marked as a medium and overall risk
+we can then set to be in the high high
+level with the red marker we can perform
+additional qualitative analysis on these
+other risk factors such as untrained
+staff maybe this has a very low impact
+has a medium level annualized rate of
+occurrence a low cost of controls which
+puts our overall risk somewhere in the
+medium level and in our organization we
+might have cases where we have devices
+that have no antivirus software running
+this may have a medium impact have a
+large annualized rate of occurrence a
+medium cost of controls and we might set
+an overall risk value to be very high
+this process of setting qualitative
+analysis can be done on any risk factor
+across many different categories and
+it's designed to give us a highlevel
+view of where we might focus our efforts
+to resolve these
+problems there may be certain risks
+where we can calculate a specific value
+we referred to these as a quantitative
+risk assessment this might start with an
+Aro that stands for an annual ized rate
+of occurrence this allows us to
+determine how often this risk will occur
+in a single year so for example an
+annualized rate of occurrence that a
+hurricane will hit will probably be
+lower in Montana than it is in Florida
+we might also want to assign an asset
+value to that risk or AV the asset value
+is the value of that asset to the
+organization that doesn't necessarily
+mean it's the replacement cost because
+that asset value could include effect on
+company sales any fines that you might
+receive when that particular risk is
+realized and any other costs and another
+important value is the exposure Factor
+the exposure factor is abbreviated with
+ef this is the percentage of the value
+that was lost due to that particular
+risk so if we lose a quarter of that
+particular asset the exposure Factor
+is25 if we lose the entire asset then
+the exposure factor is 1.0
+now we can start calculating a
+quantitative risk assessment based on
+some of those variables we'll start with
+the SLE or single loss expectancy which
+is the monetary loss we receive if one
+single event occurs you can calculate
+this by taking the asset value or AV and
+multiplying it by the exposure factor or
+EF let's take the example of laptops
+that are stolen if we have a laptop
+stolen the rough asset value is around
+$1,000 and since the entire asset is now
+missing the exposure factor is a full
+1.0 if we multiply that $1,000 value
+times the 1.0 exposure Factor we have a
+single loss expectancy of
+$1,000 in our organization we can
+estimate that there will be a number of
+laptops stolen in a single year so to
+calculate the AL or annualized loss
+expectancy we would multiply the
+annualized rate of occurrence a Ro o
+times the SLE or single loss expectancy
+so if we expect there will be seven
+laptops stolen in a year that annualized
+rate of occurrence is seven and we
+multiply that times the single loss
+expectancy of $1,000 we have a total
+annualized loss expectancy of
+$7,000 obviously this calculation takes
+into account the financial cost of this
+particular risk but there may be other
+risks associated with this for example
+the data that's on those laptops may be
+more valuable than the laptop itself
+that's why we have both a quantitative
+risk assessment and a qualitative risk
+assessment that we can
+evaluate we take into a number of
+different impacts of events that may
+occur in our risk calculations the most
+important of these would be life we want
+to be sure that everyone in the
+organization is safe we can replace
+assets but we can't replace people so we
+usually put life at the very top of our
+concerns we then also have to consider
+the impact to the property this would be
+the buildings and the resources that we
+would commonly use in our organization
+we should also consider the impact of
+safety if there's a risky event what
+type of safety impact is this to the
+individuals and the company itself
+there's also of course a financial
+impact we discussed some of that with
+our quantitative analysis you've
+probably seen already that our risk
+calculations tend to take into account
+likelihood and probab ility the
+likelihood of a risk is a qualitative
+value so we might consider a risk to be
+rare possible almost certain or some
+other type of qualitative measurement
+risk probability tends to be a
+quantitative number so we can associate
+a statistic or a measurement to that
+specific risk we can often base this on
+historical performance and in some cases
+the performance that we might expect
+into the future we will often use these
+two terms interchangeably and times we
+might even calculate a risk probability
+and then associate a likelihood based on
+that
+value not all risk requires an
+organization to act there may be a
+certain amount of risk that the
+organization is willing to take we refer
+to that value as a risk appetite some
+organizations will set a qualitative
+value on this appetite we refer to this
+as a risk appetite posture so they might
+look at a particular risk and say that
+they are conservative or neutral or
+expansionary to that particular risk
+type another important value to consider
+is the risk tolerance this is often a
+larger variance than the risk appetite
+so we might have a risk appetite that is
+relatively low and our risk tolerance
+might be just above that particular
+appetite value here's a practical
+example that differentiates between a
+risk appetite and a risk tolerance if
+you're driving on the roads there is a
+speed limit for the highway your speed
+limit might be 55 M an hour that value
+value has been set by the government and
+they know that that is the acceptable
+balance between safety and convenience
+that means that you are not allowed to
+go over 55 M an hour and if you do
+you're violating the law so if we're
+driving on the highway and we exceed the
+speed limit we could be ticketed in
+Practical terms however we don't tend to
+be ticketed until we go well above the
+speed limit values this means if we're
+not being ticketed and we're going over
+the speed limit that our law enforcement
+has a higher risk tolerance than they
+have a risk appetite this risk tolerance
+might also change depending on the
+situation if there's very bad weather
+there may be a need to keep the speeds
+lower on the highway and the risk
+tolerance of law enforcement may have a
+much lower speed limit in mind it's not
+unusual for a project in an organization
+to have a list of the risks associated
+with implementing that particular
+project this is usually documented in a
+a risk register and each individual risk
+is detailed so that everyone understands
+the risk associated with that project
+the goal of the risk register is to
+document each of those individual risks
+and if possible provide some options or
+solutions to avoid that risk each line
+in the risk register will contain a key
+risk indicator that details what those
+risks could be for example in this
+project the project purpose and need is
+not well defined the project design and
+deliverable definition is incomplete and
+the project schedule is not clearly
+defined or understood each one of those
+would be a key risk indicator for each
+of those key risk indicators we need to
+assign an owner who will manage or be
+responsible for that particular risk and
+then we need to determine what the risk
+threshold will be for this project we
+need to spend time and money to be able
+to resolve that particular risk and we
+need to make sure that there is a
+balance between how much money we'll
+spend on the risk and how much that risk
+would end up costing the
+company

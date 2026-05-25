@@ -1,0 +1,144 @@
+in the technology industry we rely on
+standards to let everyone know what the
+formal process is for handling different
+situations this provides extensive
+documentation which of course lets
+everyone know what the requirements are
+and also reduces the amount of risk we
+have in our environments some
+organizations will create their own list
+of security standards especially when
+that organization has very unique
+requirements but some organizations
+prefer using standards which have
+already been written two organizations
+that provide a set of security standards
+are ISO that's the International
+Organization for standardization and
+nist or the National Institute of
+Standards and Technology a set of
+security standards that everyone has to
+know about and follow are those
+associated with passwords specifically
+what makes a good password every
+organization has their own opinion on
+what a good password happens to be and
+there's usually a formal policy that
+defines what the appropriate password
+complexity might be for an organization
+this standard might also Define the
+appropriate type of authentication
+that's used in the organization for
+example an organization may have a
+standard that says you may not have a
+local account on a device so a switch a
+router or a firewall must authenticate
+using another method to a central
+authentication database for example
+using ldap to authenticate to active
+directory this same standard might also
+Define how password resets are handled
+you want to be sure that anyone
+resetting a password or making changes
+to a password is following a specific
+set of guidelines to ensure the security
+of that account and of course there are
+other password policies that need to be
+standardized such as the frequency for
+password changes how passwords might
+need to be securely stored what type of
+password managers are acceptable and so
+on once someone authenticates to a
+system with their password we need
+another set of standards that defines
+how someone can access data on that
+system or Access Control Access Control
+determines what type of information
+someone can access and at what time
+they're able to access that information
+for example there might be a standard
+that says that no system can use a
+discretionary Access Control policy and
+that a mandatory Access Control policy
+is required there should also be
+standards defining how you determine
+what type of access a particular user
+might have this might require a sign off
+by management or it might require a user
+to take a course before gaining access
+to certain types of data and just as we
+have standards that Define how users get
+access to data we also need standards to
+Define how we remove that access this
+might be based on a security issue
+associated with that user it may be
+based on the expiration of a particular
+account there may be a user that leaves
+the organization or maybe based on the
+expiration of a
+contract physical security is also an
+important consideration when creating
+standards for the organization
+especially if your organization has a
+lot of people coming in and out of a
+building and you need to properly secure
+that property an organization might have
+standards for every user that requires
+them to present an ID badge when they
+arrive and use that same badge to gain
+access through an electronic door lock
+that standard might also be different
+for an employ employee versus a
+contractor or a guest an organization
+might have standards that Define the
+type of electronic door locks that are
+in use it may require a biometric aspect
+to the door lock there could be ongoing
+monitoring that is required and perhaps
+even motion detection in some areas the
+processes and procedures that are
+standardized will be different between
+organizations in some organizations
+there may be a standard for physical
+security that requires an escort for
+every visitor at all times there may be
+also a different set of Standards when
+someone is offboard or leaves the
+organization these standards are
+designed to keep everyone inside the
+organization safe and to prevent anyone
+from the outside from Gaining
+unauthorized
+access given the complexities associated
+with encryption Technologies it's
+probably a good idea to have some very
+well documented standards on how
+encryption should be used in your
+organization this might include
+standards for hashing or encryption
+algorithms but it could also set
+standards for the implementation of
+those encryption Technologies a good
+example of these might be the way that
+passwords are stored there might be a
+requirement to store those passwords as
+a hash or perhaps even a salted hash and
+there might be a set of standards that
+defines the exact hashing algorithm that
+is required for that password storage
+and in every organization we have
+different states of data for example
+data at use data in transit and data at
+rest and there might be different
+encryption requirements depending on the
+state of data at any particular time
+this means that data at rest may have a
+particular set of encryption standards
+associated with it but data in transit
+across the network may have a different
+set of Standards all of these work
+together to make sure that all of the
+information that's being stored is being
+stored in a way that is protected and
+confidential to anyone on the
+outside

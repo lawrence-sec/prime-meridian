@@ -1,0 +1,160 @@
+on the switches that we use at home and
+in our offices we will often configure
+separate virtual local area networks or
+vlans these vlans are designed to keep
+different parts of the network separated
+from other parts for example you might
+have a VLAN that separates everyone at
+an organizational level so there might
+be a marketing VLAN an accounting VLAN
+and a shipping and receiving VLAN at
+home you might have different vlans for
+your normal Network traffic your
+Internet of Things devices and the
+cameras that you use for security one of
+the advantages of these vlans is that it
+separates these different devices into
+their own separate Network and each
+network is not able to communicate with
+the other unless there happens to be a
+router between them but in some
+configurations it may be possible to
+communicate to a different VLAN even
+though there's no router between those
+two vlans we commonly see this done in
+two different methods one of them is
+switch spoofing and the other one is
+double
+tagging switch spoofing takes advantage
+of a configuration on your switch that
+autoc configures an interface to be
+either an interface for a device or an
+interface for another switch when you
+connect a device to a switch the switch
+will automatically determine what's on
+the other side and if the switch
+determines that it's connected to
+another switch it could configure a
+trunk connection between those two
+interfaces this is the real key to
+hopping from one VLAN to another is
+pretending that you are a switch and
+being able to move to whatever VLAN you
+would like through that trunk since
+switches can send information from one
+switch to the other over the same VLAN
+we can perform that exact same
+configuration by pretending or spoofing
+ourselves to be a switch once we connect
+to a switch and convince that switch
+that we also are a switch we now have
+the ability to send information to any
+VLAN that may be configured on that
+particular Port this is why it's
+probably a good idea to disable this
+trunk negotiation process between
+different switches although this does
+make the configuration and management
+process of the switch a little bit
+easier for the network administrator it
+opens up problems like this that can
+create security issues on your network
+ideally the network administrator should
+manually configure trunk interfaces and
+not allow autonegotiation
+they should also configure individual
+VLS that should be allowed to pass from
+one switch to the other by disabling
+this Auto negotiation process you've now
+removed switch spoofing from this
+ability to hop between
+vlans another form of VLAN hopping is
+called double tagging obviously VLAN
+tags are used in trunking between
+switches and if we add additional tags
+to an interface it's possible that we
+could communicate to a different VLAN
+this type of configuration takes
+advantage of what we call the native
+VLAN configuration for a switch all
+switches have a native VLAN and by
+taking advantage of that configuration
+we should be able to communicate to a
+different VLAN on that switch we rely on
+these VLAN tags during the trunking
+process and the VLAN tag is what tells
+the destination switch which VLAN this
+traffic is destined for with double
+tagging we've crafted a special frame
+that normally would not be seen on the
+network this Frame doesn't have a single
+tag on it it has two separate VLAN tags
+this means in certain configurations we
+can have one switch remove the first tag
+and place that data onto the appropriate
+VLAN and then have a separate switch
+remove the second tag and place that
+frame into a completely different VLAN
+at that point the contents of that
+packet are forwarded to the Target and
+we've now been able to hop from one VLAN
+to another because we're adding this
+extra tag into the frame that normally
+wouldn't be there there's no way to
+receive a response from the information
+that we're sending so everything that
+we're sending out is a one-way
+communication from one device to another
+although This is Not Practical for
+normal network communication it does
+allow us to put data onto a VLAN that
+normally we would not have access to if
+an attacker is trying to perform a denal
+of service this could be a good method
+to use to accomplish that to avoid this
+problem we need to to make sure that we
+don't have users put onto the native
+VLAN on that switch ideally we would
+change the native VLAN ID normally on
+switches that native VLAN ID is one we
+would make it some other value and then
+we would force tagging of the Native
+VLAN for all traffic across that switch
+here's how this would work we have a
+network setup with two switches we have
+an attacker that's on VLAN 10 that's the
+green VLAN we have a trunk between
+switches that's support sending
+information over VLAN 10 and VLAN 20
+VLAN 20 is the red VLAN and then we have
+our second switch which has connections
+to the victim device which is on VLAN 20
+you'll notice on this link between the
+switches that the native VLAN is VLAN 10
+the attacker is going to create a frame
+that has two tags inside of it one of
+the 802.1q tags is for VLAN 10 and the
+other tag is for VLAN 20 for the first
+step the attacker sends the entire frame
+to the next switch down the line that
+switch will interpret the first tag it
+sees in this Frame which in this case is
+the VLAN 10 tag so this switch knows
+that it should put this data onto VLAN
+10 after removing that VLAN 10 tag from
+this Frame and that's exactly what
+happens next we now have a frame that
+has removed that VLAN 10 tag but of
+course because we are double tagging
+there is an additional tag still
+included in this Frame this Frame is
+sent along to the next switch which will
+interpret this as a trunk frame that
+needs to be dropped onto VLAN 20 this
+switch is going to remove that tag take
+the rest of the data and send it on to
+VLAN 20 where it will be received by the
+victim device so you can see how you can
+start on VLAN 10 but by using the double
+tagging you're able to send data to a
+device that is on VLAN 20

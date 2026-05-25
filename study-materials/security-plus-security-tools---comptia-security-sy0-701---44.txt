@@ -1,0 +1,376 @@
+on your Enterprise Network there are
+probably many different security tools
+you might have next Generation firewalls
+intrusion prevention systems your it
+department is probably performing
+standard vulnerability scans there are
+many different sources of information
+and all of these have very different
+types of logs and descriptions of what
+they're finding on your network the
+challenge of course is that a Next
+Generation firewall an IPS and a
+vulnerability scanner could all identify
+the same vulnerability but they might
+all use different terms different titles
+different descriptions all to describe
+the same vulnerability to address this
+the industry has created the security
+content automation protocol or escap
+this escap protocol is maintained by the
+National Institute of Standards and
+technology or nist and you can find out
+more about it at ESC cap. nist.gov escap
+allows for the consolidation of these
+vulnerabilities into a single language
+that all devices will understand so if
+you find the same vulnerability with a
+NextGen firewall an intrusion prevention
+system and a vulnerability scanner scap
+will allow all of those devices to
+identify them as exactly the same
+vulnerability this also means that these
+very diverse security tools can now
+start working together and automate the
+detection and removal of these
+vulnerabilities from your network this
+means we can have a vulnerability
+scanner that can identify a device that
+might have a vulnerability and send that
+information off to your management
+system which can then automate the
+process of sending a patch and fixing
+that vulnerability all without any type
+of human intervention this can be
+especially useful if you have hundreds
+or even thousands of devices and you
+need to patch a lot of different
+vulnerabilities across multiple
+operating systems and now that all of
+your security devices are using exactly
+the same language to be able to identify
+a single vulnerability they can much
+easier communicate with each other and
+automate the process a patching those
+systems this means processes that were
+very manual before can be completely
+automated you can have your monitoring
+system constantly scanning and looking
+for vulnerabilities you can notify and
+alert when a vulnerability is found and
+then the patching process can be
+automatically pushed out to those
+systems to bring them back into
+compliance throughout this course we
+often talk about best practices for
+security and through the years we've
+been able to compile a set of best
+practices for practically any operating
+system and any application this means we
+can grab a list of the best practices
+for a particular operating system and
+configure that entire operating system
+to be as secure as possible same thing
+will apply to applications that you use
+connections to Cloud providers and
+everything else you're using in your
+environment here's an example of a
+security Benchmark for a mobile device
+this Benchmark would disable screenshots
+disable screen recordings prevent voice
+calls when the system is locked Force
+encryption backups and so on this
+combination of security best practices
+creates a benchmark that makes this
+system as secure as possible Right Out
+of the Box there's an extensive library
+of these benchmarks available at the
+center for Internet Security or CIS and
+you can visit their website at CIS
+security.org
+one of the challenges in keeping all of
+these devices secure is that there are
+constant changes occurring to the
+devices and we're also finding new
+vulnerabilities all the time so every
+time these systems connect to a network
+or someone logs in we tend to scan this
+system to make sure that it is in
+compliance sometimes this is done with
+an agent that has previously been
+installed onto that device and there's
+other cases where we might run an
+OnDemand agent list check installing an
+agent onto a system requires some setup
+program and you have to plan to install
+that agent on that system prior to
+performing the check one of the
+advantages of having this agent-based
+system is that it's always on and always
+running to check and make sure that the
+system is always in compliance but this
+also requires that you constantly update
+the agent either with the agent code
+itself or with the descriptions of what
+needs to be applied to that system an
+agentless check runs without performing
+any type of formal install and it
+usually runs when you first log in or
+connect to something like a VPN
+concentrator it will then execute in the
+memory of that system check and verify
+that it is in compliance and if
+everything looks good it will
+automatically remove itself from the
+system since there's nothing permanently
+installed on that device you don't have
+to provide any ongoing maintenance of
+the software or the descriptions of the
+security best practices but this
+agentless system obviously will not be
+running 24 hours a day and 7 days a week
+so you have to make sure that you're
+able to execute that agentless system on
+a regular
+basis we've often talked about a Sim or
+a security information and event manager
+which is very commonly used to
+consolidate log files to a central
+database we can then use that log file
+to create numerous reports to give us an
+idea of how the security may be running
+in our Network these Sims are not only
+very good at consolidating many
+different log types and putting them
+into one Central database but they
+usually include a very powerful
+reporting engine this means we can
+easily create reports on how our
+firewall might be performing or a VPN
+concentrator may be authenticating but
+it also means that we can correlate data
+between these different data types so we
+can examine someone logging into a VPN
+concentrator looking at the applications
+that they may be running from an
+application server and then identifying
+any rules that may be blocked in a
+firewall while that application is
+running since we're also storing this
+information into this very large
+database over a very long period of time
+we can also use the Sim to create
+forensics reports this might give us
+more ideas of what happened prior to a
+particular security event and allow us
+to go back in time to see what
+information might be available to help
+us better understand how this event
+occurred another security tool that's
+included with many operating systems
+these days is antivirus and antimalware
+these tools are used to identify
+malicious software such as Trojan horses
+worms macr viruses and other types of
+malware and although malware is a very
+broad term that could incorporate both
+viruses and other types of malicious
+software commonly malware is associated
+with spyware ransomware fileless malware
+and other types of malicious coat the
+differences between those two though are
+relatively minor and the way that we use
+the software today both terms tend to be
+interchangeable so you'll commonly refer
+to antivirus software and antimalware
+software as effectively the same
+software on your system if you'd like to
+stop sensitive data from being trans
+transferred across your network then you
+should look into using data loss
+prevention or DLP DLP is used to look
+for and block any type of data that you
+do not want running on your network so
+if somebody's transferring Social
+Security numbers medical information
+credit card data or any other type of
+sensitive information you can identify
+it and block it using a DLP solution
+this provides a way to constantly
+monitor the traffic in real time and if
+anything is identified that could be
+considered sensitive you can block that
+especially if you're concerned about
+attackers trying to transfer that
+information outside of your network and
+on many networks this is more than just
+one single Appliance that's connected to
+the network so an organization might use
+DLP software on their endpoints or have
+cloud-based systems that can monitor
+this traffic even when it's in the cloud
+you may not realize it but you probably
+have monitoring software that's built
+into the system that you're using right
+now this this information is usually
+collected and provided using SNMP or the
+simple Network management protocol
+depending on the device you're using
+there is a specific database of
+information that is being collected on
+your system we refer to this database as
+a management information base or a MIB
+inside the MIB are a series of metrics
+that are being monitored and instead of
+spelling out the individual name of each
+metric we instead use object identifiers
+which is a group of numbers sometimes
+you'll hear these referred to as an oid
+and if you look at a packet capture you
+may see SNMP data being sent across the
+network over UDP Port 161 this usually
+works by polling a device and receiving
+information back from that poll so you
+might have a network management station
+that is asking a device like a router
+how much information has been
+transferred in bytes on a particular
+interface and that device will respond
+back with that value the management
+station can then wait a certain amount
+of time say 5 minutes or 10 minutes and
+then perform the same query again and
+collect an updated value for that
+information now that you have all of
+these statistics that you've been
+gathering over time you can create
+graphs and charts showing the difference
+between one time frame and another for
+example this graph has been created by
+querying a firewall with SNMP and
+receiving response time information over
+a long period this polling process used
+by SNMP requires the management station
+to pull the device on regular intervals
+and if that management station does not
+pull a device then it simply won't
+receive any data for that period it
+would be more useful if there was a
+Proactive alerting or alarming process
+and with SNMP there is one it's called
+an SNMP trap you would configure the
+policies for this trap on the Remote
+device running the SNMP agent and
+whenever that trap happens to fire it
+will proactively send an alarm or alert
+back to your management station over UDP
+162 for example we may be monitoring CRC
+errors on a server and we'll configure
+the SNMP agent on that server to wait
+until the number of CRC errors increases
+by five and if it does send a trap back
+to the management station once the
+management station receives that trap it
+can then fire off alerts alarms and text
+messages and emails and perform
+additional automation just by receiving
+that
+trap SNMP focuses on Gathering lower
+level metrics from these devices such as
+utilization or the number of packets
+passing through an interface but there's
+obviously more information that can be
+gathered from this information going
+across the network and one of the ways
+to gather additional details is by using
+netflow netflow is a standard for
+monitoring traffic flows and looking at
+statistics relating to application use
+there are many organizations that have
+netf flow compatible agents netf flow
+management stations or Hardware devices
+netflow commonly works by first having a
+probe to comp pile this information for
+the traffic flows this netf flow probe
+may be built into the software that's
+included with a switch or router or it
+may be included as a separate external
+probe these probes May connect to the
+network with a monitoring Port from a
+switch like a switched Port analyzer or
+span or there may be a physical tap on
+the network that's providing the netf
+flow probe with a copy of all Network
+traffic flows these probes will then
+collect information and send a copy of
+those metrics down to a netflow
+collector which can then be used to
+create reports and other details about
+the application traffic flows on your
+network here's a summary of the type of
+information that you would get from a
+net flow collector that has received
+information from a probe you can see top
+10 conversations on the network who's
+talking to who and how much traffic is
+being sent between those devices you can
+also see the top 10 endpoints on your
+network by their IP address or their
+fully qualified domain name you can see
+where the net flow sources might be and
+here's a list of traffic analyzer events
+that might be interesting for the
+network or Security administrator there
+are many different dashboard screens in
+details and usually you can drill down
+into all of these to get more
+information about the traffic flows that
+are important to
+you we can also gather a great deal of
+information about our security posture
+by using a vulnerability scanner this is
+designed to be minimally invasive so
+it's not going to perform any exploits
+to any systems but it will gather detail
+about whether a system could potentially
+hold a vulnerability many vulnerability
+scanners will also provide a port scan
+to see what services may be installed on
+a particular device you can also provide
+a vulnerability Scanner with a list of
+IP addresses or range and it will find
+all of the devices that are active on
+that particular range we often will
+perform vulnerability scans within our
+own network but it's sometimes
+interesting to perform the same scan
+from outside of your network so that you
+can get a perspective of what a
+potential attacker might see
+vulnerability scans collect a lot of
+information and not everything collected
+is entirely accurate so it's useful
+afterwards to go through a vulnerability
+scan to verify the information that was
+collected here's the output from a
+vulnerability scan this one has found a
+number of critical vulnerabilities some
+that are mixed in its severity and
+others that may be listed as medium and
+if you scroll down even further you
+would see scan results that were
+qualified as low or informational if we
+look at the results of this scan we can
+see there's an issue with the random
+number generator on a server and this
+would allow someone to gain a shell of
+that device remotely we also have a Unix
+operating system that is unsupported and
+therefore is probably not going to
+provide us with any type of security
+patches we would commonly run these
+vulnerability scans on a regular basis
+so that we can avoid having any of these
+critical or high Lev vulnerabilities
+active on our
+Network

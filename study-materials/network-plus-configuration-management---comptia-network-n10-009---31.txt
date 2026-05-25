@@ -1,0 +1,138 @@
+change is inevitable and we need to have
+some type of process on our Network to
+be able to manage all of these changes
+there might be updates to operating
+systems we may have to patch a series of
+devices there might be updates to
+applications that we need to roll out
+and of course we have network devices
+firewall configurations new applications
+that need to be installed and many other
+changes that will occur on our network
+instead of Simply making a change
+without any processes or thoughts to
+what may occur in the future we need to
+have a formal process for managing all
+of these configurations we need to know
+when these changes are going to occur we
+need to be able to plan for those
+changes and we need to inform everyone
+that the change is going to take place
+this documentation becomes very
+important if this system needs to be
+rebuilt especially if there's some type
+of disaster and you're required to get
+that system back up and running as
+quickly as possible having some type of
+documentation that leads you from the
+installation of that software through
+all of the changes that you made will be
+extremely important in getting that
+system back up and
+running when we first install a switch a
+router a firewall and we make our
+initial configurations and get
+everything working perfectly we now have
+a production configuration this is the
+configuration that everyone will use
+when we roll out a new router this is
+the configuration that will be the
+standard for that production system when
+we install a new firewall we have a
+standard production configuration for
+that firewall this is not just
+individual configurations inside the
+device but it covers all aspects of
+changes to that device including all the
+hardware and firmware versions any
+device driver updates that need to be
+made and any updates to the software
+especially since there are certain
+versions of the software that might work
+better or worse than other versions this
+is not something that we would usually
+install into production to see how it
+runs we would usually do extensive
+testing behind the scenes make changes
+to all of these aspects of the system
+and then deploy that final configuration
+into a production environment of course
+not every possible scenario can be
+tested in our lab so we need to have a
+plan if something was to happen in
+production to be able to revert that
+back to a previous
+configuration in these situations where
+something does not go as designed we
+need to have some type of backup that we
+can revert to this applies to our
+firewalls our switches our routers our
+operating systems and anything else we
+might be making a change to the standard
+operating procedure is commonly to make
+a backup of that system before making
+any type of change once you make the
+change you can then decide whether
+that's something you want to keep in
+production but if there's a problem you
+may need to revert back to that previous
+backup sometimes this can be
+accomplished by simply copying the files
+that will be updated during that
+particular change it might be a single
+configuration file but now we have a
+copy of that file prior to those changes
+taking place and we can simply copy that
+file back if there's any problems if
+this is a virtual machine this process
+can be relatively easy you can click a
+button to create a snapshot of that VM
+that saves everything the files the
+configuration and everything else
+associated with that VM at that point in
+time if you run into a problem when
+you're making a change to the VM you can
+then easily revert back to that date and
+time of the snapshot this is also useful
+if later on you decide you would like to
+revert back to the previous
+configuration you now have a backup
+that's stored either as a snapshot or
+separate files that you can then revert
+to if you run into future
+problems when we're deploying a new
+application it's usually often more than
+a single server and a single executable
+there are usually many different
+components on that allow that
+application instance to operate this
+might include configurations on the
+user's workstations changes to the
+firewall and of course the application
+server itself to truly understand the
+scope of this application we need to
+document every aspect of that
+application installation this allows us
+to create a golden configuration that
+certifies that this application will
+work properly if all of these
+configurations are in place we can also
+use that golden conf configuration as a
+way to verify that we are using the
+proper software and the correct
+configurations we can create Integrity
+checks that will compare the
+configuration running in production with
+the configuration on our baseline or
+golden config if we find there are
+changes between those two environments
+we can make changes either to the
+production environment to match the
+golden config or we can update our
+Baseline configuration so that it
+matches the new configuration in our
+production environment
+once we make those changes we now have a
+new version of our Baseline
+configuration and we can use that as our
+integrity check going forward

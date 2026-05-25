@@ -1,0 +1,243 @@
+the supply chain involves the process of
+getting a product from the very
+beginning raw materials all the way
+through to the process of providing that
+product to a consumer from a security
+perspective we're concerned with every
+step along the way of this supply chain
+this includes the processing of the raw
+materials suppliers manufacturers
+Distributors customers and consumers we
+know that anywhere along this path an
+attacker may be able to inject malicious
+code or find some way to gain access to
+this supply chain this is something we
+often don't even consider when we are
+having new equipment delivered we
+generally trust the suppliers of our
+equipment and therefore trust the
+equipment that we're plugging in but we
+know that any exploit that's put into
+any step along this supply chain could
+be a concern and if an attacker is able
+to take advantage of any of these steps
+of the supply chain it could put you and
+your data at risk when you're managing
+all of your own systems you know exactly
+what software is being updated and what
+the security posture of these systems
+might be but what if you're Outsourcing
+that process to a thirdparty service
+provider in that particular example the
+service provider would be responsible
+for all of the security concerns for
+those systems this can be especially
+important if the service provider has
+access to systems that may contain
+sensitive data if there is an attacker
+that gains access to the service
+provider they would therefore now have
+access to our sensitive data and of
+course we may be working with numerous
+service providers we may have third
+parties helping us with our Network
+utilities office cleaning our payroll
+and accounting services our cloud-based
+infrastructure and so much more this is
+why it's relatively common for
+organizations to have an ongoing
+security audit with their service
+providers this is usually something
+that's built into the contract with the
+service provider that guarantees that
+you'll have access to be able to audit
+and find out more information about the
+security processes for any of your
+service
+providers one of the most significant
+credit card breaches in history occurred
+with the target Corporation in November
+of 2013 where over 40 million credit
+cards were stolen this entire process
+began with a breach from a service
+provider specifically it was an air
+conditioning and heating firm in
+Pennsylvania that was infected with an
+email that was sent and malware attached
+to that email someone at the heating
+ventilation and air conditioning firm
+clicked on that malicious software and
+the attackers now had access to the
+heating and AC firm as it turns out this
+HVAC vendor was a supplier of the target
+Corporation and they had access to the
+HVAC systems that were on the target
+Network unfortunately the target HVAC
+Network and the target cash register
+Network were on exactly the same network
+with no way to prevent access from one
+to the other so when the attackers
+gained access to the HVAC systems at
+Target they also effectively gained
+access to every cash register at every
+Target store from there of course they
+were able to put malware on every single
+cash register and begin collecting
+credit cards until months later they
+were discovered and removed from the
+network but at that point 40 million
+credit card numbers had been stolen we
+often think of service providers as
+being only it individuals but it's
+certainly possible that other service
+providers in your organization May
+provide unintended access to your
+network another concern with the supply
+chain is the hardware itself what if you
+bought a new firewall or a new Switch or
+router you simply pull that device out
+of the box you plug it into your network
+performed some configurations and now
+it's running on your production systems
+the real question of course is should we
+trust that system and how can we verify
+that that system is running legitimate
+software one way to do this is to have a
+relationship with your vendors that you
+can trust and you might use a small
+listing of vendors rather than simply
+purchasing from anyone who happens to be
+available on the internet there should
+also be policies and procedures for the
+acquisition of this hardware and the
+implementation for this Hardware you
+need to make sure that all of your best
+practices for security are in place and
+you can treat this new hardware as if it
+is untrusted out of the box although we
+tend to trust our vendors and we tend to
+trust the manufacturers of this
+equipment we still need to treat these
+devices as if they could potentially
+have some type of security concern so we
+need to make sure that we're following
+all of the proper security procedures
+when we're putting any type of new
+hardware onto our network if we looked
+at our networking infrastructure we can
+see that every bit of data of our
+organization is passing through either a
+router or a switch that's part of our
+Network infrastructure this is obviously
+a perfect place for an attacker to find
+a way into the network and begin
+Gathering information this concern
+became very public in July of 2022 when
+the Department of Homeland Security
+arrested a reseller of Cisco products
+this company had sold more than a
+billion dollars of Cisco products except
+they weren't really Cisco products they
+were actually a counterfeit product with
+a Cisco logo on the front the CEO who
+was arrested had also created about 30
+different companies to be able to sell
+these counterfeit products under
+different names and he had been selling
+these products since 2013 so over that
+time frame hundreds or even thousands of
+switches and routers had been sent to
+people's networks and each one of those
+could potentially be a security concern
+the Department of Homeland Security
+found that most of these devices were
+being manufactured in China and then
+they were being distributed to companies
+all over the world these seem to look
+and act as if they were Cisco products
+but very quickly people found that they
+started breaking and in some cases began
+catching on fire this is certainly not
+the only documented case where
+counterfeit Hardware was installed in
+someone's Network so make sure you check
+all of your Hardware before implementing
+it into your production
+systems whenever you're installing new
+software or you're updating existing
+software you should be thinking to
+yourself do I really trust this update
+or this installation trust is a
+foundation of anything we do in security
+and it's important that when we're
+installing new software that we really
+do trust the source of that software one
+way to help with that trust is to look
+at the digital signature associated with
+the installation most operating systems
+will validate a digital signature that
+exists in an update or installation file
+and if it doesn't validate it will
+inform you of that during the
+installation process another challenge
+we might have with trusting the software
+is when software updates itself
+automatically we're not even involved in
+the process this means that we really
+need to trust the software that we're
+installing because any could be
+installed during this automated process
+and many people will say if you really
+want to trust your software you should
+look at the source code but even open
+source software has challenges with
+security when someone has access to the
+code they also have the ability to make
+changes to that code some of those
+changes could be malicious a good
+example of problems with a software
+supply chain is the issue that occurred
+with solar winds Orion this is software
+that was used by 18,000 customers and
+many of them are Fortune 500 and US
+federal government attackers were able
+to gain access to the systems being used
+by solar winds and they were able to put
+their own code into the solar wind
+software within the solar winds
+infrastructure whenever this software
+was bundled together with all of the
+other updates it was digitally signed
+and sent out to all of their users in
+March and June of 20120 these updates
+were deployed as upgrades to existing
+installations and in most cases I'm sure
+that the the folks running solar winds
+Orion in their infrastructure didn't
+even consider this software to be
+something that they wouldn't trust
+what's also interesting about this
+particular attack is the compromise was
+made in March and June of 2020 but it
+wasn't detected until December of 2020
+this delay in identifying a breach of
+this sort Is Not Unusual and it just
+speaks to how important it is to make
+sure that you trust every step of the
+supply chain process once this malicious
+code was distrib Ed automatically as
+part of this update the attackers were
+able to gain their way into many
+different companies and organizations
+including the names that you see here on
+the screen obviously these are very
+large organizations like Microsoft Cisco
+Intel and state organizations such as
+the Pentagon Homeland Security and the
+department of the treasury these are
+very large networks with huge
+infrastructures and very sensitive data
+and the attackers were able to very
+easily gain access by taking advantage
+of this supply chain
+exploit

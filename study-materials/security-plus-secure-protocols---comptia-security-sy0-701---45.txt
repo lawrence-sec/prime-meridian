@@ -1,0 +1,121 @@
+whether you're sending traffic over a
+wired Network or a wireless network you
+still need to make sure that everything
+being sent over that Medium is protected
+and one of the best ways to protect
+Network traffic is to encrypt all of
+your data encrypting data has not always
+been the best practice for Network
+traffic and indeed there are protocols
+that we use every day that send traffic
+in the clear across the network you may
+find on your network that you're using
+telnet FTP smt TP or IMAP and all of
+those Protocols are sending information
+without any encryption one of the best
+ways to get a perspective of how much
+traffic on your network is encrypted and
+how much is in the clear is to capture
+the packets themselves inside the
+packets you should be able to see the
+headers but everything else inside of
+the data of that packet should be
+encrypted if you're able to see
+information that's contain within the
+packet itself then you're probably using
+a protocol that does not encrypt this
+data
+if you use one of these insecure
+protocols and you happen to attend the
+Defcon conference you may find yourself
+on the wall of sheep this is a list of
+everyone at the conference who is using
+insecure protocols and you can see their
+username you can see a portion of their
+password thankfully they blanked out the
+last section you can see IP addresses
+and the protocols that were in use for
+example you could see that people were
+running IMAP HTTP POP 3 and other
+insecure protocols
+your goal should always be to use a
+secure protocol that uses encryption to
+protect all of this data sent across the
+network and if you're not able to use
+one of these secure protocols you would
+be better off not using that application
+at all for example if you need to
+perform a remote console to the device
+instead of using the insecure protocol
+of telnet you should be using secure
+shell or SSH for web browsing instead of
+using HTTP you should use the secure
+version which is HT gtps your email
+client may be able to be configured with
+the insecure IMAP protocol but it would
+be a much better idea to use the secure
+and encrypted protocol of imaps and
+instead of transferring a file using FTP
+you should use the secure version of
+SFTP sometimes you can tell if a
+protocol is secure or not secure based
+on the port number that it's using some
+protocols will use one port number as
+the insecure version and a different
+port number for the secure and encrypted
+version for example if you've captured
+some packets and you see traffic using
+Port 80 that is most likely HTTP being
+sent in the clear if you capture traffic
+and it's using Port 443 then it's
+probably using https the secure version
+which automatically encrypts all of this
+traffic however just because a
+particular port number is in use does
+not guarantee that that traffic is using
+an encrypted version or a secure
+protocol you'll want to check the server
+to see if those security settings are
+enabled and you may want to perform a
+packet capture to confirm that
+everything being sent across the network
+is being sent in an encrypted form for
+example you might have captured website
+traffic in this example the destination
+port for this website traffic is Port 80
+which by default would be HTTP and if we
+look at the packet capture itself we can
+see that the hypertex transfer protocol
+itself is all in the clear and easily
+readable in the packet
+capture with all of the differences in
+protocols and services you may want to
+use a method of encrypting all traffic
+sent to the network whether the
+application supports it or not for
+example if you're using an 802.11
+wireless network and the access point is
+configured as an open access point this
+means that none of the traffic will be
+encrypted as it goes across the wireless
+network but if you configure WPA 3 or a
+similar encryption protocol on the
+access point then all data sent over
+this wireless network will be encrypted
+you can also perform Network level
+encryption by using a VPN or a virtual
+private Network this will create an
+encrypted tunnel between your device and
+the VPN concentrator so everything sent
+over that network will be all encrypted
+the concentrator will decrypt that
+information and send the non-encrypted
+data into the network on the other side
+although this does provide an encrypted
+tunnel where all traffic sent over this
+link will be encrypted it may require
+the installation of additional software
+on your device and you may need to
+install your own VPN concentrator or
+purchase access to a third-party VPN
+service

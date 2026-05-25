@@ -1,0 +1,189 @@
+cabling is the foundation of everything
+we do in networking whether you're using
+a router a switch a wireless access
+point or any other infrastructure device
+cabling is going to be a critical part
+of that communication once the cabling
+is installed it's very difficult to
+uninstall or remove that cabling and
+replace it with something else so make
+sure you're using the right cabling for
+the right infrastructure and even if
+your network happens to be mostly
+Wireless eventually that wireless
+connection will need to connect to a
+cable so you need to make sure you have
+the right cables installed in the right
+place to be able to provide the best
+possible throughput of your network one
+of the most common cable types is the
+twisted pair copper cable this is
+something we use for practically all
+wired ethernet connections and it
+usually consists of multiple wires
+Twisted together within a single sheath
+you'll often see that the cables
+themselves are paired together that
+because there's often one type of signal
+on one of the wires and a reverse of
+that signal on the other wire you may
+see this written as transmit Plus or
+transmit minus or receive plus and
+receive minus the reason that we have
+the same signal being sent in different
+forms is so that we can recognize and
+correct if there happens to be any type
+of interference this twist in these two
+wires means that at least one of these
+wires will always be moving away from
+interference this this allows us to
+compare these signals on the receiving
+end to determine what the actual signal
+should look like another interesting
+part is that the different cable pairs
+have different twist rates so if you
+look very carefully at an individual
+cable you'll notice that some pairs of
+cables are twisted much tighter than
+other
+pairs one common misnomer that I often
+hear about cables is that a certain
+cable has a particular speed but in
+reality the cable doesn't have any speed
+at all the copper is literally
+just sitting there in the cable the
+cable itself is supporting a signal and
+that signal is allowing us to send a
+certain amount of data over that
+particular type of connection the
+specific ethernet standard that you're
+sending over that wire determines just
+how much data you'll be able to move
+across that particular cable if you're
+ever wondering what type of cable you
+should be using for the type of ethernet
+Network that you have you should go back
+to the 802.3 standards those standards
+will specify the minimum cable type
+that's allowed for that particular
+standard and it will specify the type of
+signal and the total throughput expected
+over that cable to be able to easily
+determine the type of cable that's
+appropriate for a specific ethernet
+standard we've created a set of
+standards for the cables themselves we
+refer to these standards as a category
+of cable for example you might find
+Category 5 Category 6 or category 7 if
+you check the ethernet standard it will
+specify the minimum category of cable
+that is required for that particular
+standard for example if you're using
+1,000 Bas T you can look at the 1,000
+Bas t standards from the i e and it will
+tell you that the minimum cable category
+for that specific ethernet standard is a
+category 5 cable if you install Category
+5 cable or anything above Category 5 it
+will work properly with a 1,00 Bas T
+standard although twisted pair wiring is
+very common for our local area network
+another type of ethernet cable that's
+very often used is a coaxial cable this
+describes a cable where two or more
+forms within that cable share a common
+axis for example you can see the single
+wire conductor that's in the middle of
+this coaxial cable there's also an
+insulator a shielding and a jacket that
+are also sharing that same axis one
+common type of coaxial cable especially
+on our ethernet and internet connections
+is an RG6 cable if you have a cable
+modem or your bringing in a cable modem
+connection into your data center it's
+probably being brought in on a co-axial
+cable if we put two conductors inside of
+this cable type then we have a twin
+axial cable we often refer to this as
+simply twin ax twin ax is a type of
+cable that you can commonly associate
+with 10 gabit per second ethernet it's
+often installed as part of an SFP plus
+interface this allows for full duplex
+communication over a single cable but it
+limits the amount of distance that you
+can send this signal to about 5 m this
+has a relatively low cost when
+associated with fiber optics and very
+often it has a much lower latency when
+you compare it to using something like a
+twisted pair
+connection if you're at work and you
+look at the ceiling you may notice that
+you're not seeing the actual ceiling of
+that floor instead you're seeing a drop
+ceiling and something like acoustic
+tiles that is sitting above the actual
+ceiling there is a space between this
+drop ceiling and the actual ceiling and
+we refer to that space as the plenum
+inside the plenum we may have network
+cables there might be heat sensors you
+might have cables for power and there
+may be other pieces of the
+infrastructure that run inside the
+plenum as well in some environments
+there may be a drop ceiling and above
+the drop ceiling may be duct work where
+all of the Air Supply happens to flow
+you may have air supplied as part of a
+heating or cooling system in that duct
+work and there may be return air that's
+using additional duct work to go back to
+to that heating or cooling system since
+a plenum implies that there is a shared
+airspace in a configuration such as this
+where only duct work is used to transfer
+the air there would be no plenum but if
+there's no duct work and we share this
+same airspace with all of our networking
+cables then we need to consider that
+we're using the proper type of network
+cables in that shared plenum this would
+obviously be a concern in a fire
+especially if we're using a network
+cable type that produces a large amount
+of smoke smoke or perhaps even hazardous
+fumes if it was to catch on fire if this
+was in a plenum that smoke and those
+fumes would be distributed to everyone
+in the building this means we need to
+make sure we're installing the correct
+type of cable if we happen to be
+installing this into a shared plenum
+ethernet cables have a jacket on the
+outside of the cable and many of those
+ethernet cables are manufactured with a
+polyvinyl chloride or PVC manufacturing
+if you're putting this cable into a
+plenum then you need a plenum rated
+cable and that cable is usually
+manufactured with a fluorinated ethylene
+polymer Fe or a low smoke polyvinyl
+chloride PVC this plenum rated cable is
+designed to be much safer in a fire than
+one that is not designed for a plenum
+One Challenge when working with plenum
+rated cable is it may not be quite as
+flexible as non-plenum rated cable so if
+you're going around a lot of twists and
+turns it may be a bit more of a
+challenge to install that cable into the
+plenum so if you're installing cable
+into a new building or you're replacing
+Cable in an existing building make sure
+you see where that cable is being run
+and you use the correct type of cable
+for that location

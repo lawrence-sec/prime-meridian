@@ -1,0 +1,373 @@
+hey everybody I'm Sean powers and today
+we are going to cover the next section
+in the Linux plus certification
+objectives exam stuff but I have a
+confession to make in the last video I
+lied to you no God
+no God please no no
+I said that there was going to be
+patreon supporters scrolling by and
+there were not I'm so sorry to my
+patreon supporters but unless something
+horribly wrong happens they should be
+scrolling now and I thank you to all of
+you who are supporting me
+um you're very patient because I often
+forget things or say they're there and
+they're not if you want to be a patreon
+supporter of mine this is not a great
+advertisement for such thing but I will
+have a link in the description but let's
+get down to the next section of the
+Linux plus objectives now specifically
+we are going to cover this part right
+here now I know I have the entire thing
+highlighted uh but I actually got
+overzealous in our last video and I
+covered how uh TLS SSL stuff works in
+the whole thing so if you want to see
+this again look at the last video where
+we covered it section 2.1.1 but we're
+going to focus on authentication and I
+have to remind you actually I have to
+remind myself that this is all about
+best practices and summarizing the
+purpose we're not going to getting the
+nitty-gritty of configuring any of these
+Services I just want you to understand
+what they are why they exist and what
+might be a good way to utilize them in
+your Linux system so that you can answer
+the questions in the test about it and I
+say that but I never ever want to teach
+just for the test so this section is
+really important and there's a lot of
+nuance around the services that we're
+going to talk about with authentication
+and it's not just authentication it's
+authentication and authorization and
+let's just go through the various terms
+I talk about and I'll explain what they
+are how they work together and why it
+matters or I'll try to now you've
+probably heard some of these terms
+before like single sign-on and this is
+where if you go like to a website or
+sometimes your computer but usually it's
+going to be a website and it will query
+a third-party site or service or server
+and it's the kind of thing where you log
+into a computer but instead of typing in
+a username and password like maybe you
+click on like Google to authenticate
+yourself and then you'll go go to Google
+and Google will allow you to log in and
+then Google sends back a token to the
+computer or the website that says yep
+that's he is who he says he is and they
+let you in they there's no actual local
+passwords uh that are managed there
+authorization or actually authentication
+I'm going to clarify that in a minute
+authentication is handled by the third
+party and single sign-on just means that
+third party is the single signer now you
+could host theoretically the single
+sign-on like one server is the place
+where everybody authenticates from like
+maybe it's active directory and every
+computer every website will authenticate
+from that one single uh place and the
+advantage there is many one you don't
+have to have like a bunch of usernames
+and passwords and on a website like a
+public facing website it's nice if as
+the website host person you don't have
+to worry about hosting usernames and
+passwords at all all because if you
+don't host usernames and passwords
+there's nothing that you can expose if
+you have a data breach I mean there's
+stuff you can expose but you're not
+going to expose usernames and passwords
+if you don't have them so there is a
+really big advantage and this is
+specifically talking about
+authentication I am who I say I am I'm s
+powers
+I say I Miss Powers I'm authenticated
+yes you are s Powers but that's not the
+only thing that matters when it comes to
+saying who I am again we're going to
+talk about that in a minute a lot of
+foreshadowing Sean
+um the other thing that you're probably
+familiar with and maybe you don't know
+it by this term but multi-factor
+authentication or sometimes it's just uh
+two F A like we'll call it two-factor
+authentication but it can be more than
+two so the proper term is going to be
+multi-factor authentication and it just
+means multiple
+um authentication mechanisms are
+required before you are considered fully
+authenticated so usually what this looks
+like is you will enter your username and
+password and as long as you get that
+right you will also have to do something
+like open up your authy app or your
+Google Authenticator and you'll have to
+like every 30 seconds a code is changed
+and it generates a new token that's the
+one of the buzzwords we're going to talk
+about it generates a token that is valid
+for 30 seconds and and you have to type
+in that token that six digit code within
+the 30 seconds and if you do then that
+is the second factor of authentication
+and says okay you're in another example
+of a multi-factor authentication would
+be are you a robot and you know you
+check it and you have to like find all
+the crosswalks or the motorcycles or
+whatever or you have to like type in or
+like look at a really messed up letters
+and numbers and like try to figure out
+what they are you know all of those
+those things are multiple factors of
+authentication now those um those are
+actually called captchas and they are
+just I don't know if it's officially a
+multi-factor authentication it's more
+like prove that you are human so sorta
+is but for sure those codes that you get
+like when you have to use Google
+Authenticator or authy to get like the
+six digit token that's definitely a
+multi-factor auth so multi-factor auth
+two Factor off that's the same sort of a
+thing and the big deal is that it
+requires multiple forms before it will
+consider you authenticated okay and they
+can be software like those six a digit
+or eight digit whatever codes on the
+authy app but they can also be Hardware
+so they make devices like a UB key which
+is a USB device
+but it's not like a storage device it's
+specifically an encrypted thing that is
+tied to your account and so you can use
+that as a multi-factor authentication
+device you have to physically plug this
+physical device into the computer along
+with entering your username and password
+so there are multiple
+types of multi-factor authentication the
+whole idea is though that if you have
+more than one form it is more likely
+that you're you right I mean somebody
+could get a compromised username and
+password but if they would also have to
+have your phone with the authy app or
+something in order to enter that second
+line of authentication so it's just a
+way to keep things safe you'll often see
+this actually all over now but at first
+it was specifically for like Banks and
+stuff they're really big on multi-factor
+auth oh Banks made me think of like
+sometimes on a phone it can be like face
+ID or touch ID or like fingerprint
+scanner that's another form of
+authentication but I digress now this
+line has too much information on it so I
+had to make my face disappear but I
+promise I'm still here this is where
+this isn't really part of the objective
+but I wanted to specify because it gets
+confusing there's Authentication
+which is what we've been talking about
+right I am who I say I am but then
+there's also authorization and
+authorization seems similar in fact they
+start with off uh but it's slightly
+different and then identity is also a
+little bit different so authentication
+is like we've been talking about I am
+who I say I am uh and here is my proof
+here are my credentials right my
+password my fingerprint my retinal scan
+my uh authy token generated by the app
+authorization is like okay I believe you
+you are Sean Powers however you are not
+allowed here right there could be
+something where I can say I am who I am
+and prove it but that doesn't mean that
+I have access to everything so whether
+or not you're authorized is completely
+different from whether or not you're
+authenticated of course this makes sense
+right I'm not authorized to have access
+to somebody else's files usually and so
+that information has to be stored some
+more as well and then identity is this
+is less uh less specific to like
+permissions and stuff but identity is
+something else that is stored about a
+user specifically things like your full
+name maybe your room number in the
+office your phone number
+um and my example here is yeah I'm not
+allowed but check out my cool profile
+pic wouldn't you like somebody who looks
+like this in your office no because
+you've seen me and the reason that's
+important is because when it comes to a
+Linux server uh managing authorization
+and authentication and identity there
+are a lot of ways to skin a cat
+that's a terrible metaphor oh my God
+there's a lot of ways to do the same
+thing and there are some not conflicting
+but there's overlap in some services
+like uh we're going to talk about ldap
+and
+um ldap and and Pam and SS let me just
+show you the next slide there's another
+slide with lots of information so I'm
+going to make my face disappear and
+let's talk about the various things that
+are on our system so I'm going to start
+in the middle here with Pam which stands
+for plugable authentication modules and
+this is a system that will allow us to
+use various methods to authenticate the
+users on our system it could be local
+files right it could be the the password
+database like the ETC passwd and the ETC
+group file or it could be
+um it's not used much anymore but like
+NIS was something I used to use a lot
+it's a network username and password
+database that you can query a lot of
+times now we will look at an ldap
+database which I'm going to talk about
+obviously it's on the left for storing
+usernames and passwords in a central
+location or it's not mentioned in the
+objectives but active directory is one
+of the most popular ways to store
+authentication and authorization
+information so there are a lot of ways
+that we can store things and Pam was
+designed so that we can configure our
+system to connect to those various
+things and integrate with our system
+itself ldap is specifically mentioned so
+I wanted to talk about it even though I
+didn't start there and this just stands
+for lightweight directory access
+protocol and this it actually started
+out like an address book kind of thing
+and it's stored in sort of that way
+however ldap really became a central
+player in how user information is stored
+this it can store authentication
+usernames and passwords it can store
+authorization who's allowed to do what
+it also stores identity information or
+it can store some but not all or all but
+some or whatever of these various things
+so ldap is a very flexible system that
+usually runs on a central server and
+then Pam can be configured to
+communicate with ldap to get all that
+information however there's a new kid on
+the Block and it's called SSD it stands
+for system Security Services Daemon and
+this doesn't do a whole lot on its own
+that's not fair it does it does a lot so
+this is uh popularized by Red Hat Red
+Hat started using this it's in a lot of
+places now but red hat has been relying
+on it for a very long time and sssd does
+a few things that Pam does as well what
+it can do is kind of be like the Puppet
+Master if you want your system to
+authenticate SS SD can be the One-Stop
+shop for saying okay we're going to use
+ldap for user authentication but we're
+going to use an active directory server
+for authorization information action and
+when it comes to Identity we're going to
+use local files I guess you could
+configure it that way I've never done
+that that way but sssd is kind of like
+the Puppet Master pulls the strings and
+allows a system to be very flexible in
+how it connects to the various internal
+or external ways to authenticate one
+really nice thing that it does and I
+scribbled over here so there we go is
+that it caches information and that
+doesn't seem like a big deal however if
+you have your credentials let's say
+you're you're like username and
+passwords stored on ldap and your local
+system is trying to log your user in but
+for some reason there's like a there's
+like a network split and all of a sudden
+you can't reach that ldap server well
+you wouldn't be able to log in to your
+local computer that is running sssd and
+so one of its features is that it will
+cache credentials from whatever remote
+system it happens to be connected to and
+so that's a really nice thing so if
+something goes wrong you can log in with
+that cached information it's important
+to know that sssd can do caching and
+again it just kind of like pulls the
+strings and allows the various systems
+to communicate it allows your system to
+communicate to various other systems to
+do authentication authorization identity
+management all that sort of stuff so
+here's the deal Linux is super flexible
+sometimes frustratingly so because there
+are a lot of ways that we can accomplish
+the same thing but if you're in a system
+with active directory or ldap or in a
+network with those things something like
+sssd will help pull those strings so
+that they can all work together but you
+can also just use Pam which has been
+around longer and it will also directly
+interface with ldap now it doesn't have
+those same caching features but Pam is
+still in the mix SSD doesn't replace Pam
+SSD will communicate with Pam in order
+to authenticate your low local system so
+they all kind of like get together and
+work together and understanding what the
+difference is with the things that they
+do and how they might work together it's
+going to make you a better system
+administrator so remember to learn
+everything
+do what you love and most importantly be
+kind thanks for watching I know this
+wasn't a Hands-On video but hopefully
+you learned some stuff and I will see
+you in the next video
+now I know with great power comes great
+responsibility that's why I have the
+patreon supporters scrolling by again
+two times in this video because I me I
+know I messed up but you know I'm making
+up for it right now see you scrolling on
+the screen look
+okay is that better
+all right man I don't know it's the best
+I can do

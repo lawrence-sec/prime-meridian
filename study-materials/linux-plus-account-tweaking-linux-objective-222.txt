@@ -1,0 +1,731 @@
+all right let's do this again now I know
+you're thinking again we didn't do this
+before well I did and uh this is the the
+section two point let's just go direct
+to the thing this is section 2.2.2 which
+I didn't write so I'll do that now and
+basically we are covering uh the rest of
+the stuff from this section so all this
+stuff here and we're going to cover all
+of this and I know we have time because
+I already recorded it uh but you may
+have seen my my YouTube short as I was
+recording I didn't realize that a recent
+upgrade to OBS reactivated a secondary
+microphone so this is uh what the
+recording ended up like if you if you
+were to just edit the file I mean you
+could do sudo VI Etc
+and you can edit it but this is I mean
+this is kind of super dangerous I really
+don't recommend it and I know I sound
+really cool as like a dual voice robot
+dude but I mean after about 30 seconds
+it gets really old so we're gonna go
+over this again
+probably a little quicker uh hopefully a
+little better than we did the first time
+even though you weren't with me so let's
+get right down to it uh first of all we
+are going to look at these files now
+these are the files that these programs
+that we looked at in the last video uh
+that they write stuff to right so when
+you use user ad uh user Dell user mod uh
+the ETC password Etc group Etc Shadow
+and Etc G Shadow which isn't listed here
+that's where the the password and group
+information goes
+um I'll explain it here then we'll go to
+the command line
+Etc profile is where you know okay
+uh while I was prepping to teach this I
+was like oh I covered like profiles in
+bash RC in a video not long ago I'll
+point to that I'll do the thing where I
+point up at the screen I could not find
+it I searched all over it turns out that
+I had just edited the book that I'm
+going to be releasing soon a section on
+uh bash RC files and profiles and how
+all that works so you get the very very
+quick version of uh profiles versus bash
+RC's interactive shells versus login
+shells uh but you know buy my book when
+it comes out and and I go much more in
+the depth but there is not a current
+video on it which I discovered after far
+too much searching all right anyway I'll
+talk about bash profile bash RC the ETC
+profile when we get to the command line
+and then don't let me forget about the
+ETC scale directory because that's
+important too then we're going to look
+at a couple tools we're going to look at
+how to manage passwords we're going to
+look at these which I don't actually
+don't recommend you use but these are a
+way to limit uh an account like disable
+an account of people try to ssh in and
+they get their password wrong too many
+times these both do the same thing the
+Pam tally 2 is kind of outdated fail
+lock is the new way to do it but I
+actually recommend use fail to band talk
+about that in a second and then don't
+let me forget about Etc login.defs
+either okay I think that's everything oh
+chh which is cool and I've never once
+used it in production I feel a little
+snarky today I don't know if you've
+noticed that but anyway so
+um I'm using Ubuntu and the the names of
+the files might be a little bit
+different depending on what distribution
+you're using but like when we look at
+the Pam dot d folder they're going to be
+similarly titled and
+um yeah they're kind of it's just kind
+of awkward so let's go right to the
+command line I know I've said we're
+going to do that a bunch of times and we
+will uh look first at the files that are
+actually manipulated when you add and
+modify users so we're here on Ubuntu and
+there are two files where user
+information is stored so let's look LS
+minus L Etc
+p-a-s-swd is one file and then LS minus
+L Etc Shadow is the other half of this
+now the deal is you used to have all of
+the information the ETC password file it
+used to have username and and login
+director like your home directory and
+your shell and it also used to have the
+hashed password stored right in that
+file but there's a problem in that
+people could then have needed to have
+full read access to that file and so
+they could get your hashed password and
+just use like rainbow tables or just
+Brute Force to figure out what your
+password was so there had to be a way to
+get around that and the way it was
+modified is that the actual hashed
+passwords are stored in ETC Shadow no
+longer stored in ETC password now it's
+been a long time it hasn't been like a
+recent change but that's why there are
+two files to store user information
+everything except the password is stored
+in ETC password and then the shadow file
+is only readable by root and somebody in
+the shadow group whereas the password
+file you can see up here is World
+readable meaning everybody can read it
+so let's look at them real quick because
+you can actually edit these files
+directly to change user information
+instead of using like the user mod tools
+I highly recommend you don't do that but
+we could say sudo VI Etc pisswd and
+we're going to see this is the file we
+can make a change and save it even if
+you do want to manually make a change
+please do not just use VI I'm going to
+get out of here carefully because if you
+make a mistake to the syntax you could
+break your system and you wouldn't be
+able to log in at all there is a tool
+called so sudo v i p w
+this is a lot like the vi pseudo program
+to make sure you get the syntax right
+when you're doing the sudoers file we
+have covered that in the past
+um vipw does that same thing where it
+will launch a VI and it will edit it you
+don't get the fancy color schemes here
+because it's not part of our environment
+when we uh anyway
+you don't get the fancy color schemes
+inside VI but this is now editable and
+if we make a change here it will like
+proofread it for us it'll check the
+syntax to make sure we don't screw up so
+let's uh say uh instead of I don't know
+why we would do this this is um every
+user on our system including system
+users and users like s Powers here I
+guess I should explain a little bit what
+we're looking at so this is a
+multi-field uh database sort of and
+every field is separated by a colon so s
+Powers is the first field that's my
+username the second field is where the
+password hash used to be now there's
+just a holder there it's just a
+placeholder they just put a single X in
+there
+this is my user id this is my group ID
+this is the groups that I belong to I'm
+not sure why there's a bunch of commas
+after there but then this is the next
+field separator this is my home
+directory and then lastly over here is
+my login shell bin bash now let's say
+that I wanted to change my login shell
+and I didn't want to use user mod I
+could say change this to bin sh and then
+save it so it's going to be instantly
+active because we made the change as
+soon as we save the file now when we
+save the file I didn't actually make a
+change but because I changed it and
+changed it back it thinks I did and it
+says uh you you may need to modify the
+ETC Shadow file for consistency now what
+that means is remember the hashed
+password is stored there there's also a
+couple other things let's look at it and
+we could use just VI but it gives us the
+command VIP W dash s will safely using
+syntax checking let us edit that as well
+so sudo VIP W dash s and this is going
+to be the ETC shadow file now that we're
+looking at it looks down here if we look
+down here you can see Etc Shadow and it
+makes a temporary file and it's going to
+do like the checking and all that kind
+of stuff but this is where all of the
+password information is stored so here
+this is the hashed password of my S
+Powers account on this server you'll see
+a lot of these don't have a password
+like there's just an exclamation there
+that pretty much means it's disabled
+right all of these just mean that there
+is no login password that you can use to
+log in as them but the S powers does so
+anyway if we wanted to make a change
+here we could
+and that's basically the way that you
+would manually edit them without using
+just VI or Nano you want to use the VIP
+W command now groups have the same thing
+there are there's a group command or
+there's a group file LS minus L
+Etc group and LS minus L
+Etc G shadow
+and this is the same exact thing where
+there's a shadow because
+technically groups can have passwords
+associated with them I've never actually
+seen that used anywhere but for the most
+part they don't but that's why there is
+a shadow for the group file as well
+called G Shadow and we can
+um edit it using the can you guess
+VI uh gr Vigor yeah vigr does the same
+thing that vipw does but for the group
+file so sudo VI gr and this is going to
+be the group file and this is where we
+can add users to a group uh basically
+it's just like a comma separated group
+so if I wanted to have
+um the no password login group if I
+wanted to add somebody to that I would
+put comma after it and then the next
+username so basically the first field
+here is the group name that's why I like
+down here you'll see this group is s
+Powers now that is my default group so
+it didn't actually list me here but
+you'll see these are the other groups
+that I'm in so Samba share I am a member
+of that group and if we wanted to add
+somebody else again just to comment in
+that last field that last field can have
+as many users in it as we want each
+separated by commas and then
+um I didn't make any changes so it
+didn't you know said it's unchanged but
+if we wanted to edit the shadow file we
+would do the same sort of thing so
+that's what those files are how they're
+formatted again you shouldn't really set
+them up using a text editor generally
+you're going to use a tool like user mod
+if you want to actually go through and
+do that now the difference between a
+login shell and an interactive shell is
+basically when you when you have to type
+in your username and password that
+that's a login shell that's how you can
+recognize it and if you're on a computer
+and you just open up a terminal window
+like you're already logged into the
+system you just go to like the start
+menu and then like open a terminal and
+it just pops it up and you're logged in
+automatically that's called an
+interactive shell and it's not a login
+shell you don't have to put in your your
+login information to get in the
+difference is how things are loaded so
+in a login shell it will load the
+profile information there's the ETC
+profile file which has the system-wide
+stuff again it's in the ETC folder so
+it's system wide and that's where every
+user will load everything in there and
+then at the end of that it will load in
+your personal profile which is going to
+be like dot bash underscore profile it
+could be named a couple other things but
+that's the one they list in the
+objectives
+and then the profile does things like
+load environment variables like your
+path variable uh whereas an interactive
+shell doesn't an interactive shell
+inherits all that stuff from your
+initial login shell so when you log into
+like a GUI computer like a Linux
+installed you know operating system when
+you originally initially log in that's
+your login shell and everything else you
+open every time you open like an extern
+window that's an interactive shell but
+it inherits all that stuff that you your
+login shell got from the profile now
+every time you open an interactive shell
+it does load bash RC from your local
+directory and there can be a system-wide
+one too but it just mentions the dot
+bash RC file and the objectives and that
+is going to be stuff like your personal
+aliases and and stuff like that that you
+may want to have set you know on on an
+interactive shell now it's it's
+important to note too though a login
+shell generally the last thing your
+profile does is load bash RC so it also
+gets that information but
+so the the login shell will get all of
+the stuff including your bash RC file
+but an interactive shell again where if
+it doesn't ask you for your login and
+password we'll only get that bash RC
+stuff it's not going to reload your
+profile it inherits all of those
+environment variables from the initial
+login shell okay so if you make a change
+to your environment variables and you
+just open up a terminal window it's not
+going to load in those changes because
+it's still using the initial environment
+from your initial login you actually
+have to log out and log back in in order
+to do that now an SSH session where you
+authenticate is a login shell so you can
+actually like SSH to your computer if
+you want anyway that's the difference
+there and that's where those files are
+stored the the ETC profile is a
+system-wide one anything that starts
+with a DOT like dot bash underscore
+profile I think they're listed dot bash
+RC that's going to be in your home
+folder dot bash underscore profile is in
+your home folder that's going to be
+loaded by the system-wide ETC profile it
+will load your bash profile and then
+your bash profile file actually loads
+The Bash RC so that's that's how those
+work in in the specifics there ah now
+thank you for reminding me uh the
+etcal folder
+is a folder that you can pre-load with
+stuff that you want new accounts to get
+basically the ETC skeleton folder Etc
+scale folder if you want to have like a
+desktop folder and a documents folder
+and you want to have like a shortcut on
+everybody's desktop when you first
+create them basically the system when
+you create a new user will make a copy
+of the etcale folder into wherever their
+home directory is so like you know home
+user and then it will it'll copy that in
+all of its contents to this name and
+then it will change the ownership to the
+new user that you just created now it's
+important to note that that's a great
+way to get files to like starter files
+for a new user but you can't like like
+load Pro or load things to every user
+after the fact it only copies stuff over
+on the creation of that home directory
+so if you add something after a user is
+already created they're never going to
+see it it's only copied over during the
+creation of that user's home directory
+so that's important to know but if
+there's stuff that you want to have
+loaded for every user the first time
+they log in that's where you would put
+it and that's kind of like the the
+skeleton of how a user's home directory
+is created I think okay so I think we
+got all those things covered now let's
+talk about these tools so I don't know
+what direct what we want to do first but
+I guess we can talk about the password
+command we've we've looked at and we've
+used before that is just where a user
+like a non-root user can change their
+password by typing p-a-s-swd and it'll
+prompt them for their old password and
+then the new password twice and if
+you're a root user and you type or you
+type sudo password and then a username
+so like as root you're you're saying
+password and then like s Powers you can
+change a user's password and it will not
+prompt you for the old password it'll
+allow you to change a password by
+entering a new one twice so it works a
+little bit different whether you're
+invoking it as a regular user or as the
+root user and only a root user can put a
+username after it and change someone
+else's password which makes sense
+c h
+this is a program that allows you to
+change things that seem really awesome
+about password for example you can
+change how often a person needs to
+change their password that's pretty much
+what it is it's the age of the past like
+the password aging stuff
+the problem is I've never really used
+this in in production although I have
+accidentally locked myself out of
+accounts before because they seem cool
+and fancy but in practice I don't know
+that it's really all that that usable so
+I'll show you how you actually set it up
+but no it's probably not something
+you'll ever change on a system the
+defaults are pretty pretty good so if we
+just do CH age and then we'll do Dash H
+for help you can see the different
+things that it's going to show Dash L
+will list the current settings so chh
+Dash L and then the user s Powers is the
+only user so we're going to it'll show
+us the different things that are set for
+password rules on our system for this
+particular user so it'll say uh when was
+the last past time password has changed
+May 30th uh when does the password
+expire never these are the defaults uh
+inactive never account expires never a
+number of days you have to wait before
+changing zero number of days before you
+know that you have to 99999 and then for
+some reason they actually set this to a
+week number of days of warning before
+the password expires so I guess uh 99
+992 days in it'll start to warn you that
+your password is going to expire
+so I guess that's okay but
+what all these things mean is not
+entirely clear and I'm going to use a
+slide and to be clear this is not my
+slide I got this slide from computer
+networkingnotes.com I just think they
+did a good job of it so basically uh
+that first one the date when the last
+when the user last changed their
+password like for me you saw it was it
+was May 30th
+um the minimum days that's one of the
+settings it was set to zero but once the
+password is changed a user cannot change
+their password until this many days has
+elapsed now I don't know why you would
+want to do that I'm sure there are some
+reasons but basically if you set this to
+anything but zero you change your
+password you can't change it again until
+that many days goes by okay
+um we'll skip over here to uh the
+expiration of the password so this is
+when the password expires right here
+okay and um again it's 99999 by default
+uh but anyway that's you know you can
+set it when it expires and before then
+you'll start to get a warning when you
+log in it'll say hey your password is
+going to expire in so many days now
+remember it was set to seven so seven
+days before it'll start to warn you now
+what that means is this period here is
+like normal operating right you can
+change your password in this in this
+time as long as the minimum days has you
+know elapsed and you haven't you know
+and you're you're still an active user
+but every time you change the password
+this gets moved up so like boom that's
+the date now and so if if minimum days
+is set then you won't be able to change
+it for you know X many days again so
+that's important to note this is the
+part that is super duper confusing
+though so this was when the password
+expires this day and then the inactive
+date is in the future and then there are
+these things called inactive days and
+that is really it can I think it's
+really poor wording right there
+basically what this means is your
+password has expired but you can still
+use it for these inactive days again
+inactive is terrible I would I would
+call this like grace period or like
+Grace days or something you can still
+log in and you can still change it
+during this time there's a hard stop at
+the at the inactive date when your
+account is inactive and then you just
+can't log in you can't change your
+password and administrator is going to
+have to change your password to get
+things going for you again and all those
+can be set with chh you can do it on the
+command line for an individual user if
+you're root so for example let's say
+sudo
+CH
+let's change the minimum number of days
+between password change so I'm gonna and
+that is what is that up here Min days is
+Dash M so Dash M we're going to say Dash
+M5 for S powers
+okay and now if we do chh Dash L for
+list s Powers we're going to see that
+once I change my password I have to wait
+five days before I can change it again
+so p-a-s-swd I have to type in my
+current password because I'm invoking
+this as a user so I'm in my password new
+password
+okay password updated successfully now
+let me change it again
+okay it's gonna say what is my current
+password put in what I just changed it
+to up
+I must wait longer to change my password
+all right so it's not going to let me
+change it again even if I change it to
+something dumb so I think that's kind of
+a weird setting to set but nonetheless
+it is what it is now one last thing
+about the the chh if you want to make uh
+changes system wide you're going to do
+that in sudo VI Etc login dot defs is
+the name of the file why it's not comp I
+don't know but it's not it's login.defs
+and here is
+um oh I scrolled down the last the first
+time I tried to do this already but
+basically you have to scroll down a ways
+there's a whole bunch of like defaults
+that you can set and these are the
+password dates that you can set this is
+going to look familiar right 99999 that
+was the max days Min days was Zero
+warning age is seven okay so this is
+where you can change those system Minds
+so every time you create a user these
+password settings will be set again just
+leave the default it doesn't make any
+sense to change them unless it does in
+which case now you know how to do it now
+the one last thing we need to cover is
+Pam tally to and fail lock
+now Pam tally 2 was kind of the old way
+of doing this it's a it's a Pam it's
+right in the name it's a it's a Pam
+module that uh will allow you to set
+like if somebody logs in and then you
+try to log into via SSH and they use the
+wrong password X number of times you're
+going to lock their account for a
+certain amount of time and they won't be
+able to log in even with the proper
+password
+um fail lock is the same thing so I'm
+going to set up failoc because that's
+what's on this Ubuntu 2204 system
+but setting them up is similar and kind
+of a pain in the butt so you have to
+actually modify
+um some settings or some of your pam.d
+uh your Pam configuration files and the
+etcam.d folder so I'll show you what you
+have to edit and I do not think you'll
+be expected to remember exactly how to
+change this you just need to understand
+what's going on and where you would need
+to make changes etc etc okay so I just
+became root here but if we go into Etc
+pam.d you're going to see that there are
+a bunch of files in here now we need to
+edit two of them in order to enable fail
+lock which again will determine how many
+times people can incorrectly log in
+before they get locked out of the system
+so the two that we need to edit are a
+common dot account and common.auth now
+they might be different if you're on a
+different distribution they may not be
+called common they may be called like a
+password Dash auth or something but the
+stuff that we need to edit is going to
+be in here and let's look at them really
+quickly so uh oh I'm already root so VI
+common account and I actually already
+pre-filled these in because because they
+are a little bit weird so down here I
+made this little uh area you'll see
+begin fail log crap I called it crap um
+and in this file in the common account
+file all we need to do is enable the
+module so you just basically say account
+space required space Pam underscore
+failock.so and that's it so that file is
+done
+and then inside the common auth is we
+where we have to add some more
+complicated stuff and same thing and it
+has to be right in this spot directly
+after the
+um this uh off line here you have to add
+an this right below it before the Pam
+deny stuff you have to add the fail lock
+stuff and here's where it's kind of
+complicated off and then default equals
+die Pam fill lock and then these are the
+options for that module off fail audit
+deny equals five so basically if you uh
+if you fail to log in five times it's
+going to lock your account for 900
+seconds or 15 minutes and then same
+thing down here sufficient Pam lock and
+then these are slightly different but
+similar
+um things off success audit deny 5
+unlock time equals 900 okay so put these
+in again I don't expect that you'll
+remember exactly what to type in here
+just know that you have to edit these
+files in order to get Pam to use fail
+lock now once it is installed you don't
+even have to reboot right it's it's in
+place so the next time somebody logs in
+it's going to be recognized okay so now
+I'm just a regular user I'm s Powers
+again and now if we do fail lock dash
+dash user s Powers we're gonna see it
+doesn't show any logins that I've had
+and any failures at all but if I were to
+do SSH localhost
+and then type the wrong password type
+the wrong password again
+type the wrong password again
+so I've done that three times now I've
+tried to log in three times and failed
+so if we look at a fail lock user s
+Powers it shows that I've tried to log
+in and I failed three times uh let's do
+it one more time so this is going to be
+the fourth incorrect login fifth
+incorrect login now my account should be
+locked but it's going to ask me more
+time so sixth one and okay still can't
+get in let's look and see and there are
+only five because once it hits five my
+account is locked it's it's counting for
+15 minutes now so I can't log in even if
+I use the right password which I'll do
+to prove it SSH localhost I'll use the
+correct password and it just it fails in
+the exact same way now what's important
+to note there is it doesn't say hey your
+account's been locked and that's on
+purpose because you don't want people
+who are trying to like brute force your
+computer to know when it's they're
+locked out because they'll just keep
+trying and even if they get the correct
+password it won't let them in so they'll
+think it wasn't their correct password
+so that's on purpose but let's say you
+get locked out and you need to get back
+in well you can the root user can reset
+the settings so if we're back here and
+we say
+pseudo
+fail lock now I could do dash dash user
+s powers
+reset
+um oops dash dash reset
+and that will reset for just Sean powers
+or just for me and we can do fail
+accuser as powers and C they're all gone
+now if you wanted to do all users on the
+system you could do sudo fail lock just
+reset without specifying a user and
+that's going to reset all of the of the
+fail lock lockouts that happen to be on
+the system it actually erases all of the
+failed attempts too so you know instead
+of having five failed attempts I now
+have zero so that's how you can do it
+but again I kind of recommend you use
+failed to ban which is software that
+does the same thing but it also does it
+for other programs as well it can lock
+out like if you're doing like web
+authentication and you fail so many
+times it can lock you out there FTP
+logins that kind of stuff too so anyway
+this works and it is like at the at the
+Pam level so I get why they mention it
+and I get why it's available uh but I've
+I don't use it very often I've never
+used it in production I've played with a
+little bit kind of like we did just now
+uh but that's about it now if your
+computer doesn't have fail lock it
+probably has Pam tally 2 and it's same
+kind of configuration you know if you
+get the exact configuration for your Pam
+files but it works pretty much the exact
+same way
+um and that's about it it was kind of a
+weird video and this is not the second
+time I've done it in looking it's taken
+almost the exact amount of time so
+anyway
+um I hope that this time was better for
+you than it was for no I don't know I
+hope this was helpful remember to learn
+everything
+do what you love and most importantly be
+kind I'll see you in the next video
+hopefully it won't be this one over
+again

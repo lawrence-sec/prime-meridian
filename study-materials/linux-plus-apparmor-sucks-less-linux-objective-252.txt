@@ -1,0 +1,511 @@
+hey everybody Sean Powers here now it's
+no secret that I do not love SE Linux
+the last video I think I titled
+something like I hate SC Linux join me
+uh but part of the reason I'm so
+frustrated with SC Linux is that there
+are alternatives like app armor which is
+what this video is about that I think
+while it may not be quite as robust it
+does the same sort of things with a
+saner easier to understand approach in
+my opinion so we're going to look at app
+armor now the objectives for Linux plus
+are not super elaborate when it comes to
+what we're going to do with app armor
+especially when uh comparatively the SE
+Linux stuff like there's just a ton of
+it so I'm going to elaborate a little
+bit more on app armor than they do they
+just say application permissions but
+basically the the thing is app armor
+rather than defining on every file in
+the system what is allowed to access it
+there are profile files for individual
+programs and it defines what they are
+allowed to access and so it kind of
+reverses it rather than like the files
+being defined with special
+contexts app armor just defines a
+profile what is the program itself
+allowed to access and that makes more
+sense to me like I said it may not be as
+robust even but the same sort of
+individualized security structures can
+be accomplished with app armor and
+you'll see it's a lot easier to
+understand before we dig into it though
+I have to stop and just say thank you so
+much to my patreon supporters who have
+supported me even though the video
+production the past month or so has been
+really rough thank you so much and
+especially for top we have I have two
+new top tier supporters money to the Max
+and Trey thank you so much and I
+actually still have stuff that I need to
+send to you physically so please don't
+give up on me I promise but thank you
+all of my patreon supporters who to make
+it possible for me to release these
+videos for free if if this has been
+beneficial and you want to find out more
+about supporting me on patreon there's a
+link in the description but I just
+wanted to stop and say thank you I don't
+say it enough and so that's what this
+has been anyway when we look at app
+armor again I think it's so much simpler
+than SC Linux and like I said it defines
+the other way you take each individual
+program and Define what it is allowed to
+handle and we can look at profiles in
+the Etc
+app armor dot d folder and in here
+there's going to be uh well there's some
+folders that we'll touch on a little bit
+but each individual file here these
+green ones these the way you specify a
+particular program is let's say we
+wanted to make rules for the man program
+right if we were to say which man it's
+going to give us the path to where the
+man executable is for manual it's user
+bin man and so to create a profile for
+that we look at
+usr.bin dot men so the way we specify
+that this is a profile to apply to this
+executable is basically you start at the
+root so you don't put a dot at the
+beginning but you do user dot instead of
+Slash bin dot instead of Slash and then
+the executable name and that ties this
+profile to that binary on your system
+let's look at this really quickly
+so sudo VI
+user bin man just as an example to see
+what a profile looks like
+and there's a whole bunch of things you
+can specify that it has access to or not
+and then specifically what kind of
+access it has now we're not going to
+cover all sorts of these things but this
+is basically like permissions that it
+has for individual files on the system
+like Unix ports you can like what
+capabilities does it have can it do set
+uid set GID which we're going to cover I
+think in the next video
+you can deny or allow things so you can
+deny it to do a DAC override uh blah
+blah blah blah blah there's all these
+things we're not going to get too deep
+into it so don't worry too much about
+what all this means but what I want to
+show you is at the very bottom I think
+this one has it so right here now this
+looks like it's commented out but this
+is how you include a file so it says
+include anything in local
+called user bin man so basically you can
+have this override file that you put in
+local and the reason you would want to
+do that is let's say there's a profile
+that comes with the system like this man
+page or this man profile was installed
+by Ubuntu you wanted to override
+something if you you could change that
+file in the app armor.d folder you could
+change that but then if there's an
+update it might overwrite what you
+changed and so you can override settings
+if you create a similarly named file in
+the local directory inside there if you
+remember if we look in that directory
+where we are let's get out of this file
+see there's a folder called local I
+don't think there's anything in there by
+default maybe there is local oh yeah
+there's a bunch of stuff in there oh in
+fact there's a there's a man page file
+on there let's look at that so sudo VI
+local user bin man it's empty so there's
+nothing being overridden but if we put a
+setting in here it would override the
+the stock
+profile that is installed for the
+manpager program the man executable and
+so the thing that we need to be aware of
+though is if you make a change here but
+there's a deny in the original when it
+gets parsed it parses all of the allow
+commands and all of the allow commands
+in the local and then it does all the
+deny commands and all the deny commands
+in local so you can run into this
+problem where let's say something is
+denied in the original profile and you
+want to allow it but if you put allow in
+this local override file it's not going
+to override that because it does all of
+the allows first in both the profile and
+the local override file and then it does
+all the deny so it's going to allow it
+and then it's going to do the denies
+it's going to find that denying the
+profile and it will set it to deny even
+if you have an allow in the local
+because again it does all of the allows
+and then all of the denies so if you
+really need to undeny something you're
+going to have to change that original
+profile I hope that makes sense that's a
+little bit confusing and not something
+you have to do which I think is a really
+valid point while I usually have to make
+drastic changes to SC Linux or just
+disable it all together to make some
+programs work I've never had to disable
+app armor at all it comes with same
+settings usually things just work it's
+it's pretty pretty nondescript it
+doesn't seem to interrupt with stuff
+again unless there's a profile
+specifically for a program a program
+isn't confined by app armor so uh yeah
+anyway that's how you override stuff
+with local just be aware that allow and
+deny thing where it does all of the
+allows and then it goes through and does
+all of the denies so you can't override
+a profile deny with a local override
+allow
+now just because a profile is present
+doesn't mean that it's being enforced
+there's basically three different modes
+that you'll see an app armor profile in
+it can be either in uh
+enforced meaning if it breaks the rules
+the program is going to fail it can be
+in complain mode which means that it
+will still work but it's going to write
+in the log ah he shouldn't have done
+that that program was bad it you know it
+broke the rules but it's still going to
+allow it to take place and then disable
+is the where it just doesn't even look
+right disabled the profile is there on
+the file system but it's not active so
+disable is that mode now there are a
+couple other modes there's like a kill
+mode and
+um unconfined mode we're not going to
+look at those because they're they're
+not terribly common uh but they there
+are a couple other modes usually though
+we just either have it's enforced or
+it's in complain mode or it's disabled
+okay so those are the three main ones
+that's what we're going to look at and
+we can see what each profile it's it's
+current like status is in using the a a
+dash status program so here in our
+system I'm going to do sudo a a status
+AA stands for app armor so AA Dash
+status and it's going to dump all this
+stuff out on the screen let's scroll to
+the top of the output here so there are
+47 profiles in total 39 of those
+profiles are in enforce mode which means
+they're like actively stopping the
+program from breaking its rules and
+you'll see the user bin man program is
+one of those programs that is currently
+being enforced if we scroll down it's
+going to say there are eight profiles
+that are in complain mode and that means
+that these programs these eight programs
+here there's a profile and it's active
+but if it breaks the rules defined in
+the profile it's going to keep going
+it's just going to write to the app
+armor logs that it broke the rules that
+it was supposed to keep in track and
+then I did say that there's some other
+uh modes but again nothing is in these
+modes we have uh six processes have
+profiles that oh and there are some
+processes it's saying like uh which ones
+are actually currently being enforced
+like the programs are running because
+you'll see the man program is not
+running because I'm not looking at a man
+page but these are actually programs
+that are running so when it says
+processes are in enforce mode that means
+it's defined and also they're running
+and so they're currently being enforced
+all right hopefully that makes sense but
+that's a a status which shows us
+whatever thing is but let's say we
+wanted to change it so the man program
+was in in Force mode but let's say we
+wanted to do sudo a a dash
+complain
+user bin man
+okay now it's in complain mode so if we
+do sudo AAA status that should have
+moved we should see it no longer in uh
+yeah so nine profiles are in complain
+mode that is one of them so the man
+program is now in complain mode meaning
+if it breaks the rules it'll still work
+but it's in complaint mode and we can do
+the same to disable we can do sudo a a
+disable
+user bin man and now it doesn't matter
+man isn't being tracked or enforced at
+all but let's put it back to where it
+was sudo a a and force
+user bin man and now it's back in
+enforcement and I guess I did jump the
+card a little bit here if you want to
+see if app armor is enabled at all you
+can do a sudo a a enabled and it's going
+to say oh yeah it's enabled it usually
+is enabled by default when you install
+Ubuntu even the desktop mode usually app
+armor is enabled we could disable it
+using system CTL it's a it's a service
+so we could do sudo system CTL
+um stop
+amp armor and now it's stopped so if we
+do is it enabled we're going to say it's
+enabled but it's not currently running
+because we stopped the service so it is
+important to realize that and then sudo
+system CTL start app armor and now it's
+back to running again uh so it's just a
+it's just a standard system thing even
+though it is Kernel level stuff and
+there's kernel modules loaded you can
+start and stop the service using system
+CTL and honestly that's about all you
+need to know when it comes to using App
+armor on your system but if you want to
+have some more profiles if you install
+the app armor Dash profiles or maybe
+it's just AA profiles I don't remember
+the name of it look in your package
+manager it's either called app armor
+Dash profiles or AA Dash profiles
+there's going to be a bunch of other
+profiles for programs on your system
+like I think one of the default ones
+that comes in that package is for user
+bin ping you know to make sure that ping
+doesn't get compromised and do things
+it's not supposed to be able to do but I
+do kind of want to show you how simply
+you could create something on your own
+so again this is kind of above and
+beyond what you need for Linux plus but
+app armor is kind of cool and kind of
+simple to work with so let's say we had
+a program and we wanted to create our
+own profile for what it can and can't do
+so I'm here on the command line this is
+just a normal out of the box system
+right and I want to confine or I want to
+install a profile for the let's do the
+SS program like SS is kind of like
+netstat it's the new version of netstat
+and so if we do SS tuna again if you've
+watched my videos it just makes me think
+of a boat like the SS tuna anyway that
+says Dash Tula uh will show us like what
+ports are currently listening and active
+and have connected sessions and stuff so
+that's not pertaining to this video but
+it's a it's a program I use quite a bit
+so let's say we wanted to create a
+profile now we could use a program
+called SS
+gen I guess I got to be root sudo SS gen
+Prof and
+it's not SS it's a a I got SS on the
+brain we can do sudo a a dash gen Prof
+and then the binary that we wanted to
+create a profile for in our case it
+would be user bin SS because that's
+where it's located so which SS user bin
+SS and this would go through the logs to
+see like what it may or may not have
+accessed and would try to create a sane
+default for the SS program which is nice
+but I kind of want to go
+a step back further and create like a
+blank profile for it okay which a blank
+profile is going to basically give it no
+permissions to do anything right it's
+just going to be locked out so to do
+that I'm going to use a program called
+um a uh a a easy Prof all right so uh
+we're gonna make a profile well it'll
+just print on the screen so a a easy
+Prof you may need to install this from
+your distribution if you don't have it
+and I'm going to do it for the program
+user bin SS now it's just going to dump
+the profile to the screen but I just
+want to show you so this is basically oh
+look it fit exactly on my screen here so
+this is what it looks like uh to have a
+completely blank profile like it's this
+is like an empty one right this is going
+to allow it to do nothing at all and I
+want to save this as a file so I'm going
+to do the same command and I'm just
+going to redirect the output into a
+program or a file called
+usr.fin.ss because again that's how you
+specify that's the binary now this is
+just in my home directory so I'm going
+to move this so sudo move this program
+or this this like blank template profile
+that we created into Etc app armor dot d
+and now then I'm going to say sudo a a
+and force
+user then SS or I could actually I think
+I can do it that way and I can also
+specify the profile so
+Etc app armor dot d user bin SS
+okay now it's in enforce mode which
+means we've basically broken SS now how
+can we prove that let's do SS tuna which
+worked a minute ago and now it's gonna
+be like whoa whoa whoa I can't do
+anything you have limited everything I
+can do to basically nothing and this can
+be really confusing so like okay what do
+I do now that you know I see it can't
+really do anything I can't connect to
+the sockets I can't do any of the stuff
+well well well you may remember that uh
+complain mode will allow it to happen
+and still write it to the log file in
+Force Mode doesn't let it happen but it
+still writes to the log file for app
+armor when something tries to break the
+rules so our log file currently has the
+broken rules that SS tried to accomplish
+and there's a really cool tool that will
+allow you to tweak the profile for a
+particular application that has broken
+the rules and so it'll just walk us
+right through all the things that it's
+trying to do and let us know or ask us
+do you want to let it do that so let's
+let's do that so back here these are
+where all the errors just happened we're
+going to use the tools so sudo a a log
+Prof and what this does is it's going to
+tweak our profile based on the log
+entries that were just made so press
+enter and it goes through and says okay
+the profile for user bin SS it tried to
+we can kind of see what it said here
+okay proc star Unix it needs to be able
+to read files in this file system
+because it tried to access this
+particular file do we want to allow it
+so if I press a because I want to allow
+it okay it did that now the next one it
+needs to have raw access to this proc
+file system as well do I want to allow
+it I'm going to say allow
+and now it needs access to see the proc
+file system again which is a virtual
+file system that shows us current
+running conditions on the Kernel Etc to
+the net UDP uh file here it needs read
+access do we want to allow that I'm
+going to say a again for allow and same
+thing with TCP I'm going to say a allow
+and lastly well I don't know if it's
+lastly or not but next it says this
+proxis next ipv4 IP local Port blah blah
+blah range it wants to have read access
+to should we do that I'm going to say
+allow and now it wants to have access to
+the network a net to see the net link of
+our Network do we want to allow that you
+can see where I'm going I'm going to say
+allow to all the things it's trying to
+do allow and now okay that did all it
+found all the the rules it was trying to
+break and we've allowed all of those and
+now it says do you want to save the
+changes and that will actually save
+those allow things directly into the
+profile that we made that blank one that
+we made with a a easy Prof so I'm going
+to say s for Save changes
+it wrote the updated profile to that to
+that that one that we made so let's look
+at it uh sudo VI Etc app armor dot d
+user.bin.ss and now uh rather than just
+a whole bunch of blank spots you can see
+down here it has the correct syntax in
+the correct order and everything that we
+need in order to allow it to work so
+here uh all those things that we did it
+created the correct permissions that it
+needs and and get out of here it should
+be active right away remember it's still
+enabled and so let's in fact let's make
+sure that it's still enabled so sudo a a
+status and if we scroll up
+uh 40 profiles are in in Force mode and
+one of those in in Force Mode is user
+bin SS so we made those changes and now
+the Moment of Truth can we do SS tuna
+and we can because we've allowed the
+things that it needs to use to do the
+tasks that we ask it to do and we could
+lock it on let's say we didn't want it
+to be able to check for TCP we could say
+don't allow TCP only UDP that's a weird
+thing to want but we could tweak that in
+the profile and then this particular
+program SS would not be allowed to
+access TCP or UDP whichever one I said
+so you can lock it down per application
+and making a brand new profile isn't
+even that difficult to do all right
+hopefully that makes sense now I'm not
+going to go so far as to say that app
+armor is fun but app armor I think is
+easier to grok than SE Linux maybe it's
+not as powerful I I will go as far as to
+say that maybe app armor doesn't do as
+much and doesn't have as fine-grained
+whatever as app armor or as SE Linux but
+from a end user standpoint app armor is
+a lot easier to use and it comes default
+uh in Ubuntu so if you use a red hat
+thing you're going to have SE Linux if
+you use Ubuntu based you're probably
+going to have app armor you can use
+either you know you know on a system you
+could install app armor on a red hat
+system and disable SC Linux and vice
+versa but by default that's usually what
+you'll see anyway I hope you enjoyed
+this I mean uh it's it's kind of nerdy
+stuff but it's still a little bit of fun
+at least for me thanks again to my
+patreon supporters and for everyone
+remember to learn everything
+do what you love and most importantly be
+kind we'll see in the next video

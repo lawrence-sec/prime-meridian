@@ -1,0 +1,84 @@
+an organization might use a number of
+different strategies to deal with risk
+one of these strategies might be to
+transfer the risk that means we move the
+risk under the control of a different
+party a very good example of risk
+transfer would be the purchase of cyber
+security Insurance another alternative
+might be that the company simply accepts
+the risk this is usually the most common
+course of action and it allows the
+company to decide what they would like
+to do with that risk there may be times
+when a company accepts the risk and they
+do it by exempting their existing
+policies there may be a case where a
+particular security policy cannot be
+followed and so an exemption is required
+for example an organization may have
+purchased a large piece of equipment
+used for manufacturing and that
+equipment uses the Windows operating
+system but the manufacturer of that
+equipment says that they do not support
+patching or updating the operating
+system on that device that means that
+the monthly micros Micosoft updates
+could not be applied but there is a
+company policy that says that every
+device must receive those patches in
+that example the company management May
+approve an exemption just for that
+device provided the device is not
+connected to the network there might
+also be cases where the risk is accepted
+but there is an exception to the
+security policies you have in place an
+example of this might be that the
+organization has decided that every
+device must be patched within 3 days of
+the patch being made public
+but during their testing the company
+finds that this month's set of patches
+causes a critical software packaged
+crash to resol this conflict between the
+time frame required to patch and the
+patch being operational the company can
+create an exception in this example the
+company may have an exception that
+allows them to wait more than 3 days so
+they can update their software to work
+better with these patches another risk
+management strategy would be to
+completely avoid the risk that that
+means that there would not be a need to
+provide any additional risk management
+because that particular risk has been
+completely removed from the organization
+and in some cases we may be able to
+mitigate the risk for example if we're
+concerned about risks coming from the
+internet we may want to invest in a Next
+Generation firewall which mitigates some
+of the issues associated with that
+connectivity an organization may have
+tens or even hundreds of risks that need
+to be tracked and one way to track these
+is through the use of risk reporting
+this creates a list of all of the risks
+the company is tracking and allows for a
+description of each of those risks and
+how to handle them this is a document
+that's commonly referenced by upper
+management especially the management
+that needs to make business decisions on
+what to purchase and how to handle these
+risks this is usually a document that is
+constantly updated and it usually
+contains critical risks and emerging
+risks especially those risks that should
+be considered by the management of the
+company when making making additional
+business
+decisions

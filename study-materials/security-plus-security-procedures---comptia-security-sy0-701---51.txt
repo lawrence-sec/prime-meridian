@@ -1,0 +1,189 @@
+one of the most common security
+procedures for almost any organization
+is one related to change management
+change management ures that we have a
+set of processes and procedures each
+time A change is made to any of our
+systems by putting in these checks and
+balances we can help prevent downtime
+confusion and mistakes that come when
+changes are being made in the
+organization with change management
+there are a series of steps in the
+entire process we start with the process
+of determining what the scope might be
+for this change are we modifying a
+single server are we modifying multiple
+devices and are we updating an entire
+operating system or a single file we
+also need to know how risky it will be
+to make this change are we making a
+change to an entire operating system or
+will this risk only affect one specific
+application running on that device we
+will also need a formal plan for the
+change to understand exactly what part
+of these systems will be changing and
+then we'll need to get approval from the
+in user that these changes can indeed be
+made most organizations will have a
+change control board this board is
+responsible for analyzing all of the
+proposed changes and then approving and
+scheduling those changes the Change
+Control Board will also look to see that
+there is a backout plan so if something
+doesn't go well during the change
+process there's always a way to get back
+to where we started and once that change
+is completed we can document those
+changes so that everyone knows what was
+modified on those
+systems security teams also deal with
+onboarding this is the process of
+bringing someone into the organization
+either a new hire or transfer from
+another department during this
+onboarding process the security team
+will provide the new hire with the
+employee handbook or a list of the
+acceptable use policies that will need
+to be signed off and approved by the new
+hire new accounts will need to be
+created so the user can log in to the
+network and we'll also need to make sure
+that the correct rights and permissions
+are associated with this particular user
+all that's left is to give the new hire
+their laptop mobile device and any other
+Technologies they'll need to perform
+their job function and they are now part
+of the network and can log
+in just as we have formal policies and
+procedures for onboarding we also need
+to create formal policies and procedures
+for offboarding this way we know exactly
+what should happen with all of the users
+assets when they decide to leave the
+organization these procedures answer
+questions such as what happens to the
+hardware that has been assigned to this
+user and perhaps more importantly what
+happens to the data that is saved on
+that Hardware it's also a good best
+practice to disable the account
+associated with the user in case there
+are encrypted files or anything else
+that may need to be retrieved later if
+we were to delete these accounts it's
+very possible that we could lose
+important decryption keys or important
+data that may be stored on those
+accounts it's also very common for
+organizations to maintain a series of
+playbooks these playbooks Define a set
+of steps that should be followed in the
+case of a particular event for example
+if you need to investigate a data breach
+there should be a Playbook that
+describes exactly what should be done
+first what should be done second and so
+on the same thing might apply to recover
+from ransomware there should be a
+separate playbook for that as well there
+obviously then a large number of
+playbooks that would be created
+providing that stepbystep overview of
+exactly what to do and when to do it
+once we create this series of steps we
+can also integrate them into more of an
+automated process this is often
+integrated into a sore platform that
+stands for security orchestration
+Automation and response this sore
+platform allows us to integrate many
+third-party products into one single
+platform and be able to automate
+connections between all of those very
+diverse systems this means we can
+automate some of the more mundane tasks
+and have the security teams concentrate
+on doing much more important
+work technology never stops integrating
+there are always new technologies and
+new processes that we need to integrate
+into our environments that's why we need
+to constantly Monitor and in some cases
+revise the processes and procedures that
+we use on a daily basis for example we
+may need to update and create a stronger
+security posture that means that we
+would need to tighten our Change Control
+process we may need to create addition
+playbooks there may be an acquisition of
+additional Technologies required and
+anything else that can help us make our
+environment even more secure we might
+also want to look through our existing
+playbooks and see if there's
+opportunities to make those playbooks
+more efficient or more secure we might
+also want to create new playbooks if we
+happen to have installed new
+technologies into our infrastructure we
+also have to keep an eye on any emerging
+threats attackers are always finding new
+ways to get into systems or take advant
+AG of vulnerabilities and we need to
+make sure that our playbooks our
+processes and all of our procedures take
+into account these new emerging
+threats the governance structure for
+many organizations starts with a board
+sometimes this is a board of directors
+it's a panel of Specialists that set the
+tasks or the series of requirements for
+a committee to follow these are usually
+very broad objectives and it's left up
+to the committee to determine the best
+way to implement those objectives
+committees usually consist of subject
+matter experts and may include a member
+of the board as part of the committee
+the committee will take direction from
+the board at what task needs to be
+accomplished and then they'll work on
+putting the next steps together to meet
+those particular goals once that task
+has been completed it can be presented
+to the board for approval or to have the
+board provide additional feedback or
+changes if you're working in the public
+sector which would be a government
+organization Then There are a different
+set of policies and procedures many of
+the concerns associated with a
+governmental agency would be around
+legal issues administrative requirements
+and in many cases political issues the
+presentation and scope of this
+information is also very different than
+a private organization since a
+governmental agency is working for the
+people all of these meetings tend to be
+open to the public and for both public
+and private organizations there are
+different ways to approach governance
+one is through a centralized form and
+the other would be decentralized
+with centralized governance there tends
+to be one group that handles the
+decisions for the entire organization
+with decentralized governance those
+decisions can be made by others
+specifically those who may even be doing
+those particular jobs there's no right
+or wrong way to present this type of
+governance but it needs to be one that
+works best for that particular
+organization

@@ -1,0 +1,90 @@
+one very effective social engineering
+technique is to disseminate incorrect
+information to others unlike something
+that's a difference of opinion
+misinformation and disinformation
+contains factually incorrect details and
+it's usually designed to divide or
+confuse different groups of people we
+see this often online with influence
+campaigns these are campaigns that are
+usually on social media sites and
+they're based around political issues or
+social issues they documented cases
+where a third-party government or nation
+state is creating this dissension within
+different ranks of people this may be
+designed to persuade people to believe
+something that's not true or to distract
+from something that is obviously true
+that perhaps would be damaging to that
+particular nation state this may not
+even be something related to a website
+or location that you're visiting online
+instead it might be delivered through
+the advertising that you see and the
+engine of social media is a perfect
+place to begin disseminating this
+misinformation the attackers are very
+good at using these social media sites
+and the tools available to them to
+create articles and then share and like
+these articles to get them in front of
+as many people as possible this is how
+the misinformation process commonly
+occurs the first step is for the
+attacker to create multiple accounts
+that contain fake users these are not an
+actual person all of these accounts
+belong to the attacker now the attacker
+needs to get this misinformation posted
+online they'll use one of their fake
+user accounts to create some content and
+post that on a social media site once
+it's posted online the social media
+sites commonly have a like a share or a
+follow option and this will allow the
+attacker to amplify that message to a
+larger group of people the algorithms
+within social media recognize when a
+particular post is being liked or shared
+and will present that post to others as
+well once this algorithm shares this
+with others there will be actual users
+that see this information and they will
+share it with other people that they
+know and once this misinformation
+reaches a certain level of popularity
+the mass media will recognize how
+popular it is and create their own
+stories to publish on something that
+from the very beginning was
+misinformation another interesting
+social engineering technique is to use
+brand names these are names of companies
+that you probably know things like
+Coca-Cola and McDonald's these brands
+are instantly recognizable to most
+people so the attackers will create
+hundreds or even thousands of sites with
+this particular brand name Google will
+then index these sites and it goes into
+the Google search engine if someone
+searches for those brand names on Google
+it's very possible that they might be
+redirected to one of these impersonated
+sites you may have even seen this when
+you do your own Google searches that you
+think you're going to a legitimate site
+but when you visit the site you get a
+popup message or an image that says you
+there's a special offer and here's some
+software that you should download
+obviously that software is not
+legitimate probably contains malware and
+now your computer is infected it will
+display ads it may track what site you
+go to or there may be data that's
+exfiltrated from your computer and gets
+into the hands of the
+attacker

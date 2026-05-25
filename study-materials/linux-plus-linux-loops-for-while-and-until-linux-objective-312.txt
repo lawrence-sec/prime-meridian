@@ -1,0 +1,493 @@
+hey everybody I'm Sean Powers I'm back
+to the Linux plus course and today we're
+looking at section
+3.1.2 which is actually a subsection
+that I sort of made up it's section 3.1
+but uh we've already looked at
+conditionals and we talked about some
+variable stuff so we're going to look at
+Loops today and Loops are really really
+important if you're going to be on the
+command line for any amount of time
+basically a loop is a way that you can
+have the bash interpreter do something
+over and over and over so you don't have
+to and
+unfortunately uh I usually do something
+over and over a few too many times
+before I start and you know go through
+the effort of writing a script I'd like
+to say after like two or three times of
+typing the same command over then I go
+into and make a for Loop but if I'm
+being honest it's more like oh after
+I've typed the same thing a dozen times
+I'm like you know what maybe I should
+have just made a loop to do all of this
+stuff and it should it should really go
+quicker than you know 10 or 12 times you
+should be able to write a loop really
+really quickly but it's okay if you
+don't remember the syntax because here's
+the deal I personally can never remember
+the Syntax for making like a for Loop or
+a while or in Loop that's okay I Google
+it every time it's just I know how they
+work and what they do and that's really
+what this video is about is to get you
+familiar with what you can accomplish
+with a loop in bash and of course to
+prep you for the Linux plus exam too uh
+but the format uh is something that you
+need to be familiar with but like I said
+it's okay if you don't really understand
+every or don't recall every bit of
+syntax perfectly every time that's
+always going to be there for you to look
+up on Google and on an exam you're
+generally going to have um like an
+example or something to work from or
+multiple choice and it's going to be
+familiar so let's actually look and see
+how they're formed what they do and why
+you might want to do one Loop over
+another first of all the big secret
+that's not really a secret a while loop
+and an until Loop are basically the
+exact same thing what they do is they
+test for a condition and if the
+condition is true in a while loop it'll
+keep doing it until the condition
+changes to false and with an until loop
+it's like uh it will keep doing the loop
+until the condition is true so as long
+as it's false it'll do it it's just like
+the opposite way of looking at something
+and let me show you what I mean so this
+is the syntax like when you you know
+forget how the syntax goes and you
+Google it this is what you're going to
+get uh it starts with while and then the
+condition now we'll talk about
+conditions in a second but the condition
+is like if x is greater than five or
+something like that and while the
+condition is true it will do everything
+between do and done over and over at the
+end of the first iteration of the loop
+it'll check that condition again if that
+condition is still true in the case of a
+while loop it will do it again again and
+do it again which means it is very
+possible and quite honestly easy to make
+a loop that goes on forever an infinite
+Loop so if you don't have a condition
+that changes somewhere in that looped
+stuff and it just keeps going forever
+and ever and ever your Loop will keep
+going forever and ever and ever and
+you'll have to hit control C in order to
+break out of the loop which isn't the
+end of the world but you need to know
+that unless you change the condition in
+your looped stuff it's always going to
+you know evaluate the same unless
+something changes in your Loop so that's
+really important to understand and again
+while loops and unti Loops are basically
+the same thing they're just looking at
+like is it false or is it true right and
+so they function the same way so over
+here this is in until Loop and it like I
+said it's just opposite right so until
+the condition that you list here is true
+it'll keep doing these things and as
+soon as this condition is true it will
+stop doing it and it'll go on with the
+rest whereas over here uh while the
+condition is true it will keep looping
+until the condition is false and once
+the condition is false it will go past
+the done and execute whatever is below
+in the script so what does that look
+like well an actual script written out
+is going to look something like this of
+course we've started with this line to
+signify that this is a bash script and
+whatever your default shell is it should
+use bash to interpret the script below
+and then uh let me get rid of my face
+because it's going to be in the way
+there uh first we have we set x equal to
+1 and then we say while and then in
+these brackets here we have dollar sign
+X which we've learned is how we
+reference the X variable that we set
+here so while dollar sign X is- LT and
+this means is less than the number 10
+then do and I've just indented these for
+readability sake they don't actually
+have to be indented in the command line
+this is you know bash is not a scripting
+language that uh cares about white space
+or indentation or anything this is just
+for readability uh but we're going to
+Echo the dollar sign X which means we're
+going to Echo the first iteration the
+number one and then here this is how we
+increment the variable this is how we
+change X so that when it tests it in the
+next Loop it tests it a little bit
+different so it's saying X is equal to
+and then this construct dollar sign
+parentheses parentheses uh dollar sign x
++ one this is how we do arithmetic in
+bash and that's a little bit confusing
+but this construct right here is how we
+iterate X to be x + 1 now there's a
+couple other ways we can do that as long
+as we have the double parentheses we
+don't actually have to put the dollar
+sign in front of the variable it can
+just be x equals we put a dollar sign in
+front of the whole double parenthetical
+arithmetic thing and we can leave out
+the dollar sign in front of it and we
+can just use uh the variable name X+ one
+or we could also do this leave the
+dollar sign off the front put it in uh
+double parentheses and say x++ which is
+kind of like the C language way of
+incrementing a variable so bash is
+flexible and allows us to do multiple
+things and usually like I said I have to
+Google the darn thing every time like
+how to increment uh or how to iterate a
+variable in bash and I usually you have
+to Google it because I always forget
+like do I put the dollar sign in front
+of the parentheses or inside and if I
+put it on the outside do I have to put
+it inside and I usually just Google it
+I'll be completely honest and honestly
+this is really easy to do let's make one
+right now let's do uh VI let's make an
+until one since we demonstrated while
+we'll do until it's the same thing but
+backwards right so uh we'll do a
+v.sh just to name it something and then
+we'll do there b bash and now let's set
+X is equal to 1 so that it looks
+familiar to what we were doing and uh
+we're going to say
+until and since it's it's going to run
+while it's false so we're going to say
+until X is greater than so- GT and
+there's a whole bunch of tests you can
+do but these are some of the ones you
+can do GT for greater than LT for less
+than uh L E for less than equal to you
+know so th these comparisons thing are
+are pretty um robust in the things that
+you can do but uh until X I forgot to
+put the dollar sign so until dollar sign
+X is greater than
+10 do and now it this is just my uh Vim
+indented automatically for me I'm going
+to say Echo dollar sign X and now we
+want to increment it remember so I'm
+going to do it the simplest way possible
+I'm going to do this and then
+x++ close close that
+twice and now type done so hopefully
+this makes sense what we've done x
+equals 1 and so it starts out and uh
+until 1 is greater than 10 well no it's
+not so it's going to execute it's going
+to say one and then it's going to
+increment so X is going to become two
+it's going to go do another loop and
+it's going to say until is two greater
+than 10 well no so it's going to do it
+it's going to print two hopefully let's
+see if that's what actually happens I'm
+going to save this I'm going to make it
+executable and now let's execute it
+until sh ah and that's exactly what
+happened it went one that first
+iteration it kept adding kept adding and
+then the last iteration uh it had
+incremented it printed 10 and then it
+added one to it so then X was 11 and it
+went to that first thing let's go back
+so after it did the last incrementation
+the it printed 10 and then it
+incremented it to 11 it came back up
+here and it said until 11 is greater
+than 10 and 11 is greater than 10 so
+then it just short circuited and it went
+to the rest of the script now our script
+is just done so it exited and that's how
+it works again if we were using while we
+would have to think backwards we would
+have to say okay while it's true I'm
+going to do this and then once it's
+false it's not going to execute it now
+as useful as they are I have to admit
+while loops and until Loops are not the
+ones that I use the most often generally
+I'll use something called a for Loop and
+a for Loop is something that's used in
+like C programming languages too uh but
+this is a kind of thing where it will
+iterate through items in a list instead
+of testing a condition like is this
+equal to this or is this greater than
+that uh rather than testing for
+condition it will iterate through a list
+of things now that list could be a wide
+variety of things it could be like um
+files in a folder it could be lines in a
+file it could be um numbers from you
+know 1 to 20 or something something like
+that and the format is different but the
+thing to remember is rather than uh the
+the condition changing and testing that
+condition you know that variable
+changing and testing that variable for
+the you know whatever it's being tested
+for it it's not based on a test it's
+based on an entire list so you define
+that list and then it iterates through
+every item of the list until it's done
+and the format looks like this we have
+four and then X the name of the variable
+in and then we put the list like what is
+in the list that we're looking at and
+then the format is very very similar in
+fact exactly the same as the other
+things we start with a do uh again this
+is just indented for readability sake we
+do all the things in here and then done
+and it will iterate all of this stuff
+between the do and the done for as many
+items as are in the list and every time
+it goes through an item it
+assigns that list item to the variable
+in this case X okay so how we come up
+with a list of things again there's a
+wide variety of ways we can do that we
+could put a number uh like a range so
+this is uh braces 1.10 in braces this is
+going to be the same as uh brace
+expansion would give us 1 2 3 4 5 6 7 8
+nine 10 so the list is going to be 1
+through 10 uh we could do the documents
+in a folder just by specifying like
+Tilda is our home directory uh documents
+and Then star is uh well that's
+something we haven't learned yet but
+you've probably done like star. Star
+you're familiar with the idea of what
+we're talking about with um you know all
+the items in the documents folder here
+and then we could just type a list of
+things we could say um 4X in one 3 15 26
+literally type them out on the line and
+then you know it will do everything in
+between the do and the done uh to X when
+it equals every you know each one of
+these items and then lastly we could uh
+for example I didn't close the bracket
+there when I was typing it out oh and my
+face is in the way
+anyway uh so we could also do the list
+could be like cat a file right so the
+file.txt let's say it has a list of
+fruits and vegetables right in the in
+the thing well then we could every um
+item in or every every line in that text
+file would be an item that would get
+iterated in that list and so X would
+equal you know every one of those things
+in there so this is a way again it
+doesn't check something it just creates
+a list of items and that will assign it
+to that variable every iteration of the
+loop and we we're going to demonstrate
+this just in a minute but I did want to
+show you there is a way that you can
+format this that looks more like C++ or
+you know C language and that is this
+method here just like there's all you
+know different ways that you can uh
+increment a variable like when we did
+while and two you could do like the x++
+inside double parth pares well this is
+the same thing you can create a for Loop
+using this format so four open
+parenthesis open parentheses uh the
+starting point the test and how it's
+incremented and so if you look at this
+this ends up being a lot like a while or
+until Loop but it's formatted in a way
+that four does it and every item in the
+list is um you know X starts as zero and
+as long as X is less than 10 it's going
+to do everything in the loop so it's
+going to do uh X is going to equal zero
+the first time and then we've done x++
+for the increment for the iteration and
+so the next time it's going to be xal 1
+and it's going to do that as long as X
+is less than 10 so it's going to do that
+all the way through until X is equal to
+9 it's going to execute it when x equals
+9 as soon as X is 10 it's not going to
+execute it so we're never going to see
+xal 10 inside this loop it's never going
+to do something for 10 inside that Loop
+hopefully that makes sense this can be a
+little confusing so you don't have to do
+it this way uh but this is just like a a
+shortcut way of creating a for Loop
+using C+ plus syntax again bash is so
+flexible sometimes to its own detriment
+but let's look at a quick for Loop and
+uh then we'll be all done because you'll
+be all loopy all right so let's call it
+uh 4.
+sh and do the same
+thing bin bash and now 4X in I'm just
+going to do a simple list like this
+and then
+do
+Echo dollar sign X done and what this is
+going to do it's going to create this
+set right this is a a set of items and
+it's going to iterate through this
+entire list of items and the first time
+x is going to be one and then X is going
+to be two and then four and then 77 and
+993 okay so it's not like it's
+incrementing it it's just going to the
+next item in the list and this is kind
+of the simplest way to make a list is
+literally just make a a list there so
+let's do this we'll just execute it make
+sure I got everything right so chod plus
+X so it's
+executable and sure enough it printed
+one two and then 477 993 okay now we can
+again that that list can be all sorts of
+things uh let's see what's in the folder
+here so this is what's in the folder all
+right let's edit this file um I'm still
+going to do numbers here at first
+so
+um 4X in let's do a range uh let's do
+from four
+to uh 12 all right so this should do
+four and then five and then six and then
+seven as it iterates through that
+range sure enough four five six s all
+the way to 12 so that's you know that it
+made that set by using that range that
+brace expansion into a range and uh
+let's get a little bit crazy here now
+let's
+do uh for X in Tilda now this is my home
+directory on this computer and we just
+looked at stuff so what this should be
+is a list of the items that are uh you
+know when you type LS it's a list of the
+items in there let's see what happens is
+it going to Echo the name uh of the of
+the file what is it going to Echo let's
+let's find out
+so save
+this so it echoed the results of of what
+the Tilda is and the Tilda is home as
+Powers okay so let's edit this again now
+if we did 4X in
+Tilda
+slashstar this is going to make a list
+of all of the things inside my home
+folder instead of just uh the list of my
+home folder name so hom s Powers is the
+entire list of what Tilda is Tilda is my
+home directory uh this should give us a
+list of all the things inside my home
+directory so let's see what this
+does and now it has done just that it
+gave it's it's now just echoing the path
+of every item in my home directory and
+that should make sense we have h s
+Powers 4sh which is this file that we
+just made snap is a folder that exists
+in there if we type LS we can see this
+is all the stuff in there and it just
+gave the entire path right the it gave
+the entire path name of all of the
+things in my folder and then that's what
+it printed on the screen now I know that
+there are some times when you're really
+going to have to understand syntax and
+you're going to like have to be familiar
+with that like if you're taking an exam
+and they expect you to start from
+scratch um even if you have to do that
+if you kind of have in your mind what
+it's supposed to look like and you type
+it out and it's like oh syntax eror you
+can usually figure out the syntax just
+remember you know that it's a it tests a
+condition for a while and until and it's
+a a list of items in a for Loop and then
+do and done everything in between do and
+done is executed during the loop as it
+goes through it it's tougher to make an
+infinite loop with a four Loop not
+impossible but tougher but with while
+loops and until Loops um if you don't
+increment things properly or you're not
+testing exactly right you can get an
+infinite Loop or it just keeps going
+over and over forever in that case just
+control c will get you out of it and
+hopefully that kind of gives you an
+understanding of what Loops do and why
+you might want to use them on the bash
+command line generally if you're typing
+a command over and over and over and
+over and over and over and over and over
+and over and over and over uh that's not
+really an efficient use of your time and
+you can use a script and a loop to do
+that over and over for you because you
+can do more than just Echo to the screen
+right you can use your creativity you
+can execute a command inside every Loop
+and then you can use the variable name
+to uh you know do all sorts of things
+like let's say you want to Ping a list
+of IP addresses you could uh do a range
+with a for Loop Loop and use that that
+dollar sign X as the last octet in the
+IP address and you could ping a whole
+bunch of different IP addresses uh in a
+loop instead of typing each one out so
+the the possibilities are endless Loops
+are very very very useful and if you
+want to learn more about using Loops in
+my bash course that I have bash course
+bash playlist whatever it is on the
+YouTube channel here I talk more about
+loops with more examples and more things
+you might want to do so where it's going
+to be over here somewhere uh check out
+my back course um but for now hopefully
+that helps remember to learn everything
+do what you love and most importantly be
+kind I'll see you in the next
+video

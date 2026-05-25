@@ -1,0 +1,104 @@
+the one resource that connects all of
+our Technologies together and is the
+foundation of everything we do is the
+power provided to our systems we spend a
+great deal of time engineering our data
+centers to be able to support the power
+needs for all of our Computing systems
+and we also have to consider what's
+going to happen to this power if we
+happen to have an outage of course most
+data centers don't make their own power
+we have power provided to us by a local
+provider and we can't control how
+available that power happens to be if
+there's an outage to the power grid then
+obviously we'll have an outage in our
+data center for that reason we design
+and develop systems for our data centers
+and other locations so that we always
+have some level of access to electricity
+this might be an outage that occurs for
+minutes or hours or it might be related
+to a natural disaster and you may be
+without power for a number of days if
+you're without power for a number of
+hours you may be able to get through
+that outage with a UPS yes a UPS is an
+uninterruptible power supply and it
+commonly has batteries or some other
+power source inside of it that allows us
+to keep up and running even when the
+main power is no longer operational the
+UPS can get us through times when there
+are complete blackouts where there's no
+power maybe there's a drop in voltage we
+refer to that as a brown out or an
+excessive amount of voltage and we refer
+to those as surges there are different
+types of UPS's that you might use
+depending on your requirements and and
+your budget lower end UPS's tend to be
+offline or standby UPS's this is a UPS
+that is constantly running on main power
+but when that main power fails there's
+an internal switch that moves from main
+power to battery backup a line
+interactive UPS is one that can slowly
+increase the amount of voltage if you
+happen to see a drop on your main power
+line this can be especially helpful if
+you live in an area where there tend to
+be a large number of brownouts and if
+you'd always like like to run from
+battery backup and not have to worry
+about switching back and forth between
+main power and battery power you might
+want to use an online UPS you might also
+hear this referred to as a double
+conversion UPS the batteries inside of a
+UPS have a limited capacity so you want
+to be sure that you get a UPS that is
+large enough to maintain the system for
+the amount of time that you'd like to
+cover during this power outage there's
+also a number of different features that
+you can get with the ups for example Le
+you can choose how much battery capacity
+might be in a particular UPS version and
+if that battery tends to get lower and
+lower you can have the UPS send signals
+to your systems to automatically shut
+them down gracefully before the battery
+power is completely depleted you also
+have choices over the number of outlets
+that might be available on the back of
+the ups and some UPS's include
+additional suppression features to plug
+in an Ethernet or telephone cable if you
+need more than temporary power then you
+might want to look look into a generator
+a generator provides long-term power
+backup and as long as you have fuel the
+generator will continue to provide you
+with power some generators are large
+enough to power an entire building or a
+section of outlets inside of the
+building if this generator provides
+partial power then you'll probably find
+Outlets inside the building that are
+marked as generator power most
+organizations will take advantage of
+both types of power backups both the ups
+and the generator this is because the
+power outage tends to cause the
+generator to turn on but there's a ramp
+up process while the generator is
+starting up and during that time frame
+you may be without power for about a
+minute so you can use your UPS to cover
+that time frame when the generator is
+not running and then once the generator
+provides power to the building
+everything can move over to generator
+power

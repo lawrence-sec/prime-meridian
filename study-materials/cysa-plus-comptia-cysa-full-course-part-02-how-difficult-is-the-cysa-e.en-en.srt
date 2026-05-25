@@ -1,0 +1,507 @@
+1
+00:00:00,560 --> 00:00:04,400
+<font color="white" size=".72c">I know you just want to start learning 
+right now, but, before we begin,  </font>
+
+2
+00:00:04,400 --> 00:00:06,800
+<font color="white" size=".72c">it's very important to set the right expectations </font>
+
+3
+00:00:06,800 --> 00:00:12,560
+<font color="white" size=".72c">I'm going to tell you exactly just how difficult 
+should you expect the CompTIA CySA+ exam to be</font>
+
+4
+00:00:12,560 --> 00:00:15,920
+<font color="white" size=".72c">Trust me, you're going to need this</font>
+
+5
+00:00:27,920 --> 00:00:30,320
+<font color="white" size=".72c">Hi, I'm Andrew, this is Certify Breakfast,  </font>
+
+6
+00:00:30,320 --> 00:00:34,960
+<font color="white" size=".72c">and I'm about to tell you exactly how 
+hard this exam is going to kick your butt</font>
+
+7
+00:00:34,960 --> 00:00:39,040
+<font color="white" size=".72c">So, I'm going to give you 10 pieces 
+of advice, which I strongly believe  </font>
+
+8
+00:00:39,040 --> 00:00:44,400
+<font color="white" size=".72c">that you should know before the exam.
+Most certifications tell you that you need  </font>
+
+9
+00:00:44,400 --> 00:00:50,880
+<font color="white" size=".72c">this much experience to ride in their exam roller 
+coaster, and while the CySA+ also does this, here</font>
+
+10
+00:00:51,440 --> 00:00:55,920
+<font color="white" size=".72c">Even though it's not a mandatory requirement, I 
+would so much want to tell you that you don't need  </font>
+
+11
+00:00:55,920 --> 00:01:01,680
+<font color="white" size=".72c">this much experience, and I am going to tell you 
+that you do not need that on the job experience</font>
+
+12
+00:01:01,680 --> 00:01:05,360
+<font color="white" size=".72c">It's nice to have it, will make 
+your life easier on exam day,  </font>
+
+13
+00:01:05,360 --> 00:01:09,039
+<font color="white" size=".72c">but don't give up just because 
+you don't have that job experience</font>
+
+14
+00:01:09,039 --> 00:01:11,840
+<font color="white" size=".72c">You can learn everything 
+you need to know right now</font>
+
+15
+00:01:12,400 --> 00:01:15,680
+<font color="white" size=".72c">The CySA+ exam expects you 
+to have two major skills</font>
+
+16
+00:01:15,680 --> 00:01:20,960
+<font color="white" size=".72c">The first one is about understanding basic 
+security principles that apply in computer  </font>
+
+17
+00:01:20,960 --> 00:01:26,000
+<font color="white" size=".72c">networks, and the second one is about you 
+being able to understand and interpret the  </font>
+
+18
+00:01:26,000 --> 00:01:30,400
+<font color="white" size=".72c">outputs and commands from some 
+of those specific security tools</font>
+
+19
+00:01:30,400 --> 00:01:35,520
+<font color="white" size=".72c">Which means great news for you, right? Exam 
+study can be done in the comfort of your pajamas,  </font>
+
+20
+00:01:35,520 --> 00:01:39,120
+<font color="white" size=".72c">and also becoming familiar with 
+these tools can also be done in a  </font>
+
+21
+00:01:39,120 --> 00:01:43,520
+<font color="white" size=".72c">couch potato mode, from the comfort of 
+your home as we'll see on number three</font>
+
+22
+00:01:44,240 --> 00:01:50,000
+<font color="white" size=".72c">Security without tools is just a bunch 
+of policies, and we already have our dear  </font>
+
+23
+00:01:50,000 --> 00:01:55,440
+<font color="white" size=".72c">CISSP exam for that, so the CySA+ exam 
+wants you to know how to use certain  </font>
+
+24
+00:01:55,440 --> 00:02:00,720
+<font color="white" size=".72c">tools and how to read some text outputs or 
+to understand some graphical user interface</font>
+
+25
+00:02:01,360 --> 00:02:06,080
+<font color="white" size=".72c">It's not so difficult as it sounds: your 
+laptop is more than enough for these tools</font>
+
+26
+00:02:06,080 --> 00:02:10,240
+<font color="white" size=".72c">Most of them are free anyway and come 
+packed in the Kali Linux distribution  </font>
+
+27
+00:02:10,240 --> 00:02:14,720
+<font color="white" size=".72c">and you certainly don't need to buy 
+any additional hardware for your labs</font>
+
+28
+00:02:14,720 --> 00:02:19,120
+<font color="white" size=".72c">And if you're a bit lazy you can even get 
+away with just watching these tools in action,  </font>
+
+29
+00:02:19,120 --> 00:02:20,640
+<font color="white" size=".72c">like in our next videos</font>
+
+30
+00:02:20,640 --> 00:02:25,520
+<font color="white" size=".72c">And even though the exam will test just how 
+comfortable you are around security devices,  </font>
+
+31
+00:02:25,520 --> 00:02:31,760
+<font color="white" size=".72c">such as firewalls, IPSs, you don't need to have 
+those in your home or at work, right, obviously</font>
+
+32
+00:02:31,760 --> 00:02:34,320
+<font color="white" size=".72c">Which brings us to security vendors</font>
+
+33
+00:02:35,760 --> 00:02:38,960
+<font color="white" size=".72c">CompTIA exams pride themselves for being  </font>
+
+34
+00:02:38,960 --> 00:02:44,560
+<font color="white" size=".72c">vendor neutral or vendor agnostic so they 
+don't focus on a specific vendor out there</font>
+
+35
+00:02:44,560 --> 00:02:49,840
+<font color="white" size=".72c">Well, the problem is the real world IS vendor 
+specific, obviously, so getting some experience  </font>
+
+36
+00:02:50,560 --> 00:02:53,360
+<font color="white" size=".72c">from real firewalls, antivirus solutions,  </font>
+
+37
+00:02:53,360 --> 00:02:58,000
+<font color="white" size=".72c">I don't know... spam filters, means 
+that you get vendor specific experience</font>
+
+38
+00:02:58,000 --> 00:03:02,800
+<font color="white" size=".72c">Well, the good news is that CySA+ exam 
+tries to stay away from specific solutions,  </font>
+
+39
+00:03:02,800 --> 00:03:09,920
+<font color="white" size=".72c">so as long as you can read any type of firewall 
+rule, or any type of Syslog entry, you'll be fine</font>
+
+40
+00:03:09,920 --> 00:03:13,440
+<font color="white" size=".72c">It doesn't matter if you've only 
+seen Cisco, or Check Point, or  </font>
+
+41
+00:03:13,440 --> 00:03:17,280
+<font color="white" size=".72c">Dell before. Even if you haven't 
+seen any, just keep watching</font>
+
+42
+00:03:17,280 --> 00:03:18,320
+<font color="white" size=".72c">and also number five</font>
+
+43
+00:03:19,040 --> 00:03:24,640
+<font color="white" size=".72c">I've been through more than 30 
+certification exams and I've never,  </font>
+
+44
+00:03:24,640 --> 00:03:31,360
+<font color="white" size=".72c">ever, found one single source of information 
+that helps you get that 100 in the exam</font>
+
+45
+00:03:31,360 --> 00:03:37,520
+<font color="white" size=".72c">I love the trainings from sites like 
+LinkedIn or Pluralsight, but, unfortunately,  </font>
+
+46
+00:03:38,079 --> 00:03:43,920
+<font color="white" size=".72c">those videos barely scratch the surface of 
+what you need to know to pass this CySA+ exam</font>
+
+47
+00:03:43,920 --> 00:03:47,440
+<font color="white" size=".72c">So, if you learn from other CySA+ 
+trainings out there, I beg you  </font>
+
+48
+00:03:47,440 --> 00:03:51,440
+<font color="white" size=".72c">don't make the mistake of assuming 
+that it's going to be enough</font>
+
+49
+00:03:52,240 --> 00:03:55,600
+<font color="white" size=".72c">That kind of overconfidence is a 
+recipe for disaster on the exam day,  </font>
+
+50
+00:03:55,600 --> 00:03:59,360
+<font color="white" size=".72c">so I strongly suggest that 
+you do your own research</font>
+
+51
+00:03:59,360 --> 00:04:03,760
+<font color="white" size=".72c">Google is your friend, exploit 
+it, you know, not in a bad way</font>
+
+52
+00:04:03,760 --> 00:04:10,240
+<font color="white" size=".72c">One thing I don't like is ambiguous, and 
+non-technical questions in a technical exam</font>
+
+53
+00:04:10,240 --> 00:04:15,440
+<font color="white" size=".72c">Questions that ask you about the best 
+solution without telling you it should  </font>
+
+54
+00:04:15,440 --> 00:04:20,880
+<font color="white" size=".72c">be the most secure one, the cheapest one, 
+the most convenient one for the users</font>
+
+55
+00:04:20,880 --> 00:04:25,840
+<font color="white" size=".72c">Questions that ask you about trends, and 
+opinions, that don't give you enough context</font>
+
+56
+00:04:27,280 --> 00:04:30,720
+<font color="white" size=".72c">From my perspective a technical 
+question should be like a computer:  </font>
+
+57
+00:04:30,720 --> 00:04:35,840
+<font color="white" size=".72c">give me the right input the question and I will 
+give you the right and the only right answer</font>
+
+58
+00:04:35,840 --> 00:04:42,159
+<font color="white" size=".72c">After three CompTIA certifications, so far, I 
+must say that they do have this habit of pushing  </font>
+
+59
+00:04:42,159 --> 00:04:45,760
+<font color="white" size=".72c">these weird, ambiguous questions in their exams,  </font>
+
+60
+00:04:45,760 --> 00:04:50,640
+<font color="white" size=".72c">very often, worse than other vendors out 
+there and, yes, Cisco, I'm looking at you!</font>
+
+61
+00:04:50,640 --> 00:04:53,760
+<font color="white" size=".72c">You're pushing marketing in your 
+exams and I don't know which is worse</font>
+
+62
+00:04:54,800 --> 00:04:59,280
+<font color="white" size=".72c">Don't worry you, will begin to 
+understand the mindset of the test maker</font>
+
+63
+00:04:59,280 --> 00:05:03,120
+<font color="white" size=".72c">We'll make some dedicated videos on 
+practice tests to help you understand  </font>
+
+64
+00:05:03,120 --> 00:05:06,720
+<font color="white" size=".72c">how CompTIA thinks, and then it hits 
+you with something like number seven</font>
+
+65
+00:05:07,360 --> 00:05:10,960
+<font color="white" size=".72c">Out-of-date questions are 
+about technologies that are  </font>
+
+66
+00:05:10,960 --> 00:05:16,320
+<font color="white" size=".72c">rarely used nowadays but for some reason 
+someone forgot them in the exam pool</font>
+
+67
+00:05:17,040 --> 00:05:23,040
+<font color="white" size=".72c">Things like mitigating some attack which hasn't 
+been an issue since, I don't know, 10 years ago</font>
+
+68
+00:05:23,040 --> 00:05:27,280
+<font color="white" size=".72c">Or assuming that antivirus software 
+hasn't evolved in the past 20 years</font>
+
+69
+00:05:27,280 --> 00:05:30,640
+<font color="white" size=".72c">Talking about BlackBerry phones 
+in the enterprise, stuff like that</font>
+
+70
+00:05:31,360 --> 00:05:35,440
+<font color="white" size=".72c">Make sure you subscribe, as we will cover 
+these as well, at least in one special video</font>
+
+71
+00:05:35,440 --> 00:05:39,680
+<font color="white" size=".72c">Which brings us to another 
+surprise in the exam, number eight</font>
+
+72
+00:05:39,680 --> 00:05:45,600
+<font color="white" size=".72c">If you're facing the CySA+ exam after going 
+through the Network+ and Security+ exams,  </font>
+
+73
+00:05:45,600 --> 00:05:50,400
+<font color="white" size=".72c">like I did, you're in for a bit of 
+a surprise, which kicks in about  </font>
+
+74
+00:05:50,400 --> 00:05:54,480
+<font color="white" size=".72c">after the first 15 minutes of the 
+exam: it's a bit more difficult</font>
+
+75
+00:05:55,040 --> 00:05:59,600
+<font color="white" size=".72c">I must admit, I kind of breezed through 
+the Network+ and the Security+ exams</font>
+
+76
+00:05:59,600 --> 00:06:05,200
+<font color="white" size=".72c">They had a lot of weird questions, but they 
+were not as difficult as the CySA+ exam,  </font>
+
+77
+00:06:05,200 --> 00:06:10,640
+<font color="white" size=".72c">which really goes in depth on some topics, and 
+expects you to pay a lot of attention to details</font>
+
+78
+00:06:11,200 --> 00:06:12,800
+<font color="white" size=".72c">Many questions will punish you  </font>
+
+79
+00:06:13,440 --> 00:06:18,720
+<font color="white" size=".72c">for not paying enough attention to the 
+context, or for reading an output in a hurry</font>
+
+80
+00:06:18,720 --> 00:06:21,280
+<font color="white" size=".72c">Don't make that mistake! Don't rush!</font>
+
+81
+00:06:21,280 --> 00:06:24,320
+<font color="white" size=".72c">And, I'm not saying it's a bad 
+thing, because in real life,  </font>
+
+82
+00:06:24,320 --> 00:06:26,480
+<font color="white" size=".72c">as well, the devil is in the details, right?</font>
+
+83
+00:06:26,480 --> 00:06:28,960
+<font color="white" size=".72c">Just pay attention and you should be fine</font>
+
+84
+00:06:28,960 --> 00:06:33,680
+<font color="white" size=".72c">I've studied for the CISSP, Security+, CySA+,  </font>
+
+85
+00:06:34,400 --> 00:06:39,520
+<font color="white" size=".72c">Certified Ethical Hacker and the CCNA 
+CyberOps exams, all of them about security</font>
+
+86
+00:06:39,520 --> 00:06:43,840
+<font color="white" size=".72c">There's a lot of overlap in these 
+topics, a lot of the content is the same,  </font>
+
+87
+00:06:43,840 --> 00:06:48,400
+<font color="white" size=".72c">a lot of the questions are going to be similar, 
+so, if you've been through some of these you  </font>
+
+88
+00:06:48,400 --> 00:06:53,440
+<font color="white" size=".72c">might find that the CySA+ exam is a bit easier, 
+right, than most people are going to find it</font>
+
+89
+00:06:54,000 --> 00:06:58,960
+<font color="white" size=".72c">Does that mean that some of these are 
+redundant as certifications? Well,  </font>
+
+90
+00:06:58,960 --> 00:07:02,000
+<font color="white" size=".72c">perhaps, but, in my opinion, 
+it's a good thing because  </font>
+
+91
+00:07:02,000 --> 00:07:07,040
+<font color="white" size=".72c">it helps you really refresh that information 
+in your brain and store it on the long term</font>
+
+92
+00:07:07,040 --> 00:07:11,920
+<font color="white" size=".72c">And, one more thing if you Google 
+search for CompTIA CySA+ exam questions,  </font>
+
+93
+00:07:11,920 --> 00:07:15,840
+<font color="white" size=".72c">you will probably find some 
+results, some PDFs some forums</font>
+
+94
+00:07:15,840 --> 00:07:17,680
+<font color="white" size=".72c">And you're probably thinking:</font>
+
+95
+00:07:17,680 --> 00:07:21,760
+<font color="white" size=".72c">"Now he's going to tell us not to search 
+for those, because it's not ethical"</font>
+
+96
+00:07:21,760 --> 00:07:25,440
+<font color="white" size=".72c">And yes, I'm going to tell you it's not 
+ethical, but here's a better reason:</font>
+
+97
+00:07:26,320 --> 00:07:31,520
+<font color="white" size=".72c">First, the answers to those questions 
+are painfully wrong and mislead you,</font>
+
+98
+00:07:31,520 --> 00:07:37,520
+<font color="white" size=".72c">and secondly, they give you a very bad 
+sense of security, because very often  </font>
+
+99
+00:07:37,520 --> 00:07:42,320
+<font color="white" size=".72c">you will realize that the exam has nothing to 
+do with these questions that you found online</font>
+
+100
+00:07:42,320 --> 00:07:47,120
+<font color="white" size=".72c">and that's a very bad thing to realize 
+on the first five minutes of the exam</font>
+
+101
+00:07:47,120 --> 00:07:49,600
+<font color="white" size=".72c">All right! So, enough beating around the bush</font>
+
+102
+00:07:49,600 --> 00:07:53,680
+<font color="white" size=".72c">Let's get down to business and jump 
+into the first topic of the first domain  </font>
+
+103
+00:07:53,680 --> 00:07:55,520
+<font color="white" size=".72c">for the CySA+ certification exam</font>
+
+104
+00:07:55,520 --> 00:07:57,360
+<font color="white" size=".72c">and don't forget to subscribe,  </font>
+
+105
+00:07:57,360 --> 00:08:11,840
+<font color="white" size=".72c">if you want to do a good deed for today and you 
+want to encourage free IT certification training</font>
+

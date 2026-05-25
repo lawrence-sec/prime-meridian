@@ -1,0 +1,389 @@
+hey I'm Sean Powers let's learn some
+Linux now specifically I'm talking about
+the 1.4.5 objective which is actually
+just part of the 1.5 objective for the
+CompTIA Linux plus certification now
+again whether you're trying to get
+certified or not this course is designed
+to help you become a better system
+administrator and as it turns out this
+last section of 1.5
+we've done almost everything
+we've talked about secure shell um I'm I
+have a playlist that I'm pretty happy
+with it talks about ssh in Far More
+depth than you would ever need for Linux
+plus I'll try to put a link either in
+the description or maybe up there or
+wherever you see a link that'll be to
+the SSH course we've looked at netcat
+and rsync we looked at those together in
+a video in this series and so
+um most of this is already done however
+I do want to talk about curl and wget
+they both do similar things but in a
+slightly different way and then I want
+to talk about the difference between
+secure copy and secure FTP I know this
+is my heads covering up the end of this
+but it's right over here it says secure
+or SFTP those are two very closely
+related protocols but they are different
+and it's important to know the different
+now both tools are generally used to get
+information from the web to your local
+command line they're like command line
+tools to get stuff wget or web get is
+specifically as far as I know for
+fetching files from the web you know
+HTTP or https you can send some stuff
+with like post commands with wget but
+it's generally a retrieval thing you can
+get files you can also download entire
+websites now curl you use it a lot of
+times for the same thing but curl can
+send stuff it can go to and from it can
+use multiple protocols like you can use
+FTP or SCP using curl for the most part
+though you still use it on websites
+generally that's that's what I've always
+used it on just like wget the nice thing
+about curl is that it can dump the
+contents directly to standard output so
+let me show you what I mean so for
+example with wget if we do wget and then
+a URL for a file so https
+home to brain of sean.com forward slash
+uploads forward slash
+microwave.jpg it's going to get the file
+that I linked to and it's going to
+download it using that same name so we
+see here microwave.jpg
+if I pull down a little browser here we
+can see this is just a meme of a funny
+microwave that I happen to have in my
+uploads folder
+but that is how uh wget can work now you
+can do some things with wget like we
+could do the same exact thing but Dash
+capital O and I could save it as a a
+different name
+micro.jpg and it's going to download it
+but then it's going to save it using
+that same name so if we look over here
+it's the same exact file it's just saved
+as a different name now the one thing
+you can do with wget that I don't think
+you can do with curl or at least not
+well is mirror an entire website so if
+we were to do something like the dash m
+flag which we're not going to go through
+because it gets complicated there's also
+like flags for changing the links in the
+downloaded mirror so if you click on a
+link it actually points to a link in the
+mirror that you made instead of the
+original link online blah blah blah
+there's lots of flags lots of things to
+do but wget is really good at websites
+that's really the thing to remember is
+that it's really good at web pages and
+what I did here is you know yeah it just
+downloaded the the website or the the
+file from the website but that's what it
+does it downloads stuff from the web or
+it can mirror an entire website now curl
+is very similar in how it works but by
+default it doesn't save a file so let me
+clear the screen here if we were to do
+curl let's just do a website so https
+colon slash google.com uh it's uh well a
+couple things here one it shoots the web
+page out to standard output so we see
+this is actually the web stuff that says
+it's been moved the thing about curl by
+default it doesn't follow redirect so
+this is a 301 redirect to
+www.google.com so if you wanted to
+follow a redirect you have to do the
+dash capital L flag I'm not sure why
+it's Capital hell but it is so curl Dash
+capital L https google.com
+and then this is the whole uh Google web
+page
+like in its HTML goodness here this is
+its HTML Gore if you go to Google right
+now this is what the body would look
+like you can see at the end here uh see
+this is the the very end of the HTML
+stuff now because it does it to standard
+output that means that you can do stuff
+like scrape an API using curl for
+example I created I hope it's still
+active otherwise I'll feel silly I
+created a website that checks for a
+local IP address and mine is Dynamics
+I'm not too worried about exposing my my
+live IP address here it will change
+before long anyway but if we do curl
+https
+now actually you know I better do Dash l
+i don't it probably is going to redirect
+uh https
+ip.snar dot Co it should return sure
+enough it returned an IP address and
+nothing else because that is what the
+website actually returns is it returns
+just the IP address and so then you can
+use Curl inside of a script to get your
+local public IP address if you want uh
+just you know dump the contents into a
+variable or something in a bash script
+and it's very very useful so curl is
+useful in that it just spews it to
+standard output by default but you can
+redirect it to a file so if we wanted to
+do the microwave thing let's let's clear
+this uh let's get rid of everything in
+here
+so nothing at my sleeve if we were to do
+curl Dash I believe it's lowercase o
+with curl which is confusing because
+with W get it's capital O lowercase o
+with curl the output is
+microwave.jpg and I want it to get it
+actually let's
+just so you know it's really doing the
+thing we're going to name it that dot
+jpeg SDF blah blah blah and where do I
+want it to get it from
+home dot reignofshawn.com
+uploads micro way battery pack
+and so what it did here is because it
+didn't spew it just to the the screen to
+standard output it actually gave us a
+nice little graph now it's a pretty
+small file so it went quickly uh but it
+is like a nice little progress meter
+that goes and shows you what it's doing
+which is just kind of nice and if we
+look sure enough there it saved that
+file if you want I can prove it's still
+the silly microwave tipped on its side
+and so that is uh you can do the same
+thing with curl that you did with wget
+but again wget will do website mirroring
+and then curl just has all the options
+you can do other things with curl too
+like you can actually use the FTP
+protocol with curl although honestly
+again usually people just use Curl to
+interact with websites uh just like this
+in in my day-to-day use I generally do
+something like that IP example up above
+where I will pull information from curl
+and then I will pipe the output like
+into awk or set or something like that
+to scrape a web page but there's a lot
+of different things you can do with wget
+and curl they are or interacting with
+the web asterisk because you know curl
+does other stuff too now I want to talk
+about SCP and SFTP because they both use
+the SSH protocol so they both go over
+SSH
+however
+SCP is just basically like CP on the
+command line copy
+over SSH and so you have to have a shell
+on the other side because you are just
+like copying uh from the remote server
+back and forth now SFTP functions very
+much like the traditional FTP program
+but instead of using FTP protocol it
+uses the SSH protocol which means it's
+interactive now the side effect of that
+is you can actually create an account on
+a Linux server that only has SFTP access
+so you don't want somebody to have a
+shell or they can log in and do stuff on
+your system you can just give them SFTP
+access and this requires some sshd
+configuration which is beyond the scope
+of this video but know that it's it's
+one of the cool things you can do and
+then they'll still have the ability to
+upload and download files back and forth
+from the server they just can't log in
+and get an interactive shell but they
+function similarly with copying files
+except like I said SFTP can be
+interactive so let's look I'll just we
+will show you both and you'll will see
+what situation fits best for what you
+need to accomplish so we're back here on
+the command line and I just have this
+file that we downloaded it's the
+microwave picture again but it's named
+something goofy so what we can do is
+using SCP first of all like I said it
+functions just like the copy command and
+on my local server named pookie I have
+SSH Keys installed which again check out
+that SSH playlist if you're not familiar
+with SSH keys but basically it means
+that I can log in without typing in my
+password so I'll show you that first
+just so you understand what's going on
+so if I just type SSH Pookie the name of
+the server on my local network it logs
+me right in without asking for my login
+or password or without asking for my
+password my login is as Powers so I'll
+get out of there clear the screen so now
+in here I have this file if I wanted to
+copy it to Pookie I could just say SCP
+and then the source file which is the SD
+blah blah blah and then the destination
+which is the remote server now you could
+put if your username is the same you can
+leave your username off but I'll say s
+Powers at Pookie or I could just say
+Pookie because again s Powers is the
+username on both this local computer and
+Pookie and then a colon and then the
+path that I want to put it on in my case
+I want to put it on forward slash home
+forward slash S Powers okay and I want
+to tick copy just like CP but SCP that
+SDF file across the network so I'm going
+to press enter and it will copy that
+file over the network just like it would
+have copied if it was from one folder to
+another all right and so now if we SSH
+over to Pookie again
+and we do LS we're going to see that I
+have SDF ASDF dot jpeg over there okay
+so
+it copied over and it's there now there
+is a file called rotate.mp4 so let's
+exit because just like I could copy a
+file with the source file locally and
+the destination remote I can do the same
+thing with the source file being remote
+so I could say SCP
+Pookie home s Powers rotate and I could
+actually go even further I can use
+globbing just like you can with copy so
+I could well the file was called
+rotate.mp4 but I'm just going to say row
+star and so it will include everything
+that that glob matches and the
+destination I want it to be this current
+folder so dot for the current folder
+that's the current folder that we're in
+is Dot and so that's where it's going to
+copy it to press enter and it searched
+using that glob so Ro star and it copy
+well it's actually copying it looks like
+it's kind of a large file it's copying
+the file over the network again just as
+if it were a um
+a local folder that I was copying using
+the CP command so we look and sure
+enough they're the rotate command is now
+we can do the same thing with SFTP but
+it's cool because SFTP is interactive so
+let me show you what I mean let's get
+rid of SDF thing here so we have that
+and then I'm going to set things up
+right so I'm going to SSH back over to
+Pookie
+and then on this side I'm going to get
+rid of
+rotate.mp4 oh yes can I get rid of it
+yeah good okay exit
+clear the screen so now if you have this
+in your head on my local machine I have
+that rotated at MP4 and on the remote
+Pookie server I have the SDF JPEG file
+okay I want them both to have each so
+I'm going to use SFTP to do pretty much
+the same thing we just did with SCP okay
+so I'm back here on my system here I'm
+just going to type SFTP
+pookie and what this is going to do is
+connect me with an interactive SFTP
+shell kind of a thing I guess shell is
+not a good word because like I said you
+can make it so you can't have shell
+access but I'm in a session I guess
+that's the more proper term so I'm in an
+SFTP session on Pookie so on the remote
+session I can type LS and it's going to
+show me what's in that directory and
+sure enough there's that SDF file that
+we want to get and so how we would get
+that is say get
+SD and then I use tab autocomplete which
+also works over SFTP I wasn't actually
+sure until I tried it but you could do
+that and then you just type get and then
+the file name and it's going to fetch it
+from the remote system to the local
+system now you can type LS to see what's
+over there but you can type
+LLS so two L's and that will give you a
+local listing so on my local file system
+if I do that we now have the SDF file
+and the rotate file because again that's
+on my local directory so what if we
+wanted to put rotate.mp4 on the remote
+server well I'm glad you asked because
+the command is put so if we say put
+rotate and you can use Auto tab
+completion there too and it's going to
+since we're putting it's going to
+complete stuff in my local directory we
+say put rotate.mp4 press enter and now
+it's going to upload the file from our
+local computer to Pookie which we are
+sftped into and now if we do LS on the
+remote server we have that if we do LLS
+for our local server look at that we
+have the same thing on both servers and
+then to get out of here you would just
+type exit and now we're back on our
+computer and sure enough we have that
+file now of course that was a very
+simplistic way of checking out SFTP and
+SCP but understanding the difference is
+important you can use either one or both
+however you want to use it if you have
+an interactive like GUI uh thing it
+generally uses SFTP because it will
+establish a session and then you you
+send stuff while you're in that session
+so you know that's good but generally on
+the command line I use SCP far more than
+sft TP just because I quickly want to
+copy a file across the network and you
+can do that across the internet too I
+mean SCP uses SSH so anywhere you can
+SSH you can copy a file and it's just a
+it's just a really great way to manage
+things remotely anyway I hope that was
+useful the other things in this
+objective again I'll put links in the
+description so that you can see other
+tools things that we've covered in this
+course even I mean the Linux plus course
+we already looked at rsync and all that
+stuff so a netcat in fact there was even
+a weekend assignment where we looked at
+netcat so I'll put all the links in the
+description remember to learn everything
+do what you love and most importantly be
+kind thank you to everyone who can make
+these videos happen and I will see you
+on the next one bye

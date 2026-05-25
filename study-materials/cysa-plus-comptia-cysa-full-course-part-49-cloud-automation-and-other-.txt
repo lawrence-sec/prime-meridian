@@ -1,0 +1,542 @@
+[Music]
+right so this time we talk about cloud
+automation and other cloud threats the
+words cloud and automation are a match
+made for life the flexibility and the
+elasticity of the cloud environment
+would not be so spectacular by far if we
+wouldn't be able to leverage that
+flexibility
+without manual intervention
+that's why cloud environments are very
+friendly with programmatic approaches to
+resource management and creation
+and to automation and orchestration
+tools designs especially for
+infrastructure or configuration
+management so this is possible because
+most likely any cloud provider that you
+choose will allow you to interact with
+it not only through a web console where
+you just click your way through but also
+through a rest api endpoint so let's see
+what we can use to talk to those rest
+api endpoints now the first and the most
+basic method of automating anything is
+scripting we're talking here about bash
+scripts python scripts powershell
+scripts go ruby doesn't matter what type
+of script you have there's a saying i
+like if it's worth doing once it's worth
+automating
+[Laughter]
+and yes the simplest form of any
+automation is a script scripts are most
+of the time used as a collection of
+tasks administrative commands that can
+be run without human intervention now
+for a cloud environment scripts can be
+leveraged to automatically create
+resources configure resources or users
+and permissions and so on but at its
+core a script is still just a collection
+of manual tasks the commands in a script
+are similar to the commands that an
+admin would potentially input manually
+directly into the system now of course
+they probably follow some best practices
+and make some checks and are carefully
+written but mistakes can happen and they
+do happen either typos or simply
+forgetting about some specific
+configuration parameter
+these small errors can lead in time to
+large problems when managing complex
+infrastructure so at some point your
+let's say cloud servers might even reach
+a state where your scripts don't work
+any longer because their configuration
+has changed over time or their software
+packages have been updated and your
+scripts have become obsolete they're
+behind and when a script fails to work
+the only thing you can do is go in there
+and try to manually fix things and there
+goes your automation out the window
+before it even happened so we're gonna
+need something better and we call that
+something better orchestration now
+automation in general is focused on
+making simple tasks easily repeatable
+the orchestration goes one level higher
+and deals with automating and building
+the the sequence of tasks to be executed
+for example orchestration might mean an
+entire process that starts with the
+creation of virtual machine the
+installation of the necessary web
+services on it the configuration of
+those services the creation of the i
+don't know the cloud's networking where
+the vm resides
+adding that subnet to a load balancer
+and perhaps even running some tests to
+check the health of the instance and see
+if the traffic flows properly now each
+of these tasks can be an example of
+automation in itself so each task can be
+executed by a script but that's why
+orchestration is sometimes called
+automation of automation and
+orchestration is actually a lot more
+than just sorting some scripts and
+executing them one by one of course
+otherwise it's still scripting many
+orchestration tools have
+really advanced features such as
+implicit validation most tools have very
+strict requirements about all the
+parameters that need to be present in
+the automation workflow in order to be
+deployed now this helps tremendously
+with avoiding errors mistakes and typos
+because this software checks whether all
+the parameters and all the
+all the valid parameters
+are in there and they have been entered
+correctly also orchestration tools can
+take resource dependencies into account
+so that resources are deployed in the
+actual order allowed
+not just by the cloud environment but
+the order that makes sense for us and
+for our infrastructure perhaps for our
+applications
+and make sure that everything is started
+according to the requirements of the
+business process behind it they also add
+sometimes state knowledge this one
+allows the orchestration tool to decide
+whether some or all the steps in the
+orchestration workflow need to be
+executed or not depending on the current
+state of the infrastructure so it
+basically allows the tool to know the
+state of the infrastructure before
+deciding what if anything needs to be
+done
+and finally the last one item potency
+also related to state knowledge means
+that applying a workflow multiple times
+over the same set of resources over the
+same piece of infrastructure should have
+no effect no changes
+on any subsequent applies
+this also means that you can reapply the
+same workflow to validate that it's
+still compliant to your desired state so
+you apply it once it deploys the
+infrastructure if you try to apply it
+again it's going to tell you due to its
+state knowledge
+this infrastructure is already deployed
+i don't need to do anything else right
+if no changes need to be done then you
+can consider your infrastructure
+compliant and well the amount of tools
+out there that deal with automation and
+orchestration is absolutely huge so just
+to give you a taste here i'm going to
+mention terraform it's a tool for
+infrastructure as code we're going to
+talk more about infrastructure as code
+later on
+terraform is designed to deploy and
+manage resources in public clouds such
+as aws google oracle microsoft and so on
+using simple configuration files that
+describe resources in code
+and then terraform reads those files and
+deploys the resources in their
+corresponding cloud environments another
+one is ansible this one is designed for
+configuration management specifically so
+it can create resources but we mostly
+use it to configure those resources to
+connect to those virtual instances and
+then start updating operating system
+settings creating users setting
+permissions installing packages updates
+downloading additional information and
+so on ansible is great because it
+doesn't require any kind of agents
+installed on those servers but instead
+connects over traditional protocols such
+as ssh and runs configuration script
+written in yaml right known as playbooks
+now on the same configuration management
+area we're going to find chef and puppet
+chef is also designed for configuration
+management and uses scripts called
+cookbooks
+written in ruby it's gonna require a
+small agent to be pre-installed on the
+instance that is supposed to be managed
+by chef a puppet again is similar to
+chef also relies on an agent server
+architecture
+we're gonna mention here docker right
+designed for developing shipping and
+running applications in containers
+also includes some limited orchestration
+abilities such as docker compose or
+docker stack
+but the master of container
+orchestration is kubernetes this one
+fills that limited orchestration gap
+which we can find in docker and
+introduces an entire new abstraction for
+managing container based applications
+and the infrastructure behind it like
+storage networking and
+external access
+with a huge amount of flexibility
+a more recent technology which emerged
+kind of at the same time as the modern
+microservices approach
+is called function as a service also
+known as serverless computing or
+serverless architecture so what exactly
+is this is running code without servers
+without infrastructure well it is kind
+of advertised like that
+as in
+any function as a service offering and
+all cloud providers have it they
+advertise it as
+not requiring any kind of infrastructure
+but as we all know code cannot just run
+magically so it does need some
+infrastructure to run on it's just that
+you're not going to gain access you
+don't have any kind of visibility onto
+the infrastructure that your code runs
+on so you don't have to manage the
+servers you don't have to manage the
+storage you don't have to manage any
+operating system you actually don't even
+know what those are behind that code
+this is all managed by the cloud
+environment it's basically a kind of a
+simplified dumbed down
+version of platform as a service where
+the cloud provider offers you the
+infrastructure and you just bring your
+own application you bring your code that
+needs to be executed so all you need to
+do is to provide the code for a function
+we call it function because we're uh
+mostly referring it from a micro
+services perspective of running a
+specific piece of code that does a
+simple atomic thing like you know
+processing an image or processing some
+kind of input right so that's why we
+call it a function it doesn't really
+have to be an actual function in machine
+code but we do just provide that code
+which is actually a microservice and
+that function is going to interact with
+other similar microservices in order to
+provide some results to client requests
+now the cloud takes care to always have
+the function up and running and
+available you just pay
+for how much you use and you never have
+to worry about the infrastructure behind
+it so you only pay for how long the code
+that you're providing
+runs now that code actually runs in most
+cloud providers and some short-lived
+containers so when the function needs to
+be fired when the code needs to be
+launched there's basically a small
+container that gets launched behind the
+scenes which runs your code and when
+it's done executing that code it
+destroys the container kills all context
+and reverts back to its initial state
+and also you don't pay for that code
+anymore if you want to learn more about
+how this function as a service is used
+in real life here's a nice case study
+about how netflix uses it from within
+aws and of course we still have to talk
+about security now security for
+serverless computing
+is some sort of a topic in development
+but mostly it's going to be
+cloud-dependent now your responsibility
+is to secure cloud access to that
+function as a service service make sure
+that the the clients that access those
+cloud functions don't get compromised
+also from a security perspective
+if you don't have to worry about the
+infrastructure and its availability that
+doesn't mean that things cannot go wrong
+in the providers cloud as well you might
+not have much visibility on the disaster
+recovery options available in your
+provider's cloud and most likely there's
+nothing you can do if a disaster happens
+because you have no visibility onto the
+backend infrastructure so remember that
+function as a service doesn't run on
+magic but still physical servers that
+can fail now let's cover a couple of the
+most common security issues or threats
+that tend to happen when you're using a
+cloud environment and apis first of all
+regarding any api that you might be
+using for example the api of the cloud
+service provider itself is a security
+concern in itself so you can either use
+the api of the cloud provider or you
+might have an api exposed in your own
+applications running in the provider's
+cloud and some basic principles that
+apply here first of all make sure to
+secure communication to that api
+endpoint it must be https at least when
+you're communicating over the internet
+now don't just enable https make sure
+you don't allow http connections and you
+return an error if somebody attempts to
+access that endpoint over pure http
+of course whatever you submit in an api
+must be properly validated because
+that's input just like any other kind of
+input don't allow things like injection
+attacks or buffer overflows by failing
+to sanitize your input now apis can be
+attacked through a denial of service
+attack don't forget to enable things
+like rate limiting for any incoming
+requests so that a denial of service
+doesn't happen don't allow more than x
+requests per second or per minute
+make sure you choose that x so that it
+matches the expected
+normal usage of your application of
+course also careful with in-house
+developed apis programmers might attempt
+to
+follow best practices but details are
+often forgotten that might expose your
+application in unintended ways or lead
+to some sensitive information disclosure
+so make sure that the api doesn't give
+to anyone
+access to any resource make sure you
+thoroughly validate any kind of resource
+request
+another important area of concern is
+improper key management now for an api
+to accept your requests you will need to
+present a key an api key now those keys
+and many apis are statically generated
+you create a key in the cloud portal and
+you copy it to the client's host
+and any requests that you generate and
+you send to the cloud endpoint have to
+include that key and of course they
+should be protected using tls i don't
+need to tell you this at this point
+still this doesn't protect against some
+let's say third party stealing or
+obtaining that key using any means
+necessary a compromise key
+can mean that an attacker can perform
+all the actions allowed by that specific
+key
+it might include even destroying your
+cloud infrastructure or making any kind
+of changes in there so as a best
+practice
+avoid hard coding api keys in your
+applications and your scripts or in any
+source code either store it in a
+different location on your machine or
+even not on the disk many api utilities
+accept environment variables for key
+storage so that sensitive information
+such as api keys never
+reach the disk they're never persisted
+on the disk don't forget to apply the
+principle of least privilege like in any
+security area make sure that you create
+specific privileges for each type of key
+according to its
+valid user scenarios don't just create a
+super admin one key to rule them all and
+give it to everyone
+careful with unused keys they are
+sometimes forgotten make sure you delete
+them to deactivate them if they are
+unused chances are that nobody is
+monitoring them and if somebody gets
+their hands on an unused key well nobody
+is going to know that somebody else has
+access to the cloud environment now
+don't forget to change those keys
+periodically which is called key
+rotation that's just deleting and
+recreating a new key just in case some
+keys have been compromised when you
+weren't looking
+don't forget to store those keys
+securely there are many solutions out
+there dedicated to encrypting credential
+stores such as vault from hashicorp the
+same company that makes terraform and
+it's free so why wouldn't you use it and
+lastly don't ignore the security posture
+of the machine or the computer the
+laptop that you're using to interact
+with those apis
+you can whitelist some workstations to
+run only a limited number of
+applications or to access some very
+specific communications channel so that
+you minimize your attack surface and you
+avoid the unfortunate compromise of the
+machines that you're using to manage
+your cloud environment and storage of
+course unprotected storage is a big
+issue cloud storage has many shapes many
+colors many types of services but
+regardless of the type of storage that
+your applications or your users are
+using you will have to manage some sort
+of an access control policy on those
+cloud storage entities
+who has access to which type of data so
+permissions on cloud storage can be a
+combination of access list ip access
+list
+cloud users machine accounts regional
+acls and so on they can become quite
+complex and some admins
+will take the shortcut of either leaving
+the default settings or some very
+permissive settings so that they won't
+have to dig deeper into the details of
+access control this can have two
+unfortunate consequences first one is
+allowing write permissions to the public
+when they should only be read only or
+allowing read permissions to the public
+when they should not have access at all
+if it's about confidential data this is
+one of the most common reasons behind
+data breaches due to errors and
+misconfigurations not actual attacks
+like this example of top 10 worst s3
+bucket breaches
+buckets is a container for an object
+storage service in amazon web services
+now misconfiguring policies access
+policies to those buckets are the number
+one source of data breaches all over the
+world so often enough aws customers are
+exposing themselves unintentionally of
+course and don't forget that insider
+threats
+are still concerned in cloud as well so
+be aware that account compromise can
+happen
+information can be
+intentionally leaked and when it comes
+to cloud storage object storage it's
+actually not even that difficult here's
+one example in my aws account and we
+have one bucket configured right here if
+i click on it and i go to the
+permissions section i can see that by
+default my access is public any objects
+in here can be public i just need to
+click edit here on the block public
+access section
+and i can either choose to implement
+some sort of an acl here or i can just
+simply block all public access to this
+bucket
+and click done click confirm here just
+to prove that i know what i'm doing and
+that's it i mean come on people it's not
+that difficult
+and don't forget about logging and
+monitoring in the cloud as well because
+generally
+you will have
+a harder time here a bit less visibility
+on the cloud compared to what you can
+see and access on premises which means
+that performance management is either a
+bit more difficult or completely out of
+your control and also incidents can go
+undetected for much longer in the cloud
+now on the other hand the good news is
+that all cloud environments have
+dedicated solutions for monitoring and
+logging which is tightly integrated into
+all their services so most of the time
+it's going to be just a check mark to
+enable a collection of logs from a
+specific service or from one of your
+instances
+a good api also should provide enough
+monitoring capabilities as well
+including alerts when a denial of
+services happening for example and since
+we still have our bucket open right here
+under the properties section if you
+scroll down here in aws
+we can enable server access logging that
+is logging requests for access to your
+bucket just click edit here and it's
+just a matter of clicking disable or
+enable all right
+so that's logging here now under the
+metrics section there's monitoring right
+this is the bucket metrics here how much
+space am i using in the bucket how many
+objects i have how many requests i had
+and i can send all this in cloudwatch
+right dedicated solution for metrics
+management and reporting then again not
+that difficult but you are limited to
+only those metrics that the cloud
+provider allows you to see and to
+monitor
+right so that's the end of our second
+discussion about the cloud for the exam
+make sure you remember the methods by
+which you can implement cloud automation
+starting from scripting all the way up
+to orchestration be able to describe
+function as a service or serverless
+computing and also make sure you can
+enumerate and explain some of the most
+common threats that you're facing when
+you're moving your infrastructure or
+your data
+in a cloud environment all right so
+thank you so much for watching if you
+found this useful like and subscribe and
+see you next time when we will be
+talking about vdi that's virtual desktop
+infrastructure containers and
+microservices see you next time
+[Music]

@@ -1,0 +1,154 @@
+one of the most important assets that an
+organization owns is their data but not
+all data is the same and in this video
+we'll step through how the management of
+data can change depending on who has the
+data and what you're doing with the data
+some of the data that is stored by an
+organization may be regulated data this
+means that a third party sets the rules
+on how that data should be protected for
+example if your organization stores
+credit card information that credit card
+data is stored in a way that complies
+with the payment card industry standards
+you also need to be concerned about
+government laws and regulations which
+may dictate how data can be stored and
+for how long another important type of
+data to secure are the trade secrets
+owned by your organization every
+organization has their own set of
+Secrets and processes that are known
+only to the organization many
+organizations would love to get their
+hands on these trade secrets so it's
+important that we have the proper
+security for this type of data and
+intellectual property is a type of data
+that often other people are able to see
+but we protect that data in different
+ways for example it's very common to
+protect intellectual property using
+copyrights and trademark law legal
+information has its own challenges with
+being able to provide information that
+should be public but protect information
+that needs to be private in many parts
+of the world legal records are public
+information you can view the court
+records the judge in attorney
+information and other details but of
+course aspects of those legal
+proceedings may contain private
+information so anything that could be
+considered personally identifiable
+information and other sensitive details
+may be stored in a different format and
+in many cases all of this data is stored
+in different systems some that are
+specific to the court itself and others
+that might be available to the public
+and of course Financial details would
+qualify as sensitive information
+certainly the internal Financial details
+for a company should be kept private but
+of course your own Financial details
+bank account information and other
+payments that you're making are also a
+type of sensitive data that should not
+be shared with others some data types
+are very easy for a human to understand
+we can read through a document or look
+at a spreadsheet it's very obvious what
+we're looking at on the screen but other
+data types may be non-human readable
+this could be something like encoded
+data maybe it's a barcode or some other
+type of image that contains details in a
+form that a human can't easily recognize
+and some of those formats are a
+combination of human readable and
+non-human readable we might have a
+barcode which obviously is difficult to
+interpret for a human but we might
+include the numbers at the bottom of the
+barcode so that humans can read this
+along with the
+computers as you can already tell
+different types of data may have
+different levels of sensitivity and we
+might want to classif ify them in
+different ways for example in many
+states license tag numbers can be easily
+referenced and you can find out
+information about the owner of that
+license tag but information about your
+medical history should never be
+accessible to others and so we might set
+different sensitivity levels on those
+two types of data so we might want to
+add specific permissions that would only
+allow certain individuals to gain access
+to that data or perhaps there's a
+different process to view the data
+depending on how sensitive the data
+might be and for very sensitive data we
+might create a restricted area of the
+network where only specific individuals
+might gain access to that
+data any data that an organization owns
+or information that they've gathered and
+created into their own set of Trade
+Secrets would be considered proprietary
+data that means that it's data that is
+only used by that particular
+organization this is data that is unique
+to this organization and would not
+commonly be found outside the company
+there's also data that we can classify
+as being personally identifiable
+information these are details that could
+tie information back to an individual
+things like a name a date of birth a
+mother's maiden name biometric
+information address details and anything
+else that might somehow point that data
+back to you and from a healthcare
+perspective we have Phi this is
+protected health information these are
+Health details that are specific to an
+individual so any information regarding
+the status of your health details from
+your Healthcare records or even the
+payments that you're using for
+healthcare would all be qualified as
+Phi based on very broad categories of
+data we should be able to create
+different classifications and therefore
+different levels of access into this
+type of data for example we might have a
+classification of sensitive data this
+might include things that may be
+intellectual property pii or Phi we
+could also have confidential data this
+would be something that is more
+sensitive and you would need additional
+access to be able to view it if you're
+working with the government you probably
+have seen public or unclassified data
+which describes information that anyone
+should be able to view if this data is a
+bit more sensitive we might want to add
+an additional classification of private
+classified or restricted which means you
+might need additional rights and
+permissions or you may need to sign a
+non-disclosure agree agement just to
+have access to the data and anything
+that is classified as critical is data
+that should always be accessible this
+means that we should create processes
+and procedures to maintain the uptime
+and availability to that
+data

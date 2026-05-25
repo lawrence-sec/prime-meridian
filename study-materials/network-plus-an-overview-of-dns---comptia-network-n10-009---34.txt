@@ -1,0 +1,410 @@
+one of the most common uses of DNS or
+the domain name system is to translate
+the names that we put into our browsers
+into IP addresses that can be used to
+connect with that particular server for
+example if you put into a browser
+www.professormesser.com
+there's no IP address associated with
+that name there needs to be some process
+to resolve the IP address based on that
+name and we rely on DNS to provide us
+with that name resolution this database
+of names is a hierarchy and in this
+video we will look at the structure of a
+DNS database we often describe this
+resolution process as one device that is
+receiving information from one DNS
+server but in reality there are many DNS
+servers in fact the root DNS servers
+consist of 13 separate server clusters
+that make up over 1,000 actual DNS
+servers these DNS servers manage the top
+level domains or tlds of a number of
+different generic top levels such as.org
+Donnet and others there are also country
+level tlds those are country codes such
+as us for the United States ca for
+canada. for the United Kingdom and so on
+here's an example of a DNS hierarchy
+this starts at the very top of the tree
+which is a single period or dot
+underneath that is the top level domain
+such as com.net and others and then you
+can have other names underneath those
+such as Professor Messer for example you
+could have
+www.professormesser.com
+all found by following this hierarchy we
+refer to this as a fully qualified
+domain name or an
+fqdn you can structure the names used in
+your organization into this fqdn model
+for example you can start with
+professormesser.com which incorporates
+everything within our domain underneath
+that name you might have
+www.professormesser.com which is the
+fully qualified domain name of our web
+server you can continue to add onto this
+domain name for example in our
+organization there is an East and a West
+for the domain names and within the East
+there might be servers and services with
+names associated with them and in the
+west there might be a separate group of
+services in that particular area of the
+domain we use DNS to resolve the IP
+address of many different services for
+example a web server would be a very
+common resolution but we also use this
+for things such as active directory and
+for application access to be able to
+maintain uptime and availability of such
+an important service we will often use
+redundant DNS servers this means we
+might have two or more DNS servers and
+we can configure our systems to use
+those redundant servers so that if the
+first server is not available you still
+have another server to choose you'll
+notice if you look at the configuration
+of your computer there are usually two
+DNS configuration settings this first
+one is for the primary DNS server this
+is a DNS server that has all of the Zone
+information for your particular DNS
+domain any changes you make to the
+configuration or updates to the config
+all happen in this primary DNS server
+the secondary DNS server is not used for
+primary configuration changes instead it
+receives an update from the primary DNS
+server all of this Zone information is
+pushed down to the secondary server in a
+readonly mode and anything that we get
+from a secondary DNS server was first
+configured on the primary DNS server
+from the in user's perspective of course
+it doesn't matter which DNS server is
+reference the same information exists in
+both of those and regardless of which
+server was accessed the end user has no
+idea if it came from a primary DNS
+server or a secondary DNS server in some
+situ situations you might not want to
+query a name server to provide that name
+resolution instead you might want all of
+that resolution to occur on your local
+machine we refer to that as a local name
+resolution for example if you have a
+test server you might want to configure
+your system to access this test IP
+address for that server rather than
+accessing the production server itself
+you might also use local name resolution
+if you feel that the DNS server has
+incorrect information and you want to
+have your own resolution that corrects
+that information on your local machine
+to accomplish this we need a file with
+all of this name resolution inside of it
+and the file name is commonly called the
+hosts file because the name of the file
+itself is called hosts this is an
+example of the host database it's simply
+a text file that contains information
+about the IP addresses and the names of
+the devices that you would like to
+resolve for example I have a test server
+for www.professormesser.com
+its IP address is
+101117 and I can configure my host file
+to access that IP address every time I
+reference
+www.professormesser.com this works for
+many applications but there are certain
+apps that will not reference the host
+file instead they will rely on the DNS
+server as the primary source of
+information so you'll want to check the
+documentation for your application or
+your browser to see how it resolves this
+information and that way you'll know
+whether the host file is something that
+can be used on your system or whether
+you'll need to configure all of those
+settings on the DNS server itself here's
+a bigger view of this host file inside
+of Windows this file itself is located
+at Windows system32 drivers Etsy hosts
+this is a file that is often stored as a
+readonly document so if you want to make
+changes to this file you have to first
+change the file so that you have read
+write access and once you do that you
+can modify the text within the this file
+to have the IP addresses and names that
+you would prefer rather than the ones
+that are located on a DNS
+server one of the most common uses of a
+DNS server is to provide a forward
+lookup this means that we provide the
+DNS server with a name and it returns
+with an IP address for example we can
+send the name
+www.professormesser.com to the DNS
+server and the DNS server will respond
+back to us with the IP address
+associated with that fully qualif domain
+name but we can also provide this entire
+process in Reverse we refer to this as a
+reverse DNS where we provide the DNS
+server with an IP address and the DNS
+server gives us information on what it
+believes the name is for that IP this is
+something that will need to be
+configured in the DNS server to provide
+both a forward lookup and a reverse
+lookup and you'll often find the name
+that you use for the forward lookup
+might be different than the name you
+receive for the reverse lookup here are
+the results of a forward lookup I
+provided this lookup through a utility
+named dig this dig utility allows me to
+query DNS servers I use the Dig utility
+with the parameters
+www.professormesser.com
+and you can see that the results in the
+answer section show me three separate IP
+addresses associated with
+www.professormesser.com these three IP
+addresses are listed here in this order
+and at the bottom of this output we can
+see how long it took to perform the
+query and the DNS server that was
+referenced to provide these details with
+this particular example you can see that
+there are three separate IP addresses
+that could be used to access
+www.professormesser.com but let's
+perform a reverse lookup to one of these
+IP addresses and see what the name is
+that we get back back to perform the
+reverse DNS lookup I'm going to use the
+same dig utility but I'm going to use
+the option of DX and include the IP
+address of
+10422
+72108 and if we look down further into
+the results that we get we can see that
+that particular device is cruise. ns.
+cloudflare.com this is because the front
+end to the www.professormesser.com web
+server is actually a front end located
+at cloudfare .c and by performing the
+reverse DNS we can see the actual name
+of that server
+appear when you receive the results of a
+DNS query those are often provided to
+you through a server that is caching
+that information but occasionally you
+would like to get information from the
+primary DNS server for that domain we
+refer to that primary device as the
+authoritative server that means that
+that DNS server is the one that is the
+Authority for that entire DNS Zone Zone
+if you're accessing a DNS server or
+receiving a result from a DNS server
+that is not the authority then it would
+be a non-authoritative server so it may
+be a secondary server that's receiving a
+copy of the Zone files from the
+authoritative server but in many cases
+it's usually a server that is caching
+this information to make that DNS query
+much faster for example I use the NS
+lookup utility to perform a DNS query of
+www.professormesser.com and you can see
+that the SE that was used for that
+lookup was
+999.9 which happens to be a DNS server
+that is hosted by Google you'll notice
+that the results that I get back specify
+that these are non-authoritative answers
+that means all of this information
+showing the IP addresses associated with
+www.professormesser.com
+cashed is that information could be
+outdated if I make a change to the IP
+addresses in my authoritative server
+there may be cached IP addresses on a
+non-authoritative server that are still
+providing incorrect information to in
+users fortunately we can specify how
+long a non-authoritative server will
+keep that information cached at the end
+of that time frame the non-authoritative
+server will delete those details and any
+subsequent queries for that domain name
+would need to go all the way way to the
+authoritative server so that information
+could be cached again we refer to the
+amount of time that a non-authoritative
+server will maintain that cach as a time
+to live or a TTL that time to live is
+added to the configuration file of the
+authoritative DNS and it's listed as the
+number of seconds that that information
+is allowed to be cached we can see this
+time to live when we perform a DNS query
+for example if you use dig to perform a
+query of WW ww. professormesser.com you
+can see that the results are showing
+three different IP addresses but you'll
+also see that there are some numbers
+included on each line of those IP
+addresses the number 300 this specifies
+that this information will only stay in
+a cach for 300 seconds so you know that
+the IP addresses that you're resolving
+are going to be 5 minutes old or
+less DNS commonly uses recursive DNS
+queries to populate those local DNS
+servers and cash that information so
+that we're able to obtain those
+resolutions as quickly as possible this
+is part of the overall efficiencies
+associated with DNS and allows us to
+have many different DNS queries taking
+place but minimize the amount of overall
+Network traffic the DNS server itself is
+the one doing all of the hard work
+behind the scenes the enduser never sees
+any of these recursive queries and then
+once the original recursive query is
+done we have information that's now
+cached on our local DNS server and any
+subsequent requests for that domain name
+will come from our local server in the
+cache let's look at how this recursive
+DNS query occurs let's first assume that
+no previous queries have been made for
+this domain name so nothing is hidden or
+stored within any caches we start with
+the device making the request we refer
+to this device as the resolver this
+resolver is going to make a request to
+your local DNS server so in this case
+we're looking for the name
+www.professormesser.com if your local
+DNS server is one that is managed by
+your company or it's one that may be at
+a third party such as Google that name
+of
+www.professormesser.com is not going to
+exist in that particular DNS database
+because the DNS server used by our
+domain is located at a different
+provider so how does our local name
+server know where to find that
+particular information fortunately the
+local DNS server is configured with a
+root server IP address so the local name
+server is going to make a request to the
+root server asking for
+www.professormesser.com the root Server
+doesn't contain that information but it
+does know where the Doom name server is
+and it provides that information to your
+local name server the local name server
+is then going to make a request to theom
+name server theame server does have a
+record that shows where the primary DNS
+is for the domain professormesser.com
+and it provides the answer of that IP
+address back to the local name server
+now the local name server knows exactly
+where the primary DNS server is and it
+makes a direct request to the
+professormesser.com name server and of
+course that server will know exactly the
+IP address for
+www.professormesser.com and it will
+provide that information back to your
+local name server now that that
+information is back at the local name
+server it can provide the answer back to
+your workstation and it will cach that
+information so that any subsequent
+requests will simply query the local
+name server and the local name server
+will be able to respond back
+immediately DNS is a protocol that has
+been around for a very long time and
+when it was first created there was not
+a lot of work put into security of the
+protocol information for DNS is usually
+sent in the clear and if someone was
+monitoring your DNS queries they could
+at least have an idea of the services or
+the names of devices that you're trying
+to access another challenge is that the
+results that we're getting from DNS are
+not authenticated so we're never quite
+sure if we're receiving legitimate
+responses from a DNS server or if the
+responses that we're receiving may be
+from a third-party or spoofed DNS server
+one way to resolve this is to use DNS
+SEC this is domain name security
+extensions where the responses that we
+get from these DNS servers are are
+digitally signed this means that we can
+verify that the information that we're
+receiving really did come from a trusted
+source and the information contained
+within that DNS response has not been
+modified by a third party somewhere
+along the transmission DNS SEC does
+require additional changes in
+configurations on your DNS server but it
+does provide a much more secure method
+of name
+resolution even though this information
+has now been digitally signed and we can
+confirm that we're receiving receiv
+receiving information from a trusted
+Source the information that's being sent
+is still in the clear which means
+anybody capturing that traffic can see
+the host names that you're trying to
+access one way to resolve this is to
+encrypt all of the traffic to and from
+the DNS server one method of encrypting
+this data is through DNS over TLS or do
+this allows you to send the DNS traffic
+over a different TCP Port than usual by
+default it's TCP 853 and it encrypts all
+of that information using very similar
+protocols to what we use when we are
+encrypting web server communication
+another form of encrypting this DNS
+information is to send DNS over https or
+do this is going to send all of that DNS
+information over a very standard https
+packet this is the same process of
+communication that we use to send and
+receive encrypted data to a web server
+and if you were to look at a packet
+capture you would see traffic that
+looked exactly like encrypted web server
+traffic that's being communicated over
+TCP Port
+443 some of the more modern browsers use
+do by default and you may be already
+encrypting that DNS traffic whenever
+you're accessing web servers from your
+browser

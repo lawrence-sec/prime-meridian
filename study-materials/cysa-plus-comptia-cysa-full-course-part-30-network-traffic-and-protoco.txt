@@ -1,0 +1,1018 @@
+[Music]
+all right so we did talk about
+networking we focused on networking on
+the last few videos but there's one more
+topic here very important one that we
+need to take into consideration and that
+is network traffic whatever
+travels to that network that's the
+purpose for which that network exists
+from the very beginning to transport
+data from one point to the next but
+there's also a lot of security
+information in all that network traffic
+because most attacks out there are going
+to reach your network your systems your
+hosts
+by using some sort of network even if it
+belongs to you even if it doesn't belong
+to even over the public internet so
+network traffic is really really
+important from a security perspective
+for attackers and for security
+professionals as well so if we want to
+analyze network traffic from a security
+perspective we first need a way to
+capture it in order to analyze it
+because normally you only get to see
+traffic that is destined to your own
+host your own workstation how do we
+capture traffic that is not destined for
+us how do we analyze the entire network
+traffic on a single network segment for
+example and before thinking about the
+actual method that we can use to capture
+that traffic let's think for a second
+about what kind of traffic we want to
+capture and what exactly do we want to
+analyze now a first obvious answer to
+this would be to just capture the entire
+traffic that goes through a network
+segment so we can perform something
+called an inline traffic capture and
+it's called inline because you're
+actually placing yourself or your own
+device in the middle of a network
+segment that you want to monitor
+so you could have something as simple as
+this one host a communicating with one
+host b
+and of course they do have some network
+segment between them
+so how do we inspect what's going on
+through this network cable well one
+simplistic approach would be to install
+an additional host right here in the
+middle connected with one interface
+towards host a one interface toward host
+b
+and whatever traffic happens to flow
+through this network cable is going to
+be intercepted and analyzed by an
+application that is running on this host
+so this one here that's me that's andrew
+now what are the pros and cons of this
+approach well
+first of all it works and that's pretty
+much it it just works now as far as the
+cons go well it's intrusive
+it's difficult to implement because you
+actually have to
+break a wire or insert new wires new
+connections in your networks in order to
+actually be able to install yourself
+into that traffic flow
+secondly it doesn't scale i would even
+say it doesn't scale well it doesn't
+scale at all right you're only able to
+inspect that specific cable and that's
+it you're not going to be able to do
+this on a larger scale with multiple
+servers multiple network segments uh
+even i don't know multiple internet
+connections so it's not exactly the best
+way to do traffic capturing so let's see
+some better ways now a better way would
+be to configure your networking devices
+switches most likely with a
+functionality a feature which is called
+spam if you're using cisco switches
+you're gonna find it under the name of
+port mirroring or traffic mirroring
+under other vendors products but it
+basically relies on the fact that the
+actual network device can be configured
+to take all the traffic from one or more
+ports and create a copy of that traffic
+onto a different port where your packet
+analysis software is located now there
+are a lot of ways in which you can
+actually implement spam and there are
+entire configuration guides on cisco for
+example that explain depending on your
+architecture how to implement something
+like this for example you can perform
+spam locally on a switch from one port
+to another or you can perform it
+remotely that is capturing traffic on
+one switch and then sending it over the
+network towards a remote switch but
+that's beyond the scope of this course
+long story short span or port mirroring
+takes traffic from one or more parts and
+creates a exact copy of that traffic
+onto a destination port the only
+downside to this approach is that you
+actually need
+networking hardware switches that
+support this feature so i'm going to
+talk about managed switches third the
+final option for capturing traffic is
+one that we've talked about in a
+previous video and that is performing a
+man in the middle using our spoofing or
+flooding and first of all this is only
+going to work if your network is not
+properly secured so a network that
+doesn't implement the http snooping or
+dynamic rp inspection
+and secondly it's pretty obvious that
+this is not the desired way of
+performing traffic capture you're
+basically attacking your own network so
+as far as the daily operations daily
+business of a analyst or a or a
+networking engineer
+you're not going to be attacking your
+own network and tricking your servers
+into sending you their traffic when you
+actually have more elegant methods of
+doing this such as span or or port
+mirroring so it's a valid option but
+it's not going to be the preferred
+option in an enterprise environment well
+unfortunately sometimes it's just not
+feasible or possible to catch all
+traffic and inspect all traffic in which
+case we would have to just be content
+with a summary a description of who was
+talking to who for how long how many
+bytes were transferred what kind of
+application was in there kind of like
+the call log on your phone where you can
+see exactly which phone calls were made
+which phone calls were rejected how long
+did they last stuff like that so it's
+basically a way to describe the traffic
+without actually looking inside of the
+contents of that traffic you're not
+going to see the the actual phone
+conversation in your call log
+and in networking we call this type of
+information a flow now a flow is nothing
+more than a sequence of packets series
+of packets that all have in common
+a number of parameters like for example
+all the packets that happen to travel
+between one specific source and one
+specific destination or
+for a one specific application now grab
+all these packets that have this
+information in common and that is flow
+information that is basically a
+conversation which is made up of course
+of multiple packets and this flow
+information you're going to find it's
+implemented in a multitude of ways and
+under a huge number of uh standards and
+naming conventions among which the most
+common ones are going to be things like
+net flow or flexible net flow this is
+with the one introduced by cisco by the
+way you're going to find s flow or j
+flow from juniper ipfix
+and others now fortunately even though
+many of these standards are actually
+developed by their parent companies
+lately they have become interoperable so
+you are now able to actually grab this
+flow information from multiple vendors
+collect them to the same database to the
+same appliance and get a coherent view
+over the entire network regardless of
+how many vendors you have in that in
+that network they're all going to export
+information
+in the same manner under the same
+standard now of course since we're
+talking about
+summarizing this information summarizing
+the network traffic we need the
+networking devices to help us do this
+this kind of summary so
+netflow as a generic term for all these
+flow technologies has to be implemented
+on the networking device itself that is
+most likely on the switch on the access
+switch that connects these servers to
+the network or connects the workstations
+or the aggregation switch
+that aggregates all these access
+connections now these switches can be
+configured to look at the traffic that
+is passing through them and every let's
+say minute or five minutes or 15 minutes
+report to a centralized location to a
+centralized application a set of
+pre-packaged information that basically
+describes this is the type of traffic
+that has been flowing through me during
+the past 5 10 or 15 minutes
+these are the top talkers these are the
+destinations that i've seen these are
+the applications that i've seen this is
+how much how much data was transferred
+between this source and this destination
+so all that statistical information is
+wrapped up nicely and then sent from the
+network switch to a management interface
+that is able to compile this information
+stored in a database and then later is
+able to perform some intelligent queries
+or generate some reports in order for
+you to be able to
+locate for example how much
+netflix has the technical department
+watched in the past month and you can
+gather all this information onto a
+centralized management console that is
+supposed to receive this netflow traffic
+where you can then generate some smart
+reports which are going to tell you what
+kind of applications have been detected
+in the network who is uh who is
+consuming the most bandwidth which
+destinations or which servers have been
+accessed the most
+or even security related information
+that is figuring out if there are data
+flows there there are data streams
+happening in your network that shouldn't
+be there like virtual machines
+communicating when they shouldn't
+clients accessing remote locations on
+the internet that are known to be
+malicious
+all right so let's see what exactly do
+we need to capture all the traffic or
+just to capture this the summary
+information
+so in order to inspect the entire
+traffic or to perform full packet
+inspection first of all you need a copy
+of that traffic so you either
+capture it directly in line or you use a
+device like the one that we've talked
+about before using span functionality on
+cisco switches or mirror port mirroring
+functionality or for other vendors that
+are going to generate an additional copy
+of the traffic that you can then later
+on analyze now a second solution to this
+is especially in situations where let's
+say the networking devices the switches
+don't support this span functionality
+would be to use a dedicated device
+called a sniffer or a tap that's a test
+access port
+now a tap can be either a passive or an
+active device but its main purpose is to
+generate copies of traffic that comes in
+one or more ports so it's basically not
+a switch it's just the span
+functionality from a switch implemented
+in a completely separate hardware device
+so in our ugly drawing here we would
+have something like this with this
+device in the middle now being a tab
+which has dedicated interfaces all right
+we have those two interfaces that
+intercept traffic from a to b and we
+have one more interface right here at
+the bottom to a dedicated management and
+monitoring host
+so this is where the traffic now gets
+analyzed now whatever traffic happens to
+flow between let's say a and b
+all that traffic of course is going to
+flow
+in the right direction but a copy of
+that traffic is also going to be sent
+to this analysis device here at the
+bottom and this is where we can generate
+our reports and this is where we can
+store that traffic and then further
+analyze it now this approach of course
+provides you with a great benefit that
+you get to see the entire traffic that
+goes through that network segment
+that's the good news now unfortunately
+there's also some bad news the bad news
+is that you get to see the entire
+traffic
+which if that traffic is directed to or
+from a port on a server
+that is let's say a 10 gigabit port a 40
+gigabit port 100 gigabit port an upland
+port
+that's going to be a whole lot of
+traffic in there and you might not be
+able to analyze that traffic
+at the speed at which it comes in into
+your your analysis device not to mention
+that if you want to just store it and
+then later analyze it afterwards maybe
+perform some for resnick investigations
+the amount of disk space that you're
+going to be consuming is going to be
+huge so as best practice try to use this
+kind of traffic mirroring storing and
+analysis only for critical network
+segments or critical devices in your
+network that you absolutely have a very
+good reason for capturing storing and
+further analyzing that type of traffic
+otherwise it's going to consume a lot of
+resources and resources mean money well
+that's it for the hardware side now on
+the software side that is the
+application that actually looks for that
+traffic and is able to generate some
+useful information by analyzing that
+traffic now we have a number of tools in
+here among which the most two popular
+ones are tcp dump and wireshark and you
+probably heard about these two before
+now tcp dump is a command line utility
+so nothing spectacular here but it's
+really really powerful now at the
+minimum you can launch tcp dump using
+the simple tcp dump command here
+followed by the dash i switch which
+specifies a certain interface to listen
+on in my case eth0 press enter here and
+in a couple of seconds you should be
+able to see all the packets that are
+flowing over my networking card in this
+case this is a virtual machine so
+there's not much traffic going on here
+but for example we can see some arp
+traffic that's a request on the first
+line and the reply on the second line
+you can see the timestamps you can also
+see which ip address and which ports are
+being used at the source and as the
+destination what type of packet is and
+the length now we can of course cancel
+this i'm going to see a summary of the
+all the packets captured and we can
+actually tune this type of packet
+captures more if you want to see a
+complete list of all the possible
+switches and commands of course you can
+use the manual page for tcp dump
+starting with man tcp dump
+and among the interesting switches that
+you can look for is the dash n let's
+look for it
+you can see it here uh don't convert
+addresses host addresses port numbers so
+i'm going to see the actual ip addresses
+and port numbers as they are so we're
+not going to wait for any dns resolution
+happening in there another interesting
+one is dash lowercase e that is print
+the layer 2 header on each line let's
+try this out actually
+so tcp dump minus ied h0 and add a dash
+e at the end
+and now you can see that you can also
+watch the actual mac addresses from the
+source and the destination mac addresses
+of all the packets that are going
+through your network interface other
+useful options here would be dash v
+this one is going to print out more
+information about your ip packets so for
+example the time to live total length
+and ip packet options are going to be
+printed you can also upgrade this
+command with a double v minus vv here
+even more verbose output additional
+fields are printed
+and
+up to three v's all right so this is
+going to provide you with a lot of
+output now let's try this actually let's
+see how how it works with at least one
+single v and let me just open a web
+browser here so that is going to
+generate some traffic
+and indeed yes we do see a lot of
+traffic here let's actually cancel out
+of this scrolling output now you're
+going to see that each packet now
+includes a whole bunch of information so
+not just the mac addresses the layer 2
+information but you also see the flags
+the time to live identification offset
+which protocol a transport protocol is
+embedded in that ip packet and so on so
+a lot of information here uh basically a
+packet dump now as you can see in just a
+couple of seconds here we managed to
+catch almost 1 000 packets so that's
+going to be a whole lot of information
+that needs to be processed which is why
+tcp dump also provides you with the
+option of
+saving
+this capture this packet captured to a
+file and that's going to be the dash w
+option
+right here right w writes the raw
+packets to a file rather than printing
+them out on the screen this is basically
+going to generate
+a pcap file and the extension pcap you
+might recognize from wireshark as well
+it's actually the same type of file so
+general files generated with tcp dump
+can be opened in wireshark and vice
+versa that's going to be the same the
+same type of packet capture file now of
+course these files can be then loaded
+back into tcp dump for further analysis
+using the minus r option so dash w for
+write dash r for read from a packet
+capture file now wireshark on the other
+hand is a bit more user interface
+friendly so we can start our capture for
+example on our ethernet interface and
+we're immediately going to see all the
+packets flowing through our network
+interface you can see that the protocol
+is being highlighted here now let's just
+stop this capture for a second and
+select one of these uh these packets
+here so
+with this tcp packet selected we can
+collapse the sections here at the bottom
+and you can see that the first one
+actually refers to the layer two
+information that's the framing
+information you can see the frame length
+here the number and then right next to
+it the ethernet information that's the
+mac destination and the type of protocol
+that is embedded in this frame in this
+case it's ipv4 so we can further
+collapse ibv4 here and see all the
+fields that you should be familiar with
+from your networking trainings
+in a normal ipv4 packet of course
+further
+deeper on the in the package we should
+be able to see the
+transport protocol in which in which in
+our case is going to be tcp and we have
+a source port have a destination port
+forward three this is going to be https
+and then all the necessary session
+information like acknowledgements window
+size sequence
+uh
+flags acknowledgements in flags and so
+on relevant for any uh for any tcp
+packet now at the very bottom of the
+screen you're going to see the exact
+same type of information but this time
+structured in a raw
+display so on the left hand side there's
+going to be the hexadecimal display of
+the actual contents of the packet
+starting with the layer 2 information
+and continuing with the payload itself
+on the right hand side you're going to
+see an attempt to display this using
+printable ascii characters now of course
+since this is an https packet this
+information is not in clear text so what
+you're going to see here is either
+nothing printable like a dot or just
+gibberish right because that's that's
+encrypted binary data
+there's no way we can actually display
+this as a clear text right now now i
+would strongly suggest that you take
+some time and play a bit with tcp dump
+and wireshark not only because they're
+important for the exam but they're also
+swiss army knives the basic tools that
+any kind of networking engineer security
+engineer any person who is tasked with
+observing what's going on inside of a
+network should be familiar with now
+there's an important difference between
+packet analysis and protocol analysis
+and the exam is going to insist that you
+know this difference as well so starting
+with packet analysis
+packet analysis
+is a type of deep packet inspection that
+is
+deep analysis of each data packet frame
+by frame looking at the headers looking
+at the contents looking at the entire
+data that comes in through the network
+interface card from a security
+standpoint depending on just how smart
+your analysis still really is it can
+identify it can help you identify by
+looking at the actual packets
+things like command control traffic
+malicious urls data exfiltration
+attempts if you find you know
+confidential files in those in those
+data streams right basically any trace
+of an attack that uses the network is up
+to some point detectable just by looking
+at the network traffic you're not always
+going to be able to look at the network
+traffic in real time that is you might
+realize that you've been breached and
+you might have to look for proof of that
+breach
+into some traffic that happened a few
+hours ago or a few days ago so this is
+why working with offline packet captures
+like those pcap files that can be
+generated by tcp dump or wireshark and
+having those files ready whenever you
+need to investigate something is really
+useful but just having that type of
+traffic is not enough you still need a
+tool to be able to reconstruct actual
+data streams and conversations and files
+from that content
+these type of tools are called file
+carving tools you give them a packet
+capture and they try to extract any kind
+of files that have been transferred
+using any kind of protocols
+within that packet capture some examples
+of such tools
+network miner you can see among the
+first features here it has support for
+live sniffing of packets and also
+parsing of pcap files so we can either
+look at the traffic in real time we can
+look at the traffic that has has been
+saved on the disk
+previously
+if you scroll down here you're going to
+see that it's able to extract files from
+all these supported protocols you can
+probably expect to find things like ftp
+or http or
+server message blocks smb the windows
+file share smtp and so on you can also
+extract certificates or decapsulate
+tunneling protocols isn't that smart
+right and the most important thing on
+this page is the fact that it has a free
+edition as well another open source tool
+is siricata which you can see it's
+actually a
+a network ids ips and network security
+monitoring engine
+it's open source it actually has a lot
+of functionality uh you can have a look
+over the official documentation pages
+here but under the section of rules for
+example you can quickly see as a list of
+supported protocols so these are all the
+protocols that sarikata can inspect and
+potentially extract useful information
+from any kind of traffic that
+might contain something like a sensitive
+file certificate or basically anything
+that can be matched by
+by a rule or a regular expression
+another famous tool for packet analysis
+and also network monitoring is zeek now
+you can see it says here formerly bro
+that's the old name of the software make
+sure you remember this one as well in
+case the exam asks you about it so an
+example here simple one from the
+official documentation you can see that
+zeek can be launched to work with pcap
+files generated by wireshark or tcp dump
+and can then generate and extract in a
+couple of log files all the information
+that it finds within that traffic
+capture for example the connections dns
+information whatever files or http
+traffic was detected within that pcapp
+you can see some examples here as well
+these are the connections
+and this is the dns log okay you can get
+to play with this one as well generate
+the traffic capture on your own using
+wireshark then try analyzing it with
+zeke using the official documentation or
+at least the simple examples that you
+can find here ready made well you might
+be thinking now well that's great i can
+just look at the entire traffic in my
+network or at least the traffic that
+goes to my critical servers and i can
+find all the malware in there i'm safe
+forever
+well yes and no there are some problems
+with this this approach first of all
+traffic capture is going to generate
+huge data sets difficult to store
+difficult to analyze another issue is
+the fact that most of the traffic
+nowadays especially web traffic is
+encrypted traffic if you cannot catch
+that traffic somewhere where it is in
+unencrypted form where you don't have
+the right certificate to decrypt it
+you're going to have a hard time
+figuring out what exactly is happening
+within that encrypted traffic another
+potential problem is the fact that these
+file extraction tools try to identify
+whatever content within that package
+capture is a file by searching for
+specific types of file headers that is
+the first 64 bytes in any file is going
+to tell the operating system what kind
+of file is it is the jpeg file is a
+windows executable file is it a mac os
+executable and so on now the problem is
+that this information can be forged can
+be faked the attacker can obfuscate the
+malware file and make it look like a
+different type of file knowing that on
+the other hand
+there is some piece of software that
+belongs to the attacker that knows how
+to interpret that file correctly but
+this kind of evasion might actually
+bypass your file monitoring tools or dlp
+solutions also you might be looking at
+traffic that's happening on non-standard
+protocols or non-standard ports and
+you're not going to know how to assemble
+that kind of information to make some
+sense of it you're going to have a hard
+time identifying what type of protocol
+is actually traveling on that specific
+port so yeah all the information
+regarding attacks and malware is there
+but you also need a bit of luck and a
+bit of intelligence to figure out what
+is the important stuff in all that
+traffic now on the other hand protocol
+analysis deals with just looking at the
+protocol part of the traffic that is
+layer 2 layer 3 layer 4 of course
+transport and perhaps just
+some basic information about the
+application layer well what can you
+analyze just by looking at the protocol
+and not the payload itself
+well fortunately there are a couple of
+things that you can determine for
+example you can find protocol anomalies
+so packets that are expected to follow a
+specific protocol like the http protocol
+but they don't exactly set the right
+flags or they don't contain the right
+structure
+for an http conversation
+that might be an indicator of
+non-standard traffic that it's
+attempting to exploit a vulnerability or
+a bug in the implementation of the web
+server on the other end you can also
+detect unknown protocols because if you
+find some type of traffic in your
+network and you're not able to determine
+what type of protocol that traffic is
+that's never good news nowadays you can
+determine even the difference between i
+don't know a user playing fortnight and
+a user playing world of warcraft just by
+looking at the network traffic generated
+by those two applications you can also
+perform statistical analysis that is
+looking for a certain sequence of
+packets or a frequency of packets that
+might indicate an attack pattern and
+finally we can even get some insight
+onto the actual application
+within those packets even when the
+contents are encrypted
+for example multiple short exchanges
+might indicate some type of interactive
+session a large one-way transfer might
+indicate data exfiltration even if the
+transfer is encrypted cisco and by the
+way they're not the only ones doing this
+they have a solution called encrypted
+traffic analysis and they claim to be
+able to just by looking at the network
+traffic the encrypted traffic itself
+they're able to find
+cyber security threats within that
+traffic without decrypting it now of
+course since it is not able to look at
+the actual traffic it's going to rely on
+some advanced entity modeling and
+machine learning right trying constantly
+to identify who is on the network what
+are they doing so that they can detect
+anomalous behavior in real time and to
+identify the corresponding threats
+and don't forget that you can also use
+wireshark from some very basic
+traffic statistic or traffic or protocol
+analysis like this one right here this
+is the output from the flow graph
+functionality in the statistics menu
+and you can even get some insight about
+protocol anomalies and errors and things
+that might be worth investigating by
+accessing expert information
+from the analyze menu in wireshark
+and as you remember the second method
+that we mentioned about analyzing
+network traffic is analyzing this flow
+information and this is relevant because
+most of the time you'll probably not
+have the necessary resources to perform
+full packet inspection full packet
+capture in order to determine suspicious
+activity now especially in large
+environments where the amount of traffic
+is absolutely huge so we can use another
+method just by capturing the summary
+information now the good thing about
+traffic flows is that they don't require
+a lot of storage space they don't
+require a lot of cpu to analyze to
+process
+and this information can actually be
+generated by a number of networking
+devices like switches routers even
+firewalls or ips's or even wireless lan
+controllers for wireless traffic and
+these devices send them from time to
+time to a centralized database or a
+management application for storage and
+processing
+now if you have the right budget for
+this
+such an application can also be a seam a
+security information event management
+because that's the type of software
+solution security solution that is
+perfectly suited for analyzing this type
+of dynamic information that is coming
+from the network so netflow traffic sent
+to a seam can allow that seam to
+determine
+whether something malicious is happening
+in your network let me actually show you
+what kind of information are we sending
+within these these flow technologies so
+at the minimum you're going to probably
+think that you should be able to send
+things like what kind of protocol you
+are using
+let me see here the tcp control bits ip
+class of service
+source and destination like the
+transport port for the source the source
+ipv4 address or ipv6 if it's necessary
+uh ingress interface egress interface
+destination iep addresses destination
+ports
+but also
+if you scroll down here down this list
+you're gonna see that these technologies
+are actually extremely flexible so we
+can actually go as far as sending
+specific bgp metric parameters along
+with our traffic when did the flow start
+when did the flow end
+what was the
+minimum or the maximum packet size that
+we were able to observe during that flow
+what kind of sampling intervals or
+sampling algorithms are using and by the
+way sampling is a very important topic
+because
+most of these flow technologies that
+we've mentioned before they don't look
+at every single packet they're going to
+look at one in every
+10 maybe 100 packets
+and that's all the information that
+they're going to process
+all right why do we do this well because
+we have to actually rely on the hardware
+of that networking device to generate
+this information for us and some of them
+especially switches they are great at
+you know just pushing traffic from one
+port to the next and then forwarding
+traffic they're not so good
+at looking at that packet and making
+some smart decisions maybe summarizing
+some information and storing it into a
+temporary memory they might not have the
+necessary cpu power to do this for each
+and every packet so if we ask this kind
+of summary information from them not
+only we're going to receive just the
+general information about the flow
+but we're also going to receive a
+general information of about 10
+of the actual traffic that goes to that
+switch now in most situations
+this amount is going to be enough but
+from a security standpoint if we want to
+be able to pinpoint exactly what kind of
+attack is happening who is targeting
+with using what kind of protocol that's
+not going to be enough now fortunately
+recent devices
+have become more and more powerful so
+unsampled netflow is starting to become
+a standard in itself and by the way
+cisco was the first one to introduce
+this technology and they called it
+netflow now since the first version of
+netflow there have been a
+huge number of additional versions each
+and every one of them
+expanding the ones before it so right
+now the versions that we're currently
+using are not only extremely flexible
+but they're also standardized so they're
+used by all the vendors out there not
+just cisco so among the pros here for
+the fact that we're only capturing the
+metadata like the source and destination
+ip addresses or the ports
+the layer 4 protocol stuff like that now
+newer versions can also capture some
+custom fields or even routing protocol
+information like the bgp field that we
+saw earlier another benefit is the fact
+that you don't actually need any
+specific dedicated hardware to do this
+you don't need to install anything new
+inside of your network you just have to
+reconfigure the devices that you already
+have of course you will need an
+additional component then that is the
+centralized storage component where all
+this information is being sent stored
+and analyzed but that's another
+discussion as i said we now have a
+unified view among vendors so most of
+the
+flow protocols supported nowadays are
+going to be common between multiple
+vendors out there so when you aggregate
+all this information it's going to look
+the same doesn't matter if it comes from
+an hp switch or from an from a cisco
+router
+and they're great for reporting and
+visualization creating reports traffic
+reports who are the top talkers who were
+the most used protocols who was the most
+access destination in our company or in
+our department now as for the cons of
+course we don't have visibility inside
+the actual payload the actual packets so
+malware is going to go undetected at
+least the body of the malware itself
+that's why with netflow we're looking at
+traffic patterns because we're not able
+to look at the actual package contents
+as i said before you will need an
+additional component that's
+decentralized storage and management
+component which can be a virtual machine
+an application running on a server just
+make sure that it is able to
+process the amount of flow information
+that you are about to send to it flow
+information unfortunately is not
+something that can be manually processed
+by a networking engineer security
+engineer and as we previously mentioned
+most of the technologies up until
+quite recently
+they were based on sampled flows so they
+were just sampling one packet out of 10
+for example and that was the information
+that they used to figure out what kind
+of flow is happening in there all right
+so what kind of tools can you use to
+process this flow information there are
+some enterprise solutions out there
+because this is not something that you
+would probably want to have in your in
+your home or your home office but this
+is something you will install in an
+enterprise environment in a
+small to medium to large company well
+one example would be the network traffic
+analyzer from the solarwinds portfolio
+another one would be from manage engine
+netflow analyzer pretty similar to
+solarwinds
+cisco also has a dedicated solution for
+security intelligence which is based on
+collecting flow information this was
+formerly called stealthwatch and you're
+still gonna find it as stealthwatch
+because people still call it that but
+right now it has been renamed to cisco
+secure network analytics extremely
+generic name actually i would much
+rather prefer to call it stealthwatch
+and on the more open free open source
+side you can find things like silk
+or
+argus
+i'm going to provide you with links in
+the description for all of these make
+sure you check them out and just try to
+familiarize yourself with their
+capabilities you don't need to be able
+to install these or configure these for
+the exam but you do need to know what
+they're good for and finally not exactly
+flow analysis but it's worth mentioning
+here mrtg and that's multi-router
+traffic grapher bad name in my opinion
+it pulls network devices it's based on
+agents they which report over the snmp
+protocol the state of those those hosts
+those devices in our network they must
+be configured to send snmp information
+to mrtg of course which is just a
+summary
+of the actual device information kind of
+like netflow but it's about the entire
+device not just the networking traffic
+so it's not flow information but it's
+going to alert you about bandwidth usage
+uh cpu utilization disk space or even
+traffic patterns that are easily
+identified like floods or or denial of
+service attacks and by the way you
+probably recognize these graphs here
+because they are widely used all over
+the world by a lot of hosting operators
+and networking engineers
+well that's it for today make sure you
+understand the importance of capturing
+traffic a couple of methods of doing so
+and the difference between capturing the
+entire traffic and
+just looking at the flow information
+make sure you can define all this for
+the exam and for your daily
+operations and one more thing i would
+strongly advise you to give it a try and
+play with wireshark on your own it's
+free to install anybody can use it try
+to capture some traffic try to
+determine what type of protocols are in
+there try to recognize the things that
+you you know about id packets or tcp
+traffic and try to recognize them in
+real life traffic that's going to help
+you tremendously recognizing these
+outputs and also troubleshooting real
+life issues that might appear in your in
+your environment if you found this
+useful and easy to understand make sure
+you like and subscribe and see you next
+time because we're gonna talk about
+active defense now that sounds cool bye
+bye
+[Music]
+you

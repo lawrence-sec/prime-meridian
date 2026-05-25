@@ -1,0 +1,207 @@
+if you are connected to the internet
+then you're probably communicating
+through a firewall we use these
+firewalls in our homes and our offices
+we even have firewalls built into our
+operating systems themselves firewalls
+are designed to control the flow of
+traffic between two points so you might
+be able to control traffic going in and
+out of your network using your firewall
+this can be especially important in
+large environments where you have
+hundreds or even thousands of users
+communicating to the internet and back
+again and you can use the firewall to
+manage all of those flows firewalls can
+also be used to control what websites or
+content a person may access this can be
+used in a corporate environment to
+control what websites employees might
+visit or you might have the firewall at
+home provide parental controls and since
+the firewall is watching all traffic
+pass through it this is a perfect place
+to provide additional security controls
+for antivirus and
+antimalware a network-based firewall
+controls traffic through the use of a
+purpose-built appliance traditional
+network-based firewalls can control
+traffic based on OSI layer 4 so that
+would be a TCP port or a UDP port number
+more modern Next Generation firewalls
+are able to manage traffic based on OSI
+layer 7 this is the application layer so
+they're able to allow or disallow
+traffic based on what application is
+being used over the network firewalls
+can also do more than simply allow or
+disallow traffic flows they can
+integrate other services inside of the
+firewall such as a virtual private
+Network or VPN and many firewalls can
+also operate as a layer 3 device or a
+router these devices would commonly sit
+on the edge of the network and control
+the traffic flows between the internal
+Network and the external network because
+they're providing this layer 3
+functionality they very often can
+provide Network address translation and
+other types of routing
+protocols some older firewalls include a
+number of different features that are
+bundled within one single device we
+refer to these older devices as a UTM or
+a unified threat management device
+sometimes you'll see this referred to as
+a web security Gateway or an all-in-one
+security Appliance we refer them as
+allinone because they're able to handle
+many different Services all at the same
+time features such as URL filtering or
+content inspection can allow or disallow
+access to certain websites these UTM
+might also have some capability for
+identifying malware and blocking it
+before it gets into your network many
+UTM can also be used to filter spam so
+they can block unwanted email
+corresponden within the firewall itself
+these devices might also provide
+additional functionality for wide air
+network connectivity such as a CSU DSU
+or routing and switching built into the
+device itself of course the firewall
+functionality is also included along
+with the ability to block malicious
+software through the use of an IDs or or
+IPS and since all of this traffic is
+flowing through this single device we
+can use this as a bandwidth shaper to
+provide quality of service across
+different applications or protocols and
+in many cases these UTM can also act as
+a VPN concentrator or VPN endpoint
+providing a way for people to connect
+securely to the corporate environment
+one of the challenges with UTM however
+is that many of these devices only
+operate at layer 4 so they only look at
+Port numbers and having all of these
+individual and separate capabilities
+within one single Appliance often
+provide a drawback to Performance so you
+may only turn on a few of these
+capabilities before the entire device
+tends to slow down one of the most
+modern types of firewalls is the next
+Generation firewall or
+ngfw these devices operate at OSI layer
+7 so they're able to make forwarding
+decisions based on the applications that
+are being used on the network sometimes
+you'll hear these next Generation
+firewalls described as app application
+layer gateways stateful multi-layer
+inspection devices or deep packet
+inspection a Next Generation firewall is
+able to examine all traffic traversing
+the network and perform a full packet
+decode of everything traversing those
+links that means the firewall can
+recognize who's sending the traffic
+where the traffic's going to what is
+contained within the application layer
+of the traffic and then make forwarding
+decisions on whether that traffic is
+allowed or disallowed through the
+firewall Next Generation firewalls are
+able to examine all of this traffic
+determine what applications are in use
+and then make forwarding decisions based
+on those applications so an xgen
+firewall might allow Microsoft SQL
+Server traffic to go through the
+firewall regardless of what port number
+it's using maybe people are allowed to
+view Twitter but not post a Twitter and
+then you can allow or restrict anyone
+from viewing YouTube videos it's very
+possible that all three of these
+application types are using similar port
+numbers but since the Next Generation
+firewall looks at the application layer
+it doesn't necessarily rely on just a
+port number to make forwarding decisions
+it's also very common for Next
+Generation firewall to have a list of
+known vulnerabilities that it can allow
+or block in the firewall itself
+effectively turning that portion of the
+Next Generation firewall into an
+intrusion prevention system and many
+nextg firewalls will include a
+categorization of URLs so you can allow
+or block traffic to a specific type of
+website or a specific URL itself this
+means you could configure a rule inside
+of your next gen firewall that would
+prohibit anyone inside of your network
+from visiting a site categorized as a
+gambling site or you can individually
+list URLs for example you might prevent
+anyone from visiting
+espn.com or
+yahoo.com there's another firewall that
+we can put into its own category because
+it doesn't work like a UTM or next
+Generation firewall this will would be a
+web application firewall or a WAFF web
+application firewalls are designed to
+analyze input into web-based
+applications and either allow or
+disallow that traffic based on what the
+input happens to be this is very common
+for web-based conversations using HTTP
+or https for example a web application
+firewall can identify SQL injections
+within a traffic flow and block that
+from reaching the application server
+It's Not Unusual to see a web
+application firewall used alongside a
+Next Generation firewall both of those
+firewalls are looking at different
+traffic and making different forwarding
+decisions sometimes we are mandated to
+have a web application firewall as part
+of a directive to keep our Network safe
+for example the payment card industry
+DSS or data security standard focuses on
+providing web application firew walls to
+be able to better protect these credit
+card-based
+applications here's a log file from a
+web application firewall you can see
+that all of the attacks that are blocked
+within this log file are attacks against
+a web-based app things like SQL
+injections cross-site scripting and
+web-based errors for example this
+particular log entry looks at the time
+the date and assigns an ID to this
+particular record you can see the URL
+that was visited on the website which is
+an index.cgi the service IP address is
+listed along with the port number in
+this case it was a web server Di 1 and
+this communication was over HTTP this
+traffic flow originated from this client
+IP address and Country and you can see
+the details in the attack name the
+attack itself is identified as SQL
+injection in parameter you can see that
+it was blocked based on a standard
+security policy for this web application
+firewall

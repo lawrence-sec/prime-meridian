@@ -1,0 +1,111 @@
+in previous videos we've talked about
+how easy it would be to gain access to
+someone's Network by leaving USB Keys
+around their parking lot hoping that
+somebody picks one up on the way into
+the office and plugs it into their
+computer once they get to their desk but
+what if your employeers are so well
+trained that a USB key in a parking lot
+is not going to be plugged in and
+they're going to prevent any type of
+access from the outside you've done such
+a good job at training your employees
+that they're not going to click links
+inside of their emails either and
+they're not going to run any type of
+attachments that may come with any of
+the messages so instead of the attacker
+trying to get inside of your network
+they'll Instead try to gain access to
+the system that you will access later on
+we refer to this as a watering hole
+attack that means the attacker will
+poison the watering hole and simply wait
+for you to visit this obviously requires
+for the attacker to do a little bit of
+research they need to understand what
+third-party sites your organization
+might visit and then try to find a way
+into that third party site this might be
+something that your employees do every
+day for example they might submit orders
+on a website for a local coffee shop or
+sandwich shop and if the attacker can
+gain access to the sandwich shop web
+server they could potentially infect
+your company of course this would
+require that there be some type of
+vulnerability associated with that
+thirdparty website or maybe they're
+sending email attachments to the
+sandwich shop hoping the Sandwich Shop
+clicks on it so they can gain access to
+their Network and then ultimately gain
+access to your network as part of this
+Watering Hole attack the attacker may be
+poisoning all of the water for everyone
+who visits this particular website but
+of course they know that eventually your
+organization will visit this sandwich
+shop website and that's the one
+connection that they're interested in
+pursuing here's a good example of a
+watering hole attack being used this
+occurred in January of 2017 and the
+attackers were successful in poisoning
+the water in the Polish Financial
+supervision Authority the national
+banking and stock commission of Mexico
+and the state-owned bank in Uruguay once
+these sites were exploited they added
+malicious JavaScript files to the web
+server but they were very specific on
+who they were trying to infect in fact
+they did not poison the entire water but
+only a section of the water only IP
+addresses that were associated with
+particular Financial organizations and
+Banks would receive these malicious
+JavaScript files everyone else who
+visited these sites saw the normal site
+with no malicious code unfortunately the
+results of this Watering Hole attack
+were never made public so we're not sure
+if the attackers ever eventually got the
+access they were hoping to find from
+these third-party sites but we do know
+that they infected quite a number of
+sites through this Watering Hole attack
+there's not any one thing that can help
+prevent a watering hole attack you need
+need to have a layered defense or what
+we call in the industry as defense in
+depth this means that you might have
+antivirus a firewall an intrusion
+prevention system and multiple layers of
+security so that if one device doesn't
+recognize something malicious perhaps
+one of these other layers certainly will
+this is why we often see firewalls and
+intrusion prevention systems often
+bundled together the firewall might
+allow this traffic through but once the
+traffic gets to the IPS it will
+recognize that the content of that
+Network traffic are indeed malicious and
+in the case of the malicious software
+that was running on the Polish Financial
+supervision Authority anyone who visited
+that site with those specific IP
+addresses and was using semanex
+antivirus software would receive a
+message saying that it recognized
+malicious code and it would stop that
+from executing on an individual's
+computer by putting these multiple
+layers of security in place you're
+increasing the odds that you might
+recognize and block any of this
+malicious
+software

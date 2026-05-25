@@ -1,0 +1,133 @@
+when you're deploying a cloud-based
+application you also need to consider
+who will be accessing that application
+and from where if you're creating an
+application that anyone on the internet
+would need to access then you would
+probably want to include it in a public
+Cloud so that everyone can gain access
+but if you're building out a cloud-based
+application that is for internal use
+only you may want to deploy this to your
+own virtualized local data center where
+you have a private cloud in many
+organizations we often use both of these
+and we need a hybrid configuration of
+both public and private clouds for all
+of these
+applications one type of cloud model is
+software as a service or SAS this is
+commonly associated with software that
+is on demand you have a login screen on
+your browser you log in and now you have
+access to the application someone else
+has written the application someone else
+manages the application your data is
+stored somewhere within that application
+and you don't have to do anything else
+to be able to use that particular app
+you don't have a local installation of
+software you don't manage or upgrade any
+of the software itself instead you
+simply log in and use the app this
+allows for centralized management of the
+application and the data that you're
+putting into the application which means
+everything is being stored on a
+third-party Cloud platform this is a
+complete applic apption offering and you
+don't have to do any type of development
+work to be able to use that app a good
+example of software as a service would
+be an app like Google mail or Office 365
+where you simply log in and use the app
+there may be times when you would like
+to build your own application and deploy
+and manage your own data and all you
+really need are the Computing resources
+to be able to run that application in
+that model you want to use
+infrastructure as a service or
+IAS sometimes you'll see this referred
+to as Hardware as a service or
+Haas because you're effectively using
+Hardware in the cloud and then using
+your own software on top of that this
+means that you would be responsible for
+installing your software in managing all
+of the data associated with that
+software if the software needs to be
+upgraded you would be the one to upgrade
+it on your infrastructure as a service
+model the application that you're using
+and the data that you're putting into
+that application is still in the cloud
+but you have much more control over the
+access and security of that data when
+you're using infrastructure as a service
+a good example of infrastructure as a
+service is with web service providers
+where you can buy time on a particular
+web server and they make that server
+available to everyone on the internet a
+middle ground between software as a
+service and infrastructure as a service
+is platform as a service or
+paas this is still in the Cloud but
+you're the one who manages all of the
+development efforts to customize the
+application to your specifications the
+cloud provider gives you all of the
+tools necessary to build this particular
+app you can think of this as a series of
+building blocks provided by the platform
+as a service infrastructure and then you
+build out those blocks to create your
+own application the underlying engine
+that runs the application is the
+responsibility of the platform as a
+service provider and your responsibility
+is to build and maintain the apps that
+are running in platform as a service a
+good example of a platform as a service
+infrastructure would be something like
+salesforce.com where they give you all
+of the tools necessary to create a
+customized application running on the
+salesforce.com platform here's an
+example of a cloud responsibility Matrix
+that you might find with any cloud
+service provider in this chart I've
+separated out software as a service
+platform as a service infrastructure as
+a service and then an on-prem device
+that you would manage yourself obviously
+with on-prem everything from the data to
+the applications to the physical data
+center are all the responsibility of the
+customer but with infrastructure as a
+service you have the physical data
+center the physical Network and the
+physical host all provided by the cloud
+provider and then you handle all of the
+other pieces of that particular
+application with platform is a service
+you can see that network controls
+applications and the identity and
+directory infrastructure may be shared
+between the customer and the cloud
+provider but you'd still be responsible
+for the accounts devices and the
+information and data with software as a
+service much more of these are provided
+by the provider themselves for example
+everything associated with the
+applications is clearly in the
+responsibility of the provider
+everything above that would still be the
+responsibility of the customer so
+depending on the type of infrastructure
+you want and the type of responsibility
+that you're willing to take on you'll
+need to pick the right cloud model for
+your application deployment

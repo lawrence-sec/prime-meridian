@@ -1,0 +1,248 @@
+if you're installing a new wireless
+network or you're troubleshooting an
+existing wireless network you may want
+to consider performing a site survey
+this allows you to better understand how
+your wireless network May perform and it
+might also give you some insights into
+how other networks around you may be
+affecting your signal one of the first
+steps of a site survey is to get a
+better understanding of what access
+points may be currently installed these
+may be access points that are part of
+your network or it may be access points
+that are simp located in a close
+geographical area obviously if there are
+access points that are outside of your
+control then you'll have to configure
+your access points to work around the
+existing frequency use the site survey
+will detail everything about the current
+spectrum and give you an idea of what
+channels might be best for your wireless
+network and of course with technology
+things can change quite a bit so it
+might be a good idea to perform this
+site survey on regular intervals this
+will give you a chance to see if the
+access points outside of your control
+may have changed and there might be
+additional access points that might
+require you to make changes to your
+existing wireless network a good way to
+visualize your wireless network is with
+a heat map this is a heat map I took
+with my network and you can see the
+areas where there's more signal have the
+colors yellow or red as the signal
+decreases you can see that the colors
+become darker or more Bluer it's
+sometimes difficult to predict how
+Wireless signals might work in a
+particular workplace the heat Maps allow
+you to go from room to room and get an
+idea of what you might expect with
+signal strengths on your network you
+might also use wireless survey tools to
+gather more information about the
+wireless networks around you this can
+provide you with a summary of all of the
+different access points or ssids that
+are in your area you can see bssid
+Channel information the bands or
+frequencies that are in use and other
+details about the wireless network this
+is a good way to determine what access
+points may have the best coverage for
+your area and you can move around to see
+how these numbers might change this is
+also a good way to see what type of
+interference might be in your area and
+if you're trying to track down where
+problem areas might be on your wireless
+network these survey tools can provide
+you with a great deal of feedback our
+operating systems also include a number
+of built-in tools for wireless
+networking sometimes this is a separate
+utility you can run or may be built into
+the wireless interface that is currently
+associated with your connection there
+also a number of thirdparty tools that
+you can download this is a screenshot
+from netspot that I downloaded and ran
+on my system and it instantly gave me a
+list of all of the wireless networks
+around me as well as some valuable
+metrics that can help me understand what
+access points are close to me what
+access points may be farther away and if
+you believe there may be other devices
+that might be using the same frequencies
+as your access points you may want to
+invest in a spectrum analyzer this will
+show you all signals on a particular
+frequency what whether they originated
+from an access point or from any other
+device many organizations will manage
+their mobile devices through the use of
+a mobile device manager or MDM these are
+especially useful for managing devices
+that may be owned by the company and
+also for devices that may be user owned
+sometimes we refer to these user owned
+devices as BYOD or bring your own device
+an MDM allows the system administrator
+to manage all of the mobile devices for
+a particular organization this means
+means that they can roll out certain
+policies or require that certain
+applications are always installed on
+those devices can also be used to set
+policies on what features of the mobile
+device may be used for example the
+camera on your phone may be disabled
+when you're in the corporate
+headquarters but when you leave the
+building the camera is re-enabled this
+also allows the administrator to
+configure segmentation on your mobile
+device where a portion of your device is
+dedicated for business use this provides
+a way for you to keep your personal
+details on this phone but keep all of
+that data protected and separate from
+the business data from a security
+perspective this functionality can
+provide you with a way to push down
+security policies so you may require
+that all mobile devices have screen
+locks that are forced on after a certain
+amount of inactivity and it may require
+passwords or personal identification
+numbers to relog in to that mobile
+device as we mentioned earlier BYOD
+stands for bring your own device
+sometimes you'll hear this referenced as
+bring your own technology this is when
+an employee brings their personal phone
+into the workplace to be used both for
+personal use and for work purposes the
+challenge of course is that these
+devices have to meet the company
+requirements so that they can be managed
+through the mobile device manager as
+long as that mobile device is relatively
+modern it can be easily managed using
+your mobile device manager this is an
+important step in the process of using a
+BYOD device because you have to make
+sure that the user's information remains
+private and secure and you also have to
+make sure that the company information
+is secure as well it's also important to
+set policies and procedures for when
+these mobile devices change it's not
+uncommon for someone to sell or to trade
+in an older phone when they purchase a
+new phone so you have to make sure that
+the data on the old phone is properly
+deleted and that the new phone is now
+integrated into the mobile device
+manager not all organizations require
+their users to bring in their personal
+phones some organizations rely on cope
+this stands for corporate owned
+personally enabled this means that the
+company is purchasing the mobile device
+and they're assigning it to employees in
+their organization this cope device
+could exclusively be reserved for
+corporate use but many organizations
+will also enable those devices to be
+used not only as a corporate mobile
+device but also for personal use this is
+very similar to the process that many
+organizations follow for their computers
+and laptops where the company will
+purchase the asset and then assign those
+assets to the users as with the bring
+your own devices the corporately owned
+devices are also configured in a similar
+way where corporate data is partitioned
+off from any personal data this allows
+the administrator to delete one
+partition on that mobile device without
+affecting data in any other partition
+some organizations even give you a
+choice of what device will be assigned
+to you we refer to this as choose your
+own device or Cod this is still a
+corporate owned device but they give the
+in user the ability ility to choose what
+type of corporate owned device they
+would like to receive some of the
+security challenges around mobile phones
+is that they are very mobile so they
+could be located anywhere in the world
+they also contain a great deal of data
+and they can be easily hidden on
+someone's person our modern cellular
+networks work on standards such as 4G
+and 5G and they're separated out into
+different areas of geography we refer to
+those areas as cells which is why we
+refer to these as cell phones because we
+we don't have full control of all of the
+data that is being sent to and from
+these mobile devices we have concerns
+with traffic monitoring or even someone
+tracking another person's location
+anyone in the world could potentially
+gain access to these mobile phones so
+having a secure device and maintaining
+updates and patches for those devices is
+critical for maintaining the security
+Wi-Fi devices present similar security
+concerns these devices have full access
+to the internet and we have to be
+concerned about what data is being sent
+over these Wireless frequencies ideally
+all of the networks we should be
+connecting to would be encrypted this
+isn't always the case when you visit a
+coffee shop or a hotel so you have to
+make sure that you have VPN or some
+other encryption technology available
+attackers could also be in the same
+general area as your Wi-Fi device
+allowing them to monitor the traffic
+that's being sent to and from your
+mobile and Wii devices this could also
+be an opportunity for an attacker to sit
+in the middle of a conversation using an
+on path attack and if the attacker is in
+the same general area they could cause
+interference over these Wi-Fi
+frequencies creating a denial of service
+attack and of course Bluetooth takes
+advantage of these Wireless frequencies
+to be able to send information over
+relatively short distances we sometimes
+refer to Bluetooth as a pan or a
+personal area network connecting our
+mobile devices to headsets smart watches
+and other accessories allows us a
+flexibility without having to use cables
+to connect everything together but a
+device connecting over Bluetooth could
+gain access to the data that's on your
+mobile device that's why there is a
+formal pairing process whenever you're
+first connecting to a Bluetooth device
+and you should be very careful not to
+automatically connect to a Bluetooth
+device especially if you have no idea
+where that device might
+be

@@ -1,0 +1,561 @@
+hey everybody I'm back and if you're
+actually watching this video it means
+that uh everything appears to be working
+on my computer
+which has been a nightmare but anyway
+we're back in we're gonna Dive Right
+into Linux plus now we're just about
+done with the 1.3 objective and of
+course we've broken this up so this is
+section 1.3.4 uh according to my video
+titles but anyway we're looking at file
+system management using a bunch of
+different types of file systems and also
+I want to cover raid implementations now
+this is very limited in scope it just
+says we're inspecting raid
+implementations uh using the proc MD
+stat virtual file system and so we're
+going to do that but I'm also going to
+build a raid array really quickly
+because it's important to understand the
+difference between a raid array built
+with MD ADM and a butterfs type raid
+system because you can do raid both ways
+this is the traditional way and uh this
+is possible I've actually never done it
+in production but we're going to do it
+right now today okay so we're here on
+actually a brand new Matan style but I
+did install mate on our new virtual
+machine that we're using here and if we
+look at LS BLK notice I'm the root user
+we're going to be messing with
+partitions and file systems so I just
+did sudo space Dash L root so I could
+become root on the system without having
+to type sudo for every command anyway
+lsblk is going to show us all of our
+block devices we've learned that before
+I just want to explain the setup here
+really quickly so we have SDA and sda1
+is just a partition that takes up the
+entire drive that I've created so that's
+one partition that we have
+sdb is another drive that doesn't have
+any partitions on it at all you'll
+notice both of those are 10 gigabytes in
+size uh actually yeah both of those are
+10 gigabytes in size and then SDC is a
+third hard drive and what I've done is
+I've chopped this up into four different
+partitions which is a weird way to
+implement raid because generally you use
+multiple devices but I didn't want to
+put a whole bunch of drives in here so
+these are the the partitions that we're
+going to use when we set up raid so
+that's why it's in four partitions uh
+SDC one two three and four now one
+difference that you might notice from
+our last virtual machine as we were
+learning Linux plus is that the root
+device on this is vda that's just
+because I'm using a different
+virtualization system and this is a
+different type of virtual hard drive I
+did when I added additional drives I
+used SATA drives so that they would be
+more familiar to us but vda is just a
+different type of hard drive
+specifically used with KVM and qemu
+instead of virtualbox is what I was
+which is what I was using before anyway
+that's just if you wondered what vda was
+that's why it's there so the first thing
+I want to do is cover EXT file systems
+EXT is probably the most commonly
+installed file system on on Linux
+distributions uh and ext4 is the most
+recent and the one that's almost always
+used you'll rarely see any EXT file
+system that's not ext4 these days so the
+first thing we're going to do is do
+mkfs and then Dot and I'm going to hit
+tab a couple times just to show you all
+of the options that we have for
+installing a file system on a particular
+partition okay we have all of these
+different things are installed we're
+going to do ext4 but we could do xfad if
+we wanted to like format a drive and
+then have Windows be able to see it NTFS
+xfs we're going to use later butter FS
+we're going to look at these are all the
+options that are installed on my current
+system so mkfs dot and then ext4 is what
+I want to install on the partition and
+we're going to do that Dev sda1 okay so
+it has formatted that partition using
+ext4 so we could Mount that onto a
+partition or onto a directory on our
+system and then we would have access to
+that drive we've mounted things before
+but when you are scanning and making
+changes to a file system it's almost
+always ideal to not have it mounted okay
+it's it's kind of important not to have
+it mounted in fact when you are doing
+things like checking so we have a
+freshly formatted ext4 partition one of
+the tools we're going to look at is dump
+e2fs so if we were to say dump E2 fs and
+then Dev sda1 which is that partition we
+just did would actually give us a ton of
+information like scroll through all
+these different things showing the
+different block groups and stuff like
+that what I generally would like to do
+but let's just look at the very top of
+the line so if we do that same command
+and then we pipe it through head and 20
+it'll just show us the top 20 lines of
+that output so we can see it on screen
+here and it'll show us basically it does
+the file system volume doesn't have a
+name it it says that it the last Mount
+time is unavailable because it's never
+been mounted okay this is just all sorts
+of information that you can see about
+the partition itself okay which again
+it's a partition we could Mount and use
+on our file system now if there were
+something wrong or we're getting errors
+on our system generally what we would do
+is run Fisk you've probably heard
+somebody say fiscor FS check or however
+people say the word that isn't really a
+word there's a little bit of a Nuance
+here the actual command and this is one
+that you should know for the Linux plus
+certification is
+E2 fsck and then you would tell it what
+partition you wanted to scan so in our
+case Dev SDA one it'll scan it says it's
+clean okay so that's awesome but if we
+do this just fsck
+Dev sda1 the exact same thing happens
+and that's because fsck all on its own
+is kind of a front end to the various
+file system checks whether you're have
+whether you have an EXT file system or
+like a an xfs file system it will look
+and load the appropriate tools usually
+we'll talk about that later with xfs but
+you can use either one Fisk or E2
+bisque but for the certification exam
+know that E2 fsck is for checking EXT
+file systems the xt2 ext3 ext4 and if
+you run it it will check it and fix it
+if there are minor errors again you want
+to do that when it's not mounted on the
+file system all right let's clear the
+screen again so that's how we would do a
+quick repair if you want to actually
+just look at the information about it we
+can type tune to FS L for list out
+everything that it can tell us about it
+and then what file system so Dev sda1
+and it will give us all of this
+information about the hard drive file
+system you know that we that we put on
+there and this is the same tool that we
+would change some of these things now
+usually you're not going to change
+anything with possibly one exception so
+this is the current Mount count like how
+many times it's been mounted again it's
+never been mounted we just formatted it
+and then the maximum amount count by
+default is negative one now what maximum
+Mount count which is a mouthful means is
+how many times the file system can be
+mounted which is usually on reboot like
+when it reboots the computer it will
+mount it how many times it can be
+mounted before it has to run fisc or E2
+fsck on itself to make sure everything
+is going well and by default negative
+one means never check it so if you want
+it to periodically check and depending
+on how often your system is rebooted you
+know you might want that to be a small
+number or a big number
+you change that number and then when the
+system reboots it will check if we set
+it in in FS tab so let me show you how
+we would change that mount count and
+I'll explain how that coincides with
+something we learned earlier in FS tab
+so this is where the information is that
+we can change it using the same tool so
+tune to FS Dash c will allow us to
+change the maximum Mount count if you
+will and if we change this to like five
+times the sda1
+and then we look at the listing again
+now we'll see the maximum amount count
+is five and that means after it's
+mounted five times the next time it's
+mounted before it mounts it will run
+e2fsck all right now let's really
+quickly look at an fstab file so bi Etc
+FS Tab and you may remember when we
+learned how to use fstab these last two
+Fields now this first one is dump which
+is not very not used very much anymore
+but this pass field right here this can
+be either 0 1 or 2. if it's a zero it
+means don't check it on boot so even if
+we set that maximal mount count uh to
+like five and it's been mounted ten
+times if this is at a zero it's still
+not going to scan it we have to both
+have that maximal mount count set and
+exceeded and then when it boots up and
+tries to mount it if this is one you set
+it for one for the root partition which
+means that it needs to mount it before
+it even starts running the system right
+because the root partition is where
+everything is stored so if it's a one
+it's it does that one first and then two
+let's so if it's a two right here and
+it's like the home partition or
+something that you're mounting or like
+the opt partition whatever other
+partition it might be you would set that
+to two and as long as it's not zero here
+when the system boots up if you've
+exceeded the maximal mount count that we
+just set with E2 fsck or tune to FS
+then it will actually initiate a file
+system check before it mounts the file
+system I know that was a lot of
+information but it's really important to
+understand how those things all work
+together you have to have all those
+things set in order for it to do an
+automatic uh scan when it is mounted
+right so uh let's clear the screen
+because there's one more EXT file system
+thing I need to show you and that is
+resize to fs and you'll see the pattern
+here it's 2fs for most things tuned to
+FS
+e2fsck uh resize 2fs is how we resize a
+partition and to do this you can either
+grow it or Shrink it if you if there if
+it's full of data you can't shrink it
+down too much right but as long as
+there's space I mean there's nothing on
+ours right now so we could actually
+resize it so let's do resize to fs and
+then the partition that we want so Dev
+sda1 and then how big we want to make it
+right remember this is a is this a 10
+gigabyte yeah this is a 10 gigabyte
+partition so let's make it five
+gigabytes all right so if we do that
+resizing the file system boom boom boom
+boom boom boom file system is now that
+big let's do a mkdir test just so we can
+mount it Mount Dev sda1 on test and now
+if we do DF minus H we're going to see
+that our file system uh is 4.9 gigs or
+it's five gigs okay so we have shrunk it
+down from that full 10 gigabyte
+partition to a five gigabyte file system
+so let's unmount that and now let's
+resize it back if you do resize to fs
+and you tell it the partition and you
+don't give it any arguments it will fill
+up the entire partition so if we just
+press enter it will
+oh it's going to tell us we have to
+check it first to make sure that it can
+be resized so uh E2 fsck Dash F that
+which means fix it force it to fix it
+sda1
+okay so it's been checked and now if we
+resize to FS Dev sda1
+now it will resize it let's mount it
+again
+and now let's do a DF minus H and now
+you'll see down here we have the full 10
+gigabyte partition I know there's a lot
+of stuff to do with ext partitions but I
+wanted to give you the full gamut of
+what you can do and those are the types
+of tools that you'll be using when you
+manipulate them all right so let's
+unmount that just so we can use this
+partition again because the next set of
+tools we're going to go a little bit
+quicker on they're the xfs tools there
+are different tools to manipulate an xfs
+file system and xfs isn't used as often
+as the EXT file systems I think Red Hat
+still uses xfs so I mean it is good it's
+a good file system but you need to know
+it uses different tools when you like
+repair it and stuff like that sort of
+let me show you what I mean let's
+quickly format our partition so nkfs xfs
+Dev sda1 uh oh because there's already a
+file system it says I have to force it
+so I'm gonna Dash F to force it to
+format it okay so it formatted it now
+it's an xfs file system on there instead
+of ext4 now remember I said fsck is a
+front end so we could do fsck Dev sda1
+and it doesn't exactly give us an error
+but it doesn't really do anything either
+it just tells us
+um okay this is xfs I really can't do
+much if you want to do something you
+need to use xfs
+repair Dev sda1 it goes through it
+checks it and if there's anything wrong
+it would fix it and that's pretty much
+just like E2 fsck for an EXT file system
+xfs underscore repair is how you repair
+an xfs partition now there is xfs grow
+FS Dev sda1 but there's two problems one
+it will only grow the file system if
+it's mounted but it's already using the
+entire partition and you can't shrink an
+xfs file system you can only grow it
+which is a little bit frustrating but
+that's how you would do it if you had a
+partition especially if you were using
+like lvm and you expanded the logical
+volume then you could use xfs grow FS to
+expand the file system to fill that
+entire logical volume if you're using
+lvm okay so that's generally how you why
+you would use xfs grow FS but you can't
+shrink one it's important to know that
+and then really quickly there's a couple
+more things we can do xfs info oh well I
+gotta tell it what device sda1 will give
+us information about it if we look at
+the block ID you'll see this partition
+down here it doesn't have any label I
+mean it has you know partition ID uuid
+but it doesn't have a label and we could
+actually use xfs admin Dash L my label
+Dev sda1 and now it has added a label so
+we could mount it in uh Etc fstab using
+a label instead of the uuid and if we
+look right here and you'll see now we
+have that label my label and that's
+pretty much all we're going to look at
+with xfs the next thing I want to talk
+about is raid partitions and I'm going
+to go really fast here because remember
+the objective only says that you need to
+inspect raid stuff so really quickly
+we're going to create a raid device
+which will be md0 using all of those
+partitions so lsblk so we have SDC one
+two three and four so we're just going
+to use all four of them so we're going
+to say MD ADM that's the MD
+administrator program this is how we
+manage raid devices software raid
+devices on Linux and we would do create
+Dev md0 and I'm going to do raid level
+five so it's going to be raid five raid
+devices equals four we're going to have
+four different devices again they'd
+normally be different hard drives not
+partitions in the same hard drive and
+then we list them out Dev SD D1 C2 C3
+and Dev
+sdc4 yes it's because I was fiddling
+with it earlier it noticed there's a
+partition table on there but there's
+nothing we're gonna completely wipe this
+out uh defaulting to version one so the
+array has started Okay so we've created
+Dev md0 which we can use as a regular
+device to format a partition on but the
+first thing I want to show you is if we
+look at proc MD stat that's going to
+show us the current condition of our
+raid devices on our system and here md0
+that's the device we just created it
+shows these are all the devices on it it
+has information about it it says
+recovery at 10 and that's because if we
+do it again it's gone up more it's
+because it has to build that initial
+raid array meaning it has to strike
+parity across all four of those devices
+so it's building it if we had really
+large drives that would take longer but
+it's going to build it we could still
+use it but that's actually this is
+probably what you need to know for the
+exam if you look at proc MD stat it's
+going to show the current status of all
+of your raid devices on your system and
+this is our raid device now Linux is
+really smart when we reboot the computer
+it will almost certainly find all of
+those raid partitions and reassemble it
+into md0 but we could stack the deck so
+to speak by making a configuration file
+again it will almost always Auto detect
+it however we could do MD ADM detail
+again and this will show us the
+information in a configuration file
+format so if we take that and we
+redirect it into Etc
+mdadm mdadm.com and just rewrite that
+comp file with that information now it
+will definitely find and rebuild that
+md0 device every time the system boots
+up now even though building an array
+wasn't part of the objective I wanted to
+show you how traditional software raid
+works because butterfs does do raid but
+it's drastically different than using
+software Raider MD ADM on a system it's
+newer and it's just different
+conceptually okay so we're gonna go and
+set up a butterfs file systems and then
+make a quick butterfs raid let's just do
+butterfs together I'll show you what I'm
+talking about okay I pause the video
+really quick and I just wiped out SDA
+and sdb so lsblk okay we're going to see
+SDA and sdb have no partitions on them
+at all and generally when you work with
+butterfse you will just create a
+butterfs file system directly on a
+device you don't normally use partitions
+okay so we're going to do that now we're
+going to say mkfs
+butterfs Dev SDA
+okay so it's done that it's created the
+butterfs file system on there we're
+going to do the exact same thing for Dev
+sdb
+okay so now we have two butterfs file
+systems one on dev SDA and one on dev
+sdb so let's take a Dev SDA and mount it
+really quick so Mount Dev SDA and we'll
+mount it onto our test folder here and
+if we do DF minus H we're going to see
+that here is a 10 gigabyte size
+partition on root.test okay sure enough
+it's right there Dev SDA now we also
+have Dev sdb and with butterfs we can
+actually add them together on One Mount
+so that they work together so if we do
+BTR f s device usage of the folder test
+it's going to show us that it has one
+device Dev SDA and the device sizes this
+it has this much unallocated so
+basically it just shows us we have
+OneDrive and that's how big it is but
+here's where things get funny if we were
+to say
+btrfs device add Dev sdb our second
+butter FS device and if we add that to
+test we add it to our Mount oh and if we
+add it to an existing Mount it's going
+to reformat it but that's fine we can
+just do Dash F so it added it to our
+Mount and now if we look
+btrfs device usage test now it shows us
+that there are two devices on there
+right device one and device two and if
+we look at DF minus H well now all of a
+sudden there are 20 Gigabytes available
+on root test because it's just using
+both drives it just added them together
+and then when it comes to mounting it we
+can use either Dev SD a or Dev sdb when
+we mount it and it doesn't matter either
+one we Mount will be the same actual
+butterfs unit it gets really really
+crazy but that's how we can add it
+together and it gets even better we can
+actually right here it's just added them
+together but let's say we wanted to have
+protection instead of additional storage
+we wanted to have it mirror the second
+drive so we want to add a second Drive
+in case one of them fails we don't want
+to lose any data well we could actually
+do that just by doing butter FS let's do
+balance which would balance out uh the
+data on two of them if we added one it
+would actually balance the data stored
+on each of them but we're going to do
+more than that we're going to say a
+butterfs balance start Dash M convert
+which will which means metadata convert
+to raid one and D convert we're going to
+convert the data to raid one on our test
+folder and it reallocated it as a raid
+one device now if there was a lot of
+data on there it would have taken a lot
+longer because it would have had to like
+move things around and make sure that it
+was all set but that it didn't take long
+at all and now if you do DF minus H we
+are back to only having 10 gigabytes
+even though they're both on there
+because if we type butter FS device
+usage of test we'll see both of them are
+still on there however now they're in
+raid one and so if one of them fails we
+don't lose the data I know that was a
+lot of work on the command line but it
+was the same thing over and over using
+different tools so really if you have a
+virtualization system add a couple hard
+drives and play with them because that's
+really the best way to learn butterfs is
+very powerful it can do more than just
+what I showed you with the raid and
+adding extra devices they can do
+snapshots and it's amazing it can do SUB
+volumes inside butterfs is very powerful
+but it can be confusing because it's
+different than traditional Linux file
+systems so you really have to think
+differently when you're using a
+butterfly us but anyway
+um I hope that this was helpful thank
+you to all of my patreon supporters who
+should be scrolling by over here I think
+um and thank you for watching thank you
+for being patient especially over the
+last couple weeks one on my computer was
+dead but I think we're back to things
+going well I had slides I had a VM it's
+looking good so uh thank you again for
+sticking around and if I've learned
+anything these past two weeks it's how
+important it is to learn everything
+do what you love in my case I really do
+love working on Linux and most
+importantly be kind thank you so much
+and I will see you at the next video
+dude
+oh I should probably press stop okay bye

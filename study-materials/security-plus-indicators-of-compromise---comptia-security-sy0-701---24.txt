@@ -1,0 +1,296 @@
+as an IT security professional you'll
+often be looking for any evidence that
+someone may have breached or gained
+access to your systems we refer to this
+evidence as an indicator of compromise
+or ioc this describes a situation where
+you are highly confident that there has
+been some type of compromise to your
+systems for example you may find that
+there is an unusually large amount of
+traffic being transferred over a
+particular Network or perhaps the hash
+values of associated with files that
+have been stored in your system have now
+changed indicating that something has
+been modified with those files perhaps
+most of your traffic is within your own
+country but you're noticing an uptick of
+traffic that's coming from International
+sites or maybe the DNS information in
+your servers have been modified and that
+could be an indication that someone is
+trying to manipulate where traffic can
+go on your network there might also be
+unusual patterns when people are
+authenticating or logging into the
+network and there may be certain files
+that are suddenly being read a lot more
+often than they might normally be all of
+these situations and many more could be
+interpreted as an indicator of
+compromise and in this video we'll step
+through some of these very important
+indicators to see what it might mean if
+we were to see it one very telling
+indicator of compromise might be that
+your account has been locked out this
+would be especially unusual if the
+account was locked because of too many
+attempts to log in even though you were
+not the one that made those attempts
+most accounts will lock themselves
+automatically after a certain number of
+incorrect password attempts and at that
+point you would need to unlock the
+account to allow the legitimate login of
+course the account could have been
+administratively disabled which means it
+wasn't a password attempt that caused
+that account to be locked someone
+specifically went into your management
+system and disabled that particular
+user's account that would certainly be
+an indicator of compromise especially if
+no one at your organization was tasked
+with the process of disabling that
+account and this indicator might be part
+of a much larger plan by the attacker
+they might be trying to intentionally
+have this account locked so they can
+call the help desk pretending to be the
+user and have the help desk reset the
+password on the phone with the attacker
+this is another good reason why there
+should be very strong processes and
+procedures for a password reset to avoid
+this type of
+impersonation traditional physics tells
+us that if we in one location it's not
+possible for us to also be in another
+location at the same time this is
+something we can also apply to logins
+and session usage on our systems if one
+person is logged in from one facility
+and we notice that person is also logged
+in from a different location that may
+indeed be an indicator of compromise of
+course this may not always be the case
+and this may be very difficult to track
+down as well many of us have accounts
+that are running on different devices
+simultaneously you might have an account
+that's logged in on a desktop a laptop
+and a mobile device and sometimes those
+devices can exist in different locations
+or this may be an automated process
+perhaps a service login and the service
+login is obviously not the same as an
+interactive login here's a report that I
+ran from my Google Mail account it lists
+out all of the different types of access
+the location with the IP addresses and
+when this particular activity occurred
+this can show me if I was the person
+logged in and using my Google Mail
+account or if there may be an account
+running elsewhere that may have access
+to my
+mailbox once an attacker has done all of
+the hard work of gaining access to a
+system they want to be sure that they
+remain in that system as long as
+possible and they also know that if
+you're able to patch this system you
+would effectively close the
+vulnerability and perhaps lock them out
+of this system that they previously had
+access to this is why you'll notice that
+viruses in malware will tend to disable
+any type of updates from the antivirus
+software once it is infected that
+machine this means the user would not be
+able to download any security patches or
+update any signatures for antivirus
+which of course means that the attacker
+can remain on that system for as long as
+they need if you're finding that you're
+not able to connect to certain security
+websites or download security patches
+that could certainly be an indicator of
+compromise normally you would think
+logging in all you would need is a
+username password and any other type of
+authentication mechanism to gain access
+to a system and indeed most of the time
+that's true but what if these logins
+occur in very different parts of the
+world we should be able to look at all
+of the logons and log offs for a
+particular account to see exactly where
+the users might be located for example
+there may be someone logging in from
+your corporate office in Omaha Nebraska
+right in the middle of the United States
+and you notice that a few minutes later
+you have another login from the same
+user located in in Australia this should
+immediately create some type of alert or
+alarm indicating that these two logins
+should not be occurring so quickly
+together at such a very far distance
+these types of impossible logins should
+be something that you can easily
+identify by looking at the
+authentication logs this would tell you
+when a person logs in and where they're
+logging in from and then that can be
+compared to any of the other logins
+occurring for that user during a
+particular time frame when an attacker
+gets inside of your network and gains
+access to your systems there is always
+something the attacker is doing that
+should allow you to track any of their
+progress this is called resource
+consumption for example the attacker may
+be transferring files from one system to
+another or transferring data out of your
+network and onto the attacker servers
+this would certainly show a spike in
+traffic and if you happen to notice that
+your network is suddenly busier than it
+normally might be at 3: in the morning
+that could be an indicator of compromise
+your firewall logs would certainly show
+a transfer of information associated
+with a flow of traffic and you might
+even have IP addresses and time frames
+associated with that as well this can
+often be your first notification that
+someone may be inside of your network
+and transferring data from one place to
+the other and there have been breaches
+where the only notification that
+something was a little unusual was one
+small file transfer occurring at a time
+when nothing else should be happening
+sometimes not being able to access a
+resource on your network is relatively
+innocuous and not something that is an
+IT security concern but there are times
+when a resource being unavailable could
+be an indicator of compromise for
+example a server May suddenly be
+inaccessible across the network because
+an attacker was trying to find a
+vulnerability and in that process caused
+the server to crash or it may be that
+there's Network that's being disrupted
+in one part of the network this may be
+caused by the attacker transferring data
+on the network or they may be trying to
+create a problem on the network so that
+they can run other exploits elsewhere
+this attempt to exploit a vulnerability
+can certainly cause a server to fail and
+there have been more than one case in my
+career where we found a system that had
+failed because someone tried to find a
+known vulnerability in that system if
+you access some data on a file system
+you may find that the data is suddenly
+encrypted and not available and if
+that's the case you may be infected with
+ransomware and as we've already
+mentioned if you tried to log into a
+server and it tells you that your
+account is locked that resource will
+certainly be inaccessible and it's
+probably locked because an attacker
+tried to brute force your
+password in the world of it we try to
+log as much information as we can and
+very often those logs may also be an
+indicator of compromise for example it
+might be an out of cycle logging which
+means the log or the information
+contained in the log is something that
+should not be in in that log during that
+particular time frame for example your
+organization probably has a Change
+Control process that manages the updates
+of security patches these security
+patches are probably installed on a very
+regular schedule and everyone knows the
+time and date that these security
+patches are commonly pushed out but if
+you happen to see log information
+showing that patches or applications are
+being installed at times when you would
+not expect them to be there this may be
+a case of out of cycle logging
+we see this quite a bit with firewalls
+because firewalls tend to record every
+single traffic flow and all of the
+details associated with those traffic
+flows this means that we can look at
+every bit of traffic traversing that
+firewall to understand what was sent at
+any particular time of the day and if
+we're examining the firewall logs and
+notice that some information is being
+transferred at an unusual time frame
+that may indeed be an outof cycle
+logging and an indicator of
+compromise the attackers also o know
+that there are extensive logs being
+stored on operating systems workstations
+firewalls and other devices because of
+this attackers will very often delete
+log information in order to hide the
+fact that they were on that system each
+time the attacker authenticates
+transfers files sends data through a
+firewall or accesses a server there will
+most likely be a log associated with
+those actions this is why it's a good
+best practice not only to create reports
+based on that log information but to
+also set up notifications if any of that
+log information is missing this would
+give you some type of indication that
+there might be a compromise occurring on
+your
+network and a very clear indicator of
+compromise is when suddenly your private
+organizational data is suddenly made
+available on the Internet it's very
+possible for an attacker to gain access
+to all of your systems exfiltrate all of
+your sensitive information and you have
+no idea that any of that data was even
+transferred at least not until that data
+suddenly appears on the internet and
+everyone can now view this sensitive
+information that normally would only be
+private to your company this is
+sometimes done in conjunction with
+ransomware the attackers will embed
+ransomware in your environment and
+encrypt all of that data on your systems
+but before doing that the attackers will
+send all of that sensitive information
+to their servers they'll then inform the
+victim that they're expecting a payment
+so that they can send the decryption key
+and if you don't send any payment
+they'll start releasing your private
+information to the public sometimes this
+information will suddenly appear on a
+server that's publicly available on the
+internet researchers will then need to
+go through the data to see if they can
+discover where this information was
+stolen from and contact the original
+owner

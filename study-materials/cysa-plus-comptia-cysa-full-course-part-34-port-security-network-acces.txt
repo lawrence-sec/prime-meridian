@@ -1,0 +1,614 @@
+[Music]
+I would bet that you have a lock on your
+door at home and that lock is there to
+deny access to any uninvited people or
+to keep some people out that have no
+business being in your home. Pretty
+straightforward. Now let's see how we
+can apply the concept of a lock on a
+door to keep people out of our network
+as well. So we're going to call this
+Knack or network access control. Now
+Knack is a very broad topic and uh it
+has been implemented over time in a
+number of ways by different vendors out
+there. You're going to find this this
+Knack implementation even under
+different names such as NAP or NAP
+network access protection. That's one uh
+that's one of the ways that Microsoft
+refers to it. Other networking or
+security vendors uh can refer to this as
+port security. This one I believe was
+introduced by Cisco and they actually
+call this feature on their switches port
+security. Again really generic, really
+broad because it actually applies to a
+lot of use cases. So knack or port
+security is all about controlling
+physical access to your network. It's
+about deciding whether someone who plugs
+a network cable from your company into
+their laptop can or cannot access your
+network. All right, so if we're talking
+about controlling access to a network,
+let's start with the basics. And what
+can be more basic than controlling
+physical access to your network? So
+physical security is something that is
+often overlooked. We try to focus so
+much on technology and try to uh think
+so much about advanced and complicated
+complex security solution that we forget
+that in most cases if an attacker or a
+or a person with a malicious intent has
+direct physical access to a network
+device to a network port then all that
+advanced technology is most likely going
+to be useless. So, we're going to start
+with the physical security first. And by
+physical security, I mean, if you want
+to protect access to your network, then
+by all means, lock the access to your
+switches and your routers and your
+firewalls. Don't let just anyone get
+near them and plug their network cables
+in there. So, lock your metal cabinets,
+lock your your data rooms, your data
+centers, whatever you hold those um that
+networking equipment. make sure that
+nobody else has access in there. Also,
+remember to disable unused ports,
+especially on switches. You're probably
+going to have a 24 port, 48 port
+switches, or even higher. Uh you're
+probably not going to be using all those
+ports. They're most likely going to be a
+few ports which remain unused. Now,
+those ports by default are probably
+going to forward traffic. So if somebody
+gains access to that physical switch and
+plugs the network cable in there,
+they're probably going to get access to
+something like VLAN 1, which is not
+desirable. So make sure you
+administratively shut down or disable
+those ports which are not in use. Now,
+of course, this is going to add a bit of
+admin overhead, right? the moves, adds
+changes and it doesn't completely secure
+them because if an attacker can reach
+your network devices physically, then
+nothing stops them from disconnecting an
+active link and then plugging his or her
+own device in there. Okay? So, it it's
+just a a useful measure, an additional
+measure, but it doesn't magically solve
+everything. Also, don't forget to
+protect the cables themselves. Now, I
+know this most likely is going to be
+really difficult to achieve, but as much
+as possible, try to not leave those
+cables exposed. Just giving, I don't
+know, the guests that are going through
+the lobby clear view and clear access to
+those network cables because a cable is
+nothing else than an extension of a
+switchboard. So, if you're securing the
+switchboard, but you're not securing the
+cable itself, well, somebody with a
+malicious intent is not going to find it
+too difficult to actually connect to
+your network just by cutting that cable,
+just by inserting himself in that cable
+run. So, again, as I said, disabling
+ports doesn't exactly reduce that much
+the attack surface of your regular
+network wall jacks and other connections
+while in your building. So, we need
+another way to secure access to those
+ports. All right? And that have to
+remain active. So we need some ports to
+be active but we still need to secure
+access against unauthorized devices and
+unauthorized users. And we have a couple
+of methods here that we can use the
+simple methods and the more advanced
+methods. Now the simplistic method for
+controlling network access is called
+port security or MAC filtering. MAC
+filtering just like the name says it's
+simply about configuring which MAC
+addresses are allowed to send traffic on
+each switchport. It's I would say
+moderately secure because MAC addresses
+can be easily spoofed. So I can just
+present myself to the switch port by
+having a different MAC address than I
+currently have potentially impersonating
+the actual device which was allowed to
+communicate on that port and also adds a
+lot of administrative overhead because
+all those MAC address entries have to be
+kept up to date. Now there are methods
+here and uh and they're implemented by
+all major networking vendors which help
+us determine those MAC addresses. Uh so
+we don't have to actually configure each
+and every one of them manually. In most
+cases, this is obtained by configuring
+the switch port to remember the first
+MAC address that it sees on that port.
+So when you know that you're just
+configuring your network and you're just
+configuring uh your workstations, maybe
+your IP phones, uh your uh wireless
+access points, whatever you have in the
+office, you probably know that it it is
+a pretty controlled environment. So
+whatever you plug in there, it's the
+valid device. So you can just tell the
+switch whatever you're going to see as
+the first type of traffic that goes
+through that port, remember that that is
+a valid source MAC address. remember
+that one and don't accept traffic from
+any other MAC address other than the
+first one you've seen on that port. Now,
+just to give you a short example here
+from the Cisco official command
+reference, uh, under the port security
+chapter command list, if we scroll down
+here just a bit, we're going to find the
+the command that actually enables port
+security on the switch, which is
+switchport port security, and then
+followed by switchboard port security
+address, which allows us to configure a
+specific MAC address to be allowed on
+that port. Or we can just configure it
+with the sticky parameter, as you can
+see here at the bottom. switch port
+security MAC address sticky enable
+sticky port security doesn't exactly
+explain what it does but you you can
+read the uh the official explanation
+right here sticky basically means what
+we just said before remember the first
+address that you see on that port now of
+course we can also add a number of MAC
+addresses so for example if we want to
+allow an IP phone and a desktop PC on
+the same port then we're going to allow
+the first two MAC addresses that are
+being seen on that port as uh as
+legitimate MAC addresses And by the way,
+MAC filtering is is not a rocket science
+technology. So, you're not going to find
+it just on enterprise switches. Uh you
+can also find it on home routers, home
+Wi-Fi routers. Uh like my ASUS router
+right here. Uh under the wireless MAC
+filter, I can enable this MAC filter
+right here. I'm going to say that I'm
+going to accept only the MAC addresses
+that are found within this list. All
+right. So, I can just choose one of the
+active clients here. So, for example, if
+I if I know that my uh this is this one
+right here is my Alexa, which I know
+it's always in my home listening right
+here. I should add this one right here
+by its MAC address. So, I know it's
+always going to be allowed inside my
+Wi-Fi network. I can do the same with my
+my laptops, my mobile phones, and
+whatever I have in my home. But of
+course, this is probably not going to uh
+be very um friendly with any guest with
+any guests that you might invite to your
+home. Nevertheless, wireless MAC filter
+or Mac filtering in general, it's not a
+uh it's not a technology available just
+to enterprise uh devices. All right, so
+that was the simple method. What's the
+more advanced one? Well, the more
+advanced one is called network access
+control or network access protection or
+an implementation of the 802.1x
+protocol. This protocol is meant to
+provide authentication for both users as
+well as devices. So under the standard
+802.1x which is called port-based
+authentication or portbased knack means
+that the device you're connecting to the
+switch or the access point is going to
+ask your device or you as a user for
+some authentication credentials before
+allowing you to send traffic on that
+port. And we're going to introduce a
+couple of entities in here. First of
+all, we're going to have the supplicant
+which is going to be you, the one that
+it's trying to get access to the
+network. And then we're going to have
+the authenticator which is going to be
+the network access device which can be a
+switch wireless access point uh VPN
+endpoint whatever and the authentication
+server which is going to be the server
+that actually processes your
+authentication credentials validates
+them sees whether uh you are a valid
+user you're presenting a valid set of
+authentication credentials and if you
+should or should not get access to the
+network. Actually let's let's see this
+in a in a graphical manner so we can
+understand this better. But before we go
+to the drawing board, there's one more
+concept here that's really useful for
+you to know and that is the EAP over LAN
+protocol. Now EAP as you probably know
+stands for extensible authentication
+protocol. So it's going to allow a
+number of authentication methods uh
+between you and that switch or that
+network access device uh that you're
+trying to use to get access to the rest
+of the network. And by default, the
+802.1x protocol is going to accept only
+EAP traffic between you and that
+authentication device simply because
+that's the only traffic that should be
+allowed. Only authentication traffic
+should be allowed before gaining access
+to the rest of the networks. You're not
+going to be allowed to send any kind of,
+I don't know, web traffic, email
+traffic, peer-to-peer traffic over that
+port. you're only going to be allowed
+EAP packets as well as some uh some
+management traffic I believe uh like
+some ICMP codes STP span protocol and
+such but uh CDP if I'm not mistaken
+Cisco discovery protocol but that's
+beyond this uh the scope all right so
+let's go to the drawing board okay so
+for 802.1x authentication we have three
+entities here that have to interact in
+order for us to get access to a network
+so we're going to start with uh stick
+figure on the left uh which is me or you
+the user attempting to connect to the
+network or to be more precise the device
+that the user tries to connect to the
+network and um we're not going to call
+it user or device but we're going to
+call it supplicant
+right supplicant because this one is the
+entity that supplies the authentication
+credentials right now this user or this
+device attempts to connect to the
+network through an intermediary device
+which may be a switch, an access point,
+maybe a remote access VPN concentrator.
+Nevertheless, we're going to have
+another device here in the middle. Let's
+say this is an access switch. And this
+switch right here, again, we're not
+going to call it switch, but we're going
+to call it authenticator.
+Now finally the third entity that we
+have here on the right is going to be a
+radius server
+which is the entity that is actually
+going to validate the credentials
+supplied by the supplicant
+sent through the authenticator and then
+validated on the radius server and the
+radius server we can also call it a AAA
+server if you wish but in 802.1x
+this is going to be called an
+authentication server right so make sure
+you Don't confuse these two, the
+authenticator and the authentication
+server. They're two completely different
+entities. Now, these three are going to
+exchange some messages.
+Now, what's going to happen next is of
+course the supplicant completely
+oblivious to this setup is going to
+attempt to send some traffic. Let's say
+it's probably going to be HTTP, right?
+It's going to try to access the web, but
+the authenticator
+is going to say, uh, denied. I'm not
+accepting that traffic just yet. But
+what I am going to accept is EAP
+overland traffic. Are you able to send
+me EAP overland traffic or not? Now if
+the supplicant understands
+what this type of authentication is all
+about, then it's going to reply back to
+the authenticator with some valid
+credentials over the EAP protocol. This
+time it's going to also send the
+credentials in here. All right. Now, the
+authenticator doesn't know if this set
+of credentials is valid or not. The
+switch inside of our network, the access
+switch has no way of knowing about all
+the user accounts, all the machine
+accounts in your network. So, it's going
+to forward this request towards the
+authentication server, the AAA server,
+our radius server. And of course,
+between these two, the protocol that
+we're going to be using is going to be
+the radius protocol. And of course the
+credentials are going to be encapsulated
+here as well encrypted so that the AAA
+server is going to be able to validate
+them against an uh let's say an active
+directory database an LDAP database any
+kind of user database that is
+centralized and that the radius server
+has access to. Now after the credentials
+are validated of course the AAA server
+is going to reply back to the
+authenticator or to the switch also
+using a radius protocol
+but it's going to say whether the
+supplicant is allowed or not. If the
+credentials presented were valid or not.
+Now if the credentials presented were
+valid then the authenticator is going to
+inform the supplicant and it's going to
+tell them that authentication was okay
+and it's going to tell them that
+authentication was okay. All right. So
+all the traffic now is permitted which
+means that a specific port on the switch
+on which the supplicant was connected to
+is now configured with a customized
+access list according to the result of
+the authentication process. So if the
+authentication process was valid, the
+user was recognized as being part of the
+uh let's say uh the marketing VLAN then
+the port is automatically going to be
+configured with the proper VLAN with the
+proper access list according to the
+security policy adequate for that
+specific user which just tried to
+authenticate. So now when the user tries
+to send their HTTP traffic the result is
+going to be that the switch is now going
+to accept this kind of traffic and it's
+going to forward it to its proper
+destination. Now of course the
+alternative to this would be if the
+credentials which were provided were not
+valid then the switch port would be
+configured to block further traffic from
+the supplicant. Now, it depends on how
+you choose to actually administer this
+type of security solution because you
+might want to allow that supplicant uh
+additional attempts. Okay, maybe you
+just mistyped your password. I'm not
+going to completely block all the
+traffic on that port. I'm still going to
+allow uh EAP overland traffic so you can
+try again. Or maybe you can implement
+some sort of a backoff mechanism so that
+they're not going to try to brute force
+uh their access into your network. Also
+one thing to mention here when I say
+credentials it's not just limited to
+username and password we're basically uh
+talking about EAP right here right EAP
+overland and EAP is extensible
+authentication protocol which means that
+it's a wrapper uh it's a way to
+encapsulate a huge number of
+authentication methods uh ranging from
+usernames and passwords uh multiffactor
+authentication uh certificates even uh I
+don't know uh there's a type of
+authentication called SIM AAP, which
+uses the SIM card in your phone uh to
+authenticate onto a uh let's say a
+public wireless network inside of a mall
+or a stadium. Uh so that's that's also a
+type of authentication. So it's not just
+limited to uh simple username and
+password. Okay. So we have a pretty
+complex authentication flow and we're
+only using it to present and to validate
+credentials. The good news is that we
+can also use this flow to implement some
+more complex security policies as well.
+So we can perform some additional checks
+not just those credentials that are
+presented by the user. Now for example,
+additionally from checking a valid
+username with a password or a
+certificate uh allowing access might
+also require a health check of the
+device that is trying to gain access to
+the network. uh we can look for
+information that indicates whether it's
+our device or not. Is it a company
+device or not or a personal one? Or we
+could be looking at the current level of
+OS, the operating system patches and
+updates. Are you using an up-to-date
+operating system to connect to our
+network? Or are you using an operating
+system that hasn't been updated in six
+months or one year and that could
+present significant risk if we allow you
+access inside of the company network. Uh
+we can also look at um updates for for
+business applications right for the
+Microsoft Office suit for example or any
+other type of applications that are
+supposed to be um to be used by the by
+the employees on that uh specific
+device. And if you're wondering well how
+can we get this information if we don't
+allow the the device to connect to the
+network from the very beginning? Well,
+you guessed it. We're going to rely on
+some kind of an agent that runs on that
+workstation and is able to report back
+to our central uh decision maker inside
+of our network uh the current status or
+the posture of that device. And this is
+why we also find the term of posture
+validation when we perform these
+additional checks. We can also be using
+for antivirus. Do you have an antivirus?
+Do you have an antivirus that is um
+allowed by our our company and does it
+have an up-to-date signature database?
+Uh we could be looking at group
+membership. Which ad group do you belong
+to or to which subnet you're supposed to
+connect to? Do you have access to a
+specific subnet or not? Maybe I don't
+know for example we don't want to allow
+access uh to our view through our VPN
+endpoints to devices that are not owned
+by the company. We could also be looking
+at the location. Where are you
+connecting from? And we have a number of
+decision points here. We could be
+looking at the actual network type that
+you're using. Is it a publicly available
+unsecure network, Starbucks, McDonald's
+type of network that you're you're
+currently connected to? We might not
+want to allow such devices to reach our
+internal network. uh we could be looking
+at the goip database and try to figure
+out which country are you currently in
+and you're trying to connect back to our
+network and we could also be looking
+especially for mobile devices we could
+be looking at the GPS position as well
+but uh but that's not something you can
+find implemented very often. It's most
+likely going to be uh restricted to the
+network type and the goip database. We
+could be looking at the time of day as
+well. Are you supposed to be connecting
+at 2:00 a.m.? Well, perhaps you are
+allowed to connect at 2:00 a.m., but if
+we correlate the connection at 2:00 a.m.
+with the fact that let's say at at 1:00
+a.m. you were connecting from a uh
+Russian IP address and at 2 a.m. you're
+connecting from an Australian IP
+address, then that's probably not going
+to be a valid connection attempt.
+There's something fishy going on in
+there.
+uh this type of policy is actually
+implemented on a lot of security devices
+and it's called impossible travel time.
+Now, additionally, after we uh we decide
+whether to allow or not a a specific
+device access to our network, uh we can
+also implement a remediation policy. Of
+course, the remediation makes sense if
+the device is not fully compliant. So,
+well, of course, for devices that
+completely failed the assessment, we
+could simply deny access and maybe allow
+them to try again after a while. But for
+devices that have partially failed, for
+example, uh they don't have the uh the
+latest always patches or updates, we
+could choose to place those devices in a
+in a quarantine kind of VLAN in a
+separate type of network, which most
+likely is not going to allow them access
+to the internal network, but it is going
+to allow them access to the internet so
+that they can connect to the internet
+and install all the necessary updates,
+patches, antivirus, signatures uh
+download the latest versions of whatever
+they weren't compliant with. So we allow
+them a remediation window and we also
+place them in some kind of a remediation
+uh subnet or remediation VLAN uh where
+they can still function, they can still
+access the internet to fix their
+posture, but they're not going to pose a
+risk to our internal network. So kind of
+like a a guest network if you wish. Uh
+just to give you a short example of a
+real life implementation of uh of a
+posture validation solution. Uh Cisco
+has one implemented inside of the any
+connect remote connectivity client. And
+you can see here that under the
+configure posture section in the
+configuration guide. we get the
+explanation that uh this this feature
+provides the the client with the ability
+to assess an endpoint's compliance for
+things like antivirus, anti-spyware and
+firewall software installed on the host.
+So these right here are example of
+further checks that we can perform after
+the user has been properly validated
+with valid username, password,
+certificate, whatever method we choose
+to use. Then we can move forward and try
+to assess the posture the security
+posture of the device owned by the user.
+If you scroll down here, you can jump to
+specific sections like see what exactly
+are the posture checks that can be
+performed by the AnConnect client. Uh
+remediation options as we talked before
+with a quarantine VLAN for example. Uh
+reassessment of endpoint compliance. How
+often or how are we going to allow that
+user to retry authentication? And also
+reassessment covers the situation when
+uh the user has properly authenticated
+and has been authenticated for quite
+some time. But periodically we might
+want to double check and see if that
+device which has been connected for 3
+days perhaps on the company VPN is still
+valid. So let's you know let's let's
+just double check it from time to time
+and perform another posture validation
+just to see if the device is still
+compliant. All right. So that's it about
+port security 802.1x
+knack nap or whatever you want to call
+it. Make sure you understand these
+concept and you're able to explain them.
+Make sure you understand the difference
+between the supplicant the authenticator
+the authentication service. What are
+their roles? Make sure you don't confuse
+them. Also, make sure you are able to
+provide at least a couple of examples of
+more advanced posture validation
+methods. All right, so that's it for
+today. Until next time when we're going
+to be talking about identity and access
+management or AM. I wish you good luck
+and if you found this useful and
+informative, like and subscribe. See you
+next time.
+[Music]

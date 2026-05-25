@@ -1,0 +1,99 @@
+when working with fiber optics one of
+the first things you'll notice is there
+are many different connector types you
+have to make sure that you use the right
+connector type for the right connection
+a very common fiber connector type is
+the SC connector or the subscriber
+connector we also have other names that
+we associate with this connector one is
+a square connector because the connector
+itself is rather Square when you look at
+it you might also see this referred to
+as a standard connector although there
+are certainly other types of fiber
+connectors that you might use to use an
+sc connector it simply pushes into the
+connection and snaps in place with a
+lock once you have that connector in
+place it's not going to accidentally
+slip out of that connection you first
+have to pull on the connector to unlock
+it and then it can be removed from that
+interface this is a common connector
+type and if you're plugging into a
+connection in a data center you're
+probably using some connections that are
+identified as SC the connectors
+themselves support individual fibers but
+they're often combined together into a
+pair because one of these is commonly
+used for transmit and the other is
+commonly used for
+receive another common fiber connector
+is the LC or local connector this is
+slightly smaller than an sc connector
+and as you can see it has a clip on the
+top to lock it in place once you put it
+into the interface this also means that
+it won't accidentally get pulled out of
+an interface and to remove it you need
+to push down on the clip that will
+release the lock and allow you to easily
+remove it from the interface instead of
+local connector you might also see this
+referred to as a Lucent connector or a
+little connector the LC connector can
+also be combined in a pair looks like
+this and you can plug both of them in
+simultaneously and again one is used for
+transmit and the other used for
+receive another fiber on our list is the
+St connector that stands for straight
+tip it uses a bayonet connector so you
+push it into an interface give it a
+slight twist and it is locked in place
+this will not easily get removed from
+the interface unless you reverse that
+twist and then you can remove it from
+the interface when you're working inside
+of a rack and there's a large number of
+cables and fiber it can be very easy to
+accidentally dislodge one of those
+connections that's why we have all of
+these different locking mechanisms for
+these different interface types here's a
+closer view of the St connector there is
+a protective Fair rule around the fiber
+which you can barely see in this picture
+and you can easily see the bayonet
+connector where you would plug it in and
+twist it in place so that it is locked
+into that
+interface one of the challenges with the
+connector types that we've seen so far
+is that those fiber connections take up
+a lot of real estate it would be a lot
+more efficient if we could put more
+fiber into a smaller connection and
+there is a connector type for that
+called the moo which is multifiber push
+on inside the noo are 12 individual
+fibers that are contained in that single
+cable connection this also has a lock in
+place that's very similar to the SC
+connector where you would push it in
+place and you would have to pull it out
+slightly to unlock it from the interface
+you might also see this connector
+referred to as an MTP that name is
+provided by Corning and they refer to
+this as an MTP M connector here's a side
+view of the connector it has this lock
+on the top and the individual fibers are
+these smaller dots you can barely see in
+this picture if we look at it straight
+on with some light being sent through
+the fiber you can see that all 12 of
+those fibers are much easier to see on
+the moo connector

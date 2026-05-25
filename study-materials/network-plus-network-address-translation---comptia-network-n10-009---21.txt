@@ -1,0 +1,160 @@
+there are many devices connected to the
+internet some estimates are a 20 to 30
+billion and by the time you watch this
+video it's probably of course going to
+be more than that one of the challenges
+of course is that IP version 4 only
+supports 4.29 billion addresses and we
+have completely exhausted our list of IP
+version 4 there are no more addresses or
+subnets to be handed out so now we have
+to find some way to communicate across
+the internet to these billions of
+devices using a protocol with a
+relatively few number of IP addresses
+the way that we're able to make this
+work is through a technology known as
+Network address translation ornat we
+often refer to natat as being the way
+that we are able to extend the
+functionality of ipv4 and use so many
+different IP addresses but natat can be
+used for many different use cases we
+just in this video happen to be talking
+about one of the most popular use cases
+where we are able to translate IP
+version 4 from a private address to a
+public address if you wanted to get more
+details on the difference between a
+private IP and a public IP you'll want
+to look at rfc1
+1918 which defines these different
+ranges of private IP addresses these are
+IP addresses that are not routable on
+the public internet so we most often use
+these inside of our homes and inside of
+our businesses and we'll perform
+translation if we ever need to to
+communicate out to the internet certain
+ranges of these IP addresses are
+probably already familiar to you for
+example one IP address range that is
+private is 10.0.0.0 through
+10255
+255.255 in a large Enterprise Network
+this is probably the IP address range
+that you're using this RFC also
+allocates 172.16.0.0 through
+17231
+255.255 and if you're using address
+translation at home you're probably
+using the IP address range of
+192.168.0.0 through
+192.168.255.255
+so how are we able to take these private
+addresses which we already know we
+cannot route across the internet and
+somehow we are able to communicate to
+these Internet connected sites we are
+able to do this using network address
+translation let's take this example
+where vaa would like to communicate to
+the Professor Messer web server va's IP
+address is a private IP address of
+10.10.20 15 and vaa wants to communicate
+to a public IP address of 10420
+1963 to follow this process let's break
+these two addresses out and identify
+them as the source IP address of
+101020 and the destination IP address of
+10420
+1963 this packet will first hit a router
+that is configured with network address
+trans translation this router knows that
+the source IP address of 10.10.20 is an
+internal IP address and we can't use
+this IP address if we want to
+communicate out to the Internet so this
+router will change or translate that
+address to something different this
+router already has a list of IP
+addresses that could be used and in this
+case it's changed that IP address to
+94111 now we have a public IP address so
+now we can communicate directly to the
+professor message web server for this
+web server to communicate back to vaa
+it's obviously not going to communicate
+back to the internal 10.10.20 address
+instead it's going to reverse those IP
+addresses and the source IP address now
+becomes 10420
+1963 and the destination IP address is
+the
+94111 that was originally assigned by
+the network address translation router
+when this router now receives that
+packet it's going to perform the
+translation again except in reverse and
+modify that destination IP address to be
+the internal address of 10.10.20
+means that if we wanted to have many
+people performing this translation we
+would need to have many more public IP
+addresses available there's a way to
+make this much more efficient using a
+different form of network address
+translation called natat overload or
+port address translation or Pat let's
+take that same example where vaa would
+like to communicate to
+professormesser.com va's IP address is
+101020 but you'll notice will also
+include the source port number which is
+in this case is
+3233 the destination IP address is
+obviously the IP address of the
+professor mess web server at 10420
+1963 and in this case vaa is
+communicating to that server over Port
+80 when that packet is received by the
+router it understands that 10. address
+needs to be translated to a public IP
+address and inside of this router is a
+network address translation table that
+shows both the private address and the
+public address that it's translating to
+you'll notice here that the private
+address of 101020
+53233 is converted to
+94111 with a port number of 1055 and
+when that translation takes place our
+source IP address is now a public IP
+address and that's what's received by
+professormesser.com
+because We're translating both the
+network address and the port number
+other devices on this network could use
+the same public IP address for example
+let let's take another scenario where we
+have Jonas at 101020 70 Jonas's random
+port number that's used for this
+transaction is
+5782 and of course the destination IP
+address is the same as the
+professormesser.com web server with a
+port number of Port 80 when that packet
+is received by the network address
+translation router it knows that that
+address has not been used before and it
+puts that into the network address
+translation table with a different port
+number number on the public IP address
+side so now we're using the same IP
+address of
+94111 as our public IP but notice that
+the port number has incremented by one
+this means that we can now have many
+people on the inside of our Network
+communicating externally to a server all
+using the same public IP address

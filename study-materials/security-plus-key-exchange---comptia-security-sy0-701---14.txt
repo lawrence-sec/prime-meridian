@@ -1,0 +1,91 @@
+as we've been discussing in our previous
+videos we've talked about how important
+it is to have an encryption key that is
+only known by the person encrypting the
+data and the person decrypting the data
+well this brings up a logistical
+challenge especially when we need to
+encrypt a large amount of data across
+the internet is how do you share that
+encryption key between those two people
+without physically transferring that
+encryption key across an insecure medium
+like the internet one way to do this is
+by exchanging the key out of band which
+means we're not going to use the network
+that means we would need to find some
+other method to transfer that key from
+one place to the other you can think
+back to the person with the suitcase
+that is handcuffed and they hop on the
+train and they go across the country and
+they hand that suitcase off to someone
+else and now both sides of the
+conversation will have the same key you
+could of course accomplish the same
+thing by using a courier or calling
+someone on the telephone or simply
+exchanging the key in person but on the
+internet we don't have the luxury of
+time we need to be able to encrypt a
+single communication immediately in our
+browser so we would need to use some
+type of inband key exchange which means
+some type of information is going to be
+sent across the network sometimes you
+can do this by using additional
+encryption mechanisms for example you
+could use asymmetric encryption to
+encrypt asymmetric key send that
+asymmetrically encrypted key to a third
+party and they can decrypt it to obtain
+the symmetric key this allows us to
+securely transfer these encryption Keys
+across the network and it all occurs
+relatively quickly this is something
+that's commonly done with keys that may
+be only used for a short period of time
+for example things like session keys are
+used for temporary basis we then remove
+those session keys and use a new session
+key for the next session for example a
+client could encrypt a random or
+symmetric key that could be used for a
+session and encrypt it with a server's
+public key the client would then send
+that encrypted information to the server
+and the server would use its private key
+to decrypt that session key since
+session Keys tend to be ephemeral or
+temporary we can use that session key
+discard it and then perform this process
+again to transfer a new session key
+between systems there's also another way
+to create a symmetric key between two
+devices by using public key cryptography
+this is something that would allow us to
+to create the same symmetric key on both
+sides of the conversation without
+sending the symmetric key across the
+network here's how this works we would
+start with Bob's side Bob obviously has
+a private key that no one has but Bob
+Alice also has a private key her private
+key is only known to herself we would
+then combine Bob's private key with
+Alice's public key Alice's public key is
+obviously known to everyone so Bob would
+easily have access to that information
+conversely Alice can combine her private
+key with Bob's public key and since both
+Bob and Alice are using keys that are
+mathematically related they create the
+same symmetric key from that algorithm
+we refer to these as key exchange
+algorithms we're not performing any type
+of encryption or hashing we're instead
+building the same symmetric key on both
+sides of the conversation even though we
+didn't send that symmetric key across
+the
+network

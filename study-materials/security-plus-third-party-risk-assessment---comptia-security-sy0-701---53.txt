@@ -1,0 +1,314 @@
+every organization works with vendors of
+some kind these might be an organization
+that provides Payroll Services you might
+have a separate email marketing service
+that you use you might have a travel
+Department that's external to your
+company or maybe just purchase all of
+your raw materials from a third party
+with all of these relationships some
+part of the company's data is shared
+with that third party some of this data
+may be relatively unimportant but if
+you're sharing information with a
+payroll company you're giving a lot of
+your company's information into the
+hands of a third party for that reason
+it's always a good idea to perform a
+risk analysis of the third party to know
+exactly what's happening with your data
+and how they're protecting the
+information that you're providing to
+them because you're working with a party
+that is external to your company it's
+always a good idea to put the risk
+assessment information into the contract
+that you have with that organization
+this ensures that everyone understands
+the expectation for this risk assessment
+and it also sets penalties if any part
+of that agreement is
+breached one common type of risk
+assessment is penetration testing this
+is very similar to performing a
+vulnerability scan except we're trying
+to actively exploit the vulnerabilities
+that might exist in an operating system
+or an application this might be a
+requirement you set internally to your
+company or it might be a mandate that is
+written into the contract between you
+and a third party for example example
+this could require that yourself and the
+third party execute penetration tests
+over a standard interval of time and
+this might involve a third-party company
+that specializes in penetration testing
+that way you and your vendor are both
+using this third party to create reports
+showing what type of security is in
+place and how well that security is
+working most penetration tests also
+include a document called The Rules of
+Engagement this sets the parameters so
+that everybody understands the scope of
+the test and exactly what devices will
+be tested for example The Rules of
+Engagement might say that this is an
+on-site physical breach test so someone
+will be attempting to gain access to
+your facility or it might be a test
+that's handled internally inside of your
+company or it might be a test that's
+done across the internet to simulate
+someone who's on the outside we can also
+set parameters around when the test will
+occur this might be on a particular date
+and time or you May specify that it's
+only to take place during normal working
+hours or perhaps only after working
+hours are over and most Rules of
+Engagement will include information such
+as the IP address ranges that will be
+tested any emergency contacts which may
+be very important if something goes
+wrong during the test you might also
+want to specify how the third party
+should handle any sensitive information
+that they might happen to come across
+during this penetration test and you may
+set specific parameters around which
+devices are in scope scope during the
+test and which devices are out of scope
+and should not be touched during this
+process when you're working in
+partnership with a third-party vendor
+you're commonly going to share some type
+of data between the organizations this
+is especially true if you use a third
+party for payroll or some other type of
+third party service or if you're
+Outsourcing part of your organization's
+functions to a third party it may be
+that this third party is holding and
+managing all of the data in their
+facility
+or it may be something like an internet
+provider where all of your internet
+traffic traverses that company's links
+for those reasons it might be a good
+idea to perform regular audits to ensure
+that all of their security is up todate
+and working as expected normally we
+would integrate this requirement into
+the contract itself into a clause called
+the right to audit this means that
+everyone understands that regular audits
+will occur and this might even set
+parameters for that audit and how they
+can be handled this allows both sides to
+understand what type of security
+controls are in place and how those
+controls are used to protect the
+company's
+information in many cases neither
+yourself nor the vendors you're working
+with are the ones performing the audit
+it's very common to have a third party
+come in and perform the audit as someone
+who's outside the scope of the contract
+sometimes these audits are required
+based on the type of data that's stored
+and it may be part of your company's
+compliance to make sure that an audit
+occurs but even if there isn't a
+specific compliance need it's always a
+good idea to perform regular audits from
+a security perspective these audits are
+focusing on all of the security controls
+surrounding the relationship between
+yourself and your vendors for example
+you may want to look into access
+management any offboarding processes and
+procedures what type of security is
+associated with passwords and how are
+those passwords stored and what type of
+controls are in place to allow or
+disallow access to the VP PN there are
+almost always opportunities to improve
+the security controls that are in place
+and once you perform an audit you'll
+have documentation that shows exactly
+what security controls might be improved
+to provide additional security and most
+vendor relationships are going to be
+over an extended period of time so you
+want to not only perform a single audit
+but you'll want to have continued audits
+perhaps occurring at regular
+intervals the supply chain describes the
+entire process that occurs from the
+beginning with the raw materials all the
+way until a final product is created and
+there are security concerns that take
+place through every step of the supply
+chain process this is why it's often a
+good idea to perform a supply chain
+analysis this will give you a chance to
+understand the entire process and where
+security concerns May lie there are a
+number of different steps that you can
+follow to understand how the security
+might be for your supply chain you might
+want to start with understanding how we
+get a product or service from the vendor
+to the customer we could also evaluate
+how different groups are coordinated
+between both of the organizations and
+understand where there might be areas
+where you can improve that communication
+at the technical level you'll want to
+understand how the security is handled
+between the two teams at your
+organization and the third party vendor
+and you want to document any changes to
+the business process that occur between
+yourself and the vendor the security
+concerns for the supply chain are very
+real a good example of this occurred
+between March and June of 2020 when a
+software update from a third party
+installed malware into all of their
+customers networks this was announced in
+December 2020 by the company solar winds
+and attacker was able to breach the
+solar winds Network install malware into
+the code of the product and then solar
+winds deployed that malware update with
+a valid solar winds digital signature
+this update was installed into some of
+the largest networks in the world and
+it's estimated that out of the 300,000
+customers that could have been impacted
+by this at least 18,000 of them had this
+malware installed as part of this update
+it's now very possible that the 300,000
+customers are now re-evaluating the
+process they use for supply chain
+analysis when you're working for an
+organization your scope tends to be very
+focused on the processes and procedures
+for that single Organization for that
+reason reason it might be valuable to
+bring in someone from the outside who
+has a different perspective these
+independent assessments might provide
+you with a different perspective that
+you're not able to get from inside of
+your own organization if you find a
+knowledgeable third party to perform
+these assessments they can provide you
+with interesting insights that they're
+able to gather across many different
+organizations and that broad scope of
+understanding May provide you with an
+increased level of security for your
+organization and if you're bring
+bringing in a knowledgeable third party
+you may be able to receive insights into
+your security that you simply weren't
+considering before bringing a
+third-party organization into your
+company you may hear other people
+mention that they're performing due
+diligence this describes the process of
+investigating and getting more
+information about a company before you
+decide to do business with them this
+might involve investigating and
+verifying information that the company
+has provided for example they might say
+that they've made a certain amount of
+money over the last few years and they
+have a certain number of customers this
+might also include background checks or
+interviews with individuals in that
+third party organization it's very
+important when working with a third
+party that you maintain a business
+relationship but there are times when
+there might be a conflict of interest
+this means that there's something that
+might compromise the judgment on either
+side of the business relationship for
+example you may find out that a
+potential third party that you would
+like to work with is also doing business
+with your largest competitor or you
+might find out that this third-party
+company employs a relative of one of
+your Executives and another conflict of
+interest might be that the third-party
+company is offering gifts if the
+contract between the two organizations
+is signed all of these situations are
+clear conflicts of interest and it may
+prevent the two companies from doing
+business with each other once the
+contract is signed the work is really
+just beginning not only are you entering
+to a business relationship with this
+third party you'll also want to have
+continued monitoring of the relationship
+between the two companies especially
+from the perspective of it security it's
+very common to have these monitoring
+processes occur rather frequently so you
+can perform Financial Health checks
+perform it Security reviews and it might
+be a good idea to monitor the news to
+see what type of Articles or social
+media posts might be associated with
+this partner a company will often have
+relationships with many third parties
+and the monitoring that you perform with
+each of those companies may be slightly
+different it might be useful to have
+both quantitative and qualitative
+monitoring for all of your vendors this
+often means that there is an individual
+or group of individuals within your
+organization that are responsible for
+the relationship between your company
+and the third party and this group
+within your company would therefore be
+responsible for performing the vendor
+monitoring one very common way to
+perform the vendor monitoring is to send
+over a questionnaire to the third party
+this questionnaire is a relatively
+simple way to find out more information
+about the way the vendor does business
+for example you may want to know what
+the vendor's due diligence process looks
+like and what they do to prevent any
+type of conflicts or perhaps you want to
+know what plans the vendor might have
+for Disaster Recovery if something
+happens to the vendor's facility how
+will they stay up and running to be able
+to support you at a technical level you
+might want to know what type of storage
+method is used to store your data and
+how is that data protected all of these
+questionnaires can help you understand
+more about the security at that vendor
+site and may allow you to recommend or
+change some of the ways those processes
+and procedures are handled in the future
+the answers you receive from that third
+party are integrated into the risk
+analysis for that vendor and they are
+constantly updated through out the
+relationship with that third
+party

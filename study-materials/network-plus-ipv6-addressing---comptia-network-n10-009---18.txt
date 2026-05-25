@@ -1,0 +1,316 @@
+our current estimates put the total
+number of devices connected to the
+internet somewhere around 20 billion
+with a B one of our ongoing challenges
+associated with this huge rise in number
+of devices is that IP version 4 can only
+support
+4.29 billion of those addresses the rest
+of this we very commonly use Network
+address translation or other methods to
+be able to communicate with all of these
+devices with such a limited number of
+addresses and as you may already be
+aware there are no more ipv4 addresses
+to be assigned we have hit the limit to
+the number of IP version 4 addresses
+that we're able to use we've been able
+to provide ongoing support for IP
+version 4 using network address
+translation and the internet
+configuration that you use at home and
+at your office uses Network address
+translation to be able to connect
+hundreds or even thousands of devices to
+the internet using a minimal number of
+IP version 4 addresses although this
+works with most of the applications that
+we use there are certain apps that would
+prefer not to use Network address
+translation and this simply creates more
+complexities and difficulties for those
+of us that need to communicate over
+these ipv4 networks fortunately we have
+a solution to this limited number of
+addresses and that solution is a new
+version of Ip referred to as IP IP
+version 6 IP version 4 addresses are 32
+bits in length IP version 6 addresses
+have a
+128bit address which gives us a much
+larger address space to use when we're
+assigning these addresses to all of
+those many devices on the internet
+another way to visualize this would be
+to say that every grain of sand on earth
+could have 45 quintilian unique IP
+version 6 addresses you can see that
+this large address space with IP version
+6 resolves that IP address constraint
+that we have with IP version 4 there are
+a number of differences between an IP
+version 4 address and an IP version 6
+address this is an IP version 6 address
+fe80 colon colon 5 d18 colon 652 colon 6
+ffd colon 8
+f52 you can see that is a very different
+style of addressing than IP version four
+where we were only dealing with decimal
+numbers and periods in IP version 6 we
+are using heximal values and we're
+separating those with Aon if we were to
+write out that entire address into its
+entire
+128bit form you can see that it is
+completely listed here and that is a
+much larger address than we deal with
+with IP version 4 if you wanted to view
+this in a binary form you can see that
+we have the representation of that same
+address listed did in binary you can see
+here that each section of an IP version
+6 address that we separate with colons
+is 16 bits in length you can see the 16
+ones and zeros listed in each one of
+those sections this also means that each
+section is two bytes in length and you
+may also see it represented as two
+octets in length so in total the IP
+version 6 address is a total of 128 bits
+or 16 bytes in total you might see an i
+P version 6 address written out with all
+128 bits being shown on the screen but
+you might also see these addresses
+listed in a compressed form which makes
+it much easier to be able to read when
+we're using this compressed form of an
+IPv6 address there are a number of rules
+to keep in mind one of those rules if
+there are groups of zeros that are
+together we can abbreviate that entire
+group by simply replacing those zeros
+with a double colon we can only do this
+one time in an address but usually
+that's all we need to make this address
+much easier to read we also can remove
+leading zeros from each group within the
+IP version 6 address let's take an IPv6
+address and perform this compression to
+see what that would look like the IPv6
+address we'll work with is 2600 colon
+Delta Delta Delta Delta colon 1111 colon
+00001 colon 000000 and you can see the
+zeros go all the way through to the end
+to the number one our first rule here is
+that we can remove any of these leading
+zeros that might be in all of these
+groups this means that our IPv6 address
+with those zeros removed would be
+2600 dddd 11111 and then each of those
+leading zeros in all of the remaining
+groups would be removed you'll also
+notice that there are three individual
+groups here that are simply zeros and
+one way that we can simplify the writing
+of this IP address is to abbreviate two
+or more of those groups together with
+double colons so all three of those
+zeros would be removed and we would
+replace them with one series of double
+colons this means that we would have a
+very simplified form of this address
+instead of having all 128 bits of that
+address shown on the screen the address
+is now simply written as 2600 dddd
+111111
+double colon and
+one let's look at another IPv6 address
+and perform the same compression this
+IPv6 address is 2601 04 C3
+4002 be 00 three groups of zeros and it
+ends with
+0066 our first step would be to remove
+the leading zeros in all of this we have
+our second group has one zero in front
+of it and there are a number of groups
+at the end that have leading zeros that
+we can simply get rid of you'll notice
+in this example that there are three
+different groups of zeros that are
+combined together so we can remove all
+three of those zeros and replace it with
+a double colon this greatly simplifies
+this much longer address into 2601 4
+Charlie 3
+4002 be 00 colon colon
+66 as you can see the IP version 6
+addresses are very different than the IP
+V4 addresses that we're used to seeing
+and because of this IP version 6 and IP
+version 4 cannot directly communicate
+with each other therefore we need some
+method to be able to have these older
+Legacy systems that only understand IP
+version 4 be able to communicate on our
+more modern IP version 6 networks this
+creates some communication challenges
+when trying to combine IP version 4 and
+IP version 6 but fortunately there are a
+number of different ways to bridge this
+Gap one of these methods would be to
+Tunnel the traffic we would either
+tunnel IP version 4 with an IP version 6
+or tunnel IP version 6 within IP version
+4 this would give us a way to
+communicate even across networks that
+were very different than the protocol
+that we were using another way to bridge
+this Gap would be to use a dual stack
+configuration where the system that
+you're using can communicate with both
+IP version 4 and IP version 6 and
+another way would be through the process
+process of translation where we are
+converting one IP version 4 address into
+a completely different IP version 6
+address obviously these are stop Gap
+measures and they're not designed to be
+a long-term solution for connecting
+these different types of networks
+together ideally the best long-term
+solution would be for all of us to move
+to IP version 6 and hopefully one day
+we'll be able to take all of our systems
+and be able to run them as a pure IPv6
+environment
+in the early days of IPv6 where we did
+not have a lot of infrastructure devices
+that understood IPv6 we did a lot of
+tunneling of that IPv6 traffic this was
+obviously designed to be a short-term
+use and these days it's not very common
+to still see this tunneling being used
+one of these tunneling types is 6 to4
+addressing this allows us to send IP
+version 6 traffic over an existing IP
+version 4 Network it creates an ipv 6
+address based on the IP version 4
+address that you're currently using but
+it requires you to have a specialized
+relay router to be able to transfer that
+data and one big disadvantage of six to4
+addressing is it does not support any
+type of network address translation
+because of both those limitations and
+because we have more devices these days
+that natively support IP version 6 we no
+longer commonly see 6 to4 being used and
+this functionality has now been removed
+from all windows versions if you can
+tunnel IP version 6 traffic across an
+ipv4 Network you can also do the reverse
+with 4 in6 tunneling or we can tunnel IP
+version 4 traffic across an existing IP
+version 6 Network both of these were
+used as relatively short-term Solutions
+and it's very unusual to find six to4
+addressing or 4 in6 tunneling still
+being used on our Enterprise networks a
+much more common method of migration and
+one you're probably using on your
+existing system is dual stack routing
+this allows us to use both IP version 4
+and IP version 6 at the same time on the
+same system you might have an ethernet
+adapter on your computer and that
+ethernet adapter has both an IP version
+4 address assigned to it and an IP
+version 6 address assigned to it the IP
+version 4 side works exactly the same as
+it always has and all of your
+applications that use IP version 4 can
+use that address to be able to
+communicate onto the network if you have
+applications that would prefer using
+IPv6 they can use the IPv6 addressing
+associated with that ethernet adapter
+these applications will use the IPv6
+address that is assigned to your
+ethernet adapter it will use the routing
+table within your system for IPv6 which
+is a different routing table than you're
+using for IP version 4 and all of the
+IPv6 settings that are associated are
+all independent from anything that's
+happening with IP version 4 this tends
+to be a very good middle ground because
+our application can choose IP version 4
+or IP version 6 and either one of those
+will work properly on the network one of
+the things that we used with ipv4 to
+minimize the Restriction that we had
+with IP addresses is to perform a
+network address translation we would
+take our existing internal ipv4 address
+and translate that into an ipv4 address
+that can be routed across the internet
+we can perform a similar translation to
+move between ipv4 and
+IPv6 this translation is called natat 64
+and allows us to seamlessly translate
+ipv4 and IPv6 just as we need a
+specialized Network address translation
+router when we're using ipv4 we also
+need a specialized router when we're
+using natat 64 this allows us to take a
+device that communicates via ipv 6 but
+still allow it to communicate with
+devices that only communicate using IP
+version 4 the key is in the middle we're
+able to use a natat 64 capable router to
+make that translation change between
+those two protocols this also uses a
+specialized DNS server to be able to
+translate the DNS requests from IP
+version 4 to IP version 6 this is called
+dns64 and it's an important part of the
+overall natat 64 process for example
+let's say that you wanted to communicate
+from your device which is an IPv6 client
+and you wanted to communicate to
+professormesser.com Let's assume for
+this example that professormesser.com
+can only communicate using ipv4 the
+first thing that happens of course is we
+need the IP address of professor.com so
+we send a DNS request to our dns64
+server This Server is going to make a
+DNS request on our behalf to that ipv4
+Network containing the DNS server that
+is used by professor.com and of course
+that DNS server is going to respond back
+with the IP version for address
+associated with that server once that
+ipv4 address is received by the dns64
+server it creates an IP version 6
+version of that address that redirects
+it to the natat 64 router to the IPv6
+client it thinks it's received the IPv6
+address of professormesser.com but it's
+really received the ipv 6 address of the
+natat 64 router so now when our browser
+needs to communicate to
+professormesser.com it sends its initial
+sin to that IPv6 address which is the
+NAT 64 router that router is responsible
+for performing the network address
+translation where it is able to take the
+IPv6 address that we use and translate
+that into an ipv4 address that the web
+server understands this process is
+obviously reversed when the response is
+sent back allowing these two devices to
+communicate to each other even though
+one device only understands IPv6 and the
+other device only understands IP version
+4

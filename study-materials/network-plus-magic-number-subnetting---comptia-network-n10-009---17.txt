@@ -1,0 +1,486 @@
+if you've been with us with the videos
+just prior to this one then you've
+learned a lot about subnetting masks
+cider block notation and other important
+fundamentals when it comes to subnetting
+Via IP version 4 all of that work has
+brought us to this point where we can
+start to answer questions like this one
+here's a network layout and it says
+here's your IP address assignment we've
+been given the IP address of
+192.168.1.0
+/24 and this says we need an IP
+addressing scheme with more than one
+network address that can support 40
+devices per subnet that is the optimal
+number we're looking for and we need to
+determine how to subnet this network
+address to be able to get 40 devices per
+subnet now you could of course write out
+all of the possibilities in decimal and
+binary and be able to calculate what the
+differences are with the number of
+networks and the number of hosts per
+Network for example if you look at the
+default subnet Mas that we were given
+which is
+255.255.255.0 you can see this is the
+binary representation of that subnet
+mask and the cider notation which is a
+sl24 that gives us one single network
+with 254 hosts per network if we borrow
+one bit from the host side so that we
+are 255
+255.255 1228 as our subnet mask or a
+sl25 we would be able to create two
+networks with
+126 hosts per Network we are getting
+closer to that number of 40 let's keep
+going by borrowing another bit so that
+our subnet mask is
+255.255.255.192 or sl26 this allows us
+to have four networks with a total of 62
+hosts on each of those subnets this is
+certainly getting close to 40 but let's
+go one more step to see if we're getting
+even closer to that 40 Value The Next
+Step would be to borrow one more bit
+from the host side so now we're
+borrowing three subnet bits which means
+our subnet mask is 255 255 255 224 or a
+sl27 if we Subnet in this way we can
+have a maximum of eight networks but it
+would only allow for 30 hosts per
+Network this means that the optimal
+subnet m ask if we're looking for a
+total of 40 devices per subnet would be
+the next one up or the
+sl26 which would give us four networks
+and a maximum of 62 hosts per Network
+now we can certainly speed this process
+Along by performing a calculation based
+on Powers of two let's look to see how
+we might do that we have a starting IP
+address of
+192.168.1.0 and a subnet mask of
+255.255.255.192
+to and based on this information we can
+show the network address in the subnet
+mask in binary and you'll notice in the
+subnet mask we have the default number
+of bits for that address plus the two
+extra bits that we borrowed from the
+host side visually you can see where the
+24 subnet bits might be the two extra
+bits we borrowed for the subnet and the
+six bits that are left over on the host
+side if we were to now calculate the
+number of subnets and the number of
+hosts per subnets using this powers of
+two formula we would take 2 to the 2
+power because the second power would be
+two bits and that would be a total of
+four networks we would determine the
+number of hosts per subnet by taking
+those six host bits that are left over
+at the end and calculating two to the
+6th power minus 2 which would be 64
+minus 2 or a total of 62 host per subnet
+this is a relatively straightforward way
+to calculate the number of subnets and
+the number of hosts per subnet but it
+requires you to perform a binary
+conversion and then count the number of
+bits to be able to calculate what that
+total might be at the end there are some
+shortcuts that we can use and in this
+video we're going to look at a shortcut
+that uses the magic number
+method these calculations are intended
+to give us four separate pieces of
+information first we need the network
+address or subnet ID this would be the
+first address in the subnet we also need
+a broadcast address this is the last
+address in the sub subnet we need the
+first available host address this is an
+address that we can assign to a device
+on this subnet and then we need the last
+available host address we need to be
+able to calculate these as quickly as
+possible now obviously we could
+calculate this by converting everything
+to Binary looking at the subnet bits and
+then calculating for every possible
+scenario what this particular Network
+address might be and the subnet mask for
+each one of these and for this
+particular IP address where we determine
+the were four separate subnets these are
+all the calculations that we would need
+to do to be able to calculate all of
+that information for all four of those
+subnets you can see looking at this
+screen that there are a lot of separate
+binary to decimal conversions you'd have
+to do just to calculate those specific
+details for all four of those
+subnets we can simplify this process by
+using the magic number shortcut this
+allows us to perform subnet calculations
+very quickly and very often we can do
+all these calculations in our head
+there's still a little bit of math
+involved with the magic number method
+but it's limited to powers of two and
+some very simple addition and
+subtraction you could even create a few
+charts that might help you with the
+process but once you get accustomed to
+using this method you'll find that you
+memorize very easily what's in the
+charts you may not have to write them
+down at all during your exam one chart
+that might help you is a chart that
+easily converts between a cider block
+notation and the decimal subnet mask
+notation ation you can see an example of
+this might be to use a sl9 is
+25128 z.0 sl10 is 2551
+192.000 and so on you will notice that
+there are some patterns after a while
+for example a sl9 has the 128 as the
+number that is a bit different than a
+zero or a 255 and a sl17 also has a 128
+so we could write this chart in a
+simplified form that shows a SL
+9/7 and a sl25 use the 128 as the
+decimal value in the magic number method
+we have a number of different tasks that
+we perform based on the octet that we're
+working with so we might want to modify
+this cider to decimal chart to have
+something that's a little bit different
+for example if you wanted to see The
+Cider notation for interesting octet 2
+you can see it ranges from a sl9 through
+sl16 the cider block notation for
+interesting octet 3 would be sl7 through
+sl24 and The Cider block notation for
+interesting octet 4 ranges from sl25 to
+sl30 you notice that we don't use /31 by
+default because it doesn't leave any
+room for any hosts on the subnet and we
+don't use a sl32 because that leaves
+zero bits available for any host for
+each of these columns with the cider
+block notation you'll notice there is a
+magic number and in a moment we'll learn
+how to use that magic number value we
+can also put in this chart the subnet
+mass for an interesting octet and you
+can see those Mass values are also
+listed as well starting at 128 and
+working all the way up to
+255 optionally you could also create a
+Host range chart where you can take an
+address block and then separate out what
+the differences are for that particular
+block for example an address block of
+128 splits the network into two
+different pieces 0 through 127 and 128
+through 255 an address block of 64 hosts
+per block would be 0 through 63 64
+through 127 and so on and you can
+continue this process with a host block
+of 32 hosts 16 hosts 8 hosts and so on
+so let's see how the magic number method
+works it's a series of steps and once
+you go through these a couple of times
+they become very second nature the first
+step is to convert the subnet mask to
+decimal if it's not in decimal already
+from there we need to identify the
+interesting octet we'll talk about the
+interesting octet in just a moment we
+then need to calculate the magic number
+which is 256 minus the value of the
+interesting octet we could then
+calculate The Host range based on that
+identify the network address which would
+be the first address in that range and
+then identify the broadcast address
+which would be the last address in that
+range so now let's take an IP version
+for subnetting problem and answer this
+problem using the magic number method
+we'll start with this IP address of 165
+24577 14 and we've been given a subnet
+mask of
+255.255.255.0 do0 we can then also fill
+in the IP address that we been given
+which is
+16524
+7714 from here we can start to make some
+decisions about what to put into this
+chart for example if the mask is 255 you
+simply copy the IP address down so in
+this case the mask is 255 in the first
+octet so we're going to copy that down
+which means our subnet ID will be copied
+down with the same number that's in the
+IP address row let's perform that same
+task again with the second octet it is
+also 255 so we're going to copy that
+through this 245 then will be brought
+down into the subnet ID row we no longer
+have any octets with the 255 so our next
+step will be to look at any octets where
+the mask is zero and if the mask is zero
+we bring that zero down to the subnet ID
+Row in this case our last octet does
+have a zero so we're going to copy that
+zero all the way down and put it into
+the subnet ID Row in the last octet in
+our example example the subnet mask in
+the third octet is a 240 that is
+obviously not zero and not 255 so that
+octet is our interesting octet now that
+we know the interesting octet we can use
+that to calculate the subnet ID value
+for that particular octet to be able to
+do that we need to subtract the
+interesting octet subnet mask from
+256 in our interesting octet the subnet
+mask is 240 so if we subtract 240 from
+256 we have the value of 16 this means
+our magic number is 16 and there would
+be 16 hosts available on that particular
+subnet if we put our chart at the bottom
+that shows the 16 different hosts that
+you would have and the delineation
+between each one of those subnets you
+can see that we have a range between 0
+and 15 16 through 31 32 through 47 and
+so on now if we look at the IP address
+we can see the IP address is 7 7 and if
+we look on our chart we can fit the 77
+IP address in the range between 64 and
+79 since we're trying to determine the
+subnet ID we take the very first number
+in that particular range which would be
+64 and we add that 64 into that subnet
+ID in our interesting octet so for the
+IP address 165
+24577 14 that has a subnet mask of
+255.255 240. the subnet ID is
+16524
+64.0 of course not only do we need to
+know the subnet ID but we also need to
+know the broadcast address to calculate
+the broadcast address using the magic
+number method it's a very similar
+process we use the same chart with the
+same subnet mask and the subnet ID but
+at the very bottom we have broadcast
+address instead of subnet ID the rules
+for determining the broadcast address
+are very similar to the rules we used
+for the subnet ID if the subnet mask is
+255 we copy the subnet ID all the way
+down into the broadcast address row we
+have two of our octets that show a 255
+so we'll do this for the first and the
+second octet here's where the rules are
+a little bit different when calculating
+the broadcast address versus calculating
+the subnet ID if the mask is zero we're
+going to write into that column A
+255 and of course if the net mask octet
+doesn't contain a zero and it doesn't
+contain a 255 then that octet is our
+interesting octet this will obviously be
+the same interesting octet when we're
+calculating the broadcast address as it
+was when we were calculating the subnet
+ID to calculate the magic number we
+perform the same process that we did
+earlier we take 256 we subtract from
+that the value that's in that
+interesting octet mask leaving us with a
+magic number of 16 to calculate the
+broadcast address for that interesting
+octet we take the subnet ID and we add
+the magic number and subtract one so in
+this example we use 64 because that is
+the number in our subnet ID we add 16
+which is our magic number we subtract
+one and that leaves us with 79 so in
+this example the broadcast Address is
+165
+24579
+255 now that we know the subnet ID and
+we know the broadcast address
+calculating the first available IP
+address and the last available IP
+address is relatively straightforward to
+calculate the first host we would take
+the subnet ID and add one so the first
+address on the subnet is 165 245
+64.1 to find the last usable address on
+the subnet we take the broadcast address
+and subtract one so the last usable
+address on this subnet is
+16524 7925 54 and that is the magic
+number process without doing any type of
+conversions between binary and decimal
+we were able to calculate the subnet ID
+the broadcast address the first
+available IP address and the last
+available IP
+address let's see how well we can use
+this magic number method with another
+example we'll use the IP address of
+101801 122. 244 and the subnet mask is
+25524 0 we will first fill in our chart
+so we'll put our subnet mask in that
+mask row and we'll put our IP address in
+the IP address row we'll now look at our
+subnet mask and everywhere there's a 255
+we will use that to copy down the IP
+address so in this case in the first
+octet we'll copy down that value of 10
+every place there is a zero we're going
+to copy down the zero and put that into
+the subnet ID row and the third and the
+fourth octets both have a zero since we
+don't have a Zer or a 255 in this second
+octet that means that this octet is our
+interesting octet to calculate the magic
+number we use 256 subtract the value
+that we have in that subnet mask range
+which means we use 256 - 248 so in this
+example our magic number is 8 this means
+that each subnet has a total of eight IP
+addresses that can be assigned including
+our subnet ID and our broadcast ID and
+we've put the chart at the bottom that
+separates this into those multiples of
+eight now we need to find the IP address
+that is the starting for this particular
+block if we look at our interesting
+octet we know that the IP address is 180
+so if we look at our chart we can find
+that 180 which is in the block starting
+with
+176 since that starts with 176 we can
+simply fill that in which means the
+subnet ID for this example will be
+10.176
+0.0 now we need to find the broadcast
+address for this example we'll use a
+similar process we did before where if
+we had a 255 in the list we're going to
+copy and bring down that subnet ID so
+the first octet will simply copy down
+the number 10 anywhere that we have a
+zero we're going to copy down and put a
+255 and we have zeros in both our third
+octet and our fourth octet as we already
+know the second octet is our interesting
+octet so we're going to perform our
+calculation taking 256 subtracting 248
+from that meaning our magic number is 8
+this is obviously the same magic number
+we calculated earlier to calculate the
+broadcast address we need to take the
+subnet ID add the magic number and
+subtract one so the example here would
+be
+176 Plus 8 since that's our magic number
+and if we subtract one that leaves us
+with a number of 183
+we'll add this to our broadcast address
+row which means the broadcast address
+for this example is 10.1 18325
+5255 now that we've calculated the
+subnet ID and the broadcast address it's
+relatively easy to determine the first
+host ID because we take the subnet ID
+and add one so the first available host
+on the subnet is
+10.176 do1 to determine the last address
+we take the broadcast address and
+subtract one so in this case it would
+would be
+10183
+255.255 hopefully now you can see that
+the magic number method is a bit faster
+than going through the steps of
+converting to Binary and then back to
+decimal again but there are some ways to
+make this process even more efficient if
+you've already created a chart that
+shows all of the possibilities of an
+interesting octet cider block notation
+and has the magic number predefined
+along with the subnet mask for the
+interesting octet you can perform this
+in entire process in one single chart
+let's take the example of
+17216
+24233
+sl27 if we look at our predefined chart
+we know that sl27 falls into the cider
+block notation for interesting octed 4
+this means that octet 4 will have a
+decimal value of 224 so if we wanted to
+write out the entire subnet mask it
+would be
+255.255.255.0 because 22 24 is in that
+interesting octet number four the
+process for calculating the magic number
+is exactly the same as it was before we
+take 256 we subtract that subnet mask in
+the interesting octet which in this case
+is 224 which means our magic number is
+32 there are 32 available addresses on
+each subnet of this particular IP
+address and subnet MK combination here's
+our chart which is written out with 32
+numbers in each of those sections and if
+we look at our IP address that has a 133
+we can move forward to where the 133
+would be and it is in the block that
+starts with a 128 since we know it
+starts with a 128 that means that we can
+now change our fourth interesting octet
+to be that value as the subnet ID so the
+subnet ID in this example would be
+17216
+24218 if you recall from our earlier
+calculations to be able to calculate the
+broadcast information we need to take
+the subnet ID value in the interesting
+octet add that to the magic number and
+subtract one so we'll take 128 We'll add
+32 to make 160 we'll subtract 1 and that
+makes 159 so the broadcast address on
+the subnet is
+17216
+24259 now that we know the subnet ID and
+the broadcast we can calculate the first
+available IP address and the last
+available IP address we add one to the
+subnet ID to determine the first IP so
+the first IP would be
+17216
+2421 129 if we subtract one from the
+broadcast address we would get
+17216
+24218 so there is the faster way to be
+able to calculate our subnet ID our
+broadcast address the first IP address
+and the last IP address using
+the e

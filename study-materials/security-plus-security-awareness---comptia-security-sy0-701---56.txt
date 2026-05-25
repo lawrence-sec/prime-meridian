@@ -1,0 +1,172 @@
+so let's say you're working for a
+company and you're wondering how many
+employees would click a fishing link
+inside of a corporate email if you're
+not sure there is a way to figure this
+out you would run your own fishing
+campaign you would send emails to your
+user community and see who clicks on
+those emails this might be a fishing
+system that you've built internally but
+there are also many third-party sources
+who can provide this fishing campaign
+for you this is usually an automated
+process that reports opens clicks and
+any interaction with that fishing email
+to a central reporting console if a user
+does click a fishing link they receive
+an automated email stating that they
+made a mistake when they click that link
+and they would need to go to additional
+training this training may be something
+the user can perform online or there may
+be in-person training at the corporate
+facilities we want our users to
+recognize when a fishing link might be
+inside of an email they should be
+looking for any spelling or grammatical
+errors within the message itself and
+within the link that they're clicking we
+want our users to look at the domain
+name associated with that link and they
+should look to see if there are
+inconsistencies in how this email is
+constructed there might be unusual
+attachments connected to the email which
+would certainly be a sign of fishing and
+we should see if the email is requesting
+any personal information or login
+credentials If you're receiving these
+fishing attempts from outside this is
+also a good chance to see if your email
+filtering process is working the way you
+would expect ideally that filter would
+be blocking any of these fishing
+attempts before they ever made it into a
+user's inbox we should also make sure
+that our users know to never click a
+link inside of an email and to never run
+an attachment from inside of an email we
+want to make sure that everyone in the
+organization understands what a fishing
+email looks like and are able to
+recognize if they happen to see one in
+their inbox there should also be a
+well-known process within your
+organization for reporting any suspected
+fishing emails to the it security
+team if your email filter is working
+properly then your fishing attempt will
+probably look something like this this
+fishing attempt was pulled directly from
+my spam folder and you can see it's from
+the United Nation simf the international
+monetary fund you can also see that the
+email associated with the United Nation
+is Reserve Bank OG Indian
+gmail.com and in this case the Gmail
+filter has successfully identified this
+as a fishing campaign and it clearly
+says that this message seems
+dangerous not only are we looking for
+fishing attempts we're also looking for
+anything that might be unusual on a
+user's workstation we refer to this as
+anomalous Behavior recognition and we
+can start start with looking for any
+type of risky Behavior this could
+include a person or a service modifying
+a host file on that device perhaps it's
+replacing a core operating system file
+or perhaps sensitive files may be
+uploaded from that device we're also
+looking for behavior that would be
+unexpected someone logging in from
+another country is certainly something
+that's not normal and an increase in the
+amount of data transfers from a device
+would certainly be unexpected and then
+of course we want to look for any
+behavior that may be unintentional for
+example someone typing in the wrong
+domain name would simply be an
+unintentional mistake the same thing
+might apply to someone who had their USB
+drive and now has misplaced where that
+drive happens to be or perhaps the
+security settings on a device have been
+misconfigured all of these are human
+error and would clearly be put into the
+category of unintentional Behavior a
+security team is not going to be aware
+of these issues unless they con
+constantly monitoring and Reporting on
+these types of events this needs to be
+an automated process where alerts are
+automatically sent to the security team
+and reports are generated automatically
+every day this might include information
+about fishing click rates password
+manager adoption multiactor
+authentication use and other important
+security metrics the first time someone
+clicks a fishing link or does some other
+type of risky Behavior we can address
+that with user training the goal would
+be to make the us are aware of this
+particular issue so that they don't have
+that issue occur again and if we're
+constantly monitoring we could see if
+these particular security events occur
+again this would point us towards users
+that need extended training and we might
+want to add or change security
+configurations for that particular
+user the process of monitoring reporting
+and training the users would commonly be
+done by the security awareness team this
+would be a specialized team in it that
+focuses on these types of user issues
+the security team is responsible for
+letting everyone in the user Community
+know about these security issues so they
+might create emails posters or some type
+of training to let people know where
+these security problems might be they
+can also create customized training
+depending on the job function for that
+particular individual if the
+organization has a group of mandated
+compliance requirements they can create
+customized training that Focus Fus is on
+that specific compliance and they can
+use these automated reporting systems to
+create detailed metrics that can be
+tracked over time that way they'll know
+if their efforts are making a difference
+in the security of the organization or
+if there's a particular area where they
+need to have an extra
+emphasis the security awareness team
+would be responsible for creating the
+training materials for it security and
+they'll present them online or in person
+they'll also create detailed metrics
+that show the rest of of it how our
+security controls may be working there's
+usually a group of managers or
+stakeholders that are associated with
+the success of the security awareness
+team and they'll want to know how these
+metrics associate back to the overall
+security of the organization you'll see
+the results of these efforts in many
+Office Buildings where you'll find
+classroom training posters and
+information that tells you more about
+security concerns for that organization
+and since there are detailed metrics for
+all of this information you'll be able
+to correlate your training efforts back
+to the overall security of the
+company

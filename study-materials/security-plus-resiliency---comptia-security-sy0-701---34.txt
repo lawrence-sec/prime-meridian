@@ -1,0 +1,260 @@
+if you work in information security then
+you're very focused on maintaining the
+uptime and availability of systems and
+one way to provide that level of
+resiliency is through the use of high
+availability to plan for outages some
+administrators will purchase multiple
+components so that if one component
+fails they can easily bring in the other
+component to replace it that doesn't
+necessarily mean that everything remains
+up and running it may take time to pull
+the secondary device out of the box put
+it into the rack give it a configuration
+and then finally you're up and running
+instead we can provide more enhanced
+availability with ha or high
+availability in this configuration
+everything would be up and running and
+always turned on and always available if
+one system fails you have another system
+running at the same time right beside it
+and that other system will take up the
+additional load and continue to provide
+availability for that particular service
+but of course having additional
+components and having those systems
+always turned on and always operating
+means that there will also be additional
+costs when we think about engineering
+for high availability not only do we
+purchase multiple systems we may need
+upgraded power for all of those systems
+maybe the components within those
+systems have a higher quality and
+because of this overall everything will
+have a higher cost another way to
+provide this resiliency is through
+server clustering this is when you can
+have multiple servers configured to all
+work together as one big server and for
+the folks using these resources they
+don't see individual servers they simply
+see one single server cluster this
+clustering also provides some
+scalability options because you can add
+and remove devices from the cluster in
+real time either increasing or
+decreasing the capacity as needed this
+clustering functionality is generally
+turned on within the operating system of
+the server itself and usually all of the
+servers are running identical operating
+systems to provide that inter oper
+ability this is one design for a server
+cluster where your users are down here
+at the bottom communicating through a
+switch and then that switch is connected
+to the entire server cluster to be able
+to maintain synchronization between all
+of these servers they don't write
+information to their local Drive instead
+very commonly there's a separate shared
+storage directory and they will all use
+that single shared storage so that all
+of those servers always have upto-date
+data that they're referencing a
+resiliency method very similar to server
+clustering is load balancing load
+balancing uses one Central load balancer
+to be able to distribute the load
+between individual servers unlike server
+clustering where each individual server
+in the cluster knows of all of the other
+servers in the cluster load balancing
+works very differently because each of
+these servers have no idea that the
+other server even exists the load
+balancer acts as that Central Point that
+manages what devices receive what
+request Quest so it will distribute the
+load across all of the individual
+multiple devices these devices could be
+running the same operating system or a
+different operating system doesn't
+matter because the load balancer is the
+one maintaining and managing the load
+across all of those systems and similar
+to server clustering you can add and
+remove devices from the load balancer as
+you need so if you need additional
+capacity on your network you simply add
+additional servers to the load balancer
+this also works if a server fails the
+load balancer will automatically
+identify a server that is no longer
+working administratively remove it from
+the load balancer and then simply spread
+the load against the remaining
+servers we can also spread this
+resiliency out to physical locations
+this is site resiliency and you might
+have a recovery site that has already
+been allocated in case of a disaster all
+of your data is synchronized at that
+site and you're simply waiting for a
+problem to occur when that disaster is
+called a business could move their
+entire data center to a completely
+different location that would be
+physically separated from the disaster
+this allows all of your normal
+operations to continue for the duration
+of that particular event you might only
+switch over to the recovery site for a
+number of hours or you may be using that
+recovery site for weeks at a time once
+the disaster event is over you can then
+move from the recovery site back to your
+original data center one type of
+recovery site is a hot site a hot site
+is an exact replica of your data center
+it contains all of the hardware that
+you're running in your data center which
+also means of course that every time you
+purchase for your existing data center
+you also purchase for the hot site we
+also keep all of our applications
+updated at the hot site and all of our
+data is constantly synchronized to the
+hot site this means at any time if we
+need to move all of our resources to the
+hot site it will contain an exact
+duplicate of our existing data center
+for some organ organizations a disaster
+may be a relatively rare circumstance so
+they may not require the needs of a hot
+site but instead might consider a cold
+site a cold site means it's an empty
+building there's of course power and
+lighting but you'll need to bring all of
+your data so that you have something
+that you can reference all of your
+equipment and of course all the people
+required to run this particular site and
+for some organizations a better fit
+might be a warm site this is a mid-range
+between a cold site and a hot site where
+there is some equipment on site and
+perhaps some of the data is available
+but you'll need to bring additional
+hardware and additional data to cover
+anything that may not be
+available for most organizations their
+recovery site is going to be at a
+location that is a significant distance
+away this geographical dispersion means
+that if something physical happens to
+your primary location it's very likely
+your recovery site will not be affected
+for example let's say there is a storm
+that affects a very large area such as a
+hurricane or a flood that would
+certainly affect a recovery site that
+was located down the street from your
+main location but if your recovery site
+was in a different state it's very
+unlikely that that particular storm may
+be affecting both of those at the same
+time as you can imagine it becomes more
+challenging to have a recovery site that
+is farther and farther away we have to
+think about how we're going to get
+equipment from our location to the
+recovery site there will probably need
+to be employees that are on site at the
+recovery site we need to consider how
+we're going to transport them especially
+if there's been a natural disaster and
+of course eventually all of that needs
+to come back to the main site if this is
+something that will only be used
+temporarily another type of resiliency
+is platform diversity we know that
+operating systems have inherent
+vulnerabilities that are located in the
+OS some of those vulnerabilities are
+known and we can patch them but other
+vulnerabilities simply haven't been
+discovered yet however it's very common
+that these vulnerabilities are specific
+to a type of operating system for
+example if you have vulnerabilities that
+have been identified in the Windows
+operating system it's unlikely that
+those same vulnerabilities exist for
+Linux or Mac OS so to minimize the
+potential for one single vulnerability
+causing a problem for all of your
+systems it might make sense to have
+different operating systems used for
+different purposes we might use Linux
+and windows in our data center and then
+have Mac OS and windows devices on our
+clients this allows us to spread that
+risk around and perhaps could limit any
+exposure to one single
+vulnerability we can also provide
+resilience in the cloud itself of course
+there's not just one single cloud
+provider we might be using a cloud
+that's from Amazon web services
+Microsoft Azure or Google Cloud all of
+these Cloud providers have their own
+processes their own procedures and of
+course if there's an outage with one
+cloud provider that generally does not
+affect other providers providers ideally
+if there is an outage with one provider
+we might have similar services available
+on a separate provider we could provide
+application services from multiple Cloud
+providers and have data in different
+locations as well this also is important
+from a security perspective if there is
+a security concern with one provider
+having our information with different
+Cloud providers May provide us with
+uptime and availability that wouldn't be
+there if we were only using a single
+provider we talked about disasters and
+outages with the idea that we'd have
+those services available elsewhere but
+what if there are no available
+Technologies elsewhere we would have to
+then use some type of failback method we
+refer to this as a continuity of
+operations planning or Coop we've almost
+become too accustomed to our technology
+and when technolog is not available we
+need to find some non-technical way to
+still provide the same services for
+example you could have a manual process
+for completing comp in transactions and
+having people sign off on them
+physically or you may be providing paper
+receipts instead of the automated
+receipts that might come from your point
+of sales system and if your automated
+credit card transaction approvals aren't
+working there may be an option to call
+that particular card in to see if you
+can get approval over the phone these
+are obviously processes and procedures
+that would need to be thought of and
+designed well before you would need them
+so when that issue or disaster suddenly
+arises we know exactly what to do to
+keep all of our services up and
+running

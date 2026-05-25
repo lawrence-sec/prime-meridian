@@ -1,0 +1,190 @@
+if you've recently installed a telephone
+on a desktop an access point or a camera
+on your network then you've probably
+connected it using power over Ethernet
+or Poe this provides power over the same
+wire that we're using to run data which
+greatly simplifies the installation of
+these devices because we don't have to
+run a separate cable for the power the
+power that's put on this power over
+ethernet connection can come from one of
+two different sources one is buil-in
+power at the switch itself you may have
+a Poe switch that switch may be
+providing power and we refer to that as
+an end span sometimes you'll have a
+switch that doesn't support power over
+ethernet and you'll need to have a
+separate device in the middle that
+injects power onto those wires that
+injector is referred to as a midspan
+because it sits in the middle between
+the switch and the poe device you'll
+often find one of three different power
+over ethernet stand standards that are
+being used the original Poe was a 15.4
+watt of DC power output and it has a 350
+milliamp maximum current this would
+obviously be for very small devices
+perhaps it's a simple telephone or a
+very small access point the next
+standard would be poe+ with Poe plus we
+can put additional power on this
+connection because it supports 25.5
+watts of DC power with a maximum current
+of 600 milliamps Poe plus is often used
+for larger telephones cameras and other
+devices and the largest of these three
+standards is the poe Plus+ as the name
+implies this provides more power than
+the previous standards you can have up
+to 51 Watts at 600 milliamps maximum
+current we refer to that as a Type 3
+Connection or a type four connection
+that can support 71.3 Watts with a 960
+milliamp Max current this larger
+standard supports much larger devices
+there are some laptops that support Poe
+Plus+ and if you have a large camera
+that supports pan tilt and zoom that
+additional power for that camera comes
+from Poe Plus+ this newer Poe standard
+provides support for additional ethernet
+standards such as 2 and 1/2 gbit 5 gbit
+and 10 gbit connections if you're
+installing a Poe switch and your goal is
+to power a Poe device you need to make
+sure that the device and the switch are
+compatible for example if if you have a
+poe+ switch that switch will not be able
+to power a poe+ plus device you can
+often look at the switch itself and it
+will tell you what interfaces support
+power over ethernet it may be a switch
+where all of the interfaces support
+power over ethernet this is a 10 Port
+gigabit power over ethernet plus manage
+switch and you can plug into any of
+these interfaces and use power over
+ethernet some switches may have some
+interfaces that have no Poe support some
+might support poe+ and other interfaces
+May support Poe Plus+ you also might
+want to look at the switch
+specifications to see what the maximum
+amount of Poe power that can be
+supported using that switch for example
+the switch May support 200 watts of Poe
+or it may support 720 watts of Poe you
+will need to add up all of the devices
+that you're connecting to that switch
+determine what their maximum amount of
+power draw might be and make sure that
+that is under the capacity of that
+particular ethernet
+switch you might also run into hardware
+issues when you're working with
+transceivers transceivers provide a
+modular connection for our ethernet
+devices but we have to be sure that
+we're using the right transceiver for
+the right connection for example if
+you're plugging in a fiber transceiver
+you have to make sure that the fiber
+transceiver matches the type of fiber
+that you're connecting there's usually a
+wavelength mark on the transceiver so it
+might show that it is a 850 nanometer
+transceiver or 13 10 nanometer
+transceiver all of these need to match
+throughout the entire link and it's
+usually based upon the fiber that you're
+plugging into these connections so
+you'll want to check your fiber
+specifications and the specifications of
+the transceivers and make sure all of
+those match if they don't match you will
+undoubtedly have signal loss which will
+result in error counters increasing a
+loss of signal or slowdown in overall
+Network efficiency if you were to just
+grab a transceiver out of your drawer
+and plug it into a switch you might be
+using the wrong one these are two
+transceivers but they are two very
+different transceivers at first glance
+they look almost identical but if you
+look very closely at these transceivers
+you'll see the wavelengths are marked in
+very small numbers and it's very easy to
+miss that when you're plugging into a
+switch that's also Complicated by the
+fact that once you plug it into the
+switch you can no longer read the
+markings that are on the side of the
+transceiver and you may either need to
+look at the specifications that are
+shown on the switch or you may need to
+physically remove the transceiver just
+to be able to look at the label that's
+on the side one of the challenges when
+connecting these transceivers and fiber
+connections together is we need to make
+sure that we get enough signal from one
+end of the connection to the other this
+is especially important if you have a
+very long run with many Connections in
+the middle and you may be concerned that
+not enough signal is getting to the
+other side each of these devices has
+what's called a sensitivity level which
+will tell you how much signal it's able
+to receive in still interpret everything
+properly usually this is part of the
+specifications of the device and it
+should be well documented this is why
+it's important to calculate the exact
+power budget you might be from one end
+of the connection to the other we'll
+first need to determine how much power
+is being transmitted by the transmitting
+device this is usually measured in decb
+per mowatt this gives you a total number
+of decb that are being transmitted for 1
+mowatt of signal we then might want to
+look at the media that we're using and
+determine how long that connection is
+and how much signal we would expect to
+lose over that distance we also want to
+take into account connectors or splices
+because each one of those takes away
+from a little bit of the signal once we
+determine the total signal loss based on
+that distance and the number of
+Connections in between we can subtract
+that from the total amount of
+transmitted power that final value is
+the amount of power we would expect to
+receive at the end of that connection we
+would then compare that total received
+power to the sensitivity value of that
+particular interface and hopefully the
+amount of power that we're receiving
+over that connection is stronger than
+the sensitivity value our decb per
+mowatt are decreasing as they move
+through this media so our sensitivity
+values will be a negative value in this
+particular example this is a transceiver
+that is an SFP transceiver at 850 nanm
+and you can see its receiver sensitivity
+is -17 DB per mowatt so if we perform
+that calculation of our power budget and
+we come up with a received power value
+of negative 17 DB per mowatt or higher
+then we have a good signal if we
+calculate that power budget and we end
+up receiving -20 dbm then we know that
+we don't have enough power to be able to
+receive it properly on this transceiver

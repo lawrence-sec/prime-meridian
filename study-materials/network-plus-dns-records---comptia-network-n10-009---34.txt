@@ -1,0 +1,197 @@
+if you were to look at the configuration
+file of a DNS server you would see a
+number of different lines and those
+lines contain one or more different
+types of DNS records we refer to these
+as resource records and these resource
+records might provide information that
+allows us to resolve a name from an IP
+address it might contain information
+about a certificate that we could use to
+validate DNS information it may contain
+aliases of host names that are stored
+with in the DNS database or one of many
+other record Types on the screen is a
+DNS configuration file you'll notice
+there are a lot of different types of
+information contained within the DNS
+file and in this video we'll step
+through a number of these more popular
+DNS records at the very top of the DNS
+configuration file is a start of
+authority record or an S SOA this gives
+us an overview of what we will find
+inside of this DNS configuration
+information such as the DNS Zone details
+so we can see what domain this
+particular DNS configuration is a part
+of you can see serial number information
+and you can find details about retries
+expirations and how long information
+should be stored one of the most common
+record types you will find in a DNS
+server is the a record or the quad a
+This Record defines the IP address of a
+host this is the record containing the
+information we need when we send a query
+to a DNS server records marked with with
+an a are for IP version 4 addresses so
+you often see the ipv4 address and the
+name of the device associated with that
+IP address records marked with 4 A's or
+quad a records are for IP version 6 this
+provides the same functionality with
+both IP version 4 and IP version 6 but
+the type of record is different where
+ipv4 has one A and IPv6 has four A's
+this is an a record from my DNS server
+you can the name on this record is
+www.professormesser.com this is an
+internet record it has an a which is
+referring to this address record and
+then the IP address of this device
+16259 2461 164 that is the information
+contained within my DNS server and if
+somebody queries that server for
+www.professormesser.com that DNS server
+will return the IP address associated
+with that a record
+sometimes you have a single IP address
+that is referenced by multiple names and
+we can configure this Alias of names
+inside of our DNS server we refer to
+this record type as a cname record this
+stands for a canonical name record so
+for example you might have one server
+such as mail. example.com but that same
+server may be providing other services
+and may be referenced through other
+names we would include those names
+inside of these cname records for
+example you can have a chat Alias and
+that chat Alias is pointing to mail.
+example.com you can also have an FTP
+Alias that FTP Alias is also pointing to
+mail. example.com and there's a third
+Alias of www which is also pointing to
+that same server that's located at mail.
+example.com this actually means that
+there will be multiple requests made if
+someone was to query ww w. example.com
+the DNS server recognizes that you're
+looking for www and it provides your
+client with the name mail. example.com
+if you already know the IP address of
+mail. example.com then the transaction
+is over but if that information is not
+cached on your machine a separate
+request will be made to the DNS server
+to resolve the IP address for mail.
+example.com
+another important record on our DNS
+servers is the MX record this stands for
+mail exchanger record and obviously this
+is an important record for organizations
+that need to make sure that emails are
+being able to send and receive from that
+domain name in this DNS server you can
+see there is an MX record and it
+specifies that the name of the mail
+server is mail. example.com at this
+point if you needed to send mail
+directly to that mail server you would
+have to perform another name resolution
+to mail. example.com so as long as there
+is an a record you'll be able to resolve
+the IP address associated with that male
+server on some DS servers you don't have
+access to the text based configuration
+file and all of those configuration
+settings need to be made in a web-based
+front end here's an example of one of
+those webbase front ends where we are
+modifying the mail record you can see
+that the name is mail it specifies the
+specifics of where that Target name is
+for the mail record and you can see the
+time to live in this case is 15 minutes
+on on this DNS
+server another useful record type on a
+DNS server is a text record or txt
+record this provides human readable text
+information and it's used for many
+different purposes one of the more
+common uses of a text record is to
+configure the SPF information this
+stands for cinder policy framework and
+this is a way that we can tell our DNS
+server what email servers are authorized
+to send mail on our behalf this is to
+prevent someone else from building their
+own mail server and sending mail with
+your name associated with it the mail
+servers that receive these email
+messages will refer back to the SPF
+record that's contained within your DNS
+server in a text record and they will
+verify if that mail really came from an
+authorized host these text records can
+also be used for dkim this is the domain
+Keys identified mail where we are
+digitally signing the emails that we are
+sending to another location and when
+those emails are received that digital
+signature can be verified but to be able
+to verify that digital signature we need
+the public key that is associated with
+that signature itself and the text
+record in our DNS server is where we're
+going to store that public key here is
+the SPF text record and the dkm text
+record from my DNS server the SPF record
+shows professormesser.com and it shows a
+specific mail server that is allowed to
+send mail on my behalf in this case it's
+the mail server at mail gun .org and of
+course to verify the digital signatures
+I also need a deim text record you can
+see that this public key is quite long
+but it is all text information which
+makes it perfect to put inside of a DNS
+text record Another important record is
+a record that specifies where the name
+servers are for your particular domain
+these are obviously extremely important
+servers especially if you need to
+perform name resolution these are name
+server records or in records and you can
+find these NS records listed as
+individual lines that specify where
+those name servers happen to be located
+for example in this domain you can see
+there are two name servers listed one is
+n1.2 example.com
+and the last record we'll look at is a
+pointer record or PTR whenever we're
+performing a query to a domain server
+we're usually asking it for the IP
+address associated with a fully
+qualified domain name for example we'll
+tell the name server that we'd like the
+IP address for www.professorpuzzle.com
+a number of pointer records three
+different ones listed for joe.
+example.com
+www.example.com and build. example.com
+you'll notice there is a number
+associated with each of those and that
+refers back to the IP address associated
+with that particular Subnet in the DNS
+configuration those IP addresses are
+shown in Reverse so this is for the IP
+address 192.168.20.10
+82315 is
+www.example.com and
+192.168.20.10
+23.15 we will receive back the response
+of www.example.com

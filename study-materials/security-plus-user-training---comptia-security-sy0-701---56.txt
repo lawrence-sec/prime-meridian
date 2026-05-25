@@ -1,0 +1,119 @@
+it's a good best practice to provide
+security training for your users and
+ideally you would want to give them the
+security training before they connect to
+your network for the first time usually
+this type of training is relatively
+specialized for example there may be
+different security requirements for the
+accounting department than there is for
+the shipping and receiving department we
+also have to think about third parties
+that might be connecting to our Network
+and what type of training we would
+provide to them this will apply to
+contractors Partners suppliers and
+anyone else from the outside who's
+connecting to devices and services on
+our Network it's also useful to keep
+track of exactly who's been trained and
+who has yet to be trained so that we
+know that everyone has a base
+understanding of it Security on our
+Network it's important to document all
+of your security policies and have those
+policies in a place that can be
+referenced by every user in the company
+you might want to have online access
+access to the policies as part of your
+internet and it's important to also add
+these policies to every employee
+handbook we also want our users to have
+situational awareness this means they
+should always be looking for threats no
+matter what they're doing on their job
+for example they should be looking for
+email links or attachments that might be
+associated with a fishing email they
+should look for any unusual URLs that
+they're asked to visit and there might
+even be text messages for a fishing
+attempt we also want to our users look
+for any physical attacks if they receive
+an envelope that looks very official and
+inside that envelope is a USB drive they
+should think twice before plugging that
+USB drive into their
+computer our users can be very powerful
+Protectors of our network but sometimes
+they can also be Insider threats Insider
+threats are very difficult to identify
+so we need a multifactored approach to
+be able to look for and stop an Insider
+threat we should make sure that we have
+multiple approvals in place if anybody
+needs to update or change a critical
+process on our systems we should perform
+active file monitoring and if anything
+changes we should be informed
+immediately of that change and it should
+be very difficult to go through the
+processes required to get around any of
+those systems we also have to think of
+password management for our users and
+there are many different strategies for
+making a secure password we may want to
+guide our users with some standard
+require IR ments for example a password
+of a certain length or password that
+contains a certain number of complex
+characters this is often something that
+we can Implement administratively for
+example in a Windows environment we can
+use Group Policy to force the users to
+use a certain length of password and
+complexity of
+password our user training can also
+include removable media and cables
+because those can be sources of security
+concerns someone plugging in an unknown
+USB drive can infect a system with
+malware and if our users are not in the
+office and they're not at home we want
+to be sure that they don't simply use
+any cable they can find to plug in and
+attempt to charge their mobile device
+the attackers are also very good at
+using social engineering to try to get
+information from our user Community we
+want to make sure that our users are
+familiar with some of the most common
+social engineering techniques and we
+want to be sure that they are able to
+identify understand the social
+engineering that's occurring and be able
+to report support that social
+engineering to the it security team
+ideally we would like our users to have
+some level of operational security where
+they're interpreting security from the
+attacker's perspective our user
+Community often works with very large
+amounts of data and we want them to
+understand what type of data may be
+sensitive and provide additional
+security for that sensitive data another
+challenge we have are users that work
+from home or remote site this adds a
+number of different security concerns we
+want to be sure that nobody is allowing
+their family or friends to access their
+systems that they use for work we want
+to add perhaps additional inpoint
+Security on those devices especially
+since they're outside of the building
+and we may want to have increased
+security for all of the VPN access
+they'll use when connecting from home or
+any other
+location

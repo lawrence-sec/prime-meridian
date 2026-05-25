@@ -1,0 +1,122 @@
+there are a number of different ways to
+connect and configure wireless networks
+and in this video we'll look at some of
+these different wireless network types
+one popular wireless network type
+especially in homebased environments is
+a wireless mesh this is where you would
+have multiple access points that can all
+communicate to each other within a
+relatively close area and then you would
+have other devices that are located on
+the outside of those access points that
+are able to communicate to that single
+access point and ultimately to the rest
+of the network this meshing of access
+points in the middle is something that
+you would configure on the access point
+and if you were to add additional access
+points onto this network they would also
+be included in that same mesh of access
+points of course this doesn't have to be
+access points there are some devices
+that can mesh amongst each other in an
+ad hoc form this allows for different
+options for sending data over these
+Networks because all of these devices
+are now communicating to each other and
+if one device leaves the network it can
+automatically identify that that device
+is no longer there and self-heal itself
+to maintain connectivity to everyone
+who's left on the wireless
+network if you only have two devices you
+might want to connect them together
+without an access point we refer to this
+type of connectivity as an ad hoc
+connection this is where you would use
+the 802.11 wireless functionality of
+your device but but you would not be
+directly connecting to an access point
+this uses the 802.11 wireless network
+functionality of this device but instead
+of connecting to an access point you
+simply connect to the other wireless
+device you might also see this referred
+to as an independent basic service set
+or an
+ibss this might be something that is a
+very long-term connection if all you
+have are two devices you can simply
+connect those two together and they will
+communicate as long as that connection
+is available but you might be using this
+on more of a temporary basis this might
+be used in conjunction with an internet
+of things or iot device where you would
+initially connect to the iot device over
+an ad hoc connection this may allow you
+to transfer configuration details such
+as the name of your larger wireless
+network and any security configurations
+that have to be included to connect to
+that wireless network at that point the
+ad hoc connection is then disabled and
+The Internet of Things device can
+connect to the larger access point
+networ nwor using those configuration
+parameters some wireless access points
+allow you to connect two devices
+directly to each other over a point
+to-point mode the point-to-point mode is
+commonly used to connect larger
+distances to each other for example one
+building connecting to another building
+I've run this exact configuration
+between two homes so you could have an
+access point in one house connected to a
+switch and all of the internal devices
+of that Network connected to the same
+switch switch and then you would have
+the same configuration in another home
+and have all of those networks now
+connected to each other over that point
+too mode not all access points support
+this point-to-point mode so you want to
+be sure that the software of the access
+point supports Point too and you'll want
+to be sure that the hardware on this
+device is also able to transmit over
+that extended distance you may for
+example require additional types of
+antennas to be able to bridge that gap
+between the access points there might
+also be a requirement to change the
+power output between these two devices
+and to make sure you're using
+frequencies that are able to communicate
+over that longer
+distance and perhaps the most common way
+to connect to a wireless network is in
+something called infrastructure mode
+this is where you would have a
+centralized access point and this is
+probably the type of Wireless networking
+that you're using at home and in your
+office all of the wireless devices in
+your home or office connect to that
+Central Access Point and you're able to
+communicate out to the wired Network or
+between other wireless devices over that
+same access point some wireless access
+points give you the option to allow
+devices to communicate with each other
+over that wireless network or to isolate
+each of these wireless devices to only
+be able to communicate directly to the
+access point and any networks beyond
+that access point you'll want to check
+your access point to see how it's
+configured for these devices and make
+sure the proper security is configured
+on that device

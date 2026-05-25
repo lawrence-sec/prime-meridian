@@ -1,0 +1,571 @@
+We've mentioned threat modeling over the
+past few episodes, but without going
+into too much detail, and we've seen a
+couple of frameworks that help us with
+the first few steps, but now and in the
+following episodes, it's time to point
+out exactly what to look for when you're
+searching for threats. And to be able to
+do this properly, we're going to need a
+couple more concepts.
+[Music]
+So, we've been talking about threat
+modeling over the past few episodes, and
+by now we should have a pretty good idea
+of what it's all about. But the exam is
+going to ask you in much more detail. So
+to help you out answer those tricky
+questions which unfortunately are not
+very technical we have this exact
+episode to understand what risks you're
+facing. You must first understand what
+exactly is important for you because
+those important things are the ones that
+you will want to protect. What are the
+systems that support your business? The
+most valuable resources that you rely on
+the things that you need in order to
+actually have a business. Then we need
+to see how these systems can be
+threatened from a CIA perspective. So to
+put a name to it, we'll call this
+process threat modeling. It's how you
+model, how you describe all the threats
+and the cyber security risks that
+threaten your business. For threat
+modeling, you need to be able to answer
+a couple of questions and they're going
+to help you not just for the exam, but
+also for your daily cyber security
+business because they're going to help
+you determine how secure you currently
+are and what future risks you might be
+facing. For example, where would you
+expect an attack to come from? Do we
+suspect insider threats, internet
+threats, mobile threats? This is
+important because this is how we decide
+where we will focus our attention.
+Secondly, what is the potential for
+losing any of the CIA attributes? In
+some situations, we might not even be
+concerned about confidentiality at all.
+For example, if you're just hosting a
+company website, a company presentation
+website, or a news website, pretty much
+everything is going to be public in
+there. So you don't need to encrypt to
+protect anything. So you're not really
+concerned about confidentiality, but you
+will be concerned about integrity. If
+it's your company's website, for
+example, you don't want just anybody to
+be able to change some information in
+there, post some some fake content, some
+fake news about your company, then
+another question, how likely is a
+specific threat to happen? Do we know
+for sure that there is a specific
+exploit, a specific attack that we're
+vulnerable to out there? Or are we just
+worried that there might be some exploit
+that we know nothing about? Also,
+regarding how likely an attack actually
+is, do we really need to prepare for,
+let's say, when a meteor strikes our
+data center? It could happen. It would
+be disastrous, but the probability of
+that event happening is so small that it
+actually doesn't make any sense to
+invest in any security measures like in
+any uh system that shoots meteors out of
+the sky, right? No matter how cool that
+would seem. Then what defense
+capabilities we currently have right
+now? What is our current security
+posture? Is there anything that we can
+use to defend ourselves against any
+known threats out there? Uh do we have
+any firewalls in our closet? Does
+anybody have an IPS? Could you bring it
+tomorrow, please? Thank you. No, I'm
+kidding, of course, but it's important
+to know where we stand because we might
+be able to repurpose some of our
+currently security controls that we have
+in use or just reconfigure them to
+improve our posture. And finally, the
+bottom line. What is missing? Where do
+we suck at security? It's very important
+because the answer to this question is
+going to determine all the next steps.
+So, assuming that you can answer these
+questions, then you should have the
+following information available.
+Starting with adversary capabilities.
+Now, if you did your threat intelligence
+homework right and you should have some
+valuable information about this already.
+Now, by definition, an adversary
+capability is their ability to develop
+an attack and to execute it. How do you
+determine this? Well, you start by
+determining who are the most likely
+attackers. Then you ask yourself and
+research what kind of resources they
+have access to. Also, how well are they
+funded? MITER defines the following
+categories for describing an adversar's
+capabilities. Right? So let's see them
+one by one and see exactly what they
+mean. Now the first one is acquired.
+This is a very limited capability of a
+let's say beginner hacker who doesn't
+have too much expertise not a lot of
+resources at their disposal. We expect
+these attacker to use commodity malware.
+Remember those are the tools developed
+by others and we expect them to play by
+the book or to follow the pretty much
+standard recipe for an attack right
+without too much creativity or
+innovation. Also, we don't expect them
+to rely too much on human deception or
+social engineering. Maybe just some
+basic email scams, but that's pretty
+much it. The second capability level is
+augmented. Now, this attacker has a bit
+more experience, uses known
+vulnerabilities, so researches them
+beforehand. Uh, they might also use some
+custom malware, but the tools are no
+more than the standard ones. Now, if
+they develop their own zero days, their
+tools are still based on others
+purchased from the darknet. Limited
+human involvement, limited uh deception,
+just a bit of email, maybe a bit of
+social media now and then. Next one is
+developed. They can develop their own
+malware and their own delivery
+mechanisms. They also have the expertise
+to discover completely new
+vulnerabilities. They might rely on some
+stronger human interaction, you know,
+like coercion for example. An attacker
+with the advanced capability has the
+ability to influence commercial product.
+Imagine that, right? and services even
+during the entire life cycle, you know,
+controlling the supply chain and even
+creating their own vulnerabilities.
+Yikes, that is dangerous. They use a
+much wider range of of attacks and
+tricks starting from the production line
+all the way through the supply chain,
+the distributors, the partners up to the
+end user. Doesn't sound like there is
+anything more, but there is and it's
+called integrated. Sky is the limit
+here. Now attackers are extremely
+skilled and have any resources at their
+disposal. They generate their own
+opportunities, their own um
+vulnerabilities, their own attack
+opportunities, right, to successfully
+conduct their attacks and even leverage
+perhaps even political and military
+assets. Now, one thing to bear in mind,
+regardless how terrified you are right
+now and how scary these capabilities
+look for you, attacker capabilities are
+strongly affected by what defenses we
+already have in place. Which means that
+a lot of potential attacks from lower
+capability attackers are never even
+attempted in the first place because the
+attacker discovers your defenses and
+concludes that the effort is just not
+worth it.
+There must be easier targets out there
+and there are right. So I guess there is
+a silver lining to all this in the end.
+Coming up next on threat modeling is the
+total attack surface. That is everything
+that you own and that can be attacked by
+someone on the inside or someone on the
+outside. Now every precious device,
+every valuable service or every point of
+entry where an attacker can infiltrate
+your networks or your systems, even your
+buildings in your employees.
+So the first step for determining the
+attack surface is to identify what you
+currently have. Make an inventory of
+physical and non-physical assets in your
+organization. Add to this list
+everything that you can think of.
+Networked devices, applications,
+services, even business processes can be
+vulnerable if they rely on a human
+factor, right? As most business
+processes do. Start by looking at the
+corporate network, what network ports
+you have in your building, what wireless
+networks you have accessible from the
+building or from outside the building,
+and where they allow access to the
+cloud, any infrastructure or application
+that you might be running in some cloud.
+Check your web presence. Anything
+exposed to the internet. And this covers
+websites, web servers, email servers,
+DNS servers, VPN servers, any point of
+entry that has some connection or direct
+connection to the internet. Internal
+applications and everything that runs in
+your data center and your own company
+workstations, your laptops, your mobile
+devices. Think about how you ingest any
+data. Again, any connection with the
+outside world, where you store it, how
+it is accessed, what APIs you are
+exposing to the outside, if any, and how
+well they are secured, even the building
+itself and your employees. Physical
+access as well as social engineering
+attacks are extremely dangerous. So,
+these are part of the attack surface as
+well. Don't ignore them. Now, the bottom
+line here is try to be as small as
+possible as far as how you're opening up
+to the world. Of course, this can be
+done up to a certain point because you
+probably need to have an online presence
+to exist, to communicate, to share
+information with your customers, to to
+have customers, right? So you're not
+going to be able to reduce it to zero
+but you should be able to harden it as
+well as you can and you should be able
+to reduce it as much as possible. Now we
+cannot have proper threat modeling
+without defining the attack vector that
+is the actual method of attack on an
+attack surface or how exactly is the
+attack being delivered. Again to make
+this more clear we have some categories
+here defined by MITER the cyber vector.
+This means that the malware uses some
+sort of an IT system, a local network,
+the internet, social media, even email,
+a compromised user account, some rogue
+devices, some USB drive, some unsecured
+ports, both TCP IP as well as you know
+the physical ports, the network ports in
+your network. Then we have the physical
+vector. This covers attacks that rely on
+means of physically getting access to
+some private area or buildings. This is
+where we find attacks that steal or
+clone keys or access cards or try to
+gain entrance to a building through
+unlocked doors, windows or unsurveiled
+areas. As you can see, electronic
+physical security systems are somewhat
+related to the cyber vector as well. For
+example, an attacker could hack or deny
+of service the video surveillance feed
+to secretly gain access to a building
+and that would be a combination of cyber
+and physical attack vectors. Then of
+course we have the human vector. Humans
+are the weakest link. This is where we
+find social engineering for conducting
+an attack. And social engineering is
+most likely going to be about
+impersonation.
+That is pretending to be someone else.
+Someone with authority or higher
+privilege. Be careful that a human
+attack vector can also use a cyber
+attack vector if the victim is contacted
+using email, instant messaging, social
+media or is fooled into clicking some
+malicious links. Remember when we said
+that we could worry about a meteor
+hitting our data center, but we usually
+don't? Well, that's because of the
+likelihood of an attack. Now, the
+concept describes just how likely is an
+attack to happen. And the first question
+that should come up here is, are we
+thinking about an attack as something
+that we definitely know it can happen?
+Is there something out there that is
+actually threatening us or is it just a
+a theory? Like we know there's a
+probability but it never happened to us.
+We don't know exactly when it could
+happen, right? Might have happened once
+in the past to some other company, but
+it's not something that we actively feel
+threatened by. Now, this kind of
+question is sometimes blocking and
+that's because likelihood in itself is a
+very tricky question. No matter how
+awesome and well standardized your
+method of determining or evaluating
+likelihood is well at the end of the day
+all you will do will be just guessing
+and you know hoping that your guess is
+correct. Yes, there is such a thing as
+an educated guess but it's still a
+guess. Okay, it's still based on past
+experiences and we all know that past
+experiences can only do so much when
+it's about predicting future outcomes.
+Just ask anybody who ever put their
+money into the stock market for example.
+Finally, we can wrap up threat modeling
+by figuring out the answers to some
+additional questions uh like this one,
+right? What would be the motivation
+behind an attack? Like in crime shows,
+do you know anybody who would want to
+hurt you? Are you in an industry that
+might attract something like activism,
+for example? Uh did your company just do
+something unpopular for the public
+opinion? or did you just disappoint a
+bunch of customers or investors? Right?
+Do you have a track record of uh
+historical data breaches sometimes in
+the past that might make you an easy
+target from now on? Uh do you host some
+very sensitive data that would be
+priceless to your competitors?
+Another question would be how are
+similar companies in your field in your
+vertical defending themselves and how
+have they been exploited before? Again,
+this is just looking at past behavior
+and trying to predict future outcomes.
+Now, it doesn't work every time, but
+it's a decent starting point. New
+attacks, new methods are being developed
+every day. Never assume that you can
+know all the risks that you're facing.
+Finally, how often do you see attacks
+happening in your industry or even how
+often did it happen in the past year or
+so in your own company? Now, if this
+doesn't help you necessarily with
+predicting the types of attacks, it
+might help you with accepting the fact
+that at some point you will be the
+victim of an attack. It is going to
+happen. So, raise some defenses, right?
+Think about contingencies.
+How do you minimize the damage of an
+attack that you did not see coming? All
+right. Right. So, we've covered threat
+modeling and all the questions that you
+should try to answer in order to be able
+to describe cyber threats. But threat
+hunting takes this one step further.
+Threat hunting is the actual activity of
+searching. Now, looking for cyber
+threats that might otherwise remain
+undetected in your network. Now, the
+infosc institute even says that cyber
+threat hunting is very similar to
+realworld hunting. It requires skill,
+patience, creativity, and a keen eye for
+spotting the prey. Well, in our case,
+the prey is malware, and it's given away
+not by a scent or by tracks in the
+forest, but by system and network
+abnormalities. So, if we investigate
+whether we have already been
+compromised, then we're going to look
+for IoC's or TTPs. Now threat hunting is
+also one of the best examples in cyber
+security for a proactive approach. You
+start investigating before you have the
+proof that you've been breached. This is
+completely different from the reactive
+approach of incident response where we I
+wouldn't exactly say wait but we do wait
+for the incident to happen before we
+deploy counter measures. So this is not
+incident response people. So the
+methodology of threat hunting or how you
+actually do it relies on the fact that
+you basically start from scratch. You
+don't have any proof yet of any
+compromise. So you need a very organized
+approach. Now you might be thinking what
+if I do have some proof, right? A
+workstation behaving weird, some alerts
+in the IDS, some logs in the firewall.
+Well, yes, you can start from there, but
+that's not going to be threat hunting
+anymore. Those behaviors, those logs,
+those alerts are events and they can
+prove to be security events. So you're
+basically already in the incident
+response phase and that's not threat
+hunting. That's not being proactive but
+reactive. So the methodology for threat
+hunting kind of looks like this. First
+you establish a hypothesis. This is some
+valid assumptions that are relevant to
+us humans. Remember we don't have an
+event or an incident to start from. So
+where do we start from? Where do we
+start looking? What do we start looking
+for? Well, for this phase, we're going
+to borrow one phase from the threat
+modeling process. That's the phase where
+we ask ourselves what's typical for us
+for our business. How are we most likely
+to be attacked? Okay, we use these
+assumptions just to have a starting
+point so we can have some specific types
+of attacks to look for. Then we profile
+the threat actors. Now we've already
+seen how to categorize different types
+of attackers and you already know that
+they can be categorized uh using threat
+intelligence you into a you know nation
+states, activists, script kitties,
+insider threats, whatnot. Uh decide
+again as an assumption which of these
+apply to you and try to narrow down your
+search down to the remaining specific
+methods or specific types of attackers.
+Now then start the actual thread
+hunting. Look for indicators of
+compromise. Ideally most of this
+information would be on your devices
+already or can be generated by your
+devices. A seam security information
+event manager device can help you
+tremendously here to process all that
+huge amount of information and help you
+make some sense out of it. Otherwise,
+you need to devise some ways to manually
+review log files and alerts or at least
+filter out the huge amount of irrelevant
+information. Uh, other very useful
+sources for IoC's can be your endpoints,
+your computers, your end user
+workstations. investigate and try to
+record information about network
+traffic, workstation behavior, file
+integrity checks, um any changes that
+might happen in those workstations,
+executable processes, who launches them,
+when, what do they do after they launch,
+right? And and so on. So why all this
+effort when we don't even have any proof
+of compromise yet? Because it's time
+consuming. It takes a lot of time, a lot
+of effort, and sometimes it's really
+hard to justify it to top management,
+right? So, for some non-technical
+management uh people out there, it might
+even look like you're pretending to
+work. So, we better have some good
+reasons behind this thread hunting. Now,
+the first reason is to find out if
+you've already been compromised. If you
+have, the effort was so much worth it.
+If not, congratulations. You get to live
+another day. But it's a very important
+reason because we have a huge number of
+documented attacks and companies that
+have fallen victims to such data
+breaches, ABD attacks, and they knew
+nothing about them. They were completely
+oblivious to the fact that they've been
+hacked. Many of them realized this only
+after confidential information started
+showing up on the public internet on
+forums on on Bit Torrent. So it really
+pays to be able to detect such a breach
+or an attempted breach before it's too
+late. Now threat hunting can also
+discover unknown attack surface for the
+purpose of minimizing it of course or
+hardening it. You might not be aware
+that you have some virtual machines,
+some services open to the public
+internet, right? Maybe someone forgot
+about them during a migration or they
+were brought up for testing and 5 years
+later they're still up there forgotten.
+Maybe your IT staff did not have the
+necessary skills to disable some
+unnecessary services. Maybe your users
+have more permissions than they
+currently need. So a permission audit
+might be in order. And maybe you're
+using some cloud services accessible
+over the internet and you're not paying
+enough attention to securing them and
+accessing them. Another reason is that
+threat hunting can drastically improve
+your threat detection abilities. While
+you're looking for those IoC's, those
+indicators of compromise, you might
+discover new weaknesses in your systems.
+unpatched applications, default
+credentials, known vulnerabilities, or
+this process might simply teach you to
+look for indicators that you might have
+ignored up until now. Thread hunting
+also provides additional security
+intelligence. A threat hunting process
+can demonstrate just how useful these
+intelligence sources are for providing
+actionable information. Not only you
+using these sources of intelligence to
+better defend yourself, but you can and
+you should also contribute to them. Give
+a helping hand. Now, threat hunting also
+helps you identify critical assets. Not
+to say that you don't already know
+what's critical and what's not.
+Hopefully, you do. But by analyzing your
+security posture, you might find some
+areas for improvement. perhaps some
+additional controls or configuration
+hardening that might be required. And
+finally, one of the values of the threat
+hunting process is actually having one.
+That's because if an organization never
+did something like this in the past,
+they might not see the value in it. But
+if they did it before and they
+understood it at least one of these
+benefits here then the next time you
+won't have to convince everyone all over
+again and you'll get all the benefits
+too. All right. So for threat modeling
+first understand what it is then think
+about the questions that you need to
+answer in order to describe your
+threats. Then keep in mind for the exam
+the adversary capabilities just as we
+describe them in this video. Don't
+forget that you need to determine your
+entire attack surface and identify the
+possible attack vectors. And finally,
+understand why threat hunting helps by
+making you act proactively. Thanks so
+much for watching. Good luck on the
+exam. Like, subscribe, and see you on
+the next episode.
+[Music]

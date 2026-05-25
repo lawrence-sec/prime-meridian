@@ -1,0 +1,572 @@
+hey everybody I'm Sean powers and in
+this video we're continuing our Linux
+plus certification prep we're talking
+about mounting file systems and this is
+one of those videos where I could go
+super deep into so many different
+aspects of mounting file systems but
+what I'm going to do is I'm going to
+cover enough that you will understand
+what you need to know for the exam and
+if there are areas that I think might be
+interesting for you to dive deeper into
+I'll try to mention it along the way
+we're currently in objective 1.3 on the
+Linux plus objectives I'm calling this
+1.3.3 this is our third video as we
+explore this objective and like I said
+specifically we're going to look at
+mounting local and remote file systems
+or devices and remote devices is
+important here because we're not talking
+about remote file systems like over the
+network we're going to talk about that
+over here specifically remote devices
+are like externally attached like a USB
+drive that sort of a thing so we're
+going to cover the things in here
+including encryption very briefly you
+and that should give us a good feel for
+what's going on and I don't want to
+start this video without thanking
+everybody over here you might notice
+it's actually scrolling now because
+we've had even another person who has
+decided to be a patreon supporter of
+mine I am so grateful and humbled and it
+makes me so excited to continue to make
+more and more content whether it's
+videos or whatever it is that you might
+be supporting me for so anyway thank you
+to my patreon supporters if that's
+something you're interested in uh link
+will be down below but let's get into
+how we can actually Mount file systems
+on Linux so just a quick rundown of what
+I have set up in the folder MNT I've
+created just three empty folders or
+directories called drive one drive two
+and drive three we're going to use those
+as places to mount our drives or devices
+so I have those things created and if we
+look at LS
+BLK I'm going to do Dash E7 which will
+filter out all of those Loop devices it
+will show us that we have of course SDA
+is our system hard drive I'm not really
+going to touch that that's the that's
+what our ins our system is installed on
+but I have some other devices here too I
+have sdb SDC and sdd SDR is actually our
+CD-ROM but I've created a partition on
+each of these drives just one partition
+that takes up the entire 10 gigabytes
+okay now if we actually do another
+command here Dash f it will show us what
+file systems are formatted on there if
+there are any so here you'll see sdb1
+has an ext4 file system already put on
+it SDC one has Butter FS BTR FS the file
+system is formatted on it and sdd1
+doesn't have any file system at all it's
+just a raw partition we're going to use
+that later for encryption so anyway
+these two have things have a file system
+already installed on it which means we
+should be able to mount it into our
+Linux file system so let's do that for
+first of all with sdb1 and this is just
+how we go about doing it manually so we
+would say sudo because we need root
+privilege now I say that it is possible
+to have something set up so that a user
+can mount it without root access that's
+kind of Beyond where we're going to go
+today that's like user mounting options
+which has to be set up for individual
+mounts we're going to use root access to
+mount all of these drives onto our
+system because at the end of the day it
+requires root access but you can set it
+up so that a user can initiate the mount
+anyway we're going to be we're going to
+have root access to do this so sudo
+Mount and then the device that we want
+to mount in our case let's do Dev sdb1
+and then where we want to mount it uh
+MNT will say drive one now I could add
+another flag before I do this I could
+say Dash t for what type is it and we
+know that it's ext4 but that is almost
+always Auto detected we very rarely have
+to specify what type of file system it
+is and in fact if it doesn't work if it
+doesn't Auto detect the file system
+chances are there's something wrong and
+it's not going to mount anyway so I'm
+not going to put that on there but if
+you see somebody specify Dash T and then
+the file system type that's why it's a
+way to tell Mount what kind of file
+system to expect
+but you can see it usually Auto detects
+it just fine if we do it if we do a DF
+minus H we're going to see that now we
+have this device mounted on MNT drive
+one and it's able to be used now on our
+system it's part of our file system now
+mounting things manually is great but
+it's really not that practical
+especially if it's hard drives that you
+want to have automatically Mount when
+the system boots up and so generally
+what we do is create entries in the ETC
+FS tab file which file system tab so
+that's what I'm going to show you how to
+do right now is how you would make
+amount permanent on the system so let's
+unmount this drive and to do that sudo U
+Mount it's not on it's not unmount it's
+U mount for unmount which is a little
+confusing sometimes but you mount and
+then MNT drive one so then it will
+unmount if we look it's no longer
+mounted on our system so let's look at
+Etc FS tab here is where we can make an
+entry and there is a little cheat sheet
+up top here that will explain how you
+can specify what you wanted to mount
+when the system starts up so the first
+field is what file system and that can
+be specified in a number of ways in fact
+it's specified a couple ways right here
+you can see uuid equals and then this
+euid that can be how we specify it we
+could just use a device like Dev sda2 we
+could use a label that we have formatted
+on the partition so there's a lot of
+different things that we can specify as
+what file system is that we want so in
+this case let's actually I just did the
+device on the command line so let's get
+out of here really quickly and if we do
+sudo
+blkid and I'm going to get rid of all
+the loopback devices this will show us
+all the partitions on our system and the
+one that we were just looking at is Dev
+sdb1 and so this has a uuid of this
+right here now point out right here
+since we're since we're looking at this
+block ID information this is the uuid
+this is the unique Universal unique
+identifier for the file system that is
+installed however there's also the
+partition uuid which is pointing to the
+actual partition on the hard drive that
+the file system is written to so if you
+and that if that seems confusing
+hopefully this will help if we look down
+here at Dev sdd1 you may remember this
+is a a partition that does not have a
+file system put on it yet and this still
+has a part uu idea partition uuid but it
+does not have a uuid because there's no
+file system formatted on this partition
+yet okay now the cool thing is we can
+actually specify in file
+Etc fstab using either uuid or part uuid
+generally you'll see this done either by
+the device which in our case is going to
+be Dev sdb 1 or the uuid so let's let's
+do this uuid this is going to be that
+device copy and now if we do sudo VI Etc
+FS Tab and now I'm going to paste that
+so that's the file system this is the
+device this is that first field and then
+where we want it to Mount that's just
+going to be MNT drive 1 the next field
+is the type so here we do actually have
+to put the file type which is or the
+file system type which is ext4 and then
+the next one is what options I'm just
+going to say defaults we don't need any
+specific options in there and then the
+next two are a little bit confusing dump
+is very rarely used at all anymore so
+we're going to put a zero here what dump
+is talking about is you could do like a
+file system backup it would like dump
+the contents of a partition or a mounted
+device it's just not done anymore it was
+dump FS it's just not done anymore so
+zero means like no we're not going to do
+that and then pass talks about how often
+you want to do a a file system check
+we're going to look at file system check
+in probably the next video but there's
+three options let's see there's zero one
+or two zero means don't do any file
+system checks one means I want you to do
+file system checks and this is the root
+partition well this is not the root
+partition and so two would be I want you
+to do file system checks but this is not
+a root partition all right so I guess
+this would be the way to go either a 2
+or a zero I'm just going to leave it at
+zero then we save this
+and now when the system boots up it will
+automatically Mount that onto Mount
+Drive one but if you look right now it's
+not mounted so we can say sudo Mount
+Dash a which will re-read that FS tab
+file and mount all the things that are
+in there so if we do that and now we
+look now it's mounted and it will Mount
+every time the system is rebooted now
+the Linux plus objective specifically
+says external devices which is a little
+bit of a weird thing it's not something
+we do very often and this makes me think
+of a USB drive now if it's like a USB
+stick most distributions especially if
+they have a GUI installed will just
+automatically mount it when you put it
+in and then you take it out it's you
+know unmounted however let's say you
+have a like a really large
+USB drive it's like an external you know
+USB like I don't know 20 terabytes or
+something and you want to have it
+treated like a regular hard drive on
+your system but it connects via USB well
+it is possible to actually have those
+treated it like a regular drive so
+that's what we're going to do we're
+going to set up a USB drive so that it
+doesn't automatically Mount and unmount
+when we plug it into the USB connector
+but treat it more like an internal hard
+drive on our system and here's the thing
+normally when you plug in a USB drive
+and I have one just out of camera here
+it will do what it just did here it will
+automatically Mount that USB stick and
+if we look down here DF minus H it
+mounts it somewhere like in the media
+folder and this is the auto mounter that
+looks for USB drives and it will do that
+automatically but let's say like like I
+just discussed that we want this to be
+treated like a regular hard drive well
+let's do let's unmount it first so
+umount media s Powers USB stick now
+let's do a sudo BLK ID corrupt Dash V
+Loop and let's see if we can find that
+device yes it's right here so Dev SD E1
+is that partition I unmounted it but
+it's still inserted into the system and
+so we can create an entry in ETC FS tab
+for this and now remember I said we can
+specify these based on a lot of things
+like a device the problem is with a USB
+device specifically let's say we plugged
+in another USB stick before this one and
+so the other one was sde and then this
+one was SD F so using a device name
+particularly with something that might
+change is not a great idea so in this
+case we would either want to use the
+uuid which you know we have uuid or you
+could use a label and for something like
+this I would probably use a label my
+rationale here is that you can actually
+label different USB disks the same thing
+and so if you always want your USB drive
+to mount in the same spot you could just
+label them the same whichever one's
+plugged in is going to be there but
+nonetheless label is one more way we can
+specify it let's take this label USB
+underscore stick
+Etc fstab
+and the same thing as before we're just
+going to make another entry this time
+though we're going to say label equals
+USB underscore stick
+and then I want this one mounted in MNT
+Drive 2 and this is going to be well
+what was the file system on there let's
+look I'm going to go back and look it
+looks like a v-fat so this is a it's a
+Dos based thing basically so the type is
+v-fat it's right here so we'll go back
+in and V fat is our type defaults I'm
+going to say 0 0 again
+save this and now again it's not mounted
+because we you mounted it however if we
+were to say sudo Mount Dash a now all of
+a sudden that drive is going to be
+mounted in Mount Drive Two And now when
+we reboot the system as long as that USB
+drive is in even if it's not recognized
+in the same order it should mount on
+that location instead of uh us having to
+like put it in and have it Auto Mount
+detected by the GUI operating system
+that sort of thing it should be treated
+just like a regular hard drive on the
+system and mount app boot but you want
+to know a little secret system D
+actually does all of the mounting the
+ETC fstab file used to be where
+everything was read from and mounted
+right from there but not anymore now
+systemd looks at our FS tab file and
+creates on the Fly individual
+um system D Mount files and that is what
+it uses to mount them let me show you if
+we go to our system here and we go into
+run system d e generator and we look at
+all the files in here we're going to see
+a couple specifically this is the the
+one that is generated on boot so the
+dash here is just referring to the root
+partition but here is the deal let's
+look at it this is auto generated by
+reading the fstab file and it creates
+this file on the Fly and this is
+actually how it mounts on the system now
+we can create our own dot Mount files in
+Mount devices into directories using
+this method however this is not what is
+generally recommended it's still
+recommended to use the ETC fstab file to
+spell out all of the mounts that you
+want even though they're converted to
+system D Mount files however it is
+possible to use a systemdmount file if
+you have a reason to do that and you
+want to specify uh in a file like this
+but to do that I'm not going to dive too
+deep into system D but if you have
+custom things that you create for
+systemd they're going to be put into
+Etc system D system this is where the
+user generated files are put and there's
+probably already a bunch of stuff in
+here but we're going to create a simple
+Mount file and we're going to put it in
+here so I'm going to do sudo VI and this
+is it has to be in a very specific
+format okay it has to represent
+by name where the end result is going to
+be so we have to do something like v i m
+n t Dash Drive 3 dot Mount because if
+you remember I created that directory in
+Mount Drive 3 and so we have to name the
+mount file exactly this or it won't work
+so we're creating this file I'm just
+going to make it very very simple
+Mount Drive three and then a little
+Mount section what equals and then this
+is the device that we actually want to
+uh use so this is device the device that
+we're going to mount so let's get the
+uuid from a device pseudo okay ID crop
+Dash V looped so the loops don't show up
+and the device that I want to mount in
+here is this one Dev SDC one and it has
+this uuid for the file system so I'm
+going to copy this
+go back into here and this is a little
+bit goofy this is kind of how you
+specify it Dev disc by uuid and then
+actual uuid so I'm going to get rid of
+this stuff
+so we specify that is what device and
+then where is the next option here and
+where is going to be Mount Drive three
+and it has to be here because remember
+that's what we named the file type
+equals
+btrfs which is what it said it was
+options equal defaults and I don't know
+if this part is required but generally
+multi user dot Target and that just
+means that it will call this uh when we
+start multi-user mode on boot all right
+so I'll save that
+and now we have to do sudo system CTL
+Daemon reload so that it sees that mount
+file that we've created this is just
+more systemd stuff and then we treat it
+just like we would a service so we can
+say pseudo system CTL start MNT Drive 3
+mount
+and now if we do DF minus H it's mounted
+it right here now this will not
+automatically start on boot because just
+like a systemd service we would have to
+do sudo system CTL enable
+Mount Drive three dot mount
+so we do that and now it will actually
+Mount that on boot even though it's not
+in our FS tab file so again it's
+possible to do that and if you put it in
+ETC systemd system and name it properly
+it will mount on system boot but it's
+still not generally the way that we go
+about doing it normally we still use the
+ETC fstab file because it's one place
+that we can put all of our file systems
+and that's will be converted
+automatically so we don't have to worry
+about the system D side of it and then
+you only have one place to remember to
+store all of your system mounts that
+said the one last thing we have to cover
+is an encrypted file system using Luke's
+so back here on Ubuntu I'm going to
+create one more directory I'm going to
+make directory Mount secret we're going
+to use this directory for an encrypted
+file system now if you remember lsblk we
+have these devices down here so the one
+that we haven't messed with at all is
+sdd1 this is a partition there's is no
+file system on it at all so we're going
+to create an encrypted partition and to
+do that we use the Crypt setup tool so
+Crypt actually I'm going to do sudo
+Crypt setup Luke's format Dev
+sdd1 so it's going to overwrite it
+completely because it's creating uh this
+encrypted partition so I'm going to it
+says are you sure type yes in capital
+letters so yes in capital letters now I
+have to enter a passphrase okay this is
+how it's going to decrypt if you don't
+remember this passphrase your data is
+lost right there's there's not a
+recovery function if you can't remember
+your passphrase so it's generally
+something long mine is not going to be
+really long and now it is an encrypted
+partition but it's not open in order to
+access the partition itself so that we
+can write data to it we have to decrypt
+it and open it in a decrypted state so
+in order to do that we use the same tool
+sudo Crypt setup but we say open and
+then what the device is so Dev sdd1 and
+then what we want it to be named in its
+unencrypted state okay does that make
+sense hopefully it does hopefully it
+does we're going to call it secret disc
+I have to enter the passphrase okay and
+now I think it shows up with a LS block
+sort of I mean it is called secret disc
+but it's going to live in Dev mapper
+okay in Dev mapper secret disc is that
+currently decrypted file system so what
+we would do is write a file system on
+there because right now it's just a
+an encrypted partition that's currently
+open and decrypted and that's how we
+access it so we're just going to do sudo
+mkfs.ext4 I'm just going to make an ext4
+file system on it Dev mapper secret disk
+okay it's all done and now let's uh
+mount it so we're gonna say sudo Mount
+Dev mapper secret disc on Mount Secret
+and now sure enough it is there and we
+should be able to access it so let's uh
+go into I'm just going to become root
+Out secret okay there's lost in file
+touch file.txt all right sure enough
+it's there so let's get out of there and
+now to unmount it we would do the same
+thing backwards right we would just say
+you mount mount secret okay it's uh no
+longer mounted and then it's still
+available in an unencrypted form though
+so what we would have to do is say Crypt
+setup close Dev sdd one just actually
+the name of it which for us is secret
+disc
+okay and now we can no longer access it
+without retyping in our password I know
+that was a lot there's one more thing
+that I it isn't really specified but I
+do want to show you you can actually
+automatically have it mount on boot and
+it will prompt you during boot up for
+the passphrase in order to continue and
+actually Mount the file system on boot
+there's also ways you can create keys
+and have them stored in special places
+like on a USB drive that you plug in but
+let's quickly set up an automatic that
+an automatic Mount that will prompt us
+on boot to unencrypt the drive and then
+we'll be done so let's do the okay ID so
+this is our device let's get the uuid of
+this device this is our crypto Lux
+device itself so I'm going to copy the
+uuid and what we need to do is when the
+system boots up it will look in a file
+called
+Etc Crypt tab so we have to create this
+file and in here we actually specify
+what it is we want it to decrypt and so
+the first field is what we want it to be
+called in our case I want it to be
+called secret Drive
+and then the next field is going to be
+that uuid of the actual Luke's partition
+itself and then the Third Field is just
+I'm just going to put a dash this is
+where we could tell it like to have a
+key that we would automatically decrypt
+it but if we just put a dash here it's
+going to prompt us for that passphrase
+as it tries to create secret Drive okay
+so that it should be all we need to do
+and then if we look in FS tab
+then we can assume that we've entered
+our passphrase Dev mapper
+secret Drive is going to be in Mount
+secret and this is just ext4
+defaults zero zero that should be all it
+takes to get it to automatically Mount
+after it prompts us for the passphrase
+on boot so let's reboot the system and
+see what happens
+okay it's asking us right here for the
+passphrase so let's put that in
+all right we've booted up let's have a
+quick look
+TF minus H and we have drive one is
+mounted drive two is mounted drive three
+is mounted and Drive Mount secret is
+mounted so all of the things that we set
+up uh survived the reboot including that
+one that we did with system D and
+automatically mounting this by prompting
+us for that passphrase on boot I know
+that was a lot to cover and I encourage
+you to look deeper into things like Auto
+Mount because that's really fun but it's
+not part of the Linux plus objectives
+but anyway hopefully all this made sense
+maybe you have to go back through and
+watch it I encourage you to try it on
+your own system to make sure that you
+can replicate what's going on as we went
+along doing it and uh this is another
+example of how important it is to learn
+everything do what you love and most
+importantly be kind I know this is a
+long one but I'll see in the next video

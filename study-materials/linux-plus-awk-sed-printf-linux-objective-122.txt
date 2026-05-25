@@ -1,0 +1,920 @@
+hello i'm sean powers i haven't made a
+video in over a month
+let's change that now now you probably
+thought that i fell off the face of the
+earth if you haven't been following me
+in other places but i have not and so
+let's continue where we left off on the
+linux plus
+exam and what we're doing now is this
+section of section 1.2 i'm going to call
+this file formatting and we're going to
+look at three tools i know this seems
+like a tiny little bit of stuff we're
+going over but it's because these are
+pretty complicated little beasts and
+we're going to go in this order we're
+going to go
+printf and then we'll talk about said
+and then we'll talk about awk and
+basically these are just ways to
+manipulate text into a format that you
+want or to extract data in a way that is
+useful for your particular needs and
+again this is just a tiny part of a big
+uh section so we're not gonna go too
+deep into each one of these tools i'm
+just gonna get you started on how they
+work and then hopefully you'll keep
+playing with it learning more etc we're
+going to have a weekend assignment if
+you want to do a little more complicated
+uh
+test i'll talk about that at the end and
+we're just going to learn the basics now
+so you can expand from there on your own
+but honestly what we're covering today
+is probably going to be
+more than you will be asked on the
+actual linux plus exam i just don't want
+to guarantee that because you never know
+how deep they're going to go on any one
+topic anyway let's get down uh and get
+started with printf and printf is print
+with formatting i guess it's kind of
+like echo except you can format the
+output on one line if you're a
+programmer you're probably already
+familiar with printf it's used in a lot
+of different programming languages but
+bash actually has printf built in as
+well so you can use it in your bash
+scripts or right on the command line
+we're actually going to do it right on
+the command line so you can see the
+output right away and i know this slide
+is a little on the intimidating side but
+basically how printf works is you type
+the command and then the format that you
+want the output to come into and then
+the argument meaning the actual text
+that you want it to manipulate whether
+that is a variable or a file or a bunch
+of text put right on the command line
+which is what we're going to do for
+simplicity sake and the format can come
+in just a huge array of things that you
+can do and i'm going to cover these just
+briefly here and then i'll show you what
+i mean because it's easier for me to
+learn stuff while we're doing it but
+things like backslash n will do a new
+line because printf unlike echo doesn't
+return the line if you want to tab you
+can do backslash t
+and then when we talk about formatting
+specific types of data the three we're
+going to look at are integers floats and
+strings now there are more there's like
+characters and stuff like that that you
+can format using printf but these are
+the basics and that's what we're going
+to cover and then
+specifically you can now not just like
+specify a string but you can manipulate
+those strings or those uh integers or
+those floats using uh numbers like we
+put up instead of percent d like this is
+just percent d this is percent 3d and
+that is going to put uh the output into
+a three character block uh right
+justified uh we can if we do zero 3d
+it's going to be the same but it's going
+to pad it with zeros don't worry if
+you're not if you're not following along
+really quickly i'm going to demonstrate
+these as well and the same thing with
+strings we can actually say how many
+characters to print out and then whether
+we want to right or left justify them
+and then even with floats meaning like a
+decimal number we can specify how
+precise uh those decimals are like how
+many decimal places it will show us like
+by default it shows six but uh let's
+let's just go to the command line and
+look at it because this screen is is
+just boring as heck so i'm gonna go kind
+of lightning faster because a lot of
+this is just like echo so for example if
+we do printf and then we just put
+something in quotes here like hello
+world
+it's going to return it but remember i
+said it doesn't do a new line like echo
+does so if we wanted to actually just do
+print hello world to the screen we would
+do
+printf hello world and then we would do
+a backslash n for new line character and
+then it will say hello world and give us
+our line back i mean that's not terribly
+useful we could just use echo for that
+but let's say we did and also you'll
+notice i didn't specify any arguments i
+didn't have it do any formatting i
+didn't replace it with like percent s
+for string that's we're going to do now
+so now we're going to add that argument
+part to the printf statement so let's do
+printf percent s which means the string
+i want you to format the argument i'm
+going to give you as a string and then
+backs or backslash n put that in
+parentheses or in quotations and it
+should just give us the string that we
+give it as an argument as a string with
+a newline character after it i know this
+still seems pretty simplistic but it'll
+make sense in a second and then let's do
+hello
+world and we're going to see a problem
+right away
+hello and then world on the next line
+and actually iterated through them
+because we gave it two arguments and
+there was only one
+specification right here like the one
+percent s there was only one reference
+uh to uh one of the arguments so it
+actually thought oh you want to do this
+to the words hello and to the word world
+if we wanted it like it was before just
+on one line we would have to make hello
+world a single argument so we would just
+going to hit up arrow we would do that
+same thing but then we would put hello
+world in quotations itself and that
+makes it a single argument
+instead of two arguments now we should
+just see hello world on the screen which
+is kind of what we expect exactly right
+what i'm going to do now is just give us
+a little bit more format so we can see
+what's actually being printed so
+hopefully this makes sense if i do print
+f and then i open quote and i just do a
+less than or uh i'm sorry a left bracket
+this doesn't have any meaning as far as
+printf is concerned so it's just going
+to print that left bracket for us and
+then i'm going to do
+percent s which will say you know that
+first argument as a string and then i'm
+going to close the bracket and then i'll
+do a backslash n
+and now if we do just the word hello
+that single argument should be inside of
+those brackets let's see sure enough
+hopefully that makes sense right all i
+did is i put those brackets around there
+and it substituted
+our argument hello into here at the
+percent s now the reason i did that is
+because we can also do spacing with
+printf we can format it to be a specific
+number of characters so we can do print
+f i'm going to do these again just so we
+can see the spacing as it's in there and
+if we do percent and then put the number
+10
+s close the brackets just for
+visibility's sake backslash n and now i
+say hello it's going to put our word in
+there our string in there but it's going
+to be 10 characters long
+and it's going to right justify the word
+hello in those in those spaces right
+it's going to right justify it if we
+wanted it to left justify we could do
+the same thing but instead of 10s we
+would do negative 10s and now we should
+see the same thing but it's gonna left
+justify it and again those brackets they
+are not part of the justification
+process i just put them there so we
+could see it actually happen inside
+bracket now it is important to note
+though the 10 characters is a minimum it
+sets a minimum of 10 characters but if
+we did something like um so i just
+pushed the up arrow and instead of just
+the word hello what if i said
+hello mr fancy pants uh this is going to
+expand it out so that the entire thing
+is in there even though it's clearly
+more than 10 characters 10 characters is
+the minimum if we wanted to limit it to
+10 characters like we wanted to truncate
+it down so it could only fill the 10
+characters then we would do the same
+exact thing so i'm just pushing the up
+arrow so i have to type all that out
+again but then back here we would do dot
+10 s so percent dot 10 s and this is
+going to truncate it at 10 characters
+it's going to say okay stop at 10
+characters
+and that's what we get we get hello
+missed
+cut it off because we said it has to
+stop at 10 characters that's what the
+dot does so we're basically just
+formatting the output of whatever it is
+we feed into the printf statement but it
+doesn't just work for strings we can
+also do this with integers so for
+example printf percent d and backslash n
+just so that it gives us a new line and
+now we can just say uh 43 so that's
+going to be our argument is the number
+43
+boom it prints out 43. not terribly
+exciting but what if we did this what if
+we said print f percent 5 d
+backslash n just so we get that new line
+43. now what do you expect to have
+happen again these work similarly but
+it's new you know it's slightly nuanced
+when it comes to uh numbers instead of
+strings here it does the same thing it
+right formatted it like if i would have
+put the brackets there we would have
+seen that there are three spaces in
+front of it and
+basically what we've done is just right
+justified in a five character field uh
+the number 43. that isn't as useful when
+we're dealing with numbers so much i
+mean we definitely like to write justify
+numbers but i mean
+that doesn't i don't know i prefer when
+i have numbers like this that i want to
+have fill up a certain number of
+characters i want to pad them with zeros
+and so if you remember that slide we can
+pad that number as well we can do printf
+percent
+0 5 d and that's going to pad it with
+zeros up to that five character limit
+and it should pad the front and then
+let's see uh backslash n so we get a new
+line and we'll go with 43.
+sure enough it padded it with zeros and
+that gives us the the five characters uh
+but again front padded with zeros uh
+because of course numbers with zeros in
+front of them are the same so 43 and
+zero zero zero four three are the same
+number and one last thing i want to look
+at is to format floats now floats are
+decimal numbers basically and
+it won't work if we uh try to use the
+decimal so the slash d for integer i
+mean uh so if we do uh print
+f and then uh let's do the same exact
+thing but then i say like 0.7 so 43.7
+it's gonna be like uh whoa that's an
+invalid number now it did give us the
+answer as well but it only gave us the
+integer part because 43.7 is not an
+integer and it did tell us like dude you
+screwed up okay and so if we're dealing
+with uh decimal numbers we want to use
+the f or percent f in order to
+manipulate those and we have a little
+bit more flexibility there as well so uh
+print f sent f backslash n again so we
+get the new line 43.7
+and this should give us 43.7 formatted
+as a float because we use that percent f
+and sure enough 43.7 and now you'll note
+by default it uses six decimal places
+okay so seven and then five zeros
+because it uses six decimal places by
+default and that's fine if you don't
+care like how many decimal places there
+are but we can change that as well we
+could specify uh let's see uh printf i'm
+gonna combine a couple of other things
+hopefully we can do these without
+individual steps here so percent and i
+want to do 0 to pad it with 0s and i
+want 10 character places minimum so 10
+character places
+f as a float and then backslash n for a
+new line and then 43.7 now let's see
+what this does what i'm doing now is i'm
+formatting that first part that 43 and
+we should get sure enough we should get
+10
+characters because we limited it to 10
+and it did zero pad it but this is
+something i want you to pay close
+attention to we have one
+two three
+four the decimal counts as one of the
+characters
+five six seven eight nine ten so ten
+total characters but that decimal counts
+and it did pad with that zero in front
+uh because without it there were only
+nine characters but we can also tell it
+how many decimal places we want to use
+and so it really starts to get kind of
+complicated so uh printf
+and i'm going to do
+percent and i'm going to stick with the
+0 10 so it pads in 10 total places but
+this time i want to do
+dot only two decimal places
+okay so hopefully that makes sense i've
+told it i wanted 10 total characters i
+want to pad it with zeros but i only
+want two decimal places with my float
+and then i'll do the backslash n
+and we'll keep the same number now what
+do you expect to see i hope to see more
+padding of zeros because we don't have
+the six default decimal places anymore
+now we only have two decimal places so
+it should have to pad the front with
+zeros more and sure enough we have zero
+zero zero zero zero four three point
+seven zero because we specified two
+decimal places now i know that was a
+whirlwind of printf but hopefully you
+can go through those same sort of
+examples that i did play with it see if
+what you type out is what you expect to
+see when you type it and like i said i
+just put the arguments at the end but
+those arguments can be inside of a bash
+script and they can be a reference to a
+variable so you can use it in a script
+and then have it format the variable
+instead of just a quoted chunk of text
+as your argument but that's how printf
+works and it just formats what the
+output looks like i especially like it
+when it comes to float variables because
+or float numbers because i like to
+specify how many decimal places and that
+sort of a thing now our next command i
+know this screen looks intimidating
+don't worry our next command is sed or
+stream editor and what this does we say
+sed and then we give it options we give
+it the script or what commands we want
+it to run and then we give it the file
+or the input the text that we want it to
+work on now this can be a file name it
+can be standard input so we can pipe
+something into said and then get results
+that way but basically there's these
+parts there's the the command itself and
+the options which are these in the same
+color and then the script is like the
+transform that we want done on it and
+then where to get it is this last
+variable if you don't pipe it in via std
+in then it's a file name and that's what
+it does the transform on now by default
+said will print out
+all of the results to the screen to
+standard output
+if you don't want that and i'll show you
+why that would be something you might
+not want you do the dash n which means
+don't print everything
+dash i means that we can edit an actual
+file in place so said stream editor will
+actually edit a file and you can even
+create a backup of the original file but
+i almost never in fact i don't think i
+have ever ever used said to actually
+edit a file what i will do is i will
+read the information in and then i will
+take sed's output either into a file or
+pipe the output into something else if
+i'm doing like a long string of things i
+don't like to edit the actual file in
+place
+with said i i really just like to have
+my original file stay how stay how it is
+and then whatever the output of set is
+do something with that that's just my
+personal preference set can in fact edit
+a file in place and that's the dash i
+and it'll make a backup if you do dash i
+and then a suffix so that it knows what
+to save the backup file as i just it
+just seems like a way to get into
+trouble so i don't normally do that but
+then once you have uh told it it's its
+options if there are any uh then you go
+into what you want it to transform like
+for example a number with p means print
+out that line so like print out the 17th
+line or uh print everything but the 17th
+line if you do d that deletes the 17th
+line from the output um you can actually
+do things like delete all but a certain
+line uh the d and the p is either print
+or delete and it's basically either show
+it or don't show it uh usually if i'm
+using set i'm doing something like this
+i'm substituting and so
+in the script part here after you do the
+options you can put your um your script
+of like substitute thing one for thing
+two and it'll basically go in and
+substitute the first occurrence on every
+line uh that it finds thing one it will
+substitute that with thing two if you
+want to do not just the first occurrence
+on every line but every single one then
+you add a g for global at the end we're
+going to demonstrate this in a second so
+don't get too
+stressed out and then i'll show you this
+like really cool example of how you
+might actually use it and it is um to
+like remove all the commented lines from
+a configuration file if you wanted to
+see the output without that so anyway
+let's actually do it again okay and in
+here i have two files file.txt and
+nswitch.com which we're going to look at
+at the very end uh let's look at
+file.txt just so we see what we're
+looking at um and this is just a file a
+text file with a few strings here this
+is a chicken this is a fish this is a
+fish fish there's a chicken fish this is
+just text it'll make sense in a second
+why it's a ridiculous couple of lines
+like that but this is the text file that
+we're going to manipulate with said okay
+now the first thing i want to show you
+is uh if we could just do said and no
+options okay so there's no like dash n
+or anything like that so no options and
+we go right to the script part like what
+we want what transform we want done and
+we just do quote quote so like no
+transform and then tell it what file
+file.txt we should see the original file
+with no transformation and sure enough
+that's exactly what we see so if we do
+nothing to the file a sed will just show
+us the intact file as it spews it out at
+the end okay but if we wanted to do a
+simple transform so we could do
+something like said
+and again i'm not doing any options here
+i'm just
+not using options on going right to the
+script portion we can do 2d
+file.txt and what will you expect here
+so remember d means delete and we're
+telling it to delete line two from the
+output so now it should print everything
+to the screen except line two
+and sure enough notice there is no this
+is a fish line it's just not there it's
+deleted okay now if we can do the same
+exact thing but we could print it
+instead and now you're gonna see where
+commands are where the um options come
+into play because i'm gonna i don't
+wanna clear the screen i wanna compare
+so uh if we do said
+to p for print line two
+file dot txt
+would you just expect to see the second
+line well you're gonna see more than
+that in fact what you're gonna see is
+the second line twice now if you're
+thinking why what the heck just happened
+remember by default said
+prints out everything that it processes
+it prints out everything that it
+processes to the screen and then we told
+it we also want it to print line two so
+it printed everything that it processed
+and then it printed line two so it
+actually showed us line two twice
+because the first time it was just
+as it's displaying the output of itself
+you know it's it's processing it shows
+us and then it displayed what we told it
+to so that's where if you only want to
+show a certain line or certain lines you
+would do dash n and dash n means no
+showing the output of the file as you
+process it okay don't show me anything
+unless i tell you to and that's where we
+would do like said dash n
+2p
+file.txt and then we only see line 2
+printed out because that's what we told
+it we said no output but then we said
+the transformer i want you to do is to
+print line two and so it did that's
+usually what you do that's the
+difference between the d and the p like
+either to delete a line or to print a
+line you have to think through what
+you're doing and it's usually trial and
+error to remember when do i put a dash n
+when don't i put a dash in and that sort
+of a thing now that was just deleting
+lines and stuff but remember what i
+usually use said for is a quick
+transform or substitute i'm sorry not
+transformer quit a quick substitute so i
+would do something like said and then
+substitute
+fish for dog okay out of file.txt and
+now it will print the output but it will
+do that substitution as it prints it out
+so
+press enter what did i do oh duh okay
+sorry
+forgot the closing slash after dog
+anyway so substitute fish with dog and
+it will display on the screen
+everything but it substitutes uh dog in
+the place of fish because we told it to
+substitute every occurrence of fish with
+dog and does that line up it says this
+is a chicken yeah this is a dog this is
+a dog fish this is a chicken dog so
+everywhere there is uh fish it
+substitutes it except what about this
+fish well you remember i talked about it
+in the beginning when we looked at the
+slide that by default it will only do
+the single occurrence on each line if we
+wanted to do all of the occurrences in
+all of the lines uh we have to add one
+more flag so we would have to do said
+substitute fish
+for dog
+globally so g is globally means do it
+for all of the occurrences on all the
+lines
+file.txt
+and then now it will say this is a
+chicken there's a dog this is a dog dog
+it did both of the occurrences of fish
+and that's how uh how it substituted
+that out for us now uh i have given you
+uh
+basically what i use said for simple
+substitutions like that in line usually
+it's with a whole bunch of pipe commands
+into like another set into another set
+sort of a thing
+but something that is a useful thing
+that i also sometimes do is uh let's
+clear the screen and we'll see we have
+this other file nswitch.com okay if we
+look at that this is just out of my etc
+folder this is just a configuration file
+that talks about how
+the naming service does stuff it's not
+important what this is for right now
+we'll probably learn about it later in
+linux plus but basically what i want to
+show you is how you would get rid of
+commented lines because sometimes with a
+really long configuration file there's
+so many comments it's easy to get lost
+so what if we wanted to strip out all of
+the comments
+on
+on this command but we can do that uh
+there's there's a way we can do it in a
+way we can make it more awesome if that
+makes sense so first of all we would do
+said substitute the pound symbol or that
+hashtag that first character and then
+we're doing a little bit of regular
+expressions here so dot
+star which means uh followed by any
+number of characters
+and then i want to substitute it with
+and here's where it gets funny watch
+close
+nothing i put a nothing in there so what
+it's substituting anytime it finds a
+line that starts with that it's going to
+substitute it with uh nothing because i
+put nothing in between there okay and so
+it will substitute it with nothing for
+the file ns switch but there's a problem
+here if we do this we're gonna see sure
+enough all of those comments are gone
+right well that's awesome but now what
+well
+now we have a bunch of blank lines and
+we actually didn't want just blanks
+right if we wanted to get rid of blank
+lines this is something that i would do
+i would say oh that's right so now we
+have all the blank lines so what i'm
+going to do is pipe that output into
+another said statement and that said
+statement uh because i have to do this
+is i have to do a little bit more
+regular expression so i'm going to do
+dash e for regular expressions and then
+i'm going to define
+the beginning of a line
+end of a line so any line that has the
+first character that is the beginning
+followed immediately by the end again
+this is regular expressions so anytime
+you do that i want you to delete this is
+just like when we said delete line two
+anytime that we match that pattern i
+want you to delete it hopefully that
+makes sense instead of saying like
+delete line two i'm saying anytime you
+find this pattern and this pattern in
+regular expressions is the beginning of
+the line immediately followed by the end
+of the line i want you to delete it and
+now hopefully we should see just all of
+the actual configuration thing let's see
+sure enough it worked it mushed
+everything together with no comments at
+all now that might have been a little
+bit uh intense and i apologize if that
+was more than you were bargained for but
+that's kind of the kind of thing that i
+actually use said for on a regular basis
+so i wanted to give you a real world
+example and i know this is getting to be
+a long complex video and your brain's
+ready to explode but we have one more to
+cover and
+it's both the most complicated of these
+text manipulation tools but also the one
+that we're going to
+dive the
+shallowest into i don't want to show you
+everything awk does because that's a
+whole series on youtube basically i want
+to show you the thing that people use
+awk for the most and that is to separate
+fields in text like a comma separated
+values or like tab separated or a word
+like spaces between words uh so let let
+me show you what it what it is and uh
+some quick examples and then i promise
+we'll be finished with this video now
+awk works the same as the other tools
+that we've been using basically you
+start with awk and then you give it
+whatever options you have they don't
+have to have options but if you have
+options they go next and then you either
+give it the name of a file or standard
+input
+and it will run its manipulation on that
+now i'm only going to talk about one
+option
+and that is dash f which sets the field
+delimiter so like by default its
+standard delimiter is the space so like
+if you have a sentence with a bunch of
+words it will treat every word as an
+individual field because it's separated
+by a space if you have a comma separated
+file though it's not going to recognize
+those fields unless you specify like
+dash
+f comma and that tells it okay the
+fields are separated by comma so by
+default it uses space if you don't have
+any option there but if you have a comma
+or something
+you would use the dash f capital f
+option and that would tell it what your
+field is and basically
+this is the format i'm going to use
+standard input instead of a file because
+i've been using files a lot
+but i'm going to use standard input so
+echo hello you meet a human
+i'm going to echo that to the screen i'm
+going to pipe it to the awk command
+and then awk is going to take that and
+i'm going to tell it i only want you to
+print the third field
+so that's what this is we put the
+arguments in single quotes just like we
+did with said and then we do open curly
+braces we tell it print
+dollar sign three and that will tell it
+the third field and we close it and you
+know do that thing there and so then the
+third field that it finds it will print
+out so hello you meaty we would expect
+that it would print out the word
+meaty because when it separates up the
+fields by the spaces that it uses as the
+default separator that would be the
+third field and so it would print that
+out it's really useful when you're
+trying to dissect like a comma separated
+file and that's partially what our a
+week in assignment is going to be if you
+decide to participate in that but anyway
+let's go to the command line again we're
+going to cover this one the least
+heavily but it's actually one of the
+ones i use the most often oh i guess i
+should say too it took me a long time i
+assumed that awk stood for something all
+it is is the last initials of the three
+developers that wrote the original
+program so awk is just their name awk i
+don't remember their names but it's just
+initials it doesn't actually mean
+anything at all which is kind of nice to
+know anyway
+again we're just covering the very
+basics of what awk does but if you want
+to learn more about awk you can
+certainly do it it does all sorts of
+text transformations and manipulations
+but this is the one that is the most
+commonly referenced and almost certainly
+if you're quizzed about awk it's going
+to be something like this so let's just
+do that example that we talked about in
+the slide uh hello
+you
+meaty what did i even say hello you
+meaty human
+i think that was it and then i'm going
+to pipe it into awk
+and since the default field separator
+for awk is space i don't have to give it
+any options and then the what i wanted
+to do i'm going to put into single
+quotes open braces print not print print
+dollar sign 3
+close curly braces close single quotes
+and this should just tell us meaty
+sure enough meaty that's exactly how it
+worked but we could do uh
+if we have something a little more uh
+not just a string of text but like a
+comma separated values right that's
+something that we often use uh we could
+do something like let's say we brought
+in a comma separated file of
+hello comma
+you
+sexy
+beast so it's now comma separated and uh
+you know if we just press enter it's
+going to print it to the screen right so
+we want to pipe that into now if we did
+the exact same thing
+print
+dollar sign three
+we're not going to get any output
+because as far as awk is concerned
+there's only one field because remember
+by default its field separator is space
+there's no spaces so it's like you only
+have a dollar sign one right and so it's
+not going to print anything but if we
+were to
+i just pushed up arrow and then do dash
+capital f comma now we're telling it the
+field separator is comma and i didn't
+put a space there you could put a space
+there it's really user friendly in that
+regard but i usually just do dash f and
+then immediately following the f what my
+field separator is and now we should see
+sexy because that's then the third field
+is sexy now we can do other things we
+don't just have to print out one field
+although honestly that's usually what i
+end up doing but what if we did instead
+of just print dollar sign three we could
+say print dollar sign three uh and so
+then we could say
+then print a space so we just put a
+space in quotes and then after the space
+i want you to print dollar sign
+for
+and then after dollar sign four i want
+you to print an s
+uh immediately after it and then i'm
+going to close the curly braces close my
+single quotes so what do you think this
+will do so what i've done is i've
+printed dollar sign three which is going
+to be sexy and then i printed a space so
+it should print a space
+it has to be inside here it's not going
+to print this space it's going to print
+this space and then it's going to print
+dollar sign 4 which is beast and then
+immediately after the word beast it
+should print an s just the letter s
+because i put that in quotes let's see
+if we get sexy beasts
+sexy beasts that's what we got
+do you want me to take another month off
+after that video i know that was a doozy
+and i just wanted to cover those three
+text manipulation tools because they're
+kind of related they do similar things
+and i like to string them together using
+the pipe symbol like you know standard
+output into one into another into
+another so that i can manipulate text
+down to exactly the data that i want to
+either print to a screen or if i'm
+inside of a bash script that i want to
+assign to a variable that sort of thing
+so i put them all together in this kind
+of long and then tooth video so that you
+would be comfortable using all of those
+and i'll put a link in the description
+to this weekend assignment if you want
+to look at that it's just going to be
+taking a a file and trying to get data
+out of it and create a bash script to do
+cool stuff you don't have to that's
+certainly not part of the linux plus
+preparation uh officially it's just
+something that uh our little group of
+people here have been wanting is uh some
+assignments we're gonna do that um also
+uh first of all i wanna thank you
+hopefully they're on the screen now but
+i wanna thank all of my patrons i have
+patreon now and these are people who are
+donating money to make sure that i can
+continue making this content and all the
+other content that i create thank you so
+much in particular uh ben klein who is
+uh my only being class nerdling
+supporter and if you don't know what a
+bean class supporter is well
+just look at my patreon page even if you
+don't plan on being a patron it
+describes all the tiers and he's the
+only bean class and he's just full of
+awesome anyway i also have another
+channel i've decided this channel is
+going to strictly be linux training like
+right now linux plus but my other
+channel which is inside the brain of
+shawn is where i'm going to put all
+sorts of other stuff like
+bird cam projects and raspberry pi
+projects and
+there's just there's no rules over there
+the youtube algorithm will never
+recommend that channel to you because
+it's so
+not niched down it's whatever i happen
+to be thinking of or want to put on
+there so it's the no rules channel if
+you want to follow me more closely
+please subscribe to that i'll put a link
+somewhere to that as well if that
+interests you um and lastly yeah the
+weekend assignment um that's we're gonna
+go over that in uh the live stream on
+sunday i'll give you one possible
+solution to that um i think that's it uh
+the only thing left to say is
+learn everything
+do what you love and most importantly be
+kind i'll see you in the next video
+maybe i'll see you this sunday at the
+live stream thanks for sticking around
+to the very end you're awesome

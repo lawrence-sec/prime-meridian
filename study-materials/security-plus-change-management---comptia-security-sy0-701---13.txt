@@ -1,0 +1,305 @@
+when you're making a change to an
+application or an operating system that
+you use at home the scope of that change
+is usually based on a single computer
+but in a corporate environment or a
+large organization one single change
+could affect hundreds or even thousands
+of different systems if you're upgrading
+software or modifying an application or
+making a change to a router or firewall
+you'll need to go through a formal
+process to make sure that that change is
+going to work properly these types of
+changes occur constantly we know that
+Microsoft has updates for their
+operating systems every month and you
+might have hundreds or even thousands of
+applications that you use and those
+might have constant updates to those as
+well this is something that is
+incredibly important to stay on top of
+because a system that is not updated is
+one that is probably less secure this is
+why it's important to have a formal
+process for making changes in your
+environment if suddenly everyone was
+able to make any change they'd like
+whenever they would like you could run
+into problems with applications working
+properly or inconsistencies in the way
+that applications are able to use the
+operating system these processes May
+dictate how often you're able to make
+changes the type of changes that can be
+made and might even cover things like
+roll back procedures just in case you
+run into a problem when that change is
+updated many organizations already have
+a Change Control process and this makes
+it very easy to implement and control
+any type of change to your environment
+but if your organization doesn't have a
+formal Change Control process you may
+find it very difficult to implement or
+make changes to this corporate culture
+we have these formal change control
+processes so that we can maintain the
+uptime and availability of our systems
+we know that everyone is inform formed
+so there's no confusion about the
+changes being made and we want to be
+sure that no mistakes are made when
+people make changes to these systems
+here's a summary of a typical iCal
+Change Control process this might be a
+little bit different in your environment
+but it tends to follow a similar path
+regardless of where you might be the
+first part of the process is to fill out
+a formal Change Control process form
+this is something that everyone has to
+do so that all of the standard
+information is provided to the Central
+Committee that makes these decisions you
+would document in this form the reason
+that you're making this change so that
+everybody understands why this change is
+occurring you would then identify the
+scope of that change it might be a
+single system or a number of different
+systems and whoever's making the
+decision to either allow or disallow
+this change needs to understand what
+this scope would really be there would
+be a scheduling process so we would know
+exactly when the date and time for this
+change would be and then we would know
+what systems would be affected by this
+change and the impact of that change to
+be able to make a decision on whether
+this change should occur or not occur
+the Change Control Board generally needs
+to analyze the risk associated with the
+change for example this might be a
+significant change and it might be at a
+time of the year when the company is
+very busy so the Change Control
+committee would need to balance the risk
+of not making the change versus
+implementing the change and having a
+problem at this point the Change Control
+Board should have all of the information
+they need to make a decision on whether
+the change is allowed or not allowed and
+once the change is made you may want to
+have users try their systems and confirm
+that the change was updated without any
+type of problems the Change Control
+process usually starts with the owner of
+the application or the data wanting to
+make a change to that application or
+data the owner of the application or the
+data don't generally control the Change
+Control process and they're not usually
+the ones making the actual change to
+that application or to that data instead
+the owners are the ones managing the
+process the owner is kept informed as
+the Change Control process occurs and
+once once the change is complete the
+owner is responsible for testing their
+systems and verifying that everything is
+working properly for example your
+organization may have a department for
+shipping and receiving and there may be
+information that they've received that
+says their address label printers need
+to be upgraded in this example the
+shipping and receiving department is the
+owner of this process and they're going
+to hand that off to their it team to
+handle the actual change to the printing
+software another consideration for the
+change Control process are the
+stakeholders these are the individuals
+or departments that will be impacted by
+the change that you're proposing they
+will probably want to have input on the
+process and have some type of control
+over when this particular change occurs
+identifying the stakeholders may not be
+as obvious as you might think there are
+some changes that can affect a large
+number of people within the organization
+or perhaps the change is only affecting
+one single individual the IT team may
+need to research and identify any of the
+stakeholders who might be affected by
+this change let's take our previous
+example of upgrading software that's
+being used for shipping labels and you
+might think that this would only affect
+the shipping and receiving department
+but of course these shipping labels are
+also used by accounting to create
+reports of what has been shipped there
+might be product delivery time frames
+affected by this change especially if
+you're shipping directly to your
+customers this would in turn also affect
+Revenue recognition because it would
+affect how quickly you're able to get
+product into the hands of your customers
+and this would certainly have the
+visibility of the CEO this is a good
+example of how something that appears to
+be a very simple change to some printing
+software could ultimately have a
+dramatic effect to the bottom line of
+the company every change has a different
+potential impact on the organization so
+you need to recognize what risks may be
+involved when making any particular
+change this might be a risk value that
+you assign a high medium or low risk but
+these risks could also be very
+far-reaching there may be a case where
+you install a fix but it doesn't
+actually fix anything that certainly has
+a particular risk associated with it or
+maybe you install the fix and you end up
+breaking something else this is not
+entirely unheard of when patching
+systems there might be a failure of an
+operating system just because you
+installed this particular update or
+there might be Corruption of data which
+means you would need backups and all of
+these would certainly have different
+levels of risk you also have to consider
+what risks might be involved if you
+don't make the change for example there
+might be a security vulnerability and if
+you don't patch this application that
+vulnerability will be available to any
+attacker that may be coming across our
+Network this may cause an application to
+be unavailable if you don't patch the
+application or you might have other
+services that are no longer operating
+because you didn't make a change to a
+secondary service given these risks you
+may decide that you want to do a lot of
+testing before implementing this change
+into a production environment and for
+that we may use something like a Sandbox
+testing environment where you can
+perform as many tests as you'd like and
+have no effect on your production
+systems this is effectively a
+technological safe space where you can
+make mistakes you can try different
+techniques and then you can perform
+extensive testing after the fact to
+confirm that the update really did work
+properly inside of the sandbox we can
+load a duplicate environment to our
+production systems and then we can try
+the upgrade apply a patch make the
+change and see what effect that has to A
+system that is identical to what your
+users are using in production this is
+also a good time to test your
+contingency plan you can implement the
+change and even if the change was
+operational in your test environment you
+may want to test your backout procedures
+just to make sure that if something does
+go wrong in production you have a
+documented series of steps that brings
+everything back to the way it was before
+you made the change there are many
+documented cases through the years where
+someone thought that a change was very
+minor they make that change into an
+environment without even thinking that
+they would need to be able to revert
+back to a previous config and that
+change ends up bringing down their
+entire network this is why you need a
+backout plan you should have a way to
+reverse back to the original
+configuration or something that would be
+very similar to what you started with
+before the change took place in some
+cases this is a very simple process you
+simply uninstall the patch that you
+installed and confirm that the original
+files are back in place but some changes
+are very difficult to revert so you may
+need to have different techniques and
+ideas about how you can bring those
+systems back to their original form if
+something does go wrong this is why we
+often say that before you make make any
+change to A system that you have a full
+and complete backup of that system that
+way if you do make the change and run
+into a problem and then you try your
+backout plan and have a problem you can
+always go back to your backup you may
+find that the process for approval of
+the change is the easy part the
+difficult part is finding time to
+implement the change this is something
+that has to be planned and considered
+before making any significant change to
+production
+for example you may not want to make
+change during the workday when everybody
+is on their systems and performing their
+work instead you may want to have off
+hours or maintenance hours where you can
+make changes without having significant
+impact to users this is why you often
+see the it folks coming in on weekends
+and holidays and very early in the
+morning just so they can make change
+without any type of disruption to the
+network this can be especially
+challenging if you work in an
+environment that is 24 4 hours a day and
+7 days a week where you have very little
+time available to make any changes in
+those systems you might also need to
+consider what time of the year you're
+making these changes take for example a
+company that is very retail-based and
+their busiest times of the year are
+between Thanksgiving and New Years in
+those environments it's not uncommon for
+all of their systems to be completely
+Frozen during that time frame and no
+changes would be allowed whatsoever only
+after after the New Year are you now
+able to reintroduce some type of Change
+Control and begin the process of
+updating your systems hopefully you can
+see now that change management is a
+critical part of your policies and
+procedures for security and it affects
+every single person in your organization
+in almost every environment this Change
+Control process is well documented and
+anyone in the company can read through
+the documentation on their internet this
+should be part of your standard
+operating procedures and no one should
+be able to make changes on your network
+without receiving this approval and of
+course your Change Control process is
+going to be updated over time to make it
+more efficient and fit the best with the
+requirements of the
+company

@@ -1,0 +1,468 @@
+Imagine for like half a minute that
+you're someone who wants to break into a
+company at night perhaps. What are you
+going to do? Well, you're going to
+observe the perimeter of the building,
+maybe the inside if possible, see what
+are the personnel schedules, guards,
+security cameras, anything that can be
+used to detect your intrusion attempt.
+Now, why do you have to monitor all
+that? That's because all those things
+are actual layers, defense layers that
+you'll have to overcome in order to gain
+access to that building. And that's the
+exact same concept that we're going to
+talk about right now. Defense in depth.
+[Music]
+So defense and depth is all about
+designing your network or cyber security
+in such a way so that you have different
+layers of defense. so that if one layer
+is bypassed the next control might
+succeed in protecting you from the
+attacker. Now an example of this might
+be to have multiple firewalls from
+multiple vendors so that if one
+vulnerability gets exploited in one of
+the uh one of the vendors products then
+the other one might still keep the
+attacker at bay. And generally the way
+you should think about defense in depth
+is to design your network, design your
+security solution just like each
+security control can and will be
+compromised at some point. Then ask
+yourself if this piece if this security
+control gets compromised what are we
+going to do? And another level of this
+defense in depth approach is strictly
+related to people that is your personnel
+training sessions. awareness. Even
+things like implementing multiffactor
+authentication in your entire company so
+that when people leave their passwords
+written on sticky notes or they just
+tell them to one another, they won't be
+able to compromise their accounts
+anymore because they do need two factors
+to authenticate every time they use
+their their file server or their email
+or their VPNs. This is also where you
+should think about implementing
+separation of duties. This is a concept
+that refers to the fact that no single
+person, no single employee, not even the
+CEO is going to have enough permissions
+to do whatever they want. So consider
+designing your critical business
+processes so that at least two people
+are involved in a decision. For example,
+one should be an initiator and one
+should be an approver or reviewer. So
+that no single person is going to have
+absolute power to do whatever they want
+because that single person if they
+become compromised or if they become an
+insider threat then going to pose a real
+danger to your company. Also be careful
+about third party consultants or even
+business partners. Most likely they will
+have some level of access within your
+network within your company and you
+should consider them as a potential
+threat. Don't give them more permissions
+that they need in order to just do their
+daily business. Mandatory vacations. And
+that's another concept that might sound
+funny, but it's actually critical to
+avoid fraud and misuse of resources.
+Mandatory vacations refer to the fact
+that from time to time a specific person
+that does a specific type of job should
+be replaced at least temporarily like
+for two weeks or a month of mandatory
+vacation just so that any attempts at
+compromising or of misuse of resources
+or fraud could be detected just in case
+that person was involved in some illegal
+activity. And finally, don't forget
+about succession planning. It does sound
+cynical but you have to plan for
+situations when key employees are lost
+forever for any reason. What happens if
+one single admin for example had access
+everywhere knew all the passwords had
+all the certificates maybe in its on its
+personal device is unfortunately
+involved in a car accident. What do you
+do then? and try to train your HR
+department as well because when they're
+posting job openings, they might be
+giving away a lot of information,
+sensitive information about what's in
+your network, your the vendors, the
+devices, the technologies, the protocols
+that you're using. You don't want to
+make the job of the attackers any
+easier. Now, defense in depth can be
+applied to three different directions,
+so to say. And the first one is going to
+be the business processes in your
+company. Which means basically how is
+the data flowing within your company.
+Which people are involved, how is that
+data handled, how it is stored, how it
+is transported and so on. Now
+continuously try to look for weaknesses
+in these processes. Look for any places
+where attackers might try to exploit the
+vulnerability. And don't forget to learn
+from the previous trends. monitor how
+your processes are working over time and
+try to see if there's anything you can
+improve security-wise so that you can
+aim for some sort of a continuous
+improvement process of your internal
+data flow in your company. Second one
+would be the technology part and this is
+where you think about which specific
+pieces of software or hardware can be
+improved, replaced, upgraded, changed in
+some way to improve your security
+posture. Also remember the concept of
+security as a service where you actually
+outsource the security effort not the
+security liability or responsibility but
+the effort of analyzing designing and
+making those changes in order to improve
+your security posture. Finally, when it
+comes to networking, very important to
+constantly review your network design.
+Everything starts from the way you
+designed the network from the very first
+day. Think about network segmentation.
+segment out as many parts of the
+networks as you can. So, separate
+networks using VLANs, switches, layer
+two switches, layer three switches,
+using routers between different
+networks, access rules, firewall rules,
+dedicated firewall devices. Make sure
+you absolutely know and you are always
+in control as to how is the traffic
+flowing within your company. Also
+remember that this segmentation helps
+you out a lot when an incident happens.
+If an incident happens and a certain
+part of the network is affected, a
+welldesigned and well segmented network
+will help you isolate that affected part
+and keep the business running in the
+rest of the network. The best way to
+segment your network would be by using
+something called SDN. That's
+softwaredefined network where everything
+that you design as a network segment or
+a firewall policy or even a firewall
+instance is designed in software in code
+and you can reconfigure it on the fly
+almost in instantaneously and even
+better sometimes even automatically when
+an incident is discovered. And of course
+all the segmentation has to be done
+after a careful decision about how you
+plan to use your network. Which traffic
+flows are required, which department
+needs to communicate with which
+department, which users need access to
+which devices. In extreme cases, you
+might even implement something called an
+airgapped network. That is a network
+that is completely at a physical level
+disconnected from any other type of
+connection, local or remote, not to
+mention the internet. Of course, that's
+a type of security that's usually a bit
+extreme because it's going to create a
+lot of administrative issues for you.
+You won't be able to administer that
+network from a remote location. You
+won't be able to update the software
+that's running in there so easily. But
+it might be the only solution when you
+are running devices or software versions
+that have become obsolete, that cannot
+be updated anymore, and which present a
+real security risk if exposed to the
+outside world. But also one last thing
+when it comes to segmentation, don't
+forget to keep it simple. Don't make it
+too complex so that you won't even
+understand how the traffic flows is
+supposed to look like. Don't make it so
+hard to understand that when somebody
+comes after you, they won't be able to
+understand what's the purpose of all
+those firewall policies and NAT policies
+and static routes that you might have in
+there. So don't let it get out of
+control. Don't make it too complex. Now
+a configuration baseline is something
+that you should definitely always have
+in your network. And what a
+configuration baseline is, it's actually
+a definition of normal. What is normal
+to you to yourself as an admin or to
+your network or to your company. However
+you are measuring yourself falls between
+some values, some thresholds that define
+what is normal. And the main idea is
+that you need to know how things in your
+network look like when everything is
+okay, when everything is running in
+order to be able to detect when
+something goes wrong. So a baseline is
+just a piece of information that says
+this is how your servers or your
+networking devices should look like.
+This is how their configurations should
+look like. Any new changes that you
+perform to your network, moves, adds or
+changes should have the baseline
+attached. So for example for a new
+server that you want to bring in or a
+new virtual machine you want to create
+this is how the process list should look
+like. This is how much network traffic
+is expected to be generated um these
+spikes in CPU usage and network usage
+are normal every day after let's say
+12:00 or something like that. Now, if
+you don't know any of this, if you don't
+have a baseline like this, then the job
+of finding anomalies and actually
+detecting attacks before they happen is
+a job that you will hate because you
+won't be able to prove anything. You
+won't be able to compare anything to
+what is normal in order to determine
+that there's something off happening in
+there. And you don't have to over
+complicate this either. You can start
+very simple. A configuration baseline
+can be as simple as a list of IP
+addresses that you have in use in your
+network. Maybe with the MAC addresses
+that are associated in order to detect
+rogue devices, devices that have no
+place being connected to your network.
+Uh let's say a list of services that are
+expected to be running at any point in
+time on your workstations or on your
+servers. How much CPU or how much memory
+is usually consumed by your devices?
+what list of processes you expect, what
+applications are whitelisted on your
+workstations. So it doesn't have to be
+something very complicated, but a little
+information goes a long way. Now, of
+course, we cannot mention workstations
+without talking about system hardening
+as well. Now, system hardening is a very
+generic term. Basically, it means
+reducing as much as possible the attack
+surface of a device, which can be a
+workstation, a server, a router, or a
+switch, anything that's physically
+connected to the network. And then
+implementing some measures to properly
+secure what's left running. So, you
+minimize the attack surface. You're left
+with some desired attack surface, right?
+You do need to have some services
+running in there maybe to to serve your
+customers or to serve your internal
+employees. And then you make sure that
+you secure those points of connection.
+Secure what's left to be exposed to the
+network. Major vendors fortunately help
+you out a lot here because most of them
+will publish some well-defined hardening
+guides. For example, if you Google
+search for hardening Microsoft IIS,
+you're going to find a lot of
+suggestions for how you can harden not
+only IIS actually, but you can search
+for guides that help you uh securely
+configure out of the box uh Windows
+Server installations depending on their
+versions, Microsoft SQL installations,
+Linux servers, any type of service that
+can be installed usually has, especially
+it's a widely used service, they're
+going to have a hardening guide attached
+to them which basically is going to list
+all the best practices from a security
+point of view that you can follow in
+order to have a as secure as possible
+out ofthe-box installation. Also, you
+have to keep in mind that sometimes not
+all systems will be let's say patchable.
+You won't be able to patch everything.
+You won't be able to update everything.
+That might simply happen because the
+system or the version is just too old
+and it it's not supported anymore by the
+vendor. Uh it also might happen with
+custom software which was developed
+in-house or by some other company and
+they haven't agreed to provide any
+further updates or the company just went
+out of business. It's also very
+difficult for embedded systems and IoT
+devices, especially because most of them
+don't even have administrative
+interfaces that allow you to overwrite
+the firmware or perform some software
+update. Some of them don't even allow
+you to do basic configuration tasks.
+When you're facing issues like these,
+well, unfortunately, the only solution
+is going to be something like installing
+some sort of a compensating control or
+mitigating control which in front of
+those vulnerable devices in order to
+restrict as much as possible the way
+they are exposed to the outside world.
+Now, just to briefly go over a couple of
+examples that you will find in many
+configuration hardening guides out
+there. So you're going to find things
+like deactivate non-critical components
+like hardware components which are not
+being used or services that are enabled
+by default perhaps right after the
+operating systems installation. Any
+applications that might come by default
+with the software component or with the
+operating system but you are not going
+to use. Uh also disable unused user
+accounts. User accounts that are not
+normally used can go unnoticed when
+somebody suddenly decides to use them
+because nobody's looking for any
+information about those user accounts.
+Of course, patch and update anything
+that you can operating systems,
+firmware, applications, anything that
+can be updated. Most of the updates out
+there are going to be focused on
+security and less on features. For hosts
+and workstations, make sure you restrict
+access to peripheral devices like
+external storage devices, media devices,
+wireless connections like NFC or
+Bluetooth if they're not needed. Don't
+forget to configure user accounts with
+the least privilege principle in mind,
+right? Don't allow a user to perform
+more actions that are required for his
+or her job. Especially be careful about
+privileges that allow users to download
+and run or install additional software
+on their systems. Make sure you enforce
+access control lists on resources like
+for file servers or databases for
+example. Make sure nobody outside the
+assigned departments or the interested
+departments. And as far as host
+protection goes, don't forget to install
+some host protection software suits like
+antivirus or hostbased IPS solutions on
+your workstations.
+And as you can probably see or guess,
+patching and updating is pretty much
+always going to be the number one
+solution for all remediations that need
+to be performed in your environment. And
+what's interesting to note and to know
+actually is that a lot of the exploits
+out there, a lot of the attacks that can
+be seen in the wild are taking advantage
+of vulnerabilities that already have a
+patch available, but they rely on the
+fact that the users or the admins are
+not so security concerned and they just
+ignore those patches and don't apply
+them in a timely manner. So don't fall
+victim to an attack that has already a
+solution just because you chose to
+ignore the solution. And in any type of
+company, patch management should be a
+dedicated process and should be
+integrated in your configuration
+management processes. Now when your
+network kind of grows, you might want to
+think about including some uh testing
+for newer patches because patches
+sometimes crash systems or add new bugs.
+So whenever you want to massively deploy
+a new update to your workstations or to
+your servers, make sure you have a
+testing environment where you test that
+patch first, see that it doesn't break
+anything else and then decide whether
+you're going to apply it to the
+production network as well. And make
+sure you remember for the exam at least
+a couple of automated patching
+solutions, things like Windows Update,
+which I'm sure everybody's familiar
+with. Another one being Windows Server
+Update Services. It's an automated patch
+installation method and also provides
+you with a local repository of patch
+information especially for larger
+networks in the Linux environment.
+Remember apt aptitude package manager
+and yum package managers. Uh yam stands
+for yellow dog updator modified. By the
+way, I don't think that's going to help
+you remember it, but you know just for
+general knowledge. Nevertheless,
+whichever solution you choose to
+implement, make sure you have one. Make
+sure you do have a patch management
+solution. So always ensure that your
+systems are up to date. Now there are
+dedicated solutions that monitor the
+state of your systems and warn you
+whenever there's a non-compliance
+detected on where wherever there's a
+newer update available for some device
+in your network. Some dedicated solution
+like this like the Microsoft system
+center configuration manager or endpoint
+manager
+are going to help you a lot and also
+going to help you build that initial
+inventory of asset that I've kept
+reminding you of. All right. So for the
+exam, make sure you understand the
+importance of a configuration baseline.
+Why is it important for our security
+posture and why is it helping us detect
+anomalies before an attack actually
+happens? and also make sure you
+understand the importance of
+configuration hardening and just a
+couple of the steps or at least a couple
+of examples of what you would normally
+do in order to harden a new server, a
+new workstation or a new application
+that you bring into your network. So,
+thank you so much for watching. Don't
+forget to like and subscribe and see you
+on the next video.
+[Music]

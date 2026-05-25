@@ -1,0 +1,743 @@
+[Music]
+Now, hosts like PCs and laptops and
+workstations are a big source of IoC's
+simply because they're most likely the
+ones to be compromised in any attack.
+So, what kind of indicators can we look
+for? And we can start with the
+processes. What exactly is running on
+the host? Now, when looking for active
+malicious processes on hosts, uh it it
+helps to have a predefined baseline that
+includes what processes you can expect
+to run, when they should run, who should
+be launching them, how many of each of
+them should be should be running at any
+given point in time. This way, you can
+immediately figure out which processes
+don't match that baseline and might
+indicate a compromise. Other malware
+types also attacking running processes
+can load the malware code as a dynamic
+library like a DLL file on Windows. Uh
+thus injecting itself into a valid
+process in the operating system. This
+makes it a bit more difficult to detect
+since the process list will not give
+away any indication of a malicious
+library or an external process. So
+instead of looking at the processes, we
+need to look at their behaviors. And
+when speaking about behaviors, we could
+think about let's say for a legitimate
+process. Abnormal behavior might be any
+of the following like unexpected changes
+to the Windows registry, accessing new
+locations on the disk, new files that
+process would normally not access,
+unexpected network activity, especially
+obvious for processes that don't
+normally generate any network traffic.
+Now among the tools that you have at
+your disposal for monitoring processes.
+You probably know about Windows desk
+manager of course. A process explorer is
+in my opinion a much better type of
+application. It comes packed in the um
+CIS internals utility pack available for
+Windows for free. On Linux systems you
+can use the PS commands with a lot of
+switches or the top command or even the
+much nicer looking age top command to
+monitor resource usage and active
+processes. And on Mac OS, you get
+activity monitor and pretty much all the
+classical Unix based tools that you can
+access from the command line. Now, don't
+think that monitoring processes is only
+required for laptops and workstations.
+For example, this right here is an
+interface that monitors the performance
+and even the active tasks, the processes
+and the services that are running on my
+Synology Naz attached storage, which is
+running a Linux distribution and actual
+processes that can be compromised. Also
+remember that processes consume
+resources, hardware resources and we
+should keep an eye out for high resource
+usage in all our devices. Now what
+exactly is high for us? Having a
+resource consumption baseline or at
+least a reasonable expectation about how
+much CPU, how much memory, how much disk
+or network IO's inputs and outputs on
+your processes should consume. It's
+going to help you identify any outliers.
+And keep in mind that in all operating
+systems, high resource usage is not
+necessarily a confirmation for malware.
+If you're not 100% sure if a specific
+file should be present there and should
+be eating up your resources, it gives
+you some public sources of information
+like should I block it.com, which is
+going to provide you with some insight
+as to what is the expected behavior of
+specific legitimate and not so
+legitimate files that you might find
+running in your task manager. Disk and
+file system IOC's. Now, why we don't
+really encounter malware as a single
+file on a USB drive, a CD or a floppy
+disc like we used to do in the '90s,
+even fileless malware, that is malware
+that doesn't reside on a specific file
+on the disk, uh it's going to have some
+interaction with your file system or
+your your computer resources and thus
+might reveal its presence. By looking at
+the file system and at the disk, we can
+also pinpoint some data exfiltration
+IOC's because in order to steal some
+data, the malware will have to interact
+with the file system at some point. So,
+some techniques here for getting data
+ready for exfiltration might include
+writing to temporary folders, temporary
+locations, uh masking the data as a log
+file, archiving, maybe encrypting it, uh
+using NTFS alternate data streams. We're
+going to talk about those in a future
+video. or even temporarily using the
+recycle bin on Windows. So, make sure
+you keep an eye out for all these
+behaviors on your hosts. If you remember
+the MITER attack framework, you can find
+these methods documented here as well.
+For example, archiving of collected
+data, encrypting or compressing the data
+that is collected prior to exfiltration
+and data staging again, which means
+collecting data in a central location or
+directory prior to exfiltration. Have a
+look over some of the malware examples
+on these pages here and document
+yourself as to what are the possible
+methods that attackers can use to steal
+data from your company. File system
+analysis can also reveal some indicators
+of compromise because the file system is
+going to store much more information
+than the visible files that you can
+actually access like timestamps or who
+owns or who has last modified a specific
+file when it happened. access control
+list that dictate who has access to the
+file and so on. you have specific tools
+at your disposal that help you get a
+better view of that file system and some
+even have a graphical manner but some
+command line tools are already available
+to you right out of the box like the dur
+command the diir command in windows for
+example dur/ a match all the files and
+folders of a specific type in our
+example here age stands for hidden dur/
+capital q is going to list who owns each
+file you can use this command to check
+for malicious owner entity properties.
+Another one here, dur/ capital R is
+going to display the alternate data
+streams for a file. An alternate data
+stream can actually allow you to hide a
+file within another file in the file
+system so that it's not easily found
+using regular tools and by regular
+users. Now, we're going to talk about
+alternate data streams in a future
+video. Disk space usage can also be an
+indicator of compromise. That's because
+malicious software can consume too much
+disk space for a number of reasons.
+First of all, they can be using it for
+storing files for later exfiltration.
+They could be generating excessive log
+information due to some brute force
+attempt or scanning or whatever intense
+activity it might be carrying out. It
+might be downloading additional content
+from the internet especially if it's
+some advertising based type of malware
+or spyware or simply because of bad
+programming. Not not all malware is
+written by excellent programmers and
+monitoring this space is one of the
+easier indicators to monitor. But you
+will need a tool to identify exactly
+where on the disk is the right operation
+happening. Uh what process is is doing
+it, who owns that process, when it was
+launched and so on. Now there are a lot
+of tools available out there for all the
+operating systems uh that show you how
+much space does each folder take on your
+disc. And among the classics would be
+for example total commander on Windows
+or the disk usage command
+abbreviated DU on Linux and Mac OS.
+Lastly, file handles. Every operating
+system keeps track of all the files that
+are being accessed by its processes. For
+example, on Linux, the lsof command is
+going to list all the open files under
+my username. And we can also filter this
+down to a specific process. for example.
+Now, security tools can keep track of
+these open files and try to figure out
+right away if there is some suspicious
+behavior right there. Uh like a a
+process trying to open too many files
+that's or files that it shouldn't
+normally access. Uh also high volume
+rights, high volume deletions and
+attempts to open let's say all office
+documents at once on a single host might
+be an indicator of an undetected crypto
+malware that is running in the
+background. And keep in mind that
+ransomware in general and crypto malware
+is a huge topic on the size of plus
+exam. Next on the hosts, we're going to
+be looking for unauthorized privilege
+IoC's. Now, a typical phase during an
+attack is privilege escalation. So,
+after the attacker manages to get some
+kind of access to the compromised host,
+they will attempt to gain admin access
+or root access to escalate their current
+level of privileges. Now this is
+required to establish persistency to
+modify system files uh change system
+settings or even pivot to other systems
+within the same network. Now privilege
+escalation is usually carried out using
+some sort of exploit that matches some
+vulnerability that the attacker has
+identified on that system. This kind of
+privileged account uses is normally
+monitored or should be monitored and
+logged. So once privilege escalation
+succeeds, it becomes quite difficult for
+the attacker to completely cover his or
+her tracks. Now you can look for a
+number of indicators here like
+unauthorized sessions. Unprivileged
+users accounts might show up as
+accessing privileged areas. Failed login
+are normally logged by default anyway
+but not as IOC's. Some users do mistype
+or simply forget their passwords, but
+too many such failures, especially for
+an admin account or a root account is
+not something that you see every day and
+might indicate a brute force attempt
+towards privilege escalation. New user
+accounts showing up on your systems
+should be investigated as soon as
+possible. Not to mention administrator
+accounts that show up out of nowhere.
+Guest account activity. If you have to
+activate to enable the guest account,
+make sure that they have very limited
+privileges and that you monitor whatever
+happens within those guest accounts
+because even a guest account is a valid
+account that can be used for privilege
+escalation or pivoting. How about
+privilege usage at abnormal weird hours
+or times of day? Yeah, we know that IT
+people and admins sometimes don't have
+the sleep schedule of normal people, but
+even so, investigate those 3:00 a.m.
+login, especially if they're followed by
+a lot of activity. Monitor your security
+policies. If you happen to see sudden
+and unexpected changes to the security
+policies, access lists, this might
+sometime be the only indicator that you
+will ever find. If an attacker manages
+to change your security policies to
+accommodate their own malicious
+behavior, you might not see any other
+kind of alerts because they have
+basically paved their way towards their
+victim so that they won't be triggering
+any other alerts. Having a configuration
+baseline and periodically checking those
+systems configurations for baseline
+deviations might help you with detecting
+this. Unauthorized software is
+definitely something you should
+investigate. Simply detecting the
+presence of unauthorized software on a
+host might be enough to start
+investigating. Also, unexpected security
+tools installed on a server or a
+workstation is definitely suspicious as
+well. Even if the software itself is
+legitimate, like a valid engine X or
+Apache web server, it's still abnormal
+for a workstation to be running
+something like this. This might be an
+indication of a compromised host or an
+insider threat. Now when analyzing such
+software, you should be using some
+specialized tools that not only detect
+the presence of additional software but
+can also create an investigation
+timeline of where and when the
+application was downloaded, which was
+the source, how it ended up in your
+network, how it managed to propagate and
+when it was launched. This information
+can be also presented in a graphical
+user interface like Cisco AMP for
+endpoints does. But the information is
+already there in the operating system.
+You just have to dig for it. For
+Windows, we have prefetch files which
+log the names of the applications that
+got executed on the machine along with a
+whole lot of details about those
+applications including any dynamic
+libraries they loaded while they were
+running. Thus, finding gaps in uh
+prefetch records might indicate a
+suspicious behavior of some malware
+trying to cover its tracks. Keep this in
+mind that on Windows prefetch is
+disabled by default on SSD drives. Also,
+application usage information can be
+extracted from one of these two caches
+that you can see here on the screen. The
+first one can be opened by the registry
+editor. The second one cannot be open
+but can be inspected using file system
+forensic tools. Next up, unauthorized
+changes to the system configuration of a
+particular application's configuration
+might also be an indicator of
+compromise. An attacker might attempt to
+change security settings, open firewall
+ports, or disable some security
+protocols in order to proceed
+undetected. Now, on the hardware side,
+many attacks might be carried out using
+apparently harmless USB drives. They
+don't necessarily need to store a virus
+or some some type of file malware, but
+their firmwares can be overwritten to
+make them look and behave. For example,
+like virtual keyboards or key loggers or
+even wireless network devices or running
+some exploit code that opens a back door
+into any vulnerable system owned by, you
+know, naive users who happen to stick
+any USB drive that they find on the desk
+in their computers. Persistence IOC's.
+Now, persistence in malware is any
+method by which malware can survive a
+restart, a power failure or a or a user
+logging off. Now, two of the most common
+ways of ensuring persistence are writing
+information into the Windows registry,
+storing malicious information or code in
+the registry itself. Now, fortunately,
+anti-malware tools can also scan the
+registry for suspicious startup items,
+uh, deleted keys, or for any deviations
+from a pre-approved template.
+Unfortunately, the regedit tool in
+Windows doesn't display the timestamp
+for registry changes. But this
+information can be analyzed by exporting
+the contents to a text file or by using
+a specialized tool such as rag dump.
+Now, some things to look out for inside
+of the Windows registry are order items.
+A very common method for malware to
+ensure persistency is to write itself an
+entry inside the auto run list of
+applications.
+Now these items are not visible to the
+average user. So this is a great place
+to hide an a piece of software that
+automatically launches with the
+operating system. Next session is the
+services list. Suspicious entries in
+this key here might indicate that the
+malware is running hidden as a
+background service. Very often using one
+of the names that Windows uses for its
+own services.
+File associations. Another popular tool
+for tricking users into launching
+malware is by changing the application
+associated with specific extensions. Now
+user expect to open let's say txt files
+or docx documents with notepad or word
+and instead they launch some malware
+binary file extension registry entries
+are right here on the screen. Last but
+not least scheduled task. The second
+common method for persistence is for an
+attacker to set a scheduled task to run
+automatically so that their malware is
+going to run uh whatever they want it to
+run. Uh fortunately scheduled tasks are
+easily displayed using this task
+scheduleuler and Windows also keeps
+track of all the previous run attempts.
+So you also get a run history just to
+figure out when each entry in the task
+scheduling list has successfully run in
+the past. and also it stores the
+information of whether the task
+succeeded or not. Finally, application
+IOC's. I know I'm repeating myself here,
+but studying application behavior with
+the purpose of finding indicators of
+compromise is made much much easier by
+having a documented nice baseline. Now,
+in case of applications, this means
+understanding how is the application
+behaving in a legitimate manner. How
+does it interact with the processes,
+file system or network? How is it
+supposed to work as opposed to how it is
+working when something suspicious
+happens? One more thing when we say
+application we should include
+virtualized applications as well.
+Applications running on clouds or even
+applications running on mobile devices.
+So don't forget about those. Now let's
+look at network connections from an
+application perspective. What should we
+look for in an application to determine
+if it's suspicious behavior or not?
+Well, starting with the network, you can
+list all the open ports on a host with a
+tool like netstat locally or any map to
+perform a remote scan from a remote
+location and look for unusual ports.
+Those might be applications listening on
+strange port numbers or simply
+applications with open ports that
+shouldn't have any open ports. How
+suspicious would it be to find
+Notepadexe
+listening on a network port? Also, don't
+just look for listening ports, but also
+look for outbound connections as they
+might be an indicator of malware
+communicating with its command and
+control center. Next, we have to look at
+unexpected outputs and errors. Attempts
+to exploit an application or even to
+scan it for vulnerabilities might
+produce errors or even more errors than
+usually, which should be visible in an
+application's log file. This is
+especially useful for web applications
+where we might be seeing code injection
+happening, directory traversal attacks
+happening, and many other attacks that
+are actually easy to spot in the
+requests stored in a generic log file.
+Service defacement. This is usually more
+obvious and easy to detect since
+defacement, especially for websites, is
+an action that replaces some web
+content, usually the landing page, the
+index.html HTML page of the first page
+that the user sees when connects to the
+website with the attacker's own content
+with the purpose of you know being
+visible. Activists often do this to
+promote their own message on the
+homepage of some company that they do
+not agree with. Uh finally service
+interruption here application and
+service crashes are a common event. So
+not every error or crash that you
+encounter will be related to a security
+incident, but they can lead you to
+suspect that a security breach has
+occurred.
+Now some common patterns here would be
+uh manually disabled services by an
+attacker, especially security services
+in order to cover tracks and evade
+detection. Uh compromised processes with
+malware code in them that can lead to
+frequent, you know, errors and crashes
+because not every exploit is a flawless
+exploit. and even disabling a service
+due to a denial of service attack. Now
+running services can be viewed in
+Windows in task managers as you know and
+you can also use some command line
+utilities
+like net start for example
+on cmd or if you like powershell better
+you have the get service command which
+kind of gives you the same output. On
+Linux, services are called demons. And
+you can list them along with the rest of
+the processes using the ps command or
+the top command or using the service
+command or the system ctl commands.
+And then on the host, we also have the
+applications and their logs. And that's
+a gold mine of information about
+potential indicators of compromise. Now
+since most applications have some sort
+of logging mechanisms in place, properly
+analyzing these logs can reveal a lot of
+useful secured information. For example,
+for DNS, we can look for what queries
+were received, including malformed ones.
+Uh list of destinations accessed by
+internal host. What kind of websites are
+our are you users accessing? We can find
+those with some bad reputation in there.
+You can look for statistical anomalies
+like very large number of resolution
+failures which might indicate a denial
+of servers or a malware that is
+constantly trying to reach its command
+and control center. Now for web servers
+we can look at the HTTP status codes. We
+have uh codes starting with four uh
+which indicate client errors, codes
+starting with five that indicate server
+errors. Uh some web server software can
+also log the request and response
+headers where you can find information
+about which data was being sent to the
+server. Uh information about cookies and
+sometimes even the user agent header
+field that identifies which application
+as a client as an HTTP client was
+initiating that connection. This might
+provide some useful insight. Logging the
+requests makes looking for past
+intrusion attempts especially for web
+applications very easy. Now when it
+comes to FTV servers, you can just
+simply log the entire activity of all
+the clients, all the connections, all
+the commands. They're all textbased
+commands. Uh you can easily spot brute
+force attempts or attempts to access
+restricted areas because they're also
+going to be logged. For remote terminal
+connections like SSH, the SSH protocol
+is concerned only with the protection of
+the data channel itself. So you will not
+find information about what commands
+were actually used or which files were
+transferred but instead you will see
+some session information and of course
+you will see the failed authentication
+attempts. For example, a large number of
+failed loginins using uh multiple
+encryption methods might indicate a
+reconnaissance attack of an attacker
+trying to figure out what type of
+encryption is enabled on your SSH
+servers.
+for database, SQL, SQL logs beyond the
+usual logging generated by most SQL
+servers out there as part of the
+maintenance tasks. Logging access
+attempts is very useful from a security
+perspective. Going one step deeper, SQL
+servers can also log all the queries
+that they received and their execution
+status, allowing you to drill down into
+the actions of every person or
+application that accessed some piece of
+information from your databases.
+New accounts are also important to
+monitor because one way to maintain
+access for an attacker is to create his
+or her known account on a compromised
+host on systems with hundreds of
+accounts. Userbased or machine-based one
+rogue account can easily be overlooked
+and ignored. This is why account
+creation as well as privilege assignment
+must be very well defined and part of a
+wellbuilt change controlled process
+within the organization. Now on Windows
+remember that we have local user
+accounts that can be administered from
+the local users and groups console. Uh
+while domain accounts would be found
+under the active directory users and
+computers. On Linux on the other hand we
+have some tools that help us with
+account management. At a minimum you can
+start with the W command for who which
+shows you the currently logged in users.
+Now, if you don't happen to catch any
+suspicious accounts while they are
+logged in, have a look at the login
+history using the last log command and
+see which of these users have recently
+logged in into your systems.
+The list of last login is useful because
+some attacks might remove their traces
+including the accounts that they have
+created. So, this might be the only
+place that shows what happened in the
+past.
+You also have files like var log o log
+which show past user creation commands
+and also fail log can track
+authentication failures. Don't forget
+about virtualized applications because
+many applications today are designed to
+run in virtual environments. Of course
+this brings a lot of benefits from an
+admin perspective but security
+challenges also change quite a bit. Now
+discovering indicators of compromising
+virtual machines can be done in a number
+of ways. Starting with the process and
+the memory. For process and memory, we
+can use hypervisor VM introspection
+tools. That's just a fancy way of saying
+that the hypervisor being the master of
+all the virtual machines and the
+underlying hardware can access the
+memory of each virtual machine. Also,
+suspending a virtual machine will write
+its entire memory contents to the disk.
+A process similar to hibernation in
+desktops and laptops. This state file
+can be analyzed just like a memory dump.
+Then we can also look at the disk and
+generally any kind of persistent storage
+with virtual machines because analyzing
+the files within a virtual machine is
+just a bit easier since the VM's discs
+or disk are already in an image format
+easily accessible. So looking for IOC's
+in there is easier since everything is
+already in one single place. You don't
+have to deal with harder components.
+Also you can have access to the recovery
+of deleted files. That's also possible
+because those virtual disk image files
+store the free space as well. And don't
+forget about system logs. Applications
+in virtual machines sometimes undergo
+some recreation processes. That is
+sometimes even for an update or a fix.
+The entire application might be
+destroyed and recreated as a new virtual
+machine from a new disk image and then
+have its configuration reapplied. Now,
+this is very convenient from a
+management perspective. But if you don't
+have a centralized remote logging in
+place, any locally generated logs will
+be lost. So, make sure you don't lose
+those if you're facing an infrastructure
+rebuild or a simple denial of service.
+Now, we do have to end at some point.
+So, let's end with mobile applications,
+IOC's. Now looking for IoC's in mobile
+devices and applications is sometimes
+very difficult due to the fact that
+mobile devices are sort of black boxes
+nowadays. Uh for most devices storage is
+soldered on board of the device. It
+cannot be extracted and sometimes it
+cannot even be accessed using thirdart
+tools. So you're going to run into
+difficulties created by the security
+controls of the device itself like
+device encryption. Screen locks also can
+prove to be extremely difficult to
+bypass as well. Uh starting with iOS 5 I
+think and Android 7 devices are
+encrypted by default. So for unencrypted
+devices, a JTAG interface attachment
+might be possible to directly read the
+contents of that storage device. Now,
+keep in mind that besides the
+information that you might be able to
+extract from a mobile device, there are
+two more sources of information and
+potentially of IOC's. First one, we have
+the cloud. Now, this is where the
+backups live. Sometimes even the
+configuration of the device itself, the
+user accounts, their passwords, uh the
+login data of all the application, their
+session data, everything including the
+access logs are going to be stored in
+the cloud. Now depending on which cloud
+that is, you might be able to get some
+really juicy information from there.
+Secondly, don't forget about the carrier
+itself. The carrier is going to handle
+everything related to your calls, your
+voicemail, your SMS uh service, the uh
+network traffic activity, which
+antennas, your um your your phone was
+next to at any given point in time,
+geoloccation information and such. If
+you do have access to this kind of
+information, which is not just a
+technical but also a legal matter, make
+sure you get as much as you can because
+that's going to be a trove of
+information about that specific device.
+Okay, now this was a huge chapter and
+honestly it's a huge chapter in the exam
+as well. That's why we spending so much
+time talking about these IOC's. So for
+the exam, make sure you remember. I
+cannot remember by heart. But I have to
+check my list here. So, let's see. We
+talked about denial of service, right?
+We talked about beaconing IoC's, uh,
+peer-to-peer communication, rogue
+devices, scans and sweep events,
+non-standard port usage, data
+exfiltration, covert channels, malicious
+processes, so everything related to the
+host like high resource usage, file
+systems and disks, uh, user privileges,
+unauthorized software, unauthorized
+device changes, persistent IoC's,
+application IOC's, application logs,
+IOC's, new accounts, virtualized apps
+and finally mobile apps. Make sure you
+understand and you can easily provide
+some examples of how these IoC's are
+supposed to look like and at least an
+idea about how they can be obtained or
+extracted. So, if you found this useful
+and informative, don't forget to like
+and subscribe. That's all I need to keep
+this channel going. Thank you so much
+for your time. Best of luck at the exam
+and see you next time.
+[Music]

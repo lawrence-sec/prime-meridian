@@ -1,0 +1,1052 @@
+[Music]
+[Music]
+Now you know what this training is not
+well it's not a lot of things but it is
+not a networking course. We will have
+one soon pretty sure. But for now, we
+just have to look at how the network in
+itself or more exactly how the way the
+network is designed impacts our
+security. The network is the backbone
+for any data that we're supposed to move
+from point A to point B. So any attack
+and any defense measure is going to rely
+at some point on our network. So network
+architecture is definitely something
+that has a strong impact on security and
+well when you we talk about networks the
+first thing that comes into mind is
+going to be an example of a physical
+network that is the actual network that
+we can see and touch. So that's the
+place where we find you know switches
+routers maybe wireless access points and
+don't forget about cabling as well
+that's also part of the network. Now why
+are these devices important? because
+they are all actual points of entry
+inside of our networks. So an attacker
+that has physical access to your network
+can open a wide variety of attacks or
+pretty much all of them, you know,
+exploits, perform man-in-the-middle,
+denial of service, stealing data,
+corrupting data, pretty much anything.
+So before we even reach that point where
+we have to think about security policies
+and firewall rules and and how to match
+traffic using IPS rules, the first thing
+that we have to take care of is actual
+physical security inside of our physical
+network. And we are going to talk about
+actual physical security controls here.
+Don't forget about these either in in
+real life or on the exam. And those
+physical controls are nothing else than
+the ones that you would probably expect
+that you would use to protect anything
+in the real in real life. You know,
+locks, doors, fences, guards, even
+lighting or or dogs that can protect any
+kind of perimeter or any kind of area
+that is supposed to be out of reach for
+intruders. So, don't just think that you
+have to rely on smart technologically
+advanced firewall rules and and digital
+security mechanisms to keep the bad guys
+out. Sometimes a simple door or a proper
+lock can also keep the bad guys outside
+of your data center. Okay, then perhaps
+you're not going to be using a guard dog
+to protect your switch. How would that
+look like? but it might be a useful
+addition to the night guards that patrol
+your data center premises, especially if
+nobody else should be around at night.
+And also, don't just think about a data
+center. Don't forget about your
+employees and their workstations that
+become exposed during the night or
+during uh outside work hours. Those are
+still points of entry in your network
+and those computers still hold
+confidential data. So, these are the
+physical controls that you should have
+in place. Now of course don't forget
+about the logical controls as well. So
+that's where we actually talk about you
+know mechanisms that make sure that you
+have proper authentication and network
+access and all the points of entry in
+your network are digitally secured. Uh
+this is where you'll find
+implementations under the name of uh
+network access control for example or
+network access protection or protocols
+like 802.1x that ensure that only
+allowed devices or users can actually
+connect to your network. Now, of course,
+this assumes that the device or the user
+already has physical access to your
+network and you're already at the stage
+where you have to decide whether to
+allow that access further or not. And
+then we have to focus on the virtual
+realm as well because a lot of the
+infrastructure that we're using nowadays
+actually runs in a virtual environment,
+not necessarily inside of a cloud, but
+also in our own data center. Most data
+centers nowadays are virtualized. So
+pretty much any piece of software or
+operating system runs as a virtual
+machine or as a container. Now apart
+from the introduction of the additional
+virtualization layer or of the
+hypervisor, most of the virtual
+infrastructure, you might be surprised
+to figure out that it is not as
+different as you might expect from the
+physical or traditional way of running
+applications. We are going to be facing
+pretty much the same networking
+protocols. So you'll still find IPv4,
+IPv6. We'll still use ARP and DHCP to
+connect and communicate through a
+network. We will still use layer 3
+routes to navigate from one network to
+the next and virtual switches. So most
+of the protocols that we're used to from
+the physical world are still going to be
+used in the virtual world as well. We're
+also going to find the same operating
+systems because the virtualization
+actually enables us to run multiple
+operating systems on the same host on
+the same machine. So we're still going
+to be running the same Windows system,
+the same Linux systems on different
+hardware. This time virtualized from a
+networking and also security
+perspective. We're still going to be
+using similar devices. So we'll be using
+virtual switches and virtual routers, uh
+virtual firewalls, virtual uh inspection
+traffic inspection devices, VBN
+endpoints. So pretty much anything that
+we are used to having physically in a
+data center is going to be found in a
+virtual version in a virtualized data
+center. But now it's not a physical
+firewall anymore. is just a virtual
+machine with virtual network interfaces
+that most likely runs the exact same
+firewall operating system as your
+physical device from your data center,
+but this time runs it just like any
+other virtual machine right next to your
+applications. Now, the security uh story
+in the virtual environment isn't really
+that short, nor does it really have a
+happy ending because going from physical
+to virtual, we are going to be facing a
+couple more security risks. Now, just to
+mention a couple of these, you have
+attacks that are generically called VM
+escape attacks. And the idea here is
+that separate operating systems running
+on the same hosts are supposed to be
+completely isolated from each other.
+They should not be able to even realize
+the fact that they're running in a
+virtualized environment. Not to mention
+that they shouldn't be able to access
+each other's, you know, files and
+processes. A VM escape attack is a type
+of attack or vulnerability that targets
+a weakness in the implementation of the
+hypervisor. Now the hypervisor is
+nothing else than a a very simplified
+operating system. Its only purpose is to
+ensure isolation between the virtual
+machines and to ensure that those
+virtual machines have access to real
+physical resources on the host that
+they're running on. Now this hypervisor
+of course is just a piece of software
+like any other. It might have some bugs.
+It might have some vulnerabilities which
+if successfully exploited might allow a
+virtual machine to actually escape its
+confines and be able to access other
+virtual machines, their processes, maybe
+even the whatever their their virtual
+CPUs are executing or even what files
+they're storing on the same host, which
+is dangerous from a number of
+perspectives. First of all, if you're
+running in your own data center, this
+opens you to the risk of having one
+application that gets compromised infect
+the rest of your infrastructure in your
+data center. So, this can be a way for
+an attacker to pivot from one
+compromised machine to the rest of your
+infrastructure. Secondly, and a much
+powerful implication is when you're
+running these machines inside of a cloud
+environment. Because inside of a cloud
+such as uh Microsoft or Amazon or Oracle
+or Google, most of the infrastructure is
+shared. That is you are running a
+virtual machine on a very powerful
+server that also runs virtual machines
+for 10, 20, 50 other customers. Now what
+would happen if such an attack would be
+possible and would allow just anybody to
+access any other customer's data running
+on the same cloud on the same host? That
+would be very bad news for any cloud
+business in the world. So remember VM
+escape attacks at the moment they are
+still considered a theoretical risk.
+There haven't been so many examples of
+VM escape attacks actually succeeding
+but the risk is always out there. The
+risk of a zeroday attack that exploits a
+vulnerability that nobody else has
+realized has been there for from the
+very beginning. A second consideration
+that you might want to take into account
+is the fact that virtual machines just
+like physical servers have to
+communicate with each other. So you
+might have two VMs that can talk to each
+other, but they're both running on the
+same host, the same physical server.
+Well, they will most likely be
+communicating over the internal switch.
+So the traffic is not going to
+physically leave that server. Now, what
+if you have a bigger data center or just
+more than one server and you have
+virtual machines that need to
+communicate from one rack to another,
+from one server to another. Well, that
+traffic is most likely going to pass
+through the physical network where
+you're going to find physical networking
+devices where you will have the same
+risks that you're facing in a physical
+data center. So even if you are going
+towards a fully virtualized platform or
+environment that virtualization is still
+going to run on physical hardware. So
+never forget this. If you value the
+traffic between your virtual machines
+which is by the way is also called east
+west traffic then make sure that you
+secure that traffic whenever it leaves
+your physical servers. Even if the other
+server the destination virtual machine
+is located just a few steps away. So be
+careful with security in general in the
+virtual environment. Not to mention that
+attacks are much less visible inside of
+a virtual environment because on some
+situations attacks or exploits can
+happen within the same host. You're not
+even going to see that malicious traffic
+traveling over your physical network.
+Also, you might not be able to enforce
+the same security policies using the
+same devices that you had in your
+physical network. You might have to
+adapt to your new environment. Also, if
+you're misconfiguring security in a
+virtual environment, disasters can. So,
+don't allow more virtual machines to
+communicate than strictly necessary. And
+even try to isolate different types of
+machines on different hosts if possible.
+Another interesting topic here is SDN,
+that's softwaredefined networking. And
+this is an interesting one because I
+would have said maybe a couple of years
+ago that this is a new concept. It's not
+so new anymore. It has been widely
+developed and implemented worldwide. It
+hasn't exactly penetrated so much market
+just yet. So you're not going to see at
+every single step pure SDN networks
+implemented in companies. And the need
+for SDN was born starting from the
+original method of managing and using
+networking infrastructure. So up until
+just a few years ago, most of networking
+out there was just physical network
+devices. We had switches, we had
+routers, we had firewalls and we had
+everything in one device. And by
+everything I mean we had a management
+inter interface to administer that
+device. We had the uh the decisions, the
+intelligence behind that device, the
+operating system that dictates how to
+manage traffic, how to filter traffic,
+how to route it on one interface or the
+next. And we also had the actual
+physical traffic forwarding built in the
+same box. So that's the way we've been
+doing things. That's the the traditional
+switch or the router that you can buy
+even nowadays. Now SDN tries to change
+this approach and it actually tries not
+just to change it for the sake of
+changing something but also because it's
+trying to solve some important
+management overhead issues and the risk
+of misisconfigurations when network
+infrastructure especially in large
+companies becomes incredibly complex and
+it also tries to address those issues in
+virtual environments where you know
+creating a VM a virtual switch a virtual
+router doesn't cost cost you any money.
+You don't have to buy anything and
+install it in a rack. But that's also
+one of the reasons why a virtual
+infrastructure can quickly grow beyond
+your control, can get up out of control.
+This is also called VM sprawl, as in
+let's say more or less official term
+simply because it doesn't cost you
+anything to spin up a new instance of a
+virtual machine. Everybody starts doing
+it and people start forgetting about
+what those virtual machines should be
+doing. uh they start forgetting about
+what security policies they should be
+applied to those VMs and so on. You
+know, a virtual machine is much easier
+to ignore than an actual big heavy
+server that it's mounted in a in a rack
+and its fans shout at you every single
+time you pass by it. So with so many
+physical networking devices and virtual
+uh networking devices as well, SDN
+attempts to abstract this network
+implementation lets you focus on the big
+picture while some intelligence inside
+that SDN implementation takes care of
+the nitty-gritty details of
+reconfiguring each network device
+whenever you want to make a change. So
+it moves the decision- making from the
+individual networking device from that
+smart switch or that smart router that
+we said we we used to have to a
+centralized brain that is completely
+separate from the rest of the
+infrastructure, right? While the
+networking device is there to simply
+blindly accept and follow any commands
+that the brain tells it to do. it just
+implements them and makes sure that it
+moves the packets from interface A to
+interface B as fast as possible. So this
+SDN model is actually going to look
+something like this. So we're
+introducing something called the control
+plane or also called the SDN controller
+sometimes. That's where the policy
+decisions are made. That's the brain
+that controls the entire softwaredefined
+network. Then we also have the data
+plane. That's going to be where the
+individual physical devices are located.
+That's going to be your actual physical
+router, your physical switch. They don't
+need any intelligence anymore. They
+simply have to listen to the control
+plane for any commands about routing
+traffic, applying security policies,
+inspecting traffic, reporting, and so
+on. They're just concerned with moving
+packets. That's it. And with third, we
+have the management plane. This is going
+to be the component that ensures that us
+as administrators can monitor and check
+the status of what's going on inside of
+our softwaredefined network. That's also
+going to be the interface that you use
+to input commands. Commands that get
+sent to the brain to the control plane
+and eventually to the data plane where
+the packets are actually going to be
+influenced by your configuration
+decisions. Now we said that SDN tries to
+keep these these ideas these concepts
+completely separate but it kind of looks
+more complicated right now it used to be
+so easy have everything on one switch
+just connect that switch you know create
+a policy create an access list and bam
+you just you just influence the traffic
+flow and that's it what more do you need
+well as we said SDN tries to address
+some management issues and also any kind
+of issues that occur at in large scale
+environments So from a management
+perspective, think about the fact that
+you want to create a new VLAN on 100
+switches. Now this can be done in just a
+couple of clicks or just a couple of
+commands onto the management plane which
+talks to the brain, the control plane,
+and makes sure that the proper
+instructions are generated for each of
+those 100 switches and they're all
+applied at the same time. So you have no
+typos, you have consistency, and you
+have a very consistent high-level
+overview of whatever is happening inside
+of your network. So no more human error.
+Consequently, if something bad happens
+inside of your network, you can either
+be instantly notified in your management
+interface or you can even configure the
+brain, the control plane to magically
+reconfigure the network around that
+failed segment or that failed device.
+Because again the control plane has a
+highle overview of everything that's
+happening in your network which opens us
+to an additional benefit which is
+automation or orchestration having all
+the intelligence all the routing
+policies the routing protocols the uh
+security policies anything that normally
+would be defined on on a single device.
+Having all this information in one
+centralized place allows us to
+reconfigure the network almost
+instantly. So whenever we need to make
+some changes, maybe temporarily reroute
+traffic or insert a new device in the
+network, a new virtual device that
+performs, I don't know, maybe IPS
+traffic inspection or any kind of of
+additional virtual hardware. We can do
+this automatically. We can reconfigure
+the entire network in just a few
+commands. And we can also teach that
+centralized brain of the network to heal
+itself whenever it locates an issue
+within the network. Maybe route traffic
+around a failed endpoint or maybe bring
+up a secondary firewall which is in
+standby in an active passive um high
+availability pair when the first one
+ceizes to function or has a very high
+CPU usage. So we're not just moving the
+traditional intelligence from our
+networking devices onto this control
+brain, but we're actually bringing a on
+top of it more control, more
+intelligence, more overview and
+automation on top of everything. And
+this is great news for admins. And by
+the way, everything that you're building
+in any cloud environment, be it Amazon,
+Google, Oracle, whatever it is, that's
+going to be software defined. and the
+networking that's running within that
+cloud environment. It doesn't matter if
+you're instantiating a Cisco firepower
+next generation firewall or a or a foret
+firewall or a Nexus switch. Any kind of
+device that you're creating inside of
+that cloud environment is going to be a
+virtual device and the networking around
+it is going to be software defined
+networking. How else would you think
+that you would be able to create an
+entire infrastructure in a cloud
+environment in just a few clicks? You
+simply cannot reconfigure hardware the
+way you reconfigure software. Now from a
+security perspective, SDN can be
+extremely beneficial because it greatly
+reduces the risk of human error and also
+provides you with a better insight into
+any policies, any traffic flows that
+might be happening in your network and
+that control plane, right? That's that's
+that's very useful for security
+intelligence. But don't forget one thing
+that brain that centralized brain is
+just another application that is running
+on your network and that is controlling
+your entire network and that application
+can just as easily be compromised by an
+attacker. So win some lose some or
+better said risk some. And just one
+mention here uh with SDN we have we said
+that we have this management application
+that communicates with the SDN control
+that is the brain of the network and
+this in turn is going to communicate
+with the actual physical devices that
+listen to commands coming from the SDN
+controller. Now all this communication
+is usually done through APIs,
+application programming interfaces. And
+there are two keywords here that you
+should remember at least for the exam.
+And that is the communication between
+the management application and the
+controller is traditionally called the
+northbound API. And between the
+controller and the actual physical
+devices, that's going to be called the
+southbound API. Now another term that
+you will encounter very often especially
+when you're interacting with public
+cloud providers is a term of VPC virtual
+private cloud. Now normally this is
+considered to be a kind of a network a
+virtual network within that cloud
+environment but in reality is more like
+a logical compartment of resources. It
+just happens that resources are very
+well compartmentalized
+by using separate networks. Especially
+because most of the infrastructure that
+we're creating, we're deploying in a
+cloud environment is somehow networking
+oriented. You're most likely not going
+to be creating many resources in a cloud
+environment that are not directly or
+indirectly connected to a network. Now
+you are going to find these kind of
+cloud networks uh named in a number of
+ways depending on their vendors. So for
+example, Microsoft Azure here calls them
+virtual networks or V-NETs. On the other
+hand, AWS calls them VPCs, virtual
+private clouds. You can see all the
+networking options in here. Oracle cloud
+or OCI also calls them VCN.
+That's virtual cloud network. Again,
+networking configuration right here, but
+basically just used to separate or keep
+resources separate. And finally, Google
+Cloud Platform or Google Cloud mentions
+them as VPC networks. Now, inside of an
+actual VPC or virtual network, besides
+the actual uh virtual machines or
+entities that are running or connected
+to it, you're going to find things that
+you might recognize from the physical
+world, such as subnets, uh route tables,
+uh gateways that connect you to the
+internet, uh DHCP options, public IP
+addresses, you can perform NAT for
+private servers, uh security, of course,
+using ACL and firewall rules, DNS rules,
+VIP VPN endpoints, and so on and so
+forth. So, you're going to be focusing
+on a lot of the traditional networking
+knowledge and networking concepts that
+you've preferably remembered from the uh
+physical world. And speaking about VPNs,
+now that's another way to design your
+network. That's another component of a
+network design. You're probably nothing
+new here. Not telling you anything new.
+Uh the concept of a VPN, it's widely
+spread. I'm sure everybody has used one
+at some point in life up until now. Uh
+basically it's about a secure tunnel
+through a public infrastructure. So a
+way to remotely access some resources
+from a remote location and gain access
+to those resources just like you would
+normally have access if you were in the
+same network as your your destination.
+So what do we use VPNs for? So first of
+all for remote connectivity. If you want
+to access some private server from your
+company or from your home can create a
+VPN endpoint, connect to that VPN
+endpoint and if everything you
+configured correctly, your computer is
+going to behave just as if it were
+locally connected to the same network as
+your remote resource. So that's remote
+connectivity. Now secondly we have
+security
+or most of the time we have security and
+that is because if you think about a VPN
+most people are going to think about the
+fact that the VPN is encrypted but by
+its definition a VPN doesn't assume any
+type of data encryption. A VPN is just
+like the name says it's a virtual
+private network. So it basically takes
+care of just the isolation part of that
+networking access and that's it. It
+doesn't say anything about security in
+there. And keep this in mind especially
+for the exam as well because CompTIA
+likes to catch you with these these
+small caveats. So so a VPN is by
+definition not necessarily secure. It
+can be of course and most VPNs out there
+are secured but it's not part of its
+default nature. Now, of course, if we
+think of about a VPN as being an an
+encrypted tunnel, a secure tunnel, that
+means we are protecting whatever data is
+being sent through that tunnel. But you
+have to still keep in mind the fact that
+opening yourself up to VPN connections
+from the outside is basically nothing
+else than increasing your attack
+surface. the VPN endpoint. If it has to
+be accessible from the internet, from
+any location out there, then it's also
+accessible for attackers out there, too.
+So, make sure that you properly
+authenticate users and devices when they
+attempt a VPN connection inside of your
+company. You can even go as far as
+implementing two-factor authentication
+or multifactor authentication. Most VPN
+clients nowadays support this anyway,
+and you should be using this feature. Or
+you can go even further and implementing
+some clients that also perform some
+client posture checks before
+authentication. That is the client also
+acts as a small security agent on the
+device that is trying to connect and
+scans that device before it attempts
+connection for let's say updates on the
+operating system security patches. uh
+maybe performing even an antivirus or
+anti-malware scan on that host before
+allowing it to connect to the internal
+network. This is more of a enterprise
+level solution, but you will find this
+implemented in real life quite often. A
+very simple check you could be
+performing is the fact that the device
+owns a certificate signed by the
+certification authority of your company.
+So if it doesn't have that certificate
+and it's not recognized then it's not a
+company device and you're not allowed to
+use that VPN connection. One final topic
+here on our discussion about network
+architecture is a recently introduced
+concept in cloud environments and that
+is serverless architecture or function
+as a service. Now if you look inside the
+AWS console you can see here under the
+lambda service that it says run code
+without thinking about servers. Now, how
+nice does this sound? Now, Lambda, it's
+actually a cloud computing service that
+is dedicated to running code, pure
+application code or dedicated functions
+in an application without exposing any
+type of infrastructure. So, there is
+some infrastructure in there. Of course,
+there are some computing entities, some
+virtual networks that run your code. You
+just don't see it. So, this kind of
+requires a completely different
+approach, especially from a security
+standpoint. You have to treat this
+function as a service functionality like
+a black box. You don't know what's in
+there. You cannot secure the insides of
+that black box. Um so make sure that you
+can protect whatever is under your
+control. That is the inputs and the
+outputs that those functions accept and
+produce respectively. Now if you want to
+play with this, give it a try with AWS
+Lambda. You can also access it in a free
+account. Uh for Azure, you're going to
+find it under Azure functions or
+function applications. And on Google
+Cloud, it's going to be called cloud
+functions under the serverless services
+category. Now, we could not possibly
+talk about network architecture without
+talking about network segmentation. What
+is network segmentation? Well, keeping
+things apart, right? That's what
+segmentation means. Why do we do this?
+Why do we want to segment a nicely
+working network? Why do we want to cut
+it in pieces? Well, any good networking
+admin would tell you that the first
+reason behind network segmentation is
+management and performance. Um, in other
+words, having all your networking
+devices, all your hosts, all your
+servers into one huge network segment
+where everybody can talk to each other
+is going to create a very sluggish
+network because all these hosts, all
+these servers can talk to each other and
+all this entire environment here is
+sometimes called a broadcast domain.
+That's because any kind of broadcast
+communication and we rely on broadcasts
+from the very first packet that we send
+between two hosts from the very first
+ARP packet address resolution protocol
+we're going to rely on those broadcast.
+Now if you have hundreds or thousands of
+hosts in any single network segment here
+the broadcast traffic is going to become
+huge unmanageable and your network is
+going to slow down. and not to mention
+the actual hosts themselves because
+they're still going to be expanding CPU
+cycles processing useless broadcast
+traffic. So from a management and
+performance perspective, we're going to
+try to separate this environment into
+more manageable smaller networks,
+isolated networks. And there's also a
+security benefit. If one of these hosted
+hosts, let's say this one here, gets
+compromised by an attacker, chances are
+it's going to be much more difficult for
+the malware or for the attacker to
+bypass this network edge and jump into a
+different network. It's most likely
+going to infect all the other hosts and
+the same network and you will be able to
+at least contain that effect that attack
+to a single network segment. Okay. So,
+how do we do this? Now the most basic
+type of network segmentation is called
+air gapping. Now air gapping is the
+simplest type of network segmentation
+because it doesn't involve the network
+at all. So with air gapping you're
+basically isolating completely
+disconnecting a host or a network
+segment from the rest of the network. So
+we're not talking about firewall
+policies here. We're not talking about
+you know traffic inspection policies
+that allow or deny your traffic. No, no.
+We're basically talking about unplugging
+the network cable. Wait, whose cable is
+this?
+And you might think that this is stupid,
+but it's also very secure. If you don't
+connect to any kind of network, there
+are no potential attackers or no
+potential exploits that you can fall
+victim to that come through a network.
+Now, as you can guess, this becomes
+really tough to manage because if you
+don't have even management access in
+there, you're going to have to
+physically connect to that device or to
+that network in order to manage it to
+perform some changes or to interact with
+it. So, there are some alternative
+solutions that have been developed. For
+example, data dodes, which are physical
+devices that make sure that no kind of
+traffic is allowed to pass in one
+specific direction. And that's because
+there are no internal circuits between
+those two ports. Some traffic might be
+allowed in the other direction, for
+example, to allow your isolated devices
+to perform updates and download some
+patches from the internet, but that's
+it. All the traffic is proxied and there
+is no physical connection between the
+input and output ports of a data diode.
+Where would you use this? As you can
+probably guess, you're thinking about,
+you know, military solutions here. uh
+power plants, perhaps industrial
+solutions, any kind of network that
+relies on realtime operating systems
+that is supposed to have no outside
+interference or any kind of system that
+wasn't designed or is not able to
+implement security. Thus, we try to
+isolate it from any potential danger.
+And another let's say a bit unexpected
+use of air gapping is for protecting
+certificate authority private keys. Now
+as you probably know in a PKI in a
+public key infrastructure we rely on a
+certification authority that is just a
+server right that validates that
+generates any other certificates that
+are generated by it and those
+certificates are considered to be valid
+because they are signed with the private
+key of that certification authority just
+like a a stamp or an identification card
+that is generated by your state
+authority. That's exactly the same trust
+that we have in those certification
+authority. Now this means that the
+private key of that CA is something that
+must never be compromised. Otherwise if
+the private key is compromised all the
+certificates ever generated by that CA
+are going to be revoked or going to be
+considered insecure.
+That's one of the situations where the
+private key can be stored on a separate
+machine completely airgapped isolated
+from any other type of network because
+we don't want to risk anybody reaching
+that machine compromising it and
+potentially compromising that private
+key as well. Then we have segmentation
+performed by networking devices and we
+have segmentation at layer two performed
+by switches using VLANs or segmentation
+at layer three performed by routers
+using separate routed interfaces or
+separate networks. Now again this is not
+a networking training here so I'm not
+going to dwell too much on this but just
+to keep the story short a VLAN as the
+name says a virtual LAN is a logical
+construct inside of a switch that allows
+all the hosts within the same VLAN to
+talk to each other. Now hosts in two
+different VLANs are not allowed by
+default to talk to each other because
+they're considered to be in separate
+networks. Now two separate networks can
+be connected either by using a layer
+three switch which has routing
+functionality or an actual router.
+That's the purpose of the router
+interconnecting different networks. Now
+there's no point in separating two
+networks and then making them talk to
+each other back again. Right? So the
+idea behind this type of network
+segmentation using VLANs or separate
+networks is that when we are actually
+routing from one network to the next, we
+also have the possibility of
+implementing some security policies that
+is actually specifying I want this type
+of traffic to pass and I want this type
+of traffic to be denied which is
+basically somewhat similar to the
+behavior of a firewall. The firewall is
+nothing else than a router that connects
+different networks and can implement a
+bit more advanced security policies. We
+can look at the IP packets. We can look
+at the source and destination. We
+perhaps can look at layer 4 transport
+layer. We can look at TCP UDP ports or
+ICMP code or whatnot. Or we can even if
+we are using a so-called marketing name
+next generation firewall, we can also
+use at layer 7 or an application layer
+gateway. We can look at the layer 7.
+That's the application content within
+our networking traffic. So for example,
+we can have a simple network policy that
+says I want to allow web traffic to this
+specific destination. That's going to be
+a layer 4 rule because it's going to be
+built based on the layer 3 destination
+and the layer 4 port number. Or we can
+have a smarter security rule that says I
+only want to allow
+Facebook traffic but not Facebook chat
+or Messenger chat. Right? That's going
+to be a layer 7 rule that requires you
+to have some sort of a firewall that is
+able to understand look inside that that
+traffic that web traffic because it all
+looks like web traffic and figure out
+well this is this is a Facebook image
+this is a Facebook post this is Facebook
+chat and I have to deny it. Then we have
+a specialized zone here called a DMZ.
+Now, the DMZ, the demilitarized zone, is
+a network segment where you're supposed
+to place your publicly facing servers
+that belong to your local network. All
+right? So, you have your local network
+and you have the internet. Of course,
+they are connected. And let's say you
+want to expose a website. You want to
+host your own company website. Now one
+way of doing this is to just host that
+website within your local network and
+make sure that you allow traffic from
+the internet directly to that uh website
+host. Now this is probably not going to
+be desirable because you will be
+allowing internet traffic and
+potentially malicious traffic to reach
+the internal network of your company. So
+a better decision for this would be to
+create an additional zone which is going
+to be a completely separate networking
+segment from your local network and
+that's going to be called a DMZ a
+demilitarized zone. Now this DMZ here of
+course is also going to be accessible
+from the local network and from the
+internet. But most likely this junction
+here in the middle is going to happen
+inside of a dedicated box which is most
+likely going to be a firewall. Now this
+dedicated firewall box here is going to
+have an interface that is pointing to
+the internet, another interface that is
+connected to your local network and
+another interface that connects the DMZ.
+Now the purpose for keeping this
+interface separate is to actually be
+able to implement different security
+policies between all these three zones,
+the local network, the DMZ and the
+internet. So for example, one type of
+security policy that you might encounter
+here would be allow all traffic from the
+internet to go to the DMZ because that's
+where we host our public servers. All
+right. Now, on the other hand, of
+course, traffic coming from the internet
+and heading to our local network is
+going to be denied by default because
+that's exactly what we don't want. We
+want to protect the local network from
+outside traffic. That's why we took the
+DMZ outside. So, we're going to deny
+this. And of course, traffic from the
+local network heading to the DMZ is most
+likely not going to be allowed because
+the DMZ is considered to be an insecure
+zone. It is exposed to the outside. It
+is the first one that is going to be
+compromised and if an attack succeeds.
+So, we're going to deny this kind of
+traffic here as well. Now, of course, if
+you're denying traffic from the local
+network to the DMZ, you're going to run
+into some management issues. So, most
+likely there will be some type of
+traffic allowed here. management traffic
+going through a proxy, going through a
+jump box or a or a dedicated host solely
+for management purposes because you will
+need at some point to you know to
+configure the web servers to update them
+to update the content on your website
+and such. So you will have some limited
+access from the local network to the DMZ
+but for no reason you shall allow your
+internal users to talk to the DMZ just
+like they would be in the same network.
+And well speaking about things that run
+inside of a DMZ, we also have to
+introduce the concept of a jumpbox. Now
+the jump box here is a dedicated
+machine. It can be physical, it can be
+virtual that is created so that everyone
+is supposed to connect to it. everyone
+has to go through it in order to access
+a different part of the network or some
+isolated network segment or some other
+resources usually placed in the DMZ as
+it needs to be accessible from the
+outside or at least through a VPN. And
+you will find this design in a lot of
+companies where the uh the VPN server
+for example is located somewhere within
+the the DMZ zone simply because it needs
+to be accessible from the internet right
+from by outside users that need to
+connect to that to that VPN endpoint.
+And the host that is running this VPN
+endpoint is sometimes called a bastion
+host or a jumpbox. Yeah. Well, the
+purpose of this this jump box is to
+reduce the attack surface while also,
+you know, allowing some increased
+security authentication mechanisms,
+especially in the case of VPN servers,
+for example. So, you can implement some
+better checks onto the the clients that
+are trying to connect your network. Now,
+the terms of bastion host and jumpbox
+are often used interchangeably. So they
+mean the same thing and are frequently
+found in cloud environments where you
+have a an entire infrastructure
+instantiated in some cloud provider and
+you don't want to expose that entire
+infrastructure to the outside world to
+the internet. So you just create a
+bastion host or a jump box like this and
+everybody who wants to manage that
+infrastructure or connect to it has to
+connect to the jump box first and then
+will jump from that box to the rest of
+the devices in your cloud environment.
+Okay, so that's it for today. I will try
+to keep these episodes as short as
+possible from now on because 1 hour is a
+bit too long for anybody's attention
+span. So for the exam, make sure you
+remember uh that we talked about
+physical and virtual networks. We also
+talked about SDN. Make sure you able to
+explain what's happening inside of the
+SDN and the basic components that make
+up an SDN. Uh then we talked about uh
+cloud networks, VPCs, VCNS and such. uh
+VPNs as well, virtual private networks.
+Make sure you don't confuse the acronyms
+here. And remember, we also talked about
+network segmentation. Layer 2
+segmentations using switches and VLANs.
+Layer three segmentations using networks
+and routers. Uh airgapped networks,
+DMZs. Make sure we remember the purpose
+behind a DMZ, why we have it in there,
+especially from a security perspective,
+and the concept of a jump box or a
+bastion host. That's it for today. Thank
+you so much for watching. I hope you
+found this useful, informative, and fun.
+Make sure you like and subscribe if you
+did and see you next time when we will
+be talking about what is this uh network
+traffic packet and protocol analyzers.
+All right, so we're still in the
+networking area next time as well. Thank
+you so much. See you next time.
+[Music]
+[Music]

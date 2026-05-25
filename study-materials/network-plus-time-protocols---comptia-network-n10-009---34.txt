@@ -1,0 +1,120 @@
+in this video we're going to talk about
+ntp or the network time protocol this is
+the protocol that we use across all of
+the devices on our Network to be able to
+synchronize their clocks so if you're
+looking at the clock that's in your
+laptop or desktop computer or you're
+examining log files that have timestamps
+that are from a switch or router or
+firewall all of those clocks were
+probably synchronized using the network
+time protocol as you can imagine having
+every device using EX exactly the same
+Tim stamp can be critical especially
+when you're comparing log files and
+other information that may have been
+taken from multiple devices this is also
+an automatic process so that every
+device can automatically get exactly the
+correct time of day configured this is
+also something that we can configure so
+we might have some devices that update
+their clocks every day and other devices
+that might update every hour and in many
+cases these time updates are very
+accurate in most cases you might find
+that the devices on your network may
+only be different by a matter of
+milliseconds for ntp to work properly we
+need a Time server This ntp Server
+listens on UDP Port 123 and it's
+responsible for responding to any time
+requests from your ntp clients the ntp
+server does not modify its own time and
+if it needs to update its own time then
+it needs to have a separate ntp client
+that then queries a different ntp server
+the client is the software that's
+responsible for querying the server and
+obtaining the latest update of time
+information and in some cases we might
+have both an ntp client and an ntp
+server on the same device the server is
+handing out timestamps to any of your
+ntp clients and then if you need to
+update the time on that device a
+separate ntp client on that device will
+perform the same query to a different
+ntp server some organizations will an
+external ntp server to provide that time
+information but if ntp is important for
+your organization you may choose to have
+your own ntp server you would then
+configure all of the ntp clients on your
+network to query your own internal ntp
+servers by default ntp sends information
+in the clear after all the time of day
+is not something that's generally
+private so it's common to send this in a
+non-encrypted form across the network
+but time can be an important security
+concern for example keros is often used
+to authenticate devices on a Microsoft
+Windows network but keros won't work if
+the client and the server's timestamps
+are off by more than 5 minutes so you
+could potentially cause a denial of
+service by providing the wrong time to
+all of the clients on this network for
+that reason we need some way that we
+could trust the response that we're
+getting from these ntp servers one way
+to do this is by using network time
+security or n TS this adds a level of
+authentication so that we know the
+response that we're getting back from
+these servers is one that can be trusted
+to use Network time security we need an
+additional device on the network known
+as the network time security key
+exchange server this is a server that's
+responsible for authenticating the
+clients and making sure that they all
+have a cookie that can then be used to
+perform the ntp query so this now turns
+into a two-step process where we first
+obtain the authentic details and then
+provide that cookie to the ntp server
+here's a better view of this we first
+have a TLS handshake that occurs between
+the client and the NTS key exchange
+server and then we can request a cookie
+from that server and then receive it in
+that response from this point we can
+perform the ntp request to an ntp server
+but we include that cookie information
+to show that we have authenticated to
+the key exchange server we can then
+receive the ntp response and we now know
+that we have a valid timestamp from a
+trusted server with a local ntp server
+we can get accuracies down to around 10
+milliseconds but in some environments we
+need very precise time synchronization
+and we can do that by using Precision
+Time protocol or PTP this is a
+hardware-based Time synchronization that
+provides granularity down to the Nan
+second this is especially important for
+industrial uses where you need to make
+sure that the time stamps across all of
+these devices are very precise PTP often
+requires a separate piece of Hardware
+that is separated from our operating
+system and any of our applications that
+means that it has its own operating
+system it can run without any delays
+from any type of thirdparty process and
+it can provide the most accurate
+timestamps for all of your devices

@@ -1,0 +1,111 @@
+transceiver is a combination of two
+words transmitter and receiver and these
+are usually combined within the same
+piece of equipment or the same component
+a transceiver allows for modularity you
+may have a switch like this one you can
+see there are a number of open
+interfaces in the switch you slide in
+the transceiver that's appropriate for
+the media or the network type that you
+would like to use and now that
+particular interface will operate with
+that particular configuration so if you
+need a copper configuration for gigabit
+Ethernet you slide in a copper gigabit
+Ethernet transceiver or if you need a
+fiber based 10 gig connection you slide
+in a 10 gig fiber transceiver this means
+that you could have every interface on
+the switch have a different type of
+media depending on what transceiver you
+are planning to use there are different
+types of transceivers different form
+factors and different transceivers
+depending on the media for example if
+you are using an ethernet switch you
+need an Ethernet transceiver if you're
+using a fiber channel switch then you
+will need a fiber channel transceiver
+you can't use fiber channel transceivers
+in an ethernet switch or vice versa this
+means you get to decide what media type
+works best for your configuration if you
+need copper connections you can use a
+copper transceiver and if you need fiber
+connections you can use a fiber
+transceiver and if you need to change
+those connections Midway through your
+installation you can remove the copper
+transceiver and replace it with a fiber
+transceiver this type of modularity
+often comes at an additional cost but it
+does provide you with a way to plug into
+whatever network type you might need one
+common transceiver type is the SFP type
+that stands for small form factor
+pluggable for example you can plug in a
+fiber SFP and connect your fiber
+connections to that particular
+transceiver but if you needed copper you
+could easily slide in a copper SFP and
+plug in your RJ45 connector sfps are
+commonly associated with gigabit
+Ethernet so that's 1 gbit per second
+there is an enhanced version of SFP
+called enhanced small form factor
+pluggable or SFP plus they look
+identical in size to an SFP but they
+support much higher speeds up to 16
+gbits per second so if you have a 10 gig
+connection then you're probably using
+SFP plus when you're installing
+equipment into a rack that's in a data
+center you have a limited amount of
+space available first the equipment is
+only 19 in wide and the total amount of
+space available in the rack is limited
+by the amount of space you have in the
+data center so we want to be sure that
+we can put as much connectivity into a
+single space as possible to that end
+we've created the qsfp or the quad small
+form factor pluggable this effectively
+allows you to have four times the amount
+of throughput into a space that's very
+similar to that of an SFP for example an
+SFP in this form would be a quad small
+form factor pluggable or qsfp which
+consists of four channels of SFP so if
+one SFP is a 1 gabit per second
+connection a quad SFP would be
+compatible with a 4 gabit throughput the
+same thing applies for the SFP plus
+there is a quad SFP plus that is a 4
+channel SFP plus since it's common to
+see a 10 gigabit connection on a single
+SFP plus a quad SFP plus can support
+four of those for a total throughput of
+40 gbits per second this is where we
+start to see a benefit not only in the
+amount of space that we're using inside
+of these devices but we can take a
+single fiber connection and effectively
+extend four separate links over that
+single fiber there's cost benefit there
+for equipment and for the media itself
+although the names are very similar the
+form factor are slightly different
+between an SFP and SFP plus and a quad
+SFP or quad SFP Plus on the left is an
+SFP or SFP plus both the SFP and SFP
+plus use the same form factor although
+the transceivers are obviously very
+different the quad SFP or quad SFP plus
+also share the same form factor but you
+can see it's slightly larger than the
+traditional SFP or SFP plus although it
+is slightly larger larger than an SFP
+it's not four times the size of an SFP
+so we are getting an efficiency in Space
+by using a quad SFP or quad SFP Plus

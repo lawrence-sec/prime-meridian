@@ -1,0 +1,86 @@
+if you're working in an environment with
+many windows devices then you're
+probably taking advantage of active
+directory active directory is a database
+containing all of the different
+components of your network this includes
+all of the computers and other devices
+on your network every user account is
+listed in the active directory database
+list of the file shares and printers the
+security groups and anything else that
+makes up your network since all of this
+information is stored in a central
+redundant database we can manage all of
+our authentication from this Central
+resource when a user needs to log into a
+device or authenticate to another
+resource they would use the username and
+password that is already defined in the
+active directory database we can also
+use this database to assign access
+permissions we can create a list of
+permissions and assign those permissions
+to an individual user or we can create a
+group of users and assign those
+permissions to the entire group if
+you're adding a accounts managing these
+access rights modifying passwords or
+removing accounts you're probably
+performing all of those functions using
+active
+directory we can also overlay a group of
+security policies on this list of
+computers and users that are stored in
+active directory we refer to this as
+group policy and it allows us to set
+different configuration settings or
+permissions for each individual user or
+individual devices this is usually run
+from a central console known as the
+group policy management editor and it
+allows us to configure login scripts
+when a user connects to the network we
+can set up network configuration such as
+quality of service and of course we can
+set security parameters that all of
+these devices and users must follow this
+combination of active directory and
+Group Policy allows us to create a
+comprehensive control mechanism for
+everything that's on our network if you
+need to set a configuration setting for
+a particular device or you need to
+configure security policy for an
+individual user you can perform all of
+those functions using Group Policy the
+Linux operating system by default works
+as a discretionary access control device
+this means that the user has their own
+discretion to be able to assign rights
+and permissions to different resources
+in the Linux operating system but in
+many highly secure environments a
+discretionary access control is not
+appropriate instead they would like to
+use mandatory Access Control where all
+of those rights and permissions are
+assigned by a central administrator one
+way to provide this mandatory access
+control is to install a number of
+patches that enables security enhanced
+Linux or SE Linux this allows the system
+administrator to take advantage of least
+privilege this is where rights and
+permissions are associated with the user
+that allow them to do exactly what their
+job entails and nothing more this means
+that if there is some type of security
+issue a breach or some type of malicious
+code it will have a limited scope on
+what it's able to do on that Linux
+device and like most things Linux
+related SE Linux is open source can be
+downloaded and installed on many
+different Linux
+distributions

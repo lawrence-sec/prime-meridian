@@ -1,0 +1,529 @@
+hey everybody Sean Powers here this is a
+Linux plus preparation video but it's a
+little bit of a strange one because
+Linux plus is designed to be
+distribution agnostic right so it works
+whether you're a red hat person or
+Ubuntu or Debian or Souza whatever your
+distribution is it tries to just teach
+you the general things but when it comes
+to managing network interfaces it's
+really different on the different
+distributions and so we're going to
+cover a couple different ways and it's a
+little bit strange that they mention
+something specifically in the Linux plus
+objectives and don't mention some other
+seemingly important things at all let me
+show what I'm talking about so this is
+the section that we're going to look at
+I'm calling it 1.5.1 it's part of the
+1.5 objective from CompTIA for Linux
+plus but there's
+specifically two different styles of
+Network Tools there's the newer IP Route
+2 tools which are default in Ubuntu and
+and Debian and then there's net tools
+which I don't think is the default
+anywhere anymore but it is installed
+still in uh like red hat 8 or we're
+going to use Rocky Linux the free
+version of red hat Enterprise Linux and
+so net tools is like kind of the old
+school way of doing things and these
+tools uh are kind of like a all of them
+are wrapped into one with IP and then SS
+is a tool that takes the place of
+something they didn't even mention which
+I think is weird and that is netstat
+which is part of the net tools program
+so we're going to look at that and then
+this they mentioned this particular
+folder which is very specific to Red Hat
+uh so why they mention this but then
+don't mention
+Etc net plan which is what like Ubuntu
+uses I don't know so I'm going to show
+you a bunch of things some of them
+aren't listed here but the other thing
+we need to know is that network manager
+is generally how network interfaces are
+managed in a GUI situation now both of
+the servers we're going to look at are
+both running a GUI so network manager is
+installed and here let me clear that off
+NM or network manager CLI is the way
+that we can interact with that on the
+command line
+I've never done anything more than look
+at stuff with nmcli though so I want to
+show you how it is and you can you can
+play with it more but anyway we're going
+to cover all this stuff and it's going
+to be a little bit strange because like
+I said it's it's different generations
+of tools and also this is something that
+distributions vary in widely so first
+things first I want to show you some of
+the tools that they mentioned like IP
+and ifconfig and hostname and ARP and
+all those things if we're on Rocky Linux
+or red hat both at least version 8 both
+are installed by default so we can do
+something like say
+um well if we just run IP it's going to
+give us the various things that we can
+run the thing about the IP Command in
+the IP Route 2 tools which are Now the
+default in most distributions are that
+this takes the place of multiple
+Standalone tools in the old net tools
+package or Suite of utilities and so if
+we want to look at the current IP
+addresses on a system we'll do IP a d d
+r e s s
+and it will show us that now one nice
+thing about IP is that you can just you
+can shorten it like a lot you can just
+say IP space a
+and it'll do the exact same thing as
+long as there's not like a conflict like
+a could mean multiple different things
+it's just going to do that and what we
+can see here when we do that is this is
+uh well here let me clear the screen so
+it's it's a little bit clearer clear the
+screen so it's clearer uh we'll do IPA
+and then it shows us that there are
+actually three network interfaces on
+this computer which is a little
+confusing but the first one is the Local
+Host interface it's just the local local
+loopback uh interface
+127.0.0.1 I think we've covered this in
+like Linux Essentials basically this is
+the computer's way uh on the network to
+say me right every computer has a local
+host interface that has the address of
+127.0.0.1 that means local it means me
+basically in Network Speak number two
+here the second interface is enp One S
+zero now this is going to be different
+depending on what Hardware you have
+installed on your computer but this is
+the actual ethernet interface on this
+computer and we can see a bunch of stuff
+like it has an IP address of 10.0.2.15
+24 bit Network mask the broadcast
+address this is our live address on our
+system and then this one down here this
+is and this is installed by the vert
+program like vertlib or whatever for
+virtualization this has a virtualization
+software pre-installed by default in
+Rocky Linux 8 and so this is the
+interface that allows the virtualization
+system to create other virtual
+interfaces so this is not like our live
+connect to the internet
+um ethernet card that's what
+enp1s0 is Rocky Linux 8 specifically
+comes with both the old way and the new
+way of doing things both using the net
+tools Suite of commands and the IP tool
+comes by default and so I'm going to
+show you how to do a bunch of things and
+it's going to look very similar just
+know that that's because I guess we're
+in a transitional period I don't know of
+any distributions other than maybe red
+hat 8 that still use the net tools
+package by default but I'm going to show
+you both ways and if it seems like I'm
+like why are we doing this twice because
+they specifically listed you need to
+know in case you're on an older system
+that uses net tools how to do it there
+if the tool like IP isn't installed and
+so IPA shows us the address but we could
+do like IP route and it's going to show
+us the routing table on this computer
+and this one's pretty simple our default
+route is via this Gateway remember if
+you look up here this is our actual IP
+address on the computer so the default
+is via this gateway address via this
+device and you can see that it's uh we
+got an address via DHCP and this is the
+address of it so this gives us the
+information about the default route on
+the system this is saying that if we
+want to actually reach a computer on the
+10.0.2.0 subnet we actually just Reach
+Out directly because that's a subnet
+that we're on so this is the routing
+table and then let's see what else could
+we look at we can look at our ARP
+neighbors now ARP stands for address
+resolution protocol it kind of goes
+backwards instead of mapping an IP
+address to a MAC address like the the
+hardware address on a card which is like
+right here this is the MAC address on
+our network card ARP kind of goes
+backwards it's like okay
+what Mac address do I have and do we do
+I know like an IP address for that and
+basically we using the IP tool we can
+say IP neighbor
+oh and this gives us a good reason why
+uh sometimes I just like to do things
+short because it's not neighbors plural
+it's neighbor so IP neighbor and then it
+will give us all of the local computers
+that it happens to know about which are
+very few because this is a virtual
+machine on a virtual uh on a virtual
+subnet so that is the way to get uh
+things like the the ARP Neighbors on our
+computer now if you want to do all that
+stuff using the old uh net tools package
+each one has its own unique thing so we
+would say ifconfig if config for
+interface config
+and that's going to show us the same
+sort of information that IP space a or
+address would give us using the IP tool
+itself so if config will show us that we
+can do arp
+and it's going to show us the same
+information that ipnaver showed us just
+in a slightly different format it's just
+a different tool but that's the ARP tool
+that comes with net tools we could do
+route is its own command and if we do
+route and press enter that same
+information again just shown in a
+slightly different way our default
+gateway meaning anything that we want to
+go to is going to use this interface
+anything on this local network we're
+just going to use we're going to contact
+locally and so again it's the same
+information just presented in a slightly
+different way there are a couple other
+tools that are mentioned for example
+hostname so if we say host name it'll
+show us our our host name which in this
+case is rocky8 dot home we could do
+hostname Dash D and it will just show us
+the domain or hostname Dash H and it'll
+and I guess it's not H what is it uh oh
+dash s so hostname dash s for just the
+the first part of that without the
+entire domain and then uh Dash F
+apparently is the default here in Rocky
+Linux but otherwise you would say host
+name Dash f for the fully qualified
+domain name which is what it showed us
+by default so Rocky 8 dot home and that
+is uh how we can see what it is but you
+can also set the hostname if you have
+root privilege so we could say
+sudo hostname uh Billy dot Bob and now
+if we do host name
+we're gonna see our host name is now
+Billy dot Bob but that's only going to
+be temporary when we reboot the computer
+it's going to go back to the setting
+inside
+Etc hostname which is rocky8.home in
+this red hat system okay so that's just
+a temporary change
+um and speaking of temporary changes
+also if we want to manipulate the
+network manager we can use
+nmcli and it will give us a list of all
+the stuff now you're probably thinking
+is this just like a third way of doing
+like IPA or if config and not really
+because what this is doing is it's
+controlling if I'm going to move the
+mouse up over here this is our wired
+connection if we hit the control or the
+the configuration thing here this is how
+we configure network manager using a GUI
+okay so this is our our GUI
+configuration for network manager here
+like we click this little gear it's
+going to show us all this stuff
+I'm going to close that but we can do
+the same thing using nmcli for example
+we could do nmcli let's do help because
+it shows us a bunch of stuff we can do
+and this is the same thing too where we
+can just use like one letter so it's
+it's kind of nice like down here we can
+do like nmclig so nmcli G and it's going
+to show us our uh the information about
+our connections our general status here
+we're connected full connectivity uh we
+don't have Wi-Fi even though it's
+enabled we don't have a Wi-Fi card on
+our system and so this is information we
+can do let's see
+nmic nmcli
+n to see whether networking is enabled
+or not so we could turn that off
+so NM CLI networking off
+and now if we do and again we're going
+to see it's disabled and so look look
+what happened over here I don't know if
+you saw it was happening but it's off
+over here so the nmcli does the exact
+same thing
+as using the GUI it's just using the
+command line tool so if we do this and
+go back to on watch when I hit enter
+watch up there it should go to on Boom
+so so it switched it to on using the
+command line tools now there's other
+things too we could uh look at an mcli
+uh connection and you know this is our
+connection with the uuid but the thing
+that's important to note here is that
+whether we change it with the command
+line tool and mcli or the GUI tool up
+here on red hat what actually changes is
+remember I remember it showed us a
+specific Network folder to look at the
+ETC sysconfig Network scripts which is
+I'm going to do PWD that's where we are
+Etc sysconfig Network scripts right here
+in a red hat or rocky 8 system if we
+look there is a file if CFG and that was
+another thing that was specifically
+spelled out in the objectives what is if
+CFG and in red hat this is where
+configuring operations are stored for
+individual interfaces and in this case
+so if we look at I'm just going to cat
+out the contents of it we can see these
+are a whole bunch of settings for
+example it does it start on boot now we
+can edit this file using like VI or Nano
+and that's the same as if we were to use
+either an mcli or the GUI tool over here
+but this is where the setting is
+actually stored so if we were to come
+over here and click on the gear and then
+say a don't connect automatically and
+then click apply
+where that is saved is in this file so I
+just carried it out before that and it
+says on boot equals yes if we look at
+this file again now it says on boot
+equals no because we told it not to
+connect automatically on boot and so
+this is where the information is stored
+except it's kinda not because with red
+hat or rocky Linux again Rocky Linux is
+just a free version of red hat
+Enterprise Linux it's like a bite for
+byte copy it's what Centos used to be
+anyway with Version 9 that folder that
+is specifically spelled out as an
+objective for the Linux plus test is not
+used in Red Hat version nine let me show
+you because while it looks similar this
+is actually Rocky Linux 9 based on red
+hat Enterprise Linux 9. and if we look
+in this folder the same folder Etc
+sysconfig Network scripts uh it just
+says oh that's strange there's not an if
+config file there's a readme file and if
+we look at it it just says basically
+preview obviously network manager used
+to store stuff in here but it doesn't
+anymore now it's stored in a key file
+format an ini file it is not stored
+using ifconfig anymore
+if you want to actually control it like
+there's ways that you can migrate stuff
+back to the old format or whatever but
+basically all the stuff that we have to
+learn about this folder and if config
+files and how they're managed doesn't
+apply to Red Hat 9. so you need to be
+prepared for that like if you are I mean
+if you're taking the exam you're going
+to be presented with the objectives that
+they gave you but if you're in the real
+world and you're at a red hat system
+that is version nine things have changed
+and so that's not where you're going to
+find stuff but there are instructions in
+here because again it was a recent
+change and I know Ubuntu does not even
+have an Etc sysconfig Network scripts
+folder at all it doesn't use that
+whatsoever Ubuntu uses something called
+netplan so I'm going to show you how
+things work in Ubuntu and then show you
+both SS and netstat the one that I
+mentioned in our first slide so just for
+a change of pace our terminal window is
+white here but this is Ubuntu 22204 and
+in Ubuntu it still uses a network
+manager to manage the the things in a
+GUI system so like right up here these
+are the here if we go to edit
+connections this is just a different way
+to manage all of those same settings
+that we were looking at in in red hat or
+in Rocky Linux so it's just a different
+interface to manage network manager but
+when it comes down to it if it's a
+headless system like there's no GUI at
+all it's just going to use netplants so
+the folder in Ubuntu this is just kind
+of bonus material because it's not
+mentioned in the uh in the Linux plus
+objectives right now if we go into Etc
+net plan
+on an Ubuntu system there's going to be
+at least one file in here it's a yaml
+file and if we look at it it's pretty
+simplistic here because the
+configuration is not used like this is
+not where IP information and stuff is is
+configured in a GUI system basically all
+it does is it says okay use network
+manager which is that GUI tool up there
+and I believe we have nmcli yeah we do
+okay so we can control it either using
+the command line tools or the GUI tools
+up here so it's scriptable but basically
+it just that's how it manages it but I
+wanted to mention the netplan folder
+because if you don't have a GUI
+installed on Ubuntu you just have Ubuntu
+Server you're not going to have like a
+assist config Network scripts folder
+you're just going to have the ETC
+netplan folder and that's where your IP
+information is going to be stored now
+the other thing that I wanted to show
+you is there's a tool called SS and if
+you do that it's just going to show you
+all the different connections on your
+system and this takes the place of
+netstat now yeah this is what I wanted
+to show you netstat all those tools the
+net tools does not come by default on
+most Linux distributions but you usually
+can install it like I like I'm gonna
+hear
+so once they're installed just like SS
+return that again that's going to be the
+default we can do netstat and it's going
+to do something similar slightly
+different format but the nice thing
+about netstat and SS is they both accept
+my favorite flag that I always use I've
+used it for decades with netstat and now
+I use it with SS because it continues to
+work and it's really hard to forget and
+that is we'll start with well first
+let's clear the screen we'll do netstat
+the old one so this is part of the net
+tools Suite along with like route and
+ARP and all those tools that we looked
+at before but netstat Dash tuna
+and that's that Dash tuna tuna tuna tuna
+you won't forget tuna and the flags here
+just basically give you information
+that's really useful part I mean we can
+look at the help screen I'm you know you
+you can do that on your own to see the
+different commands but this is a really
+useful one because it will show you when
+different ports on the system are
+listening so generally I'll do something
+like netstat Dash tuna and pipe that
+through grep for the word uh listen all
+in caps and it'll show you all of the
+the listen ports like if you have Apache
+install that's going to be listening on
+Port 80 and it will show you what
+address it's listening it on and what
+port it is listening on like for example
+uh this 631 I believe is cups the print
+server it's listening uh with TCP
+version six so IPv6 that's why this
+looks like this this is the localhost uh
+version or Port 631 it's listening so
+there is a cups Daemon running which
+means that you know we can print from
+this computer now the same thing works
+with SS s SS tuna which sounds like a
+boat from Gilligan's Island but anyway
+the ss-tuna and then we'll grep for
+listen it shows us the same stuff again
+slightly different format because it's a
+new suite of tools but the same sort of
+thing right it shows us that it's
+listening on Port 631 both in ipv4 and
+IPv6 again that's our cup server if we
+had other servers we would see those
+ports specified here this is a port 53
+is DNS so it has DNS installed it's
+listening for DNS requests on the on the
+Local Host as well so that's SS and
+netstat they do the same thing you're
+probably going to have SS installed and
+not net stat but just know that it's
+there so all of these tools are for
+manipulating your current running
+network connection right so whether
+you're using IPA or you're using IF
+config for in the net tools Suite you
+can see what the configuration is you
+can temporarily change those
+configurations like we can assign
+another address using the IP tool like
+IPA and then assign an address the thing
+is those do not carry over like when we
+change the host name it will only change
+it for that session when the computer
+reboots it's going to read from
+configuration files and that's what you
+need to understand is that in order to
+change like network settings you're
+going to either have to edit that file
+use the GUI tool in network manager or
+use nmcli those changes will stick
+because it actually changes the
+configuration file but like the IP
+Command where you change the routes or
+the route command those are not going to
+make permanent changes on your system
+that's just uh like in the moment it's
+going to make those changes hopefully
+that makes sense but those are the tools
+whether it's the old style or the new
+style or some combination if you're on
+red hat version 8 all of those different
+ways are how we can manage network
+connections on our system
+learn everything
+do what you love and most importantly be
+kind I know this was a lot I encourage
+you to install multiple virtual machines
+so that you can play with the different
+things like install Ubuntu install Rocky
+version 8 and install Rocky version 9 if
+you can just to play around with all
+those various ways of manipulating
+network interfaces on your system
+see in the next video

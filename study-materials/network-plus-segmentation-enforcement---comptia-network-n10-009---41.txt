@@ -1,0 +1,161 @@
+in it security segmentation can be a
+very valuable tool we may want to
+physically separate devices from each
+other or it may be a logical or virtual
+segmentation this may be a separation of
+physical devices or it might be
+segmenting networks with vlans sometimes
+this segmentation is created so that you
+can increase performance some
+applications might transfer large
+amounts of data and by putting them on
+their own network they would be able to
+transfer that in the most efficient way
+from a security perspective segmentation
+allows us to limit what devices can talk
+to other devices this can be useful in
+certain environments where you want to
+be absolutely sure that one device and
+another device cannot communicate to
+each other and sometimes this
+segmentation has already been determined
+before the network design is even
+complete some compliance like the one
+from the payment card industry require
+segmentation if you'll be storing credit
+card
+information our industry is dealing with
+a large number of new devices connecting
+to the network that are iot devices or
+Internet of Things these can be sensors
+such as cooling and heating sensors
+perhaps even lighting that you might
+connect to the network or it might be a
+smart device such as home automation
+devices video doorbells cameras and
+other homebased devices this could also
+be a device you wear such as a
+smartwatch or a health monitor the
+problem with these iot devices is that
+they may be very ingenious in their
+operation but they may not be very well
+thought out from a security perspective
+so segmenting the iot devices onto their
+own network and away from your data
+might be a good choice for it security
+industrial devices also have a challenge
+when it comes to communication these are
+iiot devices or industrial internet of
+things this would be for one machine
+communicating with another machine in
+order to keep all of those systems
+running with iot devices we're most
+concerned about controlling lights or
+controlling temperature with industrial
+Internet of Things the stakes are higher
+there could be an entire manufacturing
+line that is based on all of these
+devices being able to communicate
+properly from one to the other in that
+scenario it would make perfect sense to
+segment all of these devices onto their
+own network by segmenting these you're
+preventing any external devices from
+disrupting that very important
+communication but you can also have
+automation within the industrial
+Internet of Things configurations and
+making sure these networks are operating
+will ensure that we have things like oil
+and gas systems that will continue to
+work or to make sure that the medical
+devices in a hospital are able to
+communicate properly to the other
+medical devices when it comes to our
+critical infrastructure or when lives
+are on the line we need to make sure
+that these iiot devices are able to
+communicate properly and segmenting the
+network might be the perfect choice for
+a network
+configuration when when you're talking
+about larger Industrial Equipment you
+may be referring to scada or IC this is
+supervisory control and data acquisition
+systems or industrial Control Systems
+these are very large systems that might
+be in a manufacturing environment or
+they might be used for power generation
+these types of very large Industrial
+Systems require real-time monitoring and
+we need to be sure that we're able to
+control this system across the network
+at a moment's notice if you look at a
+network with skated device you'll notice
+that it is completely segmented from the
+rest of the network and only people with
+the right access in the right location
+are able to access these
+systems uptime and availability becomes
+even more important when you talk about
+operational technology or OT this could
+be systems that are designed to keep the
+electric grid up and running it might be
+for traffic control or it may be an
+entire manufacturing plant that's
+running on this OT equipment when a
+failure occurs in this type of
+environment the results can be very wide
+ranging for example if you lose traffic
+control the traffic lights may not work
+properly or they may not work at all you
+may have situations where manufacturing
+plants have to shut down completely or
+perhaps there are issues with the power
+generation systems and being able to
+distribute that power across the grid
+this is a very good example of where
+Network segmentation can create a
+stronger security posture and keep these
+systems up and running all the time and
+if you're access points support it you
+may want to consider configuring a guest
+Network for your building or your home
+this would allow people access to the
+internet but prevent any type of access
+to your internal services so in your
+pull down list of wireless devices you
+would see that there was a separate
+wireless network just for guests to be
+able to use and you may be able to
+control this using a passphrase or they
+may have to log in to gain access to
+that wireless network the useful part of
+segmentation here is everyone on this
+guest Network can still access the
+internet as they normally do but they
+would have no access to the internal
+services that are on the inside of your
+network and we often see segmentation
+being used with BYOD this stands for
+bring your own device you may see this
+also referenced as bring your own
+technology this is when you own a mobile
+device and you bring it into the office
+to be able to also use it for work
+purposes of course this device still
+needs to meet the requirements of the
+organization so that you have the proper
+security but most of the time the
+organization is going to segment that
+device so that your private information
+remains private on your phone but you
+have a separate segmented area that is
+specifically for office use this means
+the system administrator can still
+maintain and manage all of the company
+data and all of that information remains
+secure if you leave the organization the
+company's data can be removed but all of
+your data can remain on that mobile
+device e

@@ -1,0 +1,117 @@
+if you think your computer may be
+watching you you might be right if
+you're infected with spyware spyware is
+malware that's watching everything that
+happens on your system it may be putting
+advertising on your screen stealing your
+personal information or committing
+affiliate fraud to earn money from
+purchases that you make online very
+similar to a typical virus spyware needs
+to be installed on your system either
+through peer-to-peer software fake
+security software or malicious links
+that you might get in your email spyware
+is very good at watching everything
+happening on your systems it can monitor
+your browsing habits and send that
+information back to the attacker servers
+the spyware might also install a key
+logger which is watching everything that
+you type this means your usernames
+passwords and everything else you type
+on the system is collected into a file
+and that file is sent to the attacker
+server fortunately most of us are
+running antimalware or antivirus
+software that is looking for this type
+of spyware to be installed on your
+system and if it recognizes spyware is
+there it will stop it from executing
+it's also a good idea to research
+everything that you might be installing
+on your system each installation is an
+opportunity for malware to install
+itself on your system so you should
+always make sure that you're using known
+good and trusted software this malicious
+spyware code works very hard to embed
+itself within your operating system and
+some versions of spyware make it very
+difficult to uninstall this is why it's
+always a good idea to have a known good
+backup so that if your system is
+infected with malware you can easily
+recover from that backup and of course
+you may want to look for this malware
+with thirdparty software like malware
+bytes which is specifically designed to
+look for malware running on your system
+not only can malware bytes and similar
+software identify the spyware in many
+cases it can remove it from your system
+as well another challenge is managing
+bloat Weare if you've ever purchased a
+new computer or a new mobile device and
+you've turned it on for the first time
+you'll notice there are a lot of popular
+apps that may already be installed on
+that system such as your mail and your
+browser and other things that you would
+commonly expect but it might also
+include applications that you didn't
+expect there may be a number of
+applications security tools games and
+other apps that normally would not be
+installed with a core operating system
+installation instead these utilities and
+other applications are installed by the
+manufacturer of the hardware normally
+Hardware manufacturer is getting paid to
+include this software on these systems
+that they're Distributing and of course
+you the and user are left with what is
+probably a number of unnecessary
+applications already installed onto this
+new device there are a number of
+security concerns associated with
+bloatware obviously it's going to take
+up room on a storage device that could
+be allocated to other applications the
+system may be running some of this
+software automatically when it starts up
+and that could be affecting the overall
+efficiency of the operating system and
+of course any of these applications
+could be susceptible to a known or
+unknown vulnerability making this a
+security concern on a device that's
+brand new out of the
+box obviously one way to deal with this
+bloatware is to manually remove it from
+your system unfortunately not all
+bloatware provides an obvious way to
+uninstall hopefully the bloatware is
+listed in the installed applications of
+your operating system and you may be
+able to select it click the uninstalled
+button and remove it from your computer
+other apps might have their own
+uninstaller that you have to run from
+the program area for that particular
+application or in the start menu of your
+Windows operating system it's become
+such a challenge to uninstall software
+that there's even third-party software
+designed to uninstall other third-party
+software this is probably not the first
+place you should go to uninstall the
+software but it may provide you with a
+way to remove that code when nothing
+else seemingly is able to work in that
+operating system this may not be the
+first choice for uninstalling this
+bloatware but occasionally it can help
+remove software when no other process
+seems to be
+working

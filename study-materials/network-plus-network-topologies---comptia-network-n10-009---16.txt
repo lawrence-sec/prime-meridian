@@ -1,0 +1,128 @@
+networks can connect to each other in
+many different ways and in this video
+we're going to look at a number of
+different network topologies and how
+those different network topologies can
+be deployed in an Enterprise Network
+this can be very useful during the
+planning process where you're designing
+the network it's also useful during the
+troubleshooting process so that you can
+tell how different networks are
+connected to other networks this is also
+useful during the troubleshooting
+process so that you can visually see how
+one network might connect to and send
+data to another Network let's start this
+conversation with one of the most
+popular Network topologies in use that
+would be a star Network sometimes you
+may hear this referred to as a hub and
+spoke Network this is what we use in
+most large networks to connect devices
+together there's a central device that
+is used as the central networking
+component and then everyone on the
+network is all connecting to that same
+Central device a good example of a star
+Network or a hub and spoke Network is
+one that we have with switched ethernet
+our ethernet switch sits in the middle
+of the network and all of the other
+devices connect to that same ethernet
+switch if each of these spokes around
+the network would like to communicate
+with each other they all must
+communicate through this Central Hub a
+mesh Network design is in one location
+or device connects to another location
+or device over more than one network
+connection this means that we could have
+one link communicating to another and it
+might follow One path to get to that
+location or may follow an alternate path
+to be able to get to that location one
+reason we design a network this way is
+so that if one Link in the mesh was to
+fail we can use one of the other links
+to complete that communication we might
+also perform load balancing over these
+links where half of the data is sent
+over one connection and the other half
+of the data is sent over a different
+connection although we can certainly
+design mesh networks for local area
+networks we often see them deployed in
+wide area Network so that we can
+maintain connectivity to a remote site
+regardless of what network connection
+might be
+available if you were to look at a large
+Enterprise Network you would notice
+there are a number of different
+architectures all being used in
+different parts of the network and when
+we combine all of those together we've
+created a hybrid Network one part of the
+network might be a star Network another
+part of the network may be pointto point
+and a third part of the network might be
+a mesh Network once we combine all of
+these together we've created a high
+hybrid
+architecture many data centers take
+advantage of a spine and leaf
+architecture this is where you would
+have individual switches at the top that
+are the spine of the network there would
+be switches in the middle that are Leaf
+networks and then you would have
+different devices connect to the leaf
+you'll notice that the spine network is
+connected to all of the leaves and the
+leaves are connected to each of the
+spines however those Leaf switches do
+not connect directly to each other and
+the spine switches also do not connect
+directly to each other this works very
+well for an architecture we use in many
+data centers known as topof rack
+switching in top of rack switching every
+rack has a leaf switch at the top of
+every physical rack we would then
+connect all of the physical devices in
+that rack to the leaf switch that is at
+the top of that rack this keeps your
+cabling very simple because all of your
+cabling is self-contained within that
+same rack there is redundancy because
+you have this rack connected to multiple
+spines this also increases the overall
+performance of the network because we're
+no more than one switch away from any
+other device in the data center if your
+data center only has a handful of racks
+this may be a relatively inexpensive way
+to connect all of these devices together
+but when you have tens or hundreds or
+even thousands of racks in a data center
+you would need a separate switch for
+every rack and of course the cost of
+that will increase for each rack you
+have in the
+network when looking around the network
+you may find some wide area network
+connections that are pointto point and
+as the name implies there is a single
+point connected to a single point this
+was a very common design on older wide
+area networks where you would use
+something like a T1 or a T3 connection
+we refer to those as pointto T1 or
+pointto Point T3 we might also use this
+design in local area networks if you
+work on a campus you can connect one
+building to another over two connections
+and the connection between those two
+buildings would be a Point to-point
+connection

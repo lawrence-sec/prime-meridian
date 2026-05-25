@@ -1,0 +1,315 @@
+[Music]
+all right let's start with ci cd which
+means continuous integration continuous
+deployment development
+delivery
+depending on who you ask and how they
+want to sound so let's just leave it at
+ci cd
+so what's this all about well when you
+develop an application the right way
+your code is probably going to pass
+through at least some of these
+environments starting with development
+this is where the code is written on
+workstations and then stored securely in
+some server called versioning system for
+example any tests that run in this stage
+are sometimes run on the developer's
+laptop and some isolated vm or container
+environment
+so that it does not interfere with the
+system where the application is being
+deployed
+we should also have a test or
+integration environment this is where
+the code from multiple developers is put
+together and hopefully results in
+something that works well if it works
+then it can be tested to see how well it
+works and if it does what it is intended
+to do this testing can be manual or
+automated or scripted
+we could also have a staging environment
+this is a copy of the production
+environment and its purpose is to see
+how the application is going to behave
+in a production like environment but not
+accessible to all users perhaps only a
+few who volunteered or were volunteered
+to test the application this is why
+testing at this stage is sometime called
+uat that is user acceptance testing
+testing here is focused on usability
+features reliability and finally of
+course we do need to have a production
+environment this is where the
+application is
+actually released into the wild
+which is your customers
+now remember a long long time ago when
+we mentioned waterfall and agile
+development methods
+well in waterfall a project should go
+through these stages in sequence one
+after the other but we know that world
+fall is so last year
+so inflexible so we should forget about
+it and focus on agile now on agile
+principles focus on releasing features
+asap as soon as possible and focusing on
+performance and features while
+bugs and falls can much more efficiently
+be identified in production for example
+when everybody starts using the
+application
+reacting to those faults found in
+production and the release of these
+frequent updates assumes a
+continuous
+see continuous approach to integration
+on the new code in the old one and then
+fast delivery again delivery to the
+customers before they can write any bad
+reviews
+so there's cicd for you right here if
+you want to find out more about the most
+popular open source software for ci cd i
+would advise you have a look and try to
+install jenkins and play with it it's
+free and open source so long story short
+with ci cd we get this continuous
+cycle through the dev development phase
+testing phase production implementation
+into production integration into
+production and then back again for each
+and every new iteration each and every
+new feature or each and every new bug
+fix
+now most of the tools that allow us to
+automate the management of an
+infrastructure things like ansible chef
+puppet terraform that we mentioned in a
+previous video
+they all implement a concept called iac
+infrastructure as code which is mostly
+used in the context of creating and
+managing cloud resources
+using simple text configuration files
+and the purpose for having our
+infrastructure or our configuration
+described in code is to avoid mistakes
+and typos in repetitive tasks so
+if we're treating our infrastructure
+code just like we did with an
+application code before
+we get access to things like code
+versioning we get the chance to roll
+back to a previous configuration where
+the previous version of the
+infrastructure was was working properly
+we can have code reviews that validate
+the infrastructure that we're about to
+deploy unit tests we can commit to a
+versioning system and keep track of
+multiple versions of the same
+infrastructure so we get a lot of
+flexibility here and not only that but
+having everything in code provides a lot
+of speed enables us to use advanced
+orchestration tools makes deployments
+extremely predictable
+and encourages standardization and
+another benefit is that iac
+fights against something called
+configuration drift or lack of
+consistency now those are systems that
+have been manually customized or somehow
+tinkered with after that initial
+installation they're supposed to be
+identical but they're not which creates
+bugs and management issues these systems
+are sometimes called snowflake systems
+because you know if each snowflake is uh
+is unique
+we don't want that in the infrastructure
+iec tries to eliminate this manual
+intervention and make sure that your
+infrastructure is always compliant and
+uniform and all those instances that
+should be identical are really identical
+and it also serves an auditing method
+the code that describes your
+infrastructure and can be used as a
+source of a of an infrastructure audit
+or a security audit because everything
+is already in there not just
+infrastructure but the security policies
+you know the permissions any access list
+that you might have configured in your
+infrastructure they're all in one
+configuration file so that's going to be
+the source for your security audit and
+when this paradigm was introduced it
+addressed the disconnect between
+developers and i t the operations people
+and you know where this is going right
+that's the devops idea because now using
+iec and dedicated tools developers can
+deploy the environments for their own
+applications using code and they can do
+that by themselves either as containers
+on their laptops or a virtual server in
+the company's data center or in any
+public cloud so it's not just automation
+in a in a scripting kind of sense but
+also automation of the human effort
+developers don't need to interact with
+the id people anymore to prepare their
+infrastructure to test a new application
+version they can just deploy themselves
+and don't get me wrong i'm not saying
+that human interaction is bad but it's a
+lot of overhead and a lot of delay that
+it incurs and sometimes you're just not
+in the mood for that cranky operations
+colleague
+and just for your general knowledge here
+in devops containers or infrastructure
+as code you will at some point hear the
+expression pets versus cattle and that's
+actually the same idea you take care of
+pets you give them names you nurture
+them you bring them back to health if
+they become sick but that's a lot of
+effort
+those are your snowflake systems those
+are your custom systems those are your
+your servers which you you manually
+manage and update and uh tinker every
+single day now on the other hand cattle
+is important only in numbers if you had
+cattle you probably don't but if you had
+a 1 000 cows for example you probably
+would not
+name and caress each and every single
+one every day instead when a number of
+them get sick you'll probably think
+about just replacing them now this
+concept applies containers
+infrastructure has code and cloud
+environments in general if you have
+everything standardized in code it's
+that much easier to destroy a failed
+instance or a container and then
+recreate it
+rather than spending a whole day trying
+to figure out what went wrong with it
+and bring it back to to its functioning
+state so that's pets versus cattle it's
+a bit of a cynical approach i know but
+we're just killing cloud instances we're
+not murdering animals so
+that's okay
+unfortunately cloud providers cloud
+environments are very friendly with this
+approach clouds will actually prefer
+and you can see this in orchestration
+tools such as terraform as well
+they will prefer to destroy a resource
+and recreate it from scratch whenever a
+major change needs to be performed so
+that you will always have consistency
+and your infrastructure will be
+predictable and will be compliant with
+your desired configuration that you're
+providing the code in that
+infrastructure as code and just to prove
+to you that i'm not talking nonsense
+here's an article here about the history
+of pets versus cattle and how to use
+this analogy properly hopefully i i did
+use it probably i should have read this
+before recording
+so finally we could not possibly mention
+cicd and infrastructure as code without
+mentioning devops which is basically a
+trend a movement
+focused on increasing collaboration
+between the developers and the
+infrastructure team or the operation
+guys that's that's the ops in devops now
+this collaboration actually kind of
+blurs the lines between these two roles
+so developers can now deploy their own
+infrastructure for example for testing
+their apps their code
+using docker files or terraform
+configuration scripts and on the other
+side the operation guys and girls who
+were previously just managing physical
+and virtual hardware now manage cloud
+infrastructure as well as the automation
+that builds it often describes encode
+files hence the infrastructure as code
+paradigm so if you want to have a glass
+of just how vast the realm of devops has
+become and how many technologies are
+already there have a brief look at this
+link from digital ai i'll bet my entire
+youtube earnings this month
+which is painfully low that you haven't
+heard of at least half of these you'll
+definitely learn about some new tools
+some new categories of tools how they
+relate to one another
+and you'll get a big picture of just how
+vast the realm of devops has recently
+become
+and finally there's also the newly
+introduced term of devsecops of course
+this is going to extend this
+already weird and blurry field of devops
+into surprise surprise security and
+especially when it's related to the to
+software development the main idea is
+that security
+should be an important topic at every
+stage in the development cycle and the
+development of a software project and
+since one of the main advantages of
+devops is what we just talked about like
+speed and automation
+security solutions focused on
+protecting devops environments and
+devops projects should be those that
+play best with automation with scripting
+and in general
+the solutions that benefit from a
+developer's expertise when it comes to
+detection and alerting so we're not just
+involving security at every stage on the
+development cycle but we're also trying
+to automate security as well
+good luck
+so that's it about ci cd infrastructure
+as code devops and devsecops make sure
+you can describe what each of these
+terms cover and
+how they change the way we we build we
+ship and we test
+we develop applications make sure you
+have a clear picture in mind of how this
+entire development process is moving
+forward not just for the exam but you
+know for your general knowledge and your
+general skills alright so if you found
+this useful don't forget to like and
+subscribe and see you next time when we
+will be talking about artificial
+intelligence and machine learning
+briefly talk about those two right so
+thank you so much for watching and see
+you next time
+[Music]
+you

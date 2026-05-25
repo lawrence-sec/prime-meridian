@@ -1,0 +1,564 @@
+[Music]
+so we also need to talk about
+non-technical controls for securing data
+and i have to warn you this is not going
+to be the most spectacular video that
+you've seen from me
+but here we go right we have to cover
+this
+now we're technical people all right so
+we we tend to address any technical
+problem like cyber security with a
+technical solution now it makes a lot of
+sense to do so but sometimes
+we just have to admit that there are
+other solutions out there that can
+improve our cyber safety okay so or some
+things that we just have to do precisely
+to better implement
+our other technical solutions so this is
+going to be about non-technical controls
+right don't skip this because you have
+to know this for the exam
+so when we're talking about
+non-technical controls we mean actually
+data governance now this means
+protecting data by having policies and
+procedures in place
+proper governance should be applied to
+the
+entire life cycle of the data and the
+data life cycle kind of looks like this
+right it starts with the first step is
+understanding the classification of data
+what type of data do we have in there
+and how sensitive it is especially
+at the moment of data creation or
+collection depending on where we get it
+from
+second
+the next step is securing that data when
+it is stored this includes proper access
+control right see the previous video
+about that
+against you know unauthorized access and
+also backups to protect us against
+incidents and disasters
+it also has to address the management of
+data when it is being disseminated or
+shared or distributed to other users and
+finally when the data is no longer
+needed
+either proper retention has to apply or
+proper destruction of that data has to
+be insured so that is governance
+and the first step is a very important
+one classification it takes into
+consideration the sensitivity of that
+data how sensitive is that information
+that we're trying to protect so keep in
+mind that classification must be applied
+to existing data as well as newly
+created data from now on because it's
+basically just a way of assigning some
+sort of a label or a or a meta tag
+to the data that specifies how secure it
+should be and how it should be treated
+used or backed up or destroyed
+so for information
+data or intellectual property you could
+use one of the following classifications
+for example public i don't care if
+somebody discovers this
+private means that we own this data so
+if you are not involved in any way with
+it then you should not have access to it
+you should not even know about it
+restricted means something like you know
+executive level eyes only you know
+information that pertains only to
+management confidential has to have a
+high impact on your company if it is
+disclosed so basically this is the point
+where we start being really concerned
+about the data breach
+or also
+confidential information is going to
+suffer if that data becomes lost or
+changed or you know destroyed in some
+way and usually the confidential
+information gets disseminated or shared
+only after signing a non-disclosure
+agreement that's an nda
+now another variant of this for the
+sensitivity levels can be used can be uh
+borrowed from the military world
+saying that data that we don't care
+about that's an unclassified the
+classified information is supposed to be
+restricted with private access
+confidential information should be
+secure but as a low security level
+secret information
+let's say medium security or something
+like that and of course top secrets then
+you know if i told you this then i would
+have to shoot you
+and of course this classification has to
+be reviewed periodically for at least
+two reasons one of them is that data
+might be changing jurisdictions
+depending on the region and the laws
+that are applicable to that specific
+jurisdiction different requirements
+might apply
+and secondly data might lose actually it
+will lose not might lose it will lose
+its sensitivity over time for example
+the list of customers or list of
+salaries in our company from 30 years
+ago might not be so top secret anymore
+data types refer to what type of
+information is stored in there and
+different controls depending on the data
+type and classification are going to
+apply to this this is because it's
+increasingly important when some of the
+data types have distinct and specific
+regulations that apply and you know what
+i'm talking about i'm covering here
+things like personally identifiable
+information
+health information financial data and so
+on now these types are usually
+built in or as much as possible built in
+into dlp solutions data loss prevention
+solution for example microsoft 365 dlp
+solution covers more than 70 types of
+sensitive information
+and describes how each of them exactly
+is identified when scanning documents or
+any type of correspondence and this page
+right here lists all these sensitive
+type of information definitions how they
+are identified you can see on the right
+hand menu here we actually have a
+bunch of
+types of license numbers passport
+numbers identity numbers tax
+identification numbers for uh most
+countries all over the world so for
+example uh in my country right here we
+have something that is called a
+or numerical code right that's from
+romania c and b right this is the
+pattern right here
+this is how it should look like
+it does have a checksum right at the end
+of the number and this is the the code
+that enables this within the the
+microsoft policy to to find this type of
+information within any type of documents
+or email messages that might be leaving
+your company
+so you have all these types built in to
+most dlp solutions you don't really have
+to define them manually one by one one
+more thing here these data types can
+cover even non-digital media we're
+talking about cyber security but don't
+forget that if you want to protect data
+you will need to protect data written on
+paper as well data sorting cabinets
+physical photos
+magnetic tape recordings and so on so
+don't forget those are data as well
+ownership as part of governance is just
+as important as classification because
+it tells us who is responsible for a
+piece of information data ownership
+policies define a number of roles
+starting with the data owner kind of
+obvious right now the owner
+owns the data right and they're also
+responsible for the
+cia of the data confidentiality
+integrity and availability of the data
+so they're the ultimate authority
+about protecting and making that data
+available they're also the ones that
+label the data and determine how
+sensitive it is these are normally going
+to be senior leaders those are going to
+be the owners the leaders of a company
+but in big companies owners might not be
+a person even the organization is a data
+owner itself so we have people appointed
+that represent the owners of the data
+but the owner is the company as an
+entity so with ownership we have to
+focus on the role not specifically on a
+on a certain person now the owner can
+also select a steward or a custodian to
+implement some of these responsibilities
+now data stewards they're focused on
+data quality they're going to handle
+things like labeling and classification
+of the data and even more important they
+ensure that collection is done properly
+and storage is done according to
+requirements and regulations for example
+they're going to ensure that
+data minimization is applied and that
+it's stored in the right format right
+we'll cover minimization in a few
+moments and second one we mentioned was
+data custodian they're going to manage
+the systems that hold the data so
+they're going to be responsible for
+enforcing access controls
+backups right if we talk about digital
+data
+encryption right anything that pertains
+to where the data is actually stored and
+we also have privacy officers surprise
+surprise they're responsible for privacy
+or ensuring that personal information
+personally identifiable information
+health information
+is handled in a
+legal manner so there's a high
+responsibility because they can be sued
+along with these senior officers if a
+data breach happens
+now legal requirements of course are
+going to depend first and foremost on
+the nature of data and secondly where
+that data is located where does it live
+so data owners have to take care to
+properly follow these legal requirements
+but in most cases it's necessary to have
+some sort of a legal counsel you might
+not know about all the regulations that
+apply to any specific geography
+legal regulations also affect data in
+transit how it is stored where it is
+stored for how long and many more and
+they even cover situations in which
+you're trying to transfer data from one
+cloud region to another you have to take
+into account
+the the possibility that that data is
+going to be transiting some cables that
+don't belong to approved countries or
+territories
+so coming back here to the list of legal
+requirements that you might encounter
+especially mentioned on the exam we
+first have gdpr that's european unions
+general data protection regulations this
+one says that personal data cannot be
+collected stored or processed without
+the person's consent and also specifies
+that any data breaches that involve this
+information if they happen must be
+communicated to that affected individual
+and to the higher level authorities in
+less than 72 hours so these regulations
+can go way beyond the traditional
+requirements of encrypt your data and
+that's it
+next up we have socks sarbanes-oxley act
+apologies if i mispronounce these
+this is going to specify requirements
+for storing documents about a company's
+finances and business operations
+does not apply if your market value is
+below
+75 million dollars so if you are cheap
+or poor
+all right pci dss is about security
+controls for um retail stores that
+process credit card transactions so
+they're gonna pci dss basically says
+what you should do
+like you should secure the environment
+that processes create the car data but
+not exactly how right so it gives you a
+lot of freedom for example it says that
+you're supposed to be performing
+periodically internal scans external
+scans
+quarterly or on major changes
+you have to have qualified personnel to
+deal with i.t security you have to cover
+remediation as soon as possible and so
+on and so forth you have to ensure
+encryption you have to ensure that the
+data is encrypted when it's stored when
+it's in transit and so on glba that's
+the ground leach bailey act this one
+addresses the protection of an
+individual's financial information when
+managed by financial institutions
+fisma federal information security
+management act requires uh organization
+federal organizations to implement
+security controls
+have monitoring and have a risk
+assessment process in place a committee
+of sponsoring organizations of the
+treadway commission provides governance
+and guidance uh against uh fraud you
+know for finance ethics and so on
+hipaa health insurance portability and
+accountability
+act of course that's the last a enforces
+regulations about healthcare in usa and
+focuses on protecting the medical files
+the medical records and generic health
+information of the patients so just know
+about these right for the for the exam
+at least by their acronyms now when it
+comes to
+processing personal data since we talked
+about handling personal data we also
+have some principles that address
+this processing part and we start with
+purpose limitation this again is related
+to classification and it means that data
+can only be used for certain things
+which are clearly specified beforehand
+and approved so you have to make sure
+that you don't abuse that data in any
+other way
+uh it's going to address access and
+usage so for example even if you do
+collect customer data you're not allowed
+to conduct
+marketing campaigns
+on their email addresses without their
+explicit consent
+data minimization says that data must be
+stored and processed
+only if it's absolutely necessary and
+required for your business purposes this
+means that you should not collect more
+than you need
+right and we also need to document with
+evidence why is each data point required
+now the consequence of this is in a test
+environment where you are not allowed to
+provide your testing teams or your
+developers
+real data if they have to use a user
+database for example because you cannot
+demonstrate that you need to use real
+data and not some mock data right so
+instead
+data sovereignty is about the
+jurisdictional requirements of the the
+region of the country where the data is
+stored again my advice is to rely on
+professional advice
+so because there might be a lot of
+subtlety on this it's better not to
+guess also in some cases different
+requirements might apply in transit and
+you might not like them especially if
+you're using cloud environments as i
+said before in multiple regions so it
+might not be just about where those
+regions are but also what countries is
+your data crossing when you're moving
+from one region to another
+a retention of course is a big topic
+when it comes to regulations
+and we have to start with the standards
+retention standards now
+unfortunately retention requirements or
+the
+threat of a fine
+is the number one reason why many
+organizations buy backup solutions and
+appliances unfortunately another reason
+is for retention is the process of
+e-discovery e-discovery or electronic
+discovery is the process in which
+electronic data is located and secured
+with the intent of using it as evidence
+later on in a legal case in a court of
+law
+retention of course is covered by
+policies and procedures and they depend
+on the data's purpose and it's uh
+basically a formalization of how much
+data should be kept
+how it should be kept for how long even
+where
+in cases where the the backup of the
+data has to be stored at a minimum
+distance from the
+master copy
+and also what you have to do when you
+need to destroy the data now short term
+speaking on a short term we can rely on
+things such as
+versioning for files or daily backups
+locally stored
+but on long term
+this is going to be about data that
+might be moved periodically to archive
+storage or so called sometimes cold
+storage especially in cloud environments
+which means it's not going to be so
+easily accessible but it's there right
+many organizations still use tape
+backups because they have huge capacity
+and they're really really cheap at least
+compared to hard drives and ssd of
+course
+well data sharing constitutes another
+problem here because when you share or
+outsource and you will have to share
+some data at some point with your
+customers with your partners some third
+parties as well well when you share data
+you're not also sharing the legal
+responsibility or the illegal
+accountability for that data you're
+still responsible for how the third
+party is going to handle your data
+because it's your data
+also if the third party gets breached
+you are the one that will suffer from
+the data breach because again it's your
+data it's not theirs and it's also your
+reputation
+now legally you can protect yourself
+with sign agreements such as an sla
+this is one is usually signed between a
+service provider and a paying customer
+and it describes an agreed-upon and
+expected and very importantly measurable
+and measured
+level of service
+now this can include
+requirements such as
+what kind of availability should we
+expect from a specific service how often
+we can expect downtime for example or
+maintenance windows uh security
+requirements for processing requirements
+for confidential data it should also
+describe how to recover in case of an
+incident how to monitor the performance
+of that service as i said it has to be
+measurable and measured and what
+penalties should apply if the service
+proves to be outside the acceptable
+window
+except the surface level
+next one we also have non-disclosure
+agreements this one is strictly about
+data sharing it's driven by context it's
+context dependent and says what are the
+legal consequences businesses or
+business partners that you're sharing
+the data with accidentally or
+intentionally discloses that information
+now ndas can also apply between a
+company and its employees by the way to
+protect intellectual property that the
+the employees are working on or company
+secrets
+mou a memorandum of understanding it's
+not legally binding so it's just a
+let's say a gentleman's agreement
+version of a contract
+but still it should specify at least
+after a something like a kickoff meeting
+like the first interaction between a
+customer and the provider at least we
+have a document like this that specifies
+what are the expectations from both
+sides
+regarding data protection in our case we
+also have the isas the interconnection
+security agreements this one is a type
+of agreement that applies to federal
+agencies
+that need to create a partnership with
+other companies privately owned perhaps
+and it describes how should the
+interconnection of their i.t system
+should happen and how it should be
+governed
+and finally
+data sharing and news agreements now
+these are going to address regulations
+such as gdpr or hipaa that we just
+mentioned and they're going to describe
+how data should be subject to things
+like anonymization or de-identification
+to minimize the risk of data breaches
+and data disclosure
+one more thing here
+don't confuse privacy
+with security
+and with governance
+right because security actually means
+that data must be protected you have to
+provide the adequate storage for it you
+have to encrypt it you have to
+configure a robust access control system
+and you have to ensure
+that it is protected in transit so you
+have to apply some security controls
+right that's security now privacy means
+it's just an aspect that we focus on
+it's about putting policies creating
+policies that ensure that the personal
+information is being you know shared
+collected and used
+in an appropriate manner
+security is more focused on protecting
+data from malicious attacks
+and
+exploits and data being stolen and an
+idea here a personal opinion at least of
+mine is that
+security is necessary for protecting
+data
+but it's not always sufficient for also
+addressing the privacy requirements and
+finally the governance addresses any
+type of clear guidance
+about what can be done and what should
+be done and what will
+we do
+about
+protecting information
+all right so that's it about
+non-technical controls now i told you
+this is not going to be the most
+spectacular topic out there but not
+being a spectacular topic is not a good
+reason on the exam day so make sure you
+understand what is governance data
+classification we talked about data
+types make sure you understand the roles
+involved in data ownership legal
+requirements the ideas that we mentioned
+when it comes to processing personal
+data data retention and when it comes to
+situations where you have to share the
+data with third parties alright so thank
+you so much for watching next time we're
+going to talk about security policies
+and procedures
+again not a very awesome topic but we'll
+get to the end
+don't forget to like and subscribe and
+see you next time bye bye
+[Music]

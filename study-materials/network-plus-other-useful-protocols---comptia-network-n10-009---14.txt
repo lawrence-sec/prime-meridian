@@ -1,0 +1,200 @@
+there will be many times as a network
+professional when you'd like to know if
+a device is on the network and operating
+and one protocol that can provide you
+with that is icmp this is the internet
+control message protocol you can think
+of this as a way to check in with that
+device very similar to sending a text
+message to see if you get a response
+back from someone icmp is another
+protocol carried by IP but it doesn't
+use TCP or UDP instead icmp is its own
+protocol although icmp can be used for a
+number of administrative tasks it's most
+commonly associated with a way to send a
+message to a device to see if it's alive
+and operating on the network and see if
+you can get a response back from that
+device whenever you use the Ping command
+to Ping an IP address on the network
+it's using icmp to provide that ping
+functionality but icmp can also provide
+you with information about other things
+that may be happening on the network for
+example if you're trying to access a
+network that is not accessible from your
+location icmp will give you a message
+that that network is not reachable or
+icmp can tell you that the time to live
+that's inside of data that you've sent
+has expired and it's received an icmp
+time exceeded message from that device
+another common protocol on our network
+is gr or the generic routing
+encapsulation protocol if you're
+creating a tunnel Tel between two
+endpoints this is commonly done with
+vpns for example you're creating this
+tunnel using gr this allows us to
+encapsulate information within an IP
+packet send it across this gr tunnel and
+decapsulate it on the other side this
+does not however provide encryption of
+this data we'll need to provide
+additional VPN protocols to encrypt the
+data that we are encapsulating in a gr
+tunnel these vpm protocols are referred
+to as virtual private Network protocols
+and it's very common to use these vpm
+protocols to encrypt or protect any data
+being sent across one of those tunnels
+it's often common to use a purpose-built
+appliance to provide this encryption and
+decryption process at the central point
+we refer to this as a VPN concentrator
+sometimes this is a standalone unit but
+it's very often integrated into an
+existing firewall that's connected to
+the network these concentr ERS are often
+Hardware devices with specialized
+encryption Hardware built into the
+device to add efficiency and throughput
+but if you have a limited number of
+users it's also possible to use your VPN
+concentrator as software in an operating
+system this is a common sight tosite VPN
+configuration where a corporate Network
+may be connected to a remote site over a
+public network such as the internet
+we'll have VPN concentrators which are
+usually firewalls or routers those are
+connecting these two sites together over
+the internet but all of this traffic
+that's being sent across that public
+internet is being encrypted using this
+VPN technology one of the popular
+protocols used to provide that level of
+encryption over those tunnels is IPC
+this stands for Internet Protocol
+security and it's one of the most
+popular ways to encrypt data being sent
+across these vpns not only does IPC
+provide encryption for confidentiality
+it can also provide digital signatures
+of every packet which includes integrity
+and anti-replay functionality this is
+also a very common protocol and it can
+be used across many different
+manufacturer devices for example you
+might have a firewall from one
+manufacturer on one side of a VPN tunnel
+and a firewall from a completely
+different manufacturer on the other side
+of the VPN tunnel because IPC is such a
+standard protocol those two firewalls
+can easily connect to each other and
+transfer information over that I IPC
+tunnel when you're using IPC there are
+commonly two primary protocols that are
+in use one is the authentication header
+or ah and the other is the encapsulation
+security payload or
+ESP in order for IPC to be able to send
+this encrypted data across the network
+we first need to create this tunnel and
+we do this by performing a series of
+steps prior to sending any data those
+steps are referred to as the internet
+key exchange or Ike internet key
+exchange allows both sides of the
+conversation to agree on the encryption
+and decryption keys that will be used
+for the duration of that VPN tunnel we
+refer to this agreement as a security
+Association or an sa there are two
+phases to this key exchange process the
+first phase commonly uses Diffy Helman
+to create a shared secret key for both
+sides of the conversation this usually
+operates using UDP Port 500 and we refer
+to this as as ISAC camp this is the
+Internet Security Association and Key
+Management protocol in phase two we
+coordinate which Cipher should be used
+for the encryption and the key sizes
+that would be appropriate and it
+negotiates both the inbound and outbound
+security Association to be used for this
+IPC tunnel so visually with phase one
+we're building the ISA Camp tunnel over
+UDP Port 500 in phase two we're
+including the encrypted data over the
+encaps ation security payload or ESP
+tunnel this gives us the foundation we
+need to be able to send this encrypted
+data over the IPC tunnel if you're
+building your own IP tunnel you may be
+asked whether you'd like to use
+transport mode or tunnel mode both of
+these work differently and will protect
+data in different ways let's take the
+original packet which includes an IP
+header and some data within that IP
+packet we would like to send that over
+an IPC tunnel if we use trans transport
+mode to send this IPC data we're going
+to insert an IPC header between the IP
+header and the data all of that is going
+to be in the clear anything within the
+data portion of that IP packet will be
+encrypted and then the ipct trailer put
+at the end of the packet notice that the
+original Ip header is not encrypted when
+using transport mode and if someone does
+capture this data they'll be able to see
+the original Ip header and be able to
+understand where this traffic is
+intended to go even if they can't see
+the encrypted data within the packet a
+much more secure method of using an IP
+SEC tunnel is tunnel mode in tunnel mode
+the original Ip header in data is all
+encrypted and even if you capture this
+data you'll never know what the original
+destination is for this data tunnel mode
+adds a new IP header which includes the
+destination of the IPC concentrator and
+includes the same IPC headers and IPC
+trailers that we saw in transport mode
+it's probably not too surprising that
+most implementations of IPC are going to
+use the tunnel mode to ensure the
+highest level of encryption of your
+original data earlier we mentioned the
+two protocols that you commonly see
+associated with IPC one of those
+protocols is the authentication header
+or ah ah is used to validate the
+information that you're receiving over
+an IPC tunnel and if you're only using
+Authentication header mode you're
+sending all of this information over the
+network in the clear but you're
+including some additional hashing to
+ensure the Integrity of this data
+however in most cases we want to be able
+to encrypt the data that we're sending
+over the IPC tunnel and for that reason
+we'll use encapsulation security payload
+or ESP this protocol is going to encrypt
+that original data and encrypt the
+trailer that we're associating with the
+and then put around this pack a new IP
+header an ESP header and an Integrity
+check value at the end of the packet
+this is going to encrypt all of your
+original data but also provide the
+authentication that you need to ensure
+that the data is received properly on
+the other side

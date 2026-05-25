@@ -1,0 +1,227 @@
+we're all very familiar with the login
+process you put in your username your
+password there might be some additional
+authentication factors and if all of
+those are correct you gain access to
+resources on that system this process
+begins with identification where you
+claim to be a particular user on that
+system the check between your username
+your password and the other
+authentication factors is referred to as
+authentication this proves that we
+really are who we say we are because we
+knew the secret password or we had some
+additional authentication factors that
+we could use to help prove that we are
+that person now that we've identified
+who we are we now need to determine what
+type of access we have and that's done
+through authorization if we're part of
+the shipping and receiving department
+then we should have access to systems
+that should only be available to
+shipping and receiving and we should not
+have access to information that might be
+in the finance department
+and of course all security systems need
+to have a log of exactly what happened
+so we need to know what time someone
+logged in how much data may have been
+sent or received and what time this
+person logged out we refer to this
+entire system as the AAA framework and
+this refers to authentication
+authorization and
+accounting let's have a look at a
+practical example of using AAA we're
+going to use the example of logging into
+a VPN n server in this case it would be
+a firewall or VPN concentrator in the
+middle you're on one side of that
+concentrator and you need to use AAA to
+gain access to an internal file server
+so we'll start with our client on the
+internet and we'll access the VPN
+concentrator which prompts us for a
+login so we're going to provide a
+username and password and send that
+information over to the VPN concentrator
+the concentrator itself doesn't have any
+information about usernames password
+wordss authentication factors or
+anything else and in most organizations
+all of that information is stored on a
+central server and we refer to that as a
+AAA server this AAA server is going to
+receive the request from the VPN
+concentrator asking if the username
+password and other information that was
+provided matches some type of user in
+the database and if the match is true it
+sends back information to the
+concentrator and says those credentials
+are approved at at that point the
+concentrator knows that we really are
+the person we claim to be and it allows
+us access into the internal file
+server as a security professional you'll
+be responsible for managing the security
+on hundreds or perhaps even thousands of
+separate systems and in many cases
+you'll never have physical access or
+even be able to see where those systems
+might be because they may be located
+anywhere in the world so the question
+now becomes how can we verify that a
+computer trying to connect to our
+network is a computer that's authorized
+to be on our Network this computer by
+itself obviously can't type a password
+to prove who it might be and in most
+cases you probably wouldn't want to
+store a password on one of your systems
+out in the field anyway so how can you
+really confirm that that system is
+allowed to be on our internal Network
+how do we provide that additional
+authenication in many cases we use a
+certificate that we put onto this device
+that is digitally signed and we check
+that authentication during the login
+process this allows anyone needing to
+provide that verification with a way to
+confirm that that really is a
+company-owned laptop this could be on a
+VPN concentrator so that it can verify
+that the devices coming into the network
+really are company devices or perhaps
+it's management software that can
+validate that in device that may be
+either on our local network or anywhere
+in the world the process for creating
+this certificate is relatively
+straightforward but the one thing that
+you must have in your environment is
+something called a certificate Authority
+or a CA this is a device or software
+that is responsible for managing all of
+the certificates in our environment on
+the ca itself you would create a
+certificate just for that laptop that
+certificate is now digitally signed by
+the certificate Authority so that later
+on we can verify that it really is an
+original certificate from our
+certificate Authority now we put that
+certificate on the laptop and anytime we
+want to perform an authentication we can
+use that certificate as an
+authentication factor and verify that it
+really was digitally signed by the
+certificate Authority so as part of your
+security infrastructure you would have a
+certificate Authority that certificate
+Authority itself has its own certificate
+that was signed by a root CA we also
+have our laptop in the field and we have
+pre previously created a device
+certificate just for this machine and it
+has been signed by the ca once we know
+the ca certificate and we know the
+device certificate we can then compare
+these two certificates and we can see
+that our device certificate was signed
+by the certificate Authority that we
+trust in our security
+infrastructure now that we've gone
+through the authentication process how
+do we authorize that device to have
+access to resources within our Network
+we would do that by using an
+authorization model and there are many
+different authorization models to choose
+from we have a big list of these later
+on in the video series in section
+4.6 we would commonly authorize users
+and services to have access to certain
+types of data and applications the
+challenge here is how do you create this
+relationship in a form that's able to
+easily scale for tens hundreds or even
+thousands of users in many envir
+requirements we accomplish this by
+taking the users and services and
+putting an authorization model right in
+the middle before you access the data in
+the applications these are commonly
+defined by roles organizations
+attributes and many other types of
+characteristics let's say that you had
+no authorization model at all we would
+create a series of Rights and
+permissions where the user has rights to
+access the resource the problem is that
+this doesn't scale very well let's take
+an example of somebody in the shipping
+and receiving department this is someone
+who needs access to a large number of
+systems a lot of data maybe there's
+tracking information shipping labels
+databases of customers and we would
+create separate rights and permissions
+so that anytime this person logged in we
+would need to give them rights to create
+a shipping label track a shipment view
+monthly shipment reports access customer
+data and perhaps anything else they need
+for their day-to-day operations now if
+this is the only person in shipping and
+receiving this is a relatively easy
+process but what if you're part of a
+larger organization that has tens or
+hundreds of people in shipping and
+receiving you can see it would be
+difficult to take every single user
+account and manually set up rights and
+permissions for every single resource
+that they need access to in this case
+there's only three resources but imagine
+if there were tens or hundreds of
+resources you would need to set set
+those up for the tens or hundreds of
+users you can see now why this would be
+very difficult to scale to be able to
+scale we would need to use an
+authorization model sometimes you'll
+hear this referred to as an abstraction
+that allows us to separate the users
+from the information they're trying to
+access this greatly streamlines the
+process of administering these large
+number of users or large number of
+resources and we can support a very very
+large infrastructure just with a very
+simple set of abstractions here's how
+this would work we'd have the same user
+in shipping and receiving and we will
+add them to a group called shipping and
+receiving we set this group up
+originally so that anybody added to the
+shipping and receiving group would have
+access to create a shipping label track
+a shipment view monthly shipment reports
+have access to customer contact
+information and anything else you would
+need in shipping and receiving now let's
+add in our tens or hundreds of users
+instead of manually mapping every single
+user to the individual authorizations
+they need we just simply add all of the
+users to the shipping and receiving
+group with this one single addition we
+can give tens or hundreds or thousands
+of users access to the resources they
+might need regardless of how many users
+there are and regardless of how many
+resources they need to access

@@ -1,0 +1,258 @@
+on a wireless network there are only so
+many frequencies available to be used by
+your access point and your clients and
+you have to make sure on that wireless
+network that only one device is
+communicating at a time not only do we
+have a lot of devices on the same
+wireless network we may have multiple
+wireless networks within the same
+general area and because of that we have
+to be very careful about creating
+interference between these access points
+many of the more recent Wireless
+standards provide a way to automatically
+find the best possible frequencies and
+avoid frequencies that are already in
+use by other devices this can also be
+configured manually where you can decide
+what frequencies to use but most access
+points are very good at determining what
+the best frequency might be for the
+environment and they're able to change
+their configuration and move to a better
+frequency if they happen to detect
+interference we've shown this diagram in
+a previous video but it's worth
+mentioning especially when we're talking
+about finding a frequency that may be
+available and moving an access point to
+that frequency if you're using 2.4 GHz
+you have a limited number of non-
+overlapping frequencies that could be
+used in North America there are three
+separate channels that could be selected
+and if you're in a very busy area with
+many different access points that may
+not be enough to prevent any type of
+interference instead you might want to
+use 5 GHz with 5 GHz there are many
+other frequencies available so you might
+have a better chance of finding one that
+doesn't have quite as much interf
+ference and now of course the 6 GHz band
+is available and you can see there are
+many more frequencies available in the
+hopes that we can avoid these types of
+conflicts and interference with our
+frequencies in the future there are some
+best practices for managing a wireless
+network and getting the best throughput
+possible from your wireless devices one
+of these would be to disable any Legacy
+or low-speed support if you look at the
+configuration of your access point it
+may have an option to allow older
+versions of Wireless Technologies to
+work on the existing Network in many
+cases enabling those configurations will
+slow down or make the overall wireless
+network less efficient the best possible
+throughput is often available from the
+most recent standards so if all of your
+devices support the most recent standard
+you should disable that option in your
+access point if you have manually
+configured a Channel of frequencies in
+your access point you may need to go
+back and make sure that this isn't
+conflicting with anything else that may
+have appeared in the meantime it's very
+easy for someone to turn on an access
+point next door that could potentially
+conflict with the frequencies that
+you're using you might also want to
+consider turning on the automatic
+function so that your access point can
+move to a more appropriate Channel when
+available interference is one of the
+biggest problems you'll find on a
+wireless network and interference can
+come from many different sources but
+often the interference is from other
+access points themselves some access
+points may be covering a very small area
+but their output power May may be set to
+maximum in those cases you may be able
+to turn down the output power and still
+provide wireless access to those devices
+in the area and by doing that you're
+limiting the interference that may be
+created for other access points in the
+area and it's not unusual to split the
+wireless network into smaller devices
+that are separated into access points
+that are away from each other this way
+you can still provide wireless access
+for these devices but you've now limited
+that load across two different access
+points using different frequencies
+here's an example of the problem you
+might find on a network when these
+frequencies begin to overlap we've taken
+for example this 2.4 gigahertz Network
+you can see that it has a channel
+centered on Channel 6 and another one on
+Channel 11 that is exactly what we would
+expect to see here in the United States
+there's one other channel available that
+would allow you to connect without
+conflicting with either of these
+existing networks and that would be
+channel one but if somebody configured
+their access point in the wrong way they
+could configure Channel 8 and that
+channel 8 would overlap with devices
+that are communicating on Channel 6 and
+devices that are communicating on
+Channel 11 in this scenario none of
+these devices would have the best
+throughput it would have probably been a
+better idea to put the new access point
+over on channel one and distribute those
+frequencies so that they don't interfere
+with each
+other as you've probably seen with
+wireless networks the farther away you
+move away from the access point the
+weaker the signal sign tends to be we
+refer to this as attenuation and this is
+a normal part of sending signals out
+over the air many administrators will
+measure this attenuation with their
+Wi-Fi analyzer so they will walk around
+the facility to find out where the
+signal is the best and where the signal
+is the worst and they may be able to
+make changes to the access point to
+improve those signals in places where it
+may be difficult to access the network
+one of those options might be to
+increase the power output on the access
+point itself not all access points
+support this feature but if it is
+available you may be able to find
+exactly the right amount of power to
+cover the area that you need you might
+also consider adding an external antenna
+to the access point or adding an antenna
+that provides additional gain this would
+allow you to send the same amount of
+power out of the access point but
+increase its ability to transmit over a
+larger distance and if you're using
+antennas that are connected to the
+access point with coax you do lose a bit
+of signal in the coax itself especially
+when you're using higher frequencies so
+you may want to limit the amount of
+cable that is run between the access
+point and the antenna itself and you
+should always check the cable and make
+sure that it's not damaged where it
+could potentially be leaking signal
+instead of sending that out your
+antenna finding the right coverage for a
+wireless network can sometimes be a
+challenge it's important to identify
+where users may be accessing the
+wireless network and then you can
+measure just how much Wireless signal
+may be available at that location if
+you're in an area with many different
+organizations and companies you might
+want to see where their access points
+may be located and that way you know
+where to put your access point so that
+you're not creating interference with
+others that may be in the area this
+might also be a good time to see what
+frequencies they are using perhaps
+they're only using 2.4 GHz and 5 GHz
+which would open up the entire 6 GHz
+range for you but of course what we
+examine today will probably be different
+in the future there's always changes and
+additions being made to people's
+networks so it's sometimes useful to
+perform multiple site surveys throughout
+the year just to see if anything may
+have changed with the wireless
+infrastructure one of the ways that you
+can visually see how the wireless
+network may be working is to create a
+heat map you would walk around with your
+Wi-Fi analyzer and it would examine just
+how good the signal is at your
+particular location the better the
+signal the brighter the colors and the
+worse the signal the cooler the colors
+this way you can immediately see where
+you may want to add or change the way
+your access points may be
+distributed on older networks you may
+run into a denal of service that could
+be created through a client
+disassociation this takes advantage of
+older management frames in the 802.11
+standard that have no protection
+associated with them and an attacker can
+take advantage of that to remove devices
+from the network you may find that a
+device is constantly removing itself
+from the network and then reconnecting
+again or you may find that it's never
+able to connect to a network because
+this attacker is constantly performing
+this client disassociation if you're
+wondering if this is happening on your
+wireless network you can capture frames
+using an 802.11 packet capture device
+and be able to see the client
+disassociation frames within the traffic
+itself this will allow you to find the
+attacking device and hopefully be able
+to remove it from the network or disable
+it and if you'd like to prevent these
+kinds of attacks in the future you
+should consider upgrading to one of the
+latest 802.11 standards which prevent
+this type of attack from
+occurring if you have a number of
+different access points at work or at
+home you may have configured those
+access points exactly the same with the
+same wireless network name or the same
+SSID that service set identifier allows
+us to create a large wireless network
+using multiple access points and as you
+move inside of a building or throughout
+a campus your device will seamlessly
+move from access point to access point
+this allows the network administrator to
+extend this wireless network to whatever
+size they might need but it also
+requires that all of these access points
+are configured exactly the same if users
+are moving from one access point to
+another and the new access point does
+not have exactly the same configuration
+as the previous access point they could
+be dropped completely from the network
+and they would be required to connect to
+the network again if you want that
+seamless experience for your users you
+need to make sure that all of your
+access points are configured exactly the
+same with their security features and
+other configuration details

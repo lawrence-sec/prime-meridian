@@ -1,0 +1,179 @@
+spoofing is a term that describes when
+one person or device pretends to be
+another person or device for example a
+fake web server would be a spoofed web
+server a fake DNS server you're spoofing
+the DNS server if you've ever received
+an email that says that it came from a
+person but it really did not come from
+that person then you're a victim of
+email address spoofing and if you've
+received a phone call and the number on
+the screen is is not really the number
+of the person who's calling then you're
+also a victim of caller ID spoofing
+spoofing is a technique that allows an
+attacker to have access to a system or a
+person that normally they would not have
+and this is very commonly used for
+techniques such as on path attacks where
+they can sit in the middle of a
+conversation and be able to monitor or
+even change the contents of that
+conversation one way that a third party
+could sit in the middle of a
+conversation is through the use of ARP
+poisoning this is also called IP
+spoofing where the attacker is
+pretending to be an IP address that they
+really are not in this example we have
+two devices on the network we have a
+192.168.1 n IP address and you can see
+the MAC address associated with that
+device we also have a router that router
+is
+192.168.1.1 and obviously the router has
+a completely different Mac address the
+way that address res resolution protocol
+or ARP works is that the device on one
+side needs the MAC address of a device
+that it wants to communicate to all it
+really has is the IP address so if the
+192.168.1 N needs to communicate to
+192.168.1.1 it first needs to determine
+what is the MAC address of
+192.168.1.1 and that is what we would
+use the address resolution protocol for
+ARP will send out a message to everyone
+on the network using a broadcast and
+that broadcast will ask who has
+192.168.1.1 I need that Mac address and
+the device with that IP address of
+192.168.1.1 will respond back to the
+requester with the MAC address of that
+particular device you can see in this
+example the MAC address that's responded
+back is exactly the same Mac address
+associated with this router once the
+original device has that response resp
+it will cach that information into a
+local ARP cache on that machine so that
+it now knows that
+192.168.1.1 is the MAC address that it
+has received as part of that address
+resolution protocol you'll notice that
+there's no authentication or special
+security associated with that art
+process and it's that lack of security
+that the attacker will take advantage of
+this example we have an attacker who is
+at
+192.168.1.1 14 and you can see they have
+a very different Mac address associated
+with their device they're going to send
+an ARP response to the
+192.168.1 N device even though that
+device did not originally send a request
+ARP will interpret and take any
+responses that are sent across the
+network and in this case the attacker is
+going to spoof the IP address of the
+router and this attacker says I am
+192.168.1.1
+and this is the MAC address associated
+with that IP you can see in this example
+the MAC address that's being sent as
+part of that AR response is the MAC
+address of the attacker and not the MAC
+address of the legitimate router when
+that AR response is received this ARP
+cache is now updated with the new
+information so now
+192.168.1.1 has a completely different
+Mac address than the one that was put
+there originally the attacker has
+effectively spoofed the IP address of
+that router so that the victim now
+believes that the router is located at a
+different Mac address from this point
+forward any traffic sent from this
+device to the router will first be sent
+to the attacker and very commonly the
+attacker will then forward that
+information on to the legitimate router
+this means that neither the victim
+device nor the router realize that there
+is an attacker in the middle of the
+conversation that is intercepting and
+forwarding all of the traffic sent
+between these two devices another type
+of spoofing that can take place is DNS
+spoofing this is also referred to as DNS
+poisoning where we are modifying either
+information contained on the DNS server
+itself or we're modifying the responses
+that are being sent from the DNS server
+we could do this without the DNS server
+Itself by modifying the host file that's
+on the client this host file has a
+higher priority than DNS responses and
+everything in the host file will always
+take Pres Ence over anything else that
+may be on a DNS server this DNS
+poisoning works by sending fake
+responses to legitimate DNS requests and
+if you're not modifying information on
+the DNS server itself this will require
+changing the information on the fly as
+it is sent in real time between the DNS
+server and the victim machine this is a
+perfect example of where onpath attacks
+would be perfect to execute a DNS
+poisoning let's see how this DNS
+poisoning can be used to modify the
+results of a DNS response sent to
+different devices on the network in this
+example we have two users a user one and
+a user two these two devices will be
+querying a DNS server that is also on
+the network and of course you'll notice
+we also have an attacker on the network
+as well the legitimate IP address for
+professor.com is stored currently in
+this DNS server and if user one wanted
+to receive that information it would
+simply make a request to the DNS server
+for profession professormesser.com and
+that DNS server would respond back with
+the IP address of that particular host
+once that's received by user one it's
+added to a cache on the user one machine
+and you can see in this case that the IP
+address that is stored for
+professormesser.com is the same as the
+one that is located on the DNS server at
+this point the attacker could use ARP
+poisoning to sit in the middle of the
+conversation between the DNS server and
+another device or the attacker could
+hack into the DNS server and change the
+configuration of the DNS server itself
+if they do that they'll be able to
+change the IP address of
+professormesser.com to the IP address of
+the attacker's workstation now all
+subsequent requests to the DNS server
+for professormesser.com will return the
+poisoned address instead of the
+legitimate address user to will make
+that request to the DNS server and the
+response from the DNS server does indeed
+send the spoofed address or poisoned
+address to the user to workstation and
+you can see that that is found on the
+user to Cache when that user now wants
+to communicate to Professor m.com
+instead of going to the legitimate IP
+address for that web server they will be
+redirected to a web server that's
+running on the attacker's IP address

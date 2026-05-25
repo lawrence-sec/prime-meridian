@@ -1,0 +1,315 @@
+if you're on the inside of a private or
+internal Network It's relatively easy to
+connect and manage devices that may be
+also on the inside of that network but
+what if you need to manage these devices
+and you're on the outside of the network
+in that case you may be able to take
+advantage of a jump server a jump server
+is a device on the inside of your
+network that is accessible from the
+outside it's usually hardened and it has
+security associated with it to limit
+access to only those individuals who are
+authorized this means that usually it's
+a two-step process the external client
+would connect first to the jump server
+and from the jump server they might SSH
+to a web server to make changes to the
+configuration from a security
+perspective this jump server is an
+important device to be sure that it is
+properly hardened and properly secured
+you would not want unauthorized access
+to the jump server from someone who is
+outside of your network because then
+they could potentially gain access to to
+the devices on the
+inside another useful Network Appliance
+is a proxy server a proxy is designed to
+sit in the middle of a conversation
+between two devices and make requests on
+behalf of one of those users this is
+commonly seen with users that might be
+on the inside of the network and they
+want to communicate with the device
+that's on the internet instead of
+communicating directly to those devices
+on the internet your internal devices
+communicate to a proxy server and the
+proxy server makes that request to the
+internet the response is then sent back
+to the proxy server which can then
+evaluate that response confirm that the
+information in that response is not
+malicious and then send a response down
+to the original requester there are many
+different uses for a proxy this could
+simply be for caching so the first
+person who makes the request to the
+proxy server has all of that information
+cached inside which means the second
+person making the same request can
+simply receive the same response as the
+first request this saves a great deal of
+bandwidth and time because you're not
+sending those subsequent requests out to
+those devices on the internet these
+proxies can also perform URL filtering
+so they will limit what websites you're
+able to visit mini proxies will also
+provide content scanning so anything
+that's received by the proxy can be
+analyzed to see if there might be
+malicious traffic or some type of
+exploit and if it is it can be blocked
+at the proxy you'll generally see two
+different types of proxies in use one is
+a proxy that needs to be configured in
+the application or operating system that
+you're using this type of proxy is
+referred to as an explicit proxy because
+you are explicitly naming the IP address
+or name of the proxy that you're
+communicating with another type of proxy
+is a transparent proxy from the in user
+perspective they have no idea the proxy
+is even in place the proxy is able to
+sit in the middle of the conversation
+and automatically make requests on a
+user's behalf without configuring
+anything else in the operating system
+since the users have no idea the proxies
+in place we refer to that as a
+transparent
+proxy there are many different types of
+proxies you might use a proxy you might
+use every day is a very simple proxy
+called a network address translation
+which will convert between internal and
+external IP addresses on internet facing
+routers but the proxy type that many
+people think about is an application
+Level proxy an application proxy
+understands the protocols used for
+specific application for example you
+might be using an HTTP proxy some
+proxies can work with multiple protocols
+so you might be able to proxy HTTP https
+FTP and other protocols as well if
+you're using a proxy inside of your
+network to control outbound traffic to
+the internet then you're using a forward
+proxy sometimes you'll hear this
+referred to as an internal proxy with a
+forward proxy your users make requests
+to an internal proxy proxy server that
+is inside of your network that proxy
+makes the requests out to the internet
+to the website the website replies back
+to the proxy which then examines the
+traffic and if everything looks
+legitimate it will send the response
+down to the user reverse proxies provide
+a similar type of function but for
+inbound traffic to a specific service
+for example there might be users on the
+internet that would like to communicate
+to a web server that's inside of your
+network instead of having the users
+communicate directly to the web server
+they connect to a proxy server the proxy
+server then makes requests on the user's
+behalf those responses are sent from the
+web server to the proxy server which
+then sends that response to the user on
+the internet this provides additional
+Security in front of your web server if
+there is any type of malicious traffic
+inbound it can be dropped at the proxy
+rather than being sent to the web server
+this proxy can also act as a caching
+server for identical requests coming
+from the internet the first request EST
+from the internet would be handled by
+the proxy it would be forwarded to the
+web server for its response the response
+back to the proxy though is saved in a
+local cache all subsequent identical
+requests from the internet are then sent
+of course to the proxy server but
+instead of sending that request again to
+the web server we simply pull from the
+cache and send the response directly
+from the proxy this provides a much
+faster response time for the in users
+and it limits the amount of load that's
+being sent to the web server another
+type of proxy you might find is an open
+proxy from a security perspective this
+is a significant concern because this is
+a proxy that is simply available for
+anyone on the internet to be able to use
+these are commonly used to circumvent
+existing security controls so instead of
+your device talking to a proxy or
+firewall inside of your network this
+information is sent directly to an
+external proxy which then makes the
+requests for you to another Internet
+site but there are significant security
+concerns when working with with an open
+proxy this proxy is managed by some
+third party but we have no idea who that
+might be and that third party could add
+additional information into these
+traffic flows that are going back and
+forth the proxy owner could be adding
+advertisements into the messages being
+sent back and forth or they might
+include malicious code that would infect
+the devices on your network in many
+organizations these open proxies are
+blocked to limit any type of security
+risk communicating through those unknown
+devices
+another useful Network Appliance is the
+load balancer load balancer does exactly
+what the name implies it will take a
+load coming from One Direction and
+distribute that load across multiple
+Services you often see load balancers
+used in large- scale implementations you
+might have a group of web servers or a
+farm of database servers and having a
+load balancer in place maintains
+efficiency and keeps the load even
+across all of those devices another nice
+feature of a load balancer is Fault to
+tolerance if a server connected to a
+load balancer was to fail the load
+balancer would recognize that server was
+no longer communicating and would split
+the load among the remaining servers
+this convergence happens very quickly
+and most users don't even realize that a
+change has been made to the load
+balancer many load balancers are running
+as an active active load balancer which
+means all of the servers connected to
+the load balancer are active and are all
+being used by the load balancer this of
+course allows this single load balancer
+to manage the load across all of those
+individual servers this load balancer
+can also provide TCP offloading which
+means that it doesn't have to set up an
+individual TCP communication session for
+every user connecting to these servers
+instead it will keep one single TCP
+connection open all the time and simply
+distribute the load without having to
+recreate separate TCP sessions each time
+some load balancers can also offload the
+SSL decryption process
+instead of having the servers manage the
+decryption individually all the
+decryption can be done on the load
+balancer which then sends in the clear
+or decrypted traffic down to the servers
+on the way back the load balancer will
+encrypt the response and send that back
+to the user there's usually
+purpose-built Hardware inside of the
+load balancer to provide efficient
+encryption and decryption processes just
+like a proxy a load balancer can also
+provide caching especially if there are
+multiple identical requ re EST being
+made to the web servers and there may be
+prioritization built into this as well
+where certain applications or certain
+protocols may have a higher priority
+than others and many load balancers can
+also provide content switching which
+means they recognize the type of request
+being made and can send certain requests
+to specific web servers that are
+connected to the load
+balancer some load balancers can work in
+an active passive configuration this
+means that some of the servers are
+active and working when connected to the
+load balancer but there are also other
+servers which are ready to work but are
+not currently being used by the load
+balancer if any of the active servers
+fail the load balancer recognizes that
+that server is no longer communicating
+and will begin sending those requests to
+the standby or passive web servers that
+are ready to go in our example here we
+have server a server B server C and
+server D and you can see that server A
+and B have a green light so they are
+active being used by the load balancer
+and we have standby or passive web
+servers that are configured with these
+red notations a user will make requests
+to the load balancer and of course the
+load balancer will distribute that load
+to any of the servers that may currently
+be working however if a server was to
+fail for any reason the load balancer
+would recognize there was a failure mark
+That device as being no longer available
+and then use one of the passive or
+standby devices and turn that into an
+act active device any subsequent
+requests to the load balancer would then
+be sent to the new active
+devices another useful series of network
+appliances commonly used for Network
+management and monitoring are sensors
+and collectors some devices that you may
+already be using have sensors built into
+them things like switches routers
+firewalls and other devices may have the
+ability to compile statistics and make
+them available to these collectors
+there's also a great deal of information
+that can be gathered from intrusion
+prevention systems authentication logs
+web server access logs and anything else
+that might be connected to the network
+you can also use sensors that are
+designed as separate devices whose sole
+purpose is to collect statistics from
+the traffic going across the network all
+of the details being collected by these
+sensors is sent to one Central database
+called a collector sometimes this is a
+proprietary console that's written
+specifically to work with certain types
+of devices for example an IPS s or a
+firewall or you may be using something
+that is able to collect data from many
+different types of devices such as a Sim
+this is a security information and event
+manager and this not only provides a way
+to consolidate all of this data into a
+single database but it also provides a
+powerful reporting tool to be able to
+consolidate correlate and compare
+different types of data across all of
+these very diverse devices here's an
+example of the console that you might
+find on a Sim this one is showing a
+report that describes different types of
+events that are occurring on the network
+including failed authentications and
+Port scans you also see a log of
+security events at the top and there are
+many options for other types of reports
+that you can find on the left
+sidebar

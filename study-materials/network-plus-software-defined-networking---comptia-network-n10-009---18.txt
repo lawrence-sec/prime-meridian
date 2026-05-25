@@ -1,0 +1,177 @@
+one of the challenges with the virtual
+world is we have to somehow take the
+functions that we would normally use in
+our physical devices and move it into a
+more virtualized environment this
+challenge exists for our servers and
+operating systems but it also exists for
+our routers switches and other
+networking devices if we were to break
+out the different functions of these
+networking components we would see there
+was a data plane a control plane and a
+management plane if we could take those
+individual functions that are handled in
+hardware and create virtualized software
+versions of each of those we would be
+able to deploy this nearly anywhere in a
+virtual environment this would not only
+provide us with a way to create these
+virtualized systems but it would also
+give us additional functionality on the
+network if we were to take a switch or a
+router and look at how that device
+functions and how it forwards data we
+would categorize that particular
+capability into the infrastructure layer
+or the data plane this is the part of
+the device that does the heavy lifting
+it does the forwarding of traffic it
+transfers information from one interface
+to another and it provides forwarding
+trunking encrypting and network address
+translation these networking devices
+also need to reference other data to
+determine how to perform this function
+in the data plane this ability to
+control where the data may be going is
+part of the control layer or the control
+plane so if you look at routing tables
+switching tables Network address
+translation tables or anything else that
+determines how this device functions
+it's probably located in the control
+plane and ultimately you as the network
+administrator will need to manage this
+device we do this through the
+application layer or the management
+plane anytime you SSH into a console or
+control a device from a webbased front
+end you're using this management plane
+so let's take a physical networking
+device and turn it into this softwar
+defined networking device let's start
+with a physical firewall firewall
+generally has functionality within it to
+be able to connect different networks
+together we have logic inside that is
+able to determine how information is
+forwarded from one interface to another
+and we have ways to manage the device on
+the front console or through a webbased
+front end we'll start with all of the
+interfaces on the front of the firewall
+where we will connect all of our
+networks this is the data plane or the
+infrastructure layer and this is where
+all of the data is forwarded from one
+interface to another inside of the
+firewall itself we have tables that
+allow us to control what traffic is
+forwarded and what traffic is not
+forwarded we might also keep routing
+tables or switching tables inside of
+this control plane and anytime we're
+managing the device either by connecting
+directly to the console or through a
+web-based management front end we are
+using the management plane
+one of the ways that we're able to take
+advantage of this software-based
+networking functionality is through the
+use of an sdwan this stands for softwar
+defined networking in a wide area
+network this is a wide area network that
+was specifically built to manage the
+complexities of a cloud-based
+environment we've created this sdwan
+because we've changed where we manage
+and connect to all of the different
+resources on our Network we used to have
+everything in one Data Center and
+anytime we need to access our email or
+perform a query on a database we simply
+access those resources in our existing
+data center but now we've taken those
+email services and we put them into the
+cloud we've taken our applications and
+we've also moved those to the cloud it's
+now not quite as simple as connecting to
+a central data center to gain access to
+all of our resources because our emails
+databases and other applications might
+exist anywhere in the cloud and that
+location may change at any time here's a
+view of what we had before the cloud
+where all of our services were in one
+centralized data center if we had remote
+locations we would simply have wide area
+network links from that remote site to
+our centralized data center this made it
+very easy to set up wide area network
+connections that connection was always
+connected between the remote site and
+the data center and that provided
+everyone with access to the data that
+they needed but now we've moved much of
+that data from our data center into the
+cloud so the cloud may have databases it
+might have web services it might have
+our email access and these cloud-based
+Services may be located in multiple
+Cloud providers anywhere in the world
+sdw was created because we needed some
+type of wide area network that was
+application aware it would know if we
+were using email and it would be able to
+immediately send our data to the closest
+email service specific to us an
+important characteristic of an sdwan is
+its ability to know what application is
+being transmitted through the network if
+it knows the application it will know
+where to forward that application data
+to gain access to an email a database or
+some other application since these
+cloud-based Services can move anywhere
+at any time we need all of the systems
+that are connected to this wide area
+network to automatically update
+themselves anytime there happens to be a
+change this is called zero touch
+provisioning and allows us to have all
+of our remote routers and switches know
+exactly how to reach those Services
+wherever they might be and wherever they
+might be moved this means if anything
+changes with the network or anything
+changes with the location of these
+services our sdw routers will
+automatically update themselves without
+any type of user intervention we also
+need to keep in mind that the
+connectivity to these sites may be very
+different based on the cloud provider
+Some Cloud providers might be accessible
+through high-speed fiber whereas others
+may be connected through 5G G or DSL
+type connections for that reason sdwan
+is designed to be agnostic to the
+transport type so no matter how you're
+connected will be able to connect to
+that remote location and instead of
+configuring the policies used for this
+network through each individual sdw
+router we have Central policy management
+where we make all of those changes on
+one Central Management console and those
+changes are pushed out to all of those
+sdw routers automatically so if there
+are resources in the data center that
+need to be accessed from a remote site
+those locations can still go directly to
+the data center but if someone in a
+remote site needs to access a database
+or their email system they can go
+directly to that cloud-based service
+using this sdwan technology

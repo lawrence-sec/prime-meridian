@@ -1,0 +1,424 @@
+[Music]
+hi there welcome back well with so many
+mobile devices out there nowadays on our
+desks in our hands on ourselves in our
+homes
+we're looking at the most efficient
+phenomenon that made the the traditional
+perimeter security almost useless we
+still can have a secure environment with
+so many mobile devices
+but it's going to be a bit more tricky
+if not even a bit quite difficult
+and one of the biggest trends i would
+say that you need to be concerned with
+when talking about mobile security
+is the one called byod which stands for
+bring your own disaster
+no it actually stands for bring your own
+device all right
+uh intentional pun here because it's a
+practice where employees start using
+their own mobile devices to connect to
+the workplace and to do their daily jobs
+now it's a huge game changer because in
+the threat landscape using this this
+approach of bring your own device means
+that we're bringing inside of our
+defenses
+often enough we bring inside simple
+devices that are not so secure out of
+the box
+and we use them those devices those
+personal devices we use them more than
+any other type of device in our lives so
+we need some bring your own device
+policies very strict
+uh very coherent policies that allow
+your employees to bring their own
+devices to work and to use them for
+business purposes but also
+not to frustrate them
+okay so we need to allow everything to
+work in a secure manner but without
+creating frustration
+because bring your own device policy has
+actually been introduced
+especially
+for this very reason to allow users to
+work the way they were used to to work
+with the devices they feel most
+comfortable with so bring your own
+device policies have been invented
+because besides the security risks that
+these devices
+involve this habit of bringing the
+devices in the workplace involves you
+also have to be prepared to address
+situations
+such as what do you do about
+lost or stolen devices that might have
+company data on them and secondly how
+much control can a company have over
+your personal device well it's probably
+not going to be 100 because then it's
+not going to be a personal device
+anymore but
+since it's not also a 100 company device
+where do you draw the line
+well if you have company data like
+emails confidential files contact
+information
+sales information whatever it is that
+pertains to that business on a personal
+device then the company is going to need
+some kind of control it's not just going
+to be
+you know based on trust
+and speaking about company control you
+are bringing a multitude of devices into
+the company
+based on a multitude of operating
+systems with running a bunch of a ton of
+apps
+different versions of those apps
+different configurations how do you
+manage all that
+because
+up until now you knew that everybody was
+using the same uh the same type of
+software that was delivered through the
+company network you know all the laptops
+all the computers were configured
+pre-configured by the id department and
+you had some consistency in there
+as much as as you could have
+in theory at least but now you're
+opening up yourself to a much broader
+spectrum
+of threats
+and potential attack surface that you
+know nothing about another problem is
+what happens if the device that a person
+brought from home and and started using
+it inside the workplace is involved in a
+security incident
+what happens if that personal device was
+responsible was involved in some way how
+do you mitigate threats on those devices
+if you don't have complete control over
+them can you at least investigate
+something on those personal devices
+what are the legal requirements for this
+how far can you go before being sued for
+prying onto personal information that is
+told on that on that mobile phone for
+example so it's really complicated
+and drawing a clear line between what is
+personal and what is
+business related
+can sometimes prove to be extremely
+challenging and don't forget that
+we are actually bringing a large number
+of devices so if we
+one day just decide that we want to
+allow everybody to use their own laptops
+use their own mobile phones well
+starting the next day the company
+network the company infrastructure is
+going to have to accommodate a huge
+number of devices additional devices
+that were not
+considered in the first place when the
+when the network was designed perhaps
+can we handle all that additional
+traffic authentication requests
+is the wi-fi going to support so many
+devices or are we going to just denial
+of service ourselves okay
+and nowadays if we talk about mobile
+platforms we basically have two large
+choices two big choices here each
+operating system of course has their own
+weaknesses their own vulnerabilities and
+these days we're pretty much down to
+android and ios
+now android is at its origin open source
+which means that there's a lot more
+flexibility for specific vendors to
+implement their their own customized
+versions and customized solutions based
+based on android we also have a more
+relaxed approach to app stores to the
+sources where we can install the apps so
+we can install apps directly from google
+from third-party sites such as huawei or
+amazon or samsung and the sdk is
+required to develop applications for for
+android and quite open you can run them
+on linux on mac os on windows doesn't
+matter we do have a lot of flexibility
+when it comes to software development
+now on the security side and also on the
+enterprise management side we do have
+some options i'm going to mention just
+one of them here and that is samsung
+knox which is samsung's approach for
+facilitating enterprise mobile
+management solutions on their phones in
+other words is samsung's way of making
+your job easier when it comes to
+managing samsung phones in your company
+also on the security side since android
+version 4 dot something 4.3 i believe
+android has been based on something
+called the se android model which is
+very similar to the se linux model it's
+an implementation of the mandatory
+access control of the mac model on
+android devices which means that when an
+application is installed you get the
+opportunity to decide whether it gains
+access or doesn't gain access to
+specific services inside of the phone
+like being able to read your contacts
+read your mobile messages and so on now
+one downside of the of the android
+operating system is that given the fact
+that most vendors are the ones
+responsible for implementing their own
+updates onto their own customized
+versions of android it means that you'll
+have to wait for the vendor itself to
+implement a security update just like
+any other kind of update which means
+that security updates are going to come
+at least delayed if not
+less frequently
+than in the case of ios for example now
+ios is a more closed environment
+everything is controlled by apple and
+there's no such thing as third-party app
+stores at least if you're not interested
+in jailbreaking phones but if you are
+interested in jailbreaking you're
+probably not going to
+not gonna want to accept those
+jailbroken phones inside the company
+anyway then from a security perspective
+uh ios devices are a bit less targeted
+simply because the environment itself is
+uh is much more closed much less open to
+the outside so it doesn't really mean
+that out of the box ios is more secure
+than android it just means that there
+are much more opportunities on android
+for attackers to find vulnerabilities
+that they can exploit
+due to delayed updates due to the fact
+that people perhaps just ignore
+those security updates or simply because
+android has so many implementations from
+so many vendors out there that it
+becomes quite easy and often encountered
+for a device to simply be abandoned so
+it doesn't receive any further updates
+which means that any vulnerabilities
+identified from that point on are gonna
+be there forever now as far as
+centralized management in an enterprise
+in a company goes about mobile devices
+we do have a number of solutions here we
+do have a lot of acronyms uh in my
+opinion
+these are somewhat confusing especially
+since most of them don't point to actual
+uh let's say tangible technologies
+out there most of them are just concepts
+or types of policies that can be
+implemented so
+a lot of the a lot of the acronyms that
+you see here on the slide are basically
+just marketing terms but you do have to
+be familiar with at least a couple of
+them at least for the exam now this this
+picture right here is taken from the
+from the website at the bottom and i've
+just used it because otherwise just
+enumerating these acronyms here would
+not have made so much sense all right so
+if you were to focus on this picture for
+just a couple of seconds here we're
+gonna find that the
+most solutions that we can find
+regarding mobile device management are
+in the middle right here and they're
+actually called mdm mobile device
+management solutions and these are going
+to address things like uh how are you
+securing your device access to the
+device like passwords uh biometrics uh
+pins and so on a device provisioning how
+do we add those devices to our company
+when it come when when a person comes in
+the company or when a person changes
+their own their own mobile phone or
+mobile device that they're they're using
+day-to-day uh device grouping that is
+just a way to associate devices so that
+we can apply generic policies to certain
+groups of related devices location
+tracking of course careful with this one
+you might run into some privacy problems
+in here device health monitoring again
+this one is kind of like a posture
+validation so we're just going to
+validate whether the device has the
+necessary updates in place and god
+forbid if the device was jailbroken
+we're not going to allow those in the in
+the enterprise anymore why don't we want
+jail broken devices or rooted devices in
+the enterprise well because we are
+relying on some centralized mobile
+device management solution to keep an
+eye to keep track of what those mobile
+devices are doing well if the user has
+root access to their own device
+then they would
+very easily bypass all those remote
+controls that we have over that device
+so they could just report whatever they
+want we we couldn't just trust the mdm
+solution anymore so if we give the users
+full control over their phones we're not
+going to be able to trust the mdm
+solution any longer now on top of this
+we're going to find the emm enterprise
+mobility management solution with which
+are kind of the next level in
+abstraction from a management and
+control perspective so this is where
+we're going to find things such as
+mobile application management what kind
+of applications are you allowed to
+install
+and or to run on your mobile device
+what's the the source of those
+applications some companies might
+actually implement solutions that
+restrict the uh the source the app
+stores that you have access to in order
+to install the custom applications
+restrict them to the company approved uh
+application sets
+and in some cases there are situations
+where you can only install
+applications from the company's app
+store and not from google or apple
+mobile content management again it
+pertains to what kind of content are you
+allowed to store on the device or are we
+allowed to share
+from the device careful with this one as
+well because if you're
+if you're storing i don't know facebook
+accounts and
+instant messaging accounts as well as
+company sensitive files how do you
+containerize
+what is the business side inside that
+mobile phone and what is the personal
+side and how do you make sure that no
+information is going to pass from one
+one container to the to the next bring
+your own device all right this is the
+generic solution that we've been talking
+about and finally mobile information
+management uh which also addresses uh
+device tracking uh keeping track of the
+versions the operating systems
+when they were last updated when they
+were last used on which networks and so
+on and finally on top of all this we
+have uem this is unified endpoint
+management which doesn't just pertain to
+mobile devices anymore but this one now
+covers anything that we can call an
+endpoint so all the devices that users
+use
+they could be mobile devices they could
+be non-mobile devices doesn't matter or
+basically have solutions here that try
+to address all the endpoints in your in
+your environment so ranging from
+desktops to laptops to mobile devices to
+tablets even even smart wearables if
+those are allowed or have any relevance
+in your in your company everything
+should be managed under a unified
+endpoint management solution and just to
+give you a couple of examples for mdm
+solutions out there there are a ton by
+the way i'm just going to mention a
+couple of them starting with vmware
+workspace one this was originally called
+airwatch so if you ever heard about
+airwatch this is the new name of the
+same of the same solution the same
+product
+by the way this is where you're gonna
+find the the term of unified endpoint
+management as well now most vendors out
+there are going to advertise their own
+solutions as unified endpoint management
+because it's the highest ranking type of
+solution the highest level one
+so don't forget that any landing pages
+like these are written by marketing
+people so don't be fooled by the
+terminology another one is from
+mobileiron
+and finally if you want to just have a
+look over
+how many of them are and maybe
+maybe figure out what are the pros and
+the cons of each and every one head over
+to one of these it publications like pc
+mac for example a lot of them create
+these top and top 10 solutions each and
+every year and they're going to provide
+you a pretty good overview of what each
+and every one of these actually does so
+you can see the air watch from vmware
+is also listed right here using its old
+name citrix ibm microsoft intune apptic
+and so on and so forth
+pick your your poison pick your uh
+your bring your own disaster solution
+all right that's it about mobile threats
+now there's a lot to talk about but the
+size of plus exam doesn't go into so
+much depth regarding these mobile
+solutions keep in mind that bring your
+own device is
+a challenge on its own all right think
+about the the necessary changes that you
+need to make to your company policies to
+your security policies and even don't
+forget to evaluate if the infrastructure
+is able to
+sustain
+that increase in the number of devices
+also don't forget about the enterprise
+management solutions like unified
+endpoint management solutions the
+enterprise mobility management solutions
+down to the mobile device management
+ones keep in mind some of the
+differences between android and ios and
+if you found this useful and informative
+like and subscribe and hope to see you
+next time bye bye
+[Music]
+you

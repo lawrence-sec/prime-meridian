@@ -1,0 +1,244 @@
+in your first job working with networks
+you'll probably work with one of the
+major providers of network equipment and
+you'll become very accustomed to using
+the command line for that particular
+equipment but your company might
+purchase equipment from many different
+manufacturers fortunately the commands
+at the command line are very similar
+between these manufacturers so if you
+learn the basics of how to use one
+manufacturer switch you can often use
+that knowledge to also manage another
+manufacturer switch this doesn't mean
+that the syntax of the command line is
+exactly the same between all of these
+different manufacturers but it does come
+very close to each other and the output
+has very similar information from one
+manufacturer to another once you learn
+the technology behind the commands it
+becomes relatively easy to move back and
+forth from one manufacturer to another
+and you'll begin to memorize the
+different commands for the different
+manufacturers and it will soon become
+very second
+nature in our videos where we talk about
+about the switching process we talk a
+lot about the MAC address table this is
+the table inside of the switch that has
+a list of all of the Mac addresses that
+it's learned and it knows which ports
+that it learned that MAC address on now
+when the switch needs to make a decision
+about where certain traffic should be
+sent it can reference that Mac address
+in the table identify the port and send
+that traffic directly out that port on
+Mini manufacturer's equipment there is a
+show command that provides this view
+this is a Cisco switch and I use the
+show m Mac address table command to list
+out all of the Mac addresses in the MAC
+address table so if you're
+troubleshooting a switch and you're
+wondering why certain traffic may be
+sent out every interface or you're
+wondering if you've hit the maximum
+number of entries in your Mac address
+table you can use the show Mac address
+table to get more
+details we've also talked a lot about
+routing in this course and if you'd like
+to see a list of the routes inside of
+the routing table you can use the show
+route command this is a very useful
+command to be a able to see exactly
+where the routes are for a particular
+router and you can use this command on
+each router to be able to build the path
+that it should take to get traffic from
+one end of the network to the other it's
+very common to use the show route
+command have a look at the routes in the
+table find the route that would apply to
+the traffic that you're looking at and
+then follow that traffic out the
+specific interface you can then use that
+process on every route throughout the
+path to track it from one end of the
+network to the other here's an example
+of the show route command from a Cisco
+router at the top of the show route
+command is a list of all of the
+abbreviations that are used in the
+routing table itself on the left side
+you can see these abbreviations there
+are only two that are used in this
+particular routing table one is the r
+abbreviation that correlates back to a
+rip protocol that was used to build that
+route and then we also have a c which is
+a connected route this means that this
+particular network is directly connected
+to an interface of this router you can
+then step through each one of these
+routes to see which might apply towards
+the traffic that you're looking at this
+first line of the routing table is for
+all traffic that would need to go to
+1.0.0 sl8 it would get to that route
+through
+2020.2 and you would reach that next hop
+by leaving serial
+3/0 as the interface there may be a more
+specific route inside of this routing
+table so you would need to evaluate each
+one of these routes to see if you have a
+more spefic specific route that could
+apply to your
+traffic maybe our problem is not with
+switching or routing but instead we're
+more concerned with the speed and duplex
+of a particular interface or we may want
+to know if there's any errors associated
+with a particular interface and you
+would view that by using the show
+interface command the show interface
+command will show you if an interface is
+up if it's down if it's connected or if
+you've administratively disabled that
+interface you can also view information
+about the speed to you and any
+encapsulation types for that interface
+and you may be able to identify problems
+you can see if there's been any CRC
+errors on that interface if you've
+dropped any of the frames coming through
+that particular connection or if there
+was any input or output errors and you
+might be able to get an overall
+performance view you might want to see
+the total number of frames or the total
+number of broadcasts that have gone
+through a particular interface here's a
+view of the show interface command this
+is an interface that is a fast ethernet
+0 sl0 so that tells us that it's a 100
+megabit interface and it's connected on
+slot zero and Port zero we can see that
+this particular interface is up and the
+line protocol is up so we are getting
+signal on this particular interface we
+can see the hardware configuration this
+is running at full duplex at 100
+megabits per second and the media type
+is an
+RJ45 we can then see input and output
+rates we can view any errors such as CRC
+errors and get an overall view of how
+this interface might be per
+performing when you make a configuration
+change to a device this sometimes is
+done in a web front end but very often
+you can view a text-based view of the
+configuration itself some devices only
+support a text based view for
+configuration and you can view that
+configuration right at the command line
+using the show config command this will
+show you information about the
+configuration that's currently running
+inside of that device and you may be
+able to view configurations that are
+stored on the storage Drive of that
+device device each manufacturer has a
+different format and a different syntax
+that they use when they're storing
+information as part of a configuration
+so you'll need to become more familiar
+with that manufacturer's specific syntax
+and layout to really understand what's
+inside of this configuration file here's
+a configuration file from a router the
+configuration was so long that I had to
+separate it into separate columns you
+can see the command is up here show
+running-config that's the command on
+this particular device that shows us the
+conf configuration that is currently
+active inside of this router we can see
+the configuration is 830 bytes the
+version that we are using information
+about timestamps that will be stored we
+can see router information and then we
+have IP addresses subnet masks and other
+details that are associated with the
+individual router ports there are many
+other details in this configuration but
+it is nice that you're able to read
+through all of these details and if you
+need to modify a configuration you can
+simply change it at the command line and
+then view the configuration
+again in an earlier video we talked
+about viewing the ARP cache that's
+inside of the operating system that
+you're using but there's also a way to
+view the ARP cache inside of switches
+and routers you can do that with the
+show ARP command this views the address
+resolution protocol cache that is loaded
+inside of that device and it's very
+similar to the ARP cache that you would
+see inside of your operating system so
+if you're trying to determine if a
+switch or router sees a particular Mac
+address that's associated with an IP
+address you can view all of that inside
+of your ARP table this is the protocol
+the IP address the hardware or a MAC
+address associated with that IP address
+and the interface that was used to
+identify that particular
+pair if you're working a lot with
+switches then you're probably doing a
+lot of VLAN configurations as well so
+it's important to be able to view what
+vlans are associated with which
+interfaces on that switch you would view
+this by using the show vlink command
+this will list out all of the vlans on
+this device and it will show you what
+interfaces have been assigned to that
+VLAN not only can we view the assigned
+VLAN IDs you can also see what the
+default VLAN is for this entire switch
+you can see interfaces that are part of
+the default VLAN or you can view any
+interfaces that may have been
+specifically assigned to a different
+VLAN a lot of the switches that we use
+today can support power over Ethernet or
+Poe this means that we're going to use
+the ethernet cable to power up devices
+that are on the other end of this switch
+but to do this we need to monitor the
+switch and make sure that we have enough
+power for all of these devices we can
+view this power usage through the show
+Power command this will give us a list
+of all of the interfaces it shows us if
+Poe is turned on or turned off for a
+particular interface and then we can see
+how much power is being used by that
+particular device this also lets us know
+if we can add additional devices to the
+switch this particular switch supports
+370 Watts we're using 40 Watts so we
+have 330 Watts remaining so if we need
+to add additional devices we probably
+have enough wattage to be able to
+support those using this Poe switch

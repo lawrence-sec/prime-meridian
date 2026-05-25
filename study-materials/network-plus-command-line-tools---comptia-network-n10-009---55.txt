@@ -1,0 +1,455 @@
+one of the most common utilities you'll
+use at the command line is the Ping
+command the Ping command tells you if a
+device on the network is reachable and
+if it's not reachable it will give you
+information that might help you
+understand why that device is not
+reachable this uses the icmp protocol
+this is the internet control message
+protocol to be able to query that device
+and get a response from that device this
+will be one of the first things you do
+when you're troubleshooting a device you
+would like to know if the device is on
+the network and if it's responding to
+these pings so your first question will
+probably be can you ping that host here
+at the command line of my Mac we will
+run the Ping command but it works
+exactly the same whether you're in Mac
+OS Linux or Windows we will use the Ping
+command and we'll specify a host name in
+this case I will specify
+1.11.1 which is a DNS at cloudflare and
+then we'll run the Ping command if
+everything works properly we'll get a
+response like this where the Ping is
+working exactly the way you would expect
+we are sending 64 bytes and we are
+receiving 64 bytes back from that
+1.11.1 you will see sequence numbers for
+the icmp protocol a time to live and
+then you have the round trip time if you
+ever run into a situation where you are
+not able to Ping that device you will
+see messages saying that it is timed out
+and you are no longer able to access
+that particular device if the network
+then is stored you will start pinging
+that device again and you'll be back to
+seeing the response times for all of
+those individual pings in Linux and Mac
+OS and in Windows if you set this to
+continuously ping you can use the
+control C command and it will stop the
+Ping and provide you with a series of
+statistics about this particular ping
+session a utility that you might find
+yourself using almost as much as the
+Ping command is the trace route command
+this as the name implies will Trace a
+route and tell you what routers are
+between your device and the device that
+is the destination it will map the
+entire path between you and that
+secondary device in Linux and Mac OS you
+would run the full trace route name as
+the command in Windows it's an
+abbreviation of that command and it's
+called Trace RT this also uses icmp but
+it uses a different aspect of icmp than
+what we were using for the Ping command
+in this particular case it's using the
+icmp time to live exceeded error message
+this is a message sent back to the
+originating station saying that it was
+not able to complete this because the
+time to live has exceeded and of course
+in IP time to live is referring to the
+number of hops or the number of routers
+that we're going through not the number
+of seconds or the number of minutes
+trace route modifies the TTL and starts
+performing this test over the network so
+it might start with a TTL of one to give
+you information about the first router
+then it will change the TTL to two so
+that you can get information about the
+second router and so on one of the
+challenges with icmp is that many
+firewalls and other devices will disable
+or filter icmp messages so although our
+time to live may have been exceeded
+there's no icmp message that's being
+sent back because it's being filtered by
+another device in your trace route
+output you'll know when the icmp is
+being filtered because you'll see an
+asterisk instead of Trace rout
+statistics depending on the operating
+system you're using trace route might
+work a little bit differently for
+example in Windows the icmp echo
+requests are used to send information
+and we're expecting to receive icmp time
+exceeded messages there will also be an
+icmp echo reply that is finally received
+once we make it to the destination
+device as we mentioned earlier icmp is
+often filtered so you may find that
+sometimes the information you're looking
+for does not make it back to your
+console other operating systems or
+different versions of trace route might
+allow you to change what type of payload
+is being sent out so if you're running
+Linux or Mac OS you might have some
+options available at the command line to
+customize your trace route
+messages we're going to run a trace
+route but before we do that I want to
+show you what's happening behind the
+scenes when we run that trace route
+command in this particular example we're
+going to run a trace route from Sam's
+machine all the way through through
+these multiple routers all the way to
+Jack's workstation and we're going to
+run this by using the trace route
+command and when we run this the very
+first message sent from Sam's computer
+has a trace route set to TTL of one that
+means the time to live is one that means
+when this first frame reaches the very
+first router that router will decrease
+the TTL by one so that means the TTL
+will turn into zero meaning our time to
+live has been exceeded a message will
+then be sent back to Sam's computer
+saying the TTL was exceeded and here's
+the IP address that reported that the
+TTL was exceeded in this particular case
+that was the
+1010101 router and it says that we were
+able to reach that router in 2
+milliseconds next Sam will send a trace
+route to Jack's machine but the TTL will
+be set to two that means the packet will
+first get to router 1 that router will
+decrease the TTL by one and it will send
+that down to the next router that will
+all Al decrease the TTL to one and in
+this particular case we've now exceeded
+the TTL and that message will go back to
+Sam's workstation and it will be noted
+in the output of the trace route command
+this process continues and the trace
+route command now changes the TTL to
+three that means it will go through the
+first router be decreased to two it will
+get to the second router the TTL will be
+decreased to one it will make it to the
+next hop along the way the TTL will be
+moved to zero TTL will be exceeded and a
+message will be sent back to Sam's
+workstation and that information will
+also be added to the trace route output
+the TTL will now be set to four the same
+process will occur where it will
+decrease the TTL through each router
+that it goes through until now it
+finally reaches the destination
+workstation where Jack's workstation
+will decrease the TTL by one and send
+back a TTL exceeded message all the way
+to Sam's workstation and that
+information is added to the trace route
+results here are the results of a trace
+route that I ran let's go through each
+line so you can see exactly what we're
+looking at in the output I ran a trace
+route to 8.8.8.8 which is a Google DNS
+server IP address it started with the
+first hop you can see the number one
+next to the first hop is
+10.1.1.1 and it has three values next to
+it by default trace route runs each test
+three times and it gives you the three
+response times for each one of those
+tests the next hop is hop number two it
+is 96120 5813 you can see response times
+for those we have a hop three a hop four
+a hop five all the way through to hop
+number 10 which has finally made its way
+to 8.8.8.8 and of course you can see the
+response time measurements for that
+device this displays every router that
+we had to hop through to get between our
+device down to the DNS Google server
+this information can be very important
+especially if later on you run into a
+problem communicating to that server if
+you then ran a second trace route you
+could compare your first trace route
+with the second to see where you might
+be missing a route or which router may
+be stopping this route from
+continuing when you're troubleshooting
+problems on the network you often need
+to perform a name resolution between an
+IP address and a fully qualified domain
+name that is of course something done
+behind the scenes when you're using a
+browser or referencing a fully qualified
+domain name but you might want to query
+the DNS server yourself to see what type
+of results you would get there are two
+useful and very similar commands that
+you could use to perform this query one
+of them is NS lookup and the other one
+is dig this will allow you to make
+queries to a DNS server and receive a
+response to any of those queries you can
+look at canonical names IP addresses
+cach timers text records and anything
+else that might be inside of that DNS
+server NS lookup is included with
+Windows Linux and Mac OS and it allows
+you to perform this to a DNS server this
+utility is deprecated which means the
+goal is not to use this particular
+utility in the future instead we should
+be using the Dig command dig is a
+utility that is also included with Linux
+and Mac OS and there are some versions
+of dig that you can download and use in
+a Windows environment there's an older
+version of the bind package that comes
+with an executable for dig this is
+available from
+isc.grp include this executable in the
+package let's run an NS lookup and we'll
+use this command to look up
+www.professormesser.com
+we can see that we get a response back
+from our DNS server in this case our DNS
+server is
+1.1.11 and we can see that there are
+three answers that we received from that
+DNS server one was that
+www.professormesser.com can be found at
+10422 73108 we can find it at 10422
+72108 and
+17267
+41114 you would think there would be one
+single IP address for that server but we
+have redundancy built into these servers
+so that if this first IP address is not
+available there are other IP addresses
+you can use to access the web server
+let's run the same query with the Dig
+command and again we'll choose
+www.professormesser.com
+on this output it shows us that we are
+performing a query and we can see that
+for this question about
+www.professormesser.com we're looking
+for the internet address or the a record
+associated with that name and again we
+get three responses they are 17267 41114
+that matches what we got earlier we have
+10422 73108 again we have a match and we
+have 10422
+72108 so the information that we're
+querying with both of these utilities is
+the same it's just that the format
+that's provided in the the output is
+slightly different if you're trying to
+query a DNS server or you'd like to look
+at the configuration of a DNS server you
+can find that you can access those
+records using either the NS lookup
+utility or
+dig in earlier videos we talked about
+the idea of capturing packets on the
+network in order to view the information
+that's being sent and to troubleshoot
+network issues one of the ways you could
+do that is by using a thirdparty utility
+such as wire shark but many operating
+systems include this capability as part
+of the OS itself a utility that allows
+you to capture these packets is the TCP
+dump utility this allows you to capture
+packets right from the command line and
+either view them on the screen or save
+them into a file TCP dump is usually
+included with Linux and Mac OS and you
+can install Utilities in Windows that
+would give you a similar functionality a
+good example of one is the wind dump
+utility you can either capture every
+packet traversing the network or you can
+apply filters and view that information
+on your screen in real time sometimes
+there is a lot of information that
+appears on the screen however and you
+may choose to put this information into
+a file that you can then download and
+load into Wireshark TCP dump saves these
+files into a standard format known as
+the pcap or packet capture format and
+that is a format that can be easily read
+by wire shark and many other third-party
+utilities when you start looking at this
+information it could be almost
+overwhelming to see hundreds or even
+thousands of packets all listed out on
+the screen so it may take some time to
+understand how to parse this data and
+how to read it properly but once you
+spend the time learning about these
+packet captures you can gather a lot of
+information about the way the network
+and applications are running in your
+environment here's a view of a pamp
+session from a Linux command line each
+one of these lines is a separate packet
+on the network there's a mix here of
+IPv6 packets and ipv4 packets you can
+see a number of these lines are
+communicating with the jabber client so
+it may be an instant messaging
+application you can also see DNS
+information where someone is performing
+a DNS query to the Google DNS
+server another useful utility is the
+netstat utility netstat is Network
+statistics and it allows us to see who
+we're communicating with over the
+network and who might be communicating
+with us netstat-a will show you all
+active connections that are coming to
+your machine and the ones that you are
+making to a separate device netstat DB
+is used in window Windows to show you
+the Windows executable that is being
+used to make that network connection and
+then netstat dasn will show you the same
+information but it will only show you IP
+addresses it will not resolve any names
+from a DNS server I'm in Windows so
+let's run the netstat command there we
+go and we can see an output that shows
+us the protocol that's in use the local
+IP address and on my computer the local
+IP address is
+10.11.12 this also includes the TCP port
+number associated with this session and
+you can see all of the IP addresses that
+I'm communicating to in each one of
+these lines some of these are
+established States some of them are
+closing out and some are waiting we
+might want to see what executables are
+being used for all of these so we can
+use the netstat command with the dashb
+associated with it and you can see the
+output is slightly different you can see
+some of these are being used by service
+host.exe some of them are the Microsoft
+Edge webview 2.exe we have the HX
+outlook.exe and there's even an Apple
+mobile devic service.exe let's start up
+a application such as Google Chrome
+we'll have this start up on our screen
+and let's run the n-b command again and
+you'll start to see more information
+will appear in fact here is the
+chrome.exe showing us exactly what IP
+addresses we're communicating to and we
+can see the status of every single one
+of those sessions
+when you first sit down at a computer to
+start troubleshooting one of the things
+that might be useful to know is the
+local IP address configuration of that
+device and depending on the operating
+system you're using there might be a
+different command that you might want to
+use for example if we wanted to Ping our
+local Gateway it would be useful to know
+what the IP address of our local Gateway
+happened to be if you're in a Windows
+environment you would use the IP config
+command if you're in Linux or Mac OS you
+can use if config and a newer version of
+that command is the IP address command
+two words and shows you similar
+information about your IP address so
+I've now sat down at a Windows computer
+and I'd like to know more information
+about the IP address configuration the
+command we will use is IP config this
+will show me IPv6 information I also
+have ipv4 addresses a subnet mask and a
+default gateway and now I can perform my
+troubleshooting based on these IP values
+but we might want more details about how
+this system has been configured so we
+will use ip config /all to get more
+information you can see it starts with
+the name of the device how the node type
+is configured this is a Windows option
+and then we do have information about
+the MAC address the adapter card that's
+in use IP address information even the
+DHCP details associated with this config
+along with the DNS servers that have
+been configured for this system in Mac
+OS Linux you can run the if config
+command and I can specify an adapter
+name in this case en0 is my ethernet
+adapter this provides information
+showing the MAC address IPv6 address the
+ipv4 address on this device it's 10.
+1.10.2 249 and other details about the
+configuration of this specific ethernet
+adapter knowing the IP address of a
+device is useful but sometimes it's also
+useful to know the MAC address of a
+device this can be especially useful if
+you're trying to look up this device in
+the MAC address table of a switch one
+way to view this information is
+contained within your local ARP table
+this is the address resolution protocol
+cache and it's one that is kept on every
+local machine to view this we would use
+the ar- a command this will list out the
+IP address and the MAC address
+associated with those IP addresses on
+your local subnet this command Works in
+Linux Mac OS and windows so you can try
+it on your own system I'm going to
+perform in rp-a and we can see the IP
+addresses and Mac addresses that have
+been resolved previously and are stored
+in my ARP cache there are some IP
+addresses on my network that are not in
+the cache that's because I've not
+communicated to those devices lately so
+let's communicate to one of those
+devices I'm going to communicate to
+10110 234 you'll notice that is not in
+my ARP cach currently so we'll simply
+ping
+10110 234 four and we get a response
+back from that device I'm going to
+finish that ping and then let's perform
+the ar- a again you'll notice that
+10.1.1 10.23 4 is now in the ARP cache
+and I can see the MAC address associated
+with that specific IP because it has now
+been stored locally in my ARP cache

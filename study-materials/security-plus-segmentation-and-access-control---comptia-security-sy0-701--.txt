@@ -1,0 +1,155 @@
+in order to limit the scope of any type
+of security event it may be useful to
+segment your network into smaller pieces
+this might be through physical
+segmentation where you are physically
+separating devices it might be logical
+segmentation we often see that in
+network switches with VLS or virtual
+segmentation which is very common in
+cloud-based or virtual machine
+architectures sometimes we separate
+these systems to get the best possible
+performance especially if it's a high
+band with applications we might dedicate
+a single subnet just for this high
+bandwidth application so that it can run
+as efficiently as possible and anything
+that's done by any other user on the
+network would not have any effect on the
+throughput of this app sometime our
+segmentation is very strategic
+especially from a security perspective
+for example you might have a rule that
+says users should not be communicating
+directly to a database server instead
+they should be communicating to an
+application and the application server
+should be communicating to the database
+server in this situation there might be
+a firewall or some type of control list
+that would limit who might have access
+to a particular server and some
+segmentation is required perhaps due to
+a mandate or set of policies and
+procedures for example if you're running
+PCI compliance that's the payment card
+industry which means you're protecting
+credit card numbers you might be
+required to keep the credit card
+information completely separate from any
+other part of your
+network it can be easy to implement this
+separation using an ACL or Access
+Control list this provides a way to
+allow or disallow traffic through your
+network operating systems or other
+Technologies so you might have a
+grouping of different categories like
+Source IP address destination IP address
+port numbers time of day or any other
+detail that you can use to control
+traffic through a device this access may
+be all based on IP address where certain
+IP addresses can access other IP
+addresses and there may be blocks
+installed for other ranges of addresses
+or maybe it's based on the user if it's
+a regular user they might not have
+access but if you are an administrator
+or a super user you may have the proper
+access to that service it's also
+important when configuring these ACLS
+that you take all different connections
+into account you don't want to create an
+ACL that would effectively lock you out
+from building other acl's in that system
+here's an example permissions that you
+might want to allow or disallow using an
+access control list for example you
+might have a rule that says that Bob can
+read files on a particular resource Fred
+can access the network and then James
+can access the network
+192.168.1.0 24 using only the TCP ports
+80 443 and 8088 you can see this last
+control is relatively specific which
+allows the administrator to create very
+granular controls for access ACLS are
+also found in our operating systems if
+you've ever configured permissions to a
+particular folder or file that's in an
+operating system or you've created
+groups and added users to those groups
+then you've configured an access control
+list another form of segmentation is
+based on the applications you use
+themselves and many operating systems
+allow you to create an application allow
+list and deny list many organizations
+will use these lists to ensure that only
+legitimate applications can be used on
+those systems and it would block the use
+of any other app this would include
+blocking of malicious software such as
+Trojan horses malware viruses and others
+you would generally set a rule or a
+security policy that would allow or
+disallow a particular application to run
+in that operating system there are two
+different philosophies for allow lists
+and deny list you might set up an allow
+list where nothing runs unless it is
+specifically approved which means you
+would have a relatively restricted list
+only what's on the list is able to run
+on that system in other environments you
+might have more flexibility with a deny
+list deny list works the opposite of an
+allow list where nothing that's on that
+bad list can be executed on that system
+that means that everything can run
+except the things that you have
+specifically written as being unable to
+run on that system a good example of a
+deny list is the anti us or anti-malware
+systems that you're already using which
+allow everything to work through your
+system until it identifies a known bad
+virus or malware and then it will block
+that particular application from working
+Windows provides extensive controls for
+allowing what applications can run and
+what applications are denied this can be
+done with an application hash where an
+application can be identified not with
+its name but with a very specific hash
+associated with the application itself
+that means if if something changes with
+the application the hash will no longer
+match and it will not apply to this
+particular rule some applications are
+digitally signed and so there's a
+certificate you can reference on who
+signed this particular app so if an
+application is from Microsoft Adobe
+Google or any other organization with a
+signed app you might set a rule that
+says if it's digitally signed it's
+allowed and if it's not digitally signed
+it won't run on the system Windows also
+allows you to allow or disallow
+applications that are running from a
+very specific area of the drive and if
+an application is running from a
+different directory on that system you
+can configure a rule to prevent that
+application from running and of course
+Windows has the concept of network zones
+where you might be on a private Network
+or a public network and you can set
+rules inside of Windows that would allow
+certain applications to work depending
+on what zone you happen to be located in
+at that
+time

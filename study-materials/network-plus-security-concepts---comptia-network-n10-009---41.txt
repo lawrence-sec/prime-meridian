@@ -1,0 +1,347 @@
+in it security there are a number of
+different topics to consider and in this
+video we'll look at some of those
+security Concepts we'll start with the
+categorization of data if data is
+transferred across the network we refer
+to that as data in transit you'll
+sometimes hear this referred to as data
+in motion anytime you have information
+that's being transferred over a wired or
+wireless network you have data in
+transit most of the devices that we use
+in our Network infrastructure are
+designed to get information from one
+place to another and not necessarily to
+protect that data when you're sending
+information through a switch a router or
+some other network device its primary
+process is to forward that traffic to
+the next location the requirements for
+security would come from other devices
+such as firewalls or intrusion
+prevention systems these are systems
+that are designed to monitor the traffic
+decide if traffic should be forwarded or
+blocked and then look inside the traffic
+itself to make sure that none of that
+information is malicious we might also
+include additional security to data in
+motion through the use of encryption two
+very common encryption types are TLS
+which is transport layer security and IP
+secc which is Internet Protocol
+security if you're saving information to
+a hard drive an SSD or any other type of
+storage device we refer to that data as
+data at rest one common way of
+encrypting data at rest is to encrypt
+the information as you write it to the
+storage drive this means that if someone
+gains access to that storage Drive they
+would have the encrypted files but they
+would have no idea what that information
+actually is some different types of data
+at rest encryption would include the
+entire disk using full disk encryption
+you might encrypt just one single part
+of a database or an entire database of
+information or you might encrypt
+individual files or folders in the file
+system of that oper operating system and
+in most cases we're applying different
+security policies to the data that we're
+storing on these devices for example we
+might create access control lists or
+ACLS that would determine what users
+have access or no access to a particular
+type of data this would allow the system
+administrator or the owner of the data
+to determine who has access to that
+information these security controls are
+usually part of our operating system and
+we can apply it to any data that might
+be at rest
+one of the challenges with security on
+any network is maintaining the control
+and management of all of the different
+encryption keys and certificates we
+refer to the policies and the control of
+all of these different certificates as a
+public key infrastructure or pki if
+you're creating digital certificates
+encryption keys or any other type of
+digital security then you'll want to
+rely on the policies you configure as
+part of your pki as you can imagine a
+pki is not a small part of your security
+infrastructure there's usually quite a
+bit of work that goes into the creation
+of a pki and there's often changes and
+updates to that policy as time goes on
+many organizations will begin building
+out their public key infrastructure when
+they start adding encryption keys to web
+servers or signing public certificates
+to individual users or individual
+devices the pki then becomes a
+requirement for maintaining and managing
+all of these different security assets
+for the entire
+organization one challenge that many
+organizations have is applying a level
+of trust towards a user or device one
+way that they can assign this trust is
+through the use of a digital certificate
+digital certificates are often digitally
+signed by a central certificate
+Authority and that's what adds the trust
+to these individual certificates that
+are then deployed to users or devices
+instead of having a centralized
+certificate Authority some organizations
+will use a more distributed form of
+trust called a web of trust with a web
+of trust if a trusts B and B trust C
+then a can also trust see this process
+of creating certificates a certificate
+Authority and then providing digital
+signatures for those certificates is
+often built into Central operating
+systems for example the certificate
+process is built into the Windows domain
+services but there are many third-party
+options that you can use for many
+different operating
+systems one of the more common ways to
+provide this trust in an organization is
+through the use of a certificate
+Authority this is a centralized
+Authority that all certificates start
+from this means that if anything is
+signed ultimately by this centralized
+Authority you can trust it anywhere in
+your organization some organizations
+will build their own certificate
+Authority within their organization but
+other times they may use a third party
+as an independent Authority whether the
+ca is a trusted internal resource or
+it's a trusted third-party resource the
+ca is responsible for the trust that we
+have in all of the certificates that we
+create and since the certificate
+Authority is digitally signing all of
+these certificates anyone can examine a
+certificate see who signed the
+certificate and then determine if that
+is a signature that they can therefore
+Trust on the Internet it's useful to
+have a third party provide trust that
+way anyone in the world can reference
+that certificate Authority and know that
+'s a trust associated with those digital
+certificates but if all of your devices
+and users are within your own
+organization you could create your own
+certificate Authority this means your
+internal certificate Authority will be
+self- signing all of the certificates
+that are created this means you can get
+public off-the-shelf software to build
+your own certificate Authority and then
+you can start signing your own
+certificates within your organization
+and as long as all of the users in your
+organization can trust the ca they can
+there trust any of the certificates
+created by that same
+CA when we store important data on our
+systems we need to be sure that only the
+authorized users are able to access that
+data this is something that is a common
+issue for all the types of data that we
+use across all of the different systems
+that we're accessing that data from this
+is Complicated by the fact that this
+data could reside anywhere it could be
+on our local computer it could be on a
+central web server or it could be stored
+in the CL Cloud this data might also
+need to be accessed by many different
+individuals that have different rights
+and permissions to that data some of
+this data may need to be accessed by
+customers or contractors or you may need
+internal users to gain access to that
+data we also need to be sure that we
+have controls in place to prevent any
+unauthorized users from Gaining access
+to that data the process of managing the
+permissions and access to that data is
+referred to as IM am or identity and
+access management this involves creating
+an access control to that data to ensure
+that only users access the information
+that they really need to perform their
+job we need to be sure we have proper
+authentication in place so that we can
+verify that that's the user accessing
+the data and we need to be sure that we
+provide authorization for the data once
+those users gain access to the network
+and of course there needs to be a way to
+track and monitor access to the data so
+that we're able to audit and understand
+exactly who access that information at
+any particular
+time an important characteristic of
+identity and access management is the
+concept of least privilege least
+privilege is the concept that a user
+will only have the rights and
+permissions that are necessary to access
+the information they need to perform
+their job function and no additional
+access would be granted this is one of
+the reasons that we don't assign
+administrator access to every system
+that's on the network we need to be sure
+that we are limiting how much access a
+user might have to an application or to
+data and we need to be sure that the
+applications that we're using have just
+the right access for that particular job
+function if you give users too much
+access to data for example give everyone
+administrator access then everyone would
+be able to access any type of data at
+any time and be able to control it in
+any way they would like that would
+obviously be a significant security
+concern and it's one of the reasons that
+least privilege is an important Concept
+in identity and access
+management one way to provide this lease
+privilege is through the process of a
+role-based Access Control most
+organizations will separate individuals
+into separate roles you might have a
+shipping and receiving department there
+might be a manager of that shipping and
+receiving department and there might be
+a vice president that manages not only
+shipping and receiving but also the
+accounting department each one of those
+users has a particular role within the
+organization and their rights and
+permissions will be different depending
+on their role with role-based access
+control the administrator of the network
+determines what type of role an
+individual might have and what
+permissions might be associated with
+that individual role the administrator
+would then assign users to each of those
+role definitions so there might be a
+shipping and receiving role for the
+people performing those functions there
+might be a manager role for shipping and
+receiving and there might be a vice
+president role that handles many
+different aspects of the data across the
+entire organization in Windows we
+provide this role-based Access Control
+through the use of groups we would
+create a separate group for each one of
+those different roles and then we assign
+users to those windows
+groups another way to limit access to
+data is through the use of a geographic
+restriction this means that we would
+identify where a user happens to be and
+then we can assign different rights and
+permissions based on where they may be
+located this can sometimes be done with
+an IP add address if somebody's
+connecting over a VPN they might be
+assigned an internal IP address and we
+might provide them with the rights and
+permissions that are expected for
+someone that's connected to our local
+network but if they're connecting from a
+different state or different country we
+might want to change the type of
+permissions that user might have IP
+addresses are not always the most
+accurate so there might be other ways to
+determine a geographic location for a
+user for example we can use GPS or the
+global positioning system to determine
+where a person might be in the world if
+GPS is not available we might want to
+use the name of the wireless network
+where someone's located and often we can
+determine the location of the access
+point to determine where the user might
+be once we know a user's location we can
+then start assigning rights and
+permissions to where that user may be
+located we refer to this as Geo fencing
+geofencing takes into account where a
+user might be and then allows or
+disallows access to information based on
+a physical location for example certain
+data within the organization might be
+very sensitive and you may only be able
+to view that information if you happen
+to be located in the corporate
+headquarters building itself if you're
+outside of the building you may not have
+access to that
+data many organizations will supplement
+their physical security through the use
+of cameras sometimes refer to this as
+CCTV for closed circuit television this
+is a very common security technology and
+one that is implemented in nearly every
+organization
+some of the more modern cameras can not
+only provide motion detection so you
+know if anyone happens to be in a
+particular area but they might also be
+able to read license tags or be able to
+identify a user based on facial
+recognition usually there are many
+different cameras deployed in locations
+around a building or a campus and all of
+those cameras are networked back to one
+central point where they can store this
+information over a long period of time
+this allows the administrator to go back
+in time and view every video feed that
+may have captured information during a
+particular time frame and if we're
+talking about physical security we're
+also going to talk about door locks a
+conventional lock uses a physical key to
+be able to gain access and it may
+include additional security through the
+use of a deadbolt larger environments
+might have electronic readers where you
+would put in a personal identification
+code to gain access to a door or there
+might be a token based access such as
+the RFID badge associated with this this
+electronic reader or we might not use
+the badge at all and instead focus on
+characteristics of a person such as a
+handprint a fingerprint or a retina scan
+and in some cases we combine these
+together to create multiple factors of
+authentication so you might use a badge
+to be able to badge in but then also
+include a personal identification number
+that someone would not have if they
+simply found your badge lying on the
+ground

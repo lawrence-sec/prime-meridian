@@ -1,0 +1,253 @@
+if you've ever been away from the office
+but you needed to connect back to
+resources that are on your corporate
+network but you needed a secure form of
+communication you probably used a VPN or
+virtual private Network a VPN encrypts
+all of your private data and sends it
+across a public network such as the
+internet this is often managed with a
+VPN concentrator this is a purpose-built
+device that is designed to be the
+endpoint for everyone to connect to
+using this encrypted link on today's
+networks we often will use Next
+Generation firewalls or a similar type
+of firewall to provide this VPN inpoint
+capability although it's very common to
+find a VPN concentrator integrated into
+a hardware based firewall or Standalone
+concentrator Appliance you might also
+see VPN concentrators built as software
+Solutions and very often there is
+software that's installed on the client
+workstation that is able to connect and
+authenticate to the VPN concentrator
+often the software is even integrated
+into the operating system itself here's
+a common description of an encrypted
+connection using a virtual private
+Network in this example we're using a
+remote user that is outside of the
+corporate Network there is a VPN
+concentrator that provides that
+conversion between the outside and the
+inside Network and finally we have the
+resources available on our corporate
+Network the red section of this diagram
+is the encrypted tunnel itself all of
+the traffic sent from the remote user to
+the VPN concentrator is all encrypted if
+someone was able to capture this traffic
+traversing the internet they would have
+no idea what was contained within those
+packets the VPN concentrator is
+responsible for decrypting all of this
+traffic and sending it in the clear into
+our corporate
+network but what's really happening
+inside of those packets that's being
+sent back and forth and how are we able
+to encrypt all of this data yet still
+find a way for that data to make it
+across the network to the VPN
+concentrator for example we'd like to
+send some data into our corporate
+Network and of course over the network
+we'll need to include an IP header that
+describes where this traffic is going
+obviously this IP header in data is not
+encrypted there's no Security based on
+that communication so we need to encrypt
+that data before sending it over the
+network but obviously if we're
+encrypting this original Ip header in
+data we will need additional headers
+included with this to be able to point
+this information to the correct
+concentrator IP address we'll accomplish
+this by encrypting our original
+information and embedding it or
+tunneling it within other headers in
+this example we're encrypting the IP
+header and the data to be able to tell
+where this encrypted data begins and
+ends we will wrap around this an IPC
+header and an IPC trailer and of course
+to be able to point all of this
+information to the appropriate IP set
+concentrator will add a new IP header
+that provides that information to the
+routers along the way so in this example
+we have now encrypted all of our private
+information but we've wrapped around it
+the details necessary to send it across
+this IPC tunnel once this packet is
+received by the IP SEC concentrator on
+the other side the concentrator removes
+the IP header the IP SEC header the IPC
+trailer and then decrypts the IP header
+in data and sends the traffic on its way
+if you're using a laptop a desktop or
+some other type of Mobile in device to
+be able to communicate across this VPN
+you're probably using an SSL or TLS VPN
+this of course stands for secure sockets
+layer or transport layer security this
+is the same protocol that we use to
+encrypt web server traffic so it runs
+over TCP Port 443 and because we're
+using the same port numbers that are
+commonly used for encrypted web
+communication it very easily easily
+passes through the existing firewalls
+that we have on our networks an sslvpn
+is commonly used for remote access
+communication from a single device this
+is usually a VPN client that's installed
+onto the workstation or is included as
+part of the operating system to log into
+the VPN we would use the login
+credentials that we might normally used
+we're not forced into using certain
+types of credentials such as digital
+certificates or shared passwords but we
+can use those for an sslvpn if we'd like
+and there are even VPN clients that can
+run inside of a browser itself so you
+wouldn't even need to install additional
+software to be able to take advantage of
+VPN
+connectivity an sslvpn is the type of
+VPN that you'd commonly use to
+communicate from a laptop over a public
+network like the internet to a VPN
+concentrator that VPN concentrator would
+then decrypt the traffic and send it
+into our corporate Network some sslvpn
+can be configured as always on so when
+you start up your laptop it is
+automatically connecting to the VPN
+concentrator and anytime you send any
+traffic from the laptop it will always
+be secured using this
+sslvpn some organizations will build an
+encrypted tunnel between remote
+locations so everyone at a remote site
+will be able to communicate back to the
+corporate network over an encrypted
+channel that is provided automatically
+through firewalls acting as VPN
+concentrators in this scenario it's the
+firewalls that act as the VPN endpoints
+so you don't need any additional
+software or configurations on any of the
+devices on either side you simply send
+traffic normally to the remote site and
+in between the encryption process occurs
+automatically you'll often hear of
+sslvpn referred to as remote access vpns
+and these types of ipsec VPN as sight to
+sight
+vpns a relatively new form of wide area
+networks is called an sdwan that stands
+for softwar defined networking in a wide
+area network this was specifically
+designed to address some of the
+challenges we have with connecting to
+cloud-based applications over the years
+things have changed from very large data
+centers within our own buildings to data
+centers that are in the cloud and can be
+located anywhere sdwan is designed to
+address some of these changes instead of
+having all of our users communicating to
+a set of servers within our building in
+our data center we now have yary
+networks that are designed to be
+flexible enough to allow application
+access from wherever we happened to be
+here is the traditional design of our
+data centers there would commonly be a
+large data center that contained all of
+our applications web services email
+databases and everything else and we
+would have yary network connections from
+all of our remote sites that allowed us
+to communicate back and forth to that
+centralized data center but obviously
+the cloud has changed where we access
+those applications so instead of having
+that centralized data center we've moved
+our databases our web servers and our
+email into the cloud and in some cases
+into multiple clouds with different
+services in each one of those clouds
+this certainly creates a challenge from
+a network engineering perspective
+because all of these remote sites would
+therefore need to communicate to the
+data center but then from the data
+center out to the cloud this obviously
+creates a networking effici because it
+takes multiple hops to get access to
+those centralized applications with
+sdwan we are of course still able to
+communicate to the data center but now
+we can build out Dynamic networks that
+are able to communicate to our web-based
+applications now individuals at a remote
+site that are communicating to databases
+or web-based applications can use the
+appropriate network connection over the
+sdwan so now we have more efficient ways
+to communicate to these web-based
+applications but how can we integrate
+our secure VPN Technologies which
+normally would only communicate to a
+single concentrator and somehow expand
+those to be able to use these
+cloud-based infrastructures we do that
+by using secure access service edge or
+sassy you can think of sassy as the next
+generation of VPN that allows us much
+more efficient ways to communicate to
+these web-based applications along with
+our applications all of our security
+Technologies are now also going to be
+based in the cloud and they're generally
+going to be next to the services that
+we're planning to use we would then
+install sassy clients on all of our
+devices so that we're able to
+communicate into the cloud securely and
+protect all of the data traversing our
+networks so if you are a corporate
+office a home user or a mobile user you
+would simply use that Sassy connection
+into the cloud and from there were able
+to securely jump to any cloud-based
+service that we might
+need deciding on a secure communication
+method and the implementation of that
+technology can be challenging and some
+organizations will use one or more of
+these together they might use remote
+access vpns or sslvpn for in user
+communication and continue to use ipx
+sight to sight vpns for all of their
+remote locations to provide a seamless
+connection for cloud-based applications
+an organization might Implement sdwan
+and to provide security for all of this
+communication over the sdwan an
+organization can Implement sassy there
+are of course advantages and
+disadvantages to all of these different
+communication Technologies but depending
+on the implementation of the application
+and the connectivity that's being used a
+Security administrator might choose to
+use one or more of these to protect
+Network
+traffic

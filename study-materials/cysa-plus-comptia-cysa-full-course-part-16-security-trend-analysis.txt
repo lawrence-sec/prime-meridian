@@ -1,0 +1,286 @@
+Trend analysis is a very simple but very
+important concept for the CYOP plus exam
+and that's precisely why we're covering
+it in a separate video right now. And
+it's important because just when you
+think that you're in control, that's
+when something new happens and surprises
+you. And surprises are not something
+that you wish for every single day when
+you work in cyber security. So let's
+learn in a couple of minutes how not to
+focus just on the details but also on
+the bigger picture.
+[Music]
+So trend analysis is a way to look at
+the past, look at some information from
+the past, try to learn from it, and then
+try to infer, to deduce, to predict
+somehow the future. Now, trust me, this
+is going to work much better with
+security and computer systems than it
+does with the lottery or the the stock
+market.
+It's basically a way to be proactive and
+try to predict what might happen which
+is completely different from being
+reactive. And being reactive is what
+we've seen when we implement incident
+response. So this is not incident
+response. This is trend analysis. And
+even if it sounds a bit metaphorical,
+trend analysis is not just about
+predicting the future, but it can also
+help you understand the past better.
+Because after an event has happened, has
+passed, as time passes on, you might be
+able to find more information, gather
+more information about that event. And
+that information can lead you to better
+understand what happened in there, what
+kind of vulnerabilities were exploited,
+and basically what you would need to do
+in the future to avoid similar
+situations like those. All right, but to
+build a trend out of some metrics, we
+first need to collect those metrics. So
+what exactly do we need to look for?
+Well, we can start by looking at
+frequency based metrics. For example,
+how often do login failures happen in
+our network in our systems or how often
+the network traffic spikes and how big
+is the spike right or in which work days
+does it happen at which hours and so on.
+Uh we can also look for CPU usage spikes
+on workstations for example as well.
+Also on the frequency based metrics we
+can look for the number of errors. How
+many errors are generated in a normal
+day, per minute, per hour or per day by
+a specific service or by a specific
+application. Generally, you gather this
+information or use a tool specialized
+for this and you calculate the mean and
+look for outliers. That is points with
+very high or very low deviation from
+that mean. Those are the points that are
+mostly going to interest you because
+those are going to be the exceptions.
+Then we can start looking at volume-
+based metrics. And volume based
+basically means instead of how often an
+event happens, just look at how much of
+a specific item of a specific resource
+is consumed. For example, how many logs
+are generated normally during one day or
+how many events, login, logout events,
+file access events or anything else that
+you can monitor are generated in a
+specific time frame. Network traffic
+again a very important metric. We need
+to understand how does network traffic
+normally look like. what is a normal
+volume of traffic during a workday. And
+logs are always a very rich source of
+information, not just because they
+contain a lot of useful information, but
+also because we can monitor how often
+our logs generated. If our logs grow in
+volume faster than they previously did,
+then that's a good indication that
+something major has happened inside of
+the network. Maybe we have some um some
+additional traffic, some additional
+applications that we know nothing about.
+Maybe we're infected with malware that
+tries to access and brute force some
+login somewhere in the network.
+Nevertheless, a sudden increase, a
+sudden spike in log generation in any
+system, in any network is always a very
+good reason to investigate. And of
+course, there is going to be a bit of
+work here because we're not just going
+to collect a bunch of information and
+immediately infer something out of it.
+We're going to try to normalize that
+information and try to group similar
+events together so that we can look for
+suspicious events that were recorded
+outside of what we consider to be
+normal. So standard deviation is going
+to specify how close are values in a set
+to their averages or their means. Now
+similar events of course can be
+statistically grouped together because
+that's going to be the best way to
+immediately detect those outliers that
+might warrant some investigation. And an
+interesting u idea is the fact that
+trend monitoring can also help you get
+more information out of your alerts out
+of the system that are generating alerts
+non-stop. Because a very big problem
+with most monitoring systems that we
+have in our networks is that they
+generate just too much information.
+There are just too many alerts. We don't
+have enough manpower to process them all
+and to filter the noise from the useful
+information. So what usually happens in
+these situations is one of these two
+scenarios. First the security admins try
+to tune down the sensitivity of those
+alerts so that they don't get
+overwhelmed. They don't get so high a
+number of alerts which makes of course
+uh smart attacks like those slow or
+sparse attacks go unnoticed simply
+because they don't generate any alerts
+anymore due to their uh low sensitivity
+of any sensors or simply they get
+ignored because nobody has the time to
+look through 50,000 alerts every single
+day if or maybe there's some useful
+information in there. So another I would
+say perhaps unexpected thing to track
+might actually be how many alerts were
+actual security incidents and perhaps
+going even a bit deeper into what was
+the incident response time for those
+events. In other words, use trend
+analysis to determine how well you are
+at performing your cyber security job.
+Now, that might be useful, of course,
+for your daily cyber security business,
+but also for your next evaluation or pay
+raise. Why not? And don't forget that
+trend analysis can also help you out
+tremendously with audits and preparation
+for compliance audits. Now, if you
+periodically scan your network to
+determine any trends in performance and
+security, well, then you will already
+have everything ready for a security or
+compliance audit when time comes. You
+will already know how well you will
+comply. And generally, at least from
+time to time, try to compare any
+security trends that you find within
+your organization, your company, your
+network with some industry standards or
+information that's from the outside
+world. Basically, try to find out if
+there's anything else happening out
+there that applies to you and to other
+companies similar to you. Try to
+validate those trends that you've
+detected within your company and see if
+they fall into the normal ranges, the
+expected ranges for other companies like
+yourself. Now, this information can come
+from a number of sources and there's no
+single centralized location where you
+can just go and compare your trends with
+everybody else other than Facebook
+perhaps. But this is going to be about
+cyber security. So one first destination
+you can uh you can pick is going to be
+for example the SAS institute website
+which provides a lot of security
+resources and a lot of information about
+any vulnerabilities that are currently
+out there. Another one is dark reading
+uh an interesting source of article
+about new hacks and exploits out there.
+Microsoft is uh publishing a defender
+security intelligence report and
+actually not just Microsoft but any uh
+security vendor out there is going to
+periodically publish their own uh white
+papers, their reports about the current
+trends and current state of affairs in
+the world of cyber security. For
+example, Fire Eye with a list of recent
+zeroday exploits, threat intelligence
+reports as well. Alien Vault as usual
+they provide a lot of information in a
+threat intelligence digest.
+Semantic also provides you with a lot of
+security intelligence secure works and
+of course Cisco which hosts Talos
+intelligence going to provide you with a
+lot of information about current
+vulnerabilities out there. Now most
+vendors you're going to see that they
+pretty much publish the same
+information. Most vendors know about the
+same threats out there. And that's not
+necessarily a bad thing because, you
+know, validating the same information
+from multiple sources, it's always going
+to make it more reliable. But keep in
+mind that many of them are also
+publishing this information to promote
+their own security products. Well,
+that's also not a very bad thing because
+basically, you know, you're going to
+find out about a vulnerability or some
+type of attack that is magically
+mitigated by a specific box or security
+solution from vendor X, Y, or Z. That's
+not a bad thing, but try to filter out
+the marketing information in there and
+try to understand what is relevant to
+you and to your cyber security business.
+Now, of course, there are drawbacks to
+trend analysis as well. And the number
+one actually the only drawback to trend
+analysis I would say is the fact that
+it's very timeconuming requires a lot of
+resources requires a lot of dedicated
+effort. So there are automated tools
+that can at least partially do this job
+for you and number one on this list is
+going to be I think it's probably the
+third time I'm mentioning this during
+this training and these are going to be
+the seam solutions the security
+information event manager solutions.
+They can help you not just with
+collecting that information because
+that's what seam solutions do by
+default, but they're also going to help
+you plot some previous historical trends
+and also try to infer some information
+and run some what if analysis in order
+to predict some future trends at least
+in the very near future. And as I
+usually say during these trainings,
+don't forget about the people. I know
+you don't normally forget about them,
+but keep them in mind for trend analysis
+as well because there's another type of
+trend. How wellrained is your staff? How
+well trained are your employees? Because
+people come and go, technologies change,
+infrastructure changes. The level at
+which your staff, your employees are
+prepared for facing a cyber attack might
+not be the ideal one that you want to
+believe. So try to periodically train
+your employees in cyber security and
+test them periodically as well with at
+least a small fishing campaign just to
+see where you are right now and try to
+avoid any unpleasant future surprises.
+So the bottom line here is a short one.
+Understand trend analysis, why it is
+useful, what type of metrics you would
+normally look for, understand why a seam
+solution can help you out with trend
+analysis, and don't forget to like,
+subscribe, and good luck on the exam.
+Thank you.
+[Music]

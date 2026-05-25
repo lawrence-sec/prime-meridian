@@ -1,0 +1,321 @@
+if you were to somehow get inside of the
+networking cable and see what was going
+back and forth over that connection you
+would see there was a lot of different
+activity going on across many many
+different systems all of these are
+designed to focus on specific functions
+for example we may need to get a piece
+of data from our Network to a network
+that is on another part of the world or
+we might need to access A system that is
+already located somewhere else and
+provide technical support or be able to
+share a screen there's also a need to
+have traffic Management on our Network
+so that certain applications have a
+higher priority than other applications
+and lastly we need to be sure that all
+of our systems are up and available and
+it may take specialized protocols to
+make sure that that occurs every step
+along the way one way to speed up the
+process of getting access to data is
+through the use of a CDN this is a
+Content delivery Network and as the name
+implies it is designed to provide a way
+to get data very efficiently from one
+Central Point to an in user these are
+often set up in geographical areas so
+there might be a CDN server in North
+America South America Africa Asia other
+parts of the world and you're able to
+cach information at each one of these
+points it takes time to get data sent
+from one part of the world to the other
+so if you can have all of your North
+America users access the North American
+CDN it's much faster than having them
+all go out to a centralized server that
+might be located in Europe so if you're
+watching this video on YouTube or on the
+Professor Messer website you're using a
+CDN right now it's a way for very small
+or very large sites to be able to
+distribute their data to users all over
+the world and make sure that that data
+is as accessible and efficient as as
+possible for those of you that work
+outside of your corporate facility or
+perhaps do a lot of work from home then
+you're probably already familiar with a
+virtual private Network or a VPN this
+allows you to connect to a remote
+Network while sending all of this data
+encrypted across the network it's a very
+secure way to transfer data even across
+networks that would be inherently
+insecure such as the public internet
+vpns often use a device called a
+concentrator or a headend device to be
+the central connection point for all of
+the users who are accessing that VPN
+this is often a purpose-built appliance
+that's designed to do high-speed
+encryption and decryption of network
+data in real time so that you can have
+many people being able to send secure
+data across the network decrypt all of
+that data send it to the inside of the
+network and then reverse that process to
+get the response back to the user this
+can be a standalone device but very
+commonly we integrate this VPN
+concentrator function within a Next
+Generation firewall itself because of
+the encryption and decryption process
+required to perform this VPN
+concentration we usually will use a
+purpose-built appliance or piece of
+Hardware to be able to do this that
+provides very high throughput and can
+support hundreds or even thousands of
+users simultaneously but if you have a
+smaller Network you may not need a
+purpose-built appliance and there are
+many VPN concentrators that will run as
+software on an existing operating system
+you may have to install a specialized
+piece of software to be able to use a
+manufacturer's VPN although there is VPN
+software that does ship with Windows Mac
+OS and Linux operating systems so that
+you can connect to many different kinds
+of vpns using that generic
+software not all applications are are
+designed to run simultaneously on a
+network and certainly some applications
+may have a higher priority to your
+organization than other applications for
+example there might be a real-time audio
+or video stream that has a higher
+priority than a file transfer because of
+these requirements it's very common for
+Network administrators to provide some
+type of prioritization to these
+applications this is often done through
+a quality of service or qos
+configuration you might also refer to
+this as as traffic shaping or packet
+shaping this allows the administrator to
+control what type of applications can
+flow through their Network usually based
+on bandwidth usage or particular data
+rates this might allow your real-time
+applications to have full control or
+access to the network and put a lower
+priority on other applications that may
+Simply Be transferring files to control
+this quality of service you may need to
+make configuration changes inside of a
+firewall a router or a switch
+these devices might have a pre-built
+list of applications and might also
+allow you to add your own applications
+to the list and at that point you can
+decide what priority the applications
+might have relative to everything else
+that's running on the
+network one of the challenges we often
+run into with technology is that it's
+very good at performing a task and often
+it can perform these tasks over and over
+and over again without any type of human
+intervention unfortunately this could
+also put a device into a state where
+it's performing the task over and over
+and over again and never finds a way to
+complete or end that particular task for
+that reason we've often built in
+different functions with our protocols
+so that we can recognize when a task may
+be going on too long and simply remove
+that task from the network one common
+way to provide this identification is
+through the use of a time to live or TTL
+A Time To Live is effectively some type
+of timer this timer may be based on the
+time of day or it may be based on the
+number of iterations that a particular
+task completes once that timer hits zero
+we can then have that task stop what
+it's doing or we can drop that task from
+the network there are many different
+cases for a time to live one is a packet
+that is constantly looping between
+different routers we might want to have
+that packet automatically dropped if
+that Loop occurs a certain number of
+times another good example of a time to
+live might be to clear a cache where we
+might access a website have that website
+stored in a cach and then that cash is
+only available for the next 60 seconds
+or number of minutes when that timer
+hits zero the cach is cleared and the
+next time that website is accessed you
+would have to go all the way out to the
+site to be able to bring that
+information back at which point that is
+placed in the cache and another timer
+starts another example of using a time
+to live to stop traffic that is looping
+around your network is through the use
+of a routing Loop this is a really good
+example of where you might have router a
+thinks the next toop is router B and
+router B thinks the next hop is router a
+and what you'll find is that the packet
+goes back and forth between those
+routers over and over and over again if
+you were going to perform a trace route
+you would see this Loop in the trace
+route itself where the route goes to
+10.1.1.1 then it goes to 10.2 10.2 then
+back to 101 1.10.1 then back to 10.2
+10.2 and so on and this will continue
+all the way through until it reaches a
+time to live this is something that does
+occur occasionally because you might
+have many different routers and those
+routers have many different routes so
+it's very easy to make one single IP
+address mistake in a static route and
+create this routing loop on your network
+for routing Loops we use a TTL field
+inside of the IP packet itself
+this allows us to identify and stop a
+loop automatically if one occurs in this
+example we have router one and router
+One's next hop is router two we've
+configured router two with a next hop of
+router one which means that this packet
+is going to go back and forth between
+these routers until something stops that
+loop from occurring fortunately we built
+functions within IP or the Internet
+Protocol to look for this Loop to occur
+and stop it if it finds the it's
+occurring over and over again in IP the
+time to live is referring to the number
+of hops that a packet will go through a
+router each time a router processes a
+packet it decreases the time to live by
+one and when that value gets down to
+zero it discards the packet effectively
+ending the loop the default time to live
+for Mac OS and Linux is usually 64 Hops
+and the default time to live for Windows
+is 128 hops so since the router is
+decreasing the time to live by one each
+time the packet goes through it's
+watching that number decrease every time
+it goes through a looped connection and
+when the time to live gets to zero the
+router drops that particular packet if
+we were to look at the frame of Ip you
+can see there's version numbers header
+length type of service total length and
+other fields within the ipv4 header the
+one we're interested in is the one
+called time to live and that's the one
+that the rout will use to determine if
+it's gotten down to zero and if it
+should discard this packet from the
+network here's a very simple protocol
+decode of an IP header you can see this
+is frame one we have the ethernet
+information with the Mac addresses for
+the source Mac address and the
+destination Mac address and this is an
+IP version for header you can see the
+source IP address and the destination IP
+address in the header itself if we were
+to break this header open and look at
+those individual fields that we
+mentioned from that previous slide you
+can see there is a differentiated
+Services field a total length field an
+identification field and right here is a
+time to live field the time to live for
+this particular packet is 58 hops so
+this packet would need to go through 58
+more routers until this got down to zero
+at which point it would be removed from
+the network in most cases our total
+number of hops between us and the
+destination that we're trying to visit
+somewhere on the the internet is usually
+around 12 to 16 hops sometimes more and
+sometimes less but that's a relatively
+small number when you consider that the
+total default time to live on Mac OS or
+Linux is 64 Hops and the default on
+Windows is
+128 hops that gives us plenty of room to
+be able to get data from one side of the
+internet to the other and not have that
+information accidentally dropped by a
+router depending on the protocol you're
+using time to live may have a different
+definition with routers time to live is
+associated with the number of hops but
+in DNS or the domain name system the
+time to live is associated with the
+total number of seconds let's take a
+scenario where we're performing a DNS
+lookup and you can do this yourself by
+using NS lookup or dig and you can
+resolve or look for the device
+www.professormesser.com and your DNS
+server will return some type of IP
+address associated with the Professor
+Messer web server inside of that DNS
+resolution is information about time to
+live this tells us how long we should
+cash this local entry on our system so
+we want to cash it for a certain number
+of seconds how many seconds well we're
+going to cach it for the time to live
+seconds the time to live is included
+with the configuration on a DNS server
+and this is the output from the command
+dig dubd . professor.com you can see
+that the answer section where the DNS
+server is providing us information says
+that the server www.professormesser.com
+has a time to live of 300 this is an
+internet address the A is for address
+and then we have three different IP
+addresses associated with my web server
+this 300 value is the one telling our
+local machine keep this IP address in
+your cash for 300 seconds if you do the
+math that is 5 minutes once that 5
+minutes has elapsed our local cache
+removes that particular resolution and
+if you want to know the IP address for
+that same server you would need to
+perform another DNS query to update your
+cache for another 5 minutes this allows
+me as the administrator of my web server
+to be able to change the IP address in
+my DNS configuration and I can feel
+relatively secure that most people will
+have an updated version of that IP
+address within 5 minutes we use time to
+live for many other protocols as well so
+make sure you look at the documentation
+for that protocol to understand exactly
+how we're measuring time to live for
+that particular protocol

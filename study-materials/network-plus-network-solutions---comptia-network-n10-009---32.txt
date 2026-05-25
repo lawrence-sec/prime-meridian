@@ -1,0 +1,186 @@
+when you sit down to troubleshoot a
+network issue you're starting with no
+information so we need to start
+Gathering more details using a number of
+different techniques these would
+commonly be things like llddp which is a
+link layer Discovery protocol on
+switches there's also CDP which is
+Cisco's version of this called The Cisco
+Discovery protocol you might also use
+scanners that are able to perform ping
+scans or Port scans of the network to
+identify devices that may be up running
+there may also be commercial Network
+scanners in place or you might use
+Simple Network management protocol some
+organizations will run these types of
+scans every night on their Network to
+gain an understanding of exactly what
+devices may be installed or this may be
+a scan that we simply do anytime we're
+trying to do some troubleshooting and
+it's not something that commonly runs
+every day but if you do have a daily
+cycle of scans and information gathering
+and you can perform reports on that
+information you may be able to build an
+interesting view of exactly what type of
+traffic is on your network and what
+devices may be sending that traffic we
+often refer to traffic analysis as a
+detailed frame by frame or packet by
+packet description of exactly the
+traffic that's flowing across the
+network often this is summarized into
+simplified views so that you don't have
+to sift through hundreds or even
+thousands of lines of frames just to
+understand what type of traffic went
+across the network for for example if
+you were looking at a detailed firewall
+log you would be able to see exactly how
+much traffic was sent across the network
+at which time frames you would know
+which IP was the source of that traffic
+flow and what IP address was the
+destination and you might also be able
+to gather additional details such as the
+port number that was used the
+application in use or exactly how many
+bytes were transferred between those two
+devices and if you're collecting this
+information and storing it over a long
+period of time you can use this for
+creating long-term reports or being able
+to go back in time and perform detailed
+forensics here's a view of this firewall
+log you can see there are a number of
+different Columns of information that
+are collected one is the timestamp of
+the traffic flow you can see in this
+view it starts at 7:49 and 38 seconds
+and goes down to 744 and 57 seconds
+there's quite a number of traffic flows
+that have occurred on that Network
+during that time frame you can see the
+protocol in use whether it was TCP or
+UDP and you can see port numbers are
+also listed in this log we have a client
+IP address and a server IP address so we
+know exactly what two devices we're
+communicating with each other and if we
+have a DNS server we may be able to take
+those IP addresses and convert them into
+host names in this example the host name
+is the same as the client IP address
+this provides us with a wealth of
+information for every single flow of
+traffic going across the network so if
+you were ever wondering if someone was
+able to see exactly what you were
+sending across the network there may be
+ways to gather a great deal of that
+information using these firewall logs if
+we're troubleshooting a problem we may
+be interested in overall performance
+from that device this might include
+Network utilization statistics or an
+overview of any errors that may have
+occurred on that device you can usually
+gather this type of information using
+SNMP the simple Network management
+protocol maybe you're Gathering net flow
+statistics you're doing protocol
+analysis and looking down at the frame
+level or maybe there's a software agent
+running on that device and it's
+providing you with a summary of this
+performance information based on these
+statistics we can begin to understand if
+our network is highly utilized if we're
+seeing a large number of errors and try
+to get an idea of where the problems may
+be occurring with that
+device sometimes the statistic that is
+most important is is a device up or is a
+device down we can find this information
+by looking at our availability
+monitoring this provides us with green
+for up and red for down and we can
+instantly see where a device may be
+active or where it may no longer be on
+the network this could also be rolled
+into a set of alarms and alerts so we
+can constantly monitor these devices and
+if any one of them happens to turn red
+we can instantly start sending email
+messages opening up help desk tickets
+and sending alarms and alerts to the
+people that can solve this problem The
+View that we have here is a real-time
+view of the devices and whether they are
+up or whether they're down but we could
+also collect this information over time
+allowing us to build a report that shows
+overall performance and availability
+over an extended period this is
+obviously a very simple metric the
+device is either active or the device is
+not active if you need additional
+details about the performance of the
+device you may have to drill down deeper
+and gather net flow statistics or
+information via
+SNMP all of the devices on our Network
+have configuration files these may be
+files that we can easily see and list on
+the screen or they may be stored in
+different places on the switch the
+router or the firewall many of these
+devices also allow us to back up the
+configuration files and restore those
+configurations if we need to update or
+make any changes to the device these
+configuration files might also be
+specific to a particular version that's
+running on that device so if we have an
+older configuration file and a newer
+version of software running on that
+switch or router we may not be able to
+load that older configuration file back
+onto that device in those situations we
+may need to downgrade that device back
+to that previous version just so we can
+now install that older configuration
+file back on that switch or that router
+this means we not only need to collect
+our configuration files and store those
+for future reference but we also need to
+keep our firmware or previous software
+versions just in case we need to go back
+to that previous
+config if we have multiples of these
+devices we can also compare and contrast
+the changes between those configurations
+ation files on all of those different
+devices for example you might have 10
+identical web servers and each of those
+web servers should have a very similar
+configuration there may be a way to use
+the configuration files to be able to
+verify the configuration across all of
+those many organizations will also
+perform ongoing monitoring of those
+configuration files and there will be an
+alert or an alarm if anyone makes any
+change to that configuration without
+prior approval this is usually part of
+an overall management system that is
+integrated with the Change Control
+within your organization so you may have
+software that's monitoring the
+configuration files and a larger process
+that is involved with changing and
+modifying those configuration files in a
+very standardized way

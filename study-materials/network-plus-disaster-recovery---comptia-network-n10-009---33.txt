@@ -1,0 +1,316 @@
+most organizations will create a plan
+that they will follow if they happen to
+have an outage or significant problem
+that could affect the overall goals of
+the organization this is often referred
+to as the disaster recovery plan or the
+DRP and it will cover every aspect and
+detail of how to handle these situations
+when they occur and if you think of all
+of the different types of Technologies
+involved in recovering from a disaster
+it is many and and varied you have
+backups that you need to consider there
+may be offsite data replication that
+might be involved in This Disaster
+Recovery perhaps you set up Alternatives
+that are located in the cloud so instead
+of having a server on site we can create
+that same server in a cloud-based
+environment or maybe you've got a
+completely separate remote site and you
+move all of your operations to that
+fully operating remote location there
+are also many third parties that can
+provide additional services for disaster
+recovery for example you contract with a
+third party that will provide you with a
+location so that you can move your
+operations to this temporary facility or
+you may want to contract with Recovery
+Services that can come into your
+organization and manage the process of
+recovering from a disaster there are
+many different metrics that can help us
+understand the scope and the breadth of
+an outage one of these metrics is a
+recovery time objective or an RTO this
+is an amount of time and we want this
+RTO to to be as close to zero as
+possible RTO is a measurement of how
+quickly we can get back up and running
+if an outage is to occur so we need to
+Define what a normal service level would
+be and then we can calculate how long it
+will take to get to that particular
+service level we refer to that Gap in
+time as a recovery time objective for
+example we know that if our web server
+was to fail that the normal recovery
+time objective for that web server
+becoming available again is
+approximately 1 hour so 1 hour would be
+the RTO for that outage another useful
+measurement is an RPO this is a recovery
+Point objective this is also measured as
+an amount of time and again we would
+like that RPO to be as close to zero as
+possible RPO represents how much time we
+lost when that outage occurred we have a
+certain amount of data that goes back in
+time that was not stored it was not
+backed up and when outage occurs we
+would lose all of that data generally
+this is a value that you've already
+determined you would make this
+determination based on what resources
+you have to recover this data and the
+types of backups that you may be doing
+throughout the day and this RPO may be
+different depending on the type of
+business you're in for example if your
+organization handles banking
+transactions or you manage patient
+information you want to be sure that you
+don't lose a lot of that data so you may
+put methods in place to to be sure that
+you are only losing a small amount of
+time when an outage occurs this might be
+for example a very short time frame that
+would be less than an hour but maybe
+your organization works with other types
+of data that don't require such a short
+RPO for example any updates to your
+website or updates to internal documents
+may only be backed up every hour or 2
+hours so there would be a longer RPO
+associated with that type of data if we
+were to look at both of these values on
+a timeline you can see that as time is
+going by we have a certain data recovery
+point maybe this is where data is backed
+up maybe we are replicating data to a
+different site but we are making a copy
+of that data or storing that data in a
+way that we could recover later sometime
+after that point we would have an outage
+and the time that we have between that
+outage and the back in time period to
+that data recovery point would be the
+recovery Point objective or the RPO so
+now we're focused on resolving this
+outage we need to resolve the issue with
+the servers deploy new servers in a
+different location move the data center
+to a backup site or do whatever we need
+to do to recover from this disaster and
+then finally when our services are back
+online we can measure that time frame
+between the outage and the online time
+frame as a recovery time objective or an
+RTO when these issues occur it's useful
+to know how long it's going to be to
+resolve this problem and it might also
+be good to be able to predict when
+problems might occur we can provide
+estimates for both of those values by
+using mttr and mtbf mttr is the mean
+time to repair that is on average how
+long it will take to resolve the issue
+associated with that particular problem
+maybe it's a router that's failed and we
+need to replace that router to get back
+up and running the average time frame
+for replacing that router would be our
+meantime to repair a better plan might
+be to use systems that are designed to
+stay up and running as long as possible
+so we would need to put in equipment
+that would have a very long meantime
+between failures or
+mtbf the mtbf is generally based on a
+number of criteria but it's presented as
+a single time frame for example if you
+purchase a firewall that firewall's mtbf
+may be 20 years before you would expect
+that device to fail so you can then make
+Disaster Recovery plans around that time
+frame if you see that your firewall has
+an mtbf of 20 years you might only need
+one additional backup unit instead of
+purchasing multiples because you know
+that device is going to last on average
+a relatively long period of
+time if we're dealing with a significant
+disaster we may need to move out of our
+existing Data Center and into a
+temporary facility but making that
+change is often not a simple process
+there are a lot of different moving
+parts and things that have to happen to
+move your entire data center from one
+location to another and then once you've
+moved to that other location you then
+have to move everything back once you're
+up and running again we refer to this
+moving of one location to another as
+site resiliency one example of the site
+resiliency may be the process you go
+through to prepare that Disaster
+Recovery site you need to make sure you
+have power you may need to bring in
+additional hardware and have it staged
+prior to a disaster and you may want to
+have data that's transferred over once
+that disaster occurs you will have a
+process where you move from your primary
+location to this backup facility you
+would then work from this backup
+facility until the problem is resolved
+at the main location this might take an
+hour it might take a day or it could
+take months depending on the problem
+that's occurred every disaster will be
+different and we have to think about
+that time frame when we're preparing the
+alternate site and of course when we are
+ready to move back to the original data
+center there is another process where we
+would take all of our assets in our data
+and move it back to the original
+location if you're going to be using a
+separate Disaster Recovery site there
+are a number of different ways to set up
+this particular facility one is with a
+cold site this is effectively an empty
+building none of our equipment is in
+this building and none of our data
+currently resides at this location we
+need to grab backup tapes or equipment
+that has our data and move it to this
+location to be able to perform Disaster
+Recovery we we also don't have any
+people at this location so we may need
+to transport people from one location to
+another so that they can work at this
+physical site this obviously means we
+have a lot of work to do if we call a
+disaster but it also means that this is
+a relatively inexpensive place to use as
+a backup
+location if you needed to have a
+disaster site where you could very
+easily move in and be up and running you
+may want to consider a hot site a hot
+site is an exact replica of your data
+center or as exact as you can make it
+for something that's a disaster recovery
+location this means it has the same
+Hardware that you are currently using in
+your existing Data Center and it's very
+common that when you're purchasing new
+equipment for a data center that you
+also purchase additional units for your
+hot site and of course not only do we
+need equipment at this hot site we also
+need our applications and our data it's
+very common to have replication systems
+or ongoing backups so that the data at
+your hot site is as close to the data
+that you're running at your primary
+location and by putting all of this in
+place at the hot site we can then move
+relatively quickly from our primary data
+center to This Disaster Recovery
+location and since we don't have to
+install any hardware install any
+applications or recover data from
+backups we can be up and running
+relatively
+quickly a warm site would be somewhere
+in the middle between a cold site and a
+hot site this is a site that might have
+some level of infrastructure that might
+have have power and racks and in some
+cases might even have additional
+Hardware that you could use and so all
+you would need to do is show up with
+your data recover from your backup tapes
+and you would be up and running there's
+different levels of service that you can
+use for a warm site so you can decide
+just how much Hardware or how much data
+you would like to have staged at that
+location it's always a good idea to
+practice and run through tests so you
+know exactly what to do should a
+disaster occur but that process of going
+through a full Lo Disaster Recovery test
+can be relatively costly this will take
+people out of their normal jobs and
+perhaps in some cases send them to a
+separate location to be able to perform
+the actual Disaster Recovery test
+instead of going through a fullscale
+test it might be useful to have everyone
+sit around a conference table and go
+through the process that they would
+follow if a disaster was called this
+would allow all of the different
+departments and it and all of the
+management of the company to step
+through through simulated problems and
+describe what they would do in those
+particular situations this means we
+don't have to go through the physical
+process of going to get our backups and
+taking them to this remote location but
+it does require that everyone step
+through the process and see if all the
+logistics are in place to get that data
+from one location to another since we're
+all sitting around a conference room
+table to be able to describe the process
+that we would follow we refer to this as
+a tabletop exercise this is a meeting
+that you can go through in about a day
+or two and all the key players will be
+participating and stepping through the
+process that they will follow if a
+disaster is
+called there are some organizations
+though that go through a full-blown
+Disaster Recovery site either once a
+year or multiple times a year so it's
+always good to go through these
+validation tests that way if a disaster
+occurs everyone in the organization will
+know exactly what to do when you're
+running through these validation tests
+you're obviously not actually moving
+from a production environment into your
+disaster environment but you are going
+through exactly the same process usually
+these validation tests will follow a
+particular scenario for example let's
+say a fire was to destroy the building
+where your primary data center existed
+there would be a series of processes and
+steps to be able to move everything to
+the disaster recovery site but what if
+the scenario was different where
+everyone in your geographic area around
+that data center had to be evacuated in
+that situation there might be a
+different set of steps to be able to get
+all of your applications and all of your
+data from your primary location to that
+backup site once everyone steps through
+this scenario and goes through the
+entire Disaster Recovery test we can
+document what worked and the things that
+need to be fixed for later this allows
+us to make ongoing improvements so that
+we know exactly how to be more efficient
+when moving everyone to a disaster
+recovery site e

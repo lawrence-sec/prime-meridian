@@ -1,0 +1,270 @@
+at this point in the evolution of cloud
+Technologies it's very likely that you
+or your organization has one or many
+applications running in the cloud these
+could be running as infrastructure as a
+service platform as a service software
+as a service or one of the many other
+types of services available in
+cloud-based infrastructures but in all
+of these cases the question Still
+Remains who is responsible for the
+security for all of these different
+cloud-based systems systems fortunately
+if you're working with a public cloud
+provider they are probably going to
+provide you with a matrix of
+responsibilities this will clearly show
+who's responsible for the different
+aspects of the Technologies running in
+the cloud not all Cloud providers
+provide the same Matrix there may be
+differences depending on the cloud
+provider that you're using and you might
+have a contract with a cloud provider
+that modifies the default Matrix of
+responsibilities to better fit the needs
+of that contract this is a
+responsibility Matrix that was taken
+from a large cloud provider you can see
+that it's broken up by software of
+service platform as a service
+infrastructure as a service and on Prem
+or on premises anything in blue is
+managed by the customer and anything in
+yellow is managed by the cloud provider
+in some cases there's an overlap where
+both the customer and the provider are
+responsible for everything at that level
+so for this cloud provider if you're
+wondering who's responsible for for the
+operating system if this is software as
+a service it's the provider platform as
+a service is the provider and
+infrastructure as a service and
+obviously on premises would be the
+responsibility of the customer you can
+compare that with a section of the
+Matrix for accounts and identities that
+would obviously have a significant
+security concern and in the case of this
+cloud provider the customer is always
+responsible for anything associated with
+their accounts if you're wondering what
+the responsibility Matrix might be for
+your cloud provider they probably
+already have it documented as part of
+their
+services in some organizations One Cloud
+isn't enough you may have multiple
+clouds that you're using across
+different Cloud providers we refer to
+this as a hybrid cloud and although it
+adds additional flexibility when you're
+using different Cloud providers it also
+includes an extra level of complexity
+when you're needing to manage across
+those providers for example most Cloud
+providers don't talk to each other
+directly and in fact many of the systems
+between different Cloud providers may
+work in very different ways so you might
+have to manually configure all of your
+settings separately for each cloud
+provider for example you might have
+authentication that needs to occur and
+if you're configuring it differently on
+each provider you may have a mismatch
+between one provider and another or you
+may be configuring server configurations
+or firewall settings and all of those
+need to match between all of these
+different providers and since they're
+not connected to each other it's an
+opportunity to have a mismatch between
+one and the other it can also be
+difficult to manage security and other
+logs between these different providers
+each provider writes a different type of
+log with different terminology and it
+may be difficult to combine those
+together to see what's going on and in
+order to take advantage of this hybrid
+Cloud it may be perfectly normal for
+data to constantly be transferred from
+one cloud provider to the other each
+time this data is sent from one provider
+to another it's traversing the public
+internet so you have have to make sure
+that all of your security settings are
+configured to protect that data in
+transit when working with the cloud
+you're most likely working with a cloud
+provider but there are also third
+parties for applications and other
+cloud-based devices that you also have
+to manage for example you might have an
+application you've written in house and
+you've posted that application to the
+cloud but you would like to put a
+firewall in front of that application to
+provide additional security you're most
+likely using a firewall from a third
+party to provide that security a good
+best practice is to have a vendor
+riskmanagement policy so that you can
+manage and maintain the security for
+these thirdparty Technologies we also
+have to think about how we'll handle
+incident response for all of these
+third-party products and Technologies we
+certainly have our own internal
+processes and we have the processes
+associated with the cloud provider but
+we also have to bring in all of these
+other third parties to participate in
+this incident response process and of
+course we need to constantly monitor
+these third-party processes and devices
+we want to be sure that the security of
+these systems and the availability is
+always working as expected for these
+cloud-based systems cloud-based
+infrastructures almost always require
+some type of infrastructure as code this
+is a way to describe an application
+instance or a portion of the
+infrastructure in the cloud but you're
+defining it as code rather than defining
+it as a particular piece of hardware for
+example your infr structure is code May
+Define what hosts need to be built the
+type of web servers that are running on
+these hosts and database servers that
+would also be used for this
+infrastructure this allows you to easily
+build out an infrastructure and it also
+allows you to easily modify the
+infrastructure so that you can change
+the configuration as needed you can
+build this out in the code itself so the
+next time this code is used to build out
+the infrastructure it takes all of your
+changes into account now that you've
+created a perfect version of the
+application instance you can easily use
+that code to rebuild the instance on any
+cloud provider at any time this is one
+of the significant benefits of cloud
+computing is that you're able to create
+an entire infrastructure all based
+around one single definition of
+infrastructure as code when we build out
+an application instance in the cloud we
+often refer to different servers but
+what if we could build an application
+instance that had no servers this is
+referred to as a serverless architecture
+instead of Simply accessing a single
+application we are instead accessing
+individual functions that are handled by
+that application each function handles a
+small piece of the application and
+anytime we need to perform one of these
+functions we address that part of the
+serverless architecture what's also
+interesting in this serverless
+architecture is there's much less
+emphasis on the operating system itself
+each one of these smaller application
+functions can run in whatever operating
+system happens to be appropriate at that
+particular time from the applications
+perspective we're only interested in
+sending and receiving information for
+that small piece of those autonomous
+functions we don't have to worry so much
+about what operating system is running
+underneath your application developer is
+going to spend time breaking the
+application into these smaller functions
+and then deploying them on the server
+side this also means that you would only
+need to run these particular application
+functions when they're needed this also
+saves time and money especially on a
+public cloud-based infrastructure if the
+application needs to access a particular
+function it can be built in real time in
+the cloud that function can then be
+referenced for the application and if
+it's no longer necessary to continue to
+run that compute container it can then
+be removed from the cloud until you need
+it the next time most of the work that's
+happening with a serverless architecture
+occurs in the cloud so the bulk of the
+security associated with this
+application instance and the servess
+architecture is all in the cloud
+itself Cloud infrastructures also allow
+us to have extremely efficient
+application instances traditionally
+we've used monolithic applications
+running on our desktops we would install
+large applications onto our storage
+drives we run all of those applications
+in the memory of our system and that one
+big application handles all functions
+you need for that app everything about
+that application is running as one
+single exec utable the user interface
+the login screens all of the business
+logic that you would have inside of that
+application all occurs on the client of
+that monolithic architecture this also
+means that you have a large application
+that needs to be installed on one local
+machine and if that application needs to
+be updated we need to process a change
+control we need to send the changes down
+to that particular device it needs to be
+installed on that machine and then we
+are able to use the newest version in
+the cloud we have the opportunity use a
+more streamlined process that focuses on
+a microservice architecture we're able
+to take advantage of microservices by
+using apis these are application
+programming interfaces and it allows us
+to programmatically control the way that
+an application is working so instead of
+having one single executable that
+handles everything for the application
+you can break out Individual Services
+for the application and run them as
+separate instances in the cloud all you
+would need to do is the client is talked
+to the API Gateway which would then send
+the request to the appropriate
+microservice this greatly extends the
+scalability of the application if
+there's a certain portion of the
+application that is being used more than
+others you can roll out additional
+microservices to handle that load this
+also makes it more resilient if you
+happen to lose a particular microservice
+the rest of the application will
+continue to work and since the security
+is based on the microservice that's
+running you can provide the proper
+amount of security based on the service
+that happens to be running if the
+microservice is handling authentication
+there will be a set of security
+processes for that and if this
+microservice is reading or writing
+information to a database there will be
+a security process associated with that
+microservice

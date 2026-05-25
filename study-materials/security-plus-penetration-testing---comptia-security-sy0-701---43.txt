@@ -1,0 +1,171 @@
+penetration testing or pin testing is a
+process where we simulate an attack on
+our own systems this is very similar to
+the process we follow with vulnerability
+scanning except with penetration testing
+we're performing actual exploits to see
+if we can gain access some organizations
+perform standardized penetration testing
+on regular intervals and this may be not
+only a good security best practice but
+it may be mandated depending on the type
+of business it is if you'd like a good
+overview of the pin testing process I'd
+recommend looking into the National
+Institute of Standards and technology
+that would be nist they have a document
+called the technical guide to
+information security testing and
+assessment if you'd like a download of
+that there's a link available at
+professor. link8
+z115 before anyone starts performing the
+first penetration test we first need to
+understand the Rules of Engagement The
+Rules of Engagement are a formal list of
+rules that are written out so that
+everyone understands the scope and the
+purpose of this testing for example it
+might be useful to know when penetration
+testing is allowed in your environment
+the type of tests may be things like an
+on-site physical breach to see if
+someone can get into the actual building
+or maybe someone's performing an
+internal penetration test or external
+test from outside of the facility these
+rules of engagement might also Define in
+what hours would be appropriate to
+perform these tests some organiz s would
+prefer not having any type of pin
+testing occurring during business hours
+and they might specify perhaps after
+6:00 p.m. local time only there are also
+detailed breakdowns of exactly what
+systems are allowed to be tested for
+example there might be specific IP
+address ranges there might also be
+emergency contacts listed in the Rules
+of Engagement so that everyone knows who
+to contact in case of any questions
+occasionally a penetration test will
+uncovers sensitive information so it's
+useful to know exactly how to handle
+that data and we can document that also
+in the Rules of Engagement and it's also
+important that everyone understands
+exactly what systems are in scope for
+this test and which systems are out of
+scope and should not be touched we want
+to be sure that we're testing the right
+systems but we also want to be sure that
+our production systems stay up and
+running now it's time to perform the
+penetration test our objective of course
+is to try to take advantage of these
+known vulnerabilities to gain access to
+a system one of the challenges with this
+is the process of exploiting a
+vulnerability could also cause that
+system or service to fail this is one of
+the reasons we document all of that
+information in our Rules of Engagement
+so that we're not bringing down any
+systems that might be considered
+critical for example during the process
+of trying to gain a privilege escalation
+we might choose to use a buffer overflow
+but unfortunately that buffer overflow
+process may cause an instability in the
+system and cause that operating system
+to crash and on a single system there
+might be multi multiple exploits that
+you might want to try you might want to
+use password Brute Force attacks there
+could be social engineering you might
+use database injections or perhaps
+buffer overflows some of these
+vulnerabilities are very technical and
+require access to the system whereas
+others like social engineering may all
+be done over the phone ultimately we
+want to see if we can gain access to
+these systems if we can exploit those
+vulnerabilities then it's entirely
+possible that a thirdparty attacker can
+do that as well
+getting access to a system is really the
+first step in a much larger process of
+course we want to find an exploit that
+allows us to take advantage of a known
+vulnerability and gain access to a
+system once we gain access to the system
+our work has really just started at that
+point we want to use that system as a
+jumping off point where we can laterally
+move from one device to another now that
+we are inside the network we also want
+to be sure that we're able to get access
+to this system again and we may not want
+want to use that same vulnerability to
+do it especially if we're concerned that
+they may close that vulnerability with a
+software patch instead we may want to
+create a back door for ourself we might
+want to add our own account on the
+system or change the default passwords
+for an existing account if you're on the
+outside of a network there are often
+firewalls and other security systems
+preventing access to the inside but once
+you get that first inside access you can
+use that as a pivot point to be able to
+gain access to other systems that are
+inside the network many attackers will
+set up that system as a relay or a proxy
+so they would use that initial system as
+their starting point and use that as a
+way that they could jump to other
+systems within the same
+network if you look through a list of
+cve or any vulnerability list you'll see
+a constant flow of updated
+vulnerabilities that are made public
+although this vulnerability has been
+made public there have been a lot of
+work prior to that date making sure that
+the software could be patched and
+perhaps releasing a patch for that
+vulnerability this means a researcher
+had to identify that vulnerability and
+then show that vulnerability to the
+software developer or the manufacturer
+from that point the manufacturer will
+need to update their Code test the code
+and then publish an updated version of
+that software without the vulnerability
+this process obviously takes time so it
+may be weeks or even months between the
+time that a researcher identifies a
+vulnerability to the time that a patch
+for that vulnerability is available only
+after the Patch is released is that
+information made public and put into a
+cve list this process is often
+encouraged through the use of bug
+bounties bug bounties are rewards for
+someone finding a vulnerability in this
+software usually it's the software
+developer or manufacturer that provides
+the funding for these bug bounties the
+process usually works by the researcher
+identifying a vulnerability with that
+software and bringing it to the
+attention of the software developer
+veler from there the developer spends
+time creating a fix and making that fix
+public and at that point the
+vulnerability and the mitigation for
+that vulnerability can be made public to
+everyone
+else

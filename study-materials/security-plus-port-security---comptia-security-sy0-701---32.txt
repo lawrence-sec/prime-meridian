@@ -1,0 +1,97 @@
+One Security challenge we have in many
+organizations is Port security this
+refers to the security on the individual
+interfaces that are on a switch or
+connections to a wireless access point
+you may have even used Port security
+without even knowing it if you connect
+to a wired or wireless network and it
+first prompts you for a username and
+password you may have taken advantage of
+this type of security this is a very
+effective way to secure a wire less
+Network because it provides
+authentication before anybody can access
+the resources on that wireless
+connection but this is not limited to
+wireless networks you can also Implement
+Port Security on traditional switches
+behind the scenes the protocol that
+allows this port security to operate is
+called EAP this is the extensible
+Authentication Protocol and it's a
+framework for authentication that can be
+applied to many different types of
+networks and connections this means if
+you're a wireless manufacturer you you
+can create an EAP configuration that
+works with your wireless access point
+and if you create wired switches you can
+enable EAP on that wired switch and
+integrate all of them together the most
+common integration of EAP is with
+802.1x this is an i e standard that
+manages the authentication process for
+users and devices onto your network
+sometimes you'll hear 802.1x referred to
+as Knack or port-based network access
+control if you were to plug into an
+available interface that's on a switch
+you would not be able to access the
+network that's on that switch until you
+authenticated using
+802.1x EAP and 802.1x work together so
+that you can provide login credentials
+and then have those credentials provide
+you with access to the network you'll
+often see these used in conjunction with
+other types of authentication protocols
+or databases such as radius ldap tacx
+plus keros and others this is usually a
+process that involves three separate
+components one of the components is the
+enduser or client we refer to this
+device as the supplicant there's also
+usually a switch or access point that
+you'd like to gain access to we refer to
+this as the authenticator there's also
+usually a backend database that contains
+all of these login credentials this
+might be an existing active directory
+database that you can access with keros
+or ldap or you might have a radius or a
+tacx database we refer to this as the
+authentic ation server when the
+supplicant first connects to the network
+there's no authentication and the
+authenticator will not allow any access
+to the network until the authentication
+is complete once the authenticator sees
+this initialization it sends a message
+back to the supplicant asking for login
+credentials we refer to this request
+from the authenticator as the EAP
+request the supplicant provides an EAP
+response with the name of the device
+trying to access the network that
+request is passed from the AU
+authenticator to the authentication
+server and if the authentication server
+is accepting logins it will send a
+request back to the authenticator asking
+for additional details that can be used
+for authentication the authenticator
+sends a request for those additional
+details to the supplicant and then the
+supplicant provides the credentials
+required to log into this network the
+final step will be to confirm that these
+login credentials are correct the
+authenticator then sends those
+credentials to the authentication server
+and if the username password and other
+login credentials match the
+authentication replies with successful
+login and tells the authenticator to
+allow that user access to the
+network

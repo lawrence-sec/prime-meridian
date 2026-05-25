@@ -1,0 +1,487 @@
+the best way to connect to a remote
+computer is to use SSH because you get
+to do it in a tunnel and nobody can see
+what you're doing
+it took me a half an hour to do that
+video I kid you not I was trying to hold
+like the camera and the Gimbal and the
+laptop and I thought there was going to
+be like a tube slide but there wasn't a
+tube slide there was only like this tiny
+little bit of a tube thing that was like
+part of the slide I don't know maybe
+kids get stuck in slides or something
+anyway it took far too long to get that
+little shot so we need a vacation and
+I'm going to show you why we need a
+vacation because I've already taught
+this so thoroughly so thoroughly but
+what we're going to do is cover oop
+that's not even
+see I need a vacation uh we're going to
+cover this part right here or if I want
+to use my fancy highlighter we can
+highlight all this stuff
+um basically we're talking about SSH but
+I have an entire little playlist or
+course or whatever you want to talk
+about on SSH that is going to cover this
+all very thoroughly I'm going to go
+through what these are and then I'm just
+going to point you to that video and I'm
+not doing it because I'm lazy I mean I I
+am lazy but I'm doing it because the
+videos exist and they're much better but
+first of all I think that maybe the
+objectives need a break too because hey
+look at these These are the
+configuration files for SSH now the sshd
+underscore config file we've talked
+about it before it's named really weird
+uh that's for the Damon for the server
+and the SSH underscore config file
+without the D is for the client like so
+uh system-wide client configuration
+files for somebody using SSH oh and you
+know what else we should cover these
+they're the exact same thing why are
+they listed twice it's a typo I just got
+this off their website they never
+noticed the typo it's there they need a
+vacation too anyway uh dot SSH is in
+your home folder that's what this little
+tilde means but dot SSH is a folder that
+contains files as that pertain to SSH
+known hosts is where you get the public
+key of any server that you're connecting
+to you store its public key so the next
+time you connect to it it's known and
+you can compare your public key to make
+sure that you're connecting to the same
+server and there's no man in the middle
+attack
+yes the first time you will get a key
+and what if that man in the middle
+attack is happening the first time and
+you get the key from the server and it's
+really not the server well you have to
+figure that out I guess but
+the first time you connect you're going
+to get that key it's going to be stored
+in that known underscore hosts file and
+that's going to be what it uses to
+compare to every time you connect after
+that now this can be an issue if you are
+somebody who creates and destroys a lot
+of servers like in your home lab or
+something if you use the same IP address
+or the same host name that you did the
+last time you like spun up a lamp server
+when you connect to it it's going to say
+whoa whoa whoa something's wrong this
+doesn't match and so you have to think
+through it okay is this a brand new
+server does it make sense that I'm
+getting this error and so uh it's a good
+thing but it's something that you have
+to think through whether or not the
+error message you're getting is actually
+an error message or something that makes
+sense authorized keys in the SSH course
+that I'm going to point to we talk about
+this this is where you keep
+um
+if you want somebody to connect to your
+server you can keep authorized in the
+authorized key file their public key and
+then when they ssh in and they have
+access to their private key that's a way
+of them authenticating their themselves
+without using a password so if you're
+giving somebody access to your server
+like you made an account for them and
+you want them to be able to log in
+remotely via SSH have them send you
+their public key you can put it in that
+file for them and then they never have
+to know a password they just get in with
+that file it's actually really cool I
+love SSH Keys they're amazing uh dot SSH
+and then a file called config is the
+local version of the system ones that
+are spelled out twice here basically if
+there's something that you want that is
+not part of the system configuration for
+you specifically for when you're
+connecting to other servers you can put
+it in here and it will override the
+system default SSH underscore config
+this is again when you are using it as a
+client and so it will override this
+stuff in the SSH underscore config the
+sshd underscore config is the server on
+the computer so you may not have all of
+these let me erase this getting kind of
+messy even for me you may not have both
+of these on your computer if you don't
+have an SSH server running you won't
+have this sshd underscore config file
+but if you have SSH the client installed
+so you can connect to another computer
+you're going to have this and then you
+can have this it's not required if you
+don't have one it just uses the default
+up here but you can have this and it
+will override whatever is in that thing
+that should make sense I mean that's you
+know that's how configuration files work
+anyway the commands that they mention
+here SSH Keygen again we're going to
+cover in the videos so don't worry about
+that this is how you create a public
+private key pair on your computer that
+then you can give other people your
+public key so you can connect and if
+somebody else does that and they give
+you their key and you can do that SSH
+copy ID is a really nice shortcut way
+that you can install your public key
+that you just was created with Keygen
+you will install that public key into
+the authorized Keys file that I
+mentioned over here on the remote server
+in one Fell Swoop basically it will that
+the first time when you use SSH copy ID
+it will ask you for your username and
+password on the remote computer okay I
+actually ask you for the password
+because it uses the same username that
+you currently are unless you specify
+It'll ask you for the password it'll log
+in and then using SCP secure copy it
+will copy your public key into uh it'll
+append it so if there's more than one
+it'll just add it to the bottom of the
+authorized Keys file on the remote
+server and then you can SSH into that
+without typing your password again it's
+really really slick SSH ad is actually
+it's bizarre that it's listed on its own
+because SSH ad is part of the um SSH
+agent program the deal with the SSS
+agent is
+a lot of times you will connect to a
+remote computer again and again or you
+want to connect to a computer and you
+want to use keys but you want those keys
+to be secured with a passphrase so you
+can create an SSH key pair public
+private key pair that doesn't have any
+passphrase so you never have to As Long
+if if you have the private key and the
+public Keys installed remotely you can
+log in without ever type in any password
+but you can also password protect your
+private key so that nobody else can use
+your private key like it's it's your
+private key also locked up with a
+passphrase and so if you do that you can
+use SSA SSH agent which isn't even
+mentioned here in SSH
+ssh agent will then kind of keep your
+passphrase stored in memory actually it
+keeps the the key unlocked it keeps your
+private key unlocked in memory so that
+you you can connect to servers without
+getting prompted for that passphrase
+again an SSH ad is how you add a
+passphrase to the running SSH agent but
+they don't even mention SSH agent here
+which I think is weird anyway tunneling
+is one of the coolest things that SSH
+can do you can forward X11 traffic and
+this is It's kind of more gimmicky than
+actually practical and I don't really do
+it often there are a couple situations
+where you'll want to and basically what
+it does is when you tunnel SSH traffic
+or when you tunnel X11 or xwindows
+traffic you just do the ssh- capital x
+and that's the flag to do it to a remote
+server then if you execute on you're
+logged into the remote server if you
+execute something like Firefox Firefox
+will start and the GUI display will be
+on your local computer so it's running
+from the remote computer but the GUI
+display X11 is tunneled to you so you
+actually get a Firefox browser window
+on your local computer that is actually
+running on the remote computer that your
+sshd into it's kind of gimmicky because
+even on a lan it's pretty slow right I
+mean those are not those programs were
+not designed to have their GUI run
+across the network and be efficient so
+it you don't do it very often sometimes
+in a pinch you'll need to do that and
+it's you know it's cool to see if
+nothing else but it's not something that
+you do regularly or at least not anymore
+maybe before actually okay before it was
+a big deal because you could kind of run
+thin clients and then have all of your
+programs run over X11 and if you
+compressed it over SSH it was actually
+efficient and blah blah blah in general
+we don't do it a whole lot but it's cool
+and you can you can tunnel X11 traffic
+over SSH uh port forwarding is something
+that actually you might do a lot let's
+say you have a web server and it is
+running I'm going to draw right here you
+have a web server running on a computer
+but it is only listening on localhost
+right so it's not listening on the
+external interface well you can SSH into
+that server and use tunneling again this
+is all covered in the course I'm going
+to point you to
+um
+you can Tunnel traffic to from the The
+Local Host port 80.
+through that SSH tunnel to your local
+computer on like Port 8000 or something
+and then when you connect to your local
+computer and Port 8000 it's going to
+actually be connecting to that remote
+servers Port 80 uh as if you were
+standing right there so you can port or
+you can forward ports through that
+tunnel and you can access things
+um remotely Network ports you know like
+web ports or or whatever so it's really
+really a convenient way to test some
+things or sometimes you need to get into
+a server for a specific service and you
+can actually forward that Port uh to
+your computer so you can configure it
+and then you know not worry about it
+just let it run on its own uh Dynamic
+forwarding I was like whoa whoa I don't
+even know what dynamic forwarding means
+it's it it just means uh this other
+trick that you can do with SSH I
+actually Googled it thinking I was going
+to learn something new about SSH it's
+just using
+um it's the dash capital D flag and it
+will set up a proxy for you it's
+actually a Sox proxy and basically you
+SSH to a remote server with that Dash
+capital D flag and then like a port
+number and then you set your browser's
+proxy to point to localhost your
+computer port whatever Port you put
+after that D and then it will act as a
+Sox proxy and it's as if you are web
+browsing from that remote computer so
+it's kind of like
+the same sort of thing where if you
+sshed into a remote server and you
+started Firefox remotely with X11
+forwarding and then you're using a
+browser from that IP address but what's
+cool about doing the dynamic port
+forwarding or Sox proxying via SSH is
+that that remote computer doesn't have
+to have Firefox installed it just has to
+be able to be SSH into and then all your
+traffic your web traffic from that
+browser is going to go through that
+server so it's a great way to get
+yourself in an intranet environment so
+you can reach out to other computers
+that are only accessible from inside you
+know from that remote computer that your
+sshed into now you're probably saying
+what the heck Sean that's all you're
+going to do and you're going to point us
+to another video I mean no let's uh
+let's look at some of these things super
+fast but really I encourage you to watch
+that entire course that I'm going to
+point you to it's only like two or three
+videos because SSH is like the Swiss
+army knife of networking and it is just
+so stinking awesome and just consider it
+a vacation from studying for Linux plus
+where you're actually really studying
+for Linux plus plus more stuff
+I don't know that that was awkward I
+need a vacation too okay so we're we're
+here on our VM Ubuntu mate if we go into
+dot SSH you're going to see uh known
+hosts oh it creates a known host.old
+sometimes if one exists when you like
+install a new version of SSH I think but
+anyway known hosts is just uh let's look
+at it
+uh it's going to be a list of like I
+said the public keys of all the servers
+like the server itself not the the
+username but the the server that you're
+connecting to these are all the keys and
+so if something changes or there's a man
+in the middle you can be warned if we
+get rid of it let's see
+now the next time we connect to a server
+it's going to ask us so let's go to SSH
+let's kill two birds with one stone here
+uh Dash capital x this is going to do
+X11 forwarding to Big Tuna which is a
+Linux computer in my office actually
+across a room and this is it's going to
+say okay we're connecting to this but
+should I add this to our list of known
+hosts I'm going to say yes
+and now I have to type my password to
+get in
+okay so we are in I'm going to press
+exit really quick and if we look now in
+the SSH folder uh look at that it
+created uh a known hosts file and if we
+look at it
+uh it just has oh looks like it has a
+couple in there and a lot has a couple
+maybe it uh saved one from a system I
+think anyway this is where it adds it so
+the next time we connect to bigtuna it
+won't ask us because it already has the
+information for bigtuna clear the screen
+SSH Dash capital X bigtuna
+type in my password and now boom we're
+logged in it didn't ask us to add it to
+the known hosts so now that we're logged
+in we use that Dash capital x flag we
+could start a GUI program on bigtuna and
+it would actually open the GUI interface
+here so if we just type Firefox and
+press enter now here's the thing
+remember I said it's not terribly
+efficient so I started Firefox and the
+computer across the room it's connected
+with gigabit
+um
+ethernet like almost directly switch to
+switch and it still hasn't loaded it's
+not because that computer's slow that
+computer is like a screaming fast AMD
+threadripper it's not a threadripper but
+it's like a super fast computer has like
+64 gigs of RAM anyway it took this long
+for it to open up the Firefox browser
+but notice it says up here this is just
+a convenience thing that Ubuntu does or
+mate does it says uh Mozilla Firefox on
+Big Tuna and it's saying that because
+it's not running on this local VM it's
+actually running on Big Tuna and we're
+just now getting the the GUI for it and
+again it's really painfully slow if we
+were to actually try to use it for
+anything it's actually trying to load
+the home page uh yeah see so I mean it's
+uh it's super duper slow you I clicked
+and it's not responding there it's just
+not a great way to do things but in a
+pinch you can actually run a program
+over X11 it's so cool all right so I'm
+going to close that window and now see
+boom we got that back uh if we type exit
+we could do things like redirect
+ports using uh
+I don't know if I don't know if it has a
+web server running let's see I'm going
+to say SSH Dash capital L for my
+local local computer port 8000
+on the remote side we're going to
+connect bigtuna localhost port 80. I
+want a tunnel created so on this side is
+going to be 8 000 on that side it's
+going to be 80. I don't know if there's
+a web server running on it we'll find
+out and then Big Tuna is where we could
+also do
+s Powers at bigtuna but it just uses the
+same uh username that I have here if we
+don't specify uh it should ask us for a
+password
+and now we're in and now in order to see
+if there is anything actually running on
+Port 80 over there on Big Tuna which I
+like I said I don't know I started
+Firefox locally this time this is on our
+VM
+uh if we type http
+localhost Port 8000 let's see if Big
+Tuna has any oh it does so Big Tuna has
+a Apache installed uh running on Port 80
+and since we connected to our Port 8000
+on this side it actually connected to
+Big tuna's Port 80 over there so that's
+how how that works
+um let's see what else did it talk about
+we did that we did that I guess we could
+go back we even talked about the
+configuration files a little bit in this
+course already because that's where we
+would uh specify we specified something
+in the configuration file what was it
+for oh I think it was to lock down so
+that the root user could not log in uh
+via SSH so when we looked at locking
+down user accounts we had to use that
+anyway we'll come back here if we
+disconnect from Big Tuna and we're back
+over here and we hit refresh we're gonna
+see there's nothing because it really
+was going through that tunnel that we
+created when we logged into Big Tuna
+using this command up here okay we just
+very quickly went over the things that
+are covered but again I'm going to put
+the the thing over here I think a link
+to the SSH playlist and also I'll try to
+put like an actual text thing right here
+a short code using my URL shortener so
+you can go directly to it there's just
+like three videos in the SSH course but
+it's so worth the vacation from Linux
+plus because it will teach you
+everything that Linux plus expects you
+to know plus you're just going to have a
+better feel for how awesome SSH is uh
+anyway uh thank you for joining me in
+this weird sort of video it ended up
+being still kind of long but
+um I hope that you do take the
+opportunity to check out the SSH videos
+I've already made because they're just
+not designed specifically for Linux plus
+but they're perfect for this point in
+our education remember to learn
+everything
+do what you love and most importantly be
+kind including to yourself I'll see in
+the next video
+[Music]
+oh you're still here I mean I know we're
+on vacation so
+I'm having some Kool-Aid in a in a
+Return of the Jedi class what are you
+drinking let me know in the comments if
+you're if you made it this far we're
+basically buddies now what are you
+drinking
+is that blue raspberry one

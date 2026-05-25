@@ -1,0 +1,153 @@
+let's step through a number of different
+phone calls that have been received by
+individuals with this particular pretext
+of course this is one where there is an
+actor and there's a story that they tell
+and these are actual scam calls taken
+from YouTube videos that are available
+and they're probably very similar to
+ones that you may have received the
+first one is hello sir my name is Wendy
+and I'm from Microsoft Windows this is
+an urgent checkup call for your computer
+as we have found several problems with
+it obviously this is not Wendy and Wendy
+is not from Microsoft Windows another
+one says this is an enforcement action
+executed by the US Treasury intending
+your serious attention bad grammar aside
+it's very unlikely that this voicemail
+was indeed left by the US Treasury and
+lastly congratulations on your excellent
+payment history well already we know
+that this is not accurate you now
+qualify for 0% interest rates on all of
+your credit card accounts and again this
+is not someone from a credit card
+company or a financing company this is
+all someone taking advantage of
+impersonation impersonation is when an
+attacker is pretending to be someone
+that they're not this may be used to
+make you more trustful for example they
+could call and say they're from your
+company's help desk and they understand
+there's some problems that need to be
+resolved on your system system obviously
+they're not from your company's help
+desk but you thinking that they work for
+the same company as you immediately
+provides some level of trust or they may
+call you and say that they are the vice
+president for finance or they're
+responsible for manufacturing within
+your organization they're obviously not
+from your organization but by
+introducing themselves as someone higher
+in rank they're hoping that you will
+without thinking provide them with the
+information they need or the attacker
+may be using very large terms or
+technical details to get you thinking
+more about what they're saying rather
+than if this call is indeed legitimate
+attackers use impersonation all the time
+to be able to make you more comfortable
+with the conversation or to get you to
+provide information to someone who is
+more trustworthy than some stranger
+calling you from
+outside one of the goals of the attacker
+is to elicit information from the person
+they're calling they're looking for a
+piece of information or an important
+detail that they normally would not have
+access to this is very L seen with voice
+fishing or Vishing where someone is
+calling with a story that eventually
+would get you to give up your credit
+card number your social security number
+your bank details or other important and
+sensitive information but obviously the
+attacker can't simply ask so what's your
+bank account number instead they need to
+have a story about how it's important
+that we get your bank account number
+because there's been a problem sending a
+payment to a particular third party and
+through this entire story somehow
+they're getting you to trust them and
+provide your banking
+information another use of impersonation
+is for the attackers to take advantage
+of identity fraud this is when they'll
+pretend to be you using your private
+information but in reality the attacker
+is the one opening these accounts for
+example an attacker might open a credit
+card account in your name with your
+information but use their address so the
+credit card is mailed directly to the
+attacker they'll then use this credit
+card to purch products and services and
+of course the attacker has no intention
+to pay for any of these and of course
+all of this will appear on your credit
+report as non-payment for an account
+that you allegedly opened attackers can
+also use identity fraud to open up their
+own bank account under your name by
+using your personal information they now
+have a bank account that they can use to
+store the funds that they are creating
+from their illegal activities and they
+can now use that checking account and
+their position as a customer with the
+bank to open up loans those loans of
+course would be under your name but of
+course the attacker is going to take the
+money from that loan and use that
+somewhere else and of course identity
+fraud could be used with government
+agencies for the attacker to get
+benefits under your name this is
+commonly seen with things like tax fraud
+where the attacker will send in your tax
+forms as you and they'll receive the
+over payment to their account they
+effectively have gotten your tax refund
+before you have a chance to do the same
+thing there are a number of steps that
+you can use to help prevent
+impersonation one is to not volunteer
+information if somebody calls and tells
+you they're from the help desk and they
+need your password in order to fix a
+problem on your computer then they're
+probably fishing for information because
+the support team does not need a
+password to gain access to your system
+you should also not give away any of
+your personal information over the
+telephone email or any other method the
+attackers would love to get information
+about your address address your social
+security number your birthday and other
+important details that they can then use
+to open up accounts in your name and if
+you think the person contacting you is
+legitimate but you're uncomfortable
+providing personal information you might
+want to do your own verification most of
+the time you can ask the person if you
+can verify them over the phone and then
+you can check a public phone number to
+make sure that that is the person who's
+really contacting you the process of
+verification is one that should be a
+normal process within your organization
+no one should take a phone call at face
+value especially if that phone call is
+looking for financial information or
+sensitive
+details

@@ -1,0 +1,402 @@
+we are doing another Linux plus
+preparation video today we're going to
+look at lvm or logical volume manager
+which basically allows us to take a
+bunch of hard drives and kind of put
+them together in a big old data bucket
+and then carve off pieces to use as
+block devices kind of like hard drives
+on our system we're going to learn what
+they are and how to do it and like I
+said this is part of the compatia Linux
+plus certification course but even if
+you're not looking to actually get
+certified this is a great way to learn
+the essentials of Linux Administration
+now this is from objective 1.3 I'm
+calling it objective 1.3.2 because I
+break the objectives up into smaller
+chunks and like I said we're looking at
+lvm today rather than just go through
+this list let's Dive Right In and see
+how it works and then we'll actually uh
+do it together now as always this
+couldn't happen without my patreon
+supporters and people like you who click
+the like thing and subscribe and tell
+your friends about these videos if you
+find them useful maybe someone else will
+too so thank you again to my patreon
+supporters who not only support me but
+get some extra stuff too like there's
+all kinds of crazy stuff that you get
+when you first sign up and a lot of
+times I'll post things on patreon that I
+don't post anywhere like I just did a
+bed set that I created which has nothing
+to do with Linux but uh things like that
+if you're curious about other stuff
+going on in my life uh patreon
+supporters get uh uh creepy inside view
+I don't know they get an inside view
+that other people don't get so anyway if
+if that interests you please check out
+the description to support me but at the
+very least if you click the thumbs up
+and you share this video with somebody
+or this series with somebody it would
+really help me out so let's get right
+down to business what is lvm and kind of
+like I alluded to lvm is just a way to
+get physical volumes or PVS they can be
+hard drives and that's what they're
+going to be for us just little tiny
+virtual hard drives connected to our
+system so they can be drives or you
+could partition it up and use a
+partition as a physical volume or
+ideally you would use a raid device as
+your physical volume because I'm going
+to talk about in a second unfortunately
+lvm does not offer any protection so if
+one of these drives goes bad you could
+lose all of your data and that's a real
+bummer So Physical volumes that can be a
+number of things but basically you add
+those together into a volume group so
+here these drives that we have over here
+we basically just put them together into
+a volume group and if each one is 10
+gigabytes that means our volume group is
+30 gigabytes again there's no protection
+it just puts them end for end it also
+doesn't offer a speed increase like
+we're going to talk about raid in
+another video and that has advantages of
+data protection and also speed increases
+but this is not that this is just a way
+to group smaller Drives together into a
+big volume group it's kind of like just
+a bunch of drives you may have heard the
+acronym jbod which stands for just a
+bunch of drives and that's kind of the
+same concept there's no speeding
+increase there's no redundancy but it
+allows you to use those drives as one
+single big chunk and then the last step
+of it is after you have this volume
+group created you can carve off pieces
+that are called logical volumes or LVS
+and you have this whole 30 gigabytes you
+carve off however much you want like for
+example if we were to carve off a 25
+gigabyte chunk of this volume group it
+would act like a hard drive on our
+system that is 25 gigabytes in size now
+this is a nice way to combine a bunch of
+smaller data things but it also has the
+advantage that these things can be
+resized you can add another Drive later
+on and expand the volume group and then
+of course expand the logical volumes
+that you create so it's really a
+flexible way to use underlying storage
+but I can't not say it again it does not
+offer any data protection so if one of
+your physical volumes whether it's a
+hard drive or a partition or an entire
+raid array that you have set up as a
+physical device or physical volume if it
+fails your entire system fails the
+entire volume group is in fail mode okay
+so it's it's not protection it's just a
+way to combine and flexibly use and
+expand a whole bunch of underlying
+storage okay so that's probably
+painfully clear but I wanted to say that
+before we went in and started making
+stuff and you made one on your system
+and then lost a drive and lost all of
+your data so the first thing we have to
+do is decide what we're going to use for
+physical volumes now I have on this
+system currently I have three additional
+hard drives that I've installed they're
+each 10 gigabyte drives just like in our
+in our drawing in our illustration uh
+it's sdb SDC and sdd so we're going to
+use those as our physical volumes or our
+PVS and creating those as PVS is the
+first step now I'm going to use the raw
+devices there there are several ways
+that you can go about doing it you can
+just use the raw device as a physical
+volume which is what we're going to do
+or you could create a partition in the
+drive so something like this up here
+sda1 we could do sdb1 and have it be the
+full size of the drive the advantage
+there is if somebody sees a drive with a
+partition they're less likely to assume
+it's blank I guess I don't know it's
+kind of a stretch usually if I'm going
+to be using actual block devices like a
+drive instead of using a raid device on
+the back end I'll just use the raw
+device itself it gives me the most
+storage it's the simplest so that's what
+we're going to do we're going to create
+physical volumes with these three drives
+well we're gonna do two at first so to
+do that we just say PV actually let's be
+root first so sudo Su because all these
+have to be done as root these are Drive
+level things that we're going to do so
+I'm just becoming root so right now I am
+the root user all the commands that I
+have could be done with sudo but we can
+just do them without sudo since we have
+become the root user anyway PV e create
+and then the devices that you want to
+create physical volumes out of so in our
+case it's going to be Dev s d b Dev s d
+c okay remember I said we're just going
+to do two at first anyway we could put a
+whole list down there we could do them
+one at a time we could say pvcreate Dev
+sdb enter PV create Dev SDC enter we can
+just put them all in the same line too
+though and then it's created both of
+those volumes sdb and SDC we can
+actually use the command PV display to
+show all of the devices all the new
+physical volumes that we have and we
+have two of them we have one named Dev
+sdb one named ffcbc and they're 10
+gigabytes in size so these physical
+volumes are now created okay so the next
+step if you remember our slide is to
+create a volume group and I know you're
+like Sean we forgot to drive I'll get
+back to that in just a second I want to
+show you how flexible it is so in order
+to create the volume group we actually
+do
+VG create and then we have to think
+think of a name for it I'm just going to
+call it drive bucket all right because
+it's literally like a bucket full of
+like drives so VG create Drive bucket
+and then we say which devices which
+physical volumes we want to actually add
+to this drive bucket and for us it's
+going to be Dev
+sdb and Dev SDC
+so I'll do that now it says the volume
+group was successfully created and can
+you guess the command that we use to see
+the contents of the volume group we do
+VG
+display and it should show us now we
+have a volume group named Drive bucket
+it has um two drives in it and because
+each Drive is 10 gigabytes that means we
+have 20 gigabytes of storage in there
+but oh yeah we have a third Drive well
+that's okay because this is so flexible
+what we can do is go back and create
+another physical volume so we're going
+to say PV create Dev sdd
+so we've created that extra drive right
+and then what we can do is VG extend
+okay so VG extend is going to allow us
+to add another physical volume to our
+volume group all right so we want to
+extend a which volume group Drive bucket
+and which device do we want to extend it
+with our new one Dev sdd
+okay and now if we do VG display
+now we're going to see we have three
+devices in there and so now we have 30
+gigabytes of storage available in our
+group right all three of those drives
+are now in there and so we have
+um all of our physical volumes created
+and added to a volume group the last
+step is to create the logical volumes or
+the LV and that's just slicing out a
+chunk of that of 30 gigs of available
+space okay so what we're going to do is
+LV
+create I know I love that the commands
+are so clearly named right I mean it's
+pretty clear what you're doing you know
+when you type out the name of the
+command uh this one is a little bit more
+complicated because we have to tell it
+like sizes and stuff so we're gonna say
+Dash capital L and then how big we want
+it um I want to give us a little bit of
+room to grow spoiler alert we're going
+to grow this volume in a minute all
+right this logical volume next but let's
+say 25 gigs is how big we want it
+because that will that will require all
+three of our drives to a degree right
+because each Drive is 10 gigabytes 25 is
+more than two of them so 25 gigabytes
+will take a good chunk out of all three
+of those drives that are in the volume
+group so uh that big and then dash n
+what do I want to name it uh let's call
+it big chunk okay so dash n and then the
+name of the logical volume that we're
+going to create and it's big chunk and
+then we have to tell it what volume
+group to come out well we only have the
+one but it's
+or which volume group I don't know what
+I said there but which volume group and
+it's called Drive bucket
+okay so the logical volume big chunk was
+created now if we do guess what the
+command is here of course LV display
+it's going to show us all of the logical
+volumes on the system and in our case
+that means we have one called big chunk
+and it's 25 gigabytes in size and it now
+has a logical volume path of Dev Drive
+bucket big chunk and if we are creating
+a file system which we're going to do
+like maybe in the next video Even This
+is the device that we would use kind of
+like if you were formatting a partition
+of Dev sda1 that's the name of the part
+or that's the the device that you would
+format in this case Dev Drive bucket big
+chunk is what we would format and put a
+file system on because that is our Bach
+device that we're going to use even
+though it's spread across multiple
+physical volumes this is the single
+device that that the system sees as it's
+um as its block device so that's where
+it lives I mean we can look in there
+Dev Drive Bucket look at that big chunk
+is our block device that we can use and
+now we do have 30 gigabytes in our
+volume group so what if 25 gigabytes
+wasn't quite big enough well then we can
+use a command and you're not going to be
+surprised by this command LV extend and
+then Dash L and how much we want to
+expand to buy so I'm going to say plus
+uh three gigabytes we don't have a whole
+lot of space but uh there should be
+enough space left in our volume group to
+add three gigabytes to it and then we
+say which device do we want to LV extend
+which logical volume do we want to
+extend well it's that Dev
+Drive bucket big chunk so that is the
+device we want to extend by three
+gigabytes if we press enter
+boom there it goes now there's actually
+a really cool thing here uh when you use
+LV extend on uh like if you've already
+installed a file system on dev Drive
+bucket big chunk and you want to expand
+it you can also expand the underlying
+file system in one step if you add the
+dash R flag so if we would have done LV
+extend Dash capital L plus 3 G and then
+Dash r that would resize the file system
+as well this doesn't have a file system
+on it right now for us so that doesn't
+make any sense but I just wanted to add
+that because it's kind of a cool feature
+you can extend the file system using
+file system tools but it's nice to be
+able to do things in one step okay and
+now if we do LV display
+we should see that our our logical
+volume is now 28 gigabytes in size still
+located in the same place we just
+expanded that logical volume and now
+there is one more tool then I I have to
+be honest I've never actually used it uh
+in practice you know as my system
+administrator jobs have done uh but LV
+change is specifically mentioned the
+objective so one of the probably more
+common things you might do with it is to
+activate or deactivate a logical volume
+and what I mean by that is so we look at
+our logical volume display right here if
+you look it says that the LV status is
+available well if we wanted to change
+that if we wanted to take it offline so
+that it wasn't a scene by the kernel we
+could say LV
+change Dash a for available and then no
+so available no or we could say
+available yes but we're going to say
+available no and then which device and
+that's going to be Dev
+ucket big chunk if we do that and now we
+do LV
+display it should show us that it is not
+available okay so it's really important
+that now it's not there for us to mount
+on the file system it's not there for us
+to put a file system on it is just not
+available we've taken it offline if we
+wanted to change that we could say
+Dash a
+y for yes
+and now if we look at LV display it's
+available again and it's there so that
+we can do it it just tells the kernel
+whether or not this particular logical
+volume is available or not and there's
+lots of other tweaks you can make using
+LV change but I just wanted to give you
+an example of what it might do what you
+might do with it and that is to take a
+logical volume offline now I know I went
+over things a lot quicker than normally
+I would but every single step along the
+process is so similar right I mean PV
+create PV display VG create VG display
+LV create LV display so it's very very
+easy to play with so that's what I
+encourage you to do I mean I always
+encourage you to play with these
+Concepts so that you really get it in
+your head but make a couple of
+virtualized hard drives and then put
+them in a logical volume carve it up uh
+delete them see if you can figure out
+how to delete it it's not difficult
+either and then make sure you're
+comfortable with what lvm is and also
+one more time what it's not it is not a
+way to protect data if you use just raw
+hard drives as your physical volumes if
+one of them fails the entire volume
+group and all those logical volumes are
+ruined right it's spread across a bunch
+of drives so it's all ruined so you want
+in a production system to have those
+physical volumes actually be like on a
+raid device so if you lose a drive the
+physical volume still functions maybe a
+little bit slower until you get it
+rebuilt but anyway that's important to
+understand but lvm just allows you to
+use all of your storage kind of in a big
+group and carve it up as you need it
+anyway I encourage you to learn
+everything do what you love and most
+importantly be kind I'll see in the next
+video

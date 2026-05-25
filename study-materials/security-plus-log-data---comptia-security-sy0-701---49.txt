@@ -1,0 +1,362 @@
+we store a massive amount of security
+related information in log files
+contained in servers devices and other
+components on our Network those log
+files contain information such as the
+traffic flows that were blocked and the
+traffic flows that were allowed we can
+get a list of exploit attempts
+especially from intrusion prevention
+devices we might want to see what
+categories of URLs may be blocked on a
+particular user's workstation and we can
+see DNS syn traffic which could point to
+some type of malicious process occurring
+within our own network this allows us to
+document every traffic flow on the
+network where we can provide information
+on what attacks may be occurring and we
+can correlate that information with
+other logs contained in other
+devices one of those devices that
+contains an amazing amount of detail
+about the traffic on our network is the
+firewall log our firewalls are often
+monitoring all traffic that goes from
+the inside to the outside of our Network
+and vice versa and from there we can get
+information about the source and
+destination IP addresses associated with
+those traffic flows we can see what port
+numbers are being used and we can see
+what the firewall does with those
+traffic flows does the firewall allow
+the traffic flow to proceed or is that
+traffic flow blocked on the firewall if
+you're using a Next Generation firewall
+or ngfw you can also get information
+about the applications that are in use
+these next Generation firewalls are Al
+very good at providing feedback on URLs
+or URL categories that are being used
+and they may also be able to point us to
+suspicious data or any anomalies with
+the information Within These traffic
+flows here's a view of firewall logs
+from Next Generation firewall each one
+of these lines is a separate flow of
+traffic traversing the network each one
+of these traffic flows contains the time
+and date of the traffic flow The Source
+IP address and in the case of this
+firewall the MAC address that received
+that data you can also see the
+destination IP address and the
+application that is used for this
+traffic flow and then you finally get to
+see the disposition or result of this
+traffic flow whether it was accepted
+through the firewall or whether it was
+blocked the applications that we use can
+also create log files that may be very
+useful when analyzing security events
+this might include information from the
+Windows Event Viewer log specifically
+the application log section of the Event
+Viewer if you're using Linux or Mac OS
+you can look in the /var log directory
+and all of this information would
+probably be rolled up into one single
+security information and event manager
+or Sim and all of this information can
+then be filtered out or viewed in
+different ways inside of the Sim
+itself you may not realize it but the
+endpoint devices you're using also
+contain a great deal of log detail if
+you're using a laptop a desktop a phone
+a tablet or any other in Point device
+there is an extensive amount of log
+information available for example you
+may be able to view information on login
+and log off Events maybe there's
+information on system events or
+processes running on that endpoint and
+there might be details about the
+management of the device such as
+password changes or lockouts you can
+also view information on any directory
+Services all of these inpoint logs can
+also be rolled up to a Sim so that you
+can then parse out that data and view
+different correlations between what
+what's happening on the endpoint what's
+happening on the network and any other
+devices that you may be monitoring once
+you have all of this endpoint log
+information in the Sim you can now start
+comparing and correlating that data
+against log file information from other
+devices so you can track each step of
+the way for a particular traffic flow or
+a potential security event inside of the
+Sim all by consolidating these log files
+together into one single
+Source there's also an extensive amount
+of security information stored in the
+operating systems themselves many
+operating systems keep a log file
+associated with security events so you
+can monitor individual applications you
+can see if there are Brute Force attacks
+or any changes to critical system files
+and anything relating to authentication
+is usually also stored in these security
+log files this log file information
+inside the operating system may be able
+to provide you with a heads up of any
+type of security events for example this
+log vile might show that a particular
+service was disabled and that service is
+not one that would normally be manually
+disabled by the administrator that
+single log file event may cause a
+security alert to be generated and you
+may be able to stop a particular event
+from occurring just by monitoring this
+log data as you can imagine we are
+collecting a very large amount of data
+across all of our systems and so we may
+not want to send all of our log
+information into a Sim but instead only
+send the information that's important
+for us to be able to make security
+decisions another great place to gather
+information is from IPS or IDs events
+this would be associated with intrusion
+prevention systems or intrusion
+detection systems these days we don't
+tend to use Standalone IPS or IDs
+systems instead that functionality is
+often built into a Next Generation
+firewall an IPS log is going to provide
+information about known vulnerabilities
+or known types of attacks so it look
+something like the log file I've taken
+from an open- Source IPS called snort in
+this IPS we have a timestamp it shows us
+the class of the alert and it tells us
+that it's a possible deny of service
+attack specifically a sin flood attack
+it has a priority inside the IPS of two
+it gives us a source IP address a source
+port number and a destination IP address
+and destination port number we can now
+take all of these individual events and
+also roll those up up into our Sim so
+that we can now start extracting and
+correlating this data with all of the
+other devices on our
+Network there's also a great deal of log
+information we can gather from our
+Network infrastructure devices this
+might include our switches our routers
+our wireless access points or even VPN
+concentrators these log vials can
+identify any changes that might occur to
+any of our routing tables we might be
+able to identify authentication errors
+that are occurring to someone trying to
+gain access access to a switch or to a
+router and we might also be able to
+identify other types of attacks that are
+occurring on the network for example in
+this log we can see there is an
+informational entry that shows a TCP sin
+attack was identified on Port gigabit 8
+and we can see that the TCP sin traffic
+destined to the local system has been
+automatically blocked for 60
+seconds sometimes you can gather
+important information that is contained
+within the documents that we're
+transferring over the network stored
+inside of the documents that we are
+often creating in our word processors
+our spreadsheets our Graphics programs
+and others is information that describes
+that particular file for example if
+you're reading an email in your email
+client you don't often see the large
+amount of metadata that's stored within
+the header of that email but if you ask
+your email client to show you the entire
+email document you can often see
+information that's hidden within the
+email headers things such as the server
+that sent the email or the addresses
+that were specified as the destination
+you can also see this if you look at the
+description of pictures taken with a
+mobile device you may be able to tell
+what mobile device was used and even
+information about the GPS coordinates
+that were associated with this location
+of the picture there's even metadata in
+the browsers that we're using things
+like the operating system that we're
+using the browser type or the IP address
+that you're using and if you look at the
+metadata that's inside of a word
+processing document or a spreadsheet you
+may find information on the person that
+created that document their address
+their phone number and perhaps their
+title to give you an idea of what some
+of this metadata might look like let's
+look at the header of an email message
+you can see there is extensive
+information in this email header
+including the IP addresses that this
+message was received by we can see SPF
+information other details about
+signatures and information that can help
+you determine where this email message
+originated and the process that it used
+to be transferred into your
+inbox if you're performing vulnerability
+scans on your network then you're
+creating an extensive amount of log
+information this is going to give you
+details about what this vulnerability
+scam was able to identify for example it
+may identify devices on your network
+that don't have a firewall configured
+there may be no antiv virus on that
+device or anti-spyware and we're able to
+identify that in the logs of our
+vulnerability scans we might also be
+able to identify devices that are
+misconfigured for example there may be
+shares that are available that you can
+access without using any type of
+username or password or perhaps there's
+an operating system that has the guest
+access turned on when the best practice
+for your organization might be to
+completely disable all guest accounts
+and of course once you update the
+signatures inside of your vulnerability
+scanner it can identify any operating
+systems or applications which may have
+known vulnerabilities that need to be
+patched
+here's a summary of the results from a
+vulnerability scan this log information
+shows that there are certain operating
+systems that we're running on our
+Network that are currently unsupported
+and there might even be NFS shares that
+are on our Network that are readable by
+anyone in the
+world as you've probably seen already
+there is an extensive amount of log
+information that you would need to go
+through to be able to find Details
+hidden within all of this data
+fortunately most Sims have the ability
+to create a set of automated reports
+this may be a feature that is built into
+the Sim itself or you may be able to use
+a third-party report generator to Simply
+access the information that is currently
+stored in the Sim of course these
+reports aren't very valuable unless
+someone actually reads them and one
+stumbling block that many organizations
+will find is they will create these
+automated reports but then simply ignore
+them when they arrive in their inbox
+this might also take a bit of finesse to
+be able to find the right mix between
+the type of report that you need and the
+amount of time that it takes to create
+that report when you have a SIM that may
+contain terabytes and terabytes of data
+it may take an extensive amount of
+processing power just to create a single
+report so you may need to be very
+specific about the reports that you'd
+like to generate so that you can create
+them as efficiently as
+possible instead of waiting for a day or
+two to receive reports that are
+generated by the Sim it might be useful
+to have a summary of information that
+you could View at a glance this is often
+available through a dashboard many Sims
+and other security devices allow you to
+customize a screen containing
+information that would be important to
+review at a glance these dashboards may
+be customizable or there might be
+predefined dashboards built into the Sim
+itself this is often the type of data
+that's useful to see at a glance or on
+the main screen of your security
+operations center this commonly doesn't
+show long-term information primarily
+because it takes such a long amount of
+time to be able to compile all of that
+data together the dashboard is designed
+to give you something that you can view
+instantly and get an understanding of
+how the current status might be for
+example you can see a breakdown of the
+system itself any active firewall rules
+you can see warnings that have come
+through and information about users and
+devices that might be on the
+network one of the best places to gather
+data on your network is from the network
+itself being able to analyze the packets
+going over the network can give you a
+great deal of insight into the
+operations of the networking equipment
+the applications and any security issues
+this may require that you use a
+third-party utility such as the wire
+shark utility that we see here this may
+be able to provide you with the ability
+to capture data that's running across
+the wired Network and the wireless
+network and in some cases devices like
+switches routers or firewalls may have
+the ability to capture packets inside of
+the those devices themselves these
+captures give us detailed information
+about traffic Flows at the packet level
+everything going across the network is
+captured and that allows us to analyze
+every bit and bite that's transferred
+over the network the wire shark summary
+view here in the top pane shows a packet
+by packet breakdown of everything that's
+being sent over the network you can see
+the highlighted frame is one that's
+being sent as HTTP traffic and you can
+see the git command is written inside of
+the packet capture itself you can then
+see all of the following packets that
+describe the transfer of this file that
+was requested with the git command the
+bottom half of the screen is the detail
+pane this provides us with a breakdown
+of everything highlighted in that single
+frame at the top of the page in this
+case we can see the ethernet data we can
+see what's involved in the ipv4 header
+we have details about the TCP header and
+then we have the HTTP data itself being
+shown all in the that detail
+View

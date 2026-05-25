@@ -1,0 +1,100 @@
+an ongoing challenge for it
+professionals is to maintain compliance
+with the laws policies procedures or
+other rules that may be associated with
+their type of work some compliance
+requirements are brought on by the type
+of business that someone might be in but
+other compliance is brought by laws
+associated with State local or other
+agencies and in some cases not following
+these compliance requirements may result
+in fines incarceration or a loss of
+employment and these compliance
+requirements may be wide ranging it may
+be something that is a national
+territory or state law or there may be
+domestic or even International
+requirements that have to be
+followed in many Geographic areas one
+type of compliance is associated with
+data localization this means that any
+data that is collected by that country
+must stay inside of that country an
+example of this can be found in the gdpr
+this is the general data protection
+regulation that is associated with the
+European Union there are a number of
+rules associated with how data should be
+stored and where data should be stored
+and whether these data localization
+requirements are part of the gdpr or
+part of another type of compliance
+regulation you need to make sure that
+you understand where the data is
+supposed to be located and where that
+data can move once it's been
+stored but the general data protection
+regulation or the gdpr involves much
+more than just where the data can be
+stored this is a regulation that's
+associated with the protection and
+privacy of data associated with
+individuals that reside within the
+European Union this includes but is not
+limited to their name address photo
+email address Bank information websites
+they visit and any other type of data
+that that user may be gathering the gdpr
+states that any data that is collected
+on European Union citizens must be
+stored in the European Union the users
+can of course decide where their data
+goes and can choose to have their data
+removed from sites if they prefer the
+gdpr is designed to give individuals
+control over their own data and although
+it's often described as a right to be
+forgotten it may be better described as
+a way for individuals to protect data
+that they themselves
+own another type of Regulatory
+Compliance is not one associated with
+the law but is instead associated with
+an organization
+this is the PCI DSS this is the payment
+card industry data security standard and
+is a standard designed by the payment
+card industry to protect your credit
+card information there are six different
+areas of focus associated with the PCI
+DSS we need to build and maintain secure
+networks and systems this is something
+that will help protect data as it's
+moving across that Network we need to
+protect card holder data especially
+information associated with someone's
+private information we need to maintain
+a vulnerability Management program which
+is especially important if you're an
+organization that is storing credit card
+information we need to implement strong
+Access Control measures so that only the
+people required can gain access to this
+credit card data there needs to be
+regular monitoring and testing of these
+networks to ensure that all of these
+policies that we've put in place are
+indeed working as expected and we need
+to maintain an information security
+policy so that we have a broader scope
+on how to protect not only the credit
+card information but all of the data
+within our organization organizations
+are often audited to see if they're
+following the policies associated with
+the PCI DSS and an organization that is
+not following these policies could
+result in them not being able to process
+credit cards any
+longer and

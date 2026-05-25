@@ -1,0 +1,176 @@
+traditionally we've always done a good
+job at protecting the edges of our
+Network this allowed us to control who
+may be entering the network and who
+might be leaving the network but once
+you're on the inside all of the network
+tends to be very accessible this
+obviously creates security concerns if
+you want to be sure that you have the
+highest level security on your network
+in recent years many companies have
+transitioned to more of a zero trust
+approach this is a holistic approach to
+security that affects every user and
+every application being used on the
+network with zero trust every user every
+device and every application is
+inherently untrusted we want to check
+and verify any type of traffic going
+over our Network to ensure that only the
+right users are accessing the right type
+of data this means that we'll be
+implementing Technologies inside of our
+Network such as authentication
+encryption additional firewalls
+monitoring of this netork networ and
+many other security
+controls when you connect to a resource
+there's generally an authentication
+process that occurs there's usually a
+username and a password that you have to
+enter and there may be additional
+authentication factors as well many
+organizations may also create a
+policy-based authentication and one of
+the characteristics of that is an
+Adaptive identity with an Adaptive
+identity every authentication process
+considers who's trying to authenticate
+to the network nwor is this an
+individual who's been employed with the
+company for 10 years or is this a vendor
+who just started working with the
+company only a few months ago we might
+also consider where this person may be
+authenticating from are they located in
+our local geographic area or they trying
+to authenticate from a different country
+we might also evaluate the IP address
+that's in use and the type of connection
+that's being used during this
+authentication and we might want to
+combine all of those together to
+determine how risky this authentication
+process C might be if the user is inside
+of the building they may only need to
+use a username and password but if
+they're coming from an unknown IP
+address in a different country using a
+VPN connection we might want to require
+additional authentication
+factors we might also want to add
+additional rules and processes based on
+the information we're Gathering during
+this authentication process if someone
+is using the correct username and
+password but they're connecting at an
+unusual time of the day from an usual
+location we may still choose to deny
+that particular authentication if the
+same person was trying to authenticate
+from inside of the corporate
+headquarters during normal working hours
+then instead we may want to allow that
+authentication once the authentication
+process has completed and is successful
+we can trust that that person really is
+who they say they are now that that
+trust has been created we need to
+understand what type of access that user
+should have this may depend on the user
+who's provided the authentication if
+they're part of the help desk they may
+be able to view the hardware database
+for the entire company if they're the
+manager of the help desk they may be
+able to make modifications to that
+database and if they're not part of the
+help desk or managing the help desk they
+may have no access at all to that data
+we might also want to consider someone's
+location if they happen to be in a
+different country they might have a
+completely set of Rights and permissions
+than if they were inside of the
+corporate headquarters and if the user
+is accessing the systems using a laptop
+that has been provided by the company
+and we can verify the certificate on
+that laptop then we may give them
+additional rights and
+permissions a good best practice for it
+Security is to only provide rights and
+permissions to a user that match the
+requirements for their job if your job
+requires that you have read access to a
+database then we shouldn't provide that
+user with any ability to change that
+database this means that we would not
+arbitr Al provide someone with
+administrator rights just to be able to
+access a certain type of data all users
+should be accessing these applications
+with a limited set of Rights and
+permissions one of the reasons we don't
+want to provide administrative access to
+everyone on the network is that
+administrators have full access to all
+data on all systems and if a device is
+infected with malware and the user on
+that device has administrative access
+then effectively the malware now has
+administrative access to all of our
+systems one of the challenges with
+providing the right type of
+authentication and authorization is that
+users can be located anywhere some users
+may be located in the corporate office
+others may work from home and others may
+have a field service position which
+takes them across the world and the
+applications that we use may be located
+on a public Cloud across the internet or
+they may be in our private data center
+we need some way to provide a secure
+mechanism for communication regardless
+of where the user happens to be and
+regardless of where the application
+resides one way that we can create this
+secure environment is through the use of
+sassy this stands for secure access
+service edge and you can think of this
+as a Next Generation virtual private
+Network this moves our security
+Technologies into the cloud itself very
+close to where the application data
+might be and we would have a sassy
+client installed on every user's device
+so no matter what system they're using
+or where they happen to be they're able
+to take advantage of this secure access
+service edge at the top of this Sassi
+diagram is a public cloud data center
+software as a service or an internet
+connection this is where our
+applications reside our users may be at
+our corporate office they may be working
+from home or they may be mobile users as
+the users are accessing these resources
+we're able to provide Network as a
+service so there's quality of service
+and routing that we can provide we might
+also have security built into this zero
+trust network access firewall as a
+service and DNS security are just a few
+examples of what sassy can provide and
+because the sassy clients are installed
+on all of the devices and these
+connections are made automatically the
+users don't have to worry about turning
+on or turning off this sassy
+functionality the users simply use the
+devices they've always used they connect
+to the applications that they need to
+access and security is built in to the
+enti process

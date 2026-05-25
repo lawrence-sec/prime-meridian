@@ -1,0 +1,179 @@
+before an actual security event occurs
+it's always a good idea to perform some
+testing this gives you a chance to
+evaluate how well documented your
+response plans might be and it also
+gives you a chance to test your security
+skill set if you are planning to perform
+some type of security incident testing
+you want to be sure to do that with test
+systems you don't want to affect any of
+your production systems while you're
+performing these tests another important
+consideration is you will have a limited
+amount of time there are usually others
+who are involved during these exercises
+and they of course have other duties to
+attend to as well the exercises
+themselves are designed to test your
+processes your procedures and any of
+your technical skills but of course it's
+always good to sit down after the event
+is over and evaluate how well you did
+during that particular test there might
+be some processes or procedures that you
+went through during this exercise that
+might lead you to make some changes for
+any future events and this is why many
+organizations will get together after
+the exercise is over to evaluate these
+processes and see where some changes
+might need to be made at some point an
+organization will want to test
+everything associated with their
+Disaster Recovery plan but running a
+full-scale disaster event takes time it
+takes money and it takes people away
+from their primary jobs there may be
+times where you might start with a
+smaller version of this type of drill
+and something we call a tabletop
+exercise tabletop exercises involve
+everyone sitting around a table and
+logistically stepping through the
+policies and procedures for these
+security events one of the advantages of
+course is that you are all just sitting
+around a table and discussing what you
+would do in this scenario this means you
+don't have to go through the process of
+putting together a fullscale incident
+drill but it does allow you to step
+through your processes and your
+procedures to see where there might be
+places you can improve in the in the
+future this might be something that you
+can accomplish in just a few hours you
+get everyone around a table and you step
+through one specific scenario that you
+can use to evaluate your processes if
+that was to occur this means that
+everyone in the room can talk over what
+they would do first what they would do
+second and so on and since everyone in
+the room is involved with the incident
+response process you can in real time
+describe what you would do and then see
+what the other parts of the organization
+would do at the same time
+one type of test that occurs quite a bit
+in actual real world use is a simulation
+a test allows us to perform a simulated
+attack and to see what the results of
+that attack might be for example you
+might send fishing emails to the
+organization and see who might click on
+them you might call the help desk and
+see if someone can change the password
+for an account or take data and send
+that data outside of your organization
+to see if your monitoring systems would
+catch it if you're part of a larger
+organization you might have already been
+involved in a fishing simulation this is
+when the security team will send a
+fishing email to everyone in the company
+it might be requesting somebody to click
+on a link to update information in your
+systems or it may be requesting a
+password change obviously this would be
+something that you would not want a user
+to click on inside of their email and if
+anyone does click those particular links
+you'll be able to get a report showing
+exactly who clicked and followed up with
+the information in that email email if
+this fishing simulation is sent by a
+third party this also gives you a chance
+to test your internal systems to see how
+well it recognizes the fishing attempt
+and see if your automated filters are
+able to remove it from your mail system
+before it ever gets to the users and if
+somebody does click on one of those
+links you'll also want to evaluate how
+your anti-fishing systems occur when
+somebody tries to visit a fishing site
+all of this can now be evaluated after
+the fact to see where you you might want
+to increase the security of your systems
+and you might need to bring in users for
+additional training for email fishing
+events when a security incident occurs
+there are usually a number of different
+smaller events within that much larger
+security event for example you may have
+someone that breaches one particular
+vulnerability in a server and from there
+they begin transferring data planting
+other types of malware and Performing
+other events on your network eventually
+you'll want to know how they originally
+got into your network or find the root
+cause this root cause analysis can give
+us some insight into processes and
+procedures that either did not work as
+expected or we completely neglected a
+particular part of our security
+infrastructure we can usually evaluate
+log files look at information that may
+have been stored on servers by the
+attacker and recreate what really
+happened when that attacker visited the
+network this evidence allows us to
+reconstruct and understand how this
+person got into the network in the first
+place and in some situations there are
+multiple steps or multiple processes the
+attacker went through to gain access to
+your systems so you shouldn't
+necessarily look at a single root cause
+because there may be multiple root
+causes that allow that user access to
+your systems as we've already seen with
+the taxs that focus on social
+engineering there are times when a user
+makes a mistake and that could lead to
+an attacker gaining access to our
+systems or our data the important part
+is how we address those mistakes and
+find Corrections for them to prevent any
+future attacks one way to prevent an
+attacker from taking advantage of a
+vulnerability is toine that
+vulnerability first we do this through
+the process of threat hunting this might
+involve us making changes to a firewall
+rule maybe we're tracking the types of
+vulnerabilities that were announced in
+the last few days and we're also Al
+checking the systems that we have
+already installed to make sure that they
+are up to date with the latest patches
+the challenge of course is that it's
+difficult to identify an attack until
+the attack is actually occurring and of
+course we would like to prevent this
+attack from occurring in the first place
+so it's useful to monitor our existing
+systems and make sure that everything is
+up to date there are also a remarkable
+number of monitoring tools and automated
+systems that can identify certain types
+of attacks and stop them before before
+they gain access to your systems having
+that type of automation can help you
+prevent an attack from occurring even
+when you're not actively watching for it
+to
+occur

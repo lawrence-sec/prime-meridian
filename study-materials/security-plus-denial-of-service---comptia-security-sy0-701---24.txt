@@ -1,0 +1,152 @@
+a Deni of service occurs when an
+attacker forces a service to fail this
+is an intentional process where the
+attacker may be overloading a service so
+that no one else can gain access or the
+attacker may be taking advantage of a
+known vulnerability or design failure
+with that particular system this is
+another reason why we always say to keep
+your systems always up to date with the
+latest patches there are also documented
+cases where an organization May create a
+Deni of service to a third party as a
+competitive Advantage if you can remove
+your competitor from the internet then
+there is an obvious advantage to be had
+and it may be that the denal of service
+is simply a distraction or a smokees
+screen so that some other vulnerability
+can be exploited elsewhere in the
+organization and although it's true that
+sometimes this denial of service occurs
+because of a vulnerability in software
+sometimes it's a very easy process for
+example removing the power from a system
+is a very simple way to create a denal
+of Serv service
+situation sometimes we create a denal of
+service to ourselves this can be easily
+done if you aren't paying attention for
+example you may be plugging in two
+switches to each other and then you plug
+those two switches into each other again
+which effectively creates a loop and if
+you're not running spanning tree then
+you've probably brought down that
+particular part of the network creating
+a deny of service you could also create
+a deny of service by simply downloading
+a file for example if you need to
+download a large Linux distribution and
+all you have is a very small DSL line
+you may be using all of the bandwidth
+that would normally be associated with
+your production applications and I have
+worked for organizations where the water
+line was placed above the ceiling of the
+data center and unfortunately that water
+line broke this certainly caused Panic
+for everyone in the IT department and it
+also caused a denial of service the
+attackers though don't count on one
+single device to try to bring bring down
+an entire set of servers instead they
+will use multiple devices located all
+over the world to create a distributed
+denal of service or dos for example they
+may use a large number of computers
+scattered all over the world to use up
+all of the bandwidth or resources
+associated with a web server which would
+effectively cause this deny of service
+issue obviously the attackers not
+sitting at the workstation of all of
+these devices that are located all over
+the world instead they've put malware on
+these devices and created a series of
+botn Nets these are robot networks that
+are under the control of the attacker
+and the attacker can simply tell the
+botn net in one single command to attack
+a particular web server as an example of
+just how prevalent this can be the Zeus
+spotnet had over 3.6 million computers
+under their control at their Peak this
+allowed the owner of the botnet to
+basically attack any device or any
+system that they would like all by
+sending a single command to their botn
+net we sometimes refer to this as an
+asymmetric threat because the attacker
+has relatively few resources and they
+can easily bring down organizations that
+have many more systems and much more
+bandwidth than they do the attackers
+have also found that they can create a
+much more efficient attack if they can
+send large amounts of data to these
+devices to effectively bring them down
+even faster and the attackers have found
+that there are ways that they can send
+small small amounts of data that are
+suddenly Amplified into very large
+amounts of data to cause the deny of
+service this process of reflecting and
+amplifying the amount of traffic being
+sent over the network is possible
+because they're taking advantage of
+Internet services that are available to
+anyone you can see this amplification
+occur with certain protocols for example
+when you request information from an ntp
+server you generally receive back more
+information than you requested the same
+thing applies to DNS requests icmp
+requests and other types of very common
+protocols here's a very common example
+of DNS amplification this is a DNS query
+you can see the Dig command this dig
+command is requesting any information
+over a particular domain name and the
+domain they'd like to find is
+isc.grp characters or you're effectively
+amplifying this by about 86 times you
+can see how this might be appealing for
+an attacker because they can use DNS
+service which is very common send very
+little information into the DNS and have
+the victim receive a large amount of
+information in return here's how this
+would work you have a command and
+control for the botn net that is managed
+from a central facility and of course
+you have all of these infected systems
+around the world that make up the botn
+net it's also important important for
+the attacker to find just the right DNS
+servers the ones that are not properly
+configured or properly secured these are
+open DNS resolvers and there may be a
+number of these that the attacker can
+use located around the world this starts
+with the botnet command and control
+sending the command to the botnet to
+start the distributed denial of service
+attack this is sent as a message that
+says perform a query on the Open DNS
+resolvers that are listed and have that
+query spoofed so that the results are
+being sent to a particular web server
+this query is sent from all of the botn
+net devices to these DNS resolvers and
+of course because this is amplification
+the query that's made is relatively
+small but the results from the DNS
+resolver will be much larger these DNS
+resolvers will send these responses to
+the web server IP address that was
+originally spoofed effectively
+overwhelming it and causing the
+distributed denial of service
+attack

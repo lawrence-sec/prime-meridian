@@ -1,0 +1,129 @@
+many organizations will distribute their
+applications their servers and other
+devices across many different data
+centers instead of treating each of
+these data centers as an individual
+entity it would be useful if we could
+have data center interconnection or DCI
+a way to connect these different data
+centers seamlessly with each other if
+you're service provider you may have
+hundreds or even thousands of customers
+using resources that span across
+multiple data centers located anywhere
+in the world and of course we use the
+cloud to distribute our applications to
+multiple data centers that may be
+located in many different locations and
+those applications may move at any time
+to any of these cloud-based data centers
+when you have devices located in
+different data centers however you may
+run into situations where IP addressing
+is very different across those different
+data centers there might be one IP
+addressing scheme for data center a and
+a complete completely different IP
+addressing scheme for data center B the
+connectivity to these data centers may
+also be very different some data centers
+may be in a large metropolitan area with
+lots of fiber connectivity and large
+amounts of bandwidth other data centers
+might connect through Metro Ethernet or
+other types of copper based connectivity
+the applications that are residing in
+these data centers shouldn't have to
+worry about connectivity types IP
+address schemes or anything else that's
+unique to that data center we should be
+able to put an application in any
+location and that application should
+work without any type of issue we need a
+way to seamlessly connect these data
+centers together without a concern about
+IP address schemes or the underlying
+Network infrastructure the solution to
+this problem is a virtual extensible
+land or VX Lan this technology was
+designed to support thousands of
+different customers all using the same
+Data Centers located across the world
+you may already be familiar with vlans
+or virtual local area networks vlans are
+designed to span across multiple
+switches at layer 2 so that you can have
+different areas of the network
+supporting the same IP subnets
+unfortunately vlans have a limited scope
+because they can only support around
+4,000 different virtual networks and
+they are limited to layer 2 which makes
+them non-routable with vxlan we can
+support up to 16 million virtual
+networks and those virtual networks can
+be connected to each other over a layer
+three Network which makes it very easy
+to Route over the existing public
+internet this is designed for the large
+virtual environments that we've created
+and allows us to support our
+applications wherever they might be
+let's take a scenario where we have two
+data centers in one data center we have
+a virtualization server inside of that
+virtualization server is a virtual
+switch and three separate virtual
+machines A1 B1 and C1 in a different
+data center we have a similar
+virtualization server with its own V
+switch and a virtual machine A2 B2 and
+C2 and in this example virtual machine
+A1 is associated with virtual machine A2
+virtual machine B1 is associated with B2
+and virtual machine C1 is associated
+with virtual machine C2 this
+virtualization server is contained
+within a rack that has a topof rack
+switch that contains a VX land tunnel
+endpoint in one data center that VAP is
+numbered $1 1.1.1 and in a different
+data center there's a completely
+different IP address for this VP of
+2.222 notice that both of these VXL
+tunnel endpoints will support a VXL
+Network identifier or vni you can see
+there is a vni 2000 a vni 3000 and a vni
+4000 in both of these data centers so
+the challenge is connecting vni 2000 in
+one data center with vni 2000 in another
+data center V I 3000 in one data center
+to the other and vni 4000 in one data
+center to the other the way that we
+would accomplish this is through the use
+of a VX land tunnel this uses an
+existing IP network to be able to
+provide the transportation and we're
+able to encapsulate information and one
+data center send it through this tunnel
+and decapsulate it on the other end
+here's how this would work we have our
+original frame in the First Data Center
+this is a standard ethernet frame with
+an Ethernet head header an IP header and
+the payload that we would like to send
+to the other data center we're going to
+encapsulate that original frame within a
+VXL header that sits inside a UDP header
+in an IP header in an Ethernet frame
+this information is routed across a VXL
+tunnel where on the other side it is
+decapsulated from the tunnel and the
+original ethernet frame is then in the
+second Data Center and added to the
+existing virtualization server this
+allows us to connect virtual machines
+into completely different data centers
+but still have those virtual machines
+feel that they are both directly
+connected to each other

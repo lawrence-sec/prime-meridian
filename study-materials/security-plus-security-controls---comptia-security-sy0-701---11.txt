@@ -1,0 +1,310 @@
+if you spent any amount of time in it
+security you know there are many
+different security risks that you need
+to prepare for the attackers are looking
+for different ways to gain access to our
+systems and we need to find different
+ways to prevent them from getting that
+access but of course we're not just
+protecting data we're also protecting
+physical systems buildings people and
+everything in our organization in this
+video we'll look at different security
+controls and how they can be used to
+prevent events from occurring in the
+first place we can minimize the impact
+of events that ultimately do occur and
+in many cases we can limit the damage if
+someone does find a way into our
+Computing
+environment let's look at some very
+broad categories of security controls
+the first category we'll look at are
+technical controls these are controls
+that we Implement using some type of
+technical system so if you're someone
+who is managing an operating system you
+might set up policies and procedures
+within the operating system that would
+allow or disallow different functions
+from occurring we can also put firewalls
+antivirus and other types of software
+into this category of technical controls
+as a Security administrator you'll also
+want to create a series of policies that
+explain to people the best way to manage
+their computers their data or their
+other systems we refer to these as
+managerial controls so if you are
+creating series of policies and
+procedures or you're creating an
+official security policy documentation
+you'll often put these managerial
+controls inside of your security
+policies you might also see these
+managerial controls implemented into
+day-to-day processes as part of your
+standard operating procedures another
+important control category are the
+operational controls unlike using
+technology to manage these controls
+operational controls are using people to
+be able to set these control controls so
+if you have security guards at your
+place of work you're doing monthly lunch
+and learns or you have some type of
+posters or awareness program at work to
+help explain the best practices for it
+security then you can put these into the
+category of operational controls and the
+last category that we have are physical
+controls as the name implies these are
+controls that would limit someone's
+physical access to a building a room or
+a device this might be something like a
+guard shack so they can check everyone
+coming into a particular area maybe
+there are fences and locks to keep
+people out or maybe use badge readers to
+limit the access into certain areas
+within your building so in this video
+we'll focus on these four categories of
+controls the technical managerial
+operational and physical and in this
+video we'll look at a number of
+different control types and determine
+where we would fit certain control types
+into certain categories the first
+control type we'll look at is a
+preventive control type this is a
+control type that limits someone access
+to a particular resource you can think
+of this as something like a firewall
+rule which would prevent somebody from
+Gaining access to a particular area of
+your network or it may be something
+that's more tangible such as a guard
+shack checking everyone's identification
+as they come into your facility a good
+way to test yourself with these
+different control types is to determine
+what category will a certain type fit
+into so when we deal with preventive
+control types we can look at firewall
+rules and since those are handled at a
+technical level then those would fit
+into the technical category as we hire
+people we may want to set a certain type
+of policy for onboarding and those would
+be policy set as part of a managerial
+category we've already mentioned a guard
+shack checking everyone's identification
+and since that's done by a person we can
+fit that into an operational category
+and lastly we have door locks which are
+physical devices preventing access to a
+room so that would fit into the physical
+category another important control type
+is a deterrent and although a deterrent
+may not prevent someone from accessing a
+resource it may give them a
+discouragement or have them think twice
+about the attack that they're planning
+for example when you start an
+application there may be a splash screen
+that provides security information and
+restricts people who are not authorized
+from Gaining access to that system or
+there might be the threat of a demotion
+or a dismissal if somebody gains access
+to data that they should not be
+accessing there might also be a front
+reception desk reading everyone who
+walks in or warning signs telling people
+that if they gain access to this
+facility that there would be
+consequences these fit perfectly into
+our four categories a splash screen is a
+deterrent that fits into the technical
+category a demotion is a managerial
+category the reception desk fits into
+the operational category and the warning
+signs are a physical
+deterrent a detective control type can
+identify and in some cases warn us when
+a particular breach has occurred this
+may not prevent access but it would give
+us a warning and log information about
+that particular attack an example of a
+detective control type may be a process
+of collecting reviewing and going
+through system logs or you may be
+reviewing login reports about who's
+gained access to your systems there
+might be someone controlling the
+property looking for cases where someone
+might have broken into your facility and
+you might have motion detectors so that
+you're automatically notified if
+something is moving in an area where
+normally there should be no motion the
+system logs that are detailing
+everything that's going on in your
+systems would fit into the technical
+category someone reviewing login reports
+every day or every week would fit into
+the managerial category someone
+patrolling the property would be an
+operational category and then the motion
+detectors provide us with a physical
+category if there is a notification that
+someone has breached a system or gained
+access into a certain area of your
+business then you want to apply a
+corrective security control a corrective
+security control is something that
+occurs after the event has been detected
+this is sometimes able to reverse the
+impact of that particular event or you
+may be able to continue operating with
+your business with minimal downtime
+thanks to these corrective controls for
+example if a computer has been infected
+with ransomware and it has encrypted
+everything on that system and made all
+of the data inaccessible you can simply
+erase everything on that computer and
+restore it back to a known good system
+using your backups you might also want
+to create policies so that if there are
+security issues or something unusual
+that you see happen then those would be
+rolled up into an alert or some type of
+notification and if you find that
+someone is jumped your fence or they've
+tried to get in through a door in your
+building you may need to contact law
+enforcement to be able to correct that
+particular incident and if something is
+caught on fire you can grab a fire
+extinguisher and make sure that that
+fire doesn't spread any further thereby
+correcting that particular event and as
+you might expect those are four events
+that certainly fits into the four
+categories that we have for example
+recovering from a backup would be a
+technical category being able to have
+policies for reporting issues when they
+occur would be in the managerial
+category contacting authorities for some
+type of legal issue would be an
+operational category and your fire
+extinguisher is a physical category you
+might also find yourself in a situation
+where a security event has occurred but
+you don't have the resources or means to
+be able to reverse What that particular
+event has caused in those cases you may
+want to use a compensating control type
+which provides you with using other
+means in a way to control that
+particular security event this may be
+something you use on a temporary basis
+until you're able to put together a plan
+to resolve the overall security incident
+for example you might have an
+application that is important for your
+organization but the application
+developer has told you that they've
+identified a significant security
+vulnerability in that software since the
+application developer is going to
+provide you with a patch sometime in the
+future you may want to set some type of
+firewall rule today that will would
+prevent somebody from exploiting that
+particular vulnerability or this might
+be a case where you can separate
+different duties between different
+individuals and limit the scope of any
+type of security concern or you might
+have multiple security guards all
+working at the same time to make sure
+that no single security guard has
+complete access to everything in your
+environment and if you lose power in
+your building you might want to have a
+generator so that while you're waiting
+for main power to be restored you can
+compensate by by turning on your
+generator those are our four different
+categories of a compensating control we
+have a technical category of blocking
+that traffic instead of patching the
+application there may be a separation of
+duties for the people that work in your
+organization and that fits into the
+managerial category you might require
+multiple security staff working
+simultaneously and that would be the
+operational category and lastly having a
+power generator to compensate for a
+power outage fits into the physical
+category
+the last control type we'll look at is a
+directive control type this is a
+relatively weak security control because
+it is one where you are directing
+someone to do something more secure
+rather than less secure for example you
+may require everyone to store sensitive
+information into a protected and
+encrypted folder on their system this
+requires the user to make a decision
+about what data may be sensitive and
+what data may be non-sensitive and then
+they are directed to store the sensitive
+information in the protected folder as
+part of our security policies we may
+want to add compliance policies and
+procedures so that everyone understands
+the proper processes to use for security
+in your environment you might also train
+users on what the proper security
+policies might be and another example of
+a directive control may be a sign that
+you put on a door that says authorized
+personnel only there might not be a lock
+on the door but the sign saying
+authorized personnel only Direct directs
+people to either enter or not enter that
+particular door so to summarize these
+our file storage policies will direct
+people to this technical category a
+compliance policy fits into a managerial
+category someone performing a security
+policy training course would be a
+directive control type fitting into the
+operational category and a sign on a
+door that says authorized personnel only
+fits into the physical category the
+examples I provided for the different
+security controls and the categories
+where they fit are simply one single
+example you can probably think of a
+number of different examples that you
+could fit into any of those squares in
+our Matrix you could probably also think
+of different security controls that
+might fit into a different category of
+control or a different type of control
+you might also find as our technology
+changes and our security processes
+evolve that there might be new control
+types that we could fit into our chart
+and of of course not everybody uses the
+same security controls so the ones that
+you use in your organization may be very
+different than someone else's
+organization

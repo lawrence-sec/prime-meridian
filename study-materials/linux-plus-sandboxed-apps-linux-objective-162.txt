@@ -1,0 +1,434 @@
+hey everybody Sean Powers here and today
+we're going to finish off section 1.6 of
+the Linux plus objectives talking about
+snaps and flat packs and app Images Oh
+My lions and tigers
+no we're not gonna do that uh but
+whether or not you want to take the exam
+or you just want to learn more about
+Linux the Linux plus objectives are a
+great set of things that will help you
+become a better system administrator
+before we do that though I realized that
+I have been forgetting to put my patreon
+supporters in my videos and that's
+literally one of the perks in one of the
+of the tiers of being a patreon
+supporter and I'm so sorry it's such a
+douchebag move I hope you believe that
+it wasn't on purpose I literally just
+keep forgetting they should be scrolling
+either in the bottom or the sides I'm
+going to do that in post edit so I don't
+know where they're going to be but
+they're awesome and I'm so so grateful
+now as they all scroll by and everybody
+that supports me is awesome I want to
+specifically call out uh new nerdy
+nerdling who nerds which is not an
+insult that's actually the name of one
+of the tiers and that is Santiago
+carnago whose name I probably pronounced
+wrong I'm not good at rolling my R's
+carnago I don't know I'm so sorry I
+should have just stopped um also there
+are two new Bean class tier supporters
+from patreon and that's like the highest
+tier I it just blows me away so thank
+you so much to Eric Santos and to Mike
+Sarah Sarah I probably pronounced your
+name wrong too oh I'm so bad at this
+um but thank you both so much uh I I
+just can't explain how awesome it is
+that you have chosen to support me even
+when I do a bad job of remembering to
+put everybody's name and give you
+recognition ah I'm so sorry anyway like
+I said this finishes up section 1.6 of
+the Linux plus objectives I'm calling it
+section 1.6.2 and we're going to look at
+the various sandboxed apps and the ways
+you can install them on Linux it's
+different from package management these
+are more like like Docker and your
+desktop GUI had an illegitimate baby I
+have mixed emotions about sandboxed apps
+but we're gonna go over the most common
+way that they are installed on systems
+so I'm here on Rocky Linux and Rocky
+Linux has flat pack installed it's a
+flat pack is what red hat uses for their
+sandbox applications and there's a
+little bit of a weird Nuance here though
+because by default there aren't any
+repos installed for flat packs so
+basically if we tried to install
+something with flat package be like I
+don't I don't have any information
+there's no repos what I recommend is you
+go to flathhub.org at first and then
+you'll see all these wonderful little
+applications here now you can go to like
+krita which is a graphics program and if
+you wanted to install it if you scroll
+down it says like here's the way to do
+it on the command line okay but this
+doesn't exactly work let me show you so
+we copy this right this this is the
+install information and if we were to
+paste this on the command line basically
+it says flat pack install is the command
+the next field flat Hub is what repo to
+install it from and then the name of the
+package but if we do this it's going to
+say that's great but I have no idea what
+flat Hub is because like I said it
+doesn't have the repo installed now
+there are commands to install repos
+separately and we could go back over
+here and find the instructions for
+installing it says this is how you can
+install like here's Rocky Linux so click
+on here and it's a install flat pack
+flat pack was itself was already
+installed and then you need to install
+the repo doing this so we could install
+the remote which is what they call repos
+but there's kind of a neat shortcut you
+can do because if I close this even
+though we haven't set up the repo if we
+go up to the top and we click this
+install button it's going to download a
+file right there this
+org.kde.credit.flat pack ref okay so
+that file is now downloaded on our
+system in the downloads folder so if we
+do LS
+downloads we're going to see there's
+that file now if we install that file it
+does a cool thing so let's do that we're
+going to say flat pack install
+downloads that file and the very first
+thing it does it says Hey the remote or
+the repo are going to cause repos
+remotes is at this location and it
+contains additional applications should
+the remote be capped for future
+installations so what it's going to do
+it's going to install the repo for us so
+I'm going to say I'm just going to press
+enter for yes and now here's the thing
+too flat packs are installed system wise
+so everybody's going to be able to use
+the application now flat pack does have
+a dash dash user flag that you may be
+able to install things only for the
+local user but in general it's going to
+be a system-wide install if you do
+things locally for the user sometimes
+you still have to use the sudo privilege
+in order to do that it's a little bit
+weird to install some stuff some places
+some stuff other places just know that
+by default and by Design flat packs are
+installed system-wide so that's what
+we're going to do so we enter our sudo
+password and it's going to do that it
+says that the required runtime also also
+has like or the the thing also has other
+dependencies okay the the runtime files
+should I install that as well well yes
+of course you should so again the
+default is yes I'm going to say yes and
+it's going to install all of these
+things which are dependencies and the
+krita program in the sandboxed flat pack
+format itself so I'm just going to say
+yes install and it's going to download
+all of those files now the thing about
+sandbox applications is it handles all
+of the dependencies internally so if
+there's two programs that conflict with
+each other that's okay because
+everything is inside its own flat pack
+this is this the idea behind these
+sandboxed applications is that a
+developer can release one time for all
+the platforms so it like doesn't matter
+if there's a different version of
+dependencies installed on the system
+because each flat pack will download and
+install its own internal dependencies
+and so that that's the advantage it's
+supposedly going to be easier for a
+developer to like release once for every
+package and flat packs are supposed to
+be distribution agnostic they'll just
+always work the thing about sandboxed
+apps is they are a little bigger because
+again they install each one installs all
+their own dependencies kind of like
+Docker installs all of its dependencies
+when you're running a container and they
+start a little slower because since they
+have their own dependencies those
+dependencies are not already in memory
+from another program that's running and
+they also can use a little bit more
+memory because again it's not sharing
+with other applications all of the stuff
+is self-contained now computers are fast
+enough with enough like resources that
+it's not generally an issue but know
+that that is the case and they do start
+up a little bit slower as they load
+everything into memory so once it's
+downloaded and installed now if we go
+back here it says that you can actually
+run it by saying flat pack run
+and that and if we paste that in it's
+going to actually run that program now
+the thing is though usually it's going
+to also install it into the system menu
+so if we go activities here we can type
+krita and it's going to be installed in
+the menu just like a regular application
+is okay so we can we can start it just
+by clicking on that we don't have to use
+the command line to start them or to
+start it so you know that's kind of nice
+okay it started back over here and so
+this is krita running as a flat pack app
+now the main competitor if you want to
+call it a competitor for open source
+framework for installing applications is
+going to be snaps or maybe there's snap
+packs I'm not really sure I think
+they're just called snaps and it's the
+exact same kind of idea this is
+something though that Ubuntu uses and
+Ubuntu and they're not exclusive but
+it's mainly Ubuntu that uses snaps and
+it's the same sandboxed idea they
+download all of their things they're
+generally system wide it will store
+configuration files in your home folder
+under a snaps folder but the actual
+snaps themselves are stored in a
+system-wide snaps directory anyway it
+functions pretty much the same way but
+there are a few caveats because Ubuntu
+is really pushing for people to use
+snaps now on a Ubuntu system Snaps are
+installed by default so you don't have
+to worry about like setting up a
+repository because they are already
+installed when you install the system
+Ubuntu is pushing snaps really really
+hard in fact we could do a snap I think
+it's info is it info or List uh no snap
+list and this will show you all of the
+snaps that are installed on the system
+again they're system wide so they're
+installed on the system and it looks
+like uh yeah Firefox actually up here I
+didn't install Firefox when the system
+was installed Firefox came pre-installed
+and they used snaps instead of Apt and
+that's what I mean by they're pushing it
+really hard that's what they want you to
+use now we could install snaps using
+something like the software Boutique
+which is uh the Ubuntu mate version of
+the like software finder thing but you
+can also do the command line stuff so
+like we could do snap
+search for oh and also flat pack after
+you install a repo if you do flat pack
+search you can search for individual
+packages you can test that on your own
+but snap works the same way so snap
+let's search for chromium maybe oh looks
+like there's some things yeah chromium
+is up there we could do snap install
+chromium press enter it's going to ask
+us for our password because again this
+is done system-wide even though the the
+configuration files are stored in your
+local folder the actual Snaps are
+installed system wide so I'm going to
+put in my password it's going to
+download it and install it again it's
+it's just like the flat pack thing right
+it's going to install it as a sansboxed
+application so it has some of the
+downsides where it starts a little
+slower use a little more RAM not really
+that big of a deal the big selling point
+right is that oh now developers like
+chromium or Firefox only have to release
+One release they can just do snaps and
+then it works on every distribution but
+you see the problem there right first
+there's multiple competing one install
+to do it all for different distributions
+so now now rather than making it easier
+for developers developers now have to
+like make a snap and they have to make a
+flat pack and they have to maintain the
+app repositories and they have to
+maintain the RPM repositories
+will there eventually be like this
+synergistic moment where everything is
+done with sandboxed apps I don't know
+but we are not there and it is not
+easier for developers right now and
+it's sometimes the snap or flat pack
+version is newer than the one in the
+after RPM repository sometimes it's
+older usually the containerize or I'm
+sorry the sandboxed apps work really
+well
+sometimes they don't for example the OBS
+snap which I installed on Debian trying
+to get OBS to work like what we're doing
+right now that snap or did I use no it
+was a flat pack so I installed the flat
+pack on Debian it just wouldn't work
+right it would start but then it would
+crash when it was trying to access the
+GPU so it's not perfect
+um and again it's just like now one more
+thing it hasn't gotten easier I'm not
+sold that they're the wave of the future
+but maybe they are and maybe it's just
+going to be a little further into the
+future than I'd like but as you can tell
+Ubuntu is all in with snaps so if we go
+up here to the menu internet now
+chromium is installed in the menu just
+like if we installed it with apt so they
+really are all in and snaps are the way
+of the future in fact they are even
+starting to use snap to install non-gui
+tools like if you install a demon like
+if we went over here and we did snap
+list you'll see there's like the uh well
+the snap Daemon but like cups the cups
+Damon for printing is now a snap but it
+still uses system D to do like it's
+restarting but there are snap ways to do
+it too you can like Snap restart a
+service
+that's I don't know like again I'm not
+necessarily sold but anyway that's how
+they work they do have the advantage
+that they don't conflict and they could
+in theory make things easier for
+developers to just release exactly how
+it'll work in an environment that they
+know it will work in kind of like a
+Docker has done for a lot of
+server-based applications there is one
+more way of doing like Standalone apps
+and this one I guess it's a sandboxed
+app too it's all in one and I literally
+mean that it's one file you download a
+file you smart it to executable and you
+run the file and that's called an app
+image Now app Images there's no
+repositories there's no install from the
+command line you literally download a
+file and shimad plus X to make it
+executable and execute that file and I
+do that actually I really like app
+Images because they are simple and they
+don't have like an underlying system
+going on so let me show you like I uh
+right now use app image for Avi demux
+it's a graphic or it's a video program
+that I use a lot actually we can
+probably do it on this virtual machine
+here let's go to let's look for Avi
+demux uh avidmux download and see how
+right here it says it's going to
+download this app image but there's
+nothing to install once we have it you
+just make it executable so okay it's
+downloaded now if we look in our
+downloads folder we have that file so
+all we do is schmod plus X we don't have
+to be root to do this make it executable
+and then we just execute it
+boom it starts right up it works uh and
+again I I like it because uh it does
+have a feature where it can update
+itself like as it starts it it doesn't
+always but it can check for an updated
+version of itself and prompt you if you
+want to download the new version which
+is cool so this is the other way to go
+about doing it and I like this one again
+it doesn't require any root privilege
+again it just runs on the command line
+as the user but I have had an issue let
+me show you so this is actually my
+computer that we're recording on right
+now this is Big Tuna and there I just
+downloaded the restream which is one of
+the things I use for my live stream
+there's a chat program that they
+distribute as an app image so if we do
+start uh app star you'll see I'll just
+show you what's in here let's see it's
+called
+um oh restream plus chat dot app image
+oh it's capital A that's why I didn't
+find it uh we just do a schmod plus X of
+the restream chat I try to execute it
+and it's going to give me an error and
+there's not much I can do right it gives
+me an error about something about my
+compositor yeah I don't even know what
+it's complaining about but it just
+doesn't work but it's a single file
+there's not a whole lot I can do and so
+there are some downsides of app Images
+they aren't necessarily tested on every
+system to see if they will work but uh
+if I had my druthers I would probably
+use an app image but flat packs and
+snaps are popular people use them people
+like them I like the idea that they're
+sandboxed and they're their own
+contained thing but personally I get
+more frustrated with them than anything
+and I tend to just use apt or yum or dnf
+to install packages from the traditional
+repositories maybe that's because I'm
+old but uh that's just pretty much how I
+do it so if you if you log into a system
+though you may not know whether they're
+snaps or flat packs or app images or
+installed traditionally unless you look
+on the system to see what sort of stuff
+is installed and how anyway I hope that
+was helpful I encourage you to play with
+all the systems it's it's good to know
+how they work but uh know that red hat
+is generally a flat pack thing even
+though you can install flat packs on
+Ubuntu you just have to get it all set
+up and vice versa you can install snap I
+think you can install install snaps
+elsewhere I don't ever see anybody want
+to install snaps anywhere else generally
+it's people wanting to use flat packs on
+Ubuntu but anyway learn everything do
+what you love and most importantly be
+kind and play with these app things
+they're fun if nothing else and since
+they're sandboxed it's not like you're
+going to mess anything up on your system
+when you try them out I'll see you next
+time

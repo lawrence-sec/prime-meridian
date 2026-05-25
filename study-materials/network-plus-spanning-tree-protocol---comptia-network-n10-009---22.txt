@@ -1,0 +1,162 @@
+if you had two switches and you
+connected them together with an ethernet
+cable and then you connected another
+ethernet cable to those switches you
+would create a loop on the network this
+means an Ethernet frame would loop
+around that particular connection until
+you disconnected one of those cables
+there's no mechanism at the MAC address
+level to count how many times you've
+seen a frame so as these frames are
+going around this Loop you're adding
+more and more frames to the network all
+the time those are continuing to go
+around this Loop and eventually you'll
+overwhelm the capacities of your
+switches this can happen relatively
+quickly once you create a loop in a
+network it might be a number of seconds
+until people start calling the help desk
+stating that the network is down
+fortunately this is relatively easy to
+resolve you simply go back to the switch
+where you plugged in that cable you
+disconnect the cable which removes the
+loop from the network and now everything
+is back up and running but of course
+we're not always standing in the data
+center ready to plug or unplug a cable
+from a switch we need some type of
+automated method to recognize a loop on
+the network and to prevent those Loops
+from occurring fortunately we have a
+standard that's able to recognize and
+prevent loops on a network this is the i
+e
+802.1d standard one that we call the
+spanning tree
+protocol spanning tree can configure
+interfaces on our switch in a number of
+different ways it may configure the
+switch switch port to be blocking which
+means it's not going to forward any
+traffic this is commonly used to prevent
+loops on a network if we were to plug in
+that second cable to our switch spanning
+tree would recognize that a loop was
+being created and it would cause one of
+those interfaces to be in a blocking
+State the listening phase is used by
+spanning tree to clear out existing
+tables and restart the process it's
+going to go through a learning process
+where it listens to understand where all
+of the other switches might be and if
+they're might be any loops on the
+network already running and then it will
+configure an interface to be forwarding
+which means traffic can be transmitted
+through that interface or will configure
+an interface to be blocking we might
+also have interfaces that are
+administratively disabled those
+obviously would not participate in this
+spanning tree
+process here's a network that is already
+running spanning tree and there are a
+number of switches they're identified as
+Bridge one Bridge six Bridge five and so
+on you can see there are five of them in
+this particular design and you can see
+that many of these switches are
+connected to each other and if we didn't
+have spanning tree running there would
+be a loop on this network already but on
+this network we already have spanning
+tree that's operational and it is
+configured a number of different
+interfaces there are three different
+types that you can see on the screen one
+is the root port or RP this is the
+interface on a switch that is connected
+ultimately to the single root bridge on
+the netor Network there's also a
+designated Port which would be any other
+Port that can forward traffic but is not
+the port that is connected directly to
+the root bridge and there are blocked
+ports these are ports where spanning
+tree has disabled that Port from sending
+or receiving any traffic you can see on
+this network that bridge 21 has a
+blocked port and Bridge 11 has a blocked
+port and those have been blocked so that
+there is not a loop on the network if we
+were communicating from Bridge 11 you
+can see there is a single root port and
+you can follow that all the way back
+with those root ports to the final rot
+Bridge the designated ports are also
+available to be able to send and receive
+traffic in this scenario let's say that
+we're on network a and we've been
+communicating with a device on network M
+you can see that we can communicate
+through Bridge 6 which has a designated
+port and a root Port that allows us
+access to network M but what if there is
+a problem on this network and we lose
+connectivity between Network a and
+Bridge 6 now we need some other way to
+communicate to network M but as you can
+see there is a blocked port on Bridge 11
+so we would not be able to communicate
+through that connection fortunately
+spanning tree recognizes that we have
+this disconnection and it begins
+clearing out the existing configuration
+and relearning the topology of the
+existing Network spanning tree has
+changed Bridge five so that the root
+Port is now on the other side and it has
+removed the block port on Bridge 11
+allowing us onet Network a to be able to
+now communicate all the way through the
+network back to network m without having
+another loop on the
+network on many networks we do talk
+about enabling spanning tree and making
+sure that our spanning tree
+configuration is turned on inside of our
+switches but in reality these days we're
+probably running a newer version of
+spanning tree called the rapid spanning
+tree protocol the standard is the
+802.1w standard in the original spanning
+tree protocol it might take 30 to 50
+seconds for the convergence process to
+occur and on today's networks that is a
+very long time to wait without any type
+of connectivity with rapid spanning tree
+protocol this convergence process goes
+down to about 6 seconds which means
+anytime There's A disruption on the
+network we can be back up and running
+relatively quickly fortunately this
+rapid spanning tree protocol is
+backwards compatible with the original
+spanning tree so if you have a mixed set
+of devices on your network that support
+one or the other standard you can run
+them all at the same time fortunately
+rapid spanning tree protocol works very
+similar to the original spanning tree
+configuration it simply operates much
+faster there are some shortcuts and
+other configuration settings within the
+rapid spanning tree protocol but it has
+such familiarity that if you understand
+spanning tree protocol will be very easy
+for you to understand the details of
+Rapid spanning tree protocol

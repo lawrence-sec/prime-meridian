@@ -1,0 +1,573 @@
+[Music]
+Okay. So we we have to talk about email
+too because even though email is just
+one single communication channel, it is
+so widespread. The companies still rely
+heavily on email every single day. And
+since we have such a large user base for
+email and it has been around since since
+forever since the beginning of the
+internet, we have so many attack vectors
+on email and it's just a a gift that
+keeps on giving malware
+ever since 1971.
+All right, so let's start with fishing.
+This is the first type of attack for
+email that it's actually the only one
+that can be executed without any kind of
+technology at all. It's also sometimes
+called impersonation. And fishing is the
+most common type of email social
+engineering. And as a concept, fishing
+has nothing to do with technology simply
+because it attacks the weakest link, the
+human link. Now, its purpose is to trick
+the receiver into believing that the
+message comes from a different source or
+into believing that the contents of the
+email is is legitimate when in fact it's
+not. And the purpose is to extract some
+sensitive information out of the victim.
+For example, if you believe that a
+message came from your boss, you might
+be willing to answer and disclose some
+company sensitive information. If you
+believe that the message came from HR,
+uh you might give away a ton of personal
+information. If you're not very
+techsavvy and believe that IT support
+asks you for your password because
+apparently they have to upgrade your
+email system. Well, you can see where
+this is going. And we do have some
+subtypes, some subcategories
+for uh for email fishing. The first one
+is spear fishing. These are messages
+targeted to specific persons rather than
+a a mass mailing. Uh second one is
+whailing. These are messages targeted at
+highlevel executives inside of a
+company. Doesn't mean they're fat, it's
+just that they're big in their position.
+Next one is farming messages containing
+links that when you you click those
+links they redirect you to a website
+that looks like your email login page
+for example or your your bank's login
+page except that they're not of course
+those are hosted by the attacker and
+they're made to look trustworthy. If you
+enter your credentials in there what
+you're basically doing is handing over
+those credentials to the attacker's
+website. remember farming because it's
+an important exam topic as well. Next,
+we have email forwarding which is not
+exactly an attack type in itself. It's
+just a practice of crafting the email
+subject and the body of the email to
+make them look like they belong to a
+chain of email replies and at some point
+you were just added in the middle of the
+discussion. In some cases, it can look
+convincing because you can see some of
+the quoted replies belonging to some uh
+some authority figure, some well-known,
+respectable colleagues in your company
+in the same email, but it's actually
+just a social engineering attempt and
+that information is crafted by the
+attacker with the knowledge that they've
+gathered from open source intelligence.
+One more thing here. Uh, while it is
+quite easy to spoof the header of an
+email and make it look like it came from
+someone else, it is much easier if you
+actually compromise a real email account
+from within the company. You can steal
+the password from it. You can uh you can
+use it then to send emails as another
+person in their name. And this is known
+as Beck or business email compromise.
+Actually, let's just call it BEC. Beck
+kind sounds kind of weird. Now, every
+email has a header and that header
+contains a lot of useful metadata, meta
+information that keeps being added by
+every hop along the way. Of course,
+starting with the source and they
+contain a wealth of information, not
+only the the sender and the recipient,
+but also a lot of information about any
+of the servers and their security
+settings, all the servers that handled
+that email in transit. Now analyzing
+this information if you know what to
+look for is usually enough for
+determining spoofed emails and actually
+this uh this header analysis is often
+used to to determine spam emails as
+well. Now some of the things to look out
+for and by the way this is generally
+done by an automated tool uh like a spam
+filter but you can also try to analyze
+an email header and find this
+information using your own human eyes
+are going to be the fields uh such as
+display from this is the sender's email
+address. This is going to be displayed
+in your email client when you receive
+the email. And now this can have a
+friendly name followed by the uh the
+actual address between the angle bracket
+signs. Now, most email clients will only
+display this friendly name. So, what can
+you do if you want an email to look like
+it came from, I don't know, Bill Gates?
+Well, you're right. You can just spoof
+this uh this email header display from.
+Now, envelope from or return path.
+That's going to be the return address.
+This is where the email came from. This
+is where the replies are going to go.
+It's going to include some additional
+information such as the sender's IP
+address perhaps. And this one is going
+to be used if the receiving server is
+going to reject your email. The
+rejection notice will be sent back to
+this address. Uh received by and
+received from. This is going to be just
+a list of email servers that processed
+the email in transit. Uh delivered to
+obviously who it was sent to. uh date
+and time, when it was sent, the the
+timestamps, uh return path and
+authentication results. Uh these are
+going to be related to the sender's
+authentication methods, what
+authentication methods they use when
+they delivered the message to you.
+uh just a couple of interesting tools
+that you can use for mail analysis like
+the suit of tools from uh Microsoft
+related to Office 365 and for example
+they're going to allow you to check the
+uh the inbound or outbound connections
+like pop email IMAP uh inbound SMTP and
+outbound SMTP for example the outbound
+SMTP test here is going to check your
+outbound IP address so the public IP
+address of your email server that you're
+using to send email uh just to check if
+it passes some uh some ability checks.
+It's not on a blacklist and you can
+actually use that email address uh that
+IP address to uh to send legitimate
+mail. All right, this is one such tool
+freely available. Another one
+interesting is the mail header analyzer.
+Again, one of the websites hosted on
+Azure. Uh they're going to allow you to
+paste your email headers in here. You
+you actually have to get the the raw
+version of your email headers and paste
+them in here. I actually have one ready
+right here from Gmail. Uh this is part
+of a newsletter that I'm getting. Uh you
+can access the original message by
+clicking on the three dots on your uh
+your email uh message and then click on
+view original. Right. Once we're uh down
+to this view here, I can just copy it to
+the clipboard
+and paste it back here in the mail
+header analyzer. And there we go. Here
+at the bottom of the page, you're going
+to see a lot of the the fields that
+we've already mentioned. Of course,
+there are a lot more and you can see the
+their exact contents here. And uh you
+can use these for uh for email
+validation for email server validation
+and check to see if the email has been
+spoofed or not. But all the content is
+in here. Of course, you can actually
+read this uh this um this header
+manually if you wish. It's just a bit
+more difficult to identify all these
+fields in a uh in a text blob like this.
+All right. So we looked at the email
+headers. Let's have a look at the
+payloads as well. Well, and the payload
+is important because it doesn't just
+refer to the actual text that you see
+inside of an email, but email messages
+can have attachments as well. And those
+attachments can sometimes be actual
+executable binaries that can run machine
+code or malware code or they can be
+scripts embedded in the HTML code of the
+message itself. A lot of the email
+messages that travel nowadays are are
+actually in HTML format. So you can have
+scripts hidden in there and you can have
+a script that attempts to exploit even
+the email client that tries to display
+that content and that happens because
+many email clients uh you know trying to
+be all user friendly and such. They try
+to preview every email message that they
+receive to give you as much information
+from the from the first glance about
+what you're actually
+looking at. Some of the email clients
+even include the functionality of
+previewing active documents like office
+documents or PDF files right within the
+email client. And of course, let's not
+forget that an email can also include
+malicious links, links that send you to
+a malicious website or that send you to
+a u to download a file that is
+malicious. Let's say that people are
+educated enough to know not to open
+attachments. Uh not so many people think
+that clicking on a link can actually
+hurt you. But that is true. It can hurt
+you. It can lead you to a malware site
+to a malware content or it can even
+include some sort of script that gets
+executed in your browser or in in your
+email client. Next, we have the email
+signature block. Now, you might be
+thinking, what on earth can be malicious
+inside of a signature block? I I mean,
+we're actually referring to the actual
+signature that you you type at the end
+of your email with your phone number and
+your address and your company and
+everything else in there, not a digital
+signature. Well, it might not be in the
+signature itself, but the absence of it
+might be a hint or if it doesn't look
+right, especially if it's in the company
+policy for everybody to sign all their
+emails. And when I say it might not look
+right, what I'm actually saying is that
+you should keep an eye out for things
+like wrong contact info in a well-known
+signature or even the wrong signature
+might prove a hint that somebody tried
+to craft that signature and make it look
+legit. Now, it might be that the sender
+has a very crappy email client that
+messes up the signature block,
+especially if it's HTML. So, be aware
+that a messed up signature doesn't
+necessarily mean a spoofed email. Now
+since we cannot really trust all our
+email users to validate their headers,
+can check the contents, perform uh
+malicious scans, harden the email
+clients, a lot of the email security can
+and should be offloaded to the server
+itself, to the server side, so we can
+catch those threats before they even
+reach the laptop or the mobile phone of
+that user who just can't wait to click
+all the links and open all the
+attachments.
+And we do have a couple of uh security
+mechanisms and technologies that we can
+implement on the server side. Now the
+first one is SPF or sender policy
+framework. I honestly don't know how
+they came up with this name because it
+sounds nothing like what it does. And
+what it does is the following. Now a
+company publishes in a DNS. So it's not
+email, right? It publishes inside of
+their DNS server a TXT record. And there
+can be only one SPF entry in every DNS
+entry. a list of hosts that are known
+valid email servers that belong to the
+company that are authorized to send
+email on behalf of that company and uh
+are the only email servers that are
+responsible for that company's domain.
+All right, so it's basically listing all
+its email servers. Now, somebody with an
+email server on the receiving side
+getting emails from that company can be
+configured to perform what is called a
+SPF checking. And now for this, it's
+going to use the domain in the return
+path header field of the email to look
+up the SPF record in the DNS field of
+the sender and validate if the email
+actually came from that domain or from
+one of the domain listed in that SPF
+field. Now, SPF records can also specify
+what happens if email is received from
+servers that are not on our uh advertise
+list. We can have the option of
+rejecting them all. you can just flag
+them inside of your internal email uh
+server or down to the email clients of
+all your users or we can just simply
+accept everything else which means that
+we're basically invalidating the SPF
+checking. So with SPF enabled on the
+receiving side, you probably won't be
+able to spoof an email and make it look
+like it came from uh Bill Gates at
+Microsoft.com, assuming that you're not
+a Microsoft employee and just a jobless
+hacker wannabe. And you can see that the
+SPF checks can also be be seen inside of
+the email headers as well. So you can
+see the received SPF mention at the
+bottom that says that SPF has passed uh
+checking for that email message. This is
+this check can also be implemented
+inside of your spam filter for example
+uh just to keep the uh those spoofed
+emails outside of your company. Next one
+is DKIM or domain keys identified mail.
+Again, bad naming here. Uh, it can
+replace or augment SPF uh because it's
+just a bit smarter. Uh, it uses
+cryptography. Specifically, it uses PKI.
+So, that's all about, you know, public
+and private keys, uh, hashing and
+encryption and such. And it kind of
+works like this. Again, the company
+publishes a a public key as a TXT record
+in its DNS servers, just like with SPF,
+like we've seen before. And for any sent
+messages, specific header fields are
+going to be hashed. That hash is going
+to be signed with the private key of the
+server which basically creates a digital
+signature. You should know this by now
+of the company's email server. That's
+the email signature, the digital
+signature of the company's email server.
+And then it attaches this digital
+signature to the email that is being
+delivered. Now on the receiving side, of
+course, the receivers can decrypt the
+hash using the public key from the
+company's DNS record. Of course, that
+one is free. This publicly available,
+right? calculate the header hash on
+their own. And if the calculated hash
+matches the signature hash that they
+received, then we know that the
+company's own server is the one that
+actually sent the message. So, not
+somebody else, not somebody pre
+pretending to be from that company that
+has spoofed an email address. And we
+also know that the message header hasn't
+been changed in the transit because
+that's what the integrity part of the
+hashing uh allows us to check, right?
+The integrity of the message. So that's
+DKIM. And we have one more here. This
+one is domainbased message
+authentication reporting and
+conformance. Demar. Now
+this names just keep getting better and
+better. Now Demar and hopefully we can
+just call it demar. It's not exactly
+complete new security tool but it's
+actually a way to uh define a policy for
+using SPF DKIM
+one of them or both. Again, this one is
+also published as a DNS record and the
+domain owner can create a custom demar
+policy which is uh basically kind of an
+authentication procedure and that demar
+policy is going to tell the receiver of
+an email which technologies are
+currently in use what kind of security
+mechanisms are we using in in our
+company in our email servers. So, are we
+using SPF uh demark? How to check that
+the standard is valid? And what to do if
+either of these checks fail? And even
+one step further, we're providing a
+method for reporting if any of these
+steps fail. Reporting failures because,
+you know, failing such a step doesn't
+necessarily mean that something
+malicious is happening in there. It just
+might be a problem with the
+configuration of the email server
+itself.
+All right. So we have SPF, we have DKIM,
+we have Demar, and they're great for
+email security, but they only help us
+against spoofing. Now, of course,
+assuming that users also have strong
+passwords, maybe even two-actor
+authentication for email, this is going
+to help us avoid having compromised
+accounts. But so far we still haven't
+talked about how we can ensure
+confidentiality for the contents that
+we're actually sending inside of our
+emails or even how to be sure that the
+person in the from field actually sent
+that message and not somebody else. And
+we do have another technology here that
+helps us and we have SME here that comes
+to the rescue and attempts to solve both
+these problems. Now Sime can digitally
+sign your emails and even encrypt them.
+Well, if you haven't skipped too many
+security classes, if I were to tell you
+that you need something that identifies
+you and only you and you can use it to
+sign and encrypt messages, what do you
+think that is? That is correct, ladies
+and gentlemen. That's a digital
+certificate. You will need a valid
+certificate signed by a public
+certificate authority to sign and or
+encrypt the messages that you want to
+send. Now, a certificate is not
+mandatory for the receiver unless you
+want to use encryption. And of course,
+unless he or she wants to use a a secure
+method to reply back to you. But other
+than that, uh to validate the
+authenticity of an email, the receiver
+only needs to have an email client that
+is SM aware that knows how to speak as
+mime. All right. So, how exactly does
+this work? Now, let's say I want to send
+a secure email to you. Now, first I will
+need to generate or buy a certificate
+signed by a CA that you trust, that I
+trust, that we both trust, probably a
+public CA. Now that certificate just
+like any other certificate is going to
+include my public key which can be
+freely distributed, copied and it's
+paired with a private key which I keep
+safe and I never share it with anyone.
+Now just a quick recap here. The
+concepts behind public and private keys
+are very simple ones. Whatever gets
+encrypted with the private key can only
+be decrypted with the public key and
+vice versa. Now next step is I will
+write my message and I will hash its
+entire contents. the text, the
+attachments, everything that goes in
+that message. So, I get a one-way hash.
+Then I encrypt it with my private key.
+Basically, that's the digital signature.
+Then I encrypt the rest of the email
+body with your public key. And I send my
+message to you in a blank email with a
+single smachment.
+All right. So, when you receive my
+message, you can do the following. You
+can decrypt my message using your
+private key because it was encrypted
+with your public key, remember? And
+since nobody else should have access to
+that private key, we have
+confidentiality, right? It's for your
+eyes and your eyes only. Then you can
+decrypt the hash of the message with my
+public key. And you can recalculate the
+hash of the contents on your own. And
+this step right here is going to prove
+two important additional things. First,
+if the hash that you calculated matches
+the one in the signature, then integrity
+is ensured. Nobody modified the message
+in transit. And secondly, by
+successfully decryting a valid hash with
+my public key. This is going to prove
+the authenticity of the message, right?
+That I and only I sent that message
+because I'm the only one that holds the
+private key. Actually, this also
+provides no repudiation if you think
+about it because I cannot even ever deny
+having sent that email in the first
+place. I'm the only holder of that
+private key, which means that if you can
+decrypt it with my public key, nobody
+else but me actually sent it in the
+first place. So, that's the story behind
+Sime. It's not a simple one, but it
+reuses the concepts that you should
+already be familiar with like digital
+certificates, um, public and private key
+encryption, and hashing algorithms. So,
+basically, it's nothing new here. is
+just the way we we use these tools to
+provide us with increased security for
+our email contents and for
+authentication and integrity. When it
+comes to checking where do those emails
+actually came from and when it comes to
+security, there's no topic in security
+where logging is a bad idea. You should
+always inspect email logs generated by
+your SMTP or your email server. uh you
+should pay special attention to repeated
+errors that you can find in those logs
+when sending email as they might signal
+bad security configurations or even deny
+service events. Uh email servers also
+communicate in a uh some sort of a
+request response manner. Actually the
+SMTP protocol is very similar to the
+HTTP protocol. So it's still a request
+and response relationship in there and
+each response is identified by a
+numerical code. uh in some aspects these
+codes are very similar to those uh those
+return codes those response codes also
+used by HTTP servers and just to give
+you a glimpse of how these SMTP server
+return codes look like can head over to
+Wikipedia I'm going to provide you the
+link in the video description as well as
+on the screen be comfortable with at
+least a couple of the categories of
+these response codes and don't confuse
+them with HTTP return codes these are
+SMTP return codes and they are returned
+as a status of an email interaction
+between email servers.
+Phew, that was a lot of information. I
+mean, for the exam, make sure you
+understand what fishing is and those
+variations that we mentioned. You're
+definitely going to be asked about those
+on the exam day. I know how to read at
+least a few fields from an email header.
+And don't forget about the security
+controls that we can use to keep our
+email servers clean and safe like SPF
+and DKIM for domain validation. Uh DMARK
+for creating policies and SMIME which
+uses public key cryptography to
+digitally sign or even encrypt email
+messages when you really need to send
+some confidential information. So thank
+you so much for watching. I hope you
+found this useful and see you next time
+when we're going to talk about DLP.
+Until next time, don't forget to like
+and subscribe and good luck. Bye-bye.
+[Music]

@@ -1,0 +1,391 @@
+in previous videos we've gone through
+the process of manually converting an IP
+address in subnet Mass to Binary
+performing the proper calculations and
+converting it back to decimal we also
+looked at a shortcut called the magic
+number method that allows us to very
+quickly calculate the same information
+without performing that binary to
+decimal conversion this shortcut is the
+7c subnetting shortcut and this is the
+process that I use when calculating
+subnetting on an exam this is a process
+very similar in structure to the magic
+number method and indeed most of the
+shortcuts you find will have some
+variation of this within them the part
+that's very different to the 7sec
+subnetting is that there is no math
+involved you don't have to perform any
+calculations to determine a magic number
+and everything you need will be
+predefined in the chart that we create
+at the very beginning you'll find that
+the only math you end up doing is adding
+and subtracting the value of one to be
+able to calculate the first IP address
+and the last IP address this is one of
+many available shortcuts to help you
+with the subnetting process and I highly
+recommend you look at a number of
+different ones to find one that works
+for you this 7-second submitting process
+works equally well whether you are
+online taking this exam and using the
+online whiteboard or if you have a
+physical whiteboard in front of you at a
+testing center the proc process of
+calculating the subnet is really about
+splitting the network into smaller
+pieces you may start with a Network that
+has 256 total hosts available or you
+might break it up into smaller subnets
+such as a 128 where you might have two
+different subnets a 192 which separates
+it into four different subnets a do 224
+that separates it into eight individual
+subnets and so on the core to the 7c
+subnetting process is creating this
+chart we will start with a chart that
+defines the subnet masks this allows us
+to very quickly determine what the
+decimal mask might be if we're given a
+cider block notation and vice versa you
+can see this is very similar to the
+Chart you would create with the magic
+number method we're simply performing
+the same math on the 7 second subnetting
+we also have a networks column you would
+calculate that by starting with the
+number two and doubling it all the way
+up until 256 and then you have an
+addresses column which starts with 128
+and you would divide by two all the way
+down until you get to the number one and
+to help with the conversion between the
+cider block notation and the decimal
+mask we have a subnet mask in decimal
+column that we'll add in as well once
+you've created this chart you have
+everything you need to be able to
+calculate everything necessary for a
+subnet without having to perform any
+type of additional math if you're like
+me and you have problems determining
+what the start of a subnet might be on a
+subnet that has 16 hosts or 32 hosts you
+may want to write out those subnet
+boundaries into a separate chart so you
+can very quickly find what those might
+be during the process of Performing your
+calculations for example a Network that
+has 128 hosts per Network would have
+host boundaries at 0 and 128 a Network
+that has 64 IP addresses per subnet has
+Network boundaries at 0 64 128 and 192
+and you can calculate similar boundaries
+for networks with 32 IP addresses 16 8
+and 4 the 7c subnetting process is a
+four-step process the first step is to
+convert the IP address and the subnet
+mask to decimal this is necessary if
+you're provided the subnet mask in cider
+block notation but fortunately we have a
+chart that can very quickly translate
+between cider block notation and decimal
+the second step is to determine the
+subnet address this is something you may
+be a ble to do in your head or if you're
+like me you've written out that second
+chart that shows you where the
+delineations are for each individual
+subnet that same chart shows us what the
+broadcast address might be because we
+can simply look at the last address in
+that particular range and from there
+it's very easy to determine what the
+first and last usable IP addresses might
+be by adding one to our subnet address
+and subtracting one from our broadcast
+address let's use this process to subnet
+at 165
+24512
+18824 this sl24 needs to be converted
+from the CER block notation into decimal
+notation you may be able to do this one
+in your head very easily but you can
+also reference your chart by finding the
+sl24 you can see that our chart shows
+the sl24 is part of that third octet and
+it shows that that third octet will have
+a mask of 255 everything after that will
+have a mask of zero so performing that
+calculation means that our subnet mask
+is
+255.255.255.0 now we need to calculate
+the network or subnet address if the
+mask is 255 we need to bring that
+address down and if the mask is zero
+we're going to Simply bring down a zero
+so if the mask is 255 we bring down the
+address and you can see in the first
+second and third octets the mask is 255
+so we'll bring down the 165 245 and 12
+and if the mask is zero we bring down a
+zero so in this example our Network
+Address is 165
+245.20 to calculate the broadcast
+address we look at the subnet mask again
+and if it's 255 we bring down the
+address number if the mask is zero we
+use 255 in this example the first second
+and third octets all have 255 so we will
+bring down our address numbers as 165
+24512 and if the mask is zero we bring
+down 255 so in this case the last octet
+does have a mask of zero and we'll put a
+255 in that last octet for the broadcast
+address now that we have our Network
+address and our broadcast address it's
+relatively easy to calculate the first
+available IP address and the last
+available IP address to calculate the
+first IP we take the network address and
+we add one so that would be 165
+24521 and the last IP would be the
+broadcast address minus one so that
+would be
+16524
+12254 there is the 7c subnetting process
+using our chart and using those simple
+rules to be able to define the network
+address the broadcast address the first
+available IP and the last available
+IP let's do another example that doesn't
+fall on those simple 8bit ranges of the
+subnet mask we're going to use the same
+IP address but with a different subnet
+mask in this case it would be 165 24512
+18826 the first step will be to take the
+sl26 cider block notation and convert
+that Mass to decimal if we look at our
+chart we can find the sl26 and we can
+see that it is the 1 2 34th octet and in
+that fourth octet we want to put a 192
+decimal that means that our subnet mask
+is
+255.255.255.192 which which is the
+conversion from the
+sl26 if we look at our chart where it
+has the sl26 or the 192 you can see the
+number of addresses is 64 and since our
+IP address has an 88 we can look at the
+different blocks in those 64 ranges to
+determine where the 88 might be and in
+this case it's in the range that starts
+with the block of 64 we'll follow the
+same rules we had before if the mask is
+255 we're going to bring down that
+address and if the mask is zero we're
+going to bring down a zero in this
+example we have three masks that are 255
+so we'll simply bring down the address
+values for each of those octets in this
+last octet the mask is 192 if we refer
+to our chart we can see that we have
+that range of 64 addresses we look at
+our IP address of 88 and determine in
+which one of those 64 address blocks 88
+might be and it's in the range that has
+64 as its starting point this is what
+we're going to bring down into the
+fourth octet is that value of 64 to
+calculate the broadcast address we look
+at the subnet mask again and if it's 255
+we bring down the address values if it's
+a zero we use 255 in this particular
+case our subnet MK does not have any
+zeros so we need to refer to our chart
+again we know that this is the range
+with 64 addresses per subnet and we know
+that 88 fits into that second block we
+know looking at the chart that the next
+block starts with a 128 which means that
+the broadcast address must be the one
+prior to that number so that would be
+127 so the broadcast address is
+16524
+12127 and of course to calculate the
+first usable IP address we add one to
+our Network address so our first IP is
+16524
+12.65 the last IP address is determined
+by taking the broadcast address and
+subtracting one so that would be one 165
+24521
+126 we can perform the same shortcut
+with any IP address and subnet range
+let's take the example of 165 24512
+18820 if we look at this address we take
+the sl20 and convert it to a decimal
+subnet mask we can determine this by
+finding the sl20 in our chart it is in
+the third octet and that third octet
+would be a240 so everything to the left
+of that will be 255s and everything to
+the right will be zeros so our subnet
+mask of a sl20 is the same as a
+255.255.255.0 so we need to determine
+where the12 might be in our list that 12
+fits between the 0er and 16 so it's this
+very first Subnet that we're going to
+look at in this particular range let's
+calculate our Network address if the
+mask is 255 we bring down the address
+and if the mask is zero we use zero in
+this case we have a 255 in the first two
+octets and a zero in the last octet so
+we simply bring down each one of those
+since we're looking at the range that
+has the dot 12 and we know that there
+are 16 hosts on each of these subnets
+then that 12 is in that range between 0
+and 16 and the first number being zero
+means that that is our Network address
+and so we'll bring that down as our
+third octet this means that our Network
+Address is 165
+245.000 to calculate the broadcast
+address we look at every place there's a
+255 and we bring down that address so
+that would be our first two octets and
+if there is a zero as part of the subnet
+mask we use 255 and we'll bring down
+that 255 for the fourth octet since we
+have a 240 as the subnet mask in that
+third octet we need to look at our chart
+again and determine what number we would
+bring down since we know there are 16
+addresses in each of those blocks we
+know that the next subnet will start
+with a 16 so one number prior to that 16
+would be a 15 and the broadcast address
+for this subnet is
+16524 15.2 255 now we can calculate the
+first available IP address by looking at
+the network address and adding one that
+would make it 165
+2451 and we can calculate the last
+available IP address by subtracting one
+from the broadcast and that would be 165
+24515
+254 let's go through the process again
+with an IP address of 18172
+2.77 sl11 the first thing we're going to
+do is convert that sl11 to a decimal
+mask and if we look at our chart we'll
+find the dot 11 is in the second octet
+and it has a value of 224 so our subnet
+mask is going to be
+25522
+4.0.0 on the same line as that subnet
+mask is the number of addresses and you
+can see in this particular example there
+are 32 addresses per subnet since at /11
+is in the second octet we're going to
+look at that IP address to determine
+where it fits in those blocks of 32 IP
+addresses so if we were to look at our
+chart of these 32 address blocks we know
+that 172 fits in this range between 160
+and 191 so to calculate the network
+address if the mask is 255 we're going
+to bring down the 18 that's in that
+block and if it's zero we're going to
+bring down zeros and since this block
+starts with a60 our Network address is
+18.1 160.0 do0 to calculate the
+broadcast address if the mask is 255 we
+bring down the address and if the mask
+is zero we use 255 this means in the
+first octet we'll simply bring down the
+18 and in the third and fourth octets
+where the mask is zero we'll write 255
+in this third octet we'll go back to our
+chart and we know that's the range
+between 160 and in this case the next
+range starts at 192 therefore the
+broadcast address for the previous range
+would have to be
+191 and to calculate the first and last
+available IP addresses we will add one
+to the network address and subtract one
+from the broadcast address meaning the
+first IP is
+181601 and the last available IP address
+is
+18.11
+25525 let's perform one more calculation
+to see how well we've captured this
+shortcut we'll use the address of
+18172
+27717 if we go to our chart we can find
+the SL 17 is part of the third octet and
+it matches that 128 value as the decimal
+part of the Mask so if we were to write
+out the mask it would be
+255.255
+12280 if we were to look at our chart
+that /7 is on the same line as blocks of
+128 hosts so we know that there were 128
+IP addresses in each one of these
+subnets so let's calculate from there
+what the network address might be if the
+mask is 255 we will bring down the
+address value and if the mask is zero we
+will use zero to calculate the broadcast
+address we look at the subnet mask and
+if it's 255 we bring down the address
+and if the mask is zero we use 255 in
+this example we have subnet masks of 255
+in the first two octets so we'll bring
+down those address values and we have a
+zero in the fourth octet so we'll use
+255 in this example that value of 200 is
+in that third octet which puts in the
+second block starting with 128 and
+ending with 255 so in this case the
+broadcast address would be the last
+address in that block which is 255
+meaning your broadcast address is
+18172
+255.255 and of course to calculate the
+first IP address we add one to the
+network address making it
+18172 12281 and we calculate the last IP
+by subtracting one from the broadcast
+address making last IP
+18172
+255.255 as you can probably tell the key
+to the 7c subnetting process is being
+able to reference that chart so you
+might want to try writing this down in a
+chart if you're going to be in a testing
+center or you may want to try typing it
+into a notepad or word pad to see how
+quickly you can type it in if you're
+going to be taking the exam online if
+you go to a testing center you may find
+that the dry erase pin that they use may
+not allow you to make a very easily
+readable chart so you may want to bring
+your own pen make sure you check with
+the testing center that it's okay to
+bring your own fine tip dry erase pin
+into the test itself and whether your
+shortcut is the 7sec subnetting process
+the magic number process or any other
+process make sure you find the shortcut
+that works best for you and decide to
+use that for your exam

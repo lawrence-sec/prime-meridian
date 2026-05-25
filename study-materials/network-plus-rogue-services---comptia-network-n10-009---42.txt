@@ -1,0 +1,150 @@
+we become very accustomed to connecting
+to a network and receiving an IP address
+a subnet mask a default gateway and
+other IP address configuration details
+this is all handled by the DHCP server
+the dynamic host configuration protocol
+but as you're probably aware there's no
+security built into the DHCP protocol a
+DHCP request that is sent by a client
+can be responded to by any device on the
+network whether it's a legitimate DHCP
+server or an illegitimate DHCP server we
+could build our own DHCP server start
+handing out IP addresses and cause
+duplicate IP addresses invalid IP
+addresses people would not be able to
+communicate to the internet there might
+be duplications on the network and we
+could effectively shut down the network
+with this misconfiguration from our
+Rogue DHCP server fortunately there are
+ways to prevent someone from starting up
+their own DHCP server and causing these
+problems on the network in many
+Enterprise switches there's a feature
+called DHCP snooping that will examine
+all DHCP requests and will only allow
+responses if they're coming from a
+legitimate DHCP server there's also a
+feature in Microsoft's active directory
+that determines what an authorized DHCP
+server might be and it will only allow
+those servers to hand out IP addresses
+if you do find a rogue DHCP server on
+your network your goal is to remove it
+from the network eliminate that from
+responding to any DHCP requests and then
+you'll need to renew all IP addresses on
+your network to ensure that everyone has
+a legitimate
+IP another Rogue service that you should
+be aware of is a rogue access point
+access points are relatively inexpensive
+to purchase and you can plug them into
+any ethernet connection this could be an
+employee that is simply trying to
+improve or expand on the existing
+wireless network and may not be trying
+to do something inherently malicious but
+this does create security issues and
+without the right Security on the access
+point this would make it very easy for
+anyone to gain access to your network to
+install a rogue access point you simply
+plug in the access point to any
+available ethernet connection some
+operating systems also have a feature
+that allows for wireless sharing in the
+operating system this means you could
+effectively turn your entire computer
+into an access point it's always a good
+idea to perform periodic scans of the
+network or to physically walk around the
+facility with a wireless analyzer to see
+if you happen to find a wireless access
+point that should not be there many
+organizations will prevent Rogue access
+points by enabling
+802.1x on their Network switches this is
+also known as network access control
+this requires everyone to authenticate
+before they are granted access to the
+netor Network so even if somebody does
+plug in a rogue access point they still
+would not be able to gain access to the
+network unless they had the proper
+authentication if someone is connecting
+an access point and they're doing this
+for malicious reasons we refer to that
+as a wireless evil twin this combines a
+few of the techniques associated with
+fishing with the Technologies associated
+with wireless networking a wireless evil
+twin is designed to look exactly like
+the wireless access points that are
+already installed at a location so there
+might be the same or something very
+similar to the SSID or wireless network
+name and there may be similar security
+settings on the wireless evil twin or
+the wireless evil twin may have an
+identical captive portal configuration
+many of these Wireless evil twins will
+increase the output power of their
+radios so that they overpower any access
+points that may be in the area this
+means that they are now the primary
+access point for anyone who wants to
+connect to that Network and if the
+attacker is trying to look like an
+existing open wi-fi network they may be
+able to duplicate that very closely by
+using a wireless evil twin one way to
+avoid any problems associated with a
+wireless evil twin even if you happen to
+connect to it is to always send
+encrypted traffic this means that you
+would always have a VPN enabled or at
+least always use https if you're ever
+communicating to a web
+server these Wireless evil twins are
+perfect for sitting in the middle of a
+conversation and watching all of the
+traffic that goes back and forth we
+refer to this type of attack as an
+onpath network attack this is a
+technique that is also referred to as
+man in the middle this device or
+attacker that's in the middle of the
+conversation will receive information
+from one device examine that information
+in some cases even change that
+information and then send that
+information on its way the source device
+and the destination device have no idea
+that this device is in the middle and
+they have no idea that that information
+was changed by the onpath attack we've
+already seen one type of onpath attack
+by using a wireless evil twin but there
+are many different kinds of onpath
+attacks another popular type of onpath
+attack is ARP poisoning using the
+address resolution protocol where the
+attacker can spoof the IP address of a
+device to effectively sit in the middle
+of a conversation but of course there
+are other types of onpath attacks as
+well well there's session hijacking
+https spoofing or Wi-Fi eavesdropping
+and this is just a sample of the type of
+onpath attacks that you can perform with
+different devices or different protocols
+as a general rule you can prevent a lot
+of the damage that might be caused by an
+onpath attack by simply encrypting all
+of this data even if somebody does sit
+in the middle of the conversation they
+would have no idea what information is
+being transferred between two devices

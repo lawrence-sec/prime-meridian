@@ -1,0 +1,407 @@
+all right so you scanned your network
+you scanned your hosts and you
+definitely found some vulnerabilities in
+there and now it's time to fix them
+which means that you've reached the
+remediation phase now the remediation
+phase is all about installing updates
+and patches and updating security
+policies segmentation everything that
+we've discussed in the previous video
+but there are some things to keep in
+mind because remediation might not
+always go as you planned it due to a
+number of reasons so let's see what
+exactly is going to stop us from
+updating everything calling it a day and
+then going home
+[Music]
+well probably the first issue that
+you're going to run into
+is when you're going to try to update
+legacy systems that's old very old
+hardware and software so for example if
+you think about windows 7 right support
+for windows 7 stopped some sometime
+around 13th of january 2020 which means
+that there are not going to be any new
+updates available for that operating
+system so no matter how much you want to
+keep your systems up to date if you're
+still running windows 7 you're going to
+hit a wall so what can you do about
+those items that you simply cannot
+update
+pause for a second and just think for
+yourselves
+ready
+you have an idea all right let's see now
+the first thing that you could do is to
+install something that's called a
+compensating control if you remember
+we've covered compensating control in a
+previous video already
+now this is going to be something like
+installing a filtering device a packet
+filtering device or a packet analysis
+device in front of
+that
+legacy system in order to protect it now
+ideally this device is also going to be
+capable of detecting some anomalies so
+new attacks that might be addressed to
+some old vulnerabilities that haven't
+been discovered just yet simply because
+nobody is still monitoring those systems
+and nobody is developing security
+updates for those
+second thing that you can do is to air
+gap that system or that network that
+hosts those vulnerable legacy systems
+that basically means completely
+disconnecting them from the network or
+relying on some other method of
+inserting data of injecting data into
+those systems which doesn't require
+those systems to be constantly connected
+to a network or to the internet that's
+air gapping and finally the third one
+the favorite method of all the vendors
+out there is to simply replace the
+system with a completely new one take it
+out of your network retire it properly
+and then replace it with a newer version
+one that's still supported that still
+gets security updates one that you can
+properly patch
+another source of problems when it comes
+to updating your systems is going to be
+about proprietary systems now
+proprietary is just another word for
+custom hardware or most of the time just
+custom software that might have been
+developed in-house by your own company
+or developed by some other company and
+then purchased
+by our company as a custom software so
+it's not a commercial software that is
+widely available
+to multiple customers out there is
+something that was designed specifically
+for your environment now you can
+probably guess why this type of software
+is going to cause a lot of issues if it
+was developed in-house maybe the
+software development team that took care
+of that software doesn't exist anymore
+if it was purchased from another company
+then that company might have gone out of
+business
+or even your contract your agreement
+with that company doesn't specify that
+they should provide any further updates
+or
+it can also happen that the software
+project was simply abandoned nobody is
+still working on it anymore by their
+parent company so it's just a piece of
+software that was developed up to one
+point
+and then everybody went on doing
+something else and of course this is
+also not going to allow you to update
+that software because there are no
+updates to be found and another
+technical issue when it comes to
+updating software
+is the problem of degrading
+functionality this is a very important
+issue and it's often coupled with
+updating older and legacy systems and
+also relevant for proprietary software
+and i can give you a ton of examples
+here so if you want to update a software
+package on a server or an application
+well that system might need a reboot a
+restart can you do it during the day
+should you do it during the night do you
+have a backup plan do you have a
+rollback plan just in case the update
+doesn't go as scheduled or as planned
+also maybe during the update or the
+restart the system has to go offline
+completely think about any redundancy or
+high availability or fall tolerance
+solutions that you might have in place
+think about are they going to kick in is
+that going to affect the network as a
+whole is that going to affect the users
+the functionality that they expect from
+the network also what's going to happen
+when you bring the updated system back
+online especially if now it's on a
+completely different software version is
+it going to kick back in and just start
+working properly as it did before or is
+it going to cause some inconsistencies
+in your high availability setup now all
+these problems are basically covered
+under the term of business process
+interruption so anything that causes
+your business or your applications that
+your business relies on
+to stop working and that's basically the
+number one reason why we usually plan
+for maintenance windows we don't just go
+ahead and update those systems in the
+middle of the day we need to have
+dedicated time in order to properly
+monitor what's happening during that
+update and see if everything is still
+working as expected after the update has
+been completed also on the chapter of
+degrading functionality think about the
+situations where you are adding some
+features some security features for
+example encryption traffic encryption or
+data at rest encryption
+to an application that's running on a
+server that is very old and perhaps
+cannot handle the cpu cycles required to
+properly deliver the same application
+performance but now using encrypted
+traffic remember a few years ago when if
+you didn't have the latest and the
+greatest iphone any new ios update would
+slow down your phone just a little bit
+unfortunately this doesn't happen
+anymore but if you have used an iphone
+during the past 10 years then you most
+certainly remembered this issue another
+issue this time on the software side of
+things what if you have specific
+applications that are designed to work
+only with certain
+library versions now certain versions of
+openssl or certain versions of python or
+java and maybe they were designed badly
+enough
+so that they don't work with any future
+versions of python or java or openssl so
+how do you update for example java on
+such a system because you know java
+publishes some security updates from
+time to time and you should probably
+install them but what if installing
+those updates is going to break your
+application what do you do then well you
+simply don't update java anymore and
+you're left with a security
+vulnerability that you have to think
+about mitigating it in a different way
+also we have another problem with
+general patches and yes windows 10 i'm
+looking at you and actually you're not
+the only one here but very often patches
+introduce additional bugs even crash
+applications all together you can have a
+lot of new problems from simply
+installing a new update on an operating
+system what's the solution to this well
+fortunately we have one
+test those patches in a similar
+environment an isolated environment or
+some kind of environment that resembles
+as close as possible your production
+environment just to see if everything is
+still working as you expect it to work
+so make sure you approve any patches
+before deploying them to the rest of
+your servers or to the rest of your
+users inside of your company and if
+you're saying that it's not always
+possible to have a test bed environment
+where you test all your patches before
+you deploy them
+yes you're right that's not always
+possible life is not fair and
+unfortunately there's one more show
+stopper that's bureaucracy red tape
+approvals so you get your scan reports
+your vulnerability is all neatly
+prioritized got the patches ready the
+updates everything that you need ready
+to implement right there employee of the
+month is your next title
+and you go to the management and you ask
+them when can i start hitting the
+keyboard and making all these changes
+and the answer is going to be something
+like
+where do you think you are we have
+procedures here my young padawan we have
+approval pipelines requests request
+approvals decisions decision approvals
+signatures documents to be signed
+documentation to be approved and
+reviewed on the next board meeting and a
+ton of people that have to approve these
+changes and each and every one of those
+people
+has to understand in his or her own
+limited
+language and level of technical
+expertise
+why should this be approved what are the
+risks the costs who needs it
+why do you need it why do we need it so
+basically for better or for worse it
+might not be as bad as i just described
+but that's going to be the definition of
+change management or if you want you can
+call it blame management or blame
+distribution among all those people who
+agree to put their signatures on that
+change but the bottom line here and a
+very important bottom line here
+especially for the exam always remember
+that any kind of change
+to your infrastructure to your network
+to your systems always have approval
+before performing it always have
+approval written approval from the
+management
+and finally we have mousse and slas and
+just like we did not have enough issues
+now what the heck are these
+well
+you have to consider especially since
+we've just mentioned this you have to
+consider that degrading the
+functionality of your network of your
+systems might not just
+let's say create some discontent among
+your employees but it might also impact
+some agreements that you have
+running with your partners with your
+clients
+with your users so if we do need to rely
+on some downtime where the systems are
+going to be down and unavailable
+we need to coordinate that downtime with
+our partners with our clients so that
+you won't breach the contractual terms
+that you have pre-agreed with them and
+it's not just about availability but
+also there might be some contractual
+terms since specific requests or
+requirements in those documents that
+prohibit you from implementing certain
+remediation actions for example if you
+if you need to perform a type of scan or
+a type of update to the latest version
+you might find out that you are not
+allowed to do so because it says so in
+the contract or the sla
+so let's describe both of them actually
+because there are some slight
+differences between these two starting
+with the memorandum of understanding or
+the mou now a membrane of understanding
+is
+more like a gentleman's agreement right
+it is a kind of an agreement it's
+written in such a way so that it clearly
+describes who is responsible what are
+the roles who does what what are the
+expectations that this and that has to
+be done
+but it's not legally binding so think of
+it as a gentleman's agreement not
+something that has
+actual legal value and mou can actually
+be as simple as an email follow-up after
+a meeting so we've decided to work
+together on something on a project to
+implement something then you send an
+email and say you know following up on
+our discussion as or per our discussion
+this is what we agreed these are the
+responsible people these are these are
+going to be the tasks and these are
+going to be the deadlines and secondly
+we have slas or service level agreements
+you probably have heard of these before
+because they are contractually and
+legally binding so they actually specify
+what you need to be delivering and very
+importantly how you will measure
+those deliverables
+for example you might have such an sla
+agreed upon with your internet service
+provider at home or at work so the
+internet service provider basically
+tells you
+that i commit to providing you 95 uptime
+and at least x or y megabits per second
+of internet upload and or download
+that's going to be a type of sla so what
+exactly does the company agree to
+provide and how it is measured so
+guaranteed uptime and bandwidth
+are two types of metrics that are
+usually found in an sla now other types
+of metrics might be regarding
+availability for example for an online
+service an online application even a a
+cloud provider
+response time for incidents
+or for a central application for
+hardware devices or for replaceable
+devices you might have an sla that
+specifies how quickly that component is
+going to be replaced by the vendor or
+how quickly a ticket a support ticket is
+going to be assigned to a support
+engineer and ideally how quickly is
+going to be solved by the uh by the
+support department one very important
+idea to remember for the exam is that
+slas have to be measurable and the way
+they are measured has to be explicitly
+specified in the sla document so don't
+forget about this slas have to describe
+something that is measurable and since
+it's contractually and legally binding
+the reason why we're measuring this and
+we're specifying how to measure those
+deliverables or those services is
+because if the provider doesn't comply
+with those agreed upon service levels
+then they can be held responsible
+legally and financially alright so for
+the exam make sure you understand the
+risks that we are facing when we want to
+always able to do so
+even if it's because the systems are too
+old we're talking about legacy systems
+it might be because we're talking about
+proprietary systems where the vendor has
+abandoned the product or doesn't support
+it anymore it might be because you're
+running uh
+it might be because
+you're hitting a wall when it comes to
+red tape and approvals inside of the
+company but nevertheless try to remember
+at least some examples of each category
+here the exam is most likely going to
+ask you about this and also don't forget
+about the differences between mousse and
+slas thank you so much for watching i
+would greatly appreciate if you could
+like and subscribe because next time
+we're going to talk about change
+management so see you on the next
+episode
+you

@@ -1,0 +1,111 @@
+with IPv6 we've taken a number of
+techniques we've used with ipv4 and
+we've updated them for the modern
+network of course there's DHCP for IP
+version 6 those DHCP servers use a very
+similar process to what we saw with ipv4
+to assign IP addresses with IP version 6
+this uses redundant DHCP servers so it's
+ready for the Enterprise and you as the
+DHCP administrator will be managing this
+DHCP version 6 server as well but unlike
+IP version 4 IP version 6 can assign an
+IP address to itself and be able to
+communicate with anyone on the network
+we refer to this as stateless addressing
+there's no DHCP server that manages the
+process you don't have to keep track of
+IP addresses or Mac addresses and with
+this stateless addressing there's no
+lease time so you never have to worry
+about giving up your IP address and
+important protocol that's used for IPv6
+stateless dressing and other purposes is
+the NDP protocol that stands for
+neighbor Discovery protocol in IP
+version 4 we use the address resolution
+protocol or ARP to be able to find other
+devices on the network but ARP requires
+broadcast to be able to operate with NDP
+we're using multicast so the overall
+communication is much more efficient the
+way that an IPv6 device is able to
+effectively assign it self an IPv6
+address is using stateless address
+autoconfiguration or slack you don't
+need a DHCP server the device running
+IPv6 creates its own IP address to use
+one of the concerns we obviously have is
+that if a device is creating its own IP
+address it could potentially conflict
+with an existing IP address on the
+network but in IP version 6 we have
+duplicate address detection or dad and
+it checks to be sure that there are no
+dup duplicate IP addresses on the
+network neighbor Discovery protocol can
+do more than simply find other devices
+on your network can also identify
+routers using the router solicitation
+and router advertisement
+features if a device wants to find a
+router that's on its local subnet it
+uses this neighbor Discovery protocol
+and uses the router solicitation feature
+and sends that to a multicast that says
+if there's any router out there please
+respond back and if a router sees that
+multicast it will send a router
+advertisement directly back to that
+workstation routers can also send their
+own advertisements out without being
+queried refer to those as unsolicited ra
+messages they're sent to a slightly
+different multicast location and they
+are sent to all of the devices on the
+network that might be interested in
+knowing where routers exist this router
+advertisement is useful because it can
+provide information about the local
+subnet things such as prefix values
+prefix fix lengths DNS server
+configuration and other IPv6
+configuration
+parameters so here's how slack or the
+stateless address autoc configuration
+works with IP version 6 the first thing
+your device does is determine what local
+subnet am I on and it does that by using
+the neighbor Discovery protocol and
+asking a router through the router
+solicitation feature what subnet is this
+the router will respond back with a
+router advertisement containing that
+information for for example we can query
+the router using this neighbor Discovery
+protocol and we'll receive back this
+64-bit IPv6 subnet prefix you can see an
+example of that is listed here but of
+course that's only half of the IPv6
+address we also need what's known as the
+last 64 bits or the interface ID many
+devices will take a modified version of
+their Mac address put the letters FF Fe
+in the middle to create 64 bits that it
+can then use as the last part of the
+address other devices will simply
+randomize this value to create those
+last 64 bits and just to make sure that
+this random value or the value
+associated with the MAC address doesn't
+somehow already match an IPv6 address on
+the network the neighbor Discovery
+protocol is used again it uses a feature
+called duplicate address detection or
+dad and checks the rest of the network
+to be sure that no one else is using
+that specific IPv6 address now that the
+stateless address autoconfiguration
+process is complete your device now has
+a completely routable IPv6 address that
+is unique to that particular station

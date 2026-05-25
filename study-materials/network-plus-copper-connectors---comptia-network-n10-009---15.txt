@@ -1,0 +1,83 @@
+one common copper connector we use on
+our networks today is an rj11 this
+stands for registered Jack type 11 it is
+a six position connector but we only use
+two conductors inside of this connector
+sometimes you'll see this referred to as
+a 6 p2c for six position 2 conductor we
+commonly associate an rj11 connector
+with an analog telephone but you'll also
+see rj11 used for DSL connections since
+those use exactly the same wires as a
+telephone connection here's a better
+view of the rj11 connector and you can
+see the six positions 1 2 3 4 5 6 are
+clearly marked but you notice that there
+are the two conductors in the middle
+that are used for
+rj11 if you're using an ethernet
+connection then you're using an RJ45
+connector and this stands for register
+Jack type 45 it is an8 position
+connector with eight conductors inside
+so we're using all of the conductors
+available on an RJ45 connection this is
+slightly larger than an rj11 connector
+and it's what you would use if you're
+plugging in an ethernet connection
+here's a device that has both rj11 and
+RJ45 connectors on it you can see this
+is a DSL connection that uses the rj11
+and these Lan connections or ethernet
+connections are using the
+RJ45 you can see that they're very
+similar in shape although the rj11 is
+slightly small smaller than the larger
+and wider
+RJ45 if you're using a cable modem
+connection then you're probably bringing
+coax connections and plugging it into a
+cable modem and the connector that
+you're probably using is the F connector
+the F connector is a standard connection
+type it usually has threads inside that
+allow you to fasten it very securely to
+the connector and if you are using a
+cable modem this is probably the
+connection type that you're using from
+the cable television infrastructure this
+is also referred to as a docis connector
+that stands for data over cable service
+interface specification the connection
+that brings the signal is the single
+copper connection on the inside of the
+cable this is what you would plug in and
+screw into a cable modem using that F
+connector connected to the coaxial
+cable another common connector used for
+coax is a b and c connector this is a
+bayonet connector that's what the b
+stands for where you push it into the
+connector
+and twist it slightly to lock it in
+place the NC in the BNC connector stands
+for Neil conselman this stands for Paul
+Neil from Bell labs and Carl conselman
+from AOL they both were involved in
+creating this standard for a BNC
+connection if you're bringing in a Wan
+connection or any other type of coax
+it's very possible you might use a BNC
+connection to lock this in place that is
+one of the benefits of using BNC is that
+you're able to push push the connector
+in and twist it and it's not going to
+easily remove itself from that
+connection you would need to untwist
+before removing that from the interface
+here's a close-up view of the BNC
+interfaces on a device you could see
+where you would plug in the BNC
+connector you twist that connector
+slightly and it's locked in place onto
+that device

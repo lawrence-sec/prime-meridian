@@ -1,0 +1,109 @@
+as an IT security professional you'll
+spend a lot of time trying to prevent
+attackers from Gaining access to your
+systems but you'll also be able to use
+your knowledge and techniques of
+security to create deception and
+disruption to those same attackers one
+way to provide this deception is by
+using a Honeypot a Honeypot is a way to
+attract attackers to your system and be
+able to keep them involved in these
+systems so that you could see what type
+of security techniques they're trying to
+use against you in most of these cases
+of course the attacker is actually an
+automated process and what you're trying
+to do is to see what type of automation
+is being used and what type of systems
+are they trying to attack these
+honeypots are a virtual world that
+effectively attracts these automated
+systems or attackers and they spend all
+of their time trying to identify or
+attack systems which in reality are not
+part of your production processes if you
+wanted to build your own Honeypot and
+virtual world you can do that using a
+number of commercial and open-source
+software packages this also creates a
+bit of a race between you creating
+Virtual Worlds that in most cases are
+not production systems and the attackers
+that are trying to discern whether these
+systems are actual systems or if they
+are trapped inside of a Honeypot as the
+attackers get better with identifying a
+Honeypot we increase the complexity and
+intelligence of our honeypots to make
+them that much more realistic it's very
+common in fact to combine a number of
+these virtualized honey pots into much
+larger infrastructures that we call
+Honey Nets these honey Nets May consist
+of workstations servers routers
+firewalls and anything else to make the
+entire infrastructure look a little bit
+more real to the attacker once you
+combine all of these smaller honeypots
+into one much larger honey H net you've
+now created a much more believable
+environment and hopefully one that will
+keep the attackers very busy if you'd
+like to learn more about the techniques
+and Technologies we're using today to
+create these honey Poots and honey Nets
+you can visit project honey. org we can
+even go down to the file level and
+create honey files these are files that
+have fake information or they may be
+files that appear to be very important
+or contain sensitive information for
+example you might have a honey file
+called password.txt which of course does
+not actually contain the passwords to
+your systems but the attacker doesn't
+know that and they may find this to be a
+very attractive file and spend a lot of
+time going through the information
+contained within that honey file in your
+normal production network no one should
+be accessing these honey files so if
+someone does gain access to the file and
+opens or views the information you may
+want to have alerts or alarms sent back
+to a management station so that you know
+someone is poking around in the honey
+files who probably should not be there
+and another type of data that might help
+you identify issues with data that's
+being released into the public would be
+a honey token honey tokens are a bit of
+traceable data that you would add to
+your honey net so if that information is
+copied and distributed you know exactly
+where it came from for example you might
+put API credentials out on a public
+cloud share to see who may come by and
+grab those credentials of course these
+API credentials are not actual usable
+API credentials you've simply made them
+up and put them into a file that is then
+accessed by the attacker or you might
+have a file that contains a number of
+fake email addresses because these email
+addresses are not used by anyone you can
+constantly monitor for those addresses
+to appear somewhere else on the internet
+and if they do you can see exactly who
+posted it which might give you
+information about who may be attacking
+your network and of course these honey
+tokens can be any type of data that you
+might falsify and put into an area for
+an attacker to find this could be
+database records browser cookies pixels
+on a web page or anything else that you
+could track if it happens to be posted
+somewhere else on the
+internet

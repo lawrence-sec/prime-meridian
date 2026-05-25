@@ -1,0 +1,296 @@
+we've probably all seen an email come
+through our inbox that seems to be from
+one sender but in reality it's being
+sent by someone completely different
+these types of emails are often
+categorized as fishing fishing is social
+engineering with just a bit of spoofing
+someone is pretending to be someone else
+in the hopes that they can convince you
+to give up your personal information
+sometimes you can check the URL that's
+associated with a link inside of an
+email message to see if it's really
+coming from the domain that you think it
+should be coming from there's usually
+also something a little bit off with the
+graphics or the spelling and in some
+cases the grammar that's being used in
+these messages that are trying to
+convince us that they're really coming
+from someone we can trust this is an
+image of a website that I clicked on
+when I received a fishing email you can
+see it looks very much like the
+Rackspace technology webmail login page
+although you'll notice the graphics are
+off just a little bit but everything
+else on that page looks as if it could
+be the legitimate site for Rackspace
+webmail login however if we look at the
+email where that was sent from you can
+see that it does say that it was from
+Rackspace service but it came from an
+email address from
+icloud.com that is certainly not the
+Rackspace domain name and that's not the
+person we would expect to be sending us
+information about Rackspace email you
+also notice the text in this email has
+different fonts associated with it and
+the first line of this message says Dear
+user we notice your email has not been
+confirmed for the new upgraded service
+there's no period at the end or no other
+type of punctuation this should
+certainly cause us to look more deeply
+into the details of this message and at
+the very least we should never click a
+link inside of an email
+message I was able to click this link
+and provide you with these screenshots
+by using a virtual machine that was
+completely isolated from all of my other
+systems in this particular case that was
+the image that came up when you clicked
+that link so on the top is the image
+from the fishing email and on the bottom
+is the legitimate Rackspace email
+landing page you can see that they are
+very similar to each other but there are
+some significant differences that you
+can make out now that we have them side
+by side but if you weren't familiar with
+the Rackspace login page the fishing
+email is close enough that it probably
+could fool quite a few people this is
+the goal of the attacker they want to
+make this page look so similar that you
+will be enticed to put in your email
+address and your password and at that
+point when you click the login button
+you're actually sending those
+credentials directly to the
+attacker another useful social
+engineering technique used by the
+attackers is shoulder surfing we use our
+mobile devices and our laptops and
+public all the time we could be in an
+airport a restaurant a coffee shop and
+anyone who can look over over our
+shoulder could potentially see the
+information that's on our screen part of
+the problem with this of course is that
+occasionally we will be reading through
+information on our screen that could be
+considered sensitive and in some cases
+it might be information that our
+competition would love to have someone
+standing behind you or sitting at a
+table that's behind you has full access
+to view the information that's on your
+screen and there have been situations
+where people have been able to read the
+screen of a computer that's in another
+building they would use binoculars or a
+telescope to be able to view the
+information that's on your screen even
+though they're in a completely different
+location one of the more advanced
+versions of this are attackers that will
+put malware on your computer to enable
+your camera and be able to see exactly
+what you're doing when you're sitting at
+your
+computer we can use a number of
+different techniques to try to prevent
+shoulder surfing one is to make sure
+that we understand where we happen to be
+if you're in a coffee shop maybe your
+back should be towards a wall if you're
+in a public area it might not be the
+best time to start scrolling through
+information about payroll or social
+security numbers you can also get
+privacy filters for your LCD screen that
+can only display the information on the
+screen if you are sitting directly in
+front of that device anyone who's to the
+side of the device simply sees a black
+screen these work exceptionally well you
+could be on a plane right next to
+somebody in coach and if they have a
+privacy filter all you see is a black
+screen and if your computer is near a
+window you might want to turn your
+computer so that the monitor faces away
+from that window not only will this help
+with the glare that's coming in through
+that window it would prevent anyone from
+being able to see what's on your screen
+by looking through that window you
+should always keep in mind the
+information that you happen to be
+viewing on the screen and where you
+might be at any particular time so that
+you're not disclosing any sensitive
+information to any third party
+a lot of the security for a physical
+location happens at the front door if
+you can get through that initial door a
+lot more information will be available
+to you and the attackers know this they
+found ways to get into buildings without
+having any type of authorization one
+technique that attackers use to get into
+a building is tailgating tailgating is
+using someone who's authorized to give
+you away into the building maybe when
+somebody is walking in they'll hit the
+badge unlock the door walk through the
+door and leave the door to close on its
+own while they're walking away you can
+walk up and stop the door from locking
+again and simply walk into the building
+that's a perfect example of tailgating
+another technique that's very similar is
+piggybacking with piggy backing you have
+someone who is authorized to get into
+the building and they're letting you in
+the building as well with their
+knowledge this can be easily
+accomplished by bringing in lunch or
+carrying in boxes of donuts and asking
+the the person who's opening the door to
+hold the door so you can make it up to
+the conference room they can see that
+you're walking in they're even helping
+you get into the door and in that
+particular case we call that
+piggybacking and as many attackers will
+tell you once you're in that front door
+it's very easy to walk around the inside
+of that building where many of those
+doors are already open to prevent
+tailgating and piggy backing we should
+always be looking to see if someone is
+in this building who should not be there
+most organizations will provide visitors
+with a visitor badge that clearly shows
+that they are in the building as a
+visitor and they are authorized to be
+there but if someone's walking around
+without a badge it should be your
+responsibility to ask them where their
+badge happens to be and if they don't
+have a good answer it's time to call
+security some organizations also have
+very strict rules on badging in and
+having one person walk in at a time
+there might even be people lined up at
+the door but one person will badge in
+walk through the door and physically
+close the door so that the second person
+can then badge in following that process
+would probably prevent any type of
+unauthorized access you could also use
+an access control vestibule or an
+airlock that would only allow one person
+in the building at a time this
+effectively takes the policy of one
+person scanning at a time and turns it
+into a mechanical requirement where only
+one person can walk in at a time and
+although it may be uncomfortable to walk
+up to a stranger and ask them where
+their badge happens to be this is
+something that has happened to me many
+times inside of a building or I've had a
+badge on a jacket I've taken the jacket
+off and then I've gone to get coffee at
+the coffee maker and very often people
+from that company will walk up to me and
+say hi I don't recognize you do you have
+a visitor badge or can you tell me who
+you're with these are organizations that
+have worked hard to train their
+employees to look for things that may be
+out of the ordinary and to address those
+so they don't become a larg security
+issue if you look in the back of your
+building I'll bet in the parking lot
+there is a garbage bin sometimes we
+refer to this as a dumpster although
+that is a brand name of a particular
+unit in other parts of the world these
+have different names such as a rubbish
+skip going through your trash is a very
+useful social engineering techniques
+that attackers use all the time it's
+remarkable how much sensitive
+information is simply being thrown into
+the garbage without any type of security
+associated with it these garbage bins
+and dumpsters are often open and
+unlocked very often you can find names
+that can then be used for impersonation
+or fishing over the phone and there may
+even be contact information that can
+help with additional fishing attempts
+attackers often try to find the right
+time to go through the garbage it may be
+at the end of a quarter or the end of a
+big project where a lot of information
+may be thrown out and a lot of those
+details in the garbage may be perfect to
+use for a future attack there is a
+question about legality of going through
+someone else's garbage in the United
+States the garbage is effectively free
+to go through as long as it's something
+that has already been thrown out by the
+original owner this is not always the
+case and there may be local or state
+regulations that would prevent someone
+from going through someone else's
+garbage but if there are no local laws
+everything in that garbage bin may be
+available for anyone to stop by and take
+but if the bin is on private property
+and there are signs that say no
+trespassing or no visitors allowed then
+you certainly would not be able to
+access that trash at that location if
+you're trying to understand more about
+whether going through this garbage may
+be legal in your area then I would
+recommend you contct a legal
+professional and see what the options
+might be in your particular
+geography to prevent someone from going
+through the garbage one of the best
+things you can do is to lock it up you
+can put a fence around that area you can
+put monitoring cameras and you can
+prevent anyone from Gaining physical
+access to your trash you can also Shred
+the information that you feel might be
+sensitive some organizations will have a
+third-party shredding service come
+through every month and they'll sit in
+the parking lot and Shred all of your
+sensitive information some organizations
+go one step further It's Not Unusual for
+governments to light all of their
+sensitive information on fire because
+once you burn it there's no way anyone
+can gain access to that information if
+you're wondering if this is something
+you should be worried about then maybe
+you should look through your own garbage
+there might be information in there that
+is relatively sensitive and you may need
+to Institute new policies to prevent
+someone from walking by and simply
+grabbing your sensitive data right out
+of the trash

@@ -1,0 +1,395 @@
+if you ask an IT professional where the
+safest place to store data might be some
+might tell you that your on premises
+infrastructure is the safest others
+might tell you a more secure environment
+is in the cloud both of these of course
+have their advantages and disadvantages
+when it comes to security but of course
+there are many other considerations to
+take into account if your security is in
+the cloud then it's centralized with all
+of your other cloud-based Services
+there's no Hardware that you have to
+support there's no separate data center
+that needs to be cooled and staffed and
+the third party providing the
+cloud-based Services also provides the
+security if you have your own data
+center then all of your security
+Technologies are local and on premises
+but this also means that you have to
+support all of those systems which of
+course has a cost associated with it
+from the attackers perspective they
+don't care where this security happens
+to be they're working to circumvent and
+get around this security regardless of
+whether it's in the cloud or on
+premises if everything is in housee then
+you have complete control over the
+decisions made with the security the
+options that are available to install
+and you manage the entire process in
+most on premises infrastructures there
+is an IT team that handles the
+management and maintenance of all of
+these systems the staff that's managing
+this on premises security are well Trin
+professional and cost more than
+something that might be in the cloud but
+of course when you have your own data
+center you have complete control of all
+of the data and all of the systems if
+you want to make a change to an existing
+system or modify a security posture you
+simply do that yourself you don't have
+to call a third party or access your
+cloud provider to make that happen
+however if you'd like to bring
+additional equipment into the data
+center there are obviously costs for
+purchasing the equipment and it does
+take time to purchase configure and
+install this technology in most
+organizations the technology is
+decentralized you might have multiple
+locations for your organization you
+might be using multiple Cloud providers
+and of course there's more than one
+operating system that's running on all
+of these systems in your environment
+from a security perspective this becomes
+challenging to manage having all of
+these different systems in so many
+different places create a challenge for
+it professionals to maintain the
+security of their data and applications
+to address these challenges many
+Security Professionals will create a
+Consolidated management view of all of
+their systems from one single console
+this allows ongoing monitoring of every
+user every device every application and
+anything else that's important to
+monitor from a security perspective you
+might get Consolidated alerts brought to
+a single console there might be a
+Consolidated log file analysis so you
+can easily search for information
+regardless of where it might be in the
+organization and there might be a global
+process for maintaining systems and
+keeping everything up to date having
+this centralized point where you can
+view the entire organization does
+provide additional visibility but it
+does create a single point of failure if
+you lose the console you effectively
+lost your visibility to what's going on
+with your security and as your
+organization grows larger and larger
+that system begins working more and more
+you may need additional storage space to
+handle the increasing number of logs and
+you might need additional CPU power to
+be able to manage the additional alerts
+and alarms that might be
+received virtualization is also a
+significant technology that's running in
+practically anyone's data center this
+allows us to run Windows Linux and other
+operating systems and be able to build
+these systems instantly and tear them
+down when needed one challenge with a
+virtualized environment is that each
+individual virtual machine needs to have
+its own operating system the
+architecture starts with the
+infrastructure or the physical device
+that everything will run on and then
+there's software that runs on top of
+that called the hypervisor the
+hypervisor job is to manage all of the
+resources between the separate virtual
+machines running on that system each
+virtual machine requires its own guest
+operating system and on top of that
+guest operating system will be the
+applications that you need to run in
+your environment looking at this diagram
+you can probably see where different
+inefficiencies might be for example
+let's say that every guest operating
+system on this hypervisor is all running
+exactly the same OS maybe this is the
+same Linux operating system or the same
+window Windows operating system even
+though it's all the same OS you still
+need to run three separate instances of
+that operating system even though
+they're all identical to each other to
+address some of these inefficiencies
+some organizations are moving from a
+virtualized environment to a containered
+environment containerization is a way to
+also have multiple applications running
+simultaneously all on one single piece
+of Hardware the container in this
+containerization is the application that
+sit on top of the container software
+that container has everything you need
+to be able to run that application
+except for the operating system the
+containerization software manages this
+relationship between the operating
+system on the device and the application
+that's running on top of it this
+effectively allows you to swap
+applications in and out especially when
+those applications are all sharing the
+same host operating system and similar
+to virtualization all of these
+containers are isolated from one another
+each application can only see the
+application that's running in that
+individual container which makes it very
+efficient to be able to remove or turn
+off a container and replace and add
+others you also notice that each of
+these containers is referencing a single
+host operating system that's running on
+this infrastructure so generally these
+apps have already been designed to run
+on that single host operating system and
+that means that everything that's on
+that particular system might be running
+inside of Windows you might have a
+separate containerization system that
+would support applications running in
+Linux so to compare a virtualized
+environment versus a containerized
+environment you can see they all start
+at the bottom with Hardware that
+everything is running on that is the
+infrastructure itself this changes a bit
+as we move up through the stack you can
+see that a hypervisor is what sits on
+top of the infrastructure in a
+virtualized environment but for a
+containered environment we've got a host
+operating system that is running on that
+infrastructure on top of the host
+operating system is the containerization
+software one of the most popular is
+called Docker and that is the software
+that then manages all of these different
+apps that are running on the system in a
+virtualized environment Our Guest
+operating systems are running as
+separate entities on each virtual
+machine there are of course advantages
+and disadvantages to both of these types
+of implementations and you should find
+the one that works best for the types of
+applications and deployment model that
+you have a relatively new categorization
+of infrastructure devices is called iot
+or Internet of Things these are devices
+that are designed to be integrated into
+your network and support some of the
+features and services that you use on a
+day-to-day basis for example you might
+have sensors in your home or business
+that are monitoring the temperature and
+managing the heating and cooling or your
+offices may have an automatic lighting
+system using internet of things at home
+internet of things might look like home
+automation tools garage door openers and
+video doorbells you might be wearing an
+Internet of Things technology if you
+have a smartwatch or some type of health
+monitor and at work you may find that
+Internet of Things Technologies are
+monitoring the air quality they're
+setting the temperature and they may be
+turning on and turning off the lights
+automatically in the workplace iot
+devices are very convenient they provide
+Automation and flexibility of things
+that normally we wouldn't have access to
+but they also come at a cost especially
+from a security perspective these
+organizations that are designing and
+developing thermostats Lighting systems
+video doorbells and the like are very
+good at creating temperature and video
+doorbells but they may not be Security
+Professionals so we do have to think
+about how we would Implement iot devices
+in an environment that is highly secure
+it only takes a single iot device to be
+exploited for an attacker to have full
+access to the devices inside of your
+network if you work in an environment
+where there are large pieces of
+Machinery then these are probably
+networked together using skada skada is
+the supervisory control and data
+acquisition system sometimes you'll hear
+this referred to as an industrial
+control system or IC so if you work for
+a manufacturing company or in power
+generation then you're probably very
+familiar with this type of equipment and
+connecting all of these devices together
+using scada this allows the technicians
+to sit in a centralized control room
+monitor the status of all of these
+pieces of equipment and be able to make
+changes and modifications in the control
+room rather than having to physically
+visit every piece of equipment one
+characteristic that tends to be very
+similar across many different
+organizations when it comes to scada is
+that all of these need to be completely
+segmented from the outside you can
+imagine the security issues that could
+arise if someone was to gain access to
+power generation systems or oil
+refineries this could have a dramatic
+impact not just on immediate power needs
+but could affect it for a long period of
+time this is why you'll find that Min
+ska systems are some of the most secure
+that you'll find in the world and for
+good reason if you use Windows Linux or
+other operating systems on your desktop
+your tablet or your mobile devices then
+you're using a non-deterministic
+operating system that means that there's
+no single process that can suddenly grab
+all of the resources of the system and
+take priority but there's some systems
+that need that kind of deterministic use
+if you're driving an automobile using
+military equipment or setting up
+manufacturing equipment then you're
+probably going to need a deterministic
+operating system you may have already
+taken advantage of an RT or a real-time
+operating system when you drive your car
+if you're in a situation where you need
+to break the vehicle very quickly your
+entire system will suddenly focus on
+that braking system and make sure that
+you're not able to Skid out of control
+the anti-lock brakes kick in immediately
+medely understand the environment that
+you happen to be driving in and can
+safely bring you to a stop as you can
+imagine we are very sensitive to any
+security issues that may be associated
+with our real-time operating systems we
+don't have the luxury of these types of
+operating systems able to wait around
+while something else is occurring in the
+operating system itself we're obviously
+not installing antivirus or anti-malware
+software into our automobiles but the
+same type of security concern certainly
+applies regardless of what what system
+it might be this is why those systems
+tend to be very self-contained and it's
+very difficult to find a way in to even
+access the operating system in that
+equipment it might also be difficult to
+gain access to an operating system
+that's running on an embedded system an
+embedded system is one where the
+hardware and software are all created as
+a self-contained and purpose-built
+device sometimes we see these embedded
+systems working as single components
+that make up a much larger device we
+also generally find that embedded
+systems are created for one sole purpose
+and that's the only process that that
+embedded system does this would not be a
+technology where different apps might be
+loaded or you might pull in different
+capabilities from a centralized App
+Store instead these are designed to do
+one thing and do that one thing very
+efficiently for example the traffic
+lights that you see when you're out
+driving in your car are all controlled
+through an embedded system the digital
+watches that we use today are very good
+at providing us with information on
+weather and time and you'll notice that
+there's no direct access into an
+operating system on that embedded system
+and in a doctor's office or Hospital
+you've probably seen monitoring
+equipment for medical use that is
+certainly a very advanced form of an
+embedded
+system one concern that most Security
+Professionals have is maintaining the
+uptime and availability of their
+critical systems one way to provide this
+uptime is through the use of high
+availability this gives you a way to
+keep a system constantly running even if
+one part of the system was to fail this
+would be one step up from something that
+might Simply Be redundant redundant
+means that we have multiple systems
+available so that one system can be used
+if another one fails but it doesn't
+imply that this system would always be
+available you may have to pull a
+redundant system out of the closet put
+it into the rack power it on configure
+it and finally that system would provide
+some type of availability we often refer
+to high availability as ha so there may
+be an H configuration for a pair of
+firewalls that you've installed if one
+of those firewalls was to stop working
+it would fail over to the other highly
+available firewall sometimes this High
+availability can be configured with
+additional efficiencies in our last
+example with the firewalls we had a
+primary firewall and we failed over to a
+backup that was simply waiting for that
+primary to fail but some firewalls can
+be configured so that both of those
+systems are active all the time and if
+one of those firewalls was to fail the
+other would continue to work normally
+and all of the traffic would continue to
+flow without anyone knowing there was a
+failure when you start designing highly
+available systems you also tend to spend
+more money in our previous example with
+the firewalls we needed two separate
+firewalls to provide that ha capability
+but if we have two separate firewalls
+maybe we also need two separate Network
+infrastructures and if we have that
+preps we need two separate Power Systems
+you can continue to add on these systems
+and build out and plan for additional ha
+but as you do this there will be more
+and more costs associated with that and
+eventually you'll get to a point where
+you'll need to make a business decision
+on whether you'll spend that additional
+money to be highly available or if
+you'll simply take the risk of that
+downtime

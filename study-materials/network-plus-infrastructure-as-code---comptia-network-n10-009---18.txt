@@ -1,0 +1,216 @@
+infrastructure is code or IAC is a
+concept where we can take a piece of
+networking technology and describe it in
+terms that are best described as code
+this means that we could build a
+configuration file that could accurately
+describe everything in our
+infrastructure every server all of the
+network devices firewalls switches
+routers and all of our applications can
+be configured as this code this means in
+instead of manually building installing
+and then configuring all of these
+devices we can do all of that work
+inside of this code and then simply tell
+the cloud to build out all of these
+systems to our specification we can even
+use this to create versions of this
+infrastructure so we can build out
+infrastructure as code configurations
+deploy that configuration and then make
+minor changes and redeploy the
+configuration and all of those changes
+will take effect this also means that if
+we need to build another exact duplicate
+of this configuration in a separate data
+center we simply take our code we move
+it to the other Data Center and we apply
+that infrastructure as code to build out
+a completely new application instance
+that is identical to the original this
+is obviously one of the most powerful
+features of cloud-based Technologies and
+it allows us to have flexibility in
+where and how we deploy these systems
+this is a very simplified version of an
+infrastructure is code configuration
+file you can see all of the definitions
+are in here to create a host that's
+called mail. example.com this
+infrastructures code also includes
+children devices such as web servers and
+database servers and you can see the
+host names are included in there as well
+inside of this same configuration file
+we might want to include other details
+such as the type of CPU how much Network
+configurations IP addressing the
+applications that need to be installed
+and everything else we need to get these
+systems up and running
+if we can automate the process of
+building out a series of devices then we
+can also automate the process of
+responding to issues this is done
+through a process known as a Playbook A
+playbook is a series of steps you would
+follow in order to be able to resolve or
+address a particular issue for example
+if you needed to investigate a data
+breach you could create a Playbook that
+would step through that process or if
+you needed to recover from ransomware
+there may be a set of very well- defined
+steps and those steps would be contained
+within a Playbook this is obviously
+things that we do manually when we're
+addressing issues one by one but putting
+it into a Playbook allows us to automate
+this process perhaps you have a system
+that identifies the maware it then
+references The Playbook to knowde to
+remove that device from the network
+delete everything on the storage Drive
+reimage the system and then redeploy
+that system into your infrastructure
+this can obviously be reused over and
+over over again so anytime you run into
+that particular issue you simply apply
+the appropriate Playbook playbooks are
+commonly implemented into sore platforms
+that s o a that stands for security
+orchestration Automation and response
+this is a Management console that allows
+you to centralize the operations of
+everything you're doing with security in
+your environment and if you want to
+implement playbooks this would be a
+perfect console for a centralized
+deployment and monitoring of those
+playbooks this automation with playbooks
+and with infrastructure code become very
+handy when you run into particular
+situations for example you may want to
+avoid instances of configuration drift
+where there are minor changes to
+configurations between different
+application instances or perhaps you
+want to be sure that all of your systems
+remain in compliance with a set of
+Standards we can do that using
+infrastructure as code we can make sure
+that every single one of those systems
+is cre using the same infrastructure as
+code definitions and therefore you would
+have identical systems wherever you
+deploy them or perhaps you're
+configuring a testing environment and
+you want to be sure that that testing
+environment is identical when you deploy
+it into production infrastructurist code
+would be a perfect choice to be able to
+completely document what you have in the
+test environment and deploy that
+identically into your production
+environment and if you want to be able
+to duplicate the same config
+configuration across all of your data
+centers wherever they might be in the
+world you would obviously use
+infrastructure as code this would also
+be valuable if you needed to make a
+configuration change or an upgrade to an
+existing piece of software or system you
+may have already deployed you simply
+make that definition change within your
+infrastructure is code definition file
+and then you deploy that to those
+systems it will note the difference and
+make those changes that you need to be
+able to upgrade those systems we can
+also use infrastructure as code to be
+able to document the configuration
+that's been made to an existing system
+so we may want to scan through a system
+that we would like to duplicate have all
+of those configurations implemented
+within an infrastructures code
+definition file and then we'll not only
+have documentation of that system but
+we'll be able to duplicate that system
+at
+will as you can imagine in large
+environments these definition files
+become extremely important and you want
+to be sure that you're running the
+latest version of that configuration
+file when you deploy these systems to be
+able to ensure that level of control of
+the configurations you need Source
+control this allows you to manage any
+type of change you may want to implement
+into those definition files and then
+you'll be able to test those
+configurations and then ultimately
+deploy those into a production State
+this prevents many different people from
+making their own minor changes to a
+configuration file and instead you have
+one Central repository where all of
+these changes are kept and if somebody
+wants to make a change they would need
+to make that change into your Source
+control system sometimes we refer to
+this as a version control system for
+that very reason a very popular type of
+a version control system is git we use
+that often on the internet to be able to
+maintain these Source codes across
+multiple users wherever they might be in
+the world so you might have this Central
+Repository of a production system you
+might want to make some changes and
+those changes would be tracked and
+merged together into the final version
+there could be many people making their
+own changes and merging all of those
+changes into the final config this means
+that we can have many people working on
+these infrastructures code definition
+files they could be making changes to
+the area that's specific to their part
+of the build and then we can merge all
+of those changes together into one
+centralized configuration
+there might be occasions where one
+person makes a change to a line within
+the code and another person makes a
+different change to the same line within
+the code if you try to merge all of
+those together there will obviously be a
+conflict so your Version Control
+software not only needs to recognize
+these conflicts but also give you a way
+to manage what change you would really
+like to make into the final code this
+might be something that the Version
+Control software can do automatically or
+it may require manual intervention by
+one administrator who can decide which
+configuration is really the best one
+this Change Control software also allows
+us to create branches of different types
+of code so we can create a version of an
+infrastructures code definition file we
+can branch that code off to do our own
+testing with make some changes and then
+later we can merge that into the
+original code to create a new version
+this allows us to have a production
+definition and then take that and conf
+configure it in a testing environment
+for upgrades changes and optimization
+and then once we've tested that we can
+then merge it back into the production
+environment

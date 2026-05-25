@@ -1,0 +1,465 @@
+a Threat Vector is the method that an
+attacker uses to gain access to your
+systems sometimes you'll hear this
+referred to as an attack Vector the
+attackers are constantly trying to find
+new ways to gain access to your systems
+and so they're spending all of their
+time trying to either discover or create
+new threat vectors we're not only
+looking for threat vectors that are
+welln we're also looking to see if
+there's any opportunity for someone to
+take advantage of an unknown know Threat
+Vector one very common place for
+attackers to start their threat vectors
+is with a messaging system and that's
+probably because most of us use some
+type of messaging to be able to
+communicate with others for example it's
+very likely that you have an email
+address that you use and that's a
+perfect place for an attacker to send
+information that they can use against
+you for example they might put malicious
+links in an email and entice you to
+click that link at which point they may
+install malicious software or try to
+gain access to one of your systems by
+providing a fishing page another good
+threat Factor especially on our mobile
+devices is through short message service
+or SMS these are text messages and the
+attackers will use text messages to try
+to get your attention and have you click
+links that you should not be clicking
+and if you use a messaging system that
+includes instant messages or direct
+messages it's a perfect way to have the
+attacker talk directly to you to try to
+gain access to your systems fishing
+attacks work exceptionally well using
+these messaging based attacks because
+they can communicate with you directly
+and entice you to click links that
+normally you would not click and then
+once you click a link and visit a site
+it may present you with a front page
+that looks exactly like your bank's
+login but it's not really your bank and
+that's where the fishing is able to take
+advantage of this trust that you have
+for your messaging system the attackers
+might also use that message to be able
+to either embed malware within the
+message itself or provide you with a
+link that takes you to a website which
+then downloads the malware this is also
+a great entry point for the attacker
+because they can also use many different
+social engineering techniques for
+example the attacker could send you an
+invoice over email asking for payment
+but in reality it's payment for service
+that was never rendered or perhaps
+they're trying to use a cryptocurrency
+scam to either gain access to your
+existing cryptocurrency wallet or to try
+to sell you cryptocurrency that doesn't
+really exist here's an example of a Spam
+that I received in my text messages this
+one was sent from an onmicrosoft.com
+email address and you can see that it
+says from the United States Postal
+Service message you have a package that
+needs to be delivered but it has been
+suspended due to an incorrect delivery
+address and now they expect you to click
+this link that's embedded within the
+text message obviously I did not click
+this link but undoubtedly it would take
+me to a US Postal Service site or some
+other site that that might have malware
+or some other malicious software and for
+those of you wondering I did click the
+report junk link and hopefully this
+particular message or sender was able to
+be removed from the service not only can
+our messaging systems be used as an
+attack Vector the images that we see on
+our screen can also be used as an attack
+Vector a good example of this would be
+the SVG image format that's the scalable
+Vector graphic format and it's a format
+understood by most browsers that you
+might find this is actually more than
+just an image it's an XML file that
+describes the image and allows you to
+embed other information within the XML
+this means an attacker could put
+information within the image description
+that would then run inside of your
+browser so they might inject HTML code
+or there may be JavaScript contained
+within the XML that describes an SVG
+image some browsers allow you to enable
+or disable certain image types or it may
+have the process to to provide input
+validation for these SVG descriptions
+here's an XML file that contains a
+description of an SVG image and code
+that could potentially be used as an
+attack vector and it's all within just a
+few lines of software when you run this
+inside of your browser it will show an
+image that is the description of this
+triangle that you can see within the XML
+but as it's showing you this image on
+the screen it's also running any
+JavaScript that you have embedded within
+the XML in this case it's a relatively
+benign message that simply says this is
+a cross-site scripting attack and when
+you run this it will put a message on
+your screen that says exactly that most
+browsers will look for cross-site
+scripting and will prevent these types
+of scripts from running but if your
+browser has a vulnerability or the
+JavaScript that it's trying to run is
+not necessarily A cross-site scripting
+attack this may be able to get through
+using this XML
+embedding it may be relatively obvious
+that the files that we run on our
+systems could be a Potential Threat
+Vector and this is certainly the case
+for executables since that's software
+that actively runs within the memory of
+your system but an executable is not the
+only type of Threat Vector you might see
+in a file format for example an Adobe
+PDF would be a very good place to try to
+fit some type of malicious software
+because it's effectively a holding place
+where you put other types of objects
+within it when you open a PDF you'll
+find text image
+and in some cases even scripting and
+this would be a perfect place to start
+an attack or perhaps the attacker simply
+hiding the threat within an existing set
+of compressed files that may be
+compressed with zip or raar or really
+any compression type in many ways this
+obious skates that there's an attack
+inside because all you see is the
+compressed file format such as a zip
+file but with in the zip file there may
+be hundreds or thousands of files and
+one of those may contain malicious
+software and our documents spreadsheets
+and other office related files might
+also be a good place to use as a Threat
+Vector for example Microsoft Office
+allows you to include macros with your
+documents and although most of those
+macros are probably very useful and
+relatively benign it is possible for an
+attacker to write a macro that may
+gather personal information from your
+computer and send it to the attacker we
+also see this quite a bit with addin
+files or extensions that you might have
+in your browser where the extension
+itself contains malicious software and
+by simply adding it to your browser
+you've now put your entire system at
+risk our mobile phones and call systems
+make another valuable Threat Vector for
+the attacker this is Vishing or voice
+fishing where they may call you to try
+to get you to give up credit card
+information or other type of personal
+details we've also seen spam over IP
+where the attackers will use Voiceover
+IP systems to send all of these spam
+messages all through an automated
+process there are also still instances
+where attackers are trying to find
+unpublished phone numbers that may gain
+them access to systems we often refer to
+this as War dialing and it is a process
+that we still see occurring even today
+and sometimes an attacker is not
+interested in gaining information but is
+instead trying to disrupt your systems
+through a deny of service attack and
+they can certainly do this by using your
+messaging systems as a threat Factor
+I've worked with company that have spent
+millions of dollarss to install the
+latest type of firewalls intrusion
+prevention systems and network filtering
+products but an attacker can circumvent
+those millions of dollars of security
+products with a single $10 USB drive
+this can be especially useful if an
+attacker needs to get onto a network
+that is air gapped which means there's
+no direct network connection into that
+internal network instead the attacker
+will go into the parking lot of that
+company throw a few USB drives on the
+ground and hope that someone will pick
+up the drive take it inside the building
+and plug it in of course on the USB
+drive there's malicious software that
+might disrupt the operations or provide
+some way to get data out of those
+networks many of the keyboards that we
+use on our computers today connect
+through USB and specially modified USB
+drives can also appear to your computer
+as a keyboard and when you plug in the
+USB drive suddenly your system is able
+to automatically type things on on the
+screen and it's all coming from this USB
+drive acting as a keyboard and of course
+allowing someone to plug in a USB drive
+even on an airgap Network makes it very
+easy for someone to transfer large
+amounts of data unplug it and now they
+have all of that information on a USB
+drive they can put into their pocket and
+walk out the door one of the challenges
+for the security professional is making
+sure that all of our software is always
+up to date to the latest version that's
+because often we will find security
+issues and vulnerabilities built into
+existing versions of software that will
+require an upgrade this might be a
+situation where an application has an
+infected executable and if you run that
+application you're effectively infecting
+your local computer but if this is an
+unknown vulnerability and the attackers
+find that vulnerability first they may
+have an advantage to get into your
+systems this is why we're constantly
+updating the software on our systems not
+only do we perform L Microsoft updates
+but we also update all of our other
+software whenever a security patch is
+released but what about software that's
+not installed on your computer what if
+it's more of an agentless system where
+you have to connect to a separate system
+to be able to see that software this is
+very common with web-based applications
+for example where you don't have to
+install anything local on your computer
+you simply use your browser to connect
+to an external system this means if an
+attacker does find a way to infect the
+central server they could potentially
+also infect all of the connecting
+clients this would also be very easy for
+the attacker to distribute because they
+know that each person who is logging in
+for the day is running a new instance of
+that software because everything is
+contained on the
+server as we've already mentioned
+patching is a great way to prevent an
+attacker from Gaining access to a known
+vulnerability and we spend a great deal
+of time and effort to be able to keep
+all of our systems up to dat to the
+latest version of software however there
+might be system systems within your
+network or your data center that are
+unsupported systems where the
+manufacturer no longer provides patches
+for those systems and in that case you
+may not have the option for installing
+new software this is very common for
+example on unsupported versions of
+operating systems eventually an
+operating system will no longer be
+supported by the manufacturer and that
+makes it an enormous security risk if
+there's no security patches and that
+system could potentially be a risk for
+your organization and is as many
+companies have found you need to make
+sure that all of these unsupported
+systems are identified there have been
+instances where someone is running an
+older version of an operating system and
+it's running on an old computer that's
+underneath someone's desk and the IT
+department has no idea that that system
+even exists that's why it's so important
+to make sure you always have an updated
+list of your entire inventory of systems
+and that you're able to access all of
+the individual devices on the network
+this would allow you to scan your
+network periodically to make sure that
+you know that all of these unsupported
+systems have been addressed and can be
+properly secured by your it
+Department the attackers know that your
+own network creates a digital Highway
+that allows them to move very freely
+between all of the systems within your
+network and they take advantage of
+vulnerabilities that are built into this
+networking infrastructure for example if
+you have a wireless infrastructure you
+need to make sure that you're using all
+of the latest security protocols if
+you're using we WPA or WPA2 you may want
+to consider updating to the latest wpa3
+protocol and many organizations will
+perform periodic scans of their Network
+to see if anyone may have open or Rogue
+wireless access points that would allow
+an attacker easy access to the rest of
+your network for both wired and wireless
+networks it's usually a good idea to
+enable
+802.1x this is an Authentication
+Protocol that prevents anyone from
+Gaining access to the network unless you
+provide the proper credentials even
+Wireless protocols like Bluetooth could
+be used by an attacker as a Threat
+Vector for example they could use this
+for reconnaissance to see where a
+particular system might be or the
+Bluetooth implementation in a system may
+have limitations or not the proper
+amount of security and that would be a
+great entry point for the attacker when
+you install a web server into a data
+center there are a number of open ports
+that are enable to provide those
+Services across the network for example
+a web server might use TCP Port 80 and
+TCP Port 443 and once you open those
+ports in a device that provides a third
+party with a way to gain access to at
+least a portion of that system normally
+we have Security in place that prevents
+unauthorized access but if an attacker
+does know of a vulnerability in that web
+server software they may be able to use
+these open ports as a way into that
+computer this is another reason why
+we're always updating the software on
+these services so that we always can
+patch any of these vulnerabilities that
+may be associated with our web services
+or other applications and of course it's
+very easy to misconfigure one of these
+very complex applications and sometimes
+a simple misconfiguration can allow
+unauthorized access into a system each
+time you install a new service onto this
+computer it needs to have its own port
+number to provide that service to the
+outside so the more services you install
+the more open ports and potentially the
+less secure a system might be this is
+one of the reasons we use port-based
+firewalls or application of wear
+firewalls to create additional security
+for these systems with open ports for
+example if we've installed five or six
+different services on a computer we
+might only limit access from the outside
+to only one of those Services which
+would certainly limit the number of
+possible attacks to that
+system let's see if I can guess the
+credentials used for your cable modem or
+wireless router that you use at home
+let's say that you're using the username
+of admin and the password of admin after
+those are the default credentials that
+are included on many access points and
+routers this is a good example of using
+default credentials and if you know what
+the default credentials are for a device
+and someone has not updated those
+credentials you now have complete access
+to that system fortunately many of the
+devices we use today will require you to
+change that password the first time you
+log in which means that the
+administrative access that you would
+normally have by using these default
+credentials is no longer available once
+you log in for the very first time it's
+very easy to find the default
+credentials for these devices and
+there's even websites such as router
+passwords.com that has documented all of
+these default credentials across
+thousands of different devices once this
+video is over you might want to check
+the devices that are on your network and
+make sure you're not using any of these
+default
+settings sometimes these threat vectors
+appear on your network through the front
+door by way of a supply chain Vector
+this allows a third party to gain access
+to your infrastructure by riding inside
+of existing equipment that you're
+installing this might be added during
+the manufacturing process the
+manufacturer might have no idea what's
+going on or it may be added after the
+manufacturing process by a third party
+that then wants to gain access to your
+systems sometimes these threat vectors
+are in place because you're working with
+a third party that is part of your
+supply chain for example your network
+may be managed by an MSP this is a
+managed service service provider you may
+be paying this third party to monitor
+your systems and inform you if anything
+needs to be updated or changed in your
+infrastructure this also makes a perfect
+place for an attacker to start because
+if they gain access to the MSP they will
+then therefore have access to your
+systems this was the Threat Vector used
+by attackers that gained access to
+targets Network in 2013 and was able to
+install malware on all of their point of
+sale systems in order to steal credit
+card numbers the attackers gained access
+ACC to systems that were controlled by
+HVAC contractors that were hired by
+Target and therefore were able to jump
+from the HVAC Network to the Target
+Network and then to all of the stores in
+the Target systems and there have been
+cases where counterfeit Hardware itself
+was used as a Threat Vector for example
+in 2020 there was a documented case of
+fake Cisco Catalyst switches being
+installed these switches were identified
+because they weren't able to update
+their software properly but certainly
+those systems could be used as Threat
+Vector and have malicious software that
+would allow an attacker to take over
+those
+switches

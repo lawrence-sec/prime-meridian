@@ -1,0 +1,90 @@
+most organizations have some level of
+risk management that allows them to
+identify where risks might be and be
+able to address them before they become
+a much larger problem this is an
+important part of any organization and
+as an organization grows larger the risk
+grows larger as well so it's important
+to understand where those risky areas
+may be the risk management in most
+organizations is there to identify and
+manage any potential risk the threats to
+organization may come from the inside or
+the outside and risk management allows
+the organization to qualify those risks
+there are different ways to perform a
+risk assessment and every organization
+has a different requirement and
+different concerns regarding threats an
+organization could perform a one-time
+risk assessment this is often related to
+some other project that may be going on
+and the risk assessment is specifically
+designed to address any concerns with
+that project for example a company may
+be acquiring another another
+organization and they may want to
+perform a risk assessment to see what
+that acquisition might bring to the
+company or perhaps the organization is
+installing new equipment or new software
+and wants to understand the risks in
+installing that brand new technology and
+in some organizations this risk
+assessment is an ongoing process we see
+this very often with the Change Control
+process one of the steps of Change
+Control is understanding what the risk
+may be for implementing that change and
+this is a process that occurs for every
+change that is put through the Change
+Control
+process ad hoc is a Latin phrase that
+means for this we use it as for this
+purpose only so when we're performing an
+ad hoc risk assessment we're performing
+it for one specific purpose for example
+your CEO may have returned from a
+conference where he's learned about a
+new attack type that has attacked other
+companies that attended the same
+conference and he wants to determine if
+your organization is success acceptable
+to this specific risk to perform that
+study an ad hoc assessment will be
+created that will look at just this
+specific attack type and see how it may
+apply to your organization the way this
+would commonly proceed is the company
+May create a committee and perform a
+risk assessment of that specific threat
+once the assessment has been completed
+the reports have been generated and the
+presentation has been made to the CEO
+that particular committee can be
+disbanded and since the scope of this
+particular assessment was relatively
+narrow it's unlikely that you would need
+to have another risk assessment about
+this specific
+threat some organizations will perform
+risk assessments on a standard schedule
+so you may be asked to perform an
+assessment every 3 months every 6 months
+or every year for example for some
+organizations this assessment is done
+internally without the need to go out to
+an external third party for example your
+internal assessment team may request
+updates every 3 months and keep an
+ongoing set of documentation regarding
+this ongoing assessment there may also
+be risk assessments required as part of
+a mandate for example if your
+organization keeps credit card numbers
+on file they may be required to perform
+an annual risk assessment by the payment
+card industry data security standard or
+the PCI
+DSS

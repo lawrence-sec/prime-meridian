@@ -1,0 +1,251 @@
+understanding how to deal with security
+incidents are an important part of any
+security administrator's job security
+incidents can involve many different
+situations for example a user might
+click an attachment inside of an email
+that runs an executable and that
+installs malware onto their system or it
+may be that your Wan connection has been
+overwhelmed with a distributed denile of
+service attack done by botn Nets from
+people that are located anywhere in the
+world or maybe you have to deal with
+information that has been stolen or
+exfiltrated from your network and now
+the attackers want you to pay up before
+that information is made public or maybe
+a user has installed some software that
+would effectively allow someone from the
+outside to gain access to the inside
+private Network all of these security
+issues could occur in any organization
+at any time so you have to be prepared
+for anything to happen if you're
+interested on how organizations manage
+these types of security issues you may
+want to read through the National
+Institute of Standards and Technology
+the document is called the special
+publication
+800-61 revision 2 and the title of this
+is the computer security incident
+handling guide this document takes you
+through the entire life cycle of
+incident handling including the
+preparation the detection and Analysis
+the containment eradication and recovery
+and any po incident activities before an
+incident even occurs there is a great
+deal of planning that takes place one of
+the things you should have available is
+the list of communication methods there
+should be an up-to-date contact list
+with all of the people who should be
+informed when an incident occurs you
+also want to have an incident go bag
+where you have all of the hardware and
+software required to address any type of
+incident this might have laptops with
+specialized software there could be
+removable media for copying items from
+one system to another you could have
+forensic software to be able to capture
+information on that system and it might
+be a good idea to have some type of
+digital imaging system to be able to
+capture pictures and video it's also a
+good idea to have a number of resources
+that can help during the incident for
+example you may need documentation of a
+particular server or perhaps some
+Network diagrams it might also be a good
+idea to have security baselines and to
+also have file hashes of all your
+critical files it's also a good idea to
+know what you would use to be able to
+mitigate this particular incident
+especially if you're dealing with
+malware or some other type of malicious
+software it might be a good idea to have
+a known good operating system image or
+copies of application images so that you
+can replace the bad code with the known
+good software and perhaps most
+importantly there should be a set of
+policies and procedures that everyone
+will follow during one of these security
+incidents detecting a security incident
+is not something that is always easy to
+recognize there may be different types
+of systems that are attacked during a
+security incident and it may be
+difficult to Simply look through the
+file system and determine if a security
+incident has occurred part of the
+problem is that if you're connected to
+the internet there will be attacks on
+your systems constantly and it might be
+difficult to determine if an attack is
+simply a script that's running or if
+this is a legitimate attack that has
+gained access to your systems even a
+security incident as common as a malware
+infection can be a relatively complex
+process so you should make sure that you
+have the proper policies and procedures
+on how to look for these incidents and
+what to do when one's
+found there are probably a number of
+logs that you could view right now that
+show instances where an attempt to
+attack your network was made this can
+provide you with useful information
+about where attacks may be originating
+and what type of attacks they may choose
+to use for example a web server log can
+capture a great deal of information
+especially when an attacker is going
+through a vulnerability scan against
+your web server you should make sure you
+have a calendar so that that you know
+when Microsoft is going to release their
+latest set of patches so that you can
+then begin the process of patching all
+of your systems and looking for anyone
+who may be attacking systems that have
+not already been patched and in some
+cases the attackers will contact you
+directly and let you know that they're
+trying to break into your systems this
+may be uncommon but it's not unheard of
+in the hacking
+Community it's obviously important to
+know when an attack occurs and there may
+be things you can look at in your
+network that can give you a notification
+that an attack is underway for example
+you might get an alert from your
+intrusion prevention system that a
+buffer overflow attempt was made against
+a particular server or maybe an
+antivirus report is showing that malware
+has been installed on a particular
+user's workstation you might also find a
+situation where an attacker has gained
+access to a system and begins making
+changes to the security configurations
+if you have the proper monitoring in
+place you'll be informed if any of these
+configuration changes are made and if
+you happen to find a large increase in
+network traffic that could indicate that
+an attacker is trying to move a large
+amount of data out of your network and
+into the hands of the
+attacker if you do find that an attack
+is underway you should try to stop that
+attack as quickly as possible this is
+not a situation where you might want to
+wait to see what the attacker might do
+some security systems will provide a way
+to test for an attack inside of a
+Sandbox a Sandbox is a closed system
+where you can run applications and see
+what the result of running that
+application might be a good example is
+loading malware into a Sandbox running
+that malware and seeing what part of the
+operating system was changed when that
+malware executes sometimes the process
+of isolating the malware to a Sandbox
+can cause the malware itself to act
+differently for example a malware could
+recognize that it's being run inside of
+a virtual machine with limited network
+connectivity and if it ever finds itself
+in that situation it simply deletes
+itself once the incident is over we need
+to go into recovery mode recovery mode
+means that we need to get rid of
+anything that may be bad software and
+replace that with known good software
+this means if we have malware we may
+want to remove the malware or simply
+reimage that system we may need to
+disable any user accounts that were
+breached or created by the attacker and
+we need to fix any vulnerabilities that
+allow that attacker to get into our
+Network in the first place place if we
+have known good backups we may want to
+use those to overwrite anything that may
+have been changed by the attackers or we
+may want to use the original
+installation media to completely
+reinstall the operating system the goal
+is to replace any files that may have
+been compromized and then lock
+everything down so the attackers can't
+get back in after an attack is over is
+also a good time for reflection and to
+understand what may have occurred and
+how we can do better next time a good
+place to do this is in the PO incident
+meeting this is a meeting where everyone
+can be in the same room discuss the
+topics associated with the incident and
+come up with ways to resolve the issue
+more efficiently next time these types
+of meetings are best done as soon as
+possible after the incident was resolved
+this allows the people who participated
+in the incident to have a better memory
+of what happened we can also have better
+plans now when the next incident occurs
+during this PO incident analysis we may
+want to ask some difficult questions
+such as what exactly happened during
+this particular incident what was the
+timeline that took place from the very
+beginning of the incident all the way
+until the end it would also be
+interesting to see how well our planning
+process worked we should be able to look
+at the documentation of this incident
+and see if the process that we followed
+was the best choice for this particular
+situation we can then make decisions on
+what we might do different next time and
+then integrate those changes into our
+incident planning process it might also
+be useful to know if we missed any of
+the indicators that might have warned us
+that this incident was going to occur
+and if we did miss something we might
+want to change our monitoring so that
+we're looking at some additional
+indicators all of the planning and
+training that goes into incident
+response needs to take place before an
+incident occurs once the incident is
+live and on your network it's too late
+to do any type of on the- job training
+there needs to be extensive
+documentation and testing of that
+documentation so that everyone knows
+what to do during an incident this means
+that we would have to understand what
+happens during the initial response what
+are the plans for investigation when an
+incident is identified what is the
+process for reporting on this incident
+and so on in large organizations
+especially those with multiple incident
+response teams this training and
+planning process can be relatively
+expensive but you may find that all of
+the resources and money put into the
+training process May save you money when
+a big incident
+occurs

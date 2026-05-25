@@ -1,0 +1,149 @@
+a common flow of network traffic is from
+a client to send information to the
+server and the server to reply with
+additional details some of this
+information that's being sent back and
+forth between the client and the server
+may contain information that an attacker
+would love to be able to see and to be
+able to collect once that information is
+collected the attacker may be able to
+reuse that information with a replay
+attack to be able to perform a replay
+attack the attacker has to be able to
+have information that can be replayed
+this can be difficult for the attacker
+to obtain some of the techniques they
+might use would be to use a physical
+Network tap to watch the traffic perhaps
+use art poisoning to redirect traffic to
+the attacker or the attacker may put
+malware on the victim's computer to be
+able to gather information going across
+the network once the attacker has these
+details they can replay this back to the
+server effectively posing as the victim
+computer the replay itself is is not an
+onpath attack although it is very common
+to perform an onpath attack to gather
+the details that later will be used for
+a replay attack one form of a replay
+attack is called pass the hash the hash
+in this context refers to a password
+hash that is normally used during the
+authentication process this starts with
+the client or the victim computer
+sending a normal authentication request
+to a server during that process the
+attacker has put in place a way to
+redirect or get a copy of that traffic
+also sent to the attacker's computer so
+effectively they're capturing a username
+and a hashed password which is identical
+to the username and hash password being
+sent to the server once the attacker has
+this information they can replay the
+username and hashed password back to the
+server posing as the original client the
+server receives a username and hashed
+password that properly authenticates so
+the attack attacker now has access to
+the server posing as the victim computer
+one way to stop this replay attack from
+occurring is to use encryption so that
+none of the traffic sent across the
+network can be seen and this also might
+include some additional salting of the
+password so that each time an
+authentication occurs it's using a
+different salt and therefore a different
+hash the server is configured to not
+accept the same hash twice in a row so
+if the attacker does somehow gain access
+to this salted hash they wouldn't be
+able to use a replay attack to gain
+access to the server another valuable
+piece of information that an attacker
+would love to retrieve from your
+computer are your browser cookies these
+cookies are simply files that store
+information about the sites that you
+visit this is a way for your browser to
+maintain tracking and session management
+when you're connecting to websites the
+cookie is not an executable and it
+doesn't contain any malicious code but
+it does contain information that would
+be valuable for an attacker to gain
+access to a server this could also be a
+privacy risk if you look through the
+information that's contained in the
+cookies stored in your browser there's
+username information other details about
+the connection and things that a third
+party could use to learn more about you
+the information that an attacker would
+love to pull out of these cookies though
+would be a session ID this session ID
+could be used by an attacker to gain
+access to a server without needing any
+login credentials from the victim
+the session hijacking or side jacking
+occurs when a user authenticates
+initially with a web server so they
+provide a username and password and a
+session ID is sent back to the victim's
+computer if the attacker does gain
+access to the session ID they can use it
+for subsequent sessions to the web
+server and every time they use this
+session ID the web server thinks it's
+coming from the original victim's
+computer which is now logged in and the
+attacker would now have access to
+everything the victim machine would have
+on that web server the session ID and
+many other details are contained within
+the headers that are sent back and forth
+between systems these headers could be
+gathered using some type of packet
+capture such as wire shark or Kismet
+there are also exploits like crossy
+scripting that can gather these details
+on a client machine and have those
+details sent to the attacker the
+attacker might also modify the headers
+that they're sending to a victim server
+and through the years we've used tools
+like tamper fire sheep and scapy to be
+able to accomplish this there are also a
+number of add-ons and extensions you can
+put in your browser to be able to view
+your cookies and modify the information
+that's contained within those cookies
+one way to prevent this session
+hijacking is to Simply encrypt
+everything if you're encrypting from The
+Source device and all of that data is
+encrypted all the way until you reach
+the destination device anyone monitoring
+this traffic would not be able to see
+any of your session IDs or any other
+personal information this requires the
+server to be be configured to allow
+encryption using https and these days
+many servers are already configured to
+allow this type of encryption there are
+also extensions that you can enable in
+your browser that will require that the
+connection between you and a web server
+is running https and it will prevent any
+type of access that may be in the clear
+if you can't encrypt end to end you
+might want to encrypt from your device
+to a VPN concentrator that would at
+least allow for encryption on the first
+part of the journey and the only part
+that would be in the clear is the part
+that is after the VPN
+concentrator

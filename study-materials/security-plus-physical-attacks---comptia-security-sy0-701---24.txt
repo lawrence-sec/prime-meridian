@@ -1,0 +1,107 @@
+in this course we've talked a lot about
+technology and how attackers can
+circumvent different aspects of our
+operating systems and digital
+Technologies but of course there is a
+type of security concern that has
+nothing to do with the technology that
+we use and that would be a physical
+attack with a physical attack we're not
+interested in the version of operating
+system that we're running or concerned
+about a particular type of vulnerability
+instead we're going to attack this
+problem at the physical level just as
+there are many ways to attack the
+digital security of a system there are
+also many ways to attack the physical
+security of those same systems whenever
+we think about ways to protect a system
+we always need to consider the physical
+aspect this is because someone with
+physical access to a computer can also
+get full control to that system if
+someone can physically touch that
+computer then they can also circumvent
+the operating system that's running on
+that computer it's often said that door
+locks only keep out the honest people so
+we may have to include additional tools
+to be able to maintain the physical
+security of our
+devices brute force is a term that we
+often associate with password Discovery
+but brute force can also be a very
+useful physical attack if there's a
+locked door or a locked window we can
+use brute force to be able to force that
+door open or Force access into that
+window you might want to try evaluating
+this with your data center how difficult
+would it be to use brute force to gain
+access through doors or windows that
+would ultimately provide an attacker
+with access to your entire
+infrastructure attackers will try
+anything to gain access to your data and
+it wouldn't be unusual for an attacker
+to try to find a way through a locked
+door or locked window to gain access to
+those important
+resources another useful physical attack
+is RFID cloning we use RFID very often
+for Access through doors so access
+Badges and key fobs commonly have RFID
+as the underlying Tech technology if we
+were able to clone or duplicate
+someone's existing access badge we would
+effectively have full control over
+exactly the same areas that they do this
+is a lot easier than you might think you
+can look on Amazon for RFID cloners and
+the duplicators available can be
+purchased for less than $50 us this is
+also a duplication process that happens
+very quickly you can simply read one
+card and immediately copy it to another
+card in just a matter of seconds and
+there have been documented cases where
+someone was able to use an RFID reader
+on something like a train on the way to
+work brush up against someone with an
+access key and you've now got a
+duplicate of their access card this is
+another reason why multiactor
+authentication is so useful even if
+someone has duplicated the card they
+don't know your personal identification
+number they don't have access to your
+Biometrics and therefore they would not
+gain access to those
+resources if you can't attack the
+systems directly perhaps you can attack
+the environment around the systems and
+there are many ways to go about
+performing an environmental Attack One
+very common environmental attack is to
+Simply turn off all of the power in a
+data center an attacker may be able to
+do this from outside the building which
+means they would not need any special
+access inside of the doors instead they
+can take care of this particular attack
+from outside we've also seen that HVAC
+systems tend to have a lower priority
+for security than other parts of your
+infrastructure so if an attacker does
+gain access to an HVAC control system
+they might decide to turn off the
+cooling have all of the systems heat up
+and then they would automatically shut
+down once they reached a certain
+temperature and in some data centers the
+fire suppression system sets off another
+series of events and someone who gains
+access to the fire suppression system
+may also be able to cause a deny of
+service

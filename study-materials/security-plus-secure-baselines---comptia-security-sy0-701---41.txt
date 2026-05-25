@@ -1,0 +1,115 @@
+when an application is deployed we have
+to think about all of the security that
+is associated with using that app that
+means there are security settings in
+operating systems on network devices and
+in practically every other component
+used by that application we have to make
+sure that we're using the best practices
+for that security for example we might
+need to make certain firewall settings
+to make sure that that application is as
+secure as possible we might want to
+include patch levels and make sure that
+our application is up to date and of
+course the underlying operating system
+also has to be secure each time this
+application instance is deployed we need
+to make sure that all of these security
+baselines are also deployed along with
+it so we need to make sure that we
+constantly check that these security
+baselines are still in place and are
+still protecting the application
+instance if we perform this check and
+find that there are parts of the
+application instance that are not
+following these security baselines we
+need to put a plan together to correct
+direct those as soon as possible you'll
+have to start with creating this set of
+security baselines fortunately you don't
+have to do this on your own many
+manufacturers have already created a
+foundational security Baseline that you
+can modify and change to meet the needs
+of your organization for example you can
+contact the developer of the application
+and they can provide you with a baseline
+that they've created this would probably
+involve permissions of files that are
+stored on the file system and
+configuration settings within the
+application
+itself or you can get information from
+the operating system manufacturer so you
+can go to Microsoft and get information
+about their security baselines and if
+you're using any purpose-built
+appliances those manufacturers may also
+be able to provide you with additional
+security settings when you start
+building that initial security Baseline
+it can almost be overwhelming there are
+many different settings that may need to
+be configured if you look at Microsoft
+Windows within Windows 10 there are over
+3,000 Group Policy settings Al loone
+fortunately only a subset of those are
+used for security purposes the Microsoft
+website includes a series of security
+Bas lines for Windows operating systems
+and Windows server and they even include
+tools that you can use to help deploy it
+they refer to this as the security
+compliance toolkit
+orct you've now compiled this list of
+security settings that will be
+associated with the application the
+operating system and any other part of
+the application instance now it's time
+to deploy Dey those settings to all of
+those different components sometimes you
+can do this through a central console
+like the Microsoft security compliance
+toolkit but other settings may require
+additional applications or additional
+processes you might have to push things
+out through Active Directory Group
+Policy or you might have a separate MDM
+that pushes out security settings to
+your mobile devices for security
+baselines that are as large and complex
+as these you'll want some type of
+automated process to make this easier
+this would allow you to deploy these
+baselines very easily to hundreds or
+even thousands of different
+devices fortunately many of these
+security baselines are best practices
+and would rarely change so once you
+deploy them your job is effectively done
+but there will be times when you may
+need to update the security Baseline
+maybe there's a new vulnerability that's
+been discovered and it affects a certain
+application or certain operating system
+or maybe the application itself has been
+updated and you'll need to make changes
+to the configuration to keep that
+security Baseline current or you may
+install a completely new operating
+system and that will require a
+completely new set of security baselines
+and there may be times when one
+manufacturer's Baseline conflicts with
+what another manufacturer would like to
+use so you may have to look at both of
+those and determine which one is the
+better Baseline for this particular
+application instance so you may find
+yourself testing these baselines prior
+to the deployment and then once they're
+deployed you may need to audit them to
+make sure that those baselines Main in a
+fact

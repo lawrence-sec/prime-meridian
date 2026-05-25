@@ -1,0 +1,484 @@
+as a networking professional you may be
+asked to configure port numbers
+associated with a particular application
+so in this video we'll look at the
+well-known port numbers associated with
+those apps we'll start with a generic
+form of file transfer that's used across
+many different operating systems this is
+FTP or the file transfer protocol this
+is a very common and generic form of
+file transfer that can be used on Linux
+Windows Mac OS and practic Ally any
+other operating system unlike many
+applications that use a single port
+number to communicate FTP is configured
+to use one or two different port numbers
+specifically TCP Port 20 and TCP Port 21
+TCP Port 20 is commonly associated with
+the file transfer process itself and
+Port 21 is commonly sent to send control
+information between one device and
+another FTP has an authentication method
+so you can use usernames and passwords
+and when transferring information you
+can choose to not only transfer the file
+you can List information in a particular
+directory add different files delete
+rename and perform other types of file
+maintenance TCP Port 22 is commonly
+associated with SSH or secure shell this
+is a way to communicate to a Remote
+device from a console so you have this
+textbase front end and you're able to
+configure and manage this device over
+this text based command line interface
+and important characteristic of SSH is
+the secure part of SSH because all of
+the communication between your device
+and that Remote device is all sent
+across the network in encrypted form
+well if there's encryption being used
+with secure shell it would be great if
+we could use encryption with our file
+transfer protocol so of course there is
+a version of the FTP called secure FTP
+or
+SFTP this allows us to transfer files
+from one device to another and that
+entire communication across the network
+is all encrypted by default
+interestingly enough secure FTP is
+really using the SSH protocol to be able
+to perform this encryption so SSH and
+SFTP use the same port number of TCP
+Port 22 and just like our FTP protocol
+that allows us to perform file
+management of that device we can also
+perform the same file management using
+the secure version of FTP so you can
+view the directories you can make
+changes to the directory names you can
+modify files delete information and
+perform all of the normal file
+management from the secure FTP
+application both secure shell and secure
+FTP have that Foundation of SSH as the
+underlying protocol so not only does
+secure shell allow you that remote
+terminal communication you can also have
+remote file transfer communication and
+all of that communication will be
+encrypted using the s SSH protocol over
+TCP Port
+22 before we had encryption over SSH or
+secure shell we used a non-encrypted
+form of terminal communication referred
+to as telnet this stands for
+telecommunication Network and it
+commonly uses TCP Port 23 visually this
+looks almost identical to what we use
+with secure shell the difference however
+is the communication that we're sending
+between our device and the remote
+station is all being sent in the clear
+there's no encryption that's taking
+place across the network this means that
+someone could potentially capture those
+packets and view everything that's being
+sent back and forth over the network
+including your login credentials it's
+for this reason that you don't commonly
+see telnet being used on our Network and
+instead we'll use SSH to ensure that all
+of this communication will always be
+encrypted another important application
+on our network is the use of email and
+of course we need protocols to be able
+to transfer these emails from one email
+server to another to be able to do that
+we use SMTP or the simple mail transfer
+protocol SMTP is commonly associated
+with server to Server email transfers
+using TCP Port 25 all of this traffic
+sent over TCP Port 25 is sent in the
+clear or in plain text there's no
+encryption that's automatically
+configured when using TCP Port 25 that's
+why many SM TP servers will use TCP Port
+587 which is SMTP using TLS encryption
+or the transport layer security SMTP is
+also used from client devices that are
+sending email messages and it's often
+sending those to a mail server using
+this SMTP protocol for receiving email
+messages and being able to manage your
+email inbox we often use other protocols
+such as IMAP or pop 3 so any time that
+you are sending email or you're
+transferring email between email servers
+you're probably using SMTP or the simple
+mail transfer
+protocol we don't often memorize the IP
+address of devices that we communicate
+with instead we use the fully qualified
+domain name or fqdn and the way that we
+translate between the fully qualified
+domain name and the IP address is we use
+a DNS server and that stands for domain
+name system DNS commonly uses UDP Port
+53 to be able to perform this name query
+so we'll ask a DNS server what the IP
+address of www.professormesser.com might
+be and it will respond back with the IP
+address that your device can use to
+communicate to that server for those
+small queries we commonly use UDP Port
+53 but if there's a large transfer of
+data from one DNS server to another we
+commonly would use TCP Port 53 these DNS
+servers are obviously very critical
+resources because without them we
+wouldn't be able to communicate to
+servers such as professormesser.com this
+is also a very common protocol to find
+on the network and if you take a packet
+capture you're almost guaranteed to
+capture some type of DNS
+traffic we become very accustomed to
+Simply plugging into a network or
+connecting to a wireless network and
+automatically being able to communicate
+across that network but behind the
+scenes there is an automat IP
+configuration process using DHCP or the
+dynamic host configuration protocol this
+is the protocol that allows us to
+automatically configure IP address
+settings for anyone that connects to the
+network by default DHCP uses UDP Port 67
+and UDP Port 68 to be able to use DHCP
+we need a DHCP server at home we
+commonly use a DHCP server that's
+integrated into an existing wireless
+router but in an Enterprise Network
+there are often Standalone DHCP servers
+we usually configure a pool of IP
+addresses on DHCP and anyone who
+connects to the network will be
+automatically assigned an IP address
+from this available pool of addresses
+there's also a lease time associated
+with this IP address so you're only able
+to use that IP address for a certain
+amount of time and if you are still
+using that address at the end of the
+leasing period you can choose to renew
+that lease with the DHCP server
+we can also configure certain devices to
+always receive the same IP address every
+time they connect to the network and we
+associate that IP address with the MAC
+address of that device we configure that
+in the DHCP server that's often referred
+to as a DHCP reservation all of this
+communication that occurs across the
+network for DHCP will almost always use
+UDP Port 67 and UDP Port
+68 we talked earlier about the FTP or
+file transfer protocol that we use to
+send files from one device to another
+and we describe the process of
+authentication and the many different
+management functions associated with FTP
+but what if you just needed to transfer
+a small bit of configuration information
+from one device to another you don't
+need to view the name of a directory or
+change any of the file names you simply
+need to transfer a small amount of
+information very very quickly to be able
+to do that you might use tftp or the
+trivial file transfer protocol and by
+default it uses UDP Port 69 you'll often
+see tftp used for very simple file
+transfers usually this is something that
+doesn't require any type of
+authentication or login process so it
+may be something like a Voiceover IP
+device that has no IP address and no
+configuration and when you plug it into
+the network it is powered on using power
+over ethernet it uses DHCP to get an IP
+address and then it uses TFT TP to be
+able to download the latest
+configuration file from the server this
+is a quick and easy process it transfers
+data without any extra overhead it's
+able to do that very efficiently and
+very quickly using UDP Port
+69 if you're communicating to a web
+server you're probably using one of two
+different port numbers this is using
+HTTP or
+https this stands for hypertext transfer
+protocol and it's a communication that
+is commonly associated with
+browser-based communication if the
+information between your browser and the
+web server is being sent in the clear
+without any type of encryption it's
+commonly using TCP Port 80 if you need
+to perform encryption of that data and
+that is probably the default for most
+websites that you'll visit these days it
+is using SSL that stands for secure
+sockets layer or newer version of SSL
+referred to as TLS or transport layer
+security if this is encrypted data then
+it's probably using TCP Port 443 which
+is sending
+https for
+secure another thing you may notice with
+the devices that are connected to the
+network is they all tend to have the
+correct time and date down to the second
+level we're able to do that through an
+automated process called ntp or the
+network time protocol every device on
+the network operating systems routers
+switches and any other device can use
+ntp to stay synchronized with their
+clock across all of those different
+devices by default ntp uses UDP Port 123
+being able to synchronize these clocks
+is more than simply a convenience in
+fact it can be a very critical part of
+synchronizing log files between very
+diverse devices this allows us to go
+back in time and piece together
+Communications even though that
+communication occurred on many different
+devices this is a process that usually
+occurs automatically behind the scenes
+and many devices will synchronize their
+clock multiple times during the day
+using the ntp protocol you might also be
+able to configure this process maybe
+you'd like a device to update its clock
+every hour or maybe simply updating once
+a day is sufficient this is also a very
+accurate way to keep these clocks in
+synchronization and usually we get about
+a 1 millisecond difference between
+devices that are all on the same network
+this provides a level of granularity
+that's sufficient for most applications
+and it's something that occurs
+automatically using UDP Port 123 and the
+network time
+protocol as a network professional
+you'll be responsible for the uptime and
+availability of routers switches
+firewalls and many other devices on the
+network one way to manage those devices
+is through a protocol named SNMP or the
+simple Network management protocol by
+default SNMP uses UDP Port 161 to query
+devices and receive information about
+how that device may be performing for
+example we might have a management
+station and we might be querying a
+device to determine how much traffic has
+traversed that particular device over a
+certain amount of time and then it can
+provide us with a summary of how much
+data has been transferred over that time
+frame we can then store that data create
+graphs reports and other information
+that allows us to manage that device you
+might also find that different versions
+of SNMP may be used on your network
+version one of SNMP is the original
+version this allows your management
+station to perform a single query to
+this device and receive a single
+response and all of this is sent over
+the network in the clear with no
+encryption version two of SNMP allowed
+for bulk transfers so we can ask for
+many different variables from this
+device and receive a large group of data
+from that device which simplified the
+network communication and made it much
+more efficient but it didn't provide any
+type of encryption all of this
+information is still being sent across
+the network in the clear a more modern
+version of SNMP is what you may commonly
+find on your network today which is
+version three this is a more secure
+standard for SNMP which allows message
+Integrity authentication and encryption
+of the SNMP data one of the things
+you'll find with this default use of
+SNMP is the management station is
+interacting actively making a query and
+then receiving a response for that query
+so it's up to the management station to
+initiate that communication but it would
+be nice if these devices could identify
+problems and proactively send that
+information down to the management
+station we can do that by using a
+feature of SNMP called an SNMP trap this
+allows these notifications to be sent
+directly from these devices using UDP
+Port
+162 many organizations may have hundreds
+or thousands of devices on their Network
+and it may be a challenge to be able to
+keep track of what devices are on the
+network what users are connecting to
+those devices and how the relationship
+might be between the user and the device
+we're able to maintain a database of all
+of these devices and all of these users
+through a protocol named ldap ldap
+stands for lightweight directory access
+protocol and it commonly uses TCP port
+389
+ldap allows us to very easily query
+these databases and retrieve information
+that we may have stored there's also a
+secure version of ldap called ldap
+secure it uses TCP Port
+636 ldap uses a hierarchical structure
+to be able to layout the network and the
+devices this is a graphical view of an
+ldap database it starts with the root of
+the database which is an organization in
+this case the organization is Messer
+Studios we've also grouped together like
+devices into organizational units there
+is a production OU a support OU and an
+engineering OU within those
+organizational units there may be common
+name devices for example there may be
+users such as Jack and Daniel or there
+may be a database or storage device
+named Tech docs we're able to organize
+and access these devices through this
+structure making it a very common and
+simplified way of gaining access access
+to this
+data Microsoft Windows has some very
+unique features when it comes to data
+transfer Microsoft stores information on
+the network in a file share you can also
+share printers through Microsoft's
+operating systems and there's also
+authentication built into this entire
+process to be able to provide all of
+this functionality there is a
+specialized protocol named SMB or server
+message block to be able to share files
+share printers or authenticate to the
+network you might also see this referred
+to as cifs or the common internet file
+system SMB is integrated into Windows
+itself you don't need to add additional
+software there's no additional FTP or
+SFTP process instead built into the
+Windows Explorer or the file explorer
+within Microsoft Windows is the SMB
+functionality that allows us to access
+file shares print to remote printers
+lock different files on the network and
+provide processes for authentication and
+permissions for all of that data early
+versions of Microsoft Windows used the
+net bios protocol to be able to
+facilitate this communication but most
+modern versions of Microsoft Windows
+communicate directly across the network
+using IP and TCP Port 445 is the one
+that is usually associated with server
+message block or
+SMB as a network professional you'll
+find that you are constantly referring
+to logs that are being kept on your
+routers your switches your firewalls
+your servers and almost any other device
+that's connected to the network One
+Challenge is being able to consolidate
+all of these different log files to one
+single location and there is a
+standardized protocol for transferring
+these log files called CIS log CIS log
+commonly uses UDP Port 514 to be able to
+transfer this log data across the
+network you'll often use CIS log in
+conjunction with a security information
+and event manager or a Sim this is a
+consolidation point where you can have
+all of your log files transferred into
+one single Consolidated database so if
+you're using CIS log and transferring
+that over UDP Port 514 then you're
+probably transferring it to a very large
+Drive array or some other device where
+you can collect that log information
+over an extended period of
+time we store a lot of very diverse
+information on our databases but
+fortunately there is a very common form
+of storage and retrieval for those
+databases referred to as a structured
+query language or SQL some people refer
+to this as SQL this SQL database uses a
+standard language that you can use to be
+able to query and retrieve information
+from that database Microsoft has its own
+form of SQL database called the
+Microsoft SQL server or mssql
+stands for Microsoft structured query
+language and it very commonly uses TCP
+Port
+1433 there are other types of SQL
+databases you might find on your network
+and they usually use different port
+numbers so if you see TCP Port 1433 then
+you're probably using a Microsoft SQL
+Server many of us start on the help desk
+to be able to provide support for our in
+users and one way that we're able to
+view the remote desktop of those devices
+is through the use of RDP or the remote
+desktop protocol RDP uses by default TCP
+port
+3389 to be able to view that remote
+desktop the remote desktop protocol is
+commonly associated with a service
+that's running on a Windows device but
+fortunately there are many clients that
+can use RDP to connect to those windows
+devices so it's not unusual to find RDP
+clients for Windows Mac OS Linux iPhone
+Android and many other op operating
+systems there are many different
+protocols used for voice over IP one of
+the most popular is sip this is the
+session initiation protocol and it
+commonly uses TCP Port 5060 and TCP Port
+5061 sip is commonly used as the control
+protocol that we use when we pick up the
+phone we dial the number it initiates
+the phone call and then when the phone
+call is over it disconnects the session
+you might also see sip being used for
+extend iions of Voiceover IP that
+provide video conferencing instant
+messaging and even file transfers all of
+this takes place using sip over TCP Port
+5060 and TCP Port 5061

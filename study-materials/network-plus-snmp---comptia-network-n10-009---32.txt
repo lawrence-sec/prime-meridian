@@ -1,0 +1,217 @@
+as a network administrator you will
+install switches routers servers
+firewalls and many other pieces of
+equipment into your infrastructure once
+you install that equipment how do you
+ensure that it's running optimally and
+that there are no errors or problems
+that you need to address one of the ways
+to do that is by querying this device
+through a protocol known as SNMP this is
+the simple Network management protocol
+and it is designed to provide a
+management interface to the these
+devices over a standard set of protocols
+regardless of who happens to manufacture
+that device usually the network team
+will have a central Network Management
+console and that Management console will
+query devices via SNMP and ask
+information that it would like to
+receive for example it would request
+from a switch how many bytes have gone
+into a particular interface and that
+device will respond back with a
+particular value and that information is
+stored in the management station the
+query that is being made to this device
+is querying a number of different
+parameters that are stored in what is
+known as a MIB this is a management
+information base or Central database of
+data that is stored on that Remote
+device SNMP queries specific values in
+that database by referring to an object
+identifier sometimes you'll hear this
+referred to as an oid or an oid all of
+this polling occurs over UDP Port 161
+and allows us toess access any of the
+devices on our Network and gather
+information about how those devices are
+performing when configuring SNMP on your
+network management station it may ask
+which version of SNMP that device is
+using there are usually three different
+versions you can choose from the first
+is the original version or SNMP version
+one this provided a way to query those
+structured tables that are stored within
+the management information base on this
+device but it sent all of that
+information across the network in the
+clear there was no encryption associated
+with any of the transmission using SNMP
+version one a newer version of SNMP was
+released that we named SNMP version 2
+you'll sometimes hear this referred to
+as SNMP version 2C this is an
+improvement to SNMP version one because
+it's able to query large chunks of data
+and have a more efficient communication
+to that device but that entire
+communication remained non-encrypted or
+in the clear so anybody tapping that
+connection would be able to see the
+entire communication the latest version
+of SNMP is SNMP version 3 this provides
+encryption and a number of different
+cryptographic capabilities such as
+message integrity and
+authentication when we are performing a
+query to a device using SNMP we need to
+refer to a specific variable that we
+would like to pull back to our
+management station that individual
+variable is called an object identifier
+or an oid that object identifier is a
+series of numbers in fact here is an oid
+1.3.6
+1.2.11
+28.0 each one of those numbers is
+associated with a particular set of
+values for example the one is ISO three
+is org six is DoD one is internet two is
+management and so on and you can go all
+the way down this line until you can see
+that we're looking for SNMP outg get
+responses and that was be the number 28
+at the end of that oid this is how we're
+able to have hundreds or even thousands
+of different variables inside of that
+management information base and we can
+query each of those variables
+individually by referring to their oid
+sometimes these object identifiers are
+very standardized across devices one of
+these standards is the mib2 standard
+it's referred to here as the SNMP v2-
+MIB that mib2 standard is a set of oids
+that are identical across multiple
+devices but sometimes a manufacturer has
+unique variables that are specific to
+that device and in that case the
+manufacturer will create their own oid
+and so you'll need to refer back to the
+manufacturer's documentation to
+determine what oids are associated with
+what values within that MIB sometimes
+the manufacturer will provide a file
+that documents the MIB and you can add
+that file to your network management
+station at that point you can retrieve
+those oids from that device and know
+exactly what that oid is associated with
+one of the ways that you can query a
+device for SNMP information is to use a
+MIB Walker this is software that will
+cycle through every possible MIB value
+and pull down everything associated with
+the MIB inside of an individual device
+this is a MIB Walker on my Mac OS device
+called MIB browser and you can see that
+I have it directed to a host at 10.1.1
+1064 it's using Port 161 and I've
+configured this MB Walker to use version
+2C of SNMP the default Community string
+on this device is public and my root oid
+is 1.3.6 do1 and when I click the fetch
+button it begins gathering information
+about every possible mid value that
+could be contained on that device and
+when it finds a match it adds it to the
+list for example it found a number of
+SNMP V2 MIB values and you can see the
+list of those here in fact it even
+pulled back a system ID information some
+contact information with my email it
+even shows me the name of the system and
+how I can then correlate that back to a
+specific physical device if we scroll
+down a bit in this list we can even find
+individual variables as part of this MIB
+and see the individual values associated
+with each one of those for example SNMP
+in get requests has a total number of
+four and SNMP in get next has a value of
+of
+1,540 if you start collecting that
+information over time you can begin to
+build out very large visualizations of
+how the network may be performing for
+example this is a graph that has been
+created through a series of SNMP queries
+that take place on a standard basis so
+you can see that going for an entire day
+you can start to map out information
+such as response time values any type of
+errors or anything else that might be
+contained within that MIB
+this implementation of SNMP assumes that
+your network management station will be
+querying all of your SNMP enabled
+devices on your network at regular
+intervals it would be common for example
+for a management station to query every
+device on the network every minute every
+5 minutes or whatever interval makes
+sense for your management station but if
+there's a problem on that device you may
+not know the problem has occurred until
+the next time you perform that Poll for
+that reason you may want to configure a
+different feature of SNMP referred to as
+an SNMP trap you can think of this as a
+proactive alarm that is sent from the
+device to the management station without
+the management station needing to pull
+that device first these S&P traps use a
+different port number they use UDP 162
+for example you could configure a switch
+or a router to look for a certain number
+of CRC errors to occur and if you get a
+large number of Errors for example it
+increases by five
+that device will proactively send a trap
+message back to your network management
+station as soon as that trap is received
+by the network management station it can
+then alert other people on the network
+of the problem or start running scripts
+to help resolve whatever issue that
+might be in the mid Walker that we were
+using earlier there was a value that we
+were adding to that mid Walker to be
+able to gain access to that system that
+value is referred to as a community
+string you can think of this as a simple
+password that allows you access to the
+SNMP data on that device you can usually
+set up multiple Community strings within
+a device so it's not an usual to have a
+readon string such as public there might
+be a read WR string such as private and
+there might be a separate string that
+you would useed for traps these
+Community strings are relatively
+simplistic and they're only used for
+SNMP version one and SNP version 2 or
+version 2C there are other ways to
+authenticate using newer versions of
+SNMP and in SNMP version three we use a
+username and password that is sent
+across the network as a password hash
+this is a much more secure way to
+authenticate and if you're running SNMP
+in your environment it's probably a good
+idea to use SNMP to have the most secure
+type of monitoring available

@@ -1,0 +1,609 @@
+hey everybody I'm Sean Powers welcome
+back if you were here for our last Linux
+plus video which I'll put a link to up
+over wherever the thing is
+um we talked about kill signals that we
+send to processes now this video we're
+going to talk about the processes that
+we send those signals to and now I know
+it seems a little bit backwards to not
+talk about the processes first but I
+kind of wanted to give you a reason that
+you might be interested in processes
+otherwise it's a pretty dry topic and
+what better way to get you excited about
+processes than showing you how to kill
+them before we even talk about how to
+find them so basically we're in the 1.4
+section of the Linux plus objectives
+we're going to call this 1.4.4 because
+it's the fourth video that we've covered
+in this topic but we're going to cover
+the stuff in yellow we're going to look
+at uh signal or not signal we're going
+to look at processes and open files it's
+kind of a weird mix for me that they put
+them together but we're gonna do it
+because that's what it says here so I
+want to talk about how you can look at
+running processes how you can find them
+sort them that sort of a thing and then
+how you can prioritize them in the
+system and there's no better way to do
+it than just to do it now lsof stands
+for list open files and you probably
+remember everything in Linux is a file
+and that's important however if we just
+do it on its own LS or I gotta spell it
+right lsof it just will spew all sorts
+of stuff on our command line eventually
+there's there's just tons of open files
+because everything in Linux is an open
+file
+and I'm just going to hit Ctrl C because
+there's probably over 10 000 lines and
+it's just not terribly useful on its own
+so generally what we'll do is use flags
+like show the the open files for a
+particular user so LS of U for user and
+we'll do s Powers now there's still
+going to be a bunch of stuff so what I'm
+going to do is pipe that through uh the
+head command so I'll do head Dash n25
+we'll see the top 25 results and this
+should show us all of the open files on
+the system that my username is currently
+using and this it gives you like at the
+top it gives a little like a header
+explaining what the different columns
+are and basically I'm running rclone and
+rclone has these open files like these
+are the shared libraries that it's using
+and so they're open
+uh let's see what else is going on I
+wanted to find specifically yeah good
+okay
+so the r clone command is running and
+you'll see here it doesn't list a file
+it actually shows a port like it's
+listening on Port
+5573 and here it says there's a there's
+a stream that's open as well and that's
+because since everything in Linux is a
+file that includes ports and that is
+probably the the thing that I generally
+use it the most for is to look at open
+ports and see what sort of things now
+it's not okay I'll be honest I generally
+don't use lsof but I'm trying to think
+of a good use for you to learn it and uh
+this is this is the best I can come up
+with now if you want to look at just the
+the network ports that are open like
+just the network communication going on
+you can type lsof Dash I and that is
+also going to give us tons and tons of
+stuff so I'm gonna pipe the output
+through head Dash n25 just again it'll
+give us a top 25 results and this is
+going to be only things on the network
+or only things on our computer that are
+actually Network streams and there we go
+same same sort of thing there's a header
+on the top and it'll say what command it
+is that has this this port open and all
+sorts of cool information like what kind
+of node it is TCP or UDP if I was
+pinging something it would probably show
+icmp there but you can see the command
+that is running so clearly I'm running
+sync thing as well which I am on my
+computer and these are the ports that
+it's using it's listening on this port
+on my local network because I sync up
+multiple computers in fact you can see
+sync thing is connected to let's see Big
+Tuna is this computer it's connected to
+Powers home which is my Synology box so
+it's it's running sync thing on there
+it's also connected with whatever this
+is this is probably
+um a remote computer I hope it's a
+remote computer that doesn't actually
+ring a bell oh that's probably one of
+the I think they have a not a Gateway
+but like a proxy so that you can find it
+and then Big Mac is my Macintosh
+internally here and that's it's it's
+syncing with air so anyway you can see
+the connections that are going on using
+lsof even though you don't necessarily
+think of a network Port as a file in
+Linux everything is a file so that's
+lsof if you've been following along with
+the Linux plus course or my other stuff
+like Linux Essentials or just whatever
+I'm happen to be doing on YouTube here
+you've almost certainly seen me use the
+PS command now PS shows you the
+processes I don't know what it actually
+stands for like maybe process status or
+something but anyway PS is how you can
+look up all the processes running on
+your computer and you will see on the
+internet multiple ways that people call
+it and there's two main ways that you'll
+see it called PS space aux which is
+generally what I do or Ps space Dash e f
+and they seem like weirdly different to
+be the common things that you see but
+there's a little bit of a weird history
+and let's take a break and I'm gonna go
+fill up my coffee cup and we can you can
+come with me all right this probably
+isn't as great of audio and probably not
+good video either but I just wanted to
+to take a minute to talk about the
+history of PS because it's been around
+it's like since the beginning in the
+late 70s PS was first introduced in Unix
+it was actually introduced in something
+called research Unix and I forgot my mug
+so we got to go back up so I'm gonna
+talk a little more about it um anyway
+research Unix uh was kind of like one of
+the the standard unixes that was around
+in PS was a way that you could see the
+listed processes it was introduced the
+same time that kill which we talked
+about in our last video
+got my mug
+um and PS aux was the way that you
+generally called it was like a a common
+set of flags that would give you like
+what user processes were running under
+the process name
+um just information that you might want
+with PS and then in the early to mid 80s
+research Unix was combined with a couple
+other unixes and it became
+oh God I think still research Unix at
+the time however
+for some reason around that time it
+changed where people started using
+ps-e-f and it can be really frustrating
+all right let's actually watch the
+coffee get poured this is how the
+sausage is made
+and so it can be frustrating to know
+which one to use the good news is that
+modern PS doesn't really uh care which
+you use for example like I said I almost
+always do PS aux but the frustrating
+part is not only is it just like which
+letters to use there's some confusion
+over flags and commands and arguments
+and which should you use because like if
+it's a dash is that like a flag and if
+it's just like a u x without a dash what
+does that even mean and so it can be
+frustrating just know that as long as
+you can look at the help page which of
+course you can and you can um just
+experiment with what you like that's
+fine and honestly at the end of the day
+you're probably either going to do PS
+space aux or Ps space Dash EF and you
+can do whichever one you want so with a
+weird history of flags and letters that
+you didn't even ask for let's actually
+use PS and I'll show you where you can
+figure out the flags
+so like I said I almost always do PS aux
+and it's going to show all of the things
+running processes run now this does not
+show
+um like Network stuff this is
+specifically processes that are running
+and I'm going to run this through the
+head command now let's clear the screen
+PS aux and let's do
+um
+head just to see the top
+and I'll show you the because there's a
+header at the top here and it says what
+user is running the process the process
+ID how much CPU it's currently using how
+much memory it's currently using some
+other things that I could look up and
+I'm not going to because I just don't
+remember but it's fine if it's running
+in a TTY what TTY or terminal
+is it running in and uh some statistics
+about it and then the command itself so
+like s bin init is the very first
+command that runs on a system uh run by
+root makes sense that it's pid1 okay so
+that's PS Dash or Ps space aux now let's
+look at
+PS Dash EF and we'll run this through
+head as well this gives you similar but
+slightly different information it
+doesn't give you for example the CPU
+stuff it gives you the PID it gives you
+the command that it's actually running
+on but this is it's just different right
+it's just uh it came from a different
+Heritage so whichever one you want is
+fine and you can also build your own PS
+that will do its stuff for you so if we
+just do like a man PS we're going to see
+the manual page for it and this will
+give you lots of information on what the
+either Flags or arguments or whatever
+you want to call them what they will do
+anyway if you go through here you can
+see lots of examples and then you can
+build your own if you go through and
+figure out what each individual flag
+does and it will show you whether it's a
+loan or has a dash in front of it
+capital or lowercase matters and you can
+just build out exactly what you want to
+see but in general I use PS space ux if
+you just want to use what I'm using
+that's fine and it will show you that
+process information usually what I do is
+I will I will use it in combination with
+grep so one more quick example before we
+move on let's clear the screen PS aux uh
+grep mouse pad uh because yeah that's a
+program that I'm running I'm running
+mouse pad that's my little like like
+Windows has notepad a mouse pad is just
+a Linux computer or a Linux program that
+I use this is its PID if I wanted to
+kill it which I don't because my notes
+are read over right over there so that's
+uh how you can use PS to find a process
+ID but again like the last video we or
+last video last video before that I
+don't know we can also use like P grub
+to figure out what a process ID is so
+you have lots of tools that you can use
+one thing to note is that PS gives you a
+snapshot of that exact moment it doesn't
+update while you're looking at it it
+just gives you an output and that is a
+snapshot of that exact moment in time if
+you want to see how things are go going
+with like a constantly updated
+sort of interface you can use top or
+h-top which is new to me but top is a
+command that will refresh as things go
+so let's look at those because if you're
+looking for how something is doing
+generally you want to see like if it's
+spiking or not spiking or uh it's good
+to use top I use top a lot it's one of
+the ones that I do actually use all the
+time and if we run just just top just
+top it's going to give us a lot of
+information here and that's actually why
+the screen is the terminal window is so
+big and it's kind of like small I wanted
+to be able to show you all the stuff
+that top shows you so sorry if you have
+to squint or zoom in or whatever to see
+everything but in real time this is
+updating I think every two seconds let's
+see it shows you up here how often it
+updates so it's 17 20 maybe it's every
+three seconds
+yep every three seconds apparently you
+can probably change that with the
+command line flag but it's updating and
+it shows you all of the running commands
+and you can sort by the different
+columns by default top sorts by the CPU
+I don't know if you saw that highlighted
+but right here is the column that it
+actually sorts by by default so you can
+see the when you start it up the process
+that's consuming the most CPU will go
+right to the top which is nice in our
+case OBS is using the most CPU
+because I'm currently recording and I'm
+on the computer that we're looking at
+you can do a couple things with top now
+there if you press h it'll give you a
+help screen where you can like see what
+all the different letters and commands
+will do just a couple things though if
+you were to do the less than or greater
+than you can move which column it sorts
+by all right so so watch closely I'm
+going it's sorted by the percent CPU
+there in the middle I'm going to do
+greater than so shift and then the
+period on a US keyboard which is the
+greater than symbol and it's going to
+shift the sort column to the right so
+now it is sorting by percent memory so
+right now OBS is also using the most
+memory but that is being sorted by this
+this so you see when things update this
+is always in order
+um the you know the biggest at the top I
+think you can do capital r to reverse it
+let's see capital r yeah okay so now uh
+it's reverse sort order I'm going to do
+that again because that's not useful uh
+and then let's say we wanted to keep
+scrolling to the left so it's at memory
+usage now CPU usage whatever s is
+whatever shr is whatever res is whatever
+vert is and then we get to ni which is
+the nice level so we're sorting by the
+nice level which is what we're going to
+cover as soon as I show you the newer
+kit on the Block when it comes to top
+now again top is absolutely what I use
+uh it comes on every distribution it's
+always going to be there but there's a
+newer program that does the same thing
+and it does it better I'm not going to
+lie it's kind of like I use VI but Pico
+or Nano is still out there you most
+people should use Nano you should
+probably use h-top if you're not
+familiar with anything because it has
+more power and let's look at it now to
+get out of Top This is actually I left
+it running because uh people are how do
+I get a how do I get out you just press
+the q key and and then you're out so you
+don't have to worry like people are like
+control C and how to get out just Q on
+its own well exit top let's clear the
+screen and then run H top and it looks
+pretty similar but it has a lot more
+information uh for example up top here
+these are all the actually let me use my
+pen because it's going to be easier to
+draw so up here these are like all the
+different threads on the CPU it shows
+like memory usage right here by numbers
+or by graph
+um it has oh it even shows you uptime
+which is nice I haven't rebooted in over
+a week it looks like and then it shows
+you all of the different columns and
+what they mean but the cool part about
+h-top is it actually shows you which one
+it's currently sorted by so by default
+this one will sort by memory that's why
+it's highlighted slightly differently
+it's in blue and then there's an Arrow
+showing which way it's sorting now this
+does let you use the mouse I'm not sure
+oh yeah sure enough even though it's a
+terminal window you can click on it and
+you can reverse the sort and so let's
+say I want to sort by CPU click on that
+and look at this OBS is at the top again
+of course it's same computer still
+running but if you click that little
+arrow again with your mouse it will
+reverse the sort so h-top is definitely
+a more robust program it gives you some
+shortcuts down here you can see on the
+bottom of the screen it shows you like
+F7 to sort like to do nice it can do F6
+so if you don't have a mouse connected
+you can adjust sort doing that at but
+they do the same sort of thing h-top is
+just newer and nicer so you know use it
+if you have it the the only thing is a
+lot of times it's not installed on
+distributions by default so you might
+have to install it but anyway H top is
+really cool and you should totally use
+it now the last thing we have to talk
+about is nice now I don't mean like be
+kind like my whole slogan thing I mean
+the program or the concept of niceness
+because uh on a Linux system when a a
+program is running it has a certain
+priority level and that means that if
+something is very important you want it
+to have a high priority and if it's not
+like you want it to do its thing but you
+don't want it to be like hogging
+resources you can give it a very low
+nice level or low priority nice level
+more on that in a second and let it just
+like use spare Cycles right like if the
+computer is not busy you can use stuff
+but if if we're busy you don't get any
+of our CPU Cycles so you can prioritize
+things and that's actually called the
+nice level but here's like a tiny micro
+rant for you the nice level by default
+like middle of the road is zero
+if you want something to have a very
+high priority
+you assign it a negative nice value
+which seems completely backwards so the
+highest priority
+level a process can have is a negative
+negative 19 I think I don't think it
+goes all the way to 20. I think it's
+like 0 to negative 19. so negative 19 is
+the highest priority level and 20 like
+positive 20 is the lowest priority level
+so it's completely backwards from how
+you would normally say it I usually use
+a trick like if somebody is a very
+negative individual they take up a lot
+of resources uh to handle them I don't
+know that always helps me I think
+negative numbers are just like greedy or
+whatever so if it's negative it's high
+priority if it's positive it's low
+priority let's actually do some stuff so
+you can see it what I'm talking about
+also same thing to quit h-top looks like
+there's uh F10 will quit but also just Q
+will quit h-top as well which is just
+convenient so let's clear this screen
+and now I'm going to just show you how
+nice works so let's uh let's say that we
+are going to run a program if you want
+to start a program with a specific nice
+level you can say nice the program nice
+and then here's another frustration
+apparently I just have a lot of them
+what I recommend is that you do dash n
+for nice level and then the number that
+you want so let's say we want to give
+something a nice level of 10 right it's
+not the least priority but it's about
+midway between normal and like no
+priority at all right so nice level 10
+and then the name of the program you
+want to start so in my case I'll say
+excise excise is just a little program
+see it's running down there in the
+little eyeballs volume isn't that cute
+um oh and I meant to put that in the
+background so let me do Ctrl C
+uh Ampersand and so it's still it's
+running it's in the background and we
+have our Command Prompt back okay so
+right now it's at a fairly low priority
+and if we were to look at it with top so
+let's do top and here's just a command
+line tool for you if you do Dash p in a
+process ID or a PID it will just show
+you the the PID that you're doing or
+that you give it so I'm going to say 1o
+six nine five one eight I had to look
+down my keyboard I never learned the
+numbers uh that is just the process ID
+that we were given right there so I know
+that's xi's process number and we can
+say oh look at this uh here we are it's
+just our excise program and it has a
+nice level of 10. well that's pretty
+cool right I'm going to open up another
+terminal window here so that we can play
+with it and watch what changes in the
+background so excise is still running if
+we want to change the nice level we can
+say re nice dash n the nice level that
+we want let's say that now we're going
+to say it needs no priority at all so
+I'm going to say 20 and then the process
+ID which is one oh I should have copied
+it
+1069518 and if we press enter it says
+the old priority was 10 the new priority
+is 19. oh 19 is as high as it goes okay
+it's like 0 to 19. so that was uh it
+wouldn't let me go any higher than it
+absolutely can so if you look up here in
+in top look at that and now the nice
+level is 19. it is the least priority
+that is possible to apply to a program
+here's the here's the gotcha let's say
+we wanted to make it super uh
+prioritized prioritized that's the word
+prioritized well if we were to do renice
+dash n negative 10. now that would be
+like high priority or Midway up to high
+priority and then 1 0
+six nine five one eight here's the
+problem
+we don't have the ability a regular user
+cannot increase the priority of a
+running processor of any process like I
+couldn't start it higher than the
+default of zero either with root access
+I can't so sudo
+renice dash n
+minus 10 1 0
+six nine five one eight
+and now it did give it a priority of
+negative 10. you can see up there it
+changed the priority but in order to
+increase something's priority by
+lowering its nice number gur uh you have
+to have root access otherwise you're not
+able to you're able not able to do that
+same thing with starting a program with
+nice you can't do like nice dash n
+negative 10 XIs unless you're root
+because uh you have to have root access
+in order to give something more priority
+than the default of zero but you can
+give it lower priority you're allowed to
+de-prioritize something that you are the
+owner of uh even if you're not root now
+we'll just make one more note a lot of
+times on the internet if you see a nice
+command you won't see dash n at all and
+that's because you can technically leave
+that off
+but it's even more confusing if you do
+nice or be nice but let's say you do
+nice
+Dash 10. let's actually do it because
+it's really confusing and I don't want
+you to like see it on the internet and
+be frustrated rather than using dash n
+which I still recommend using Dash and
+we could just do nice
+dash 10
+X eyes
+and now going over there but what this
+does is it gives it a priority of 10.
+not negative 10 if we wanted it to do
+negative 10 we would have to do Dash
+negative 10 or Dash Dash 10. you can
+leave off the dash n but it gets really
+really confusing because in my mind if I
+do nice minus 10 x I's that's giving it
+a high priority of negative 10 but it's
+not this is actually just saying
+priority of 10 and the dash is just
+telling it so I always always recommend
+using dash n a space and then whatever
+value you want rather than using the
+shortcut because it can be very very
+confusing so like if again to do a high
+priority I have to be root so sudo nice
+dash dash 10
+X eyes
+that is going to run it at a priority
+level of minus 10.
+hopefully that makes sense but again I
+don't recommend doing it and with that
+you've learned more about processes
+probably than you ever care to know but
+I hope it was helpful and it should help
+you pass the Linux plus exam if that's
+what you're going for remember to learn
+everything do what you love and most
+importantly be kind I'll see in the next
+video I know you're thinking Sean you
+keep forgetting to look at the camera
+and it's true so I made this this is the
+thing and I'm gonna stick it right
+there
+so now I remember to look at where the
+arrow is pointing so when I'm walking
+around I can actually look at the camera
+instead of looking at myself and making
+it really awkward for everybody involved
+including myself

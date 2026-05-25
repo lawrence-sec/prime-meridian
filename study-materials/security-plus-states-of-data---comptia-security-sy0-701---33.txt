@@ -1,0 +1,156 @@
+the first state of data that we'll look
+at is data that is stored on a storage
+device this would be a hard drive an SSD
+a flash drive or anything else that you
+have that stores data we refer to this
+as data at rest any data that is saved
+on one of these storage devices is
+referred to as data at rest even if the
+data is not encrypted it is still
+considered data at rest of course if you
+are saving data on one of these storage
+devices you may want to include some
+level of encryption this could be full
+disk encryption where everything on the
+storage device is encrypted maybe you're
+only encrypting certain bits of data
+that you're storing in a database and of
+course your operating system can also
+provide a way to encrypt individual
+files or entire folders now that this
+data at rest is stored on these devices
+we can then apply different rights and
+permissions to limit who might have
+access to that data at rest in your
+operating systems you can usually assign
+individual rights or group level rights
+and then assign permissions on what type
+of access a person might have to any of
+this data at
+rest if you're transferring information
+across the network we refer to that data
+as data in transit sometimes you'll hear
+this referred to as data in motion if
+the data is not encrypted as it's
+traversing the network then there's
+relatively little to protect it from
+somebody tapping into that Network link
+and being able to see your data inside
+so as it goes through switch routers
+firewalls and other devices you want to
+be sure that you're either providing the
+proper level of encryption or using
+other types of security one way to
+protect this data in transit that's
+going across your network is to use a
+firewall or an intrusion prevention
+system this allows you to set policies
+that would allow all good traffic to
+pass through but prevents anything that
+may be unknown or unusual from
+traversing the network if you'd like to
+add additional security to this data in
+transit it then you can take advantage
+of some encryption Technologies one of
+these might be TLS that we use to
+encrypt information that's going back
+and forth to a web server and if you'd
+like to encrypt all traffic that you're
+sending across the network you might
+want to use a VPN like a site to site
+VPN taking advantage of Ip SEC or the
+Internet Protocol
+security to be able to work with data
+inside of our computers we have to pull
+that data from some storage device such
+as a hard drive or an SSD bring that
+data into memory and then manipulate
+that data using our CPU when that data
+is in the memory of your system or it's
+being actively processed inside of your
+CPU we refer to that as data in use if
+you were to look at data that's inside
+of your RAM or inside of your CPU it is
+almost always decrypted or in a
+non-encrypted form that's because we
+need to be able to see the data to be
+able to perform operations on that data
+that's why attackers like to go after
+after data in use because they know if
+it's in Ram it's probably in a format
+that's easily readable an example of an
+attack against data in use occurred in
+November of 2013 with the target
+Corporation the attackers put code on
+every point of sale terminal in the
+Target Network and were able to retrieve
+110 million credit cards from the memory
+of those terminals Target of course was
+using encryption for all data in transit
+and they were encrypting also all the
+data at rest but since the attackers
+were focusing on the data in use they
+were able to gain access to these credit
+card numbers without any type of
+encryption being
+used if your organization stores data
+anywhere in the world then you've
+probably run across the issue of data
+sovereignty data sovereignty refers to
+information that you're storing inside
+of a country and therefore all of the
+laws and rules in that country would
+apply to that data this is especially
+important if there are particular rules
+or regulations within that country that
+need to be followed for that data and if
+there are any legal proceedings or any
+type of court orders they will follow
+the laws of that particular country you
+also have to consider any laws that may
+dictate where the data itself should be
+stored for example the general data
+protection regulation or gdpr is a
+European Union regulation and it
+dictates that any data that you're
+collecting on EU citizens must also be
+stored in the EU there are also many
+other important legal considerations
+that are part of the gdpr and if you're
+in the EU it's an important regulation
+to become familiar with so if you work
+for an organization that's in one of
+these geographies or you have offices
+around the world you may want to
+consider what the individual rules are
+regarding this data's sovereignty for
+that particular
+geography another useful piece of
+information when managing states of data
+is where that data happens to be and
+where the user happens to be and one way
+that you can tell this information is by
+using geolocation geolocation involves a
+number of different Technologies to
+determine where someone may be located
+for example it could use GPS but it
+could also take advantage of 802.1
+information and details that might come
+from a mobile provider once a particular
+user's location has been identified you
+can use that information to determine
+what type of access a user might have to
+data for example you may have seen this
+type of access associated with streaming
+media if you try to watch a television
+channel from another country you may get
+a message that you're prohibited because
+you're not currently located in that
+country we can even provide different
+levels of control of this data depending
+on someone's geolocation for example if
+we can determine that they're inside of
+a corporate building we may allow them
+additional access to data than what they
+might have if they're outside the
+building

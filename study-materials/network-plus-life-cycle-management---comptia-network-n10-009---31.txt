@@ -1,0 +1,218 @@
+one of the challenges we have when
+installing new equipment into our data
+centers and our networks is that
+eventually this hardware and software
+will be outdated we refer to this as end
+of life or EOL this is when the
+manufacturer of that piece of equipment
+decides they are no longer going to
+support that particular product they may
+continue to provide security patches and
+updates but they are no longer going to
+provide new versions of software or
+enhance the features associated with
+that product and eventually the
+manufacturer of this equipment may
+decide to no longer produce any type of
+security updates when there are no type
+of updates coming from a product we
+refer to that as end of support or EOS
+you won't receive any patches any
+updates any new features or anything
+associated with that particular product
+when a product moves into end of life we
+can put together a plan and a budget for
+replacing that product over a period of
+time
+but when a product hits end of support
+this becomes a significant security
+concern especially since we know that we
+will never receive another security
+update for that product these ongoing
+patches and Bug fixes can be very
+important for maintaining the uptime and
+availability of these devices especially
+when these updates are associated with
+stability fixes but these might also be
+fixes that close security holes which
+may be just as important as maintaining
+the uptime of the device we of to see
+this with operating systems where we may
+receive a service pack every quarter and
+we may have to install a large number of
+updates to these systems when we first
+install the OS many organizations
+provide monthly updates on a recurring
+schedule this means we know exactly when
+the latest updates are going to arrive
+and we can set up our plans for
+deployment around those update time
+frames and occasionally a manufacturer
+will introduce an update outside of the
+scope of that normal monthly update this
+is often associ with a security concern
+especially when a zero day or some other
+type of significant security event
+occurs It's Not Unusual to see updates
+to operating systems occur constantly
+across many aspects of that operating
+system for example we can have updates
+for Windows Linux our IOS and Android
+devices and anything else that might be
+running an OS it's very common to see
+these monthly updates occur for the
+operating systems these might have bug
+fixes and security patches but we might
+also be making changes to the operating
+system ourselves we might be modifying
+user accounts and changing the way that
+users interact with the operating system
+for example we might increase the
+minimum password links we might change
+the complexity of the passwords required
+for the operating systems or we might
+change the way that users are able to
+access the operating systems and we
+might deploy those updates to the
+operating systems on demand we might
+also change the configurations of the
+built-in firewalls on on these devices
+these operating systems provide us with
+a way to limit where a user may visit by
+IP address or URL or there might be
+changes that enhance the security
+features on that device and there are
+constant changes to the embedded
+antimalware and Antivirus that's
+included with many of these operating
+systems if we're managing a
+purpose-built appliance or a
+purpose-built piece of Hardware then we
+don't usually have access to the
+operating system that's on that device
+and often these devices have their own
+operating system and configurations we
+refer to this software that's running
+this piece of Hardware as the firmware
+of that device so if you're working with
+printers cable modems or other devices
+that have their own embedded operating
+system you might be required to update
+that firmware occasionally to close
+security holes this update may be done
+over the network or it may require you
+to visit the device and physically
+connect to the device to perform the
+update we know that we can't use this
+Hardware unless the software in this
+device is working properly so it's a
+good idea to have a plan for upgrading
+this that would include a way to fall
+back to a previous version if that newer
+version runs into a problem it's often a
+good idea to save those firmware
+binaries in a safe place so that later
+on down the road you wanted to go back
+to a previous version you would have
+access to all of that code one of the
+challenges with managing firmware in
+your printers your modems and other
+devices is that these companies are very
+good at manufacturing Hardware but they
+may not be as good at maintaining the
+firmware that runs in those devices an
+example of this would be the train
+Comfort link to thermostats where you
+could control the temperature on the
+thermostat from your phone there were
+three vulnerabilities presented to train
+in April of 2014 but we didn't receive
+updates to the firmware until April 2015
+and it took until January of 2016 to be
+able to get the final update for that
+device it would be up to the security
+team of your organization to determine
+if that device should remain on the
+network or if you should find other
+Alternatives instead of that
+thermostat another important aspect of
+life cycle management is what you do
+with a device when you don't need it
+anymore this would be the
+decommissioning process and it's the way
+that you dispose of an asset once you no
+longer need to use it we see this often
+with desktops laptops mobile devices and
+anything else that becomes outdated and
+is no longer supported by the
+manufacturer but there's data on that
+device that we want to be sure doesn't
+get into the hands of someone else we
+need some way to sanitize the media or
+simply destroy the device to protect all
+of that data this might also involve
+legal issues especially if there's
+certain types of data that your
+organization is not allowed to destroy
+so you may end up storing this equipment
+offsite or in a secure location until
+such time that it's able to be destroyed
+or disposed St properly and what you do
+not want to do is simply dispose of this
+in your normal trash eventually someone
+will come across that equipment and they
+will either get access to the data or
+they'll sell that equipment to someone
+else who will then get access to the
+data although we often want to recycle
+this Hardware we want to be sure we do
+it in a way that protects the
+confidentiality of the data contained on
+all of these
+devices an ongoing part of life cycle
+management is change management that's
+because we are constantly making changes
+in our Computing environments we're
+upgrading software on a switch we're
+making changes to a firewall
+configuration we're modifying a router
+table or making some other modification
+to software or
+configurations this needs to be a
+managed process and something that we
+can track Monitor and be able to modify
+if we run into a problem most
+organizations will have a very clearly
+defined change management process this
+would include how often you're able to
+make changes the window that you have to
+be able to make those changes in an
+environment the process itself for
+installing those changes in your
+environment and then finally a process
+for rolling back if you run into
+problems and if your organization does
+not have a formal change management
+process this might be difficult to
+implement you need to make sure that
+everyone understands the importance of
+having a centralized change management
+process and that everyone follows that
+process process before making any
+modifications to any
+device another important aspect of life
+cycle management is how we handle
+ongoing service requests this is often
+done through a help desk they'll receive
+a phone call they'll input a ticket into
+a centralized process tracking system
+those tickets will be triaged and
+provided to someone who can resolve the
+problem and then they will close the
+ticket and move to the next one in the
+list almost every organization has a
+process tracking system and and although
+there are many different types of
+software to provide this function
+they're all very similar in how they
+operate

@@ -1,0 +1,996 @@
+[Music]
+Welcome back. So last time we talked
+about mitigating specific attack types.
+So make sure you watch that episode as
+well. Now in this episode we're going to
+continue this discussion. And if you
+remember from last time we also covered
+a specific type of vulnerability called
+a buffer overflow. Now there are simpler
+types of buffer overflows and one of
+them is integer overflow. Now integer
+overflow is a very very simple concept
+much simpler than a stack overflow but
+also that much easier to perform
+accidentally in your code. And the main
+idea here is that everything that you
+store in a computer's memory has to be
+stored in a limited and pre-allocated
+space in that memory. Now that space of
+course since it's finite it's limited
+can only hold so much data which means
+that if we think about storing a number
+in memory just a simple number well that
+number is going to have a possible
+minimum value which is probably going to
+be close to zero or to some negative
+value and a possible maximum value uh
+which can be really high or not
+depending on how much memory we've
+allocated but it's definitely going to
+be the maximum value that we'll be able
+to store in that allocate. created
+space. Now, failing to manage and to
+think about beforehand what's going to
+happen if somebody enters the maximum
+allowed value in a specific field like
+the number of items in a shopping cart
+or the uh the age right in a in a
+registration form. What happens if
+somebody stores the absolute maximum
+value that we can store in there? And
+also what happens if somebody tries to
+increment add just one to that maximum
+value? What's going to happen then?
+Well, to understand this better, let's
+head over to the drawing board. So, to
+keep things simple, let's think about
+the smallest amount of memory that we
+can allocate, and that's going to be one
+bite, which means eight bits. And let's
+pretend that we want to store a number
+in these eight bits. So, in order to
+store a number in here, every bit
+position within this bite is going to
+have a value of either one or zero.
+Those are the possible bit values.
+Nothing new so far. I hope any
+combination of ones and zeros is a valid
+combination. And every combination is
+going to give us a different number. Now
+the bit positions are numbered starting
+from the right to the left. So we're
+going to start with position number zero
+on the right and position number seven
+on the left for a total of eight bits.
+Now for a quick conversion to base 10
+decimal, we just need to raise two to
+the power of the corresponding position.
+So we're going to have a two to the^ of
+0 to the^ of one power of two and so on
+and so forth. So the decimal equivalent
+is going to be made up of powers of two
+starting with 128 on the left most
+position 64 32 and so on and so on
+divide by two until you reach the last
+position which is 2 to the^ of 0 which
+equals 1. So now I can calculate a
+couple of things. For example, what is
+the specific value of this binary
+representation here on the screen? Well,
+all I need to do is to add all these
+numbers and then multiply them by their
+corresponding digit in the binary
+number. So 128 multiplied by 1 remains
+128. Same with 64. 32 multiplied by 0 is
+eliminated. 16 remains, 8 remains, four
+eliminated, two eliminated, and we end
+up here with a grand total of 270.
+That's decimal number 270. So this right
+here is the binary representation of the
+decimal number 217.
+Now there are a couple more things here
+that we can deduce. For example, what is
+the minimum value that we can represent
+in this 8 bit integer? Right? So let's
+make a copy of the original number and
+let's change all these numbers to zero.
+So what's the decimal equivalent of this
+one? Well, simple enough. We're going to
+eliminate all these factors here that we
+don't need to add anymore.
+And the end result is going to be zero
+in decimal. Now, what's the maximum
+value? We're going to do exactly the
+same thing, but this time we're going to
+set all these bits to one. So, what's
+this maximum value in decimal? Well, we
+just add all these decimal equivalents
+here, and we're going to end up with
+255. So, that's the maximum value that
+we can represent using just one bite of
+data. So, basically, our bite right here
+can store any value between 0 and 255.
+That's the minimum and that's the
+maximum. Now the problem here is what
+happens if starting from this already
+maximum value at the bottom somebody
+comes one day and accidentally or
+intentionally tries to add an additional
+number to it tries to do a simple
+addition here take this maximum number
+here and add it with one. What's the end
+result of this? Well obviously we don't
+have enough bits to represent this value
+because theoretically at least the
+resulting value would be something like
+this. So we would end up here with a 9
+bit number which we don't have enough
+memory to store. So what happens is that
+this extra bit here that gets generated
+is going to be eliminated, ignored and
+the actual end result is going to be a
+big and round zero which probably is not
+what you would expect if you did not
+program this specifically but it's
+what's going to happen if your number is
+unsigned. that is it doesn't store any
+kind of information regarding its sign
+that is is it a positive or a negative
+number we don't have anything about that
+we can only store positive numbers the
+way we did it so far on this slide now
+if we're storing signed numbers then the
+highest bit the one on the position
+number seven which is also called the
+most significant bit has a special
+meaning and this bit right here is no
+longer used for the number the actual
+integer representation but instead
+Instead, it defines what is the
+mathematical sign of the stored number.
+And the convention is that a number of
+one equals to a negative number and a
+bit of zero equals to a positive number.
+Which means that our number here is not
+going to be the same one as before
+because we're going to ignore the first
+position
+which leaves us with just seven bits
+here that can have possible numerical
+values which also changes what the
+minimum and the maximum are as well. So
+the minimum number that we can represent
+is going to look something like this
+with a number of one on the first
+position on the sign position because
+the minimum number we can expect it to
+be a negative one and the end result
+here is not going to be minus0 as you
+could probably guess but it's going to
+be min - 128. So this is the value of
+minus 128. The minimum value
+representable on an 8 bit integer signed
+address space. Then what's the max going
+to be? Pretty easy this one. All right,
+we're going to start with a zero on the
+first position because the maximum
+number we expected to be a positive one.
+So we set a zero in there and then fill
+everything with bits of one which
+results in a maximum value of 127. So
+basically this right here is the range
+that we are allowed to use if we have an
+8 bit signed integer. Which of course
+brings us back to the question, what
+happens if we add one to this value
+right here to this already maximum
+value? Well, this one is not difficult
+at all. Adding one to this number right
+here results in the second number here
+at the bottom. So normally if these
+numbers were unsigned, we would have
+something like 127 + 1 equals 128.
+Right? But with signed numbers, this
+extra bit right here on the first
+position becomes the sign of the result.
+Which means that in this case 127 + 1 is
+going to end up in being
+minus 128. So just like with unsigned
+integers adding one to the maximum value
+jumps that entire number to its minimum
+value. Now with unsigned integers we
+would go back to zero. With signed
+integers we would go back to the lowest
+negative value. Now, which one of these
+situations is worst? I don't know,
+right? You're probably not going to want
+either of them to happen in your code
+because both of them are abnormal
+situations. You don't expect when you
+add products, when you you add logs or
+user accounts or anything that can be
+numbered, you never expect that when you
+add one more to end up with less, be it
+zero or a negative value. So imagine a
+situation where you just add so many I
+don't know iPhones in your in your
+basket that uh at some point the basket
+starts containing
+minus 128 iPhones. Now what kind of
+price are you about to pay for minus 128
+iPhones? Right.
+So definitely uh integer overflows might
+not be so scary as buffer overflows
+because they don't allow us to inject
+code but they can definitely crash an
+application bring it to an unpredictable
+state and most likely create corruption
+in uh in the database. Don't let your
+code as a mitigation method don't let
+your code reach a situation like this.
+Always check the boundaries. Check if
+the current values are those intended
+ones. And also don't forget to input
+validate because if you don't allow a
+user from the very beginning to provide
+an input that can bring you close to a
+potential integer overflow, well half of
+the problem is probably already fixed.
+Now the other half of the problem is the
+fact that you have to take into
+consideration situations where due to
+more complex logic the user can actually
+cause an integer overflow with without
+providing a large value from the very
+beginning probably relying on some
+internal calculations that your
+application is already doing. All right.
+So for the next few topics we're going
+to talk about web applications. And web
+applications are mainly designed to
+accept some input from their users. And
+this is where most of the attacks focus
+as well because if an an application
+allows you to enter something in a
+search field, a text field, a comment,
+even allows you to provide the username
+and the password to log in. Well, that's
+a kind of input that can be exploited by
+a potential attack. So, let's see
+exactly what we can expect from attacks
+that target web applications. First one,
+easy one. Directory traversal, also
+known as the dot dot slash attack, is an
+attempt from the attacker to access
+other files on the same machine as the
+web server where a normal user wouldn't
+be authorized to look into. So it can
+either target a location in the file
+system where an unauthorized user should
+not be able to access or it could also
+target some other location in the file
+system or within the operating system
+actually where not even the application
+itself is supposed to have access. Now
+in that situation, we're also facing a
+problem with the configuration of the
+web server as well. So we have an
+application misconfiguration.
+Now if you're not properly sanitizing
+any input that can look like a directory
+traversal like this, an attacker could
+access other locations of the web
+application or even try to reach the
+root of the file system on the same
+machine. Basic mitigation against this
+type of attack would be of course to
+look for these dots and slashes within
+their uh within the inputs that you
+receive from the users either by using
+the application or by using a dedicated
+web application firewall that can look
+for specific attacks like these. But
+don't forget that these characters can
+also be obuscated or hidden behind an
+URL encoding. Additionally, a very good
+way to mitigate this is to ensure from
+the very beginning that the application
+does not have any kind of permissions
+where it shouldn't have. So outside of
+the locations that are necessary for the
+web application to run. So let me show
+you how a directory traversal attack can
+look like. And we're going to use the B
+web application which is an extremely
+buggy web application just like they say
+right here. It's freely available as a
+virtual machine or as a docker container
+whichever method you prefer to use. And
+on this specific page, you can see we
+have a listing of a couple of PDF files
+here available for download. So if I
+click any of these, it's going to open
+the PDF file in a new tab. All right,
+let's go back to the application and
+let's have a closer look to the URL in
+the address bar. Let's open Notepad here
+so we can make it more visible. Okay, so
+this right here is the URL that we
+currently have in the address bar. Now
+you can see that the last argument here
+is called directory and it points to a
+folder apparently which is called
+documents. Now let's see what happens if
+we replace this documents here with our
+own string kind of like this. So what
+we're doing here is for every three
+characters, every dot dot slash here,
+we're going one level up in the file
+system up to the root of the file
+system. Let's see what happens if we try
+to access this URL. Okay, so let's copy
+it and paste it in the address bar. And
+there you have it. What do we have here?
+Well, we have the root of the file
+system where the web application is
+running. There's the uh the lib, the
+user, the mount, media, run, proc, temp,
+var, all the normal files and folders
+that you would expect in the root of a
+Linux file system. You're definitely not
+supposed to access this area, but we can
+because there is no proper input
+sanitization implemented when parsing
+URLs like these. So careful with this
+type of attack. Extremely simple to
+conduct. So careful with this extremely
+simple type of attack that can be easily
+mitigated but also easily overlooked.
+Next up, we have file inclusion. And I
+know that inclusion sounds really good
+nowadays, especially in the modern age,
+but it's not so good when it's when it's
+about web applications and file
+inclusion. Now, with file inclusion,
+we're attempting to load to upload a
+file into the running process of a
+website. Of course, we're not talking
+here about a uh normal file upload
+functionality like you have with a with
+a file sharing service or a site where
+you can upload your resume, but we're
+basically tricking the application into
+accessing or downloading some malicious
+content on our behalf. And we have two
+types of file inclusion. First one, we
+have remote file inclusion, which is a
+way to trick the application into
+downloading some malicious content,
+usually through a script. And that
+content is most likely hosted somewhere
+online. And that's why it's called
+remote file inclusion. An example here
+would be an input that is expected by a
+website uh which can also be a redirect
+address that's also hard-coded in the
+URL. Well, that address if we replace it
+with some additional file online, then
+we can trick the application into
+downloading that file and perhaps even
+executing its contents. And on the other
+hand, we have local file inclusion,
+which means tricking the application
+into accessing a file or loading a file
+that's already on the same web server.
+Now, most of the time this is going to
+happen with applications that are
+already vulnerable to directory
+traversal attacks as well because we
+need the application to be able to uh
+breach out of its confines and access
+the rest of the file system. The example
+here on the slide would be an
+application that is designed to load a
+specific font file from the same folder
+as the rest of the code. Uh well, we can
+trick this application into actually
+reaching out to load the uh the shell of
+the operating system that the server is
+running on. And by the way, just in case
+you're wondering what's the uh percent 0
+0 at the end, that's the null character
+in hexodimal. and we can use it to add
+it to the end of the URL in order to
+bypass simple rewriting mechanisms that
+automatically add aphp or HTML extension
+to any file that we try to access. Thus
+giving us access to any kind of file and
+allowing a potential attacker to load
+any kind of file apart from uh even
+nonPHP or non-HTML files. We can see a
+demonstration of file inclusion by using
+our good old damn vulnerable web
+application. And this specific page
+right here allows us to access three PHP
+files in the same folder. So if we click
+on this one, it's going to give us a a
+hello message. Second one, different
+message. Third one, different message.
+All right. Now, if we look inside the
+URL one more time, we can see that the
+page argument actually points to a
+specific PHP file. Now, what if we
+replace this file 3PHP with something
+like / etsc/pass?
+And there you have it. If we don't
+properly sanitize that input, we can
+even access root level information or
+system level information using the same
+web application that everybody is using.
+This right here is the contents of the
+Etsy password file on the same machine
+as the web application. That's
+definitely something you don't want to
+let your users access. Next up, we have
+the somewhat number one champion of the
+website vulnerabilities out there, which
+is called cross-sight scripting.
+Cross-ite scripting attacks target a
+user's browser. And the purpose is to
+trick that user's browser into executing
+some arbitrary code, which is most
+likely going to be something like
+JavaScript code. And we can do this in
+two ways. One of them is called
+reflected cross-ite scripting where we
+trick a user into clicking or accessing
+a URL that already has the necessary
+executable script embedded into it.
+Secondly, we have stored cross-ey
+scripting where the actual script is
+this time stored in the database of the
+application that the user is accessing.
+Let's see them both in action. It's
+going to make a lot more sense if you
+see exactly how they work.
+First one, we're going to go back to our
+damn vulnerable web application and jump
+to cross-ite scripting reflected on the
+left menu. So simple page, simple
+functionality. What's your name? If I
+provide my name in here and I click
+submit, it's going to tell me hello and
+whatever name I've just entered. Now
+what if I enter something like this? So
+Andrew and let me start a script in
+here. Something like this.
+alert hacked.
+Let's submit this. And there you have
+it. Executed right away. Now, there's
+one more thing here worth noticing. Look
+at the URL at the top. You can see that
+the script is now embedded right within
+the URL. So right now if I were to uh
+send this link over email or over
+instant messaging to somebody else and
+they were to just click on it they would
+exhibit the exact same behavior. So the
+script now executes on whoever happens
+to click on a URL like this. All right
+this is reflected cross-ite scripting.
+Second one stored cross-ite scripting.
+Let's select it here from the left.
+Again, very simple page, kind of like
+the comments page for any online
+shopping store that you've encountered.
+Let me add my name in here and then a
+message. Uh, this is a good product. All
+right, sign a guest book, add comment,
+whatever. Now, this is normal
+functionality. Now, what if I add
+something like this and instead of
+message,
+I add something like this. Surprise. And
+the same alert. Hacked again. Let's sign
+the guest book hacked again. Now the
+interesting advantage of store cross-ite
+scripting is that my malware code, my
+malicious code is now stored in the
+database of the application itself. So I
+don't need to craft a specific URL and
+trick a user into clicking on it. I just
+have to make sure that a user simply
+visits this page at some point in time.
+So if I just refresh this page for
+example, you're going to see that I
+always receive the same message every
+single time I refresh this page because
+the code is invisible right here within
+my comment. Anybody else who comes in
+and visits this page is going to receive
+the exact same code. Their browser going
+to be executing the exact same code. Now
+there's a special category of cross-ite
+scripting which are specifically aimed
+at attacking admin targets or admin
+accounts. So for example, we're storing
+some malicious code to be executed in
+the database only when a specific admin
+page is rendered in a web browser. And
+generally cross-ite scripting attacks
+are very very dangerous because they can
+do virtually anything. They can scan
+your network. They can steal
+credentials. They can uh compromise your
+computer. They can steal confidential
+data. Even provide remote access from
+the attacker to your computer. How do
+you mitigate this? Well, pretty obvious,
+right? First of all, sanitize your
+inputs. Don't allow your users to send
+you executable code. Make sure you have
+some defenses in place like a web
+application firewall. Those are
+specifically designed to catch these
+types of attacks. Uh secondly, we can
+also detect it through IDS's and IPS's,
+more advanced ones of course, layer 7
+IDs. And generally, if you want to
+sanitize inputs against cross-ite
+scripting, it's much better to have a
+whitelist approach rather than a
+blacklist approach. Because a whitelist
+approach allows you to specify exactly
+which characters are allowed and nothing
+else rather than trying to figure out
+which possible characters could end up
+into uh some sort of hidden script or uh
+URL encoded or B 64 encoded character
+set that could end up being some
+executable code. And don't forget that
+Apache and IIS and other web servers as
+well have dedicated modules designed to
+fight against cross-ite scripting
+attacks to detect them and block them.
+And don't forget, as a last resort,
+update the client browsers as well.
+Modern browsers have some intelligence
+built into them that allow them to
+detect and block cross-ite scripting
+attacks.
+Then we have SQL injection, also called
+SQL injection. This is an attempt to
+directly interact with the database
+behind a web application. Normally users
+or even application admins don't have
+direct access to the database behind a
+web application. The web application
+code is designed in such a way to
+interact with that database in a
+legitimate manner. But users normally
+shouldn't have access to run queries to
+execute queries or to even upload SQL
+queries as regular input. Now, of
+course, accessing a database can have a
+number of unfortunate side effects,
+starting from accessing confidential
+information, secrets, and moving on to
+actually corrupting the database,
+changing information, or even deleting
+the database entirely.
+Now, before moving on, we have to pay
+our dues and because there's probably no
+training on this planet about SQL
+injection that doesn't reference this
+specific XKCD comic. So just allocate a
+couple of seconds here. If you can
+understand this uh you're probably good
+to go for the cis plus exam as well. Now
+coming back here to our dem vulnerable
+web application. The main idea behind
+SQL injection is the fact that uh an
+application will at some point require
+some input from a user. It might be a
+search field. It might be a username. So
+website is going to expect some sort of
+a string, an input string, and that
+input string is most likely going to
+become part of an SQL query, some kind
+of select statement. In our simple
+vulnerable example right here, uh just
+entering a valid user ID is going to
+provide me with the relevant information
+from the database uh according to this
+specific ID. Now, I believe we can also
+have a look at the actual source code
+behind this page. And as you can see for
+this web page, the code behind the page
+builds a query that starts with select
+first name, last name from users where
+user ID is the actual field that is
+being read from our web form. Which
+means that whatever I enter in this
+field right here is going to end up
+exactly as it is as part of that SQL
+statement that you just saw. Well, let's
+exploit this. What if I add instead of
+the user ID this string right here and
+click submit? There you have it, a
+listing of all the usernames in the
+database. What happened in this string?
+Well, to better understand what
+happened, let's grab the original query
+from the web page code. And you can see
+it right here. And let's also paste our
+customized input in here. Now remember
+we said that this ID variable in here is
+going to be exactly the string that we
+enter in that text box which in our case
+is going to be exactly this string right
+here at the bottom. So let's copy it and
+replace this ID placeholder with our
+exact string. Have a look at our new
+select statement. How does it look like
+now? Well, it says select first name and
+last name from users where the user ID
+is null or 1 equals 1.
+Well, 1= 1 is always true. All right.
+So, even if user ID equals null is going
+to result in a false statement or 1
+equals 1 is going to make this entire
+expression true. So basically my select
+statement is going to select all the
+first names and all the last names from
+the database because the wear clause
+doesn't limit me anymore to a specific
+user ID. This one is always true. Now
+the pound symbol here, the hashtag
+symbol here at the end, this is going to
+mark a comment. So basically I'm adding
+this just in case after this statement
+there are, you know, more uh more
+statements, more parameters in the SQL
+query. I don't care about them. So
+whatever follows this pound symbol here
+is going to be considered as a comment.
+So my resulting string, my resulting
+query is going to be this one,
+which translates into a query that lists
+the entire user database to me, a
+regular user, non-admin user, somebody
+who doesn't have any kind of access or
+direct interaction with the database
+behind this application. I don't even
+know where the database is. I don't even
+have a valid login to that database. I
+don't even know what kind of database it
+is. Now, of course, this is just a very
+simple example, but you can do so much
+with SQL injections. You can change
+information in the database. You can
+access sensitive information. You can
+even delete entire tables or entire
+databases if input is not properly
+sanitized. And that is the number one
+solution to anything related to SQL
+injection. Actually, related to any kind
+of injection. We're going to see in a
+couple of minutes that we we have some
+more methods as well. But the number one
+method to mitigate against against this
+is to sanitize your input. Don't allow
+your users to transmit SQL statements.
+Also, if you're sanitizing input, don't
+ever sanitize it on the client side
+because the client can easily be
+bypassed and an attacker can still send
+whatever they want to your web
+application. So, always sanitize input
+on the server side. Of course, you can
+catch attempts at SQL injection using
+web application firewalls or even
+specialized database firewalls. Another
+great way to fight against SQL injection
+is to use pre-ompiled or prepared
+statements. Most programming languages
+have this capability. You just have to
+know about it and use it. With prepared
+statements, you're basically building
+the query first and then you add the
+parameters later. Now, building a query
+first allows the programming language to
+know exactly what that query is supposed
+to be doing. So, adding additional
+parameters later on, even if those
+parameters contain illegal characters or
+SQL valid characters, they are not going
+to be processed as SQL commands anymore
+because the original query has been
+already set in place. Now, in most
+cases, it's not even difficult to do so.
+For example, in PHP, it's enough to just
+define some variables that hold the
+parameters that you're about to use in a
+query and then prepare the connection
+and the statement itself. You can see
+now you're not simply concatenating the
+first name, the last name, and the email
+into the insert statement, but you're
+adding it into a prepare statement with
+specific unknown values. later on you
+just bind those values, those parameters
+to the original statement and it's going
+to be executed just like you intended
+to. And just in case you don't believe
+me, you can see here that prepare
+statements are very useful against SQL
+injections.
+Next on the list, we have insecure
+objects references. The main idea here
+is that well normally an application is
+going to manage access to its internal
+database uh its files its web pages and
+so on based on the permissions of each
+user or more specifically on the
+permissions of the user that is
+currently accessing that resource
+because of course we have backend
+objects and resources to which normal
+users should not have access. For
+example, the pricing information in a
+database. Let's see it this one in
+action as well. Okay. So, let's see a
+very simple web page that allows us to
+order some tickets. So, we can see here
+how many movie tickets we want to order.
+That's €50 per ticket. How many tickets?
+Well, let's say four tickets. If I
+confirm this, it's going to tell me that
+I need to pay €60. Pretty okay so far.
+All right. So, what's insecure about
+this? Let me show you. Well, for this
+we're going to be using the OASP zap or
+the Z attack proxy, which is an
+interception proxy very similar to Burp
+Suite, which we've seen a couple of
+videos ago. And we're going to use it to
+intercept the request that goes out when
+we try to buy some tickets. So, let's do
+this right now. Inside Zap, I'm going to
+set a breakpoint on all the requests and
+responses. So, right now, it's going to
+intercept anything that goes out or
+comes into my browser. Let's head over
+to the original website and this time
+let's order four tickets just like
+before and click confirm. Now we don't
+see the end result right away because
+the request has been intercepted by Zap
+and apologies for the font size but Zap
+is a Java application and doesn't really
+behave well with scaling on larger
+monitors. But in the upper area here we
+can see the HTTP headers that were
+generated with this request and at the
+bottom the content of the HTTP request.
+Let's uh have a look at them in a
+separate window. All right. So this
+right here was the original request. You
+can see the ticket quantity for just
+like we selected. But notice here ticket
+price. So apparently the price of the
+ticket is part of the request. This is
+an example of an insecure object
+reference because the object of ticket
+price should not be exposed as part of
+the requests that are generated by your
+clients. This should be a value that is
+statically defined in a database. And of
+course, if I now have access to this
+ticket price, I can simply change this
+ticket price to whatever I want. For
+example, let's make it 50 cents, 0.5.
+All right. and let's grab this new
+content and head over back to Zap and
+then replace it with my new content.
+Now, all I need to do is just release
+this request and let it go to the web
+server. All right, let's head over to
+the website back again. And you can see
+now that I've ordered four tickets, but
+the end price is now just €2 because
+I've just customized the price of a
+ticket to 50 cents a piece and I only
+have to pay€2 instead of 60. Right?
+That's an example of insecure object
+reference.
+What's the best solution to this issue?
+Well, sorry to say that, but educate
+your developers. This is not something
+that you're supposed to catch with a web
+application firewall or within any kind
+of firewall. This is something that you
+should from the very beginning properly
+design in your application.
+Also, never assume that your users will
+take a very specific sequence of steps.
+Don't rely on that sequence of steps to
+determine if a user is authenticated or
+not, if they should have access to a to
+a resource. Whenever a user tries to
+access a resource, doesn't matter how
+they manage to get to that resource,
+make sure they are authenticated and
+authorized for that. And also try to
+program atomic operations or locking
+mechanisms so that no resource access
+can be executed without checking for
+necessary permissions first. Next up, we
+have XML attacks. And people generally
+think about XML as something really
+static. I mean, you can't really attack
+a sort of a language, right? You can't
+how how can you use it to attack
+something else if it's if it's just some
+static text? Well, the idea here is that
+XML is actually used to communicate
+information from one application to
+another. In many cases, it's even used
+to pass authentication information or
+authorization information between the uh
+identity provider and the authentication
+server. Now, of course, there are some
+uh things to worry about when using XML
+because we're using it to send sensitive
+information. So, sending it with no
+encryption or no input validation, you
+know, it can lead to interception of the
+data, spoofing of data and so on. Now,
+um, XML is also structured and that
+structure is meant for applications to
+be able to parse that XML code and
+quickly find a specific content, a
+specific piece of data in that payload.
+Now, this parsing process is the one
+that we're actually targeting for
+attacks. And a well-known attack is
+called the XML bomb, also called the
+billion laughs attack. And that's
+because we're encoding a bunch of LOLs
+in a XML file. And we're relying on the
+fact that XML can also encode entities
+and those entities can auto expand.
+Well, do that an infinite number of
+times or a huge number of times and you
+risk crashing or consuming the memory of
+the server that is processing that XML
+content. This right here is a sample of
+an XML bomb. This is a billion laughs
+attack. You can see that we have LOL all
+over the place here. And what we should
+be able to identify here is the fact
+that this XML document actually has 10
+entities. And each entity consists of 10
+entities of the previous ones. So LOL7
+is made up of 10 LOL 6. Each LOL 2 is
+made up of 10 LOL ones and so on. And
+the main document only has one single
+entity which is a single instance of the
+largest one. And this one is going to
+expand to 1 billion copies of the first
+entity. And if you're thinking, oh, so
+XML is old and vulnerable. Who uses it
+anymore? I'm just just going to use YAML
+or something more modern here. Well,
+with YAML, you're going to end up with
+the same results, just in a different
+language. So you want to see it in YAML,
+here it is. Exact same code, the exact
+same effect, the exact same kind of
+exploit. And just to give you an idea
+just about how bad this kind of
+vulnerability can be, even Kubernetes
+was vulnerable to this type of attack
+until 2019. Now, of course, this is an
+example of a denial of service kind of
+attack, right? You cannot do more than
+crash the server using an XML bomb like
+this, but it might just be enough for an
+attacker to be able to ruin your day.
+How to defend against this? Well,
+whatever you do, don't parse the XML
+file beforehand because parsing it is
+what causes the XML bomb. Try to analyze
+it with a with a simple text analyzer.
+At least make sure that you you're not
+allowing entities, for example, or that
+you are allowing only XML files that
+confirm to a specific schema. And let me
+give you just one more and then we're
+done with this episode. That's XML
+external entities or XXE.
+This kind of attack embeds into the XML
+file a request to a local resource. So
+even though the name says external
+entities, they are actually referring to
+local files that are accessible on the
+same machine as the one that is
+processing your XML payload. And this is
+made possible by the fact that just like
+with the XML bomb attack that we just
+saw, you can define your own XML
+entities and point them to some local
+resource on the same machine. And for
+this example, we're going to be using
+another vulnerable web application. This
+time called Matil Matility. Now, don't
+blame me if I just butchered that name.
+And this sample web page here is just a
+simple XML validator. So, for example,
+if we just provide some valid XML input
+like this string here at the top and
+then press validate XML, it's going to
+tell us that the text content parts from
+XML is this one right here. Hello world.
+Okay, let's try to inject some external
+entities into this XML validator. So,
+first let's see how XML entities work.
+All right, I'm going to find a small
+tutorial here on port swigger and
+they're going to tell us here that XML
+external entities, right, can be
+declared by using the system keyword
+after which you must specify the URL
+from which the value of the entity
+should be loaded. So, for example, we
+have here two code samples. The first
+one is going to point the external
+entity to a remote location. That's an
+HTTP website. And the second one points
+it to a local file. All right. So let's
+try to adapt this to our little XML
+validator. All right. So our code should
+look kind of like this. uh the main
+message inside the XML code is going to
+be stored in this I want passwords
+variable actual entity which is defined
+two rows up as a system entity which
+points to Etsy password right so let's
+copy this entire code and let's see how
+it behaves in our XML validator all
+right paste it in here and validate XML
+and now we can see that the actual text
+content parsed from the XML is no longer
+just a static text, but it's actually
+the contents of that specific injected
+file. Let me let me paste it here one
+more time so we see exactly what we're
+looking for. So, I want passwords is
+defined as an entity right here, an
+external system entity which points to a
+file located at /t/pass.
+And that's exactly the content of that
+specific system file. See how easy this
+is?
+How to mitigate this you ask? Well,
+first you should validate. Secondly, you
+should validate. And third, you should
+sanitize your input some more. Okay, so
+I guess this should be enough for today
+for this episode. Make sure you check
+the video description for all the links
+and all the tools that we've used during
+these demos. Let me know in the comments
+section if you encounter any
+difficulties. If you try to reproduce
+these on your own at home, I'll more
+than gladly help you out as much as I
+can. So, thank you so much for watching
+and make sure you stay tuned because
+next time we're going to have a third
+part with the rest of the attacks. Make
+sure you don't miss that episode either.
+And thank you so much for watching. Like
+and subscribe and see you next time.
+[Music]

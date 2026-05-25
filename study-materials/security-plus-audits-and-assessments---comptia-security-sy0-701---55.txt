@@ -1,0 +1,72 @@
+the term audit often has a negative
+connotation but there can be very good
+reasons for running an audit especially
+in the context of it security a cyber
+security audit allows us to examine many
+aspects of our Computing environment for
+example we can examine the it
+infrastructure the software that we're
+using and all of the devices that are
+used to communicate over our Network we
+might also want to look through our
+existing policies and procedures and
+make sure that we are properly protected
+against today's modern threats an audit
+can also sometimes find vulnerabilities
+in our Network before the hackers find
+them effectively making us much safer
+and this can always be something that we
+could perform internally but we might
+even want to bring in a third party for
+a thorough overview you'll often hear
+the terms audit and attestation used in
+conjunction with each other the
+attestation is an opinion of truth that
+is associated with the results of an
+audit will Comm ly perform an audit and
+then we will attest to the results of
+that audit you don't necessarily need to
+bring in a third party to perform an
+audit audits can be done internally
+within your own organization your
+internal audit might answer questions
+that you have about compliance and
+making sure that all of the compliance
+tasks in your organization are followed
+properly your organization might also
+have an audit committee this is commonly
+a group that is responsible for all of
+the risk management associated with an
+organization and an audit committee is
+the one that is both starting and
+stopping any internal audits these
+audits often start with a self
+assessment this allows an organization
+to look at their internal processes and
+procedures and see how well they match
+the requirements for the organization
+the audit committee can then compile all
+of these self assessments together to
+get an idea of where the organization
+might be as it relates to
+compliance some compliance regulations
+require that a third party perform the
+the audit in that case we'll bring in an
+external group to be able to perform all
+of the functions of that particular
+oversight the details about the type of
+audit that takes place and how often the
+audit takes place is usually based on
+the requirements of the regulation this
+usually involves finding desks for a
+thirdparty auditor to come into your
+organization and begin looking through
+your records They Might then compile
+information and gather additional
+details about the specifics associated
+with this audit the results of this
+audit would commonly show where the
+company is today with their compliance
+and where there may be room for
+improvement in the
+future

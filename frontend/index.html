@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Meridian</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #07080d;
+      --surface:  #0d0f18;
+      --card:     #10121e;
+      --border:   #1c1f30;
+      --border2:  #252840;
+      --accent:   #4fffb0;
+      --accent2:  #4f8fff;
+      --warn:     #ff6b6b;
+      --text:     #dde1f0;
+      --muted:    #484d6a;
+      --glow-g:   0 0 32px rgba(79,255,176,0.18);
+      --glow-b:   0 0 32px rgba(79,143,255,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Scanline overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.06) 2px,
+        rgba(0,0,0,0.06) 4px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Ambient glow top */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(79,255,176,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 28px 0;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .logo {
+      padding: 0 24px 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .logo-mark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .logo-mark span { color: var(--accent); }
+
+    .logo-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      margin-top: 4px;
+    }
+
+    .nav-section {
+      padding: 0 16px;
+      margin-bottom: 28px;
+    }
+
+    .nav-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0 8px;
+      margin-bottom: 8px;
+    }
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: left;
+    }
+
+    .nav-btn:hover { background: var(--card); color: var(--text); }
+
+    .nav-btn.active {
+      background: rgba(79,255,176,0.08);
+      color: var(--accent);
+      border: 1px solid rgba(79,255,176,0.15);
+    }
+
+    .nav-icon { font-size: 15px; width: 20px; text-align: center; }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .keys-btn {
+      width: 100%;
+      padding: 10px;
+      background: transparent;
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.08em;
+    }
+
+    .keys-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Main ── */
+    .main {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topbar-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    .cert-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .cert-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border2);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.05em;
+    }
+
+    .cert-pill:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    .cert-pill.active {
+      background: rgba(79,143,255,0.12);
+      border-color: var(--accent2);
+      color: var(--accent2);
+    }
+
+    .content {
+      flex: 1;
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    /* ── Study Mode ── */
+    .chat-wrap {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 160px);
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 24px;
+    }
+
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+    .msg { display: flex; gap: 12px; animation: slideUp 0.25s ease; }
+    .msg.user { flex-direction: row-reverse; }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-av {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .msg.user .msg-av { background: var(--accent2); }
+    .msg.ai .msg-av   { background: rgba(79,255,176,0.15); border: 1px solid rgba(79,255,176,0.3); }
+
+    .msg-body { max-width: 72%; }
+
+    .msg-bubble {
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .msg.user .msg-bubble {
+      background: var(--accent2);
+      color: #fff;
+      border-bottom-right-radius: 3px;
+    }
+
+    .msg.ai .msg-bubble {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 3px;
+      white-space: pre-wrap;
+    }
+
+    .msg.ai .msg-bubble b, .msg.ai .msg-bubble strong { color: var(--accent); font-weight: 600; }
+
+    .msg-source {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding-left: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    .empty-chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--muted);
+    }
+
+    .empty-compass { font-size: 52px; opacity: 0.3; }
+
+    .empty-chat h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--border2);
+    }
+
+    .empty-chat p { font-size: 13px; text-align: center; line-height: 1.6; max-width: 340px; }
+
+    .chat-input-row {
+      display: flex;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .chat-input {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .chat-input:focus { border-color: var(--accent); }
+    .chat-input::placeholder { color: var(--muted); }
+
+    .ask-btn {
+      padding: 14px 24px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .ask-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .ask-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+    /* ── Quiz Mode ── */
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .quiz-type-toggle {
+      display: flex;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .qt-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+
+    .qt-btn.active { background: var(--accent2); color: #fff; }
+    .qt-btn:not(.active):hover { color: var(--text); }
+
+    .scoreboard {
+      display: flex;
+      gap: 20px;
+    }
+
+    .score-item {
+      text-align: center;
+    }
+
+    .score-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .score-lbl {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      margin-top: 2px;
+    }
+
+    .gen-btn {
+      padding: 12px 28px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .gen-btn:hover { background: var(--accent); color: #000; }
+    .gen-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* Question card */
+    .q-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      animation: slideUp 0.3s ease;
+    }
+
+    .q-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .q-cert-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(79,143,255,0.12);
+      border: 1px solid rgba(79,143,255,0.25);
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+    }
+
+    .q-type-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .q-text {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.55;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    .choices { display: flex; flex-direction: column; gap: 10px; }
+
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      text-align: left;
+      transition: all 0.15s;
+    }
+
+    .choice:hover:not(:disabled) { border-color: var(--accent2); color: var(--accent2); }
+    .choice.correct { border-color: var(--accent); background: rgba(79,255,176,0.06); color: var(--accent); }
+    .choice.wrong   { border-color: var(--warn); background: rgba(255,107,107,0.06); color: var(--warn); }
+
+    .choice-key {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.5;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .fr-textarea {
+      width: 100%;
+      min-height: 130px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 12px;
+    }
+
+    .fr-textarea:focus { border-color: var(--accent); }
+
+    .submit-btn {
+      padding: 12px 24px;
+      background: var(--accent2);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .submit-btn:hover { opacity: 0.85; }
+    .submit-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .feedback-box {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      animation: slideUp 0.25s ease;
+    }
+
+    .feedback-box.ok  { background: rgba(79,255,176,0.06); border: 1px solid rgba(79,255,176,0.25); color: var(--text); }
+    .feedback-box.bad { background: rgba(255,107,107,0.06); border: 1px solid rgba(255,107,107,0.2); color: var(--text); }
+
+    .feedback-box strong { color: var(--accent); }
+
+    .next-q-btn {
+      margin-top: 16px;
+      padding: 10px 22px;
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .next-q-btn:hover { border-color: var(--text); color: var(--text); }
+
+    /* Thinking */
+    .thinking {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      padding: 4px 0;
+    }
+
+    .dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; animation: blink 1.2s ease infinite; }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%,80%,100% { opacity: 0.2; transform: scale(0.8); }
+      40%          { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Modal */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px;
+      width: 100%; max-width: 460px;
+      animation: slideUp 0.25s ease;
+    }
+
+    .modal-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .field-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .field-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      outline: none;
+      margin-bottom: 18px;
+      transition: border-color 0.15s;
+    }
+
+    .field-input:focus { border-color: var(--accent); }
+
+    .modal-save {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .modal-save:hover { opacity: 0.85; }
+
+    .hidden { display: none !important; }
+
+    /* ── Onboarding ── */
+    .onboard-overlay {
+      position: fixed; inset: 0;
+      background: var(--bg);
+      z-index: 600;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .onboard {
+      width: 100%;
+      max-width: 640px;
+      animation: slideUp 0.4s ease;
+    }
+
+    .onboard-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .onboard-logo span { color: var(--accent); }
+
+    .onboard-tagline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+    }
+
+    .onboard-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .onboard-step {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .onboard-step:hover { border-color: var(--border2); }
+
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 32px;
+    }
+
+    .step-body h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .step-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .step-body a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .step-body a:hover { text-decoration: underline; }
+
+    .free-badge {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(79,255,176,0.12);
+      border: 1px solid rgba(79,255,176,0.3);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .onboard-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .onboard-field-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .onboard-start-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .onboard-start-btn:hover { opacity: 0.88; }
+
+    .onboard-privacy {
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 12px;
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">PRIME <span>MERIDIAN</span></div>
+      <div class="logo-sub">COMPTIA STUDY SYSTEM</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Mode</div>
+      <button class="nav-btn active" onclick="setMode('study')" id="nav-study">
+        <span class="nav-icon">📖</span> Study
+      </button>
+      <button class="nav-btn" onclick="setMode('quiz')" id="nav-quiz">
+        <span class="nav-icon">🎯</span> Quiz
+      </button>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Certifications</div>
+      <button class="nav-btn" id="cert-sec" onclick="selectCert('security-plus')">
+        <span class="nav-icon">🔐</span> Security+
+      </button>
+      <button class="nav-btn" id="cert-net" onclick="selectCert('network-plus')">
+        <span class="nav-icon">🌐</span> Network+
+      </button>
+      <button class="nav-btn" id="cert-lin" onclick="selectCert('linux-plus')">
+        <span class="nav-icon">🐧</span> Linux+
+      </button>
+      <button class="nav-btn" id="cert-cys" onclick="selectCert('cysa-plus')">
+        <span class="nav-icon">🛡️</span> CySA+
+      </button>
+      <button class="nav-btn" id="cert-pen" onclick="selectCert('pentest-plus')">
+        <span class="nav-icon">⚔️</span> PenTest+
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="keys-btn" onclick="showModal()">⚙ API KEYS</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">STUDY — ALL MATERIALS</div>
+      <div id="cert-indicator" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">
+        All certifications
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- STUDY MODE -->
+      <div id="study-panel">
+        <div class="chat-wrap">
+          <div class="chat-messages" id="chat-messages">
+            <div class="empty-chat" id="empty-chat">
+              <div class="empty-compass">🧭</div>
+              <h3>Ready to Study</h3>
+              <p>Ask anything across all your loaded certification materials. Answers are sourced directly from your study documents.</p>
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <input class="chat-input" id="chat-input" type="text"
+              placeholder="Ask a question about any certification topic..."
+              onkeydown="if(event.key==='Enter') sendStudy()" />
+            <button class="ask-btn" id="ask-btn" onclick="sendStudy()">Ask →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ MODE -->
+      <div id="quiz-panel" class="hidden">
+        <div class="quiz-header">
+          <div class="quiz-type-toggle">
+            <button class="qt-btn active" id="qt-mc" onclick="setQuizType('mc')">Multiple Choice</button>
+            <button class="qt-btn" id="qt-fr" onclick="setQuizType('fr')">Free Response</button>
+          </div>
+          <div class="scoreboard">
+            <div class="score-item">
+              <div class="score-val" id="sc-correct">0</div>
+              <div class="score-lbl">CORRECT</div>
+            </div>
+            <div class="score-item">
+              <div class="score-val" id="sc-total">0</div>
+              <div class="score-lbl">TOTAL</div>
+            </div>
+            <div class="score-item">
+              <div class="score-val" id="sc-pct">—</div>
+              <div class="score-lbl">SCORE</div>
+            </div>
+          </div>
+          <button class="gen-btn" id="gen-btn" onclick="generateQuestion()">Generate Question →</button>
+        </div>
+
+        <div id="question-area">
+          <div class="empty-chat" style="height:400px;">
+            <div class="empty-compass">🎯</div>
+            <h3>Quiz Mode</h3>
+            <p>Select a certification in the sidebar, choose your question type, then hit Generate Question.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Onboarding -->
+<div class="onboard-overlay" id="onboarding">
+  <div class="onboard">
+    <div class="onboard-logo">PRIME <span>MERIDIAN</span></div>
+    <div class="onboard-tagline">AI-POWERED COMPTIA STUDY SYSTEM</div>
+
+    <div class="onboard-steps">
+      <div class="onboard-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Get your Anthropic key <span class="free-badge">FREE TIER</span></h3>
+          <p>Go to <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> → API Keys → Create Key. Free credits included on signup. Powers all AI answers and quiz generation.</p>
+        </div>
+      </div>
+      <div class="onboard-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Get your Voyage AI key <span class="free-badge">200M FREE TOKENS</span></h3>
+          <p>Go to <a href="https://dashboard.voyageai.com" target="_blank">dashboard.voyageai.com</a> → API Keys → Create Key. No credit card needed to start. Powers semantic search across study materials.</p>
+        </div>
+      </div>
+      <div class="onboard-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Get your Pinecone key <span class="free-badge">FREE TIER</span></h3>
+          <p>Go to <a href="https://app.pinecone.io" target="_blank">app.pinecone.io</a> → API Keys. No credit card required. Stores the vector database that makes search instant.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="onboard-fields">
+      <div class="onboard-field-row">
+        <div class="field-label">ANTHROPIC API KEY</div>
+        <input class="field-input" type="password" id="ob-ant" placeholder="sk-ant-..." />
+      </div>
+      <div class="onboard-field-row">
+        <div class="field-label">VOYAGE AI API KEY</div>
+        <input class="field-input" type="password" id="ob-voy" placeholder="pa-..." />
+      </div>
+      <div class="onboard-field-row">
+        <div class="field-label">PINECONE API KEY</div>
+        <input class="field-input" type="password" id="ob-pin" placeholder="pcsk_..." />
+      </div>
+    </div>
+
+    <button class="onboard-start-btn" onclick="startApp()">START STUDYING →</button>
+    <div class="onboard-privacy">🔒 Keys stored in your browser session only — never sent to any server except the APIs above</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="overlay hidden" id="modal" onclick="if(event.target===this)hideModal()">
+  <div class="modal">
+    <div class="modal-title">API KEYS</div>
+    <div class="modal-sub">Stored in your browser session only. Never sent to any server except the APIs directly.</div>
+    <div class="field-label">ANTHROPIC API KEY</div>
+    <input class="field-input" type="password" id="k-ant" placeholder="sk-ant-..." />
+    <div class="field-label">VOYAGE AI API KEY</div>
+    <input class="field-input" type="password" id="k-voy" placeholder="pa-..." />
+    <div class="field-label">PINECONE API KEY</div>
+    <input class="field-input" type="password" id="k-pin" placeholder="pcsk_..." />
+    <button class="modal-save" onclick="saveKeys()">Save & Continue</button>
+  </div>
+</div>
+
+<script>
+  // ── Config ─────────────────────────────────────────────────────────────────
+  const PINECONE_HOST = 'https://prime-meridian-1bw88nu.svc.aped-4627-b74a.pinecone.io';
+  const EMBED_MODEL   = 'voyage-3-lite';
+  const CLAUDE_MODEL  = 'claude-haiku-4-5-20251001';
+
+  const CERTS = {
+    'security-plus': { label: 'Security+', emoji: '🔐', topics: ['CIA triad','cryptography','PKI','firewalls','IDS IPS','social engineering','malware','risk management','zero trust','incident response','vulnerability management','authentication'] },
+    'network-plus':  { label: 'Network+',  emoji: '🌐', topics: ['OSI model','TCP IP','DNS','DHCP','VPN','subnetting','routing','switching','wireless','network protocols','NAT','firewall'] },
+    'linux-plus':    { label: 'Linux+',    emoji: '🐧', topics: ['Linux commands','file permissions','bash scripting','process management','package management','systemd','cron','users and groups','SELinux','networking'] },
+    'cysa-plus':     { label: 'CySA+',     emoji: '🛡️', topics: ['threat intelligence','SIEM','log analysis','incident response','vulnerability scanning','threat hunting','forensics','threat actors','MITRE ATT&CK'] },
+    'pentest-plus':  { label: 'PenTest+',  emoji: '⚔️', topics: ['reconnaissance','exploitation','post exploitation','pivoting','privilege escalation','social engineering','web application attacks','reporting','tools'] }
+  };
+
+  // ── State ──────────────────────────────────────────────────────────────────
+  let mode        = 'study';
+  let quizType    = 'mc';
+  let selectedCert = null;
+  let currentQ    = null;
+  let answered    = false;
+  let scCorrect   = 0;
+  let scTotal     = 0;
+
+  // ── Keys ───────────────────────────────────────────────────────────────────
+  const getKeys = () => ({
+    anthropic: sessionStorage.getItem('pm_ant') || '',
+    voyage:    sessionStorage.getItem('pm_voy') || '',
+    pinecone:  sessionStorage.getItem('pm_pin') || ''
+  });
+
+  function saveKeys() {
+    sessionStorage.setItem('pm_ant', document.getElementById('k-ant').value.trim());
+    sessionStorage.setItem('pm_voy', document.getElementById('k-voy').value.trim());
+    sessionStorage.setItem('pm_pin', document.getElementById('k-pin').value.trim());
+    hideModal();
+  }
+
+  function showModal() {
+    const k = getKeys();
+    document.getElementById('k-ant').value = k.anthropic;
+    document.getElementById('k-voy').value = k.voyage;
+    document.getElementById('k-pin').value = k.pinecone;
+    document.getElementById('modal').classList.remove('hidden');
+  }
+
+  function hideModal() { document.getElementById('modal').classList.add('hidden'); }
+
+  function checkKeys() {
+    const k = getKeys();
+    if (!k.anthropic || !k.voyage || !k.pinecone) { showModal(); return false; }
+    return true;
+  }
+
+  // ── Mode & Cert ────────────────────────────────────────────────────────────
+  function setMode(m) {
+    mode = m;
+    document.getElementById('nav-study').classList.toggle('active', m === 'study');
+    document.getElementById('nav-quiz').classList.toggle('active',  m === 'quiz');
+    document.getElementById('study-panel').classList.toggle('hidden', m !== 'study');
+    document.getElementById('quiz-panel').classList.toggle('hidden',  m !== 'quiz');
+    updateTopbar();
+  }
+
+  function selectCert(cert) {
+    selectedCert = cert;
+    Object.keys(CERTS).forEach(c => {
+      const id = { 'security-plus':'cert-sec','network-plus':'cert-net','linux-plus':'cert-lin','cysa-plus':'cert-cys','pentest-plus':'cert-pen' }[c];
+      document.getElementById(id).classList.toggle('active', c === cert);
+    });
+    updateTopbar();
+  }
+
+  function updateTopbar() {
+    const modeLabel = mode === 'study' ? 'STUDY' : 'QUIZ';
+    const certLabel = selectedCert ? `${CERTS[selectedCert].emoji} ${CERTS[selectedCert].label}` : 'ALL MATERIALS';
+    document.getElementById('topbar-title').textContent = `${modeLabel} — ${certLabel}`;
+    document.getElementById('cert-indicator').textContent = selectedCert ? CERTS[selectedCert].label : 'All certifications';
+  }
+
+  function setQuizType(t) {
+    quizType = t;
+    document.getElementById('qt-mc').classList.toggle('active', t === 'mc');
+    document.getElementById('qt-fr').classList.toggle('active', t === 'fr');
+  }
+
+  // ── API Calls ──────────────────────────────────────────────────────────────
+  async function embed(text, voyageKey) {
+    const r = await fetch('https://api.voyageai.com/v1/embeddings', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Authorization':`Bearer ${voyageKey}` },
+      body: JSON.stringify({ input:[text], model: EMBED_MODEL, input_type:'query' })
+    });
+    const d = await r.json();
+    if (!d.data) throw new Error('Voyage error: ' + JSON.stringify(d));
+    return d.data[0].embedding;
+  }
+
+  async function retrieve(vector, pineconeKey, filter, topK=7) {
+    const body = { vector, topK, includeMetadata:true };
+    if (filter) body.filter = filter;
+    const r = await fetch(`${PINECONE_HOST}/query`, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Api-Key': pineconeKey },
+      body: JSON.stringify(body)
+    });
+    const d = await r.json();
+    return d.matches || [];
+  }
+
+  async function claude(system, user, anthropicKey, maxTokens=1024) {
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json',
+        'x-api-key': anthropicKey,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body: JSON.stringify({ model: CLAUDE_MODEL, max_tokens: maxTokens, system, messages:[{role:'user',content:user}] })
+    });
+    const d = await r.json();
+    if (!d.content) throw new Error('Claude error: ' + JSON.stringify(d));
+    return d.content[0].text;
+  }
+
+  function buildContext(matches) {
+    return matches.map((m,i) => `[${i+1}] Source: ${m.metadata.source}\n${m.metadata.text}`).join('\n\n');
+  }
+
+  function getCertFilter() {
+    if (!selectedCert) return null;
+    return { source: { '$regex': selectedCert } };
+  }
+
+  // ── Study Mode ─────────────────────────────────────────────────────────────
+  async function sendStudy() {
+    if (!checkKeys()) return;
+    const input = document.getElementById('chat-input');
+    const q = input.value.trim();
+    if (!q) return;
+
+    const keys     = getKeys();
+    const chatMsgs = document.getElementById('chat-messages');
+    const askBtn   = document.getElementById('ask-btn');
+    const empty    = document.getElementById('empty-chat');
+    if (empty) empty.remove();
+
+    chatMsgs.innerHTML += `
+      <div class="msg user">
+        <div class="msg-av">👤</div>
+        <div class="msg-body"><div class="msg-bubble">${q}</div></div>
+      </div>`;
+    input.value = '';
+    askBtn.disabled = true;
+
+    const thinkId = 'th-' + Date.now();
+    chatMsgs.innerHTML += `
+      <div class="thinking" id="${thinkId}">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span>searching materials...</span>
+      </div>`;
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+
+    try {
+      const vec     = await embed(q, keys.voyage);
+      const matches = await retrieve(vec, keys.pinecone, null);
+      const context = buildContext(matches);
+      const sources = [...new Set(matches.map(m => m.metadata.source))].join(', ');
+
+      const system = `You are Prime Meridian, a CompTIA certification study assistant.
+Answer using ONLY the provided context. Be direct and specific.
+Use bullet points for lists. If not in context, say so.
+End with a concise exam tip when relevant.`;
+
+      const answer = await claude(system, `Context:\n${context}\n\nQuestion: ${q}`, keys.anthropic);
+
+      document.getElementById(thinkId)?.remove();
+      chatMsgs.innerHTML += `
+        <div class="msg ai">
+          <div class="msg-av">🧭</div>
+          <div class="msg-body">
+            <div class="msg-bubble">${answer.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</div>
+            <div class="msg-source">SOURCES: ${sources}</div>
+          </div>
+        </div>`;
+    } catch(err) {
+      document.getElementById(thinkId)?.remove();
+      chatMsgs.innerHTML += `
+        <div class="msg ai">
+          <div class="msg-av">🧭</div>
+          <div class="msg-body"><div class="msg-bubble" style="color:var(--warn)">${err.message}</div></div>
+        </div>`;
+    }
+
+    askBtn.disabled = false;
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+  }
+
+  // ── Quiz Mode ──────────────────────────────────────────────────────────────
+  async function generateQuestion() {
+    if (!checkKeys()) return;
+    if (!selectedCert) {
+      alert('Please select a certification in the sidebar first.');
+      return;
+    }
+
+    const keys   = getKeys();
+    const genBtn = document.getElementById('gen-btn');
+    const qArea  = document.getElementById('question-area');
+    genBtn.disabled = true;
+    genBtn.textContent = 'Generating...';
+    answered = false;
+
+    const cert   = CERTS[selectedCert];
+    const topic  = cert.topics[Math.floor(Math.random() * cert.topics.length)];
+    const filter = getCertFilter();
+
+    try {
+      const vec     = await embed(topic, keys.voyage);
+      const matches = await retrieve(vec, keys.pinecone, filter, 8);
+
+      if (!matches.length) {
+        qArea.innerHTML = `<div class="q-card" style="color:var(--warn)">No content found for ${cert.label}. Make sure you've ingested study materials with "${selectedCert}" in the filename.</div>`;
+        genBtn.disabled = false;
+        genBtn.textContent = 'Generate Question →';
+        return;
+      }
+
+      const context = buildContext(matches);
+      let system, prompt;
+
+      if (quizType === 'mc') {
+        system = `Generate ONE CompTIA ${cert.label} multiple choice exam question from the context.
+Return ONLY valid JSON, no extra text:
+{"question":"...","choices":{"A":"...","B":"...","C":"...","D":"..."},"answer":"A","explanation":"..."}`;
+        prompt = `Context:\n${context}\n\nGenerate a multiple choice question about ${topic}.`;
+      } else {
+        system = `Generate ONE CompTIA ${cert.label} free response exam question from the context.
+Return ONLY valid JSON, no extra text:
+{"question":"...","ideal_answer":"...","key_points":["...","...","..."]}`;
+        prompt = `Context:\n${context}\n\nGenerate a free response question about ${topic}.`;
+      }
+
+      const raw   = await claude(system, prompt, keys.anthropic);
+      const clean = raw.replace(/```json|```/g,'').trim();
+      currentQ    = JSON.parse(clean);
+      currentQ.cert  = cert.label;
+      currentQ.topic = topic;
+
+      renderQuestion(qArea);
+    } catch(err) {
+      qArea.innerHTML = `<div class="q-card" style="color:var(--warn)">Error: ${err.message}</div>`;
+    }
+
+    genBtn.disabled = false;
+    genBtn.textContent = 'Generate Question →';
+  }
+
+  function renderQuestion(qArea) {
+    if (quizType === 'mc') {
+      const choices = ['A','B','C','D'].map(l => `
+        <button class="choice" onclick="checkMC('${l}')" id="ch-${l}">
+          <span class="choice-key">${l}.</span>
+          <span>${currentQ.choices[l]}</span>
+        </button>`).join('');
+
+      qArea.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-cert-tag">${currentQ.cert}</span>
+            <span class="q-type-tag">MULTIPLE CHOICE</span>
+          </div>
+          <div class="q-text">${currentQ.question}</div>
+          <div class="choices">${choices}</div>
+          <div id="fb"></div>
+        </div>`;
+    } else {
+      qArea.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-cert-tag">${currentQ.cert}</span>
+            <span class="q-type-tag">FREE RESPONSE</span>
+          </div>
+          <div class="q-text">${currentQ.question}</div>
+          <textarea class="fr-textarea" id="fr-ans" placeholder="Type your answer here..."></textarea>
+          <button class="submit-btn" onclick="checkFR()" id="fr-sub">Submit Answer</button>
+          <div id="fb"></div>
+        </div>`;
+    }
+  }
+
+  function checkMC(sel) {
+    if (answered) return;
+    answered = true;
+    scTotal++;
+    const correct = currentQ.answer;
+    const isRight = sel === correct;
+    if (isRight) scCorrect++;
+    updateScore();
+
+    ['A','B','C','D'].forEach(l => {
+      const btn = document.getElementById(`ch-${l}`);
+      btn.disabled = true;
+      if (l === correct) btn.classList.add('correct');
+      else if (l === sel && !isRight) btn.classList.add('wrong');
+    });
+
+    document.getElementById('fb').innerHTML = `
+      <div class="feedback-box ${isRight?'ok':'bad'}">
+        <strong>${isRight ? '✓ Correct!' : `✗ Incorrect — Answer: ${correct}`}</strong>\n\n${currentQ.explanation}
+      </div>
+      <button class="next-q-btn" onclick="generateQuestion()">Next Question →</button>`;
+  }
+
+  async function checkFR() {
+    const answer = document.getElementById('fr-ans').value.trim();
+    if (!answer) return;
+    if (!checkKeys()) return;
+
+    const keys  = getKeys();
+    const sub   = document.getElementById('fr-sub');
+    sub.disabled = true;
+    sub.textContent = 'Grading...';
+    answered = true;
+    scTotal++;
+
+    try {
+      const system = `Grade this CompTIA exam free response answer. Return ONLY valid JSON:
+{"correct":true,"score":"X/10","feedback":"..."}`;
+      const prompt = `Question: ${currentQ.question}\nIdeal: ${currentQ.ideal_answer}\nKey Points: ${currentQ.key_points.join(', ')}\nStudent: ${answer}`;
+      const raw    = await claude(system, prompt, keys.anthropic);
+      const result = JSON.parse(raw.replace(/```json|```/g,'').trim());
+      if (result.correct) scCorrect++;
+      updateScore();
+
+      document.getElementById('fb').innerHTML = `
+        <div class="feedback-box ${result.correct?'ok':'bad'}">
+          <strong>${result.score} — ${result.correct ? '✓ Correct' : '✗ Needs work'}</strong>\n\n${result.feedback}\n\n<strong>Ideal answer:</strong> ${currentQ.ideal_answer}
+        </div>
+        <button class="next-q-btn" onclick="generateQuestion()">Next Question →</button>`;
+    } catch(err) {
+      document.getElementById('fb').innerHTML = `<div class="feedback-box bad">Grading error: ${err.message}</div>`;
+    }
+
+    sub.disabled = false;
+  }
+
+  function updateScore() {
+    document.getElementById('sc-correct').textContent = scCorrect;
+    document.getElementById('sc-total').textContent   = scTotal;
+    document.getElementById('sc-pct').textContent     = scTotal > 0 ? Math.round((scCorrect/scTotal)*100)+'%' : '—';
+  }
+
+  // ── Onboarding ─────────────────────────────────────────────────────────────
+  function startApp() {
+    const ant = document.getElementById('ob-ant').value.trim();
+    const voy = document.getElementById('ob-voy').value.trim();
+    const pin = document.getElementById('ob-pin').value.trim();
+
+    if (!ant || !voy || !pin) {
+      alert('Please enter all three API keys to continue.');
+      return;
+    }
+
+    sessionStorage.setItem('pm_ant', ant);
+    sessionStorage.setItem('pm_voy', voy);
+    sessionStorage.setItem('pm_pin', pin);
+
+    document.getElementById('onboarding').classList.add('hidden');
+  }
+
+  // Auto-show onboarding or skip straight to app
+  window.addEventListener('load', () => {
+    const k = getKeys();
+    if (k.anthropic && k.voyage && k.pinecone) {
+      document.getElementById('onboarding').classList.add('hidden');
+    }
+    // else onboarding stays visible
+  });
+</script>
+</body>
+</html>

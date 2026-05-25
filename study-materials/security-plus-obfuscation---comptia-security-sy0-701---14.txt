@@ -1,0 +1,218 @@
+opusc is a process where you take
+something that normally would be very
+easy to understand and you make it much
+more difficult to understand as we step
+through this video you'll get an idea of
+all of the different ways that you could
+take a bit of information or data and
+turn it into something that's not quite
+as clear as it could be one of the
+interesting aspects of obfuscation is
+that if you know how the obfuscation is
+done you're able to reverse the process
+and gain access to the original data
+with obus you're effectively hiding
+information but it's in plain sight and
+only if you know how it was hidden would
+you recognize that there's actually data
+contained within that object one very
+popular kind of obfuscation is
+steganography where we can hide
+information within an image and
+somewhere in this image is some data
+that we would be able to recover if we
+knew how that data was originally stored
+steganography has its roots in the Greek
+language and it stands for concealed
+writing it's a way to hide data in an
+image such as this one we often refer to
+steganography as a type of security
+through obscurity which means that if
+you know the process that was used to
+hide the data you can very easily
+recover the data and that's why we often
+mention that security through obscurity
+is not really security at all so in this
+example we've used a third-party utility
+to take a bit of information and hide
+that information within the image itself
+s obviously looking at the image you
+can't see any of the data that's stored
+within it but it is really stored within
+the data containing this particular
+image sometimes you'll hear this image
+referred to as the cover text the cover
+text is the document that contains the
+data that you're hiding of course hiding
+information within an image is only one
+type of steganography you can use
+steganography in many different types of
+media and forms for example you can hide
+information within Network traffic and
+embed messages within TCP packets that
+you're sending across the network this
+data is obviously sent a few bits or
+bytes at a time and if you know how the
+data is being sent you can reconstruct
+that data on the other side we've
+already mentioned how easy it is to use
+steganography with an image to hide data
+and one of the more interesting ways to
+hide information is by putting dots on a
+piece of paper these are almost
+invisible watermarks that are included
+with Laser Printers and other types of
+printers and if you look very close
+closely at the printed page you'll start
+to see little yellow dots appear these
+yellow dots are referred to as machine
+identification codes and if you know the
+format of these yellow dots you can
+match that back to the printer that was
+used to print this output this is a
+little bit difficult to see with the
+yellow dots on a white page so let's
+invert the image and now you'll see blue
+dots on this black page if you look
+closely at a laser printer output from
+your printer you should be able to find
+those yellow dots somewhere on on the
+printed
+page well if you can store information
+inside of an image you could certainly
+store information in other types of
+media for example you can have audio
+steganography where you're hiding
+information within an audio file or an
+audio track we can also use video
+steganography so a video such as this
+one can be used to hide a great deal of
+information within that particular file
+a very popular form of obfuscation that
+we use every day is tokenization this is
+where we take take something that is
+sensitive data and we replace it with a
+token of that sensitive data for example
+we can take a social security number
+which is relatively sensitive
+information change it into a completely
+different number but behind the scenes
+we're matching those two together this
+means we can transfer the modified
+number across the network and on the
+other side it will make that switch to
+what the actual number might be if
+someone did happen to capture
+information containing that token they
+would not be able to use it for anything
+PR practical because it is not an actual
+social security number you may not
+realize it but this is the same process
+that's occurring when you pay for items
+at the store with your mobile phone or
+your Smartwatch there is a temporary
+token that is Created from your credit
+card number and that token is what's
+sent across the network this is a
+one-time use token which means if
+somebody does capture that token during
+the transfer and then they try to use it
+again that token will be denied because
+it can only be used once this means that
+we can transfer this data across the
+network without needing to encrypt any
+of the data since we've replaced the
+sensitive credit card information with a
+one-use token we can send this
+information across the network without
+needing to encrypt or hash any
+information if anyone got their hands on
+this data they wouldn't be able to do
+anything with it and since it doesn't
+have any mathematical relationship back
+to your credit card number it's
+completely safe to send across the
+network here's how this credit card
+tokenization process works behind the
+scenes means the first step is to
+register a credit card number on our
+mobile phone when you perform that
+registration process it reaches out to a
+remote token service server to register
+this credit card at that time this
+server is going to provide you with a
+series of tokens that will be stored on
+your local phone notice that the token
+is a very different number than the
+actual credit card number that we've
+registered on our phone in most cases we
+usually don't see this token at all
+although if you do look at a receipt you
+may notice that the receipt is showing a
+credit card number that doesn't match
+the actual credit card number now that
+we've received these tokens our phone is
+ready to be used during checkout so
+we'll go to a store and during the
+checkout process we'll use nearfield
+communication to transfer that token
+into the payment system so instead of
+sending our actual credit card number we
+are now paying with one of the tokens
+that we originally received from the
+token service server the merchant then
+sends that token to the Token service
+server and it does a reverse lookup to
+determine what the actual credit card
+number happens to be now that this
+system knows the actual credit card
+number it can check to validate that you
+have the proper funds or credit to be
+able to perform this transaction it
+validates the token and approves the
+transaction for the merchant now that
+this token has been used your phone is
+going to throw that token away it can no
+longer be used for any future
+transactions your phone then readies the
+next token that's in your list or it
+requests a new token from the token
+service server and that's the token that
+will be used for the next
+transaction when you get the receipt for
+your payment you may notice there's
+additional obfuscation that is used on
+the receipt itself if you look at the
+credit card number on your receipt
+you'll usually see a string of asterisks
+and usually the last four digits of the
+credit card this is called Data masking
+where we are hiding parts of the
+original number and only showing you a
+portion of that number on the receipt
+this is obviously preventing someone
+from Gaining access to to your receipts
+and being able to use those credit card
+numbers to make their own payments
+obviously the entire credit card number
+is known by your credit card company but
+for the purposes of printing a receipt
+only a portion of that number is shown
+this type of data masking might also be
+used for a customer service
+representative so if you call into your
+credit card company they may tell you
+we're looking at the credit card with
+the last four digits of
+2512 to protect the security of the
+entire number it's not uncommon for
+companies to limit who has access to
+that information and the person you're
+calling on the phone may only be able to
+see a portion of your credit card number
+there a number of different ways to mask
+a number you don't have to use asterisks
+we could simply rearrange the numbers or
+replace certain numbers with others that
+we could then reverse later
+on

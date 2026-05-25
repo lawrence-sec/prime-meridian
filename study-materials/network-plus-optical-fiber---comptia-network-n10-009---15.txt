@@ -1,0 +1,97 @@
+many of us are accustomed using twisted
+pair copper especially if we have
+networks that we use at home or even at
+our office but you may occasionally have
+a need for fiber optic connectivity and
+that fiber optic connectivity allows you
+to send traffic across the network using
+light these are often used on very
+secure networks because it is very
+difficult to tap into a fiber optic
+connection without having some type of
+notification this is very different than
+a copper based Network which US RF and
+is relatively easy to tap and gain
+information from fiber optics are also
+used over very long distances because
+the signal doesn't degrade as fast as a
+radio frequency might so the same signal
+that we can send over 100 m of a copper
+Network might be able to be sent over
+kilometers if you were using fiber
+optics and of course light is not
+susceptible to any type of radio
+frequency interference and if you're
+working in an environment where there is
+interfer
+you might want to use fiber optics to
+avoid any type of problem with your
+network just as there are many different
+standards and many different connectors
+for copper based networks there are also
+many different standards and connectors
+for fiber optic networks as well so
+you'll want to check the configuration
+and documentation of your devices and
+make sure that the fiber optics that
+you're connecting are using the right
+type of fiber and the right type of
+connector if we were to deconstruct a
+fiber optic cable you would have
+something very similar to this on one
+side of the cable is the light source
+this might be an LED or a laser and on
+the other side is the receiver this led
+is sending a light through this fiber
+optic and that consists of a core that
+is very reflective and you can see the
+light bouncing through this core as it
+receives on the other side around the
+core is a low reflective clading and the
+entire fiber optic run is protected with
+a buffer coating around the outside
+here's the connector that's at the end
+of a fiber optic cable it has a
+protective fer rule around the outside
+of the fiber and if you look very
+closely at the very middle of this
+connection you can just barely make out
+the core of the fiber that's in the
+middle I'll highlight it here so that
+you can really see where that happens to
+be let's remove that highlight and now
+you can start to see that discoloration
+where the fiber is connected on the end
+of that cable we will generally install
+one of two different types of Fiber
+Optic Cables one is a multimode fiber
+and the other is a single mode fiber
+multimode fiber is commonly used for
+relatively short range communication
+this would be up to around 2 km in
+distance and often this uses an
+inexpensive light source such as a light
+emitting diode or an LED the core of the
+fiber optic is relatively large
+certainly larger than the wave length of
+the light and because of that the light
+itself can use different modes to be
+able to trans transmit through that
+fiber and you can see the different
+modes bouncing off the edges of the
+fiber optic cable itself because there
+are different modes that are being
+communicated through this fiber we refer
+to that as multimode fiber if we're
+communicating over a much longer
+distance we may want to use single mode
+fiber some standards of fiber based
+ethernet can communicate up to 100 kilm
+without a need to regenerate the signal
+because we're going a longer distance we
+may be using a very bright and intense
+LED or we may be using laser to be able
+to extend this signal much further a
+single mode fiber also has a smaller
+core which can only allow a single mode
+of light to propagate through the fiber

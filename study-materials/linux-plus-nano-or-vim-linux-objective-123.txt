@@ -1,0 +1,543 @@
+hello everybody I'm Sean powers and
+today we are going to talk about text
+editors and I know that sounds super
+boring but if you've ever been on the
+Linux command line and gotten stuck
+inside the vi editor and had no idea how
+to get out of it this video might save
+you some of your sanity in the future
+and it should also help prepare you for
+the Linux plus certification which is
+actually what this video is part of and
+this entire course is partially possible
+because of those folks on patreon who
+have decided to support me in what I do
+in making these videos for you to
+prepare for certification and things
+like that specifically I wanted to call
+out a friend of mine Tanya clucas who is
+a nerdy nerdling who nerds level
+supporter and I haven't had an
+opportunity to call her out in a video
+so thank you so much for supporting me
+and it's because of people like Tanya
+that we're allowed to do these or that I
+have the time to do these videos so if
+these help you at all uh thank you to my
+supporters because they make it possible
+now like I said this is part of the
+Linux plus certification specifically
+we're looking at section 1.2 uh but I'm
+calling this 1.2.3 because it's the
+third video that I'm making as we cover
+uh this objective and specifically today
+we're going to look at two well two and
+a half editors we're going to look at
+Nano and we're going to look at VI or
+Vim uh VI and Vim are the same thing one
+is just a little bit better than the
+other but I want to talk about both of
+them the first thing I want to do though
+is talk about Nano I don't want to be
+accused of burying the lead so here's
+the deal you should use Nano period And
+if you have a good reason not to use
+Nano well then you should use VI or
+specifically Vim Vim but Nano is great
+it's based on the Pico editor which was
+part of a pine email program uh back a
+long time ago in the 90s but that is uh
+that's not required knowledge that's
+just because I'm old and and have been
+around for a long time but Nano is uh
+the gnu version of Pico it's going to be
+available in pretty much every
+distribution out there it's very user
+friendly it's very powerful there's
+almost no reason to use VI over Nano
+unless you're already used to VI which
+is my case which is why I use VI or if
+for some reason Nano is not available
+but for the most part you're going to
+want to use Nano that said Linux plus
+specifically mentions VI and Vim so we
+are going to cover how to use it to edit
+files we're not going to get into all
+the nitty-gritty of either editor I want
+to just show you how to be comfortable
+editing files on the command line
+without you know click and drag and
+stuff you know the word processor but
+we're not going to get too into depth
+the other very powerful you can do all
+sorts of stuff but you just need to be
+able to edit files now I'm here on our
+Linux command line and if you look I
+have two files I have a bash script and
+I have a text file and we can just look
+at them using cat really quick so you
+can see okay that's the text file and
+the bash script is just a simple example
+bash script okay so I'm going to clear
+the screen and the first thing I want to
+do is start Nano and we're going to open
+Nano if you give it a command like the
+name of a file if the file exists it
+will open that file if the file doesn't
+exist it will create a file when you
+save but it will create a file with that
+name so in our case we're going to say
+Nano text file.txt and this opens up now
+again don't get intimidated because
+there aren't any places to click it's a
+very easy and user-friendly editor
+because to go around the file you just
+use arrow keys you can see the cursor is
+moving here I'm just using the arrow
+keys on my keyboard when it starts up
+it's immediately ready to edit so we can
+say it contains text
+and now it contains more text okay so
+this is you just edit the file however
+you want now there's a couple shortcuts
+that are very useful like I said it is
+very powerful it can do all sorts of
+things but specifically you're gonna
+probably want to know how to like cut a
+line and to do that notice down here
+this is like a cheat sheet of all the
+the very common commands that you're
+going to use the carrot symbol here is
+telling you to use the control key so
+you hold down control and then do the
+letter so in this case here this means
+in order to cut this line I'm going to
+hold down control and press k
+and it's gone okay now it cuts it and
+that is the same terminology that you
+would use in a word processor because if
+you look right here down at the bottom
+uh to paste it in another place you just
+do control U so I'm going to do control
+hold it down press U
+and there it is pasted it right there
+okay so it's really easy to grab
+different lines usually what I do is I
+have to if I have to delete a bunch of
+stuff I'll hold down control and
+pressing okay okay multiple times to cut
+out all of those lines but you can paste
+it other places too so that's that's
+really really easy to do
+um something that's important and this
+might come up depending on how you are
+connecting to the Linux machine that
+you're controlling if for some reason
+the control key doesn't work I've never
+had that happen in practice but if
+you're on a terminal and it doesn't work
+you can emulate the control key by
+pressing escape twice I doubt that's
+going to be on the Linux plus exam and
+like I said I've never once in all of my
+time using Linux ever run across a
+situation where I couldn't use the
+control key but if you press like let's
+go up to this line I press Escape escape
+and then I press K it's as if I held
+down and control and pressed K so Escape
+Escape will kind of like trigger a
+control thing and then you can press the
+next letter will be your command all
+right so we're going to go up here I'm
+going to I'll do it that way again
+Escape Escape U to paste it in and now
+it's back okay and then you edit it
+however you need you can do all sorts of
+cool things like write a script in here
+and I'll show you the script next but in
+order to get out you just look at the
+cheat sheet at the bottom here now yes
+there's Ctrl G if you want help on
+different commands you can do but right
+down here exit
+um the nice thing about exiting out of
+Nano is it will prompt you to save okay
+so uh yes you can write you can save
+without exiting but generally what I do
+is I go control X and it says do you
+want to save the work that we did and if
+you press y
+for yes it will then say what file name
+do you want to save to in our case it's
+text file.txt which is the file that we
+opened we could save it as something
+else by typing a different name here and
+it would kind of be like save as I
+suppose but I'm going to press enter
+it's going to save the file and that's
+it now another really nice thing about
+Nano is let's look at that bash file
+uh Nano what I call it oh bash script
+okay so for I'm sorry this I just did
+tab complete I hit tab twice and it
+showed me all the things in this uh
+current directory that's why I got that
+whole list of everything but anyway I
+couldn't remember the name of it so Nano
+bash script.sh and when we open this
+you'll notice not only you know is it
+ready to edit but notice how the
+coloring is all uh set up for syntax
+highlighting so it's easy to read all
+the commands in the script this is
+really really nice when you're writing
+code because if you accidentally type
+something with the incorrect syntax a
+lot of times you'll notice just because
+the color doesn't format really well and
+so this is a something that's built into
+Nano it's really really nice and again I
+mean Nano is is just so user friendly
+there's not a whole lot to show you
+other than like you could do Control G
+if you want help and you can scroll
+through the you know the help command or
+whatever and then look on the bottom now
+that we're in help we have another
+um cheat sheet down here if you will so
+control X is going to exit
+the help and then we're back here we can
+do control o which is going to write the
+file without exiting so I'm just going
+to say enter and it wrote but we didn't
+exit if we want to exit we can do
+control X and because there were no
+changes uh it didn't prompt me if I
+wanted to save the changes it just
+exited right away okay so that's Nano it
+really is that easy there's not much
+more to show you now that's not quite
+the case with VI and Vim now VI is kind
+of the old school editor if you will VI
+has been around forever it's installed
+on everything generally we want to use
+Vim which it's funny that we usually say
+VI and we usually pronounce Vim when we
+refer to the different editors I'm not
+sure why but Vim or Vim stands for v i
+improved because it's better in every
+way over VI except maybe it has a
+slightly larger installation footprint
+but Vim is just better than VI it's
+improved there are a few things that you
+need to know that they're different
+about so
+um the arrow keys work in both command
+and insert mode in Vim now I'm going to
+explain command and insert mode in just
+a minute uh but that's really really
+convenient and actually the biggest
+issue when I'm using VI is I get
+frustrated because I like to use arrow
+keys it's just easier for my brain
+Vim includes syntax highlighting
+it sometimes has Mouse interaction now I
+don't recommend you depend on that
+because I haven't found that's terribly
+consistent but sometimes if you're in a
+terminal on a GUI desktop and you have
+Vim installed you can actually do things
+like copy a bunch of text with the mouse
+like drag over to highlight a bunch of
+text I don't recommend that it's just it
+doesn't make much sense to me to use a
+mouse with with Vim even if it has that
+feature there are a lot of other
+features here I'll move I'm sorry
+they'll make my face disappear so you
+can read it there's a lot of other
+features but those are really the most
+obvious and while yes the Linux plus
+exam specifically mentions VI and Vim
+it's important on a on a regular uh
+day-to-day basis as well because Ubuntu
+desktop has VI installed it does not
+have Vim so Vim is not installed by
+default I move on to desktop now Ubuntu
+Server version it does include Vim by
+default and remember when I said that
+you should always use Nano unless you
+have a reason not to use Nano Nano is
+installed on both of them and it works
+just beautifully and then at the very
+beginning of this video I said have you
+ever been stuck inside VI and you
+couldn't get out well this is the
+magical way that you can use to get out
+of VI press escape and type colon WQ and
+that will write whatever is in there and
+quit uh the the editor it's not clear
+how to get out of VI now VI or Vim is
+more complicated and it's because there
+are two main modes when you start VI you
+are in command mode and to add insult to
+injury sometimes most people call them
+modes different things like I've heard a
+Mode called like VI mode or whatever
+there's basically two modes there's the
+command mode where you enter commands
+into VI or vim and then there is the
+edit mode where you actually edit the
+text by typing with your you know
+fingers okay and so you have to go back
+and forth into the modes uh in order to
+properly use VI and that's why it's so
+confusing compared to something that
+just has a single mode like Nano where
+you you're always editing and when
+you're done you do control keys to get
+in and out and do stuff so just know
+that when you enter VI you're in command
+mode which means you can't just start
+typing and editing the file you have to
+go into edit mode in order to do that or
+sometimes called insert mode or append
+mode if you you know a pen but command
+mode and edit slash insert slash append
+mode those are the two modes and you
+really need to understand and know how
+to go back and forth so I'm going to go
+right to vim and show well VI first and
+show you and um I'll just show you the
+basics so if you ever get stuck in using
+VI you're not going to be intimidated
+all right so we're back here I'm going
+to clear the screen and now I have
+purposefully made sure that Vim is not
+installed on this computer yet and I
+want to show you some of the
+frustrations that we have using VI so
+let's open the text file okay so we are
+inside command mode and this is command
+mode in in VI this is not Vim this is VI
+and while we're in command mode we can
+um go around with the arrow keys
+okay we can go like right arrow key left
+Arrow key down up and that's great now
+there's also if the arrow keys don't
+work for some reason and sometimes
+depending on the terminal you're on the
+the arrow keys might not work at all in
+which case you can use and this is going
+to be weird but the H key is left the L
+key is right
+J is down and K is up so I'm going LL
+h h h h h
+j j j j j j k and that is how you can go
+around in command mode using VI okay we
+cannot edit any of this text yet
+if you want to edit the text you have to
+press I or a but generally I to get into
+insert mode and when you're in insert
+mode now we can start typing we can say
+but uh uh and you can just start typing
+letters press enter
+but here's the problem in VI
+when you're in insert mode you cannot
+use the arrow keys because look if I
+press Arrow key it starts doing this
+weird like stuff okay that's not what
+you want in the middle of your text file
+so if you have VI and not Vim in order
+to go around to a different spot you
+have to press escape to get out of
+insert mode back into command mode and
+then you can use the arrow keys to go
+around okay so VI is very annoying and I
+don't like it because I constantly end
+up with stuff like this where I try to
+use the arrow key when I'm in insert
+mode and it's just all screwed up so
+what I'm going to do is get out of VI
+I've shown you the the frustrations with
+it and then we're going to install vim
+and I'm going to show you how to use Vim
+uh using or how to use VI and Vim using
+Vim because it's a lot easier less
+frustrating okay so we are in command
+mode now and so to get out do you
+remember the magic command I told you it
+is colon which starts some place some
+people call this VI mode like a third
+mode or whatever but when you press
+colon now it's waiting for a command and
+that command for me is going to be Q for
+quit now I know that I said it's WQ but
+I don't want to save the stuff that I
+put in here because this is just junk so
+it's going to be q but it won't let me
+quit if there are changes so in fact
+I'll show you so if I do Q it'll say I
+can't because there are changes so if I
+want to quit without saving I have to do
+colon Q
+exclamation point and that will allow me
+to get out without saving and I'm out
+okay so now we're going to install vim
+and sudo app install Vim just vim and
+like I said this is already installed on
+Ubuntu server and honestly most
+distributions just for some reason
+Ubuntu desktop does not have them
+installed okay and so it installed it it
+did all of its stuff I'm going to clear
+the screen and this is going to be a
+little bit confusing but guess how I
+start Vim I typed VI
+text file.txt you don't have to type Bim
+you just type VI and if Vim is installed
+it starts Vim it's it's a little
+confusing because VI starts them both
+but VI and now we are in Vim now it
+doesn't look a whole lot different but
+trust me it is a lot different we can
+use arrow keys the same way now we could
+still use hjkl if we wanted to do that
+but we don't ever have to because when
+we have Vim we can press I to get into
+insert mode and look on the bottom it
+actually shows us that we're in insert
+mode which is very convenient to know
+and now we can press enter and use the
+arrow keys to go up and down without
+weird stuff appearing this is another
+line
+another line and I'm in insert mode
+let's say I wanted to save this I could
+press escape and now we are in command
+mode it doesn't say command but that's
+the mode we're in and now in order to
+save it I would do colon W and if I want
+to save without exiting I could just say
+Okay colon W and press enter
+and it's written to that if I wanted to
+save as a different file I could do
+colon W new file.txt
+okay and so now it's saved to a file
+called new file.txt
+um let's see what else could we do uh I
+I use Vim for everything so uh there's a
+couple nice uh shortcuts to use and
+again since there's no cheat sheet on
+the bottom these are kind of things you
+just have to remember let's say we
+wanted to delete a line okay we could go
+to the line using the arrow keys which
+is really nice now I'm in command mode
+so
+um if I type letters that are not going
+to appear on the screen but if I type D
+D it's going to get rid of that line uh
+let's say I just wanted to get that DD
+will delete the entire line let's say I
+wanted to delete one single word I could
+do D followed by W and it will delete a
+single word I could do DL if I want to
+delete one letter d l d l d l d l and
+then it's deleted one letter at a time
+DD to delete the entire thing I could
+insert more I could say you know new
+line and then press escape to get back
+into command mode you have to be in
+command mode when you want to exit Okay
+and and this is where a lot of people
+get stuck they're in a file and they say
+or they're like started Vim they're in
+here and they don't know how to get out
+so what you do is you can press escape a
+couple times to make sure that you're in
+command mode or whatever and then colon
+WQ is telling you you're combining two
+commands you're combining right meaning
+I want to write the file and Q means and
+then I want to quit the editor okay so
+colon WQ enter
+and it's done it's saved that file and
+if we look there it is that new file
+that we saved we changed its name while
+we were in there okay the other thing I
+want to show you is that VI if you have
+Vim installed will also do
+um syntax highlights so same thing it's
+the colors are slightly different I
+think Nano you like has variables in
+bright red for some reason but it still
+has syntax highlighting which is very
+very nice okay and I guess that's really
+about all there is to it so I started in
+command mode so I'm still in command
+mode I'm just going to do colon Q press
+enter since I didn't make any changes
+that let me quit and that's all there is
+to using VI it's not as hard as you
+think or as it's not as hard as it seems
+at first but it can be frustrating
+especially if you're not familiar with
+command mode and insert mode so remember
+to get into command mode press Escape
+okay it's okay to press Escape if you're
+in command mode it's not going to like
+break it you can press escape a couple
+times to make sure you're in command
+mode uh to get into insert or edit mode
+you either press I for insert or a will
+actually append it like goes one
+character to the right and then starts
+writing so insert or pen modes are both
+ways that you can edit and it's funny
+just a true story to end with here uh
+I've been using VI for over 20 years
+I've been specifically for most of that
+because it's just so much nicer to be
+able to use arrow keys but it's funny
+because in my brain whenever I'm done
+writing I hit Escape colon WQ muscle
+memory does that right and so it's funny
+if you look like when I've had a job
+where I had to make like word processor
+documents with Microsoft Word a lot of
+times the bottom of my documents will
+have colon WQ because when I'm done
+typing my brain automatically hits
+Escape colon WQ and and then it ends up
+at the bottom of the document so that's
+just something funny about me but anyway
+always use Nano unless you can't use
+Nano in which case use Vim unless Vim
+isn't installed and you don't have the
+permission to install Vim in which case
+use VI and just get frustrated with the
+arrow keys when you're in uh edit mode
+but apart from that uh use Nano all the
+time and none of them are difficult to
+use remember to learn everything
+do what you love and most importantly be
+kind I'll see in the next video oh I
+almost forgot uh on the Discord a bunch
+of people mentioned some tools to help
+you learn Vim or VI and one of one of
+the great ways to do that is to head
+over to
+vimadventures.com and this is a little
+game that you can play using the tool
+the keys like I said HK Jake or hjkl you
+can actually use Vim uh key commands in
+order to go around to do this little
+Adventure it's just a fun way to learn
+the key bindings uh but thanks again to
+everybody on the Discord who brought up
+things like that so check that out I'll
+put a link in the description to
+vimadventures.com but it's just a fun
+little way to to learn Vim

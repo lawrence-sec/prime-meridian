@@ -1,0 +1,358 @@
+the Linux kernel is modular which is
+something that we cover up in the Linux
+Essentials course but basically it means
+that the kernel is like the operating
+system itself and you can have just as
+many modules installed as you need to
+support your hardware and the stuff that
+you're doing anything else that you
+don't need isn't part of the running
+kernel which makes it efficient and
+flexible and the same people can use the
+same base kernel just by plugging in the
+modules they need and we don't have to
+have like a special kernel for every use
+case we can put in what we need and pull
+out what we don't need now I have to
+admit this was a little bit frustrating
+for me and I spent a shameful amount of
+time trying to figure out what on Earth
+was going on because if you look this is
+the section that we're going over we're
+going to call it 1.7.2 and this is how
+we set kernel configuration stuff and
+then these are the tools that we use to
+insert and remove kernel modules again
+most of this is done automatically but
+we can do it manually here's the issue
+let me zoom in a bit if you look right
+here this is a command that I spent so
+long trying to figure out what it was I
+was familiar with ls mod RN you know ins
+mod all these other programs and tools
+for dealing with the kernel I understood
+but IMS mod I had never heard of so I'm
+like oh I get to learn something so that
+I can teach it it just doesn't exist
+from what I can tell this is just a typo
+in the Linux plus objectives and I wish
+they would have fixed it because I like
+I said I spent a shameful amount of time
+time trying to figure out what exactly
+IMS mod was if I'm wrong and it's really
+a thing and you know please leave a
+comment because I would love to teach
+about it I just couldn't find any
+reference to it anywhere so anyway I'm
+going to assume that that was a typo and
+we're just going to cover the kernel
+tools that I know about so before we
+learn about how to do kernel
+configuration I'm going to show you how
+we can actually look at the kernel and
+insert and remove modules so I'm going
+to become root so Su or pseudo Su Dash
+you could do sudo Dash I for interactive
+shell basically if we're going to mess
+with the kernel we have to have root
+privilege so I'm just becoming the root
+user and then we'll be able to do that
+so the first tool I want to show you is
+LS not LS I mean yeah there's LS but
+that's not what I'm going to show you LS
+mod will give us a list of all the
+currently inserted or active modules in
+our current running kernel okay so all
+of these are modules that are currently
+running on our system is actually my
+personal system that we're recording on
+and like I said this is done
+automatically I didn't set up any of
+these this is just detected during
+startup and it inserts all the modules
+that it needs based on the hardware that
+you have specifically one that we're
+going to play with because it won't
+break anything in my running system is
+firewire now firewire is an older sort
+of Port you just have to use firewire to
+connect video
+camcorders to like to get DV video out
+of I have a FireWire card in this
+computer just because I had it but it's
+not something that I'm using so what I'm
+going to show you is how you would
+remove a kernel module from the running
+kernel and so we would just say RM mod
+for remove mod
+and then the name of the kernel module
+so in our case I'm going to remove
+firewire underscore
+ohci alright so RM mod fire wire
+underscore ohci
+press enter and now if we do LS mod
+again see remember where that is under
+firewire core up here this is like sub
+modules that it loaded sub modules are
+going to be important in a second but
+anyway LS mod and now we'll see that one
+is gone okay so the the firewire oh HCI
+is not installed now
+in order to insert it like I said when
+we reboot it's going to insert it anyway
+but you there's two different tools that
+you can use to insert a module you can
+do i n s mod not IMS mod because that's
+not a thing or at least I don't think so
+but ins for insert mod and then the
+module but there's a problem you can't
+just name the module so I can't just say
+fire wire underscore ohci it's going to
+say oh I don't know where that file is
+ah and so you have to actually have the
+full path we can still do it we just
+have to have the full path and they
+usually live in let's let's do some
+quick uh find commands pipe through crap
+if you've been following along this
+shouldn't be too difficult but we're
+going to look in the user lib folder so
+find user lib and I'm going to grep for
+firewire
+and I forgot the word grep grep for
+firewire and we're gonna see that sure
+enough here it is we have firewire ohci
+this is my currently running kernel so
+if we want to do ins mod we can say ins
+mod user live modules
+6.1.06 AMD
+kernel drivers
+fire wire and then firewire
+ohci.co that was a lot but if we do it
+this way it will insert the module no
+error and if we do LS mod look it's it's
+there it's back and running in fact we
+can see all of this happening if we type
+D message
+this will show us all the things that
+are happening here is where we removed
+it with RM mod and then here is what
+happened when we just ins modded it it
+added that device and it created fw0 in
+the dev folder so that's actually what
+happened when we inserted that module
+but there is a better way so let's
+remove that module again so RM mod
+firewire underscore ohci
+LS mod make sure it's gone see nothing
+up my sleeve in fact if we look at D
+message now it'll show us that you know
+we remove that device so that device has
+been removed but instead of knowing the
+entire path if we use mod probe
+and then just the name fire wire
+underscore ohci
+it's going to insert the module we can
+do LS mod and it's going to show us sure
+enough it's it's inserted right there
+and if we do D message we're going to
+see just like last time it was there
+added created a device the difference is
+well there's some there's multiple
+differences one we don't need the full
+path it looks in the path of our kernel
+modules but the thing about mod probe is
+it will also insert dependency modules
+so a lot of times just like a if you
+install a package on a system there
+might be dependencies that are required
+same thing when you install a kernel
+module a kernel module may have
+dependencies that it needs in order to
+be properly inserted ins mod does not do
+that it will just insert a module but
+mod probe is smarter and it will probe
+to find out what it depends on and it
+will install all of the kernel modules
+that are required in order to make it
+work now just to complete the list while
+we're here we can also do mod info fire
+wire underscore ohci and this will just
+give us information about the kernel
+module itself it's just like you would
+expect it's kind of like if you do app
+info it'll give you information on a
+package this is going to give us
+information on this particular kernel
+module and it just shows all the all the
+things here about it so inserting and
+removing kernel modules is something you
+can do it's not something you normally
+have to do though usually that's done
+automatically on install and then when
+the computer boots up it detects
+everything it needs mod probe will go
+through and insert all the pieces that
+you need to have installed however you
+may need to configure some of the
+settings for modules that are in your
+system and that's where CIS CTL comes
+into play now it looks a little bit like
+system CTL which is the system D tool
+that we use for like starting and
+stopping services but this is different
+it's just CIS CTL and that handles the
+the various settings for kernel modules
+now there's some cool stuff going on
+here that we've covered partially before
+so maybe this will put a bunch of puzzle
+pieces together when you make a change
+with CIS CTL it saves the changes in the
+proc file system in real time you can
+see the kernel settings in the proc
+virtual file system which is cool now if
+you make a change with sys CTL it will
+only stay active while the computer is
+running if we reboot it's not going to
+keep those settings unless you put them
+in the
+sysctl.com file so let's look at both
+ways of doing that and I'll give a an
+example of the kind of setting that we
+might need to change okay if you've ever
+done something where you have a Linux
+system running as a router you know that
+you need to forward IP packets so it can
+function as a router like with two
+ethernet ports even if you haven't just
+know that's one of the kernel settings
+that you need to set in order for it to
+act as a router now now that setting is
+stored in
+like on the running system in the proc
+virtual file system it's in proc sys net
+IP we're going to do ipv4
+specifically
+ip4 this is the virtual file that will
+contain either a one or a zero either
+it's on or it's off now if we wanted to
+change that we could cat the or we could
+Echo the number one into that virtual
+file and it would change it we could
+also change it with the sys CTL command
+so we could say sys CTL and then the the
+setting is actually formed a little bit
+differently the setting is formed net
+dot ipv4 dot IP underscore forward
+equals
+we'll change it to one for example if we
+do that it's going to return that it has
+changed that setting again in real time
+it's just in the active system I didn't
+save any files anywhere it just changed
+it in the virtual file system and if we
+push up Arrow to look at this proc file
+in the virtual file system now it's
+changed to one and so right now our
+kernel is configured to forward packets
+and it could act as a router if we set
+it up and use you know iptables and all
+that stuff
+but again this is not saved uh anywhere
+that will launch it on boot if we want
+to have it saved and run every time the
+system is booted and store this setting
+we need to change the sysctl.com file so
+let's look at that file it's in just the
+ETC folder like almost every other
+configuration file and it's CIS CTL just
+like the command but then Dot conf and
+it's a it's a configuration file and if
+you look there's a whole bunch of things
+that it it describes here that you might
+want to set one of them happens to be
+the one that we just changed if we
+scroll down a little bit
+can see here it actually shows us that
+if we want to be able to enable packet
+forwarding we just uncomment
+net.ipv4 dot IP underscore forward
+equals one which is that setting that we
+just changed on the command line so if
+we wanted to have this run
+on boot we would
+uncomment this now if this wasn't
+already here we could just add a line in
+and like type it in and if there's other
+configs you need to make you can type
+them in and it will add it when the
+system reboots press Escape I'm going to
+save this file and now every time the
+system boots it's going to set that now
+we could just reboot the computer to do
+it but I'll just show you one more thing
+you can actually activate that current
+like configuration that comp file using
+the sys CTL command too let's change it
+back to zero so using sysctl in like
+real time in our in our running system
+we've set it to zero so if we look at
+cat process blah blah blah it's going to
+be zero so we it's not currently
+forwarding packets but remember we made
+the change in sysctl.com so if we
+rebooted it would be set to one but we
+could also do
+CTL Dash p and that will bring in that
+configuration file and activate
+everything in the configuration file so
+if you want to do it without rebooting
+your computer you can do that and then
+if we look
+it's set and every time it reboots it's
+going to be set to that because that was
+in our sysctl.com so again it's not
+terribly uh common to need to add or
+remove kernel modules sometimes you'll
+need to do things like that for a
+particular video device like if you
+don't want it to load a particular
+kernel driver automatically for your
+video card you might have to uh you know
+set something so that it doesn't
+generally though the system detects all
+the kernel modules it needs to load and
+it loads them automatically usually
+however those configurations like the
+the settings that you may need to change
+for the kernel stuff that is something
+that you more commonly have to do and
+that
+sysctl.com file is where you can make
+all of those changes permanent things
+like if you want to change the
+swappiness of a system or like the IP
+forwarding like we said all of those
+kernel related settings are generally
+set in that file and reboot and they
+will stick if you just set them on the
+command line we'll see City with sis CTL
+it's not going to last if you reboot the
+computer you have to have it in that
+comp file otherwise it's not going to
+stick anyway I hope that was helpful
+remember to learn everything
+do what you love and most importantly be
+kind this time I'm going to end the
+video by thanking my patreon supporters
+for sticking with me all these months as
+we try to slog through this Linux plus
+course it's a long course but it's a lot
+of fun to learn the stuff along the way
+too so anyway I will see you in the next
+video thanks again to everybody who's
+supporting me I'll try to put links in
+the description if you want to see some
+of the other stuff I do and some of the
+other projects we're working on other
+places I'll see in the next video

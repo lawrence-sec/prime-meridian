@@ -1,0 +1,293 @@
+in our previous video we talked about
+the change management process but of
+course eventually the actual change will
+need to be implemented into your
+environment and that usually relies on
+the technical staff to be able to make
+these changes when you're making changes
+to one or two devices at home it's a
+relatively straightforward process but
+when you're working in an environment
+with tens hundreds or even thousands of
+devices what would be a very simple
+update for a single device can turn into
+a very complex process so in this video
+let's talk about the Change Control
+process from the perspective of the
+technician the Change Control process
+itself is one that is concerned with
+what needs to change but of course the
+technician is the one who will be
+actually performing these changes for
+example a technician may be asked to
+make a change to an allow list or a deny
+list these are lists that are commonly
+used to allow or prevent certain
+applications from working in your
+environment this is because certain
+applic ations can be considered
+dangerous these applications might have
+known vulnerabilities or perhaps they're
+well-known applications for carrying
+malware and infecting other systems it
+would make sense then for a technician
+to add those malicious applications to a
+deny list or perhaps include only the
+applications that they'd like to run to
+an allow list if you're managing an
+allow list this means that only the
+applications you've named will be able
+to run on people's workstations
+everything is restricted except the
+things that you add to the allow list a
+deny list is a little bit more flexible
+in that you could run any application
+you'd like except for the applications
+that have been specifically named on the
+deny list for example it's common to
+think of antivirus and antimalware as
+being a very large deny list everything
+can run on your system except specific
+types of code that are identified by the
+antimalware When A Change Is submitted
+to A Change Control Board board there's
+a very specific documented scope for
+making this change and as part of this
+change control you're limited to only
+making changes to what is specifically
+listed in the Change Control document
+for example A Change Control Board May
+schedule a 2-hour window for you to be
+able to upgrade a series of printer
+drivers but that doesn't mean during
+that same 2-hour period that you can
+make other changes to other applications
+just because the window happens to be
+available however this doesn't mean that
+you're limited to only what is listed in
+the Change Control documents there may
+be times where you have to make
+additional updates or expand the scope
+to be able to complete the primary goal
+of that particular change for example
+you may find that the process of
+upgrading those printer drivers requires
+a modification to a configuration file
+on everyone's system and although that
+wasn't specifically written as part of
+the scope of this change this change can
+only take place if you make that
+modification and if this is a relatively
+simple modification there may be
+policies in place that allow you to make
+the decision to modify that file so that
+you can complete the overall Change
+Control process this is why it's
+important to have a well-documented
+Change Control process so that everyone
+understands the procedures that should
+occur if you need to change the scope of
+the Change Control when most people hear
+the term Change Control they
+automatically think about downtime and
+although this doesn't necessarily mean
+that they will be downtime during the
+change we very often set aside a certain
+range to tell people that there might be
+some unavailability during this
+particular window this is one of the
+reasons as an IT professional we tend to
+make these changes during non-production
+hours so the overnight hours or times
+when people are not working on a
+particular application would be a
+perfect time to make any type of
+significant change to the application if
+you work for an organization that is up
+and running 24x7 then you you may find
+it very difficult to find a change
+control window where downtime is
+tolerated in those environments it's
+probably more common to have a system
+where you could switch to a secondary
+system update the primary system and
+then switch over seamlessly to prevent
+any type of downtime this move between a
+primary and secondary system is probably
+one that's relatively automated so that
+it can make that change as quickly as
+possible this also allows you to monitor
+the change and if you notice that there
+are problems you can switch back to the
+secondary system which at this point you
+haven't made any changes to this makes
+it very easy to fall back to a previous
+configuration by simply pointing all of
+your users to either the primary or the
+secondary system and of course if there
+could be downtime you need to be sure
+that everyone is aware of any potential
+outages that may occur during that
+window it's common to send out emails
+informing everyone of this particular
+downtime or you could have a centralized
+Change Control calendar where people can
+proactively view what may be happening
+at any particular time of the day if
+you've been part of implementing one of
+these change controls one of the things
+that you probably had to do just before
+bringing everything back online is to
+reboot the system this may be required
+by the change you may have a new
+configuration that will only be
+implemented if you restart the system
+this may require rebooting the operating
+system itself or if you're in front of
+the physical device you may be able to
+physically power it down and power it
+back on again or this may only require
+you stopping and restarting a service
+that's running in that operating system
+this also helps you understand if this
+system is going to be able to recover
+properly if there happens to be a power
+outage but if you're rebooting the
+system as part of your Change Control
+you'll know exactly how that system will
+react if it happens to need a power
+cycle if the documentation says that we
+only need to stop and restart a service
+this can usually be done relatively
+quickly we can do this from the windows
+services from task manager inside of
+Windows or if it's Linux we may be able
+to restart a demon that's already
+running in the background and if we're
+updating an executable that's on a
+system we may require our users to log
+out of that application completely close
+down and exit the app and then restart
+it with the updated
+application one challenging aspect of
+this Change Control process is when
+you're making a change that could affect
+a legacy application Legacy applications
+have usually been running for a very
+long time and there are no current plans
+to change out this particular app to add
+additional complexity it's very common
+for these Legacy applications to no
+longer be supported by the developer
+assuming of course that the developer is
+even still in business these are usually
+the systems with a sign that says don't
+make any changes to this system because
+no one in the organization understands
+the application or how to support any
+aspect of this system however you may
+find that this application is not as
+complex as you may have first thought
+and by documenting the application and
+how it's installed onto the system you
+can bring it into the normal support
+cycle for your organization this doesn't
+necessarily mean that the support for
+this app becomes seamless because there
+may be some idiosyncrasies that are
+specific to this older application
+running on an older operating system
+you'll find that after documenting these
+systems and understanding how they work
+just a little bit better you'll become
+the expert in the system and everyone in
+your organization will be able to now
+support that system a little bit better
+if you've ever had to manage a
+large-scale operating system that is
+providing services for hundreds or
+thousands of people then you know that
+making a simple upgrade can sometimes be
+complicated because of dependencies with
+dependencies you have to first make a
+change to one application or service
+before you're able to install or update
+another application or service or it may
+be that the service that you've
+installed won't work until a secondary
+service is also installed on that system
+this certainly complicates the Change
+Control process we thought we were
+updating and changing one application
+and now we have to update a number of
+different Services just to provide the
+original update and in some cases the
+dependencies may not even be on the same
+system for example to be able to install
+a new version of your firewall
+management software it may also require
+your firewalls to be running at a new
+version of code so you would first have
+to update all of your fire walls and
+then you would need to update the
+firewall management software with Change
+Control it's certainly true that the
+only constant is change you might have
+change control processes occurring in
+your data center every week or perhaps
+even every day and every change has
+something that has now been modified to
+what it was before this means that any
+documentation you have of your
+environment could very quickly be out of
+date without some type of ongoing
+documentation process that's why why we
+commonly see documentation being
+required with the change management
+process itself so that you are always
+creating the most updated set of
+documentation for your network this
+might include updating diagrams or
+charts that have a network configuration
+you might have to modify IP addresses or
+different configurations or you may have
+to list a new series of processes or
+procedures for managing a brand new
+application that has been upgraded in
+your production Network and if you're
+dealing with change control then you're
+probably also dealing with different
+versions of code software or
+configurations that need to be applied
+to these systems in these situations
+it's very useful to have some way to
+keep track of all of these different
+versions that have been installed and
+this also might give you a way to revert
+to a previous version if you run into
+problems many times we provide this
+functionality through Version Control
+this allows us to keep detailed
+documentation on things like changes to
+router configurations patches inside of
+the Windows operating system changes to
+Registries when you're updating an
+application and anything else where you
+can track what happens between point a
+and point B you may find that the
+applications or operating systems that
+you're using already have some type of
+Version Control built in and there might
+be a very easy way within that
+application or operating system to click
+a button make a change and suddenly
+you're running a different version if
+your application or operating system
+doesn't inate any type of Version
+Control you might want to install a
+third-party version control management
+system so that you can manage all of
+your systems and know exactly when
+changes are made and what those changes
+are
+doing

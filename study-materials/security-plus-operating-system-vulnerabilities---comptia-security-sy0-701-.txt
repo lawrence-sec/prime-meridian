@@ -1,0 +1,112 @@
+one of the things you'll constantly hear
+Security Professionals discuss is the
+need to keep operating systems patched
+to the latest versions that's because
+operating systems are foundational
+Computing platforms and everybody is
+running an operating system from the
+perspective of an attacker this makes it
+a very attractive place to start looking
+for vulnerabilities and by keeping your
+operating system up to date you can
+close any of these known vulnerabilities
+one of the challenges associated with
+these operating systems is that they are
+remarkably complex Windows 11 is
+estimated to have tens of millions of
+lines of code and the more code you have
+in an operating system the more
+opportunity for security vulnerabilities
+to appear so if you think about it the
+operating system that you're using right
+now contains many different security
+vulnerabilities but we just don't know
+what those vulnerabilities are yet
+researchers and attackers will find
+these vulnerabilities they'll be
+reported to the manufact fact of the
+software they'll create a patch and an
+update and we'll install that patch on
+our systems in the case of Microsoft
+Windows we receive updates of that
+operating system every month
+specifically on what we call Patch
+Tuesday this is the second Tuesday of
+each month Microsoft will release entire
+sets of patches on that single day of
+the month and then Security
+Professionals will begin testing and
+deploying those patches to their systems
+let's look at what a normal Patch
+Tuesday might look like we'll look at
+the Tuesday of May 9th 2023 and in that
+update Microsoft released almost 50
+separate security patches for Microsoft
+Windows operating systems and other
+applications this single set of patches
+for May resolves a number of different
+security vulnerabilities this pack
+includes eight elevation of privilege
+vulnerabilities four security feature
+bypass vulnerabilities 12 remote code
+execution vulnerabilities and so on
+although this seems like a large number
+of vulnerabilities and it is a large
+number of vulnerabilities the previous
+Patch Tuesday in April of 2023 had
+almost 100 different vulnerabilities
+that were patched if you'd like to see
+the latest set of patches available for
+your Windows operating system you can
+visit the Microsoft security Response
+Center at
+msrc
+microsoft.com there are a number of best
+practices you may want to put in place
+when it comes to operating system
+updates the first is that you should
+always plan on updating when that
+monthly update occurs or an OnDemand
+update occurs at some other time you
+need to be sure to patch that version of
+software as quickly as possible once a
+previously unknown vulnerability is
+suddenly announced to the world the
+attackers will start looking for ways to
+reverse engineer that particular
+vulnerability so they can use it against
+other operating systems if you get your
+system patched before they're able to
+create attack code then your system will
+be safe from any subsequent attacks if
+you're updating a system at home home
+you may just want to make sure you have
+a backup and you can perform the patch
+but in very large and complex
+environments containing hundreds or
+thousands of devices you may want to
+perform a test before deploying this
+patch into a production environment this
+ensures that the patch that you're going
+to deploy doesn't in some way break
+something else with the operating system
+sometimes these patches can be
+automatically installed behind the
+scenes and no other work is required but
+there are some patches especially those
+that are built into the core parts of
+the operating system that may require
+you to reboot the system to be fully
+patched in that particular case you want
+to make sure that you've saved all your
+data and then you can reboot the system
+and of course even with all of the
+precautions and testing that you put in
+place you may still find that there are
+problems that occur after this patch has
+been put into production that's why it's
+so important to have a backup so if you
+need to go back to the configuration
+prior to the patch installation you can
+easily do that using your known good
+backup

@@ -1,0 +1,778 @@
+hey I'm Sean powers and I hate SE Linux
+now security enhanced Linux is not
+inherently a bad thing it serves a good
+purpose but it's convoluted and
+frustrating and it breaks my first rule
+of security and that is it's too hard to
+understand uh out of the get-go it
+should be simple now it does come with
+sane defaults and if you're on a red hat
+based system you probably have SC Linux
+enabled by default and what SC Linux
+does is it stops applications or
+processes from being able to access
+things on the system they shouldn't the
+idea is if there's a compromise on your
+system like let's say your web server is
+compromised it isn't going to be able to
+have access to everything the www data
+user might have on your system SC Linux
+is going to keep it controlled to the
+very few things that it needs to have
+access to so again it serves a decent
+purpose but it's so frustrating and so
+so confusing but you don't have to hate
+it I'm just going to inform you about
+how it is and then you can either join
+me in the dark side
+or love it either is fine now the reason
+I'm covering it is because it is on the
+Linux plus exam and so all of these
+various things we're going to look at
+and then in these command line utilities
+uh we're going to cover the ones that
+have to do with SC Linux I'm not going
+to add app armor or anything else to
+this video this is strictly going to be
+on SE Linux or security enhanced Linux
+so we're going to cover all these things
+I'm going to try my best to but I'm
+going to show you how it works how you
+can mess with it how you might need to
+figure out how to fix something if it
+goes wrong and how those things might go
+wrong the best way I know to figure out
+how to do something is to just get right
+down and dirty with it so we're going to
+be mostly on the command line in Rocky
+Linux because again Red Hat based
+systems are going to tend to be the ones
+that use SC Linux if you're on like an
+Ubuntu system it's probably going to
+have app armor installed which is kind
+of a similar idea but different so we're
+going to be looking at Red Hat stuff
+here and again we're using Rocky Linux
+9. so first of all how to and enable or
+disable it or even know if it's enabled
+on your system and SC Linux can exist in
+three different modes on your system it
+can be enabled it can be disabled or it
+can be permissive now first of all let's
+look some of these commands require
+Roots some don't like we can say s e
+status and it will show us the current
+status of SC Linux with a bunch of other
+things on our system so the status is
+enabled so it's enabled which means that
+it is going to be able to be enforcing
+or not enforcing so it there's like a
+it's like tiered right you can have it
+enabled or disabled if it's disabled
+everything's going to be ignored it's as
+if it weren't installed on your system
+at all if it's enabled that means that
+security enhanced Linux has enabled but
+it can either be enforcing or permissive
+and the difference is now you'll see
+here the current mode is enforcing and
+that means that if something breaks a
+rule it won't allow that rule to be
+broken and we can actually see the law
+log files of things in the audit.log in
+the varlog folder that will show you
+like if something has been if something
+broke the rules the rules you know it'll
+be logged in there if this is not
+enforcing if it's permissive that means
+that it will record that something was
+amiss but it's still going to let it
+happen so a lot of times what you'll do
+is have your system in permissive mode
+try it out use it like you would
+normally use it and then look in the
+logs to make sure that it didn't trigger
+anything that would have stopped it to
+work stopped it from working if it was
+in enforcing mode now we can change the
+mode in real time from enforcing to
+permissive by doing sudo set enforce
+permissive and now we can either do the
+SC status again
+that will show us that now it's in
+permissive mode for our current mode but
+we could also do just get enforcing and
+it will just show oh sorry get enforce
+and it will show us the current mode
+that it's in so it says that it's in
+permissive mode but you'll notice it
+said the mode from the config file is
+enforcing so this is only real time if
+we were to reboot the system it would be
+back in enforcing mode so if we wanted
+to make a permanent change from
+enforcing to permissive uh that we
+wanted to persist on reboot we would
+have to change the config file and the
+only way to disable it or enable it if
+it is disabled is to change that config
+file and reboot the system because SC
+Linux is enabled as the system boots up
+and so you can't just disable it in real
+time you can set it to permissive mode
+in real time but you can't disable it in
+real time you have to change the config
+file and reboot the system so you can
+again
+change it permissive and other stuff in
+the config file too but just know the
+only way to change enabled and disabled
+is to do it in the config file and
+reboot now that config file depending on
+the system it's probably going to be in
+Etc
+SC Linux and you'll see in here we have
+scmanage.conf but config is the file
+that we'd want to edit so I'm going to
+say sudo VI config and now this is where
+we can set it so that on boot it will be
+in whatever mode we want so we can
+change this uh to instead of enforcing
+we could say one of these three up here
+enforcing permissive or disabled so if
+we wanted to completely disable it we
+would have to set this to disabled and
+then reboot save it and then reboot the
+system but we could also make it default
+to
+permissive then save it and reboot and
+it would automatically go into
+permissive mode which means that it
+would log problems but it wouldn't stop
+anything from happening now if you look
+down here we're going to talk briefly
+about this later but SC Linux type for
+the most part targeted is what we're
+going to do on almost every system that
+we come in contact with unless we need
+really high level security like the
+military that uses SC Linux will often
+do this multi-level security protection
+and that's where one of the contexts
+comes into play I'll just talk about
+that I know I'm foreshadowing here but
+since we're in the config file it can be
+either targeted meaning
+um
+it targets every individual like
+application or or processes on the
+system it can be minimum which means
+it's uh it's slightly different than
+targeted policy only the things we
+specify are targeted or are not targeted
+are managed and then MLS is multi-level
+security protection which is the big
+boys that's just uh things get really
+fine-grained in there like it doesn't
+even just say like uh can a process
+access these files or not it's like a
+process
+um in this certain context might be able
+to access these but not those it gets
+really really high level and those are
+the SC Linux types generally it's going
+to be targeted that's the default and I
+have never ever changed it from targeted
+so I'm going to save that again we could
+reboot and it would be permissive but we
+already set it to permissive mode and
+that's where it is so what are all these
+contexts and stuff that I'm talking
+about well that's the part that gets
+confusing if you didn't think this was
+already confusing let's go into actually
+let me see if we have a web browser
+installed first so though I have to
+install httpd and when I'm not on that
+kind of a system pseudo dnf install
+httpd uh okay it's already installed so
+if we go into VAR
+www.html this is going to be where the
+um well there's nothing in here right
+now so this is where the the default
+place for our web home directory is
+right so if we're in here and I were to
+say sudo
+um touch
+index.html
+and then we do LS minus L we're going to
+see our normal permissions right there
+right so it's root root we probably
+don't want that we probably want it to
+be CH owned www data
+www.data
+index.html you can tell that I'm I am a
+WN user by default uh it's not wwwbdata
+it's Chown
+Apache Apache index.html
+and I have to be root to do that so sudo
+all right and now if we do LS minus L
+okay Apache owns it it's there however
+there's another flag that you can do on
+LS so LS Dash L and then capital Z is
+going to show us the label uh on the
+particular files and the the label shows
+us the various contexts for SC Linux so
+if I do that we're going to see all
+sorts of stuff here so uh first of all
+this this comes in four different fields
+we have the user field here uh this is
+the role field this is the type field
+and then this is the what is it signific
+sensitivity uh sensitivity part only
+comes into play with MLS with
+multi-level security so we're not going
+to look at that
+um the ones that you're probably if
+you're tested on any of any of them
+they're going to be the type this is uh
+this is what you're tested for in the
+very first Red Hat certification two so
+Linux plus isn't going to go much
+further than than that and this is uh so
+anyway let's start so the the first part
+is the the user this labeled as an
+unconfined user now every every user on
+a system is mapped to an sc Linux user
+now SC Linux users are not the same as
+system users and you can't just create
+an sc Linux user but every user on the
+system is mapped to a particular SC
+Linux user and so unconfined is like a
+catch-all kind of thing so again that's
+just how you can determine different SC
+Linux users and how they're mapped with
+with uh
+accounts on the system object uh the or
+this is the role the role of this is
+that it is an object roles are um
+what a user or a Daemon can because like
+programs run as users what they can do
+with a file or a device this is an
+object it gets confusing and I'm not
+going to try to explain that much more
+than that that is the role of this
+particular file is that is not an object
+that the uh the Apache web server
+handles uh this is the part that again
+we're going to manipulate more this is
+the type of file Now a type of a file is
+what kind of object it is right so it's
+an object that's its role what kind of
+object is it and in this case it is the
+HTTP Daemon system content and then
+underscore T this is just saying that
+it's a type to underscore R says role
+underscore U says user and then this
+doesn't have an underscore because of
+course it doesn't this just says that
+its sensitivity is zero again that
+doesn't matter unless we're doing
+multi-level Security in which case uh
+that would be one more thing that could
+be tweaked for for the web server but in
+our case the type is what is usually
+going to get messed up or broken on our
+system and how how it could commonly get
+messed up on a system first of all let's
+get a web browser going so we can test
+things okay so there's a file in there
+none of the contact stuff has changed
+and now if we go over here can we hit
+localhost
+okay so there now we have a web server
+going we can read that and it says hello
+all right now if we go into now I'm the
+root user I switch to the root user so
+I'll go to my home directory and now if
+I were to create a file so I'm going to
+say edit copy.html
+and then I'm going to say insert heading
+1 I was copied and then VI
+move.html I promise I'm going somewhere
+with this uh was moved save that if we
+look here LS minus L we'll see we have
+these two files right both of these
+files we just created if we do LS minus
+l z we're going to see they have
+contexts but they are different than the
+ones for the in the web server location
+which makes sense right that web server
+location is where the web server goes to
+get its files and so if I created a file
+here it's going to have a different uh
+type now again these are all the same
+unconfined user object R but this part
+admin home type so this type of font
+this file is of the type admin home
+which means it should not work if it's
+put in a folder that is not admin home
+that's what SC Linux does the reason
+that I did one called copying one called
+move is because something sneaky happens
+okay let's say we make a copy so I'm
+going to say CP
+copy.html to VAR
+www.html and press enter and the other
+one I'm going to move I'm going to say
+move the move file to VAR www.html
+okay if we do LS minus LZ we'll we only
+have the one file here left right just
+copy because I moved the other one all
+right so let's go back into there VAR
+www.html
+LS minus L we're going to see they're
+all here now they are owned by root but
+since they're readable it should still
+the the web server should still be able
+to access it and honestly this will work
+exactly like you would expect it'll just
+use the standard permissions and as long
+as the web server has permissions to see
+the file it'll work but if we turn uh SC
+Linux back into enforcing mode that's
+where things get a little crazy because
+of that type context so let's turn on SC
+Linux and then see how these two
+different files work all right I'm root
+so I'm going to say first of all get
+enforce just to make sure that yep it's
+impermissive so I'm going to say set in
+force and now I'm going to say enabled
+is that the uh now what do I do
+enforcing okay set enforce to enforcing
+all right and now if we do we'll do SC
+status we'll see it all now uh we'll see
+sure enough current mode is enforcing
+the mode from the config file again if
+we reboot it'll be back in permissive
+mode but right now it's in enforcing
+mode all right so I'm going to clear the
+screen now LS minus L here are files
+copy is there it has permissions so the
+web server can read it this one has
+permissions so the web server can read
+it so let's go over here and see if we
+can see the one that was copied so
+copy.html and press enter I was copied
+awesome but now let's see move.html
+forbidden you don't have access to the
+resource but we should have access to
+the resource right it's in the right
+folder and the permissions are right but
+that's where SC Linux gets funny when it
+comes to moving or copying let's do LS
+minus L capital Z and see what's going
+on here so the file that we copied when
+you copy a file
+um it and so it's basically creating a
+new file in the location that is a copy
+of the file that you're copying that's
+what copying means when it puts it in
+the location creating a new file it
+inherits the uh the context from the
+location that you're putting it to so it
+got the correct type here this content
+underscore T because it was a newly
+created file because we copied it so it
+has all the proper context that it needs
+in order to function inside that folder
+but when we move a file that original
+file is the file and so it doesn't get a
+new context it has admin home type still
+even though it is not in the admin home
+so the reason the web server says
+forbidden over here is because even
+though the regular Linux permissions are
+there so that it can access it SC Linux
+has stopped it from actually accessing
+that file now if we put it back into
+permissive mode it would be just fine we
+would get a note in the audit log but it
+would work just fine now if we want this
+to work because you know let's say we
+move the file into here but that's the
+file that we want to be served out we
+need to change this context we need to
+change that to the proper one which is
+HTTP underscore says content now there's
+two different ways that we can do that
+there's a command called CH con which
+means change context and we can change
+the context of that file so that it
+matches uh we can we basically have to
+say exactly what we want its context to
+be now we know what it's supposed to be
+because there's other files in there so
+we can use changecon to change the
+context but we can also do a command
+called restorecon one and what restore
+con does is it puts all the files in a
+location that you specify in the context
+that they're supposed to be so if you
+have a file in there that you know is
+correct and you want to make sure that
+it works and it has the proper context
+but you don't want to have to type out
+the name of the contacts with changecon
+you can use restore con and it will look
+up the policies and say okay any file in
+VAR ww HTML should have this context
+that will label all of those files with
+a proper context so again whichever way
+you want to do it is fine I'll show you
+both really quickly all right so LS
+minus L these are the files the one we
+want to change the context for is
+move.html because that's the one that's
+messed up so we can say CH con and then
+Dash T because that's the type that we
+want to change everything else is fine
+it's unconfined user object role but it
+needs to be a different type so CH con
+Dash t for type and we want it to be
+httpd underscore sys underscore con
+intent underscore T the file move.html
+press enter and now if we do LS minus LZ
+we should see that it has the proper
+context now because we changed it using
+CH con if we come over here all of a
+sudden now boom we're able to see it
+because it has the proper context now
+I'm going to change it back so that we
+can see the other way to do it as well
+so I'm going to say CH con Dash T what
+was it before admin
+underscore home underscore t
+move.html now LS minus LZ we're going to
+see sure enough now it has that
+incorrect context for the web server
+again if we come over here it's gonna
+it's gonna say forbidden I don't have
+access to that but let's say we had a
+bunch of them in here and we wanted to
+make sure that they all were just the
+proper context we could just do
+restore con move.html
+and now if we do LS minus LZ we should
+see it put it exactly where it was
+supposed to be now the nice thing is uh
+yeah if we had all of them in here we
+could also do restore con Dash R star
+and that's going to do recursive let's
+say we had folders and folders full of
+files that we moved and so all the
+contexts were wrong if we do restore con
+Dash capital r for recursive and then
+everything in the folder like Star it's
+going to go recursively fix the context
+for everything in this folder and it's
+just going to work now this is probably
+the best time to tell you if you have a
+system where you've made all sorts of
+changes and you move things and you're
+positive the contexts are all messed up
+or they're all wrong but you know that
+the system is in place like you want it
+if you create an empty file so you just
+touch a file at the root level of your
+your system called Auto label so dot
+Auto label all lowercase all mushed
+together and you restart your computer
+that will basically run restore Con on
+your entire your system okay now you
+could boot it up and run restore con
+Dash capital r forward slash you know
+it's going to go through but then you're
+going to get errors about like the proc
+file system and stuff which isn't really
+a file system etc etc
+um so anyway if you do that dot Auto
+auto re-label did I say label Auto
+relabel
+um it will relabel everything and then
+delete itself so that file will
+disappear and you'll know that it did it
+successfully if you log back in the
+restarted computer and that dot Auto
+relabel file is gone you know that it
+did it and all the files should be fixed
+but the reason I mentioned that now is
+because let's say you're on a system and
+you don't want to have the web folders
+in VAR
+www.html let's say you want to have them
+in a different spot well the problem is
+policies are not set up for them to be
+in a different spot show you what I mean
+all right so I'm in the standard default
+folder but let's say I am on the root
+level and I make a folder so mkdir web
+okay so if we look here now there's a
+folder called Web right there I'm going
+to make the the permissions curve the
+permissions are probably fine let's see
+LS minus L web uh let's see read read
+yeah so everybody can read it including
+the Apache web server so if we go into
+the web server or into the web folder
+and we were to create a brand new file
+so I'm going to say VI new DOT HTML I'm
+uh I am a brand new file
+all right so and then I'm going to save
+this now we can see in here that again
+it's readable by everybody including the
+web server so you know that the
+permissions aren't a problem but if you
+do LS minus LZ we're going to see that
+it's an unconfined you know these first
+two are the same but this is the problem
+default underscore T we need it to be
+web content because that is all the web
+server is able to see now we could
+change con it right we could do
+CH con Dash t
+HTTP D was it uh what was then what was
+the
+dog on what was the
+name of the context
+ah there we go
+so CH con Dash T httpd sys content
+underscore T
+nu.html and now if we do LS minus LCC
+okay this is now the correct format but
+but
+what if we do this restore con
+star everything
+LS minus LZ
+uh it's back to default and that's
+because the policies say that the web
+folder is not where web files are stored
+so if we want this to be a place that we
+can then change the Apache configuration
+so that it can read stuff out of here we
+need to one change the Apache
+configuration not going to do that you
+just go in there and change the web
+route but we have to change how SC Linux
+handles files that are created here or
+moved here or copied here or whatever to
+make sure that or Auto relabeled to make
+sure that the web server will always
+have the ability to do that so what we
+can do is use SC manage to create a new
+policy for files in this folder and that
+it is a little bit confusing but
+basically we say SE manage and then F
+context is the
+command inside of here so SC manage F
+context to change the the context of
+what you know the policy for this
+particular folder Dash a we want to add
+a definition or a policy and then what
+policy do we want to add well Dash T we
+want the type to be
+httpd underscore sys underscore content
+underscore T and then where do we want
+this policy to be an effect for and this
+web folder but also everything passed
+there too and that's where we have to
+use a little bit of regex and it gets a
+little bit confusing and I have to if I
+have to do this I have to Google it
+every time but basically web open
+parentheses forward slash Dot star close
+parentheses question mark close quotes
+and this is going to make the context
+for everything in this folder default to
+have the proper context so that when we
+create a file it's going to have that so
+I'll press enter
+and now if we let's see what is it right
+now I forget LZ so right now it's the
+default so if we were to do
+restore con now it should restore the
+new context right the new policy should
+be in place so if we say restore con
+star
+and then LS minus LZ if I did it right
+it changed it to the the context that
+the web server can see I hope that makes
+sense I know that was a lot I know and
+and I hate it but it is kind of cool to
+understand what's going on even if you
+don't really want to install it on your
+server but there's one more thing we
+have to cover and then we're done with
+SC Linux and that is booleans boolean's
+basically I mean you just know it's like
+true false one zero yes no it's uh you
+turn things on and off and while we can
+set policies for context you know the
+labels and the contexts on files and
+locations on the system
+um I didn't mention you can also do this
+with uh with ports which we're not going
+to touch on at all but if you do netstat
+Dash capital Z you'll see there's
+context for networking stuff too but
+that's a whole different video
+um but with booleans there are settings
+that you can change on a system that
+aren't just like what files uh default
+contacts and stuff are booleans setup
+different rules on the system in general
+and will continue to use the web server
+as an example but booleans are more
+settings that you can configure with SC
+manage or I think yes yes with SC manage
+or set boo set SC I'll show you okay so
+SC manages how we did that but let me
+clear the screen you know what's going
+on here we got that covered if you do
+s e manage
+and then Boolean Boolean or Boolean
+dash dash list it should show us all of
+the settings on the system so all of
+these in the can scroll up there's a
+whole bunch of them and it shows you
+here if I can go to the very top if if I
+have enough yeah it shows you what it
+currently is the current state and what
+the default is right so by default you
+know like this top one abort Anonymous
+right the state is off the default is
+off okay
+so this shows you all of the settings
+but if you want to change one like for
+example whereas http
+this one okay HTTP enable home does if
+you've ever been on a system that uh you
+have access to where you can put like
+your own little website and it'll be
+like uh usually a college where this
+happens be like college server forward
+slash tilde your username and then it
+will serve files out of your own uh user
+home directory you can have like your
+own web page with that you know after
+the fact it'll be like forward slash
+totally your username that's called home
+directories like serve like enable home
+directories in your Apache web server
+it's a setting in Apache that you turn
+on and then it will read them from that
+folder but uh by default you don't have
+access SE Linux like says no the web
+server cannot look into users folders
+and so you have to change this Boolean
+even if you have the Apache server set
+up right and your web server and your
+users have the proper folder with the
+proper permissions you still need to set
+this Boolean Boolean or it won't
+um it won't work just like just like
+what that moved file that we had so to
+change a Boolean it's it's not difficult
+you can do it in two different ways s
+using SC manage so I'm root so Essie
+manage
+Boolean
+instead of list we'll say modify
+and we'll turn it on and what was it
+it's HTTP D enable
+homeders all right so I press enter it's
+going to make the changes to the policy
+and now if we list it again and I'm just
+going to grip for
+um homeder
+oh looks there's a bunch of them but um
+httpd enabled homeders is now on even
+though by default by default it's on to
+well dog on it okay um but we've we've
+turned that on to make sure it's on was
+it on by default let me go up here
+oh no no no okay so it was off and it
+off by default okay so because I used SE
+manage and I changed it what that means
+is when we reboot it's actually going to
+uh stay on so it's like you can change
+it using a different tool we can change
+it in real time just like with the other
+one with changecon we could do it we
+could change it in real time using a set
+SE Bool httpd enable
+umders I'll say one for enable it
+and we could say zero to disable it
+and now if we do the grep thing we're
+going to see that uh
+um it's off but by default it's on
+because we set the default when we use
+that SC manage command but you can also
+set the the default with set
+Bool you just have to add a flag so you
+can say set dual or set SE Bool Dash
+capital P for make it permanent enable
+home directory 0 for off or we could say
+off I think we can say off to we don't
+have to say zero we could say off
+and now if we do that grep thing
+we'll see that sure enough we have done
+it it's turned off and the default is
+off but I want it on and so if we do it
+this way
+but say on this is going to not only
+change it in real time but also make it
+permanent just like we did with that SC
+manage
+one last time
+HTTP enable on and on hopefully that
+makes sense and I think that is
+everything when it comes to se Linux you
+know booleans work uh you know that just
+like with a system CTL and services like
+being on and being enabled by the like
+system boot are different so you have to
+make sure whether you're like when we
+change the context
+it will change it for a file but then if
+if it is relabeled or like we restore
+con it'll put it back to where it's
+supposed to be unless we make it a
+permanent change using SE manage like on
+a folder or SC manage on the Boolean or
+set SC bowl with the dash capital P to
+make that permanent we can make those
+changes but if you have a problem where
+the permissions seem like they're
+correct but all of a sudden you're just
+getting like access denied or forbidden
+check SC Linux see if it's enabled and
+being enforced and if it is that might
+be the problem when you're trying to
+configure something on your system I
+still hate SC Linux I do and but uh I
+hate it understanding what it is and why
+it is what it is for the most part some
+of it's confusing a lot of it's
+confusing but make up your own mind
+whether you like it or don't like it it
+doesn't matter now you understand it and
+so when you're asking about it you'll be
+able to answer those questions learn
+everything
+do what you love and most importantly
+be kind thank you so much for sticking
+with me all this time I have no idea how
+long this video is going to be uh but uh
+yeah now we're done with it

@@ -1,0 +1,344 @@
+on your network you're probably using
+routers switches firewalls and many
+other network infrastructure devices and
+all of these devices are running 365
+days a year 7 days a week 24 hours in
+every single day we'll need to monitor
+these devices to make sure that they
+remain up and running and we may want to
+query those devices to determine what
+type of load they're seeing perhaps log
+file information and other details from
+each individual device this allows us to
+see if people are able to authenticate
+properly to the device if there are any
+security concerns or how much
+utilization may be used in CPU or
+network many times the network
+Administration team will have a central
+console and that console will roll up
+all of this different information from
+these many different sources and put
+everything on one single screen for
+analysis one of these data points
+gathered by this network management
+station could come from a service known
+as netflow netflow is a summary of
+Statistics based on the flows of traffic
+that are traversing the network netflow
+has a standard way to collect this
+information from these devices and there
+are many different netf flow products
+available from many different
+manufacturers netf flow usually starts
+with a proe that you would put onto your
+network this probe may be sitting in the
+middle of a connection using a physical
+tap or may be using a switched Port
+analyzer interface on a switch to be
+able to gather that information raw
+packets are being sent to this net flow
+probe and that netf flow probe is
+compiling statistics based on all of the
+packets going across your network the
+summary of all of that information is
+then sent down to a single netf flow
+collector this means you don't have to
+go to separate netf flow probes to be
+able to gather all of this detail you go
+to the single collector and you can
+create all of your reports from that one
+Central Place The Collector is not only
+keeping a database of all of this
+information over time but often The
+Collector will also include a report
+generator this might allow realtime
+reports and summary views on your
+console or you may be able to configure
+long-term reports to be generated every
+day this is a netf flow console and the
+current screen is showing a netf flow
+traffic analyzer summary you can see
+that it contains top 10 conversations
+which are Ingress and egress data for
+all of these devices this is over the
+last hour you can also see a top 10
+endpoints on your network this is listed
+by IP address or the name of the device
+here are the sources of that net flow
+data and you also have traffic analyzer
+events that are coming from those net
+flow devices netf flow can also
+summarize information by port number so
+that you can see how much application
+traffic is traversing the network these
+are the top five applications on this
+network look like SSL is the largest
+amount of traffic on this network and
+then there's SQL Server other web
+traffic netflow UDP traffic and Port
+zero traffic all of that net flow
+information is effectively metadata that
+was created based on the packets going
+across the network but you could also
+view the raw packets themselves using a
+protocol analyzer this allows you to see
+the exact bits and bytes sent across the
+network from one device to another
+protocol analyzers can collect frames
+from a wired Network a wireless network
+and it can present this information in a
+form that is easy to read instead of
+viewing all of the hexadecimal data you
+can view a summary of these packets
+going back and forth and then drill down
+into the details associated with each
+packet if you're trying to find unknown
+traffic or you're working to
+troubleshoot a slow application you can
+view all of the conversations taking
+place over the network using this view
+inside of your protocol analyzer and in
+some organizations this data is also
+collected and stored over a long time
+frame this usually includes a very large
+array of storage drives and every packet
+from the network is being stored on
+those drives for later
+analysis once we begin Gathering all of
+this data from these many different data
+sources we could start building a
+picture of what a normal day on the
+network might look like we refer to this
+as a network performance Baseline and
+this can be a very useful set of
+Statistics especially when we begin
+troubleshooting the network if you're
+trying to determine if a large amount of
+utilization on the network is normal you
+simply look at your Baseline to know
+what the normal amount of utilization
+would be during a standard workday you
+can then compare that to the value
+you're seeing now and then determine if
+that's better or worse than what would
+normally occur on the network we can
+also drill down into these baselines to
+see what normal performance might be for
+an individual device for example so
+you're able to get a very detailed view
+across many different devices on your
+network by simply compiling this data
+into a central Baseline if your
+organization is using a Management
+console or a Sim this would be a
+security and information event manager
+then you may already be collecting data
+files and other useful statistics that
+you can use to build out a performance
+Baseline this Management console or Sim
+console may be able to look through the
+data and identify an alert when certain
+anomalies occur or it may be able to
+present normal baselines for an extended
+period of time so that you can see when
+things happen to change over a normal
+workday that Management console or Sim
+console is collecting log files from
+many different devices there's log files
+inside of your switches your routers
+your firewalls your servers and
+practically any other device you would
+connect to the network there is a
+standard way to transfer log files from
+all of these devices even though each
+one of those devices may be manufactured
+by a different company this standard for
+transferring log files is known as CIS
+log you'll usually see the syis log
+configuration inside of your switch or
+router and you'll tell the switch or
+router where to s send all of its log
+files using that standard CIS log
+transfer this is commonly sent to a Sim
+which is a security information and
+event manager and usually we are storing
+that on a large Drive array inside of
+that Sim that Sim is identifying what
+device sent that log file it'll identify
+what's known as a facility code which is
+the program that originally created that
+log file and it will also include a
+severity level for that line within the
+log file so you should look at the
+configurations in your Enterprise
+switches routers and other devices to
+see what options you might have for
+sending that CIS log information to your
+sim if you were to log in to that
+security information and event manager
+you would find a large amount of
+information available to you it's not
+just page after page of this log
+information it's also all of that
+information rolled up into reports that
+you can then use to make decisions for
+example there might be a dashboard on
+the Sim that gives you a real-time
+status of information about your network
+you could see alerts and alarms if there
+happens to be a large number of failed
+authentications or if a device happens
+to go offline you may see that in the
+dashboard of your sim most Sims also
+have very Advanced reporting
+capabilities so you may be able to go
+back in time start comparing and
+contrasting different statistics across
+multiple devices all using that large
+database that you've compiled within the
+Sim so you might be able to track
+application usage when it starts on a
+server you can track that traffic as it
+traverses a switch watch that traffic as
+it goes through a firewall and then
+analyze how much utilization that's
+taking on your internet and since you've
+now stored all of this log file
+information over an extended period of
+time you might be able to use it for
+forensics this will allow you to go back
+in time and track when someone may have
+authenticated to the network and then
+which Services they may have used when
+they were logged in this log f
+information could be sent from nearly
+any device this could be a netf flow
+collector it might be a server that has
+CIS log capabilities or it might be a
+switch a router or firewall that's
+currently running in your infrastructure
+one of the things you may find when you
+first turn on a Sim and start sending it
+CIS log data is that it will be
+receiving a large amount of information
+some of this information might be useful
+for that individual device but it may
+not be necessary to store that for a
+long period of time within your sim so
+you may want to change some sensitivity
+settings on the Sim to be able to
+perhaps only capture warning or urgent
+information and perhaps not store
+informational details within the Sim
+database here's an example of an ad hoc
+data query made on a Sim you can see
+that we're doing a query here for
+anything that starts with fail so this
+might be failure or failed or the word
+fail itself and any records that include
+the word password so we're looking for
+situations where password authentication
+has failed or is not completed
+successfully and you can see the series
+of Statistics that are gathered this
+creates a single chart across the top
+and then we can view individual event
+records for example these appear to be
+event records from Windows Server where
+there is a login failure it says unknown
+username or bad password the username
+used for that authentication was haxor
+and you can see it's Acme text domain
+and it has a login type and other lines
+associated with that record we can now
+track this over a long period of time to
+see is this normal or have there been
+instances during the day when there's
+been a large number of failed
+authentications this might be able to
+identify times during the day when there
+would be a Brute Force attack or a
+password spraying attack and then we can
+use additional security tools to track
+that closer or to prevent that event
+from occurring
+again if you've ever had to administer a
+switch a router a firewall or any of
+these other infrastructure devices you
+know that you would normally SSH into
+the device perform a series of commands
+at the command prompt and then
+disconnect and if you need to make that
+change again on a different switch or
+router you will need to SSH to that
+additional router and make those changes
+again this is something that can be
+relatively tedious and almost impossible
+to manage in large environments where
+you may have hundreds or even thousands
+of these devices for that reason we need
+some way to automate this process and we
+can do that by using API integration
+ation this allows us to have a central
+management station communicate directly
+to a switch a router a firewall or some
+other device using an application
+programming interface or API this allows
+us to create applications scripts and
+other programs that can communicate
+directly to that device without using
+the SSH console or communicating to that
+device over a web console this means
+that we can effectively communicate with
+the native language of that device so we
+can send commands make configuration
+changes or query information on that
+device without having to interactively
+log in or sit at an SSH prompt and look
+for that information and if you're
+managing those hundreds or thousands of
+devices you can make those changes
+automatically with one click of the
+button using this application
+programming
+interface a lot of the monitoring and
+features we discussed in this video
+needed the raw packets from the network
+to be able to gather those statistics
+one of the ways to gather those packets
+is using Port mirroring this allows you
+to use an existing switch and redirect
+traffic from one port on the switch to a
+packet Gathering device that you have
+connected on a different port on that
+switch we also use port mirroring for
+security features such as an IDs or IPS
+and we may also use this for performance
+monitoring for example we might connect
+a net flow collector to one of these
+Port mirrors some switch switches even
+support the ability to mirror traffic
+from one switch to another so we could
+have a switch in the data center with
+our monitoring systems and be able to
+gather packets from a network switch
+that may be in another building or
+another location the port mirror may
+also be referred to as a switched Port
+analyzer or span or we may have a
+physical Network tap that's connected
+somewhere between two devices if we are
+using a switch we're simply taking a
+copy of this data and sending that copy
+to a third party device such as an IPS
+or netf flow collector so when a user is
+communicating to a server they first are
+communicating through a switch so a copy
+of that data is sent to our IPS and the
+original copy of that data is sent on to
+the server we can do this for single
+interfaces or multiple interfaces or
+vlans on the same switch so that we're
+able to see all of the traffic that is
+available on that switch

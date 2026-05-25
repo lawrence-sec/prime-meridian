@@ -1,0 +1,205 @@
+in the next part of this course we're
+going to talk a lot about IP subnetting
+and a big part of subnetting is the
+ability to convert between decimal and
+binary so I thought it would be useful
+in this video if we stepped through the
+fundamentals of Performing binary
+calculations binary of course is a type
+of numbering that uses two different
+numbers either a zero or a one this
+means that there are only two possible
+options when doing mathematics and
+binary the answer is either going to
+include a zero or it's going to include
+a one each one of these zeros or ones is
+referred to as a bit and when we combine
+eight of these bits together we have a
+bite occasionally you will see a bite
+referred to as an octet to be sure that
+everyone understands that this is an
+8bit bite in this video we're going to
+perform a lot of calculations between
+binary and decimal so what we need to
+create is a conversion chart to convert
+between binary and decimal we'll create
+this chart by starting on the right side
+and we'll simply put the number one then
+we're going to double that number and
+put it to the left so doubling one makes
+the number two if we double the number
+two we have the number four 4 * 2 is 8 8
+* 2 is 16 16 * 2 is 32 and so on this is
+the conversion chart that we will use
+for almost all of our decimal to Binary
+conversions we created this chart with
+eight individual places but but you
+could keep moving to the left with this
+chart and go past 128 we'll double it to
+256 we'll double that to 512 and so on
+you can keep continuing this process so
+that if you have a very large binary
+number you can still perform the same
+type of conversion back to decimal let's
+now use this chart to answer this
+question what is the binary
+000000001 0 in decimal first let's write
+down this value in decimal so it's
+000000 0 00 0 1 0 and of course we want
+to know what the decimal equivalent is
+of that binary value we'll then layer on
+top of this our conversion chart so of
+course we start on the right side with a
+one then 2 4 8 16 32 64 and 128 now we
+have everything we need to perform this
+binary calculation in each of these
+places where we have a binary zero we're
+going to bring that zero down to the
+bottom line in every place where we have
+a binary of one we're going to take the
+number just above that and bring it down
+onto the bottom line we're then going to
+add all of these numbers together on the
+bottom line so 0 + 0 + 0 + 0 plus 0 + 0
++ 2 + 0 equals 2 in decimal so the
+answer to this question of converting
+binary
+000000 00 0 1 0 is the same as two
+decimal let's do another one one what is
+the binary 1
+00001 0 in decimal we will write down
+our binary value and then we'll layer on
+top of that our conversion chart every
+place there is a zero we're going to
+pull that down and put a zero and every
+place there is a one we're going to pull
+down the number just above that one and
+you can see we only have two binary ones
+in this number and that's associated
+with the two and associated with the 128
+so we'll bring down the 128 we'll bring
+down the two we add those together and
+we've got 130 in decimal so the binary
+value 1
+0000001 0 is the same as 130 in decimal
+and finally let's do one more binary to
+decimal conversion this binary value is
+1111
+11111 we'll bring down that binary value
+and we'll layer on top of that our
+conversion chart and because each one of
+these spaces has a one we're going to
+bring down all of the numbers of our
+conversion and if we were to count 128 +
+64 + 32 + 16 + 8 + 4 + 2 + 1 you would
+have the value of
+255 decimal so the conversion of 1111
+1111 in binary is the same as
+255 in decimal now let's do the same
+conversion but in Reverse let's take a
+decimal number and convert it to Binary
+this question asks what is the decimal
+154 in binary it's the same process
+we're going to bring down our binary
+number but of course we don't know what
+that binary numberers yet so we'll put
+some place Marks here and then we'll
+layer on top of this our conversion
+chart now we need to determine which one
+of these binary values will be a zero
+and which one will be a one to make up
+154 decimal and there is only one
+combination of zeros and ones in this
+chart that would equal that decimal
+value value we'll start on the right
+side where we have our 128 column and
+we'll ask oursel is 128 less than or
+equal to 154 this is obviously less than
+154 so we'll put a one in that column
+and we'll bring down the
+128 now let's look at our next column of
+64 and we'll combine that next column
+with the numbers that we've currently
+brought down previously in this case the
+number 128 so 128 + 64 4 is
+192 and we have to ask ourself is 192
+less than or equal to 154 in this case
+192 is more than 154 so the answer is no
+and we'll put a zero in that column Now
+we move to the next column which is our
+32 We'll add 32 plus anything that we
+brought down that would be 128 + 32
+which equal 160 is 160 less than or
+equal to 154 it is not so we'll bring
+down a zero in that column we'll
+continue with this process by looking at
+the fourth column which is 16 we'll add
+that to anything that we brought down so
+128 + 16 is 144 is 144 less than or
+equal to 154 it is so we'll put a one in
+that column and bring down the 16 our
+next column is the eight so we'll add
+eight to anything that we've previously
+brought down so 128 + 16 + 8 is 152 is
+152 less less than or equal to 154 it is
+so we'll put a one in that column and
+bring down the number eight our next
+column is the number four we will add
+four to everything that we brought down
+into that bottom row so that all adds up
+to
+156 and is 156 less than or equal to 154
+it is not so we'll put a zero in the
+four column the next column is the
+number two We'll add the number two to
+everything that we brought down so far
+and if we add all of those up it would
+be 154
+is 154 less than or equal to 154 it's
+obviously equal to 154 so we'll put a
+one in that column and bring down the
+number two and obviously we've hit the
+number 154 so we know that the number
+one on the last column will not be added
+to this final value and if we add up
+everything in that last row we see it
+does equal
+154 and now all we have to do is look at
+the middle row to determine what the
+binary value of this is and it would be
+1 1 1 0 1 0 if we look at 154 decimal we
+know that that is exactly the same as 1
+01 1 010 in binary with these eight
+individual bits we can convert any
+number between 0 and
+255 so take any number you would like
+put it into this particular format and
+see if you can perform the conversion
+between binary and decimal as you're
+increasing the number of bits in a
+binary value you're increasing the total
+possible number of decimal results for
+example if you have two bits there are
+only four possible outcomes 0 0 01 one 0
+and 1 1 and if you were to perform that
+conversion between binary and decimal
+that's the same as 0 1 2 and 3 if you
+have three bits then you can have eight
+possible outcomes if you use four
+individual bits you have up to 16
+different options five bits moves you up
+to 32 six would be 64 7 bits is 128
+possible options and if you were to
+increase the number of bits into 9 bits
+10 bits 11 bits and so on you would also
+increase the total decimal number you
+can see that this value is listed in
+this chart and notice that I've also
+added the powers of two on top of this
+this is effectively what we've been
+doing the whole time two to the 0er
+power is one 2 to the first power is two
+2 to the second power is 4 2 to the
+third power is eight and so on so as we
+increase this powers of two we are also
+increasing the total decimal value

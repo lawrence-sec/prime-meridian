@@ -1,0 +1,295 @@
+when we think about Wireless networking
+we often think about connecting to an
+access point but of course you can
+communicate directly to another device
+without an access point we refer to this
+as independent basic service set or
+ibss you might also see this referred to
+as an ad hoc connection this allows us
+to configure one device as an ad hoc
+connection configure the other device as
+an ad hoc connection and simply connect
+those two devices to each other over
+those Wireless frequencies you might
+have used this functionality when you've
+configured an Internet of Things device
+such as a door lock or lights in your
+home this is a way to connect to a
+device over an ad hoc connection provide
+that device with information about your
+existing wireless network and then have
+that device connect directly to the
+access point and in most environments we
+have an access point that many different
+devices are connecting to to be able to
+network everyone together behind the
+scenes we're using different parameters
+to configure this device two of those
+parameters are the SSID and the
+bssid SSID stands for the service set
+identifier and it's the name of the
+wireless network that we're connecting
+to so you might have an access point
+with an SSID of sgc1 and when you bring
+up the list of all of the available
+access points in your area you will see
+that SSID name appear in your list of
+available networks of course this this
+same SSID might be configured on
+multiple access points especially if you
+have a very large home or you're in an
+environment where there are multiple
+areas of the building and you want to
+have wireless connectivity wherever you
+might be in that building to be able to
+differentiate between one access point
+and the other we need some type of
+Hardware address on that access point
+and that Hardware address is known as
+the BSS ID this is the basic service set
+identifier so although there is a
+wireless network name that we see such
+as sgc1 there is also a hardware address
+that we normally do not see behind the
+scenes in this case this wireless access
+point has a bssid of 603 Delta 2611
+2233 as we've already mentioned in your
+home or a very large business you may
+have tens hundreds or even thousands of
+access points to manage all of these
+access points need to be able to work
+together so that as you are passing from
+one building to another or from one area
+of the building to the other you're able
+to seamlessly move from one wireless
+access point to the other this is often
+done by using the same SSID or wireless
+network name on each of the wireless
+access points we refer to the shared
+network name that's used across access
+points as an e SSID the E stands for the
+extended service set identifier with the
+ESS ID configured across all of these
+different access points you can start on
+one end of the building walk to the
+other end of the building and you will
+be moving automatically and seamlessly
+from one access point to the other
+here's a configuration that uses ESS ID
+to provide that seamless roaming from
+one access point to the other in the
+middle at the top we have a network
+switch this switch has an Ethernet
+connection to an access point on the
+left and an access point on the right
+and you can see that the BSS ID or the
+basic service set identifier which is
+the hardware address of the access point
+is different on this access point than
+it is for the other although these are
+obviously two different pieces of
+Hardware they are sharing the same SS ID
+you can see it's configured as sgc1 on
+this access point is also configured as
+sgc1 on the other access point as we
+move outside the range of one access
+point and move into the range of another
+access point that access point will
+automatically pick up that we are nearby
+and seamlessly connect this device to
+that same SS ID without any notification
+on your mobile device this means you can
+continue to surf the Internet transfer
+files and use the network normally even
+if you happen to be moving at the same
+time when you first connect to a
+wireless access point you may be
+prompted with a screen that gives you
+information about the network or
+requires you to authenticate to gain
+access to that Network we refer to the
+screen that appears and the prompt with
+the authentication credentials as a
+captive portal screen for this captive
+portal to work there is a centralized
+access table that identifies individuals
+that are already authenticated to the
+wireless network and if it notices
+there's a new device that has not
+previously authenticated it will present
+this captive portal screen to the in
+user on the captive portal screen there
+may be a series of terms that have to be
+agreed to or it may prompt for a
+username a password or some other type
+of authentication Factor if those
+credentials are entered properly then
+that information is added to the access
+table and you gain access to that
+wireless network for a predefined amount
+of time for example your captive portal
+may be good for 24 hours and at the end
+of that 24-hour period you have to
+reauthenticate to gain another 24 hours
+of
+access there are many different ways to
+configure Security on a wireless network
+and if you look at the configuration of
+your access point you may find that
+there are a number of different options
+that you could choose from for example
+on this access point the security level
+is currently defined as WPA2 personal
+this access point can also disable
+security it can configure a security
+mode on this access point known as o we
+which stands for opportunistic wireless
+encryption which effectively allows
+someone to connect to the wireless
+network but prevents them from
+communicating directly to any other
+Wireless device this access point also
+supports we different flavors of WPA
+WPA2 and
+wpa3 an open system of course means
+there is no security there's no
+authentication process and anyone on
+this wireless network can communicate to
+anyone else on this wireless network
+this access point supports WPA WPA2 and
+wpa3 using a personal type of security
+sometimes you'll see this referred to as
+psk which stands for pre-shared key this
+means to gain access to this wireless
+network we need to provide someone with
+a pre-shared key that everyone will use
+for example you may be at a coffee shop
+and there may be a notice at the coffee
+shop that the pre-shared key that
+everyone can use to access the network
+is hot coffee of course if you're in a
+business environment having everyone
+share the same password for the wireless
+network is inherently insecure so most
+Enterprises will use a different type of
+wireless security known as Enterprise or
+802.1x security this allows the network
+administrator to require a username
+password or some other type of
+authentication to gain access to the
+wireless network and most people will
+use their own personal credentials to be
+able to provide that access this means
+you would use the same username and
+password you would normally use to log
+into other devices in that same
+Enterprise Network this means if someone
+leaves the organiz ation and their
+account is disabled they no longer have
+access to that wireless
+network if you look at the different
+antennas that are used on many of
+today's wireless networks you may notice
+a number of different styles the style
+of antenna that you see connected to
+this access point is an omnidirectional
+antenna and it's a very common antenna
+type to find on our consumer or
+homebased access points an
+omnidirectional antenna will evenly
+distribute that wireless signal on all
+sides of the antenna so you can put your
+access point in the middle of the room
+and everyone in the room will have the
+same signal strength as everyone else
+this means you can put your access point
+in a centralized area and anyone who's
+nearby will be able to gain access to
+the wireless network but this may not be
+the optimal antenna type to use for
+example your access point may be in the
+corner of an outside room and you're
+effectively only seeing a portion of
+that signal while the rest of it on this
+omnidirectional antenna is sent to
+places where no one will ever connect in
+that scenario you might want to use a
+directional antenna where you can take
+that wireless signal and send it into a
+single Direction this allows you to
+focus the transmission and receiving of
+Wireless signals to a device that may be
+in the corner of a room or it may be
+connecting different buildings to each
+other you'll often see these antennas
+measured as a total number of decb for
+example a directional an antenna may
+increase the performance of that signal
+by a certain decb of gain for example
+you may see in the specifications of a
+directional antenna that it effectively
+increases the overall Power by 3db and
+for every 3db we are effectively
+doubling the amount of power available
+one type of directional antenna is a
+yaggi antenna this is an example of a
+yaggi antenna is very directional and
+has a very high amount of gain we also
+have other directional types such as a
+parabolic antenna where multiple signals
+can come in and bounce into a single
+feed horn in the front so it's focusing
+all of those signals into a single point
+on the antenna this is especially useful
+over longer distances where you need to
+collect that signal and focus it into a
+single spot most of the access points
+that we use at home are autonomous
+access points this means that the access
+point doesn't require any type of
+additional Hardware or software to be
+able to operate it's effectively a
+standalone device that doesn't rely on
+anything else to be able to maintain
+that wireless connectivity but in an
+Enterprise you may not be using
+autonomous access points instead you may
+be using lightweight access points this
+separates the wireless functionality
+into the hardware that you would Mount
+into the ceiling and the configurations
+and intelligence of that device are
+often maintained on the switch the
+access point is connected to this not
+only allows us to have less expensive
+access points that we can deploy it also
+gives us functionality for being able to
+manage those devices one standard for
+managing wireless access point is known
+as capwap this is control and
+provisioning of wireless access points
+and allows you as the network
+administrator to manage and configure
+all of these wireless access points from
+one Central management station we refer
+to this Central Station as a WI wireless
+land controller and allows us to connect
+and view the entire Wireless
+infrastructure from one single screen we
+often refer to this as a single pane of
+glass from the single management station
+we can deploy new access points we can
+monitor the performance of our existing
+access point infrastructure we can make
+changes to the configuration of our
+wireless network and deploy those
+changes to some or all of our access
+points and this might also create
+reports showing us how much of the
+wireless network is being used and by
+whom this Wireless Lane controller is
+often paired with the wireless access
+points themselves so you're often
+getting the access points and the
+wireless management station all from the
+same manufacturer

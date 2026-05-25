@@ -1,0 +1,412 @@
+my feet are size 10. now that's US size
+10. I don't have like weird freakish
+size feet that's a normal size foot for
+me I'm just under six foot tall and so
+size 10 feet make sense however those
+size 10 feet are four e wide which means
+my feet are ridiculously wide they're
+practically duck feet okay I have to
+order shoes specially online because
+nobody stocks 4E width shoes my point is
+I promise I have a point my point is
+that some things that seem ordinary or
+inconsequential can be more significant
+than you think
+for example if you look at section
+1.7.1 of the Linux plus exam objectives
+you're going to notice that here it says
+these procedures restart a service and
+reload a service now on the surface it
+seems like referencing the same exact
+thing but it's very significant the
+difference between them because when you
+reload a service it just stays running
+and tries to reload the configuration
+changes that you've made whereas restart
+will stop the process start the process
+and try to load configuration files in
+manually now the reason that is
+significant is if you make a change to a
+configuration file on a Linux server for
+example and you reload the service and
+something you screwed up in the
+configuration would stop it from
+starting it will usually stay running
+and just give you an error like whoa
+something's wrong with this
+configuration file boss I cannot reload
+this but if instead you make the change
+and then you restart the service those
+servers will be like okay shutting down
+and then it will try to start back up
+and since it doesn't have anything
+currently running it's going to say I
+cannot start because you did something
+horrible to my configuration file so in
+general it's a really really good idea
+to reload a process after you make
+configuration changes and assuming that
+goes well it's also usually a good
+practice to follow up restarting to make
+sure that it actually will restart right
+but if you just make a change and
+restart the service you might be in
+trouble because the service might not
+start up especially if it's something
+that needs to stay running all the time
+now we're going to look at the command
+line and see how to make changes to
+configurations how to restart or reload
+those services and then just a couple
+other random things that were just in
+those objectives but first let's feed
+the birds
+all right oh it's been raining all day
+this is wet but we're gonna add some new
+seed in here now basically one of the
+things we're not going to cover too
+deeply is the RPM save and RPM new files
+when you install something in a red hat
+based system or an RPM based system if
+there is a new configuration file but
+you already have one in place it will
+save the new default configuration to to
+a file called the
+configurationfile.com.rpm new and if the
+configuration change is big enough that
+you really should update your
+configuration file during the
+installation It'll ask you say hey do
+you want to use the new config because
+there's a lot of new stuff in there and
+if you say yes it will replace the
+existing configuration file that was on
+your system and it will save your old
+one as
+program.com.rpm save and then it'll put
+its new one into place so generally as
+long as things go well you can erase all
+these extraneous RPM save and RPM new
+files but they're there so that you
+don't accidentally shoot yourself in the
+foot
+now I thought about like recreating a
+circumstance where there would be RPM
+save and RPM new files but you're smart
+enough to understand kind of what I'm
+saying you can figure it out if you see
+them that's what they are if you update
+a program on a red hat or RPM based
+system and it crashes and burns it's
+probably your old configuration file is
+probably still there and you can you get
+that information back so anyway that's
+where it's going to be now as far as
+where configuration files live we've
+covered this in other courses but I'll
+show you this is Rocky Linux or a red
+hat based distribution and basically the
+forward slash
+Etc folder is generally where
+configuration files for system-wide
+services go like if you have a like a
+web server the configuration file is
+going to be in here somewhere probably
+inside of a folder but it's going to be
+in the ETC folder and no matter what so
+anybody tells you it actually did get
+its name from Etc like that just started
+throwing stuff in another folder called
+Etc and it became the de facto standard
+place for configuration files to live
+now there may be like an acronym that
+somebody crammed in there after the fact
+but it just it stands for ETC you may
+hear people refer to it as the Etsy
+folder you may hear me refer to it as
+that because Etsy is well fun to say and
+you know Etc
+pretty cool right anyway that's the
+folder where things live and that's
+where I am right now I'm in the Etsy
+folder uh if we do LS we'll see there's
+a whole bunch of configuration files and
+folders like for example if we go into
+the httpd folder which is the Apache
+program on a red hat based system
+there's going to be all of these
+configuration files are going to be like
+in the conf.d folder basically when you
+make a change which is outside of the
+scope of this video for sure and you
+need to restart the service you will
+almost certainly use system CTL because
+almost every distribution now uses the
+system D system specialization system
+wow that's a lot of system words anyway
+but a lot of distributions still have a
+backwards compatible way to start or
+restart or reload Services the old way
+and that was to say service so I'm going
+to show you both because Apache is one
+of those that has like the backwards
+compatibility thing so let's just CD if
+you wanted to reload the web server on a
+computer after you made a change for
+instance you would say
+sudo
+system CTL now this is to do it the more
+up-to-date way using system d
+Udo system CTL restart and then the name
+of the service and our in this case HTTP
+D it's going to ask me for my password
+and then it would restart now again I
+kind of did the thing that I say you
+shouldn't necessarily do you should we
+should have done sudo systemctl
+reload httpd and then if there was a
+problem with the configuration file it
+would have told us but the server would
+have stayed running with the old like
+before we made the screw-up
+configuration so reload is always safer
+if I'm being honest I do restart a lot
+unless it's a service that must
+absolutely stay running and I do it
+because I always feel better if I know
+that it's going to start the next time
+and so I will usually just cut corners
+and rather than reload to make sure that
+it works and then restart to make sure
+that it starts properly I'll just do
+restart and if it doesn't start I'm like
+oh crap and I'll fix it but the service
+will be down if you do it that way so
+it's not the best way to go reload is
+definitely the way to go when you're
+doing that but you don't have to use
+system CTL although you should you can
+probably still use the service command
+let me show that so to restart the same
+exact service the web server on this red
+hat-based system we would do sudo
+service restart nope that's the other
+thing too let me let me do and then I'll
+talk about it service httpd
+restart and it actually tells you what
+it is doing behind the scenes it's doing
+system CTL restart that the thing that I
+kind of messed up a little bit there is
+when you use the service command now
+this is a command that was the only way
+to do it back in the sys V or sys5
+initialization scripts with like init.d
+and all that stuff you used to have to
+use the service command to restart a
+service and it would be like sudo
+service and then the name of the service
+httpd and then the command you want to
+do
+re load and then it would reload it but
+with systemctl it's backwards you do
+pseudo system CTL restart or reload and
+then the name of the service
+so you you know you got to put the cart
+before the horse differently uh
+whichever one you use but the system CTL
+is the way that you should go about
+doing it so that's the deal with like
+restarting versus reloading we talked
+about RPM new and RPM save again you get
+it if there's a new configuration file
+and it overwrite it's going to overwrite
+yours it will save yours as the config
+file dot RPM save if it doesn't rewrite
+yours but there's new like configuration
+options it will save the default as RPM
+new in that same configuration folder
+that the configuration file goes now
+lastly they wanted us to specifically
+look at the configuration files for the
+repositories that store where your
+programs come from like apt yum dnf okay
+and with appton or with yum and dnf
+there's a lot of intermingling going on
+so let's quickly look at the app
+configuration because that's pretty
+standard across any Debian based or
+ubuntu-based distribution so this this
+is actually Ubuntu I believe yeah it's
+Ubuntu and so if we go into the ETC
+folder again this is also kind of
+distribution agnostic Etc is where
+configuration files generally live uh
+here we can go into the APT folder apt
+and we're going to see a couple things
+one there's sources.list we'll look at
+that just really quickly I'll just cat
+it out
+and what this does is it defines where
+it goes to fetch the programs like if
+you do an app update it will get the
+list of available files here when you
+don't have to install this is where it
+fetches those files from and all the
+dependencies it gets them from these
+various lines these are the individual
+repositories that are configured but
+having one file can be confusing if you
+have a bunch of things you want to add
+on especially if packages want to add it
+it's really difficult for a package to
+like edit a file that already exists so
+what many many programs in Linux do
+including apt yum dnf is if we look LS
+there's a folder called
+sources.list.d and the nice thing about
+this is if we go in there I don't know
+if this has any in there at all no
+there's none in there but basically what
+we can create in here is one single file
+that has one single line well we can
+have a couple lines but it will have
+specific information for like one type
+of package like let's say we I mean
+OpenOffice is included in the standard
+repository but let's say that we had
+like an updated repo for OpenOffice we
+could put a file called openoffice.comp
+in
+ETC apt sources.list.d and it would pull
+from that those repositories that we
+defined just like we Define all of these
+the nice thing is then if we wanted to
+get rid of that repository we no longer
+wanted to use it we would just be able
+to delete that file and we wouldn't have
+to worry about like editing Out Lines
+from one big monolithic file so that's
+why we have all of these dot d folders
+with individual configuration files in
+them it's so it's easier to add and
+delete without having to edit a file
+because editing files is just messy all
+right hopefully that makes sense and uh
+once we have that there's one more it's
+not actually in this folder uh let's go
+back out it's not in here but back in
+the root
+Etc folder there is a file let's do LS
+grep apt and we'll see oh I guess it's
+not there uh I guess there's not an
+app.com well what I was going to show
+you I it used to and I thought it still
+did it used to just reference it used to
+be like a file app.com that would
+reference all of the configuration files
+in app.conf dot d inside the app folder
+so if we go back into the app folder and
+we look in app.com.d we'll see there's a
+bunch of files in there and these are
+individually loaded and then if we
+wanted to get rid of a part particular
+part of the configuration we could just
+delete one of these files without having
+to edit a file again that dot d
+configuration format you'll find all
+over in Linux because it's very very
+convenient now we're not really going to
+go over installing in packages and stuff
+like that that's a whole different video
+this is basically just so you understand
+how configuration files work and how you
+can reload stuff after you make changes
+to configuration files but I do want you
+to know that yum and dnf like the two
+ways to manage RPM based distributions
+they used to be different but they're
+kind of like melding together so let me
+show you what I mean so back here let's
+clear the screen if we go into the ETC
+folder again and we do LS minus L and
+I'm going to grep for
+yum okay we're going to see a couple
+things we're going to see uh
+yum.repost.d is right here okay so again
+same sort of a thing we can put repo
+files in this dot d folder and it will
+read each individual one up there is a
+yum folder and then there is yum.comp
+which is if we look over here it's a
+file okay it's not a directory yum.conf
+is a file and it points to meaning it's
+a symbolic link to dnf the dnf folder
+dnf.com so they share a single
+configuration file because like I said
+they're starting to kind of merge into
+one there's a lot of symbolic linking
+going on if we were to look at LS minus
+L the Yum folder we're going to see
+everything in here is a symbolic link to
+the dnf folder uh equivalent so
+plug-incomp.d is in the dnf plugins
+folder protected.d points to the dnf
+folder protected.d so they really are
+merging together quite a bit and if we
+look in LS minus L um dot repos dot d
+we're going to see here we actually have
+some yum repos these are actual files
+that do live in there and let's since
+we're looking at all the things if we
+look at LS dnf
+we're going to see there are individual
+folders in here including the dnf file
+which again is symbolically linked to
+the Yum configuration file up here these
+are all together and these are where the
+configuration for the package manager
+itself goes again we don't need to go
+into it and like check stuff out and see
+how it works it's more in understanding
+that the APT system the dnf system the
+Yum system they are systems with
+configuration files just like every
+other service on your computer now they
+generally don't have something running
+in the background well you'd have to
+reload them they generally read the
+configuration files when you launch them
+so when you type yum then it will read
+in the configuration file there's not
+like a yum Daemon that's running and we
+need to restart hopefully that makes
+sense so with apt it's pretty
+straightforward I wish it was a little
+more straightforward with yum and dnf
+because they're in this interim phase
+where yum is still around sort of and
+some of the stuff in the Yum is
+symbolically linked to dnf and some of
+the dnf stuff is symbolically linked to
+Yum and it's a little bit strange but
+nonetheless they both do the same thing
+so you can use either one or both
+without worrying about like conflicting
+or messing up your system by using one
+and then the other and then go back to
+the other so that is how those
+configuration things work remember
+reload is safer than restart because if
+you've messed up your configuration it
+won't stop the program the program will
+stay running give you a chance to fix
+the configuration you screwed up try to
+reload and if it reloads then it will
+have that new configuration in place
+right that is just good advice even
+though I don't always follow it myself
+and with that I encourage you to play
+around with Bose systems but learn
+everything do what you love and most
+importantly be kind I'll see in the next
+video

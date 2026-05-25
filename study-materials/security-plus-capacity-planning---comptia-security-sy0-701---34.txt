@@ -1,0 +1,107 @@
+trying to predict how much capacity you
+might need for any particular service is
+an ongoing challenge in Information
+Technology we obviously have a demand
+for a particular service and we need to
+be sure that we're able to supply
+everything we need to meet that demand
+if we make the mistake of not providing
+enough resources then we have too much
+demand and you ultimately will have
+application slowdowns and potentially
+outages if you've built out an
+infrastructure with too much Supply then
+you've spent more money than you've
+needed the key of course is to create
+just the right amount of Supply so that
+you can handle the demand this will
+involve having the right number of
+people you want to be sure that you're
+using the appropriate technology and of
+course you'll need to build out an
+appropriate infrastructure although a
+large scope of what we discuss in this
+course revolves around technology
+there's obviously an important human
+component to all of this for example if
+you have a call center there will
+certainly be applications and services
+that are provided but you need humans to
+be able to answer the phones and be able
+to input information into those Services
+humans are also a difficult resource to
+easily ramp up or ramp down if you have
+too few employees you're going to need
+to hire additional people and get them
+properly trained for this particular job
+function this is obviously timec
+consuming and you will need to spend
+money hiring people to put in those
+seats but of course employees are a
+large business expense and if we have
+too many employees we'll need to either
+shift them around to other part part of
+the organization that need additional
+resources or we may end up downsizing
+them and having them leave the
+organization we also have to pick a
+technology that can easily Scale based
+on the supply and the demand not all
+technologies have the ability to grow
+and Shrink as these different demands
+are presented so it's important that we
+think about that in the very early
+stages of engineering this design for
+example if we're implementing a new
+series of web servers we may want to
+have an implementation that includes
+load balancers and multiple servers that
+way if we have a large demand we can
+increase the number of servers behind
+the scenes invisibly to the users and if
+the demand decreases we can easily
+remove servers from that particular load
+balancer to have exactly the number we
+need for the demand if our technology
+concern is based on database Services we
+might have multiple SQL servers that we
+would enable and in some cases we can
+split databases into smaller pieces and
+distribute those databases across
+multiple servers and of course if you
+have Services running in the cloud you
+have the ability to pull in additional
+cloud services to handle additional
+demand there's of course a seemingly
+unlimited number of resources available
+at these Cloud providers but of course
+the difference is the more resources we
+use the more we'll need to pay it's
+these cloud-based services that have
+changed the way that we think about
+deploying application instances in our
+infrastructure whenever we're building
+out a new app we need to think about all
+of the storage that we'll need
+application server the network
+connectivity and anything else required
+to run that app if this is in our
+physical data center then we'll probably
+need to purchase additional equipment
+that will need to be shipped in we will
+need to unbox it configure it install it
+in the rack test it and then finally
+deploy it to production in the cloud the
+deployment process is much easier
+there's no acquisition of new hardware
+and you don't have to install it you
+simply click a few buttons on your
+cloud-based console and you've created a
+new application instance the this allows
+us to easily ramp up in the cloud when
+we have times where there is a higher
+demand and as the demand goes away we
+can easily right siiz our cloud-based
+infrastructure so that it meets the
+needs of our
+customers

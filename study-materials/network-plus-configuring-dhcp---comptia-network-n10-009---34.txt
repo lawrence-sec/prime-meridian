@@ -1,0 +1,252 @@
+in our previous video we looked at the
+process of DHCP from the client's
+perspective but obviously there are a
+number of configurations that have to be
+made to the DHCP server itself so in
+this video we'll look at some of those
+DHCP configuration settings when a
+device requests a DHCP address the DHCP
+server refers to a list or a pool of
+addresses that are defined within a DHCP
+scope this scope commonly includes the
+IP address range that will be handed out
+to the different devices on the network
+as well as any addresses that should be
+excluded from the DHCP pool you also
+have your subnet mask as part of this
+scope there are also lease durations so
+you know exactly how long these IP
+addresses will be available on that
+device and there's other options that
+you might include such as the DNS
+servers that need to be configured
+default gateways and other additional
+optional settings such as Voiceover IP
+server IP addresses
+there are usually a pool of IP addresses
+created on a per subnet basis and each
+scope usually is responsible for
+providing that particular subnets IP
+addresses usually this is a contiguous
+pool so you could tell the DHCP server
+to assign addresses 1 through 100 on
+this particular subnet and then if you
+want to create exceptions to that you
+can add them to the scope as well here's
+what this looks like on the server
+manager on Windows Server this is part
+of of the DHCP server settings and this
+particular DHCP server handles the
+network sg1 SGC dolo you can see there
+is a single scope available on this
+network its scope is
+16524 44.0 and within that scope you
+have a pool of IP addresses that would
+be handed out the address leases any
+reservations in this IP address range
+reservations are for devices that will
+always receive the same IP address each
+time it is requested and then a scope
+options that you might include along
+with others on this scope so if you need
+to make changes to the IP address pool
+or modify any of the DNS configurations
+or anything else associated with DHCP
+you would do that all from this DHCP
+settings inside of this scope on the
+server this process happens
+automatically for the inst stations they
+make a request to the DHCP server and
+the server goes through the pool of
+addresses picks one one of those
+addresses and hands it out to that
+device on the network there's a lease
+period associated with this address so
+that device is able to use that IP
+address for only a limited amount of
+time and if that lease is not renewed
+that address is then returned to the
+pool and someone else visiting that
+Network can potentially be assigned that
+IP address an interesting feature of
+DHCP is that it will keep track of these
+Mac addresses and IP addresses that it's
+pairing together so if you visit this
+network again the DHCP server will
+recognize that you've been here before
+and if the IP address you used
+previously is still available in this
+pool you will be assigned the same IP
+address you had on your original visit
+if you wanted to configure an IP address
+on a printer or a server and you wanted
+to confirm that that IP address would
+never change you could manually
+configure those settings on that device
+but this does not scale very well
+especially in large networks and if you
+need to make a change to those settings
+you need to manually visit all of those
+devices to make that configuration
+update instead you might want to lock in
+the IP addresses for those devices in
+the DHCP server using a feature known as
+address reservation inside the DHCP
+server you would create a table that has
+the Mac addresses of these devices such
+as your printers and your servers and
+you would manually configure an IP
+address within the DHCP server that will
+always be assigned to that particular
+Mac address if you look at your DHC P
+server you might see this listed as
+static DHCP assignment static DHCP or an
+IP
+reservation here's the address
+registration process in one of my DHCP
+servers this one has a couple of
+reservations that I've added this one is
+192.168.1 6 the device name is
+Prometheus and you can see the MAC
+address of that device is listed in the
+reservation I also have another IP
+address
+192.168.1 n this is the device known as
+Odyssey and it has of course a different
+Mac address by adding these addresses
+into the DHCP server as a reservation I
+can go to one central place to manage
+all of this information yet still be
+assured that those devices will always
+receive the same IP address every time
+they're
+started as we mentioned earlier these
+DHCP addresses are not permanent they
+are leased to these devices and they're
+only available for a temporary amount of
+time this lease time is one that is
+configured in the DHCP server itself in
+some organizations they might have a
+very long lease time in other locations
+it might be very short you as the DHCP
+administrator get to determine what the
+least time will be for your network if
+you were to look at the IP address
+configuration of your device you would
+see the lease timer associated with the
+IP configurations if you were to restart
+that device or unplug from the network
+and plug back in again you would be
+reinitializing that DHCP process and
+potentially restarting that lease
+another nice feature of DHCP is if you
+are turning off your system it can
+release that IP address back into the
+pool so that other people would be able
+to use that IP address in the
+future this DHCP leasing process doesn't
+wait until the entire lease is complete
+before trying to renew the lease instead
+there are different timers that DHCP
+will use to be able to provide that
+renewal the first timer is a T1 timer
+this is set by def fault as 50% of the
+lease time so no communication is going
+to occur between your device and the
+DHCP server until half of that lease is
+complete at which time your device will
+attempt to communicate to the DHCP
+server and renew the lease but it could
+be that the original DHCP server is no
+longer operating properly or has been
+removed from the network in that case we
+go to a T2 timer by default the t2 timer
+is
+87.5% of the lease time or 7/8 of that
+lease time with the t2 timer your device
+will attempt to renew the lease with any
+available DHCP server that's on the
+network let's say on your network that
+your DHCP server is set with a least
+time of 8 days if we do the math that
+means the T1 timer since it's 50% of the
+lease time would be 4 days and the t2
+timer or rebinding timer would be 78 of
+that time frame or in this case 7 days
+so under normal operation we'll go along
+for 4 days without needing to check in
+with the DHCP server but as soon as we
+hit that T1 timer we're going to begin a
+period where we will begin renewing with
+the original DHCP server so that renewal
+is sent to the server and if that DHCP
+server is available it will very quickly
+renew that lease and we'll have another
+4 days where we can continue to operate
+without checking in again with the DHCP
+server but let's say at this point that
+DHCP server is taken out of the network
+and is no longer available that means we
+will go all the way through the renewal
+period without ever renewing the lease
+once we hit the t2 timer or the
+rebinding period your device will reach
+out to any DHCP server to try to renew
+that lease and on your corporate Network
+there's most certainly another DHCP
+server and it will renew that lease and
+the entire timing process starts over
+again we often think of DHCP as that
+automated IP address subnet mask and
+default gateway configuration but there
+are other options that DHCP can
+configure as well and we refer to those
+literally as DHCP options this is a
+separate field in the DHCP process that
+allows us to configure other settings
+that are related to
+tcpip these options are listed in the
+request for comments or the RFC
+associated with DHCP back in the bootp
+days we refer to these as vendor
+extensions these DHCP options are
+associated with a number and there are
+254 usable options that could
+potentially be configured using
+DHCP the common configurations for DHCP
+would be the things that we would
+normally think about the IP address the
+subnet MK the default gateway and the
+DNS servers and there may be times when
+you would like to add additional DHCP
+options to be configured on that device
+but you have to make sure that the DHCP
+server supports that specific option not
+all DHCP servers support the ability to
+configure DHCP options so you'll want to
+check with your DHCP server to make sure
+that the options you need are supported
+by that server for example you might
+have a Voiceover IP call server on your
+network and you might want to add that
+as part of the DHCP configuration
+process so option 129 is the DHCP option
+for the call server IP address if you
+wanted to configure an HTTP proxy you
+would use option 135 and are many other
+DHCP options to choose from we're
+looking again at the scope that's
+configured within Windows Server under
+the dhtp server options and there is an
+option there for Server options and that
+refers back to those dhtp options you
+can see a list of all of the numbered
+options within those server options you
+can select any of those and Define them
+within the DHCP server itself then when
+anybody connects to the network not only
+will they receive the IP address subnet
+m default gateway and DNS settings
+they'll also receive any of the
+configurations that you've defined under
+DHCP options

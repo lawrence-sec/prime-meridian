@@ -1,0 +1,132 @@
+an intrusion prevention system or IPS is
+designed to watch traffic Traverse the
+network in real time if there's anything
+inside the traffic that could be
+interpreted as dangerous or an exploit
+it can be blocked immediately by the IPS
+this might be a known vulnerability such
+as an exploit against an operating
+system or a known vulnerability in an
+application or it might be something
+more generic like a buffer overflow or a
+SQL injection you might also see a
+reference to an intrusion detection
+system or an IDs which is able to alert
+you that these vulnerabilities are
+traversing your network but an IDs can't
+block any of that traffic that's why we
+have intrusion prevention systems so
+that you can prevent that information
+from getting into your network if it's
+identified one of the challenges with
+security devices that sit in line to
+monitor traffic going by is that those
+devices can occasionally fail they might
+lose power there might be a hardware
+problem or it might be that there's a
+bug in the software and the system
+crashes if this device is in line what
+happens to your network traffic when
+that device fails there are different
+scenarios depending on the engineering
+of that device if this device has been
+configured as fail open when there's a
+crash or it becomes unavailable the data
+will continue to flow through that
+connection obviously there will be no
+security processes occurring but at
+least the network will remain up and
+running if this is a fail close system
+and the device crashes not only will the
+security process no longer operate but
+your network connection will be severed
+and there'll be no communication through
+that link obviously most networks would
+probably prefer to have a fail open
+system but that's not always the case
+for every security device so you'll need
+to check the documentation of what
+you're using to see whether it's fail
+open or fail closed the need to have
+something that's fail open or fail
+closed is important when the device is
+in line and Performing active monitoring
+this is an example of an inline
+configuration there is an internet
+connection a firewall there's a core
+switch and between the firewall and the
+switch is an IPS that is put in line
+doing active monitoring as traffic
+traverses this link between the core
+switch and the firewall the IPS is
+examining all of the traffic making a
+decision on whether the traffic is
+legitimate or potentially malicious and
+then it can block that traffic in the
+IPS itself because an IPS is designed to
+block traffic in real time an active
+monitoring configuration is often the
+default config but there may be reasons
+that your organization is uncomfortable
+with an actively monitoring system there
+may be a concern that an outage would
+cause downtime for the rest of the
+network or they might be concerned that
+the IPS would be too aggressive with
+blocking traffic and would be blocking
+legitimate traffic instead of malicious
+traffic in that case the organization
+may feel more comfortable with a passive
+monitoring solution with passive
+monitoring devices can communicate to
+each other normally through a switch and
+the switch is taking a copy of that
+traffic and sending it to the IPS since
+the IPS is not in line with the normal
+network communication between the
+devices and the switch it can't cause
+any downtime to the network but because
+it's not in line it also has limited
+capabilities for Block in traffic we
+often refer to this as an IDs design
+even though we're using an IPS because
+the IPS is not in line and it's not able
+to block traffic in real
+time here's a better view of this active
+monitoring configuration we'll put some
+traffic on the network this traffic will
+pass through the firewall it will pass
+through the IPS where it will be
+evaluated and if this traffic is
+legitimate doesn't contain any
+vulnerabilities it will pass on through
+to the core switch the advantage of
+having active monitoring is that if
+traffic does come through the network
+and passes into the IPS the IPS can
+identify potential attacks and block
+them immediately at this point the
+traffic is simply removed from the
+network and it's never sent through to
+the core switch a passive monitor
+requires that you have some type of
+method for receiving a copy of the
+traffic this might be built into the
+switch and called a port mirror or a
+span that refers to a switch Port
+analyzer or you might use a pH physical
+Network tap to break into a physical
+connection with passive monitoring any
+traffic sent into the switch will be
+duplicated one copy will be sent on its
+way to the destination and another copy
+will be sent to the IPS for evaluation
+this happens with all traffic traversing
+the switch where a duplicate is made the
+destination receives a copy of that
+traffic and the IPS also receives a copy
+of that traffic this is a great way to
+identify an alert on malicious traffic
+but it obviously is isn't stopping the
+traffic from getting to the destination
+device

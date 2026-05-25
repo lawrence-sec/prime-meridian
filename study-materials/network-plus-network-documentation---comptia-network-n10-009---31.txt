@@ -1,0 +1,277 @@
+one common type of network documentation
+is the network map and there are
+different types of network maps that you
+might want to create one type is a
+physical Network map which shows the
+physical layout of the equipment the
+cabling and everything in between this
+is an example of a physical Network map
+it shows a connection in from the
+internet with the physical cable
+plugging into the internet router which
+can be found at
+10.1.1.1 there is a physical wire
+connecting to the internet firewall and
+then another wire connecting to the core
+router which is located at
+101101 this physical connectivity
+continues on through the rest of the
+diagram and if you were to go into this
+room you could track back that cable to
+this equipment using this physical
+Network map we can often create these
+Network Maps using thirdparty software
+such as Vio omnigraffle glyphy dcom and
+many others this software can be used to
+create physical Network Maps it can also
+be used to create logical Network Maps
+logical Network Maps show a higher level
+view of connectivity where you're not
+focused on individual interfaces and
+cables but more on how the entire
+network is connected this is a logical
+Network map that shows a cloud
+Connection in the middle and different
+headquarters buildings connected from
+different locations into that single
+Cloud obviously in the middle of all of
+this are a number of routers switches
+and other servers
+but all of that is broadly shown as a
+single location in a logical Network map
+these might be good maps to use if
+you're planning additional locations you
+can view the layout of the existing wide
+area network cloud and then decide where
+the best location might be for another
+installation and if you wanted to get
+into a detailed view of exactly where
+equipment is located and what that
+equipment looks like you might want to
+use a rack diagram rack Di Rams are
+designed to give you a physical view as
+if you were standing in front of that
+rack in the data center it's very common
+to have restricted access to the data
+center so a documentation like this can
+be used for individuals who may not have
+that level of access into the building
+you can then use this documentation to
+tell someone to stand in front of the
+rack look about 3/4 of the way up on
+Unit 14 and you'll see the power strip
+you can even use this documentation to
+locate the exact rack in the data center
+you might have on the documentation that
+this is in row three of the data center
+and this is rack W this gives us a way
+to provide detailed documentation for
+someone who may be standing in front of
+the rack when we may not be in the same
+building so instead of telling someone
+to reboot a server that's in this rack
+we could specifically say go to unit 15
+in this rack and reboot that individual
+server another useful physical piece of
+documentation is the cable map for your
+office this would allow you to see a
+view of the office and exactly where the
+wires are installed in that facility
+you'll often see one of these diagrams
+in the IDF or MDF it's usually on the
+wall so that you can understand where
+these wires are going when they leave
+that closet this would show you where
+the physical wires are running either
+under the floor or above the ceiling and
+you can see that each drop for each one
+of these is numbered this allows you to
+correlate the network drops out at each
+individual desk with the network drops
+that are connected to the patch panels
+inside of the wiring closet these are
+not just useful during the installation
+process but they're also useful when
+troubleshooting you can track back
+exactly where a wire was run inside of
+the building and be able to correlate
+that back with problems that you might
+be having with that particular network
+drop you could also create network
+diagrams that combine layer one layer
+two and layer three views of the network
+layer one would be the physical layer
+Layer Two would be the data link layer
+and layer three would be your network
+layer here's an example of a network
+diagram that includes a number of
+switches routers and inst stations and
+we have labels here for layer 1 layer 2
+and layer three we can start with the
+layer one connection which shows the
+physical interfaces for the switches and
+the routers where all of these wires are
+connecting and providing this
+connectivity we can overlay on top of
+that a layer 2 perspective which now
+includes includes Mac addresses for all
+of these different components and if you
+wanted to include IP addresses we can
+overlay the layer three addresses so
+that you know exactly what IP address is
+associated with which Mac address which
+is also associated with each physical
+address another important part of
+documentation is a need to track your
+assets this means that we need to put
+tags or labels on every asset that we're
+bringing into the organization this
+would be laptops desktops TOS routers
+firewall switches and anything else that
+we're buying and installing into our
+Network once we have all of these
+devices tagged we can use that tag when
+we're referring back to a trouble ticket
+or some type of problem for example we
+could say that a router in the data
+center that's labeled with number 42 is
+the one that's causing this particular
+problem we can also use these tags for
+financial purposes we may need to track
+these devices over time to be able to
+track their depreciation or you may need
+to reference the asset tag to know when
+the device is purchased which would also
+tell you if that device was currently
+still under warranty these asset tags
+are usually very visible so that you can
+find them when you're on the phone with
+someone in the support team there might
+be a barcode or RFID associated with
+this and there might be additional
+information if a third party runs across
+this device they'll know exactly who
+owns that particular piece of
+equipment the asset tag that's connected
+to the device the comp components within
+that device and then the user who is
+using that particular device may all be
+combined within one single asset
+database this becomes a centralized
+database that could be used by the asset
+support team by accounting by folks that
+are in the finance department and anyone
+else who may need access to this data if
+we need to know the physical location of
+a device we can look at our asset
+database and see what user has been
+assigned to this particular component if
+we then know the user's location then we
+also know the location of this
+particular device as we've also
+mentioned we may want to use this also
+for warranty tracking to be able to
+understand when a device was purchased
+and what the status is of that
+particular warranty and if we're
+tracking the number of devices we can
+also track the software that's running
+on those devices this could be very
+useful if we need to determine how many
+licenses we need to purchase for our
+organization we can determine very
+quickly how many of those units We Own
+by referencing back our asset database
+another important piece of documentation
+relates to the ongoing use of IP
+addresses in our organization we would
+commonly track these by using an IP
+address management or ipam solution this
+is something that can provide us with a
+way to plan track and configure the DHCP
+and IP address schemes that we are using
+throughout our company using IP address
+management we can document what users
+may be using what IP addresses since we
+often use dynamic IP addressing it's
+useful to be able to map a user with a
+specific IP address during a particular
+date and time this might also give us
+the ability to identify any problems or
+shortages that we might have with our IP
+addressing configurations and based on
+this information we might need to modify
+IP address ranges or add additional IP
+addresses to our DHCP infrastructure
+this gives us a way to manage all of our
+ipv4 and IPv6 addressing throughout our
+organization all from one Central
+console here's a console from an IP
+address manager showing different subnet
+details statistics about the IP
+addresses that we're currently using
+change log entries warning and error
+logs and other details that can help us
+manage our IP address
+configuration if you're working with a
+service provider and most organizations
+are you'll need some way to verify that
+you're getting the proper level of
+service this is often done contractually
+with a service level agreement or SLA
+this defines the minimum level of
+service required for this contract that
+you have with this third-party
+Organization for example if you're
+Contracting with a wide area network
+provider or an internet provider you may
+have an expectation that you'll be up
+and running
+99.99% of the time and you might want to
+have that level of service documented as
+part of this SLA you can use this for
+any type of service level for example
+you might have an SLA that your
+organization will have no more than 4
+hours of an unscheduled downtime this
+means that your service provider will
+need to have something in place to be
+able to bring you up and running if you
+happen to have an outage they might have
+a process for quickly dispatching a
+technician or they might have equipment
+that they keep on your location that you
+can pull out of a box put it in the rack
+and get up and running as quickly as
+possible as we're increasing the amount
+of access points and other Wireless
+infrastr structure in our organizations
+we need some type of documentation to
+understand the impact of all of these
+different Wireless components for that
+we will create a site survey this would
+allow us to identify all of the access
+points that we might be using even if
+they're access points that we may not be
+in Direct Control of we can at least see
+the frequencies that are in use and be
+able to document those as part of the
+site survey once we understand all the
+frequencies in use we can then document
+those and configure our systems to have
+the minimum level of interference for
+all of our access points if you're in a
+building with a lot of different
+companies or you happen to be in a large
+campus where there are many different
+buildings owned by different
+organizations you may want to perform
+these site surveys very often to
+understand exactly what the wireless
+infrastructure may look like one common
+way to document this is with a heat map
+you can walk around and use a mobile
+device to be able to document how the
+wireless signal may be propagating
+depending on where you may may be
+standing inside of your building

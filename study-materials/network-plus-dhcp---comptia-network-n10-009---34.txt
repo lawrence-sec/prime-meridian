@@ -1,0 +1,199 @@
+on our modern networks we become so
+accustomed to Simply turning on our
+systems and we're able to communicate
+with other devices on our local network
+or browse the internet but it wasn't
+always this easy we used to manually
+configure all of our ipv4 configuration
+settings the IP address the subnet mask
+the DNS settings and everything else
+associated with tcpip was all configured
+manually on every device in order to
+scale this process we created a new
+protocol that would do all of this for
+us automatically this was called the
+bootstrap protocol or boot P but bootp
+didn't configure everything
+automatically and there were a number of
+enhancements that we would like to make
+to the protocol for example if someone
+left the network it would be nice if
+this protocol recognized that that IP
+address was now available so we created
+a newer version of bootp called DHCP or
+the dynamic host configuration protocol
+DHCP is the protocol we use today to
+provide these automatic address
+configurations for all of the devices on
+our
+Network the process for defining these
+IP addresses automatically follows four
+different steps that we're going to call
+Dora d o r a the d stands for discover
+where there is a discovery process where
+you find the DHCP servers that are on
+your network the next step is the offer
+phase where we get an offer from a DHCP
+server the third step is the request
+process where we request one of the
+offered IP addresses and then lastly we
+have the acknowledgement phase where we
+tell the DHCP server that we have
+receive that configuration and are using
+that particular IP address let's step
+through all four of those phases from
+the perspective of this network diagram
+on this diagram we have Sam that has
+just connected her laptop to the network
+and she needs to receive an IP address
+on her local subnet you can see there is
+a single DHCP server and there are other
+devices on this network that we're
+simply not showing in this particular
+diagram there's also a router and this
+router is connected across a wide earing
+Network to another router where there's
+a separate switch and another
+workstation that is owned by Jack let's
+focus on the process that Sam is going
+to use to obtain an IP address this
+first step is the Discover step and in
+this step Sam's workstation is going to
+send a DHCP discover packet it's going
+to be sent from an IP address of
+0.0.0.0 because Sam's workstation
+currently does not have an IP address
+and this packet is going to be sent in
+an IP broadcast which means it's going
+to be sent to
+255.255.255.0 this is sent as a
+broadcast so that every device on the
+subnet will see this DHCP request and if
+the device happens to be one or more
+DHCP servers those devices will be able
+to respond back you'll also notice that
+this request is sent using UDP Port 68
+on Sam's workstation and the broadcast
+is sent to UDP Port 67 this packet is
+sent from Sam's laptop and because it's
+a broadcast it's sent to all devices on
+this local subnet the DHCP server will
+see that broadcast and it will send a
+DHCP offer which is step two of the DHCP
+process this DHCP server has an IP
+address of 1010
+0.99 and it will send this with a source
+port number of UDP Port 67 notice that
+the DHCP server is going to send this as
+a broadcast send it to
+255.255.255.0 and it's going to send
+this to a destination port number of UDP
+68 this is obviously being sent as a
+broadcast because Sam's workstation
+currently does not have an IP address
+the only way that Sam's device would see
+this packet is if it's sent to all
+devices on the subnet this DHCP offer
+will be sent from the DHCP server and
+broadcast to all devices on the subnet
+if there were multiple DHCP servers on
+this network Sam could potentially
+receive more than one offer from a DHCP
+server so in step three Sam's device is
+going to choose one of those offers and
+send a DHCP request to that particular
+DHCP server this request is obviously
+coming from 0.0.0.0 because Sam's
+workstation still does not have an IP
+address it is sourced from UDP Port 68
+and the destination is going to be
+255.255.255.0 one's broadcast and it's
+being sent to a destination port number
+of UDP Port 67 this traffic flow is very
+similar to that first discover traffic
+flow where all of the packets are
+broadcast to all devices on this local
+subnet and the last step is step four or
+the acknowledgement this is sent from
+the DHCP server back to this device
+acknowledging that it has received that
+request the acknowledgement is sent from
+the DHCP server in this case 10.10.10
+199 with a source port number of UDP
+Port 67 and again it is sent to a
+broadcast address 255
+now that Sam's laptop has received the
+acknowledgement from the DHCP server it
+can now configure all of the IP settings
+automatically for Sam's
+laptop as you may have noticed from that
+Network map and the different phases
+that we went through with DHCP there is
+a significant limitation associated with
+the DHCP process and that is the
+broadcast that is being sent by the
+different devices broadcasts of course
+are only transmitted to your local
+subnet and none of those broadcast
+frames will Traverse a router this
+becomes a challenge for an Enterprise
+Network where you'd like to have
+redundant DHCP servers and ideally have
+those DHCP servers distributed across
+different parts of the network
+fortunately there is a way to implement
+DHCP in this environment by using some
+additional features of your router we
+also might want to centralize these DHCP
+servers instead of having separate
+individual DHCP servers that are
+scattered across every remote site that
+we might have fortunately many routers
+support a way to enable DHCP across
+these different subnets even though DHCP
+uses broadcast to communicate we refer
+to this router functionality as a DHCP
+helper or a DHCP relay this will allow
+you to send DHCP traffic to another
+subnet even though it's being sent
+originally as a broadcast we would first
+configure a router with a DHCP relay
+configuration and in that configuration
+of the router we would specify that
+there is a DHCP server located at
+10.10.10 199 and that is our original
+DHCP server that we were working with
+earlier in this scenario Jack would like
+to receive a DHCP address but as you can
+see there is no DHCP server on Jack's
+local subnet Jack's laptop doesn't know
+this however and it will simply send the
+normal DHCP discover message out to
+everyone on this local subnet when that
+broadcast is received by the router
+configured with DHCP relay it will look
+at its configuration and realize there
+is a DHCP server at 10.10.10 99 and it
+will relay that information to the DHCP
+server it changes the source IP address
+to the IP address of the router in this
+case 101030 do1 and it changes the
+destination address to the IP address of
+the DHCP server it effectively takes
+what was a broadcast and turns it into a
+unicast communication
+this packet can now be sent across the
+network to a DHCP server that's located
+on a different subnet the offer process
+works exactly the same but in reverse
+the offer leaves the DHCP server and is
+directed with unicast to the router's IP
+address at 101030 do1 at this point the
+relay modifies this back to a broadcast
+and is sent to the local subnet with an
+all ones broadcast this process repeats
+for the last two phases
+of the DHCP process and that allows
+Jack's workstation to receive an IP
+address even though the DHCP server may
+be on a completely different IP subnet

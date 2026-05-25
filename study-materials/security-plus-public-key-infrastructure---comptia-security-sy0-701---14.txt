@@ -1,0 +1,231 @@
+the term public key infrastructure is a
+very broad term in cryptography but it
+commonly refers to policies and
+procedures this might also include
+hardware and software that is
+responsible for creating Distributing
+managing storing revoking and Performing
+other processes associated with digital
+certificates although that seems
+relatively straightforward even in the
+smallest of companies this can involve a
+great deal of planning and a lot of
+decisions that have to be made of about
+the encryption and methods that you use
+within your company you might also hear
+the term pki used as a way to associate
+a certificate to people or devices this
+is usually in conjunction with a
+certificate Authority or CA and it's
+generally based around how you may be
+able to trust that a particular user or
+particular device is really who they say
+they are before we get into the details
+of public key encryption let's let's
+first start with symmetric encryption as
+this name implies symmetric encryption
+means that anytime you're performing a
+decryption of some information you're
+using the same key that was used to
+originally encrypt that information in
+the movies we often refer to this single
+secret key being shown as something
+inside of a suitcase and that suitcase
+is fastened to the delivery person with
+a pair of handcuffs this ensures that no
+one else can gain access to that
+symmetric key which is very important
+because if you have the symmetric key
+you're able to decrypt anything that was
+originally encrypted with that same key
+sometimes you'll hear about this process
+of symmetric encryption being described
+as a secret key algorithm where that
+symmetric key is that one secret key you
+might also hear this referred to as a
+shared secret because the same key is
+used for both the encryption and the
+decryption process so you have to share
+the key if you expect someone else to be
+able to decrypt that data as you might
+already be thinking if you have to
+provide this secret key to every single
+person who needs to decrypt the data
+then you're probably going to have a
+scalability problem once you get above
+10 individuals or devices it now becomes
+very difficult to not only share the
+keys between all of these different
+people but also manage which Keys happen
+to go with which person or which device
+as you dive deeper into the world of
+cryptography you'll notice though that
+we still use symmetric encryption quite
+a bit and the reason is that it's very
+fast it has very little overhead as
+compared to something like asymmetric
+encryption so we usually are using both
+we're using asymmetric encryption to
+perform some functions and symmetric
+encryption for
+others so if symmetric encryption is
+encrypting and decrypting with the same
+key asymmetric encryption is encrypting
+and decrypting with two different Keys
+these two keys keys that we use the one
+for encryption and the other key for
+decryption are two keys that are
+mathematically related in fact we create
+both of these keys at the same time
+during the same process and that
+provides that mathematical relationship
+between those two keys this means once
+you've created these two mathematically
+created Keys you then assign one of them
+as being the private key and the other
+one as being the public key as the name
+implies the private key is the one that
+only one person or one device would have
+access to no one else has access to this
+private key the public key however can
+be seen and used by anyone the public
+key just as that name implies can be
+available to the public if you've never
+used asymmetric cryptography before this
+next part may not seem intuitive but
+this is what adds the power and the
+magic to performing as symetric
+cryptography everyone who has the public
+key can encrypt data and send it to you
+by using that public key the private key
+that you have is the only key that can
+decrypt any of that data encrypted with
+the public key for example there may be
+a number of different individuals that
+are encrypting data using your public
+key and sending you that information if
+any of those individuals happens to gain
+access to this information that's
+encrypted they would not be able to
+decrypt it with the public key because
+the only key that can decrypt it is the
+private key and you're the only one that
+owns the private key another important
+consideration is although both the
+public and private key are
+mathematically related you can't derive
+one key by simply looking at or owning
+another key because of the math
+associated with the creation of these
+public and private Keys there's no way
+to reverse engineer the private key even
+if you happen to have the public key and
+that is one of the big benefits of
+public key
+cryptography if you've ever used used an
+application that takes advantage of
+asymmetric encryption such as pgp or gpg
+you've gone through the process of
+creating your public private key pair
+this process of creating the public and
+private key is something that occurs
+simultaneously and it usually involves a
+lot of randomization a combination of
+very large prime numbers and a lot of
+cryptography behind the scenes if you're
+creating these Keys as an individual
+this is usually a process you only have
+to go through once at the very beginning
+and from that point going forward you
+have your private key and your public
+key so in the case of Alice she's
+creating or generating a new pair of
+keys the key generation process usually
+only takes a few moments and it outputs
+two separate Keys one of those keys it
+identifies as the public key and it
+labels the other key the private key at
+this point we can distribute our public
+key to our friends we can post it on our
+website or attach it to our social media
+Pages we would then take the private key
+save it locally and make sure that it is
+protected very often we would assign a
+password to a private key so that you
+had to know the password to gain access
+this adds another level of protection
+just in case a third party happens to
+come across or gain access to our
+private key so now that Alice has
+created a public and a private key she's
+made the public key available to
+everyone there is a friend of hers named
+Bob who would like to send Alice an
+encrypted message Bob starts on his
+laptop by writing the message that will
+refer to as this plain text that says
+hello Alice and he has Alice's public
+key because as the public key it's
+available for anyone to use this goes
+into your asymmetric encryption software
+which then creates the cipher text this
+is the combination of the plain text and
+Alice's public key at this point this
+Cipher text can be sent to Alice and can
+be viewed effectively by anyone there's
+no way to decrypt this information with
+out the private key even if somebody
+gains access to the cipher text and they
+gain access to the public key they still
+would not be able to somehow reverse
+engineer the plane text now that Bob's
+created the cipher text Bob can send
+that over to Alice Alice sees that this
+is encrypted data and uses her private
+key to decrypt the cipher text at that
+point we're back to the plane text and
+as you can see it is identical to the
+plain text that Bob originally
+sent when you're dealing with a single
+person who happens to have their own
+public and private key pair it's up to
+the individual to manage those and at
+sometime in the future if you need to
+decrypt the information that individual
+simply goes to their private key and
+decrypts anything that may still be
+encrypted on their system but when
+you're working in an environment with
+hundreds or thousands of users and each
+of these users has their own public and
+private key pair you may need some way
+to manage that very large amount of data
+this may be a third party where you hand
+over PR private keys and they maintain
+those private keys until you happen to
+need them or perhaps you're performing
+your own key escrow once everybody
+creates their keys you can store the
+keys locally and if that user happens to
+leave the company or move to a different
+department you'll still have the private
+keys so that you can decrypt everything
+they've been working on this is
+something commonly seen when you need to
+provide some way to decrypt data even if
+you're not the person that originally
+encrypted that information for example
+as we mentioned earlier a user may leave
+the organization but we still need
+access to all of their encrypted data or
+it may be a government agency that is
+working with a partner and both of those
+organizations need to decrypt data that
+may have been encrypted as part of this
+project handing your private key off to
+someone else to be able to manage the
+process may seem a little controversial
+but in some cases it's required in order
+to maintain uptime and availability of
+all of your organization's
+data

@@ -1,0 +1,222 @@
+we rely on our domain name services or
+our DNS servers to provide us with a
+conversion between a fully qualified
+domain name and an IP address an
+attacker taking advantage of a number of
+different DNS poisoning attacks could
+cause a user to visit an IP address that
+they did not originally intend some of
+these DNS poisoning attacks involve
+modifying the DNS server itself the DNS
+servers themselves are very well
+protected so this is not the kind of
+attack that is commonly used when you
+think of DNS poisoning something that
+might be a little more accessible to the
+attacker would be to modify the host
+files on the client computer they would
+need to have access to this client
+computer and in most cases they would
+need elevated rights to even have
+permission to change this file this
+local host file contains a list of fully
+qualified domain names and IP addresses
+very similar to what you would find on a
+DNS server but instead of your local
+machine in querying the DNS server for
+this information it simply looks through
+its local host file to see if the
+resolution happens to be in that file
+itself and if it is in the file it uses
+that resolution instead of making a
+query to the DNS server and there are
+certainly ways for an attacker to sit in
+the middle of a conversation intercept
+the DNS queries and reply back with the
+query that would direct the user to a
+malicious site since this is a real-time
+redirection of the original request
+would require the attacker to sit in the
+middle of the conversation as the DNS
+query is occurring let's look at an
+example of when an attacker can gain
+access to the DNS server to modify that
+DNS configuration here's how this DNS
+poisoning That's using IP spoofing is
+able to redirect this traffic we have an
+attacker on this network this is an
+attacker that has an IP address of 100.1
+100100100 we also have a DNS server its
+IP address is listed here as 1621 159
+2461 164 and then there are two users on
+the network that need to query for
+professor.com a normal DNS query without
+any type of attacker sitting in the
+middle of the conversation would occur
+from user one who talks directly to the
+DNS server in queries for professor.com
+that DNS server has a record in that
+server that indicates that professor.com
+is the IP address you see here that ends
+in 164 so the DNS server will send an
+answer back to the first user with the
+IP address of professormesser.com and
+that user fills in that information in
+their cache and they can continue
+connecting to professormesser.com using
+the IP address they discovered during
+the resolution process with the
+legitimate DNS server now let's say that
+there is an attacker on the network who
+has somehow gained access to this device
+that contains the DNS server maybe
+they've been able to identify a known
+vulnerability gain access to the
+operating system or maybe they've been
+able to obtain administrative
+credentials for this DNS server in
+either case the attacker can connect
+directly to the DNS server modify the
+DNS server configuration so instead of
+it pointing to the 164 address for
+professormesser.com the new IP address
+for professormesser.com is now the same
+as the attacker or 1001001 100100 this
+means that any subsequent requests made
+to the DNS server for example from user
+Us 2 will result with a response from
+the DNS server that doesn't contain the
+correct IP address instead user 2 will
+receive the IP address that has been
+changed by the attacker or 100.1
+100100100 this means that any subsequent
+request to Professor m.com from user2
+will go to 100.1
+100100100 or the attacker's computer
+instead of going to the legitimate IP
+address for the Professor Messer website
+another way to gain access to this DNS
+server and make configuration changes is
+to somehow gain access to the entire
+fully qualified domain name that is used
+by that DNS server so if you can access
+the domain registration wherever it
+happens to be you would then be able to
+control exactly where that traffic is
+going to flow and what IP addresses
+might be associated with that fully
+qualified domain name there are many
+ways to gain access to this domain
+registration it is not a simple process
+because of the security that's generally
+put in place at these domain registar
+but there are ways to gain access to
+these accounts through traditional means
+such as Brute Force social engineering
+the password perhaps finding a username
+and password from credentials that were
+released publicly on the Internet or any
+other method that allow us to gain
+access to the username and password for
+this account if an attacker was to gain
+access to this domain registration they
+would be able to make any changes to the
+IP addresses for the DNS setting
+settings associated with that fully
+qualified domain name an example of this
+happening occurred on Saturday October
+22nd 2016 at 1 p.m. there were 36
+domains that were changed in the domain
+registration settings this was
+associated with a bank in Brazil and it
+modified the domains that were used by
+desktop systems mobile devices and
+almost any other device associated with
+the bank the attackers had access to all
+of these systems and were able to make
+configuration changes for a 6-hour
+period on that weekend the attackers
+effectively became the IP address for
+the entire bank which means they could
+start collecting usernames passwords and
+other sensitive financial data the bank
+didn't release any information about
+this particular attack but we know that
+this bank has over 5 million customers
+and approximately $27 billion in assets
+this is a problem that can occur not
+just for this bank but for anyone's
+organization where you rely on that DNS
+to point people to the correct servers
+instead of a server that may be
+malicious another way that an attacker
+can use to redirect users to a malicious
+site is by using URL hijacking this
+might redirect users to a site that
+presents advertising and that
+advertising would create a revenue
+stream for the attacker or maybe the
+attacker has the name of a domain that
+is very close to the actual domain name
+and the attacker may be able to sell
+this misspelled domain name to the
+legitimate domain name owner if the
+attacker really wanted to be crafty they
+could use that misspelled name to
+redirect all the traffic from that
+legitimate site to the competitor of
+that legitimate site or the attacker may
+present a page that looks exactly like
+the legitimate site and it may request
+you to input your username and password
+at which point the attacker now has your
+loging credentials or the attacker wants
+you to download mil ious software that
+will either create a ransomware for your
+machine or it will turn your device into
+part of a much larger botn net sometimes
+you'll hear this URL hijacking referred
+to as typo squatting or brand jacking
+because it's taking advantage of
+misspellings that are made on the
+keyboard of users that are trying to get
+to the legitimate domain name sometimes
+this is just a misspelling of the
+original domain name and you may not
+even notice that the domain name is
+different for example the legit URL for
+my website is professormesser.com with p
+r f s o r
+Meer but a mispelled domain name would
+look very similar to this which at first
+glance looks like it could be the
+correct domain name except Messer is
+spelled with me o r in the spoofed OR
+hijacked URL or perhaps the attacker has
+registered a domain name that is simply
+a misspelling of the original domain
+name for example a user trying to visit
+professormesser.com
+could type in the domain name but
+accidentally leave off the last s this
+means the user would be directed to a
+domain name that is owned by the
+attacker rather than the legitimate
+professormesser.com
+attackers could also add additional
+letters to the domain name for example
+Professor mass.com which looks very
+close to the legitimate domain name but
+of course this is a domain name that is
+owned by the attacker or they might use
+the same name in the first part of the
+domain such as Professor Messer but
+instead of using they'll register that
+same domain with a different top level
+domain such as.org this is another
+reason why we often tell you not to
+click links inside of your email and to
+look very closely at the Domain that
+you're visiting to ensure that you're
+really on the correct
+website

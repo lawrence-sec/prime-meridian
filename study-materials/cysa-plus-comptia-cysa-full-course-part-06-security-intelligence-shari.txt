@@ -1,0 +1,301 @@
+so we've talked about security
+intelligence in the previous video and
+long story short it's not that simple
+there's a lot of effort involved
+knowledge tools it's it's time consuming
+and well from time to time it even
+requires you to have a bit of luck now
+if each and every company out there
+would have to invest their resources
+into securing their assets well most of
+them would not be able to afford this
+investment and secondly it would be a
+lot of wasted effort because everybody
+is pretty much looking for the same
+information about the same attacks for
+the same malicious urls
+so fortunately there are ways to share
+the security of intelligence so that we
+only need to reinvent the wheel when uh
+i don't know you think of some example
+here
+[Music]
+information sharing and analysis
+communities
+they are necessary because some
+important industries like utilities
+healthcare financial air transport and
+such
+can pose some threats to national
+security so every country or mostly
+every country has allocated some
+resources to gather all this cyber
+security knowledge and data in each
+field to be ready to intervene if cyber
+attacks happen and to protect national
+security and lives in the end because
+that's what matters the most
+and by the way as an exam tip if given
+the option lives are the number one
+priority in all comptia exams including
+seiso plus now human life is probably
+pretty high even on your own list of
+priorities but i just thought i should
+mention this one here just keep an eye
+out for questions that ask you about
+saving lives in a case of disasters
+isaac's or information sharing and
+analysis centers
+is the name for the non-profit
+organizations that share this security
+intelligence information
+one advantage is that these centers
+gather information directly from the
+good people working in their specific
+industries so the information is very
+specific and very relevant to others in
+the same industry
+some examples of isaacs include
+for healthcare we have ajisac.org
+which is focused against loss of phi
+that is protected health information for
+blackmail extortion ransom or
+compromising medical data or medical
+equipment
+for the financial sector fsisac.com
+focused on companies that are obvious
+targets for fraud
+for aviation we have a isaac.com
+focuses on intelligence regarding
+terrorist actions and terrorist attacks
+for government and actually federal u.s
+government
+we have the multi-state isaac
+and even a specialized isaac dealing
+with elections and security against
+election fraud
+for utilities and other critical
+infrastructure the cyber security and
+infrastructure security agency provides
+guidance for a lot of industry sectors
+you can find all the links in the video
+description
+this could be a good place to mention
+this just for your general knowledge you
+might have heard saying that the
+internet was designed to survive a
+nuclear war
+that is definitely not true even though
+the internet is a very resilient network
+by design but these isaacs have nothing
+to do with this again the purpose is not
+to ensure the survival of the internet
+but of the human race
+do you remember this
+of course you do
+it's the threat intelligence cycle what
+a stupid question andrew
+well if you remember this
+then this sharing business
+fits best in the dissemination phase of
+that threat intelligence cycle and the
+use cases for sharing this information
+fall into these four categories these
+four bullets on the screen let's spend
+just a few seconds on each and try to
+understand how can security information
+sharing help us from all these different
+perspectives
+first
+risk management and security engineering
+the most obvious one you share security
+information to upgrade yourself which
+means
+properly choosing and configuring the
+right security hardware software network
+platforms like
+switches routers firewalls all in your
+company for the single purpose of
+reducing your attack surface and very
+important if the organization handles
+any kind of software development then
+this security information must be shared
+with the developers as well
+let them know if a specific library or a
+protocol has some security weaknesses
+make sure they don't use those in the
+software that they're developing we'll
+talk more later about secure coding
+practices
+then for incident response another one
+that should be obvious we care about
+security intelligence to be better
+informed and to know what to do when bad
+things happen when we are under attack
+or when we just discovered that we've
+been compromised this morning last week
+or a year ago
+so learning how to respond to security
+incidents is a very important objective
+that we can achieve by properly sharing
+this security information
+vulnerability management
+this is more on the strategic high-level
+side the purpose of a vulnerability
+management program in an organization is
+to keep a close eye on your
+infrastructure and identify as soon as
+possible any new vulnerabilities or
+weaknesses that might appear in time
+either because something new was
+introduced in the network some
+configuration has changed or simply
+because some previously unknown
+vulnerability has just been discovered
+like with the intel processors and their
+vulnerabilities of spectre and meltdown
+vulnerability management not only keeps
+track of them but should also implement
+ways to keep them under control
+again like with intel where those were
+hardware vulnerabilities which you
+cannot patch right away
+vulnerability management is a very
+important process because this allows
+you to fix gaps in your security before
+an incident actually has a chance to
+happen so it's about integrating
+security intelligence into your actual
+organization into your processes your
+network your your endpoints
+and if you proactively scan
+for vulnerabilities this ensures that
+you are always up to date on your
+security posture
+what do we need to fix
+where are our weaknesses you might be
+thinking well all this is
+very difficult it's it's time consuming
+and yes it is
+but compare this with the potential loss
+in a real breach
+a real vulnerability management process
+can
+and will save you money can help you
+avoid very costly breaches where you can
+lose customers reputation or actual
+money from fraud or fines
+detection and monitoring
+finally the last use case is to use this
+information to improve your own ability
+to detect future threats
+more information should mean that you
+can better fine-tune your devices
+your sensors your firewalls your ips's
+or any alerting system so that it better
+matches real threats
+the idea is to avoid as much as possible
+those false positives right when you
+receive an alert for normal traffic or
+even worse false negatives when you
+don't receive an alert for traffic that
+is actually malicious
+so it's not enough to just
+have detection and monitoring but it
+should be robust
+too many false positives will cause the
+security team to start ignoring them
+altogether like in the boy who cried
+wolf right and too many false negatives
+well
+it means that you've been compromised
+you don't even know it
+also make sure you cover all relevant
+places in the network so firewalls ips's
+web application firewalls email and web
+servers should all be monitored and
+again just like vulnerability management
+all this talk about detection and
+monitoring needs to be an ongoing
+function always up to date
+not just something that you do once and
+then forget about it
+now let's go back for just a second to
+this slide right here and let's try to
+remember what we've mentioned that we
+need a vulnerability management process
+so how do we actually do this
+vulnerability management
+well first of all you need to assign
+responsibilities people need to know
+what are they responsible for in this
+process so they don't just stare at each
+other or run in circles when bad things
+start happening
+then you need proper documentation make
+sure everything is documented and up to
+date and that every process is in there
+again so that everybody knows what to do
+don't rely on people's memory there is
+no such thing
+write everything down
+then well actually you might even want
+to start with this
+make sure management and then the users
+understand the reason behind
+vulnerability management you need
+support from top management for this to
+work
+then find out as much as you can about
+your environment keep an inventory of
+your devices your assets their
+configurations collect and then backup
+your configurations in some centralized
+place where you can then analyze them
+after you have an inventory of devices
+and configurations assign a business
+risk to each item in the inventory or
+determine how badly you would suffer if
+a specific item would be compromised
+like a specific server or your isp
+router or some storage device and this
+is going to help a lot with
+prioritization
+then make sure you choose the right
+tools for assessing their
+vulnerabilities this is where you
+actually find those vulnerabilities that
+we keep talking about either manually or
+even better with dedicated automatic
+vulnerability scanning software like
+nessus or openvis
+and all those think about configuring
+them right and tweaking them a bit to
+better match your environment this helps
+tremendously with avoiding false
+positives and false negatives
+be ready to schedule maintenance when
+issues are detected and last but not
+least
+be consistent
+don't procrastinate because
+vulnerability management is a continuous
+process not just a do it and forget it
+sort of thing
+so that's pretty much it about
+intelligence sharing remember that
+countries have dedicated organizations
+called isaacs that deal with collecting
+and disseminating this intelligence
+information and also don't forget why
+we're doing this in the first place this
+collecting and sharing of information to
+help us with risk management
+incident response vulnerability
+management and for our own ability to
+detect and monitor the threats like
+these so good luck on the exam don't
+forget to subscribe and see you on the
+next video
+[Music]
+you

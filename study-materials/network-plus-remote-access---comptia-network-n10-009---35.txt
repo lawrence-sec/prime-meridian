@@ -1,0 +1,197 @@
+if you've done anything in networking
+relating to switches routers firewalls
+or other devices then you've probably
+connected over the network to a terminal
+or console to do this over an encrypted
+Channel you use a protocol known as SSH
+this is secure shell this allows you to
+use this terminal screen to a Remote
+device but all of the traffic sent over
+the network is encrypted this means you
+can put in your username your password
+and all other information and no one
+else will be able to capture that
+traffic and see any of that important
+data secure shell operates using TCP
+Port 22 and it's designed to replace a
+protocol known as telnet which uses TCP
+Port 23 telnet is very similar in
+operation to SSH it provides this
+console-based view of a Remote device
+but it provides no encryption and that's
+why the best practice is to always use
+SSH and to not use telnet working at a
+command log is useful especially on
+devices that support it but occasionally
+you need to be able to provide remote
+access to a graphical front end you can
+do that by using some type of remote
+sharing software so that you can be at a
+remote location yet still see and
+operate the same desktop as someone
+who's sitting directly in front of that
+computer if this is a Windows computer
+then you're using RDP which is the
+Microsoft Remote Desktop protocol that
+allows you to connect to a Windows
+machine and be be able to access and use
+the front end as if you were in front of
+the actual Monitor and keyboard if this
+is a Windows computer that you're
+connecting to you're probably using RDP
+or Microsoft Remote Desktop protocol
+this allows you to remotely control a
+Windows machine either from another
+Windows machine across the network or by
+using remote desktop protocol clients
+that are available for nearly any other
+operating system another option for
+remote control of a device would be to
+use VN C or virtual network computing
+this uses a protocol known as RFB or
+remote frame buffer this is very similar
+in function to Microsoft's RDP but the
+VNC functionality can be run on many
+different operating systems if you're
+part of a help desk or support team and
+you need a way to remotely connect and
+control any of these remote desktops
+you're probably going to be using RDP or
+VNC sometimes you need to be able to
+make changes to hundreds or even
+thousands of different devices you could
+automate this at the command line using
+scripts and batch files but because this
+operates at the command line you don't
+have a lot of control over the process
+if you happen to run into problems for
+that reason you might want to use a more
+automated method of controlling that
+device using an API or application
+programming interface using an API you
+can connect in control a device using
+the language that that device would
+expect this also allows us to automate
+the process
+and set up additional tasks if we need
+to do any type of error handling if you
+happen to be in the same physical
+location as the device you may be able
+to plug in a cable and directly connect
+to the device with switches routers and
+other infrastructure devices you might
+even have a separate port on the front
+labeled console that console allows you
+to connect through a serial connection
+so that you can plug in your RJ45 serial
+a DB9 serial connection or a more modern
+US B connection to be able to gain
+access to that system the console is
+also a perfect solution if you lose
+network connectivity to the device if
+you're not able to Ping or SSH into the
+device you can always connect your
+console cable and directly communicate
+with that system these consoles are
+commonly text based interfaces so you
+need to know the command line interface
+for that particular device these console
+connections are commonly serial
+connections so we will need a laptop or
+desktop computer with a Serial port or
+we will need an adapter that can convert
+between USB to a serial
+connection instead of individually
+connecting to devices some organizations
+will create a jump server that allows
+you to connect to one device from there
+you can jump to the other devices within
+that particular organization this means
+from your external device you would use
+some type of VPN tunnel or SSH
+connection to initially connect to the
+jump server because this jump server is
+often an externally facing device where
+anyone on the internet could potentially
+connect to that system this needs to be
+very hardened we need to be sure that
+we're using authentication with multiple
+factors to be able to prevent anyone
+from brute forcing their way into that
+jump server from our external client we
+would use some type of thirdparty
+software VPN SSH or some other secure
+mechanism to gain access to the jump
+server once we're on the jump server we
+can then connect to all of the other
+devices within that organization without
+having to set up separate connections
+for each individual device we obviously
+need to be sure that this jump server is
+always kept up to date with security
+patches and that we provide a high level
+of authentication to prevent any third
+parties from Gaining access to the
+inside of this private
+Network the console connection on a
+switch router or other device allows us
+to directly connect but very often we're
+located in a different network at a
+different facility and we still need
+some way to gain access to those systems
+fortunately most devices support inband
+management where you can assign an IP
+address to that device and then connect
+to it using SSH or web-based front end
+sometimes this inband management is a
+separate interface on the device other
+times it's built into other interfaces
+that already exist on that device when
+configuring that switch router or other
+device you would provide it with a
+management IP address address subnet
+mask and other important networking
+details and from that point forward you
+can connect to this device across the
+network usually this device has a web
+server running internally to the device
+or it may be using an SSH server so that
+we can connect from our SSH
+client here's an example of a switch
+that not only has a Serial console
+connection that you can directly connect
+to but it also has a separate Tim 100
+1000 management interface this is the
+interface that you would assign an i I
+address and then you would connect your
+network directly to that interface from
+that point you can simply reference the
+IP address and be able to connect to the
+device across the
+network if inband management is using an
+IP address that we connect to through
+our existing Network then out ofand
+management is using a Serial interface
+that does not use our existing Network
+commonly this would be something like a
+separate management or console interface
+that we'd plug into using that serial
+connction
+on more modern devices you might find
+this to be a USB connection this
+separate console or comp port on the
+device also allows us to connect a modem
+so we might use a standard phone line
+connect a modem to that phone line and
+be able to dial into that device even
+when the network happens to be down in
+some organizations you can even install
+a Comm server so you can dial into one
+server and from that server you can jump
+to other devices through that com server
+connection you would need to look at
+your switch router or other device to
+see if there is a serial connection or
+console connection that you can either
+directly connect to or use a modem to
+dial into from a remote site

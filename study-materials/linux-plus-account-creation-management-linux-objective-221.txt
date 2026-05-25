@@ -1,0 +1,273 @@
+all right are you ready for a weird
+video here's the deal uh we're gonna
+call this pattern interrupt now I've had
+just a crazy week
+351.
+Rover
+does he have a long history of mental
+illness
+as long as I've known him but I want to
+cover this next video for the Linux plus
+course and so sitting here waiting for
+my wife to be done with work because
+she's on a knee scooter and I have to
+like you know drive her and move her
+scooter and stuff anyway while I'm here
+waiting for her to be done I'm going to
+teach the lesson from memory and if you
+know my memory that's a scary thought
+but nonetheless we're gonna try and then
+when I get back to my office I'm gonna
+edit it up and see if I covered
+everything so here's the deal I've done
+this stuff this is a user creation stuff
+right and so we've done this a lot of
+times there's even a video that actually
+covers this completely so even if this
+is a complete farce check up there and I
+will put a link to the video in the
+Linux Essentials course that covers
+account creation but we're gonna do this
+okay so first of all we're going to
+start with the you user add command
+which is the command that you surprise
+surprise add a user with user ad comes
+with some Flags now you're going to do
+user user ad Dash H lowercase H and
+press enter it'll give you all the
+commands that you can do now the nice
+thing is most of the things work fine by
+default in fact if you want to see the
+defaults all you have to do is type user
+add Dash capital D and it will show you
+the defaults and if there's a default
+there that you don't like like I think
+by default usually in Ubuntu at least
+the the user's shell when they're
+creating a new user is a bin sh I prefer
+bin bash maybe you prefer bin zsh if
+that's installed what you do to change
+the default no I I should preface this
+you have to be root or use sudo to do
+all these commands because they require
+root access you're creating users you
+have to be rude so anyway it's going to
+be user ad space Dash capital D for
+defaults and then if you just do that it
+lists it but if you then add another
+command like space and then Dash
+lowercase s and specify a shell like bin
+bash and press enter it'll change the
+default so if you do user add Dash
+capital D again it's going to show you a
+look we changed the default okay
+so most of the defaults are just fine so
+when you create a user all you do is say
+again as root user add
+and then the username but here's here's
+the part that annoys me if you do it
+that way it won't create the user's home
+directory by default it will specify
+where the user's home directory should
+be in the home directory by default but
+it doesn't create it so in order to do
+that you have to use the oh this is this
+is hurting my brain a little bit user
+add Dash lowercase M I believe I hope
+I'm right and that's going to make the
+directory so basically we're just going
+to say sudo or as root user ad space
+Dash lowercase m space let's say Susie
+we're going to create the user Susie and
+press enter now that user exists and if
+you check her home directory should be
+there as well now she doesn't have a
+password which is a pain in the butt but
+what you can do is say as root or using
+sudo
+p-a-s-s-w-d space her username Susie and
+then it's going to prompt you twice to
+create a password for her and then she
+should be able to log in because the
+defaults do all the things that allow
+hard to log in okay now we can do the
+same exact thing with the group now by
+default it's going to create a her user
+group like Susie's group named Susie
+same user by default however
+let's say uh Susie's part of a marketing
+team so we can create a group just like
+we created a user and it's a little bit
+simpler basically there's not a whole
+you can do
+group AD space Dash lowercase H to see
+the different options but we're just
+going to say uh group AD
+space and then marketing for example and
+it'll create that group marketing and uh
+that's the group exists no she's not
+added to it we use a different tool for
+that but first of all
+let's use the next set of tools if I
+remember the slide correctly we have we
+we just covered uh user ad and group AD
+but we also have user Dell which is
+delete the user right sometimes we need
+to delete a user these are all local
+users but user Dell is similar to user
+ad but it deletes them no but what we
+need to do is make sure to look at the
+dash H for the help so we're going to
+say user Dell space Dash lowercase H
+press enter it's going to show us all
+the commands and when you are deleting a
+user there are two things specifically
+that you have to do you want to do user
+Dell Dash f for force and that's going
+to force delete the user's file
+and this is an ah I remember and the
+second uh option so you're gonna do uh
+user Dell Dash f for Force Space Dash R
+for remove and that's going to remove
+the user's home directory and their mail
+spool folder if they have a spool folder
+for local email usually they don't but
+you know it's it deletes everything if
+you put that in there so Dash F Dash R
+uh space and then Susie That's the user
+that we created and then press enter
+again as root orb with sudo and Susie
+will be gone it'll probably give you an
+error about like oh there's no spool
+directory because we didn't set up mail
+for her uh anyway so she's gone right
+now the same exact thing with group Dell
+uh it's I mean it's pretty simplistic
+there are no files usually I mean you
+can still do group Dell and then Dash
+lowercase H to see the different
+commands but pretty much just like we
+didn't really use any Flags when we
+created a group same thing when you Dell
+a group or delete a group or group Dell
+you can just say uh grouped as root or
+pseudo group Dell and then marketing
+okay and so it's gone so we've undone
+everything right we created a user
+created a group and then we deleted a
+user and deleted a group okay
+I'm going to leave it to you to recreate
+Susie okay so uh let's recreate her
+because the next thing we need to do is
+um user mod and user mod is the thing
+that you're going to use the most of
+okay uh user mod is something where you
+can modify an existing user and let's
+say we want to add Suzy to a group Etc
+see where I'm going here so create Susie
+again and you know cheat sheet it's
+going to be a pseudo or as root uh user
+ad space Dash M for make her home
+directory space Susie okay Susie is
+created again there is a group named
+Susie you can type ID space Susie and
+that will show you
+uh that Susie has a group named Susie as
+well okay so Susie Susie is there but we
+want to enter to a secondary group okay
+uh so let's make that group again so uh
+uh group AD space marketing boom that's
+done the Marketing Group is there Susie
+doesn't belong to it yet what we need to
+do there is user mod
+space
+Dash capital G and the capital G
+specifies an additional group or a
+supplementary group okay so we don't
+want to change her lowercase G group
+like the one that is Susie like her main
+group but we want to change her
+supplementary groups so Dash capital G
+and then marketing but but but but but
+before that do um we have to say
+uh user mod Dash lowercase a
+because that appends instead of replaces
+okay so let's say she already belongs to
+three different auxiliary groups we
+don't want to just have her assigned to
+marketing so if we do user mod Dash
+lowercase a space Dash capital G and
+then marketing right so we want to add
+her the a to the supplementary capital G
+group marketing space Susie that's going
+to add Susie to that group and then if
+you do ID Susie again it's going to show
+that we did it we added her to that
+group without deleting any of her other
+groups and you can do that with any
+number of groups when you do the a it
+just appends the group that you're
+specifying instead of erasing her
+supplementary groups and just doing the
+ones that you specify okay so that's
+that's how that works now group mod is
+very similar you can just do group mod H
+and see the options there basically you
+can change the name of a group let's say
+marketing isn't what they call
+themselves anymore because that's not
+really cool so now it's like uh
+marketing is now user engagement so we
+need to change the group to user
+engagement that's where we would do
+group mod okay if I'm remembering what
+else is there uh we already talked about
+the shell that's listed on the slide we
+use the ID command it shows the groups
+that they that people have
+um W and who so w just on itself you
+know Unix is great with really short
+commands so w stands for what what is a
+user doing so type w I'm the command you
+don't have to be rude to do this either
+type w and then enter it'll show you all
+the logged in users and what they're
+currently doing so if you have a bunch
+of people SSH into the system or it's a
+multi-user system you're going to see
+all the users logged in and what they're
+doing that's what the W stands for I
+think I've always I've always said it
+was a what but the W command we'll show
+you what everybody's doing the who
+command hwo will show you who's logged
+in it shows you similar information I
+think it shows you
+how they're logged in like if they're a
+local TTY user if they're an SSH user as
+opposed to W which shows you what
+they're doing who shows you how they're
+logged in so it's a subtle difference
+but it just they both show you the users
+that are logged in but they show you
+different information about those users
+and I think I think that's it I think
+those those are all the things I wanted
+to cover I did in about 10 minutes I'm
+going to go through this again with the
+computer to see if my teaching is
+correct but like I said even if I
+screwed up I'll make a note during the
+final edit of this video but there is uh
+the Linux Essentials video that covers
+all this stuff in depth and uh it's not
+recorded from my card thank you for
+tuning in I hope this was fun for you a
+little bit of pattern interrupt for all
+of us remember to learn everything
+including how to do videos in your car
+do what you love including making videos
+in your car and most importantly be kind
+to people who are making videos in their
+car I'll see you in the next video
+thanks for sticking around this long

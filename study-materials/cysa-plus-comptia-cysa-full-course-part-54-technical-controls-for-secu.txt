@@ -1,0 +1,623 @@
+[Music]
+well when you're seeing a title like
+this technical controls or securing data
+you might be wondering well isn't this
+all that scissor plus is about isn't
+this what we've been talking about so
+far well yes and this chapter does have
+a
+a kind of a recap flavor to it but we're
+also going to focus specifically on
+controls designed to protect data and
+nothing more all right
+so
+it's nice that we have policies and
+procedures in place
+but since attackers don't really play by
+anybody's rules and policies we still
+need our defenses to to be up so let's
+see what technical defenses
+we can use to defend our castle
+castle that holds data of course
+and when we say technical controls we
+are referring to things like systems
+hardware software
+appliances physical or virtual even
+configuration items and specific types
+of configurations that help us make our
+environment and our network and our
+users and our data more secure right so
+most of them do this by minimizing
+exposure so we're trying to reducing the
+attack surface and the central idea here
+is that we are doing it by relying on
+technology that's why we call them
+technical controls and when we talk
+about data we first have to handle the
+way data is accessed before thinking
+about any other kind of defenses so
+access control right means allowing or
+denying access to some resources it
+mostly is going to involve access to
+networks or access to specific files or
+access to databases or to specific
+tables or entries inside of a database
+and in general
+and generally when we think about
+controlling access we're going to
+implement this type of control in
+software in a structure that is called
+an access control list now the access
+control list or the acl includes a list
+of who is allowed to access the resource
+and what permissions they might have
+each record inside such a list is called
+an access control entry or an ace and we
+can apply this for networks so for
+network access they're going to be
+implemented in the router the firewall
+sometimes even in the switch depending
+on what layer you're you're applying
+those acls
+and nevertheless they're going to block
+or allow access to the network that is
+they're going to block or deny traffic
+but for files and folders the support
+for these acls has to be built in file
+system
+and luckily most of them allow acls to
+be implemented like available
+which specific sql statements are
+allowed for each user or each database
+or which tables or which entries
+can a user view or can a user modify or
+alter or or make any kind of changes in
+there and access control is one of the
+first places where the principle of
+least privilege
+has to be enforced and makes sense to be
+enforced this is how users get just
+enough access to do their jobs but not
+more than necessary so this is least
+privilege now controlling access might
+cover more than just
+who accesses what but can go into a bit
+more detail such as the geographical
+location of the user that is accessing
+the resource or the time of day when the
+access happens or any more complex
+checks that can be performed then these
+are sometimes called either time-based
+acls if they just take the time of day
+into account or context-based acls if we
+take into account things like geographic
+location uh the posture of the device
+that we're using the type of network
+that you are connecting from and so on
+so we're building a context out of
+multiple variables here and these type
+of context-based acls are nowadays found
+in more
+modern firewall solutions like
+next-generation firewalls or
+utm devices
+so going deeper we have to think about
+file system permissions right because
+that's where data is stored in some sort
+of a file file system it might be
+actually it might be a database but
+let's start with the file system now we
+mentioned that access control for files
+and for folders happens at the file
+system level so let's see how these
+permissions look like and we're going to
+start with windows right you can view
+the file permissions
+in windows using the file properties
+dialog so if i were to just choose a
+folder on my desk and head over to the
+security tab on the bottom half of this
+window i'm going to see the permissions
+for authenticated users and you can see
+the type of permissions that we can
+enable in windows belong to the
+following categories starting with full
+control right this is going to allow
+users to read write make changes
+delete files and subfolders additionally
+users can also change permission
+settings so they can override these
+permissions
+by their own free will right for all the
+files and subdirectories next up we have
+the modify permission this one allows
+users to read and write files and
+subfolders also allows a deletion of the
+folder itself then we have read and
+execute allows user to
+view and run executable files
+including scripts don't forget about
+this one
+list folder contents i believe this is
+already obvious what it does allows
+viewing and listing of files and
+subfolders as well
+and this one is inherited by folders
+only because it'll only make sense at
+the folder level next up we have read
+permissions allows user to view the
+folder and the subfolder contents and
+finally the right permission last one
+here allows user to add files add
+subfolders create content basically
+allows you to write to any files now on
+the command line
+you have the command called i c acls or
+i cackles how it is sometimes pronounced
+this tool can be used to display the
+same information and change the
+permissions if necessary the icackles
+tool it does use some shorthand
+notations and you can see them all here
+on the slide but we're basically talking
+about the same type of permissions that
+we can view in the graphical interface
+of windows as well now the icackles
+command just by itself is going to list
+all the possible permission combinations
+right so make a note of what's the
+shorthand notation
+from the icarus perspective or if you
+were to list the permissions for a
+specific file let's say for example that
+i'm interested in the permissions on
+this powershell script right here
+right it's going to tell me that the
+system user has full permissions
+administrators also have photo
+permissions and also myself which i am a
+member of the administrators group will
+inherit the full permissions as well now
+the i at the very beginning let's scroll
+up here
+i'm going to see that it belongs to the
+inheritance section right here says that
+permission is inherited from the parent
+container right which basically means
+parent folder
+and of course you can use this utility
+to change the permissions if you are
+allowed to do so on the files and
+folders where you have full access or
+you are the owner of that data
+linux uh surprisingly enough is a bit
+it's a bit simpler than windows only has
+three basic permissions we have a read
+permission which means reading from a
+file or list the contents of a directory
+writing means modifying the files or
+creating files renaming them deleting
+them inside of a folder
+and execution this means the ability to
+run executable programs and scripts
+or importantly enough the ability to
+navigate into a directory so
+changing into a directory using the cd
+command in linux is considered an
+execution of that directory so you need
+execution permissions on that directory
+to be able to change to it
+just a small cave yet
+and we also have three basic permissions
+and these three basic permissions apply
+to three types of entities we have the
+user which is the owner of the file the
+group that the user belongs to and
+anybody else the rest of the world or
+others and each of these entities we're
+basically going to describe whether they
+have read write or execute permissions
+and we're going to describe these
+permissions in an octal format that is
+base 8 not base 10 right let me show you
+what this means
+all right so on a linux prompt using the
+ls minus l command this is going to list
+all the contents
+in a detailed
+table right so we're going to see
+there's the first column here on the
+left that's going to be the permissions
+column for each file and folder in the
+current directory now let's choose one
+of these here so for example uh this
+file right games.txt the first section
+here the first letter here is actually
+going to be a line for files and a d for
+directories or folders we also have some
+other indicators here such as symbolic
+links but we're not going to focus on
+them for now right the rest of the
+permissions here on the right of the
+first dash are actually grouped into
+three sets of three characters so the
+first set here tells me that the first
+one the user right has read and write
+permissions but doesn't have execution
+permissions it's not necessarily a
+restriction but it's simply because a
+txt file doesn't really make sense to be
+executable right next one is the group
+now the group is only going to have read
+permissions you can see there's a dash
+for the writing execution permissions
+they're absent here and the
+rest of the world surprisingly enough
+has read and write access into this file
+as well now this permission set right
+here can be represented as a binary
+number so if you consider that whatever
+permission is set is a bit of one and
+whatever permission is not said is a bit
+of 0 then rw dash would mean something
+like 1 1 0 right in binary now if we're
+convert this into decimal we're going to
+basically have 0 times 2 to the power of
+0 that's a
+0 right here
+plus 2 to the power of 1
+and plus 2 to the power of 2. so
+basically going to have here a 4 plus 2
+plus 0 which equals
+6
+right so the permission
+for the owner of this
+file can be abstracted as 6. now notice
+that if we were to set all the bits in
+here we would get a max of seven right
+we're just missing the first bit uh this
+is why we say that this representation
+here is in octal format because we never
+go higher than the number seven then the
+digit seven all right now if we also
+move forward here let's say the next set
+of permissions here that would be a four
+plus zero plus zero so this would make
+something like
+let's have a new line in here
+r dash dash
+that's this would be something like one
+zero zero in binary so it would be four
+plus
+zero plus zero
+that's going to be four
+all right and finally the last one is
+going to be similar to the first one
+right so it's going to be equal to six
+so the resulting permissions if we're to
+abstract it of this specific
+string right here
+could be written
+as
+646
+right and this is the type of
+permissions that sometimes you're going
+to see in linux systems that is even
+used as an argument to the commands that
+can change permissions for files and
+folders like chmod command we can use
+the chmod command to change permissions
+for existing files so for example i can
+use chmod here to change permissions on
+let's say this file right here which
+currently has has a full set of
+permissions this would be 777
+right so let's change this one to 646
+for my dot sh
+right let's list the contents again this
+time just the my sage file and now you
+can see the set of permissions matches
+the one that we've borrowed from the
+games.txt file now similarly we can also
+use the chmod command to add specific
+permissions so for example
+we can say that we want the
+user or the owner to add so we're going
+to use a plus in here to add an
+execution permission for the my
+sh file right let's repeat this
+again now you can see that the x has
+appeared here under the first set of
+permissions because the user right the
+first set has received the execution
+permission on this file right this is
+how you view permissions this is how you
+uh change permissions in linux system
+you also have the ch own command as you
+can see here at the bottom of the slide
+now the ch on command is just about
+changing ownership right by default
+you're going to see that if a file is
+created by a a linux user it's most
+likely going to belong to
+a user of that name and an equivalent
+group of the same name of course you can
+change this ownership basically this
+means sharing that content that file
+that folder with somebody else on the
+same machine you can do this with the ch
+own change ownership command
+next up when talking about protecting
+data we have to mention encryption
+controls right they are meant to ensure
+confidentiality and also integrity
+actually integrity comes as a side
+effect of eventually confidentiality
+it's best to assume that encrypted data
+can be viewed by anyone don't hide it
+anywhere right rely on the fact that
+encryption cannot be broken so if the
+data falls in the hands of bad actors
+encrypted so that unauthorized access
+will not hurt you in any way and
+encryption actually has to address a
+couple of uh categories here first of
+all we have data at rest
+that is encryption when data is stored
+on hard drives on archival media or in
+databases even we also have to address
+data in transit how do we encrypt data
+as it traverses our networks this is
+also called traffic encryption and can
+be implemented with using a standard
+method such as tls or or ipsec or mac
+sec right at layer 2.
+data in use when the data is loaded into
+memory by a program and has to be
+processed by the cpu now this is not
+always possible since at some point when
+you need to use the data it will have to
+be decrypted right at least for a couple
+of milliseconds otherwise it would be
+unusable but there are solutions that
+address these requirements
+such as
+intel sgx that is software guard
+extensions a solution attempts to
+encrypt memory contents even as those
+contents are being used
+by your by your programs
+also don't forget that every encryption
+method is
+not necessarily good enough right some
+algorithms are more secure than others
+you should periodically check that the
+encryption methods that you're using are
+still up to date and haven't been
+deprecated or no vulnerabilities have
+been found or weaknesses in their
+algorithms
+and of course requirements for
+encryption can come from legal
+requirements or regulations and they
+usually address some sort of a minimal
+level as a minimal key length or minimal
+type of algorithm for encryption don't
+forget about dlp even though we talked
+about it before right but
+as i said in the beginning this is also
+a short recap so dlp data loss
+prevention or data leak prevention so
+when you're a company that processes
+data one of the methods for securing
+data is ensuring that it doesn't leave
+your company especially if it's
+sensitive information so it doesn't get
+in the wrong hands now dlp controls
+first have to classify this information
+to determine which type is it it's like
+personal identifiable information is it
+credit card data is it finance data any
+other custom type of sensitive data and
+then it has to monitor any outgoing
+channels that might leak that sensitive
+information now these channels can
+include things like email
+web uploads including to personal email
+services
+instant messaging of course social media
+uploads or even uploading files to
+external peripheral devices such as usb
+drives
+so they all have to be taken into
+consideration to secure data as in not
+allowing it to leave your your premises
+your company
+now de-identification controls are
+another category here for protecting
+data and the identification as a general
+term is a process that slightly alters a
+piece of data so that it can be
+shared or
+used without unnecessary
+risks to privacy and we have some
+methods of doing so first of all we have
+data masking simple enough it's about
+just replacing some of the data in the
+sensitive fields with things like null
+fields or axis or asterisks or something
+like this sometimes it's also called
+anonymization when the entire data field
+is masked it's a method that works well
+against data exposure and you might have
+encountered this method when you are
+reviewing for example an online
+transaction or looking at your previous
+orders or looking at your
+saved credit cards in an online store
+right you will usually see just the last
+four digits of the card just enough to
+figure out which card it is but not the
+rest of the data without disclosing that
+sensitive information it's also great
+against shoulder surfing like having
+someone peeking over your shoulder when
+you're viewing some private data and of
+course this method is irreversible right
+if you see data masked
+in a any form in a database there's no
+way to extract it from those
+x's or hashtags you need to query that
+information again
+perhaps even with different privileges
+to get that original data
+we also have a method called
+tokenization another de-identification
+control which replaces data with a
+randomly generated token value basically
+a random
+binary value or random string
+now that token
+is stored
+along with the original value
+separate from the original database like
+in a completely different database so
+when you pull data out without the token
+as a hacker or as a guest or as a normal
+user data is unreadable right but when
+you pull that data along with the token
+the token acts as a key for specific
+fields so it's like having a password to
+unlock specifically those sensitive
+protected fields the advantage is that
+this approach is a bit less intensive
+like cpu intensive than encryption and
+it also works just fine from legal
+perspectives the sensitive data is not
+stored at all on the primary database
+it's not even encrypted it's simply not
+there another interesting method is
+aggregation or banding it's a very
+simple de-identification technique which
+simply replaces some specific data like
+a number with some vague broad range
+like an age for example instead of
+storing some somebody's age you replace
+it with an age range just saying that
+it's somewhere in between 20 and 30
+years but you're not storing the exact
+value
+or just a city in place of a specific
+address and of course since we're
+talking about cyber security we have to
+talk about de-identification attacks
+because there are methods to reverse
+these techniques now these attacks now
+these attacks address the risk of
+correlating in a clever way
+seemingly irrelevant or completely
+disconnected pieces of data so that when
+they're put together they allow you to
+draw some conclusions to determine more
+information about that sensitive data
+so it's it's not an attack that tries to
+i don't reverse that token or anything
+else because
+if it's about data masking or
+tokenization the data is not there
+anymore so no type of attack is going to
+be able to retrieve it but it's about
+trying to figure out more out of a
+limited set of information
+and one final topic here is drm it's
+very likely you've heard about this one
+in the context of movies videos video
+games music ebooks and so on and uh well
+drm was invented not to annoy us
+surprisingly but because data has to be
+transferred and its
+distribution has to be controlled
+somehow even after that data reaches a
+customer so dlp
+cannot apply here because we cannot
+block the content we have to deliver it
+to the customer you need to transfer it
+and encryption doesn't apply or at least
+doesn't apply in a purely
+let's say secure manner because if we
+encrypt it and we ship it to the
+customer
+we also need to send the customer the
+decryption key as well otherwise that
+data is unusable so what do we do well
+drm attempts to mitigate the risks of a
+client distributing unauthorized copies
+of that same content and several methods
+have been uh have been invented to to
+allow this first of all the introduction
+of authorized players for media
+especially for content
+locked to a specific type of device like
+a tv a blu-ray player or a game console
+the device cryptographically
+authenticates itself in order to decode
+the content
+authorized viewers
+similar cryptographic authentication and
+decoding but for software players like
+the uh the netflix app on their phone or
+the ebook readers and
+as a software application
+uh social drm or watermarking uh that is
+uh the content is embedded with a
+watermark and then distributed in an
+attempt to discourage its distribution
+since uh all copies will embed the
+information of the person that
+distributed it you might see this
+sometimes when you're
+purchasing some some licensed uh study
+materials for example or lab guides or
+something like that the pdfs and they're
+the on every single page they have your
+name in there right as a stamp
+or at least in the header or the footer
+and finally online checks especially
+used with software products and video
+games that call home or need to be
+always online to work
+or at least periodically right to check
+their vendor servers
+to validate their running instance or
+even rely on techniques like de nuvo for
+video games
+where the game is shipped actually
+lacking some critical piece of code
+without that critical piece of code that
+gets automatically downloaded
+specifically for your current machine
+when the product is authenticated with
+the vendors servers that's why the nuvo
+is tough to break
+so that's a story about technical
+controls of course we haven't talked
+about all the technical controls you do
+have a ton of videos before this one
+talk about additional type of controls
+but try to remember at least the
+controls that we mentioned as far as
+access control goes especially remember
+file system permissions understand
+encryption dlp and the de-identification
+controls that we talked about all right
+so i hope you found this useful and
+informative
+this time we're going to continue this
+topic on the next video when talking
+about
+non-technical controls for securing data
+but until next time thank you for
+watching like and subscribe and good
+luck bye
+[Music]
+you

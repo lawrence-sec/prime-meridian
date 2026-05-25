@@ -1,0 +1,296 @@
+[Music]
+welcome back we're gonna have a really
+short discussion today about black holes
+and sinkholes trust me it's going to be
+short it's going to be easy so let's get
+started we do have a lot of filtering
+methods that we've covered so far we can
+you know inspect frames you can inspect
+the packets we can inspect the sessions
+the application contents even at layer
+7. the problem is that all this
+inspection and decision process is going
+to take time it's going to take cpu time
+your devices will be spending their cpu
+cycles and their memory deciding and
+acting and matching on those policies
+and dropping or or cleaning up or
+redirecting the malicious traffic now if
+you're facing a denial of service attack
+this sort of cpu load might actually be
+the target of the denial of service
+attack itself overloading your network
+or your security devices their cpus
+their memory with so many fake or
+spoofed decisions
+that legitimate traffic cannot get
+through any longer so this is where
+another concept of black holes and
+sinkholes comes to the rescue now their
+purpose is to send traffic to the great
+unknown
+so we're basically talking about
+dropping the traffic all right we we
+identify some type of traffic that is
+pure garbage we just want to drop it as
+quickly as possible
+now where do we configure this
+functionality well we could configure
+this on a routing device
+which basically means a router or a next
+generation firewall and any type of
+layer 3 device with routing capabilities
+they can just drop this traffic or just
+specific traffic completely
+but it's pretty difficult to match on
+that specific type of traffic because
+if it's a denial of service attack
+coming from one single source we might
+be able to pinpoint that source and
+create an access list entry that denies
+that specific type of traffic but if
+it's a botnet
+behind that attack if it's a distributed
+amount of service and we can see
+malicious traffic flooding traffic
+coming from 10 000 ip addresses all over
+the internet well that type of incident
+response in order to create the
+appropriate access list and filter that
+type of traffic
+is going to create some difficulties
+so we have the concept of a black hole
+that's a concept that we can find in a
+lot of networking architectures as well
+because just sometimes we just want to
+draw specific type of traffic even if
+it's not malicious
+now as traffic comes in
+we know that we don't want it all right
+so we just drop it and we don't notify
+anyone that we dropped it it's also
+useful for mitigating denial of service
+attacks also distributed denial service
+attacks if you can match that traffic
+and we do have several implementations
+for these black holes depending on the
+operating system that you're using for
+example we have the null zero interface
+in cisco devices or we have the slash
+dev slash null
+also kind of a virtual interface in
+linux systems actually it's a file on
+the file system because you know in
+linux everything is a file but you know
+try to get over that type of abstraction
+and think of the fact that the dev null
+file is actually the place of no return
+right the place where you send data
+and it's completely lost
+the devnet approach is often used by
+network appliances as well especially
+those that are based on a linux
+operating system because it's considered
+to be less cpu intensive especially in
+the context of a denial of service
+attack happening at the same time now
+careful with these as you might be
+dropping useful traffic as well so you
+can
+denial the service out of yourself if
+you're not careful not by overloading
+anything but by dropping useful and
+legitimate traffic that's why i said
+it's it's sometimes a challenge to match
+the exact traffic that is part of the
+denial service attack and not everything
+else that enters your network interface
+now there is some cpu involvement in
+black hole routing as well of course for
+very large enterprise networks there are
+dedicated devices for managing denial of
+service attacks so we dedicate some
+physical devices physical appliances
+especially for denial of service attacks
+which usually rely on a hardware
+accelerated decision process because
+it's that much faster to process
+something in a in a dedicated circuit in
+an asic than it is to process it
+along with the rest of the cpu
+instructions so you were able to
+mitigate and filter the denial of
+service traffic at wire speed which
+means that the cpu is not a bottleneck
+that's what wire speed means you're
+basically
+processing the traffic as fast as it can
+enter your network interface or as fast
+as the the wire that connects the
+network interface is going to allow it
+a lot of vendors out there that are
+building developing these type of
+anti-ddos solutions just to mention a
+few arbor networks or fortinet they all
+have dedicated appliances for this type
+of functionality actually you can see
+that fortinet also has it as a physical
+appliance as well as a virtual machine
+now you can have a look over the data
+sheets of of these solutions just to get
+a better picture of how they work and
+what type of of benefits they bring you
+or you can just uh you know skim the the
+features here listed which are going to
+list all the the major
+behavioral methods or traffic inspection
+methods
+that the anti-ddos
+device can apply in order to match to
+identify the traffic that is part of the
+ddos attack as you can see most of the
+features here are not related to what
+the device can do because it kind of
+does one single thing it drops traffic
+right so most of the the most of the
+features are actually features for
+identifying that malicious traffic
+that's what we're concerned with
+another approach here is by using what
+is called a sinkhole now a sinkhole
+is very similar to a black hole but in
+case of a sinkhole
+you retain some ability to analyze the
+drop traffic zero not just dropping it
+you're dropping it into a
+bucket okay not an object bucket oh my
+god we're running out of out of terms in
+it we're just dropping the traffic onto
+some kind of packet capturing system
+that allows us to later on analyze what
+type of attack was it where did it came
+from what type of payload was it using
+in order to perhaps be able to mitigate
+it or identify who the malicious
+attacker is and perhaps even avoid that
+type of attack later on in the future
+so how do we do this well we have to
+redirect the traffic to a specific
+analysis server it might just be a
+simple server that performs package
+capturing or it can be some kind of a
+honey pot or a honey net remember we
+already talked about this one in a
+previous video and a very important exam
+topic here i would say to keep in mind
+the fact that there is also the concept
+of a dns sinkhole now the dns sinkhole
+actually lies on a reconfiguration of
+the dns information in order to drop
+this malicious traffic and we can
+perform this in two different
+directions we can have this configured
+outside in so from the internet towards
+our internal network which means that
+we're going to be self poisoning our own
+dns servers to make the traffic that is
+trying to reach them reach some other
+point rather than your servers because
+we know we are under a large scale you
+know service attack so we're basically
+trying to redirect any kind of traffic
+that is heading towards our
+victim servers and we're redirecting
+this by using a dns redirection which
+means we're basically self poisoning our
+own dns servers our own dns database to
+redirect
+to the great unknown the traffic that
+we've just identified that is targeting
+some specific services public services
+uh in our in our network so we're trying
+to redirect the traffic so it doesn't
+reach our
+real servers now of course this is also
+going to redirect legitimate traffic as
+well but if you're facing a large-scale
+denial service attack
+maybe in just one single region of the
+world especially if your infrastructure
+spans multiple regions perhaps it's
+hosted in some kind of public cloud for
+example well that would be a good
+approach to protect that specific region
+and perhaps just redirect all the or the
+valid requests to some other regions
+that are not under the same denial of
+service attack now we can also perform
+this type of protection using a dns
+sinkhole from inside to the outside from
+so from inside our local network to the
+internet
+in this way
+the sinkhole configuration from the dns
+server can cause to redirect or drop
+our own traffic initiate from within the
+internal network that is trying to reach
+some command and control server so what
+we're doing is trying to drop the
+traffic generated by those compromised
+hosts the compromised devices that we've
+identified within our network and
+forbid them from from really accessing
+their command and control center on the
+internet now you also have to keep in
+mind that both black hole and sinkhole
+filtering are sometimes implemented by
+some vendors with the implication of the
+isp that the internet service provider
+because filtering distributed denial
+service traffic
+on the isp's network is much more
+efficient than doing it at your network
+edge a high volume ddos attack might
+completely saturate your isp link so
+that all the traffic that you're
+receiving is ddos traffic if you just
+drop it you're left with nothing okay
+so if you do it on the isps network
+which is most likely going to be a much
+more powerful network with a lot more
+capacity than your own internal
+connection
+then legitimate traffic could still
+potentially reach you even while a
+denial of service attack is happening so
+how do you do this of course you pay for
+the service and some vendors even allow
+you to deploy a virtual appliance
+paired with your physical or virtual
+appliance that you install in your own
+network that deals with detecting denial
+service attack and then communicates
+with your virtual appliance installed in
+the isps cloud so you're detecting the
+ddos in your own network and then you're
+signaling the other device in the isps
+cloud and telling it i'm detecting this
+type of traffic make sure you filter it
+before it even reaches
+my cpu device
+fortinet does this adm volt does this
+just to name a couple
+all right so that's it for today i told
+you i promised you we're gonna be short
+and efficient so make sure you remember
+what black hole routing is what sinkhole
+routing is what's the difference between
+those two and about dns sinkholes as
+well i can promise you the exam is going
+to ask you about this so until next time
+like and subscribe thank you so much for
+watching because next time we're going
+to be talking about iot embedded systems
+and scatter threats see you next time
+and good luck
+you

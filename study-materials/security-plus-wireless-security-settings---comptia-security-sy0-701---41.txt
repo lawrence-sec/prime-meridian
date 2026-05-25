@@ -1,0 +1,284 @@
+an obvious security concern regarding
+wireless networks is that everything is
+being sent over the air this means a
+nearby attacker could also listen in to
+this communication and if anything is
+being sent in the clear they'd be able
+to see everything that's being
+transferred we also have the challenge
+of only allowing authorized users to
+access the wireless network and usually
+we'll ask someone for a username
+password or some other type of
+authentication when they are first
+connecting the default configur ation
+for most private wireless networks would
+be to encrypt all traffic going across
+this network that way if an attacker
+does gain access to the data going over
+this wireless network they wouldn't be
+able to read anything within those
+packets and we need to be sure that
+we're using protocols in our wireless
+networks that ensure Integrity this
+means that any traffic sent by the
+originating station is received exactly
+the same as what was sent we often refer
+to this message Integrity check as an
+mic Through The Years our wireless
+networks have used an encryption
+protocol known as WPA2 to be able to
+encrypt all of this data but WPA2 does
+have a significant security concern when
+it comes to the initial connection to
+the wireless network there's a 4way
+handshake that occurs during the initial
+connection with WPA2 and there's a hash
+that is associated with that handshake
+the goal from the attacker's perspective
+is to some way derive that pre-shared
+key hash or capture that hash during the
+handshake once the attackers have the
+hash they can then take that hash
+offline and begin running it through a
+Brute Force attack to ultimately find
+the pre-shared key as our technologies
+have improved we found new ways to begin
+brute forcing even more efficiently in
+these days you can use techniques such
+as GPU processing or cloud-based
+password cracking to be able to reverse
+engineer that password in just a number
+of days and on networks like our home
+networks that commonly use pre-shared
+keys anyone who has that key is now able
+to connect to the network when it came
+time to update WPA2 to the new version
+of WPA 3 we introduced new technologies
+to avoid this type of Brute Force attack
+this includes a new block Cipher Mode
+called gcmp that stands for galwa
+counter mode protocol and it is a
+stronger encryption than what was used
+previously with WPA2 gcmp includes data
+confidentiality with the encryption
+associated with the AES protocol and it
+has a message Integrity check that's
+included with that gwa message
+authentication code and of course the
+brute force that could be used to derive
+a pre-shared key with WPA2 is no longer
+a problem with wpa3 the authentication
+process in handshake has been completely
+changed in this newer version of WPA
+this includes Mutual authentication for
+both the client device and the access
+point and now those shared session keys
+are created on the in devices rather
+than sending hashes of those keys across
+the network since there's no longer a
+four-way handshake that session key hash
+is not sent across the network and
+therefore there's nothing for the
+attacker to Brute Force this new method
+of deriving these shared session keys in
+wpa3 is called a simultaneous
+authentication of equals or SAE this
+uses a derivation of Diffy Helman key
+exchange so not only are you able to
+derive that shared key on both sides
+you're also able to add an au medication
+component everyone on the wireless
+network gets a different session key so
+even if you're all using the same
+pre-shared key you won't be able to see
+any of the traffic from other users on
+the network this new key exchange method
+with WPA 3 is included with the latest i
+e standards and if you look at some of
+the documentation around it you may see
+it referenced as the dragonfly handshake
+there was obviously an emphasis in WPA 3
+with making that authentication process
+much more secure this this is because we
+have users that may be located anywhere
+on the network some of them are users
+that connect normally to the network and
+others might have temporary access we
+generally provide this network
+authentication using one of two
+different methods one is the pre-shared
+key that we spoke of earlier this is
+very commonly what you might use at home
+so when people ask for the wireless
+network password they're referring to
+this pre-shared key but when you're in a
+workplace everyone using the same
+pre-shared key to access the wireless
+network is very insecure so instead we
+use a different method surrounding
+centralized authentication using
+802.1x you may have seen this in use if
+you try to access a wireless network in
+your corporate office you'll probably be
+prompted for a username a password and
+perhaps some other type of
+authentication Factor you would only
+gain access to that wireless network
+once you provide the proper credentials
+and this allows us to not only have
+separate credentials for everybody in
+the workplace but it of course keeps out
+any attackers if if you look at the
+configuration of the Wi-Fi settings on
+your home router or a wireless access
+point you'll see a number of different
+options one of these options may say
+open system or it might simply say none
+this means that there is no
+authentication or any type of security
+on this wireless network at home you may
+be using wpa3 personal sometimes you'll
+see this abbreviated as WPA psk for the
+pre-shared key with this configuration
+everyone has to use the same pre-shared
+key to initially log in and gain access
+to that wireless network and for
+corporate use you'll probably see the
+option of wpa3 Enterprise this might
+also be abbreviated as wpa3
+802.1x this means the wireless access
+point will prompt for a username and
+password and the authentication is
+usually linked back to a centralized
+authentication server running radius
+ldap or
+tacx that centralized authentication
+server is often referred to as a AAA
+server this AAA framework begins with
+identifying the person who's trying to
+connect to the network this would be the
+identification and it's usually based
+around your username and now we begin
+the Three A's of the AAA framework we
+start with authentication this is
+usually a combination of our username
+with the password the password being a
+secret authenticates that you must be
+that person who's logging into the
+network the second a stands for
+authorization that means once you gain
+access to the network what resources do
+you as that individual have access to
+and the third a stands for accounting
+this is a list of metrics associated
+with your login session so this could be
+the time you logged in how much data was
+sent and received and the time that you
+logged out let's say for example that
+you're logging into a VPN from home and
+that VPN concentrator is configured with
+802.1x it will first prompt you for a
+username and password and that username
+and password is sent to the AAA server
+for for authentication if that username
+and password is correct then your
+credentials are approved and you get
+access to the rest of the network one of
+the most popular authentication
+protocols you might see is radius radius
+stands for remote authentication dial in
+user service and although it has dial in
+in the name radius can be used for many
+purposes including connections on a
+local network so each time that you're
+connecting to a router or switch to make
+configuration changes logging into a
+server or getting access via VPN you're
+probably providing a username and
+password that's then being checked
+against a AAA server like a radius
+server radius has been around for a very
+long time and many devices support using
+radius for authentication this is one of
+the reasons why we see so many devices
+accessing a radius server to provide the
+authentication process when you log in
+that prompt that we get for our username
+and password is provided by
+802.1x this this is also referred to as
+network access control or Knack this
+prevents anybody from Gaining access to
+the network unless they first provide
+credentials this is not just for
+wireless networks we can also use 802.1x
+on our wired networks as well this is
+commonly used in conjunction with a AAA
+server so you've either got a radius
+server an ldap server a tacka server or
+something similar to be able to
+consolidate all of those credentials be
+able to access them from many different
+devices having everything centralized on
+a AAA server also allows you additional
+management functionality if someone
+leaves the organization you can simply
+disable their account and they no longer
+have access to the network one of the
+protocols used in that 802.1x process is
+EAP it stands for extensible
+Authentication Protocol and it's a
+framework that allows us to embed the
+authentication within this 802.1x
+process EAP also has flexibility built
+into the standard so manufacturer can
+customize this EAP process to meet their
+specific requirements and this is a very
+common protocol that's combined with
+802.1x to provide that authentication to
+the network this 802.1x process commonly
+involves three different services and
+these may be on three different devices
+one is the supplicant that's you trying
+to log in the network there's the
+authenticator this is commonly the
+device you're first connecting to and
+then there is an authentication server
+or AAA server on the back end when you
+first try to connect to the network
+you've not authenticated and that
+authenticator will prevent the
+supplicant from Gaining access to the
+network it will then send a message back
+to the supplicant that asks is this a
+new connection and if it is please
+provide the proper credentials the
+supplicant then sends an EAP response
+with information about this particular
+supplicants name in this case my name is
+James the authenticator will pass that
+information off to the authentication
+server asking if this is someone someone
+we should begin the authentication
+process with the authentication server
+will send a message back to the
+authenticator that says we should
+continue with this process the
+authenticator will then ask for
+credentials from the supplicant and then
+you'll type in your username your
+password and any other authentication
+credentials and send those off to the
+authenticator the authenticator sends
+that information to the authentication
+server who then validates the login
+information and then chooses the options
+to allow access for the supplicant this
+process occurs very quickly you may have
+no idea that all of this conversation is
+taking place behind the scenes and as
+long as you provide your username
+password and any other authentication
+details 802.1x and EAP will take care of
+the
+rest

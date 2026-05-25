@@ -1,0 +1,1079 @@
+All
+[Music]
+right. So, today we're going to talk
+about software testing. Now, why do we
+need to test our software? Let's think
+about it for a second. Why do we test
+software? Well, we test it because we
+want to be able to fix those bugs and
+perhaps some badly implemented
+functionality in our code, which can
+lead to annoyed users and unhappy
+customers. Now, since we're talking
+about cyber security here, let's think
+about it from a cyber security
+perspective. We're going to test
+software because we attempt to catch
+those bugs that can potentially become
+future vulnerabilities which can lead to
+exploits which can lead to attacks which
+can lead to data breaches which can lead
+to again annoyed users and unhappy
+customers. So basically we're going to
+talk about let's see how we can keep our
+customers happy through software
+testing. And kind of the bad news here
+is that this process is incredibly
+difficult. There's probably no piece of
+software in this entire world that
+hasn't had at some point in time some
+issue, some bug, some badly implemented
+functionality which required a a patch,
+a fix, an update. And that's just how
+things are. I mean software assessment
+and code review are never going to be
+able to catch absolutely all problems or
+possible issues with that piece of code.
+So we're actually in a process where
+we're not attempting to eliminate all
+potential problems, but we're trying to
+minimize and bring down the number of
+potential problems as low as possible.
+And one more thing to keep in mind, we
+can only fix those things that we know
+about. We can only think about so many
+issues, so many potential
+vulnerabilities, but there's always
+going to be someone who comes after us
+and discovers a new flaw in our code.
+And unfortunately, there's not much you
+can do about this except continuously
+try to improve these processes, these
+software assessment processes.
+Now, this chapter, this discussion is
+going to be more about terminology. It's
+not going to make a softer tester out of
+you, but at the end of it, you'll be
+able to understand it, explain it, you
+know, you'll be able to talk about it
+and of course, you'll be able to pass
+the questions on the exam, of course.
+All right, so enough talk. Let's bring
+some order to this process and let's see
+what are the main methods that we can
+use to improve and actually test our
+code. And well, the first one we'll
+address here is going to be static
+analysis. And whenever you see static
+analysis, just think about, you know,
+looking at the code. So we're just going
+to look at the code and analyze the code
+for potential weaknesses that can lead
+to vulnerabilities. And remember, this
+is going to be performed before the code
+is ever run or even compiled. And when I
+say just look at the code and analyze
+the code, you're probably imagining a
+situation where you're just reviewing
+someone else's code. And uh you see a
+function right there that I don't know
+that that that function doesn't look
+safe to me. And yeah, that's one way of
+doing it. That's a manual code review.
+But of course, we're going to try to
+automate this as much as possible
+because some automated tools might have
+some better insight and better
+intelligence and better attention to
+details, let's say, than our human
+peers. Now, just to give you a starting
+point here, uh NIST has a list. NIST has
+a list of popular source code security
+analyzers. So, these are going to be
+automated tools that focus on security
+first of all. Now, of course, um this
+list is very comprehensive and you can
+see that most of these tools right here
+are focused on specific programming
+languages because uh if we're we were to
+check for specific conditions, well, we
+do need the tool to properly understand
+the code that we're writing. So, they
+have to be designed specifically for the
+for our programming language. Uh some of
+them are free, some of them are uh well,
+let's say less than free. And don't be
+put off by the fact that some of them
+haven't been updated in a couple of
+years. Uh they're still more than okay
+since the core principles in most
+programming languages don't really
+change that often. Now you might be able
+to recognize some of these. Um for
+example, uh let me see here.
+Pilint. If you ever programmed with uh
+Python, Pilint is a free tool here for
+checking for errors and looks for bad
+code smells.
+This is actually an official term. If
+you're not a programmer, this might be
+new to you. But code smell is a
+characteristic of a code of source code
+that can uh potentially be a red flag or
+something that doesn't really look well
+and can lead to potential problems. When
+I see smelly code, I keep thinking about
+smelly cat from Phoebe in France. But
+let's not digress too much. And of
+course, you can do all this code
+checking business manually as well. And
+if it's done manually by human eyes,
+it's usually called peer review or
+manual peer reviewed simply because you
+do need a peer. You do need another
+human being next to you to review your
+code. Now, that peer could be a
+programmer, but can also be a security
+analyst just like you who understands
+programming. Of course, unfortunately,
+most developers nowadays kind of skip
+this part and only focus on
+functionality. So, security is kind of
+an afterthought or is considered to be
+somebody else's problem. And just as a
+piece of advice here, since we're
+talking about human interaction, when
+you're doing code review, try to, you
+know, focus on the communication. Try
+not to offend. Don't just criticize
+because you're finding flaws in somebody
+else's work. And this is something
+that's most of the time really tough not
+to take personally. And of course, if
+you're a team lead or working with some
+programmers, the recommended way to
+approach this this step right here is to
+train your developers from the beginning
+on at least basic security concepts or
+at least give them access to some simple
+tools that they can use during their
+initial unit tests.
+Now, what comes after static? Dynamic,
+of course. But we're going to have a bit
+of a longer discussion about dynamic
+analysis, and I'm going to leave that to
+the end of the video. In the meantime,
+let's focus on the formal method. Now,
+the formal method is going to be
+completely automated, and uh it's
+actually a type of software verification
+that relies on mathematical inputs track
+code execution. So it basically allows
+you to check which code paths in your
+application are being used, which code
+paths are perhaps unreachable, which
+code paths could uh potentially create
+an infinite loop and undesirable
+infinite loop. And it's mostly going to
+apply to more complex projects where the
+number of branches and potential, you
+know, code execution paths is just too
+high for a programmer to be able to
+follow all potential uh, you know, code
+execution scenarios. Now, while static
+testing required that the automated tool
+to understand the programming language
+that you used to write your code, well,
+the formal method requires the software
+tool to actually understand the
+application that you're you're
+developing and how is that application
+supposed to be used. So you're basically
+going to have to have a very
+well-defined formal model of the
+application for that tool to be able to
+understand what are what or should be
+the possible you know code paths what
+branches are supposed to be taken which
+end states is the application supposed
+to end up in and stuff like that. Now
+having a complete formal model of an
+application is not going to be an easy
+task. It's something that it's not
+always possible. It's not easy to
+accomplish. So not every company and not
+every software development team is going
+to be able to implement this. Now AWS
+does this and since we're talking about
+Amazon, no surprise here, they can
+afford to do this and this is one of
+their papers focused specifically on the
+security of all their uh cloud services.
+So for example, we can see here that the
+AWS security team performs this form of
+security reviews of all their features
+and services which were about 1,400
+uh back in 2017. So yeah, that's going
+to be a whole lot of effort to develop
+such a model, but it's going to provide
+you with great benefits because it's
+completely automated and it also has the
+best chance of figuring out all the
+possible execution scenarios of your
+code or or the possible scenarios in
+which your application could be used,
+which is awesome from a security
+perspective. You're basically not going
+to be taken by surprise by any of your
+application's behavior. Another one that
+you've probably heard before is UAT,
+also known as user acceptance testing.
+And as the name says, it's going to be
+focused on the users. And we're
+basically going to be using the users as
+software testers. Now most of the time
+this is going to apply in a scenario
+where you're developing an application
+for a company for a customer and
+specific individuals from the customer
+side volunteer or have been volunteered
+to test your application which is still
+in a uh pre-release state. It's in a
+so-called beta version. Now of course
+this kind of testing is not going to be
+performed the same way your developers
+are going to test your code. Now the
+users are going to be testing the um the
+interface of your application and
+they're going to be following some
+predefined guidelines. So basically
+going to have some documents here that
+state the fact that the application is
+not in its final state and this is
+precisely what we need to test right
+now. Now they might follow those
+guidelines or they might not. So UAT is
+sometime both a source of interesting
+feedback and testing results but also a
+source of frustration from the customer
+because they realize that things that
+they expect to work don't work yet or
+they don't work at all as expected. But
+this is more about politics than cyber
+security. So we don't really worry about
+this. Another type of testing usually
+performed by your own team, your
+development team is called regression
+testing. Now this type of testing is
+going to be performed just like any
+other you know feature functionality
+testing that you would normally do. But
+this is going to happen every time a new
+feature is implemented or a feature is
+updated.
+Well, the problem is that when new
+features are introduced or old bugs are
+fixed in your code, well of course
+you're going to be deploying some
+software patches or updates. Now the
+issue here is that any code change might
+break something that was previously
+working like having you know unintended
+side effects or even it could introduce
+new vulnerabilities in your codebase. So
+regression testing is going to be a type
+of testing designed to make sure that
+any new changes don't introduce security
+risks in previous code. In other words,
+well we have this new feature. It works
+quite well. We've tested it, but let's
+just test everything else we've done
+before it just to make sure that we
+haven't broken anything that was already
+tested. Now, of course, you should do
+regression testing anyway, not just for
+security reasons, but just to make sure
+that a patch that you've deployed
+doesn't break some fundamental previous
+feature that was working quite well in
+your application like those nasty
+Windows updates that you happen to read
+about or even experience them on your
+own machines that sometimes when a new
+update is released, a few users around
+the world are going to end up not being
+able to start their computers anymore.
+That's one example of regression testing
+gone bad or not at all. But we're
+probably don't expect Microsoft to
+completely ignore regression testing. We
+just expect them to do it badly, right?
+And another way to perform software
+testing is through reverse engineering.
+Now, this is a very generic term. You've
+probably heard it more than once before
+in different contexts. And well, the
+purpose of reverse engineering is to
+attempt to deconstruct
+compiled code into its original source
+code or at least to deconstruct it down
+to a certain state where you're able to
+figure out what that code is supposed to
+do. What are the all all the possible
+branches, all the possible decisions or
+the possible end states in that code.
+And generally you use it just to figure
+out what that code is supposed to do,
+what it was designed to do. Now, as you
+can probably guess, reverse engineering
+is not only useful for software testing
+or generic software testing, but very
+useful for analyzing malware, especially
+those zero days attacks where you don't
+know anything about that piece of code.
+You don't know what it does, how does it
+interact with your files, with the
+operating system, with the network
+connections. But if you're able to drill
+down into the code of the malware
+itself, you can see all the potential
+branches, all the potential outcomes of
+executing that piece of code and you can
+easily then determine if the outcome or
+any outcome of that piece of code is
+malicious or not. And as we've said,
+reverse engineering is actually a very
+very generic term. And we actually have
+about at least three levels of code. Now
+the first one is called machine code.
+This is going to be the actual contents
+of the executable file. That's what you
+have on your disk when you want to run
+that application. That's going to be
+machine code that's taken by the
+operating system given to the CPU.
+That's the compiled program with enough
+instructions to be executed step by step
+from the beginning to the end. Not so
+easy to understand by automated tools by
+not to mention human eyes almost at all.
+But the compiled version of a program is
+usually the toughest one to deconstruct
+and analyze. So we also have something
+in between which is assembly code. Again
+this is going to be native processor
+instructions but are going to be
+presented in a in a more human readable
+language. Now assembly language kind of
+looks like this. It's definitely not the
+most userfriendly or programmerfriendly
+programming language out there but the
+main advantage is that you get the
+chance to program. Now assembly code
+kind of looks like this. It's definitely
+among the least user or programmer
+friendly programming languages out
+there, but it gives you the opportunity
+to directly program instructions as
+close to the CPU as possible. So, you're
+basically just telling the CPU what to
+do. Now most operations, most
+instructions in assembly code refer to
+moving data or performing basic math
+operations, you know, like push, move or
+logical operations like ands or x or not
+and so on. Now these instructions use
+either the CPU registers or the
+computer's memory. A disassembler is a
+piece of software that is used to
+generate assembly code from a compiled
+program. Again, not so easy to read and
+understand, specifically since this
+piece of code right here was written by
+me around my second year of college. And
+since I did not add enough comments in
+this piece of code, I absolutely have no
+idea what this code does. So, don't
+follow my example. Comment your code,
+please. Finally, we have highle code,
+which is mostly going to be written in,
+you know, programming languages that
+you've heard about like C, C++, Java,
+Python, C and so on. Those are
+considered to be high-level programming
+languages. A decompiler is the piece of
+software that is going to try to
+deconstruct a compiled program into this
+highle source code. This is definitely
+not always possible and there are
+specific programming languages out there
+that are better suited for this type of
+reverse engineering than others. Now,
+probably the most popular tool for um
+reverse engineering is the interactive
+disassembler or IDA, also known as IDA
+Pro from Hexrays. Now, what you're
+seeing here on the screen is the
+deconstruction of the Notepad executable
+in Windows 10. And to be more precise,
+this is actually the replace all
+functionality, the replace all function.
+And these are all the possible code
+branches and all the possible decisions
+that can be taken by Notepad whenever
+you are about to replace some text. And
+if you think that's complicated, have a
+look at the save file functionality. The
+simple functionality that basically
+takes your input and writes it into a
+text file on the disk. And just have a
+look at how complex all of this is.
+which should give you a better picture
+now of why is it really important to
+have the proper tools for this type of
+code analysis or code testing. Now this
+is a very simple functionality from
+notepad. Imagine what a complex piece of
+malware can do. Now, one more important
+idea here is the sandbox because in
+cyber security and especially when
+reverse engineering malware, this is
+most likely going to happen in an
+isolated environment which can be a
+virtual machine, a container, some
+isolated environment where you can and
+the official term is detonate the piece
+of malware, the executable code and just
+analyze, see what it does, what kind of
+network connection is it initiates, uh
+what kind of files it tries to write on
+disk. Um, if it tries to encrypt some
+files in case it's a crypto locker, uh,
+if it creates some auto run entries,
+some registry entries, stuff like that.
+All of this happens in a sandbox because
+a sandbox is a completely isolated
+environment. We can let the malware do
+its thing, whatever it intends to do in
+there. And then we can uh easily observe
+that behavior and understand what that
+piece of malware actually does. and
+ideally also how to mitigate it. And
+another reason why you might want to
+consider sandboxing apart from the fact
+that ID pro for example is quite
+difficult to use in some situations you
+might encounter some measures in place
+that can make reverse engineering close
+to impossible. Two of these situations
+are code obuscation which is uh a way to
+make the code extremely difficult to
+read and to follow. you randomize
+function names, variables, anything that
+you can mess up in that code as long as
+you keep it functional so that anybody
+who manages to get their hands on that
+code is not going to be able to
+determine at least not immediately what
+that code does. Second situation is when
+you encounter code encryption. Now you
+can deliver encrypted applications but
+if you want to allow your users to use
+those applications, you also have to
+deliver the encryption key as well.
+And even though it kind of sounds okay
+like you know you're delivering
+something uh secured and you're also
+giving the the key to decrypt and use
+that application. The reality has proven
+that there is absolutely no situation in
+real life where you are able to deliver
+the encrypted code as well as the
+decryption key and also to keep that key
+completely hidden from anybody else who
+might want to you know reverse engineer
+that process. And this is basically how
+uh DRM digital rights management is
+defeated nowadays. Even if you deliver
+Netflix encrypted content, you do have
+to provide the key somehow and you're
+not going to be able to hide it so well
+that nobody else is going to find it and
+actually decrypt that content. And this
+is why most situations DRM nowadays can
+be defeated. Now, I promised you we're
+going to be talking about dynamic
+analysis and this is it. Now, dynamic
+analysis is all about looking at how the
+application is running. So we're talking
+about compiled code, functional code.
+We're looking at the application and at
+the system as well to see how the
+application is behaving. Now one way of
+doing this uh even from the very start
+from the development phase is by using a
+debugger. Now the debugger is a program
+that attaches to your main application
+and watches or allows you to watch how
+the execution unfolds. For example, it's
+going to allow you to step manually or
+automatically through the program code
+line by line and see how the application
+behaves while watching for specific uh
+variables or specific function calls or
+just checking how the memory is used.
+Now, another type of testing here is
+going to be stress testing or also known
+as load testing. Now, this is mostly
+going to be performed pretty close to
+the end of the software development
+process because we need a functional
+application to be able to stress test it
+to be able to throw a bunch of input to
+that application and also to make sure
+that it's not going to crash and it's
+still going to process it properly. So,
+stress testing works by just throwing
+some input at that application and see
+how it behaves. If the performance
+decreases, when does it decrease? if
+there's a point uh when the application
+actually crashes or there's a specific
+uh point where the application starts to
+lose functionality perhaps by not being
+able to process all that input in a
+timely manner. Now this is very relevant
+not only from a performance perspective
+because you're going to have to you know
+fill in some data sheets perhaps and uh
+tell your customers that these are the
+minimum or the recommended requirements
+for your application. This is also
+something that you get from uh stress
+testing or load testing but also from a
+security perspective because in some
+situations this is the exact same
+behavior that's going to happen when
+your application is under a denial of
+service attack. How is it going to
+react? Is it going to fail in a safe
+manner in a secure manner or is just
+simply going to allow all traffic in
+case it's it's some sort of a traffic
+filtering solution? All of this is very
+relevant for cyber security as well. And
+nowadays we also have an additional uh
+parameter so to say that we need to
+think about most of the applications
+nowadays can or already run in the
+cloud. Now clouds are elastic by nature
+which means that the moment you need
+more resources you can just ask them
+from the cloud and you will receive
+them. Now this might sound nice but this
+might also cause you some concern if
+your application is under a an attack or
+a denial of service attack. don't want
+to just scale your application and start
+paying for a bunch of resources, extra
+resources simply because your
+application is under attack. But stress
+testing like this performed in a cloud
+application can also help you determine
+where exactly does that autoscaling
+process kick in. So when can you expect
+to pay more for the necessary
+infrastructure that runs your
+application? Not just in case of an
+attack but also in case you know you
+just get a bunch of users new users one
+day. And another very interesting
+software testing methodology is fuzzing.
+Also part of the dynamic analysis. It's
+just another way to test an application
+against bugs and vulnerabilities but
+this time by throwing various inputs at
+it. So we're not talking about quantity
+but we're talking about diversity. how
+diverse your input can be because this
+is a great way to properly sanitize
+inputs that were not specifically
+designed for your application. A lot of
+the attacks, a lot of the exploits
+nowadays happen because the input is not
+properly sanitized and is most likely
+obuscated or masked in some manner that
+wasn't taken into account when the
+application was developed. One example
+here would be a web form that expects me
+to enter my name. Well, the developer
+expects me to enter a name of up to a
+number of characters. What happens if I
+enter a million character name? What
+happens if I enter a number? What
+happens if I enter HTML code or XML code
+or JavaScript code? What happens if I
+enter SQL code in there? What happens if
+I craft a request that instead of the
+name I actually embed an entire
+executable file in there? What happens
+to the application then? This is where
+fuzzing helps us a great deal. So as you
+can see this type of testing is very
+useful because it can help us test for
+very specific corn cases. Also test for
+unexpected input that can lead to or at
+least facilitate future attacks like
+code injection, buffer overflows, SQL
+injection and so on. And as you can see,
+we do have a number of fuzzing
+techniques here that you should know
+about. First one being application or UI
+or user interface uh fuzzing. This is
+about testing everything that the
+application interface accepts as an
+input on any input field. Text fields,
+text boxes, web forms, anything else
+that can be directly interacted with by
+the end user. Second one is protocol
+testing. This is going to be about how
+does the application behave when the
+protocol, the communication protocol
+that the application uses starts sending
+abnormal traffic. Think about testing
+with unexpected values in TCP headers or
+HTTP headers, unexpected flags that
+shouldn't be used in specific scenarios,
+things like that. Again, this is useful
+because many attacks can be detected at
+the protocol level. Many IDS's or IPS's
+are actually looking for protocol
+anomalies in order to determine known
+and unknown attack patterns. Even if I I
+see an abnormality in that protocol and
+I don't know exactly what kind of attack
+it is, I know that that protocol
+shouldn't behave like that. It might be
+someone attempting to exploit a
+vulnerability. So, I'm going to deny
+that traffic. But first, we have to
+detect it. And if we don't detect it and
+if we don't stop it then we have to make
+sure that the application still behaves
+properly in case somebody starts sending
+some abnormal protocol traffic to our
+application. And the third one is about
+files used as input. Now many
+applications allow their users to upload
+their files even if it's just a profile
+picture or a resume or some uh MP3 file
+or anything that can be uploaded from
+the user's hard drive to the
+application. Now, how does the
+application behave in case it doesn't
+receive the expected file format? Or how
+does the application behave? In case it
+receives an expected file format, but we
+managed to trick it into believing that
+we're uploading a JPEG file when in
+reality that's going to be an executable
+file designed to exploit a
+vulnerability. or even better, how is an
+application that is supposed to process
+your resume online behaves when you
+upload a document, a word document with
+macros in it. Now, of course, to be able
+to design these types of various inputs
+and to properly test how the application
+behaves requires two things. First, a
+very careful design of your input test
+cases. Now you can rely on randomly
+generated input but this could firstly
+take a very long time and secondly you
+might not even cover all the cases. A
+better option would be to carefully
+craft specific test cases specific
+packets or or file types depending on
+your application its protocols and it
+expected attacks. Secondly, you also
+need to devise some sort of testing
+mechanisms that kick in after the
+fuzzing has completed and try to
+determine whether the application has
+properly processed those inputs or has
+crashed or has reached a completely
+unsecured state just to validate if you
+know those test cases were actually
+successful or not. Now let me show you
+just how easy it is to perform fising on
+your own on a simple web application.
+Okay, so generally this is how things
+look like. Okay, we have our PC here on
+the left which is running some sort of
+web browser. Okay, because we're testing
+a web application. And of course on the
+right we're going to have a website or
+the web application that we're supposed
+to test. Now of course your web browser
+is normally going to send HTTP request
+packets directly to the web application
+and the web application of course is
+going to reply directly to you. Now, for
+this fuzzing scenario here, we're going
+to introduce a new component in the
+middle of this communication here. I'm
+going to call that a web proxy or an
+intercept proxy. And the purpose of this
+web proxy is to act like a man in the
+middle between your PC and the website.
+So instead of just sending your HTTP
+requests directly to the website, you're
+now sending them to the web proxy and
+the web proxy is going to assemble its
+own requests and it's going to send them
+to the web application on your behalf.
+And of course, any answers that come
+back from the web application. Well, the
+app is going to reply to whoever
+initiated that connection in this
+situation is still going to be the web
+proxy. So the proxy is going to see your
+requests as well as your responses. Now
+the advantage of using a web proxy like
+this is that we can not only intercept
+that traffic and inspect it but we can
+actually work with it. We can change it.
+We can modify the uh the parameters in
+your requests and we can even generate
+synthetic requests on our own. And uh in
+our example here, I'm going to show you
+in a couple of seconds, uh we're going
+to use Burp Suite, which is a very sweet
+application and a very capable uh web
+proxy, interception proxy, and actually
+has a bunch of features, very, very fun
+and interesting features here. I'm going
+to come back here to Burp Suite later on
+in a later video, but for now, we're
+just going to use it to intercept our
+requests and then generate a bunch of
+requests based on that initial request
+that we captured just so we can throw
+various inputs to our web application
+and see how it reacts, how it behaves.
+Now, the app that we're going to be
+testing is called the damn vulnerable
+web application, which is a freeto
+download application that uh is
+purposefully vulnerable to a lot of
+exploits and attacks. And in our
+situation here, we're going to be
+jumping over to the cross-ey scripting
+stored method here because uh this one
+is just a simple page that allows us to
+add a name. So, for example, if I add my
+name in here and say this is an awesome
+website, right? I can just sign this
+virtual guestbook and the message is
+going to be stored in a database and
+shown back to the user. Now, what we're
+going to do here is we're going to
+attempt to fuzz the inputs on this web
+page and see how the application is
+going to behave when we send some
+unexpected inputs to one of these two
+text fields. Now, if you're curious, uh
+you can run this damn vulnerable web
+application as a virtual machine or the
+recommended way I would say simply
+because it's so much quicker, so much
+easier is to run it inside of a Docker
+container. Uh which is exactly what I
+did right here. You can see the command
+to run this as a Docker container. Uh
+the image is publicly available on
+Docker Hub and anything else related to
+Docker, that's going to be a whole
+different training. All right. So, for
+now, let's get back to Burp Suite. Now,
+Burp Suite is available as a free
+edition as well called the community
+edition. So, you can download it and
+play with it as much as you want. And
+you can see it does support a bunch of
+features here at the top row. And right
+now, we're interested in the proxy
+functionality. Now the only thing I need
+to do here in this tab is to set
+intercept to on. Which means that right
+now if I have a browser that points its
+proxy settings to Burpuite, Burpuite is
+going to be able to intercept all those
+requests and replies. All right. So
+let's switch back to our browser and
+let's add another entry here. Shorter
+one this time. And if I click sign guest
+book, you can see I don't have the the
+feedback right away. Well, that's
+because Burp Suite intercepted my
+request. And you can see it right here.
+That's the entire HTTP header that was
+sent by me and the payload. This is my
+name and this is the test text that I've
+added in my comment. Now, starting from
+this request, we can use it as a
+template and then we can change one or
+more parameters here that are normally
+sent to the web page and see how the web
+application reacts to those changes. So
+what I can do here now is to rightclick
+anywhere on the request and select send
+to intruder. It's mostly a uh a
+functionality which is designed for
+penetration testing. That's why it's
+called intruder. But it actually also
+does exactly what we needed to do. You
+can see the intruder tab now has
+highlighted here at the at the top.
+These here are the settings for the
+location of the website. And if we jump
+here to the positions tab, this is where
+you're going to see all the placeholders
+that can be fuzzed by this intruder
+functionality. Right now, we don't need
+all of them. So, I'm just going to clear
+everything in here and just select the
+username. Right? We're going to try to
+fuzz just the username field. And I'm
+going to say that I want this username
+field to be considered as a variable or
+a placeholder for the fuzzing process.
+Now, we're going to proceed to the
+payloads tab. And this is where you
+actually configure what kind of input
+you want to send during your fuzzing
+processor. We're going to generate
+multiple requests. How are they going to
+be different from one another? And you
+have a number of options for this. We
+can start from just a simple list like
+how does this website behave when I put
+my name in here? How does it behave when
+I put a number? How does it behave when
+I put some uh unprintable characters or
+some uh let's say HTML or JavaScript
+code and so on. Now in this case we can
+actually do something a bit more
+interesting and um let's try using
+character blocks because uh this one
+here is an interesting functionality and
+actually allows us to start from a base
+string and then multiply it as many
+times as we want just to see how the
+application behaves when the input
+that's coming from the users uh grows to
+potentially an unmanageable size. So you
+can use something like a simple string
+right here like ABC and the uh let's say
+we're going to choose a minimum length
+of uh 50 and the maximum length of
+10,000 characters with a step of 50. So
+it's basically going to multiply the
+string right here 50 characters bigger
+every single time and see how the
+application reacts when the name gets
+longer and longer and uh that's pretty
+much it. All right, let's click on start
+attack.
+And here are the requests coming in. Now
+you can probably see we're up to 600 700
+characters already
+and the delay is more and more visible.
+So the application is struggling to
+process this input more and more with
+every request. Now, for now, you can see
+the status is still 200, which means
+that the HTTP request is processed is
+accepted. But at some point here, if we
+just let this run for a while, we're
+probably going to hit a mark where the
+application is going to start throwing
+errors. Maybe the database is going to
+start returning uh timeouts. And
+basically, that's where we're going to
+figure out that this is a type of input
+that our application cannot handle. Now,
+normally if you look at the behavior
+like this, uh this is something that you
+shouldn't allow your users to do from
+the very beginning. So, you shouldn't
+just allow a user to uh upload a 2,00
+character username to your um guest book
+or to your web forum. This is some sort
+of input validation that you're supposed
+to do on the server side. Don't let just
+anybody upload whatever they want into
+your into your database. And if you
+want, you can also have a look at how
+the actual request is going to look like
+uh for each and every attempt right
+here. All right, let's cancel this one.
+All right, so we're back here in the
+fuzzing page for uh for Burp Suite and
+we're going to go and disable the
+interception. All right, we're going to
+set intercept off. And if we go back to
+our browser, we can see all our inputs
+here generated by the fuzzer. They ended
+up in the database which they shouldn't
+have if we had some proper input
+validation. But nevertheless, this is
+how you can uh properly fuzz any kind of
+input at least to any web application.
+Right? Give it a try. Play with Burpit
+on your own. It's free to install. A
+damn vulnerable web application is also
+free to try. Just play with the fuzzing
+functionality. Now you can probably
+guess that this fuzzing as we just
+described it can also be used as a brute
+force attempt to break into the login
+page into a web application. Now don't
+do this with publicly available
+websites. Play with your own lab. Play
+with the damn vulnerable web
+application. Just don't do it in real
+life because you're going to run into
+some trouble.
+All right, to wrap things up, when
+looking for problems and vulnerabilities
+in your code, you're probably going to
+be looking for issues in one of the
+following areas. Starting with
+authentication, this is most likely
+going to be the first one to be under
+attack. Look for specific situations
+where authentication could be bypassed
+or access to specific resources which
+don't take authentication into account.
+Also make sure that the process of
+validating identities, user identities
+and user profiles is performed in a
+secure manner cannot be overridden and
+also that you're not transmitting
+credentials in clear text. Secondly,
+injection flaws. This also comes down to
+what we talked about in the previous
+episode about input validation. Always
+sanitize any type of input that you
+receive from your users and also always
+do it on the server side. Don't trust
+your users and don't trust their
+clients. Validate that anything that you
+receive from your users can be safely
+processed and doesn't contain some
+hidden executable code. Authorization is
+about permissions. Make sure you check
+permissions and make sure you check that
+every privileged operation is validated
+before it is allowed and executed. Also
+make sure that you're not allowing your
+users to impersonate one another and to
+temporarily borrow the permissions from
+a more privileged user. Now, when
+talking about privilege escalation, this
+is exactly where you're supposed to
+focus your efforts. Error handling.
+Again, it's about providing just enough
+information to your users, to your
+legitimate users to understand what went
+wrong, but not enough information for a
+potential attacker to understand how
+your internal security processes work.
+For example, never tell a user if just
+their username or just their password is
+wrong. If an input received from one of
+your users doesn't comply with your
+requirements, don't give that user the
+entire SQL statement that failed or the
+entire log entry that shows what kind of
+processes are running in the back end
+and where the the application issue
+actually happened. Normal users don't
+need to see this. Normal users don't
+need to see what's behind the curtain.
+Don't forget about encryption at rest.
+So when you store data for long-term,
+for short term, even when you store data
+on the user's devices as a a cache, a
+temporary cache for example, and also
+don't forget about encryption in transit
+whenever you're communicating data, when
+you're transferring from your users to
+your users or to any other third-party,
+I don't know, maybe cloud services or
+other companies that you might integrate
+with other products. Always always
+communicate securely. Use encryption and
+use strong encryption. Logging and
+auditing. Don't forget about this either
+because this is what helps you pinpoint
+problems in your software and also helps
+you determine if you have any
+performance problems, if you have been
+breached, if some users are experiencing
+problems even before they start
+complaining. Always have proper logging
+and auditing in your applications. But
+make sure it's performed in a secure
+manner. don't allow just anybody to view
+those logs to access them or not to
+mention this dreadful scenario when a
+user can actually delete those logs as
+well. Don't allow users to delete their
+traces. Log everything. Trust no one.
+Session flaws. We're going to talk more
+about this. We're going to talk about
+session hijacking. But mostly this is
+going to be about protecting the actual
+identity of a user while they are
+interacting with your application. Make
+sure that another user, make sure that
+an attacker is not able to impersonate a
+legitimate user, is not able to guess
+their their session identifiers, is not
+going to be able to take over their
+session and compromise their accounts.
+And finally, the last one, but by no
+means the final topic here, but we've
+reached the end of the slide, is
+insecure configurations. Now, insecure
+configurations can mean any number of
+things. Now, insecure configurations can
+address uh defaults that come
+preconfigured from the uh the software
+vendor, test accounts, test data, or
+simply having specific security
+functionality implemented in your
+application but not enabled by default.
+Don't trust your users to be so security
+savvy and so uh let's say uh security
+oriented. Make sure that by default
+you're providing them with a secure
+application, a secure environment. It
+doesn't help anyone if you do have that
+functionality in there, but nobody is
+using it.
+All right, that's it. Make sure you
+understand and that you're able to
+explain to yourself at least all these
+different testing methodologies that
+we've covered today. Thank you so much
+for watching and I would gladly see you
+next time when we're going to talk about
+mitigating specific attack types in
+networks, in applications, and even
+more. Thanks for watching. Like and
+subscribe if you found this useful, and
+see you next time.
+[Music]

@@ -1,0 +1,129 @@
+the CIA Triad is an easy way to remember
+the fundamentals of it security
+sometimes you'll see this referred to as
+the AIC Triad to differentiate it from
+the federal organization in the US
+called the Central Intelligence Agency
+but since it's so easy to remember CIA
+we often refer to the CIA Triad instead
+of the AIC Triad but keep in mind that
+the CIA Triad has nothing to do with the
+CIA being the Central Intelligence
+Agency the C in the CIA Triad is
+confidentiality we want to prevent
+someone from Gaining access to private
+information we need to provide that
+information in a confidential way the i
+in CIA is the Integrity where if we're
+sending information from one person to
+another we want to be sure that the
+recipient really is receiving exactly
+what was sent from the origination and
+lastly the a in the CIA Triad refers to
+availability obviously we want to be
+sure that all of our systems remain up
+and running at all times even if we're
+implementing some type of it security
+you often see the Triad written as a
+triangle and each leg of the triangle
+has the confidentiality the availability
+and the Integrity listed as the security
+objectives associated with the Triad one
+of the biggest challenges we have in it
+security is making data available to
+others but making sure that availability
+is only to the right people we refer to
+this as confidentiality one way that we
+provide this confidentiality is through
+encryption we can have one person
+encrypt data send it to someone else and
+that other person can then decrypt that
+data to be able to see the original
+plain text obviously anyone in the
+middle who happens to get access to that
+encrypted data has no idea what's on the
+inside and if they were to look at that
+data they would not be able to discern
+anything important from that information
+another common way to provide
+confidentiality is to set limits on what
+someone may have access to we commonly
+do this with access controls we can
+limit who might have access to certain
+types of information for example this
+might allow someone in the marketing
+department to be able to see all of the
+marketing presentations and be able to
+make changes to those but it would
+prevent all access to any of the
+accounting information of the
+organization and if you've ever had to
+provide additional authentication
+factors when logging into a system
+that's another type of confidentiality
+someone would not be able to access an
+account unless they had the proper
+authentication credentials and adding
+those additional factors provides more
+confidentiality when we're receiving
+data from a third party we'd like to be
+able to verify that the data that we
+have received is exactly the same data
+that was sent and that nobody has made
+changes to that data while it was
+traversing the network we're able to do
+that by using methods of Integrity one
+way to provide Integrity is by hashing
+the person sending the data will create
+a hash of the data and send you both the
+data and the hash at the same time when
+you receive the data you'll perform the
+same hashing function and if your hash
+matches the sender's hash then you know
+the data that you've received is exactly
+the same as the data that was sent we
+can enhance this integrity by including
+a digital signature when we're sending
+data which takes a hash and encrypts it
+with an asymmetric encryption algorithm
+this means that we can check to make
+sure that none of the data has changed
+and we can confirm the person who sent
+the data that provides an additional
+level of Integrity that could be
+important if you're sending very
+sensitive data it's also common to use
+certificates to be able to identify
+devices or people and provide additional
+factors of integrity especially when
+you're transferring data from one device
+to another and lastly we have the
+concept of
+non-repudiation this means that we have
+proof of integrity and we can confirm
+without a doubt that the information
+that we've received really did come from
+the originating party if you've done any
+work in Information Technology you know
+how important it is for your systems to
+be available availability is that leg of
+the CIA Triad that ensures that people
+have access to the data that they'd like
+to view one way to provide this
+availability is to have systems that are
+designed to always be up and running we
+might combine this with a system that
+has fault tolerance where we have
+multiple components and if one of those
+components fails the other component can
+pick up and continue to operate normally
+and of course if you're concerned about
+systems being available you'll
+constantly need to make sure that they
+are managed and updated by patching
+those systems this ensures that the
+systems are always as stable as possible
+and that we can close any existing
+security holes preventing someone from
+Gaining access through some type of
+exploit

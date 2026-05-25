@@ -1,0 +1,85 @@
+to say that our mobile devices are
+challenging to secure is probably an
+understatement these are devices that
+often require additional policies and
+procedures along with different
+Technologies just to be able to provide
+security these are relatively small
+devices and you can hide them almost
+anywhere on a person you also find that
+these are always moving it can be
+difficult to manage something when
+you're not quite sure where it happens
+to be at any point in time and these
+small invisible constantly moving
+devices have sensitive information on
+them not only at a personal level but
+for the organization as well and because
+these are devices that are constantly
+connected to the internet it's possible
+that anyone in the world might be able
+to access this device
+remotely these mobile devices tend to
+have a lot of security built into the
+device itself one way to circumvent this
+security is through the use of
+jailbreaking or rooting although we
+don't commonly have access to these
+devices at the OS level there is
+certainly a complex operating system
+that's running under the surface and
+some individuals have found that you can
+replace this operating system with one
+of your own to provide additional access
+or circumvent some of these security
+restrictions if you're doing this to an
+Android device it's referred to as
+rooting and on Apple's IOS we refer to
+this as jailbreaking this replaces the
+firmware or operating system on this
+device with a third-party operating
+system this is generally done to enable
+new features and circumvent security
+that would normally be found on the
+original OS if an employee was to
+replace the current operating system
+with one for jailbreaking or rooting
+they would effectively circumvent all of
+the security that you put in place using
+your mobile device manager or
+MDM another concern are users that may
+install any application they would like
+to this device and some of those
+applications May consist of malicious
+code this would certainly be a security
+concern and just one bad application
+could subject all of the data on this
+device to be accessible by an attacker
+there are usually restrictions put on
+these devices either by the operating
+system or by your mobile device manager
+to restrict what type of applications
+can be installed and where those
+applications can be installed from for
+example you may specify that your mobile
+devices can only be installed from
+either the company's Global application
+Library or a local app store we refer to
+this ability of installing applications
+outside the scope of these app stores as
+side loading so if a user does install
+their own firmware to be able to root or
+jailbreak this device they would
+probably then be able to sideload any
+applications they'd like normally the
+installation of unauthorized operating
+systems or software would be
+specifically forbidden in the policies
+and procedures of your organization
+usually you'll find this in an employee
+handbook or a list of acceptable use
+policies or aups and it wouldn't be
+unusual if somebody was to circumvent
+this administrative security control to
+be subject to dismissal from the
+organization

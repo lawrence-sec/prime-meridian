@@ -1,0 +1,59 @@
+blockchain technology is often described
+as a distributed Ledger this is a ledger
+that's available for anyone to be able
+to see and its job is to keep track of
+individual transactions one interesting
+characteristic of the blockchain is that
+everyone who's participating on the
+blockchain can maintain The Ledger and
+everyone has a copy of this Ledger once
+changes are recorded in The Ledger those
+changes are distributed to everyone who
+also would like to maintain a copy of
+this Ledger this means we can use the
+blockchain for anything that would
+require us to keep track of transactions
+this might be Payment Processing digital
+identification monitoring of the supply
+chain or digital voting first we need
+some type of transaction we might be
+transferring Bitcoin from one person to
+another we might be creating a data
+backup and we want to track the process
+of that backup transfer or maybe we're
+transferring a house title from one
+individual to another instead of sending
+send in the results of that transaction
+to one person we send the transaction
+information to everyone who's
+participating as part of this blockchain
+so every individual device in the
+blockchain that is keeping track of The
+Ledger will also get a copy of this
+transaction this transaction is then
+added into a larger block of
+transactions that will ultimately be
+processed into the blockchain to
+complete the block we add a hash to the
+block and that provides Integrity of all
+of the transactions that are part of
+this particular block a copy of this
+block is now sent to everyone who has a
+copy of this particular blockchain's
+Ledger this hash is very useful because
+if somebody goes into the blockchain and
+modifies one of these existing
+transactions the hash is no longer going
+to be valid and as other devices that
+are also maintaining The Ledger see that
+a block has come through with an invalid
+hash it throws out the block and
+confirms that this block has been
+modified as youve probably seen with
+cryptocurrency and other applications
+that use the blockchain this type of
+technology is one that we're able to use
+for many different purposes and will
+certainly be seeing additional
+functionality from the blockchain in the
+future

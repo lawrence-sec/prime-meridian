@@ -1,0 +1,179 @@
+a VPN is a virtual private Network that
+is a way of taking information that
+would normally be sent across a network
+in the clear and encrypting all of that
+data so that we're then able to send it
+over a public network such as the
+internet if you're using a VPN from your
+workstation then you're probably
+connecting to a VPN concentrator this is
+a functionality that's usually built
+into our modern firewalls that allows us
+to encrypt and decrypt information on
+that concentrator this means we can
+encrypt information send it across that
+public network and on the concentrator
+we can decrypt that information and send
+it on its way this might be a piece of
+Hardware that is specifically designed
+for this encryption and decryption
+process or all of this may occur within
+software that we can install on an
+existing server VPN clients can be
+installed on many different operating
+systems and some operating systems may
+include VPN clients built into the
+operating system itself
+if you're using a client to site VPN
+then you would have software that's
+installed onto the client workstation
+and that client workstation would be
+communicating back to a Central site for
+example you could be using a laptop at a
+coffee shop and you may want to enable
+this VPN functionality so that you can
+communicate securely to a concentrator
+that's located on your corporate Network
+sometimes this is software that you can
+manually enable or disable depending on
+when you might want to use it but some
+VPN software can be configured as an
+always on connection so when you turn on
+your laptop and log in it has already
+created the VPN connection back to your
+corporate Network so you would either
+start your VPN software and enable it
+manually or that software would be
+automatically loaded and as soon as you
+begin sending information across the
+network all of that communication will
+be encrypted when that encrypted data is
+received by your VPN concentrator it
+decrypts that data and then sends all of
+that into your internal Network whenever
+you're sending information back to the
+laptop it reverses this process where it
+takes the information from the corporate
+Network encrypts it sends it across the
+internet and it will decrypt down at
+your
+laptop another type of VPN connectivity
+is between different sites this is a
+site tosite VPN where all of the
+communication between one site and
+another is encrypted over this VPN
+tunnel this is something that's commonly
+used as an always on connection so that
+you can be assured that everything
+between those locations will always be
+encrypted this is usually built into an
+existing firewall so you would turn on
+the VPN concentrator function on each
+firewall at each location and you would
+have all of the data sent between these
+locations Traverse this encrypted tunnel
+of course the concentrators will be
+decrypting this data on either side of
+the connection so the users at the
+different remote sites have no idea that
+this data is being encrypted between the
+two
+locations instead of installing a
+separate piece of software just for this
+VPN connectivity your organization may
+choose to use clientless vpns that don't
+require any specific VPN client this is
+something that usually runs inside of a
+browser using HTML 5 this is the
+hypertext markup language version 5 HTML
+5 allows us to use an application
+programming interface to be able to
+interact with the browser and one of
+those apis is a web cryptography API
+which allows us to run a VPN client
+inside of our browser without using a
+separate client this means we don't have
+to install any additional software we
+just visit the appropriate webpage and
+the VPN software within that API takes
+over and provides that encrypted tunnel
+all you have to do is make sure you're
+using an HTML 5 compliant browser and
+you'll be able to use this clientless
+functionality within the browser on your
+system the administrator of your VPN
+system May configure the connectivity in
+a number of different ways one of these
+methods may be through the use of a full
+tunnel a full VPN tunnel means that all
+traffic that's being sent out of your
+machine is traversing that VPN tunnel
+and is encrypted on the other side where
+the concentrator is located your local
+machine doesn't make any special
+forwarding decisions where some traffic
+is sent through the tunnel and other
+traffic is not instead everything is
+being sent over that VPN connection in
+some cases though the administrator of
+your VPN May configure a split tunnel a
+split tunnel means that some traffic
+will be sent over the encrypted VPN but
+other types of traffic perhaps something
+that is not related to your corporate
+environment is sent outside of the VPN
+connection so let's take the scenario
+where we're using a VPN we are connected
+over this VPN connection to a VPN
+concentrator that's at our corporate
+office but we might also want to
+communicate to a web server that's on
+the internet that's not part of our
+organization so you might want to
+connect to my server at professor.com
+this means that normally traffic that's
+destined for your corporate Network
+would go from your remote user's
+workstation to the VPN concentrator that
+would then be decrypted and sent to the
+inside of your corporate network but if
+traffic needs to go to
+professormesser.com that traffic still
+needs to Traverse that VPN tunnel it is
+decrypted at the concentrator just like
+all of the other VPN traffic but then is
+redirected to the internet and to the
+external web server any communication
+back to the client would then need to go
+back to the concentrator and then be
+sent back through that VPN tunnel with a
+split tunnel we can avoid that
+additional routing that occurs when
+you're talking to a third-party website
+so now at the remote users workstation
+we effectively have two different paths
+we have our VPN tunnel back to our
+corporate Network and then we would have
+a separate path that is used for other
+third-party traffic if we want to
+communicate to our corporate Network we
+would send that traffic through the V
+VPN as usual to our VPN concentrator
+which then decrypts the traffic and
+sends it to our corporate network but if
+we also at the same time would like to
+communicate to professormesser.com we
+would then at the remote users's
+workstation simply send that traffic as
+normal the VPN client would recognize
+that we're talking to a device that's
+not part of our corporate Network and
+would directly send that traffic to the
+third party website without traversing
+the VPN tunnel and of course the traffic
+back to our device device would also not
+use that VPN connection this means we
+can continue to have an encrypted and
+secure connection to our corporate
+network but use a more efficient process
+of communicating to third-party websites

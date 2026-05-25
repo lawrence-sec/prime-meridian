@@ -1,0 +1,543 @@
+[Music]
+all right so today we're going
+industrial and we're gonna start talking
+about internet of threats
+apologies internet of things honest
+mistake
+so internet of things has grown a lot
+lately it's it started with home devices
+and like home automation and cameras and
+baby monitors and things that you know
+alerts you when there's an open door an
+open window controller heating and air
+conditioning
+but we start seeing them nowadays in
+businesses all over the place in
+business applications as well like like
+monitoring production lines flooding or
+earthquake warning systems smart cities
+smart parking smart agriculture there's
+just so much internet of things
+happening nowadays
+now unfortunately as smart as they are
+trying to sound most of these devices
+are not built with security in mind they
+were not designed to be secured out of
+the box and actually the easier they are
+to use the more vulnerable they can be
+okay so internet of threat devices
+internet of things devices honest
+mistake again iot devices frequently
+show up as hacked in the news we hear
+about attacks and vulnerabilities and
+exploits regarding iot devices so often
+in the news
+usually happens by finding out how easy
+it is to get unauthorized access or even
+to install some botnets to run on these
+devices and this happens for a number of
+reasons first of all because they have
+very limited hardware and very limited
+operating systems but they're still an
+operating system most likely they're all
+based on some some version of
+android or some tuned down version of
+linux so many of the the classic
+vulnerabilities which apply to android
+or linux apply to those iot devices as
+well
+due to the limited hardware sometimes
+the security features are eliminated
+completely or are implemented in a very
+very unsafe manner and also they're not
+designed with security in mind because
+let's face the truth most of the people
+who buy them are not id people they're
+not really concerned about security in
+the first place they are concerned with
+usability and with the gimmicks on all
+the the the smart and nice features that
+those those objects those smart objects
+offer them so they don't even know that
+there is a risk in there and sometimes
+they don't even care and when the
+customer doesn't care
+why should the company care right
+on top of this oftentimes they don't
+even have admin interfaces or accessible
+interfaces to configure anything on them
+let's say you find out that a certain
+type of request sent over the wireless
+network can crash your i don't know your
+robot vacuum cleaner
+can you do anything about it
+can you install a packet filter an
+access list a firewall on a smart vacuum
+cleaner no you cannot
+and just to give you some insight as to
+how dangerous these iot exploits can
+actually be here's an article about
+a casino's internal network including
+all the gambling applications how the
+internal network was hacked through the
+smart thermometers installed in their
+aquariums so it's that bad and the vast
+majority of these iot devices are based
+or are running something called an
+embedded operating system and by
+definition an embedded os is some type
+of a system or an operating system
+designed for a device which is supposed
+to do a single thing it's designed to
+execute a single function that can be as
+simple as a something like a heart rate
+monitor or as complex as a computer for
+controlling the a self-driving car
+or an assembly line inside of a factory
+they're usually static which means that
+they cannot be changed by the user only
+by the manufacturer again this comes
+back to the problem of detecting a
+vulnerability and not being able to do
+anything about it and sometimes the
+updates available are very limited or
+not available at all and sometimes they
+cannot be updated at all because they
+might have non-standard service ports
+that require some some manufacturers
+software and tools
+for example at some point i try to
+update a smart speaker in my home
+it's the type of speaker that you know
+connects to the wi-fi connects
+to uh you know smart home assistants and
+you know does a lot of stuff and i i
+just thought you know it might be a good
+idea to update the software from time to
+time it had a usb port in the back so i
+just visited the vendor's website and
+the manual said that i'm not allowed to
+perform any kind of software updates
+because that special usb port actually
+has to be connected to a non-standard
+voltage which is atypical for a usb port
+in order to be able to interact with it
+and to
+provide the the software update as a
+service upgrade so unless i contacted
+the manufacturer or
+an authorized support partner
+i was left out in the open without any
+kind of updates
+and i still am
+now some embedded systems that are based
+on plcs those are programmable logic
+controllers can be reprogrammed can be
+updated but you will need the vendor's
+code to do so a high risk type of
+embedded systems are found in pos
+systems or kiosks and they can be
+compromised to to steal customer data or
+customer credit card data if they allow
+credit card payments
+or change data in some commercial
+application and of course they are high
+risk because they are extremely exposed
+to the public another category of
+devices are the so-called system on a
+chip
+basically an embedded system on a single
+chip right obviously
+the purpose is to have a very small
+computer that saves space and power
+requirements it has its own cpu its own
+memory it on connectivity ports to talk
+to the outside world storage everything
+that makes it work like a computer but
+at a much lower scale one example of
+this is arduino for example widely used
+in iot devices or raspberry pi which is
+not so much as an iot device anymore as
+a full-blown computer but you know still
+falls under the category of system on a
+chip i mean i was able to stream a 4k
+video from a raspberry pi so
+that's not a just an iot device anymore
+and that's a computer and even a general
+purpose one real-time operating systems
+are not a type of embedded operating
+system they have very limited functions
+and extremely time dependent execution
+their focus is on time functions and on
+executing operations on a specific point
+in time this means that they have to be
+more reliable more stable than general
+computers often these restrictions mean
+that they have absolutely no security
+features because they're used on
+assembly lines controlling safety
+functions you know machinery in
+constructions or even i don't know
+elevators
+medical equipment so any attack on these
+would consist in damage and they can be
+attacked just like any other device the
+difference is that in most cases you
+only have to delay that functions the
+the functions in the in the rtos you
+don't even need to crash it or to make
+it do something more complex
+on a chip or a car assembly line and
+denial of service of
+one second and delay could be
+devastating and there's no security most
+of the time there's no security simply
+because
+there are no spare cpu cycles to treat
+uh any detected attack there's no way to
+for the cpu to to pause its current
+execution and then start handling some
+sort of a security function right
+because it has to process at every
+single point in time any specific
+instruction it is not allowed to do
+anything else which is exactly what
+makes it so vulnerable
+here's an example of an attack or an
+exploit that happened
+on a real-time operating system which is
+vxworks from wind river
+and this real-time operating system
+powers car electronics factory robots
+controllers aircraft and spacecraft
+wireless routers medical equipment
+digital display
+what not writing plenty of other stuff
+so really dangerous if any kind of
+vulnerabilities are found in these
+real-time operating systems finally
+another one are fpgas field programmable
+gate arrays as the name says they are
+reprogrammable chips that are designed
+for repetitive relatively simple
+functions and can only execute
+operations from a predefined
+pre-programmed set now we also have
+non-programmable chips so those that are
+hard coded from the factory that you
+cannot change and those are called a6
+application specific integrated circuits
+now both fpgas and a6 can be used for
+functions such as packet encryption
+packet decryption and firewalls and
+ips's and ids's in proxies or package
+switching in well
+switches
+now fpgas are vulnerable not to just
+physical access but also to supply chain
+attacks remember we talked about those
+if some devices are intercepted in
+transit or in the factory where they are
+built
+malware or backdoors can be installed in
+those reprogrammable fpgas here's one
+example called star bleed
+and
+unfortunately as you can see right here
+since the bug is in the hardware
+it cannot be patched with software and
+the only funnel on the solution is to
+replace the chips so it's that bad next
+up we have to talk about building
+automation systems or bass they're
+sometimes
+similar in behavior to smart home
+systems but they're applied to
+enterprise and so they're more complex
+right to an enterprise building
+basically it's about the physical access
+controls and the badges and the rfid
+tags you know biometrics and the lights
+and the temperatures in the in the
+conference room uh air conditioning fire
+suppression video monitoring on the
+hallway
+all in one or more large digital systems
+that are networked for monitoring and
+control now in one perspective bases are
+somewhat similar to ics's as well to
+industrial control systems since they
+also rely on embedded controllers and
+sensors with a central monitoring
+control interface you know you do have a
+a console for from which you control the
+the lighting and the uh
+the temperature in a room but you also
+have sensors all over the place that
+feed back information about those
+changes
+now unfortunately most of these systems
+are often overlooked as not being part
+of the actual network from a security
+perspective
+some are installed and maintained by
+third parties so they're ignored
+whenever a secret assessment is
+conducted
+some use proprietary protocols like
+bacnet or dinette or something like that
+which are not centered on security and
+those plc can be exploited through these
+networks on top of these most of these
+solutions are administered centrally
+from some type of a web application from
+a web interface which is designed to be
+used only internally so they're not
+properly secured the code is designed to
+work in an isolated and controlled
+environment so often there isn't no
+encryption everything is in clear text
+and sent in clear text and stored in
+clear text or
+even worse hard coded within the
+application code itself
+like security credentials hard coded in
+the in the application or stored right
+next to its code now a subset of these
+building automation systems can be a
+pack which is a physical access control
+system which is a network dedicated for
+door locks you know window locks
+surveillance and so on to read more
+about security and building automation
+systems i would direct you to have a
+look over this paper right here
+and also
+over this article
+about discovering and defending against
+vulnerabilities and building automation
+systems now you're gonna get both links
+in the video description so i would
+highly advise you to at least glance
+over them another very important and
+widespread category of embedded systems
+are
+vehicles and drones like cars and drones
+have a lot of intelligent electronics
+built into them and we're not just
+talking about the entertainment system
+in your car but electronic engine
+control stability fuel consumption even
+driving assistance or parking assistant
+or self-driving each such system is an
+ecu which is called an electronic
+control unit controlled by cans
+controller area networks which are just
+serial buses
+the interface to this system is usually
+called the obd or the obd-2 on-board
+diagnostic module you might have used it
+if you ever installed some gps tracking
+device in your car
+or someone else's
+now that can bus that can bus that we
+mentioned is very similar to the
+ethernet
+shared networks there's no security at
+all all ecu's on the bus
+receive the same messages so there is
+only broadcast and there is no source
+addressing or any kind of authentication
+just like the ethernet from the old
+times now of course access to the obd
+port can basically crash a car since do
+not have servicing the can bus can make
+all this electronic control cease to
+function but these days we also have uh
+you know remote ways to access the can
+bus through cellular connections like
+you know you get the ability to start
+your car from your phone
+or heat up the the seats in your car
+before you get into the car
+some cars also create
+mobile wi-fi hotspots which also opens
+another gateway to potential attacks
+like this example which you might have
+heard about how to kill a jeep's engine
+on the highway without even being inside
+of the car and coming back for a second
+to the industrial zone industrial
+control systems are responsible for
+automating control machinery you know on
+assembly lines for example in critical
+infrastructure like you know the systems
+that provide water power health services
+you know communications even nuclear
+facilities in either case they are
+regarded in a special way because the
+systems that they control can become
+very dangerous if we lose that control
+that we have over them and can pose high
+risk to human lives now just to
+clear the terminology here and ics
+within a single site
+is called a dcs a distributed control
+system i know it's it's awkward it's
+counterintuitive but in a single site
+it's called a distributed control system
+now these systems run some software on
+normal computers on plc's right plcs
+that gather data from outside sensors
+and controllers which are called field
+devices now these plcs are linked by
+either a fieldbus serial network or by
+ethernet to actuators that operate the
+actual engines like the valves and
+circuit breakers and so on including
+sensors that monitor things like
+position temperature
+and other parameters there's also a
+component called the hmi that's the
+human machine interface and as the name
+says that's the interface that a human
+uses to configure and monitor the output
+of a plc another one that you might have
+heard about is scatter which stands for
+supervisory control and data acquisition
+not very intuitive but as you probably
+know a scatter industrial system
+controls large-scale icss with multiple
+sites now it is often deployed on a
+completely separate network because
+scada systems can run on general purpose
+computers and due to the strict
+requirements
+updates are very rare or even impossible
+to apply which is why some companies
+completely
+air gap the cata network or isolated
+with firewalls and unfortunately most of
+them are running some legacy software on
+legacy hardware for which there are
+absolutely no more security patches or
+updates available anymore so from a
+security perspective what you should do
+for a scatter system is to first
+document and monitor all the links and
+the connections or possible connections
+to your scada system also use any
+built-in security system if you have any
+available keep in mind that some of
+these systems only work on legacy pc
+operating systems so try to stay away
+from those but if you don't have a
+choice think about air gapping the
+network and air gapping is a very
+important concept for the comptia
+isoplus exam as well now sometimes these
+systems are managed through web
+applications which can also be
+vulnerable to a whole lot of threats the
+the actual web application attacks
+from top 10 old west for example also
+don't forget about physical security not
+just physical access to those systems or
+to those computers but things like you
+know ways to communicate with the
+outside like through usb drives or
+cd-rom drives because they're most
+likely gonna have some cd readers in
+there
+and finally don't forget to audit
+periodically and hire good technicians
+who understand security and there are
+some dedicated security systems for
+these problematic industrial
+systems out there especially data diodes
+which are purposely built to only allow
+traffic in one single direction that is
+they don't even have internal circuitry
+necessary to allow traffic to flow back
+from out from the outside from the
+internet so their special devices
+designed that way kind of like a
+hardware firewall that filters traffic
+at a physical level and just to give you
+a couple of examples of dedicated
+security solutions for scatter systems
+one of them is the cisco cyber vision
+and another one that we just mentioned
+are the data diodes for true
+segmentation of those problematic
+network segments
+finally the last one you should know
+about is modbus this is a protocol used
+in ics
+to read and update configurations on
+plc's it's very very old you know with
+no security in mind again was designed
+originally for a fieldbus serial network
+not even ethernet but it has evolved
+nowadays to use ethernet and tcp ip and
+since you don't really have to dig too
+much on the internet to find some proof
+of vulnerabilities that apply to the
+modebus protocol here's an example
+that's a an academic paper about this
+and here's another one again an academic
+paper about the vulnerabilities of the
+modbus protocol now fortunately things
+aren't exactly that bad so there have
+been some improvements to modbus
+especially uh
+the introduction of tls in modbus so
+even though most of these are considered
+to be legacy devices there comes a point
+where
+legacy means dangerous so don't go there
+right be aware that things can be
+improved in industrial systems as well
+so here's an article about some good
+news about the security improvements
+that can be performed on top of the
+modbus protocol and here's an article
+with some bad news a piece of malware
+that targets energy sector systems and
+even includes references to the cov19
+pandemic and last but not least if you
+don't know about stuxnet
+already
+please read this article you'll find all
+the links in the video description uh
+you'd need to know about this you need
+to know what happened here and you need
+to understand the disastrous effects a
+simple usb stick can have on a scatter
+system
+right that's it now all the story about
+iot devices industrial systems real-time
+operating system embedded operating
+systems and so on it's really
+complicated and decisive plus exam tries
+to to touch these subjects just a bit so
+that you can become aware of the
+security risks
+that can happen
+on each of these tightly controlled
+systems now i really don't have to go so
+much in depth to understand how these
+things work but you do have to
+understand the security principles and
+the security let's say red flags that we
+talked about over the course of this
+video all right so understand how
+security is implemented in these very
+restrictive systems and you should be
+okay for the exam all right so thank you
+so much for watching see you next time
+when we're going to be talking about log
+analysis and continuous security
+monitoring hope you liked it like and
+subscribe and see you next time
+you

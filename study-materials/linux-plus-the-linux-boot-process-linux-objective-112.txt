@@ -1,0 +1,731 @@
+hi i'm sean powers and i'm here to help
+you learn everything do what you love
+and most importantly be kind but today
+specifically we're continuing our linux
+plus series uh to get certified and we
+are on section
+1.1.2 which is what i'm calling
+this part that i have in
+highlighted it's just the basic boot
+process and then also we're going to
+talk a little bit about kernel panics
+now again 1.1.2 is just something i made
+up this is just part of the 1.1
+section
+objectives for the linux plus
+exam i'm going to put a link to the
+actual objectives in the description so
+you can download those and look at them
+but this is what we're covering today
+and the first thing we're going to talk
+about is bios versus uefi and honestly
+from a functionality standpoint both of
+them do pretty much the same thing ubfi
+and bios are both like firmware that is
+on the hardware of the computer that
+allows the software like the operating
+system to interface with the hardware of
+the motherboard and it's also the thing
+that determines how the system boots and
+all that sort of a thing they are
+different uh bios is older uefi is newer
+uefi stands for unified extensible
+firmware interface which is a mouthful
+but basically like i said they do the
+same thing this is when you start up the
+computer like press f12 to configure it
+and stuff whether it's bios or uefi you
+are configuring that firmware that comes
+on the motherboard of the computer now
+there are differences of course like
+uefi stores its configuration stuff on a
+partition of the hard drive as opposed
+to bios which
+doesn't necessarily
+store information on a hard drive in a
+partition so if you whether you're
+running running linux or windows if you
+have a system with uefi it's going to
+have a small partition the efi partition
+and you've probably seen that in windows
+and maybe in linux as well um there are
+some advantages uefi supports drives
+that are bigger than two terabytes uh it
+it's designed for gpt which is like the
+supports more partitions obviously it's
+newer now i put this last bullet point
+in green because
+even though
+a lot of new computers actually almost
+all new computers come with uefi
+they sometimes call it bios just so
+people know what it's talking about and
+so it'll be like you know press f11 to
+enter bios or enter setup and it'll just
+refer to things as bios even if it's
+actually uefi which is just super duper
+annoying but i guess i get it you know
+they want to use a common term and like
+oh i need to go into bios but all i have
+is uefi well you're going to configure
+stuff it's going to be in either uefi or
+bios anyway bios like i said is older
+it's still around on some systems
+especially older systems it just stands
+for basic input output system and again
+this is like the thing you configure
+like your drives and your peripherals
+that are on the motherboard and stuff
+like that
+it has limited uh support i don't know
+what i was going for with limited
+support
+it has limited support for a hard drive
+size you know two terabytes is the limit
+that it can support there are ways to
+get around that but by default it
+doesn't handle anything bigger than two
+terabytes uh the configuration is stored
+on the motherboard in a rom location uh
+and of course it is older but this that
+we're covering in
+this objective is
+the basics of linux like it's a summary
+of the fundamentals of linux and so
+from that standpoint just know that
+whether your system has uefi
+or bios that's what it's going to use to
+boot the system and how the operating
+system is going to interface in fact the
+operating system works fine with both
+linux is perfectly happy with bios or
+uefi it's just and it'll configure the
+system properly as you do the install so
+at the end of the day just know what
+they do and that you have one over the
+other and if it's newer you probably
+have that one now since this uefi or
+bios is the part that boots the system
+right i mean this is the interface
+between the hardware and the operating
+system it's booting we need to talk
+about boot sources and also boot sources
+as specifically mentioned and they
+mention a bunch of these so i want to
+talk about them but there's there's kind
+of
+a divide between hardware boot sources
+and software based boot sources and i'll
+explain what i mean basically the uefi
+or the bios is going to allow you to
+boot the computer
+to a number of locations now obviously a
+hard drive you know that's something
+that it boots to on a fully installed
+system uh you're probably familiar with
+like setting it to boot to a cd or dvd
+drive same thing with a usb stick a lot
+of times that will be one of the options
+you know like press f10 to choose the
+boot device or whatever or you can go
+into setup and choose which one it it
+starts from
+but there's a couple you may not have
+heard of
+pixi pxe which stands for pre-boot
+execution environment and i know that's
+kind of a stretch because it's like the
+second letter of execution but preview
+pre-boot execution environment and then
+uh some motherboards although i'll be
+honest i've never seen this uh have
+ipixi which is just uh you know i in
+front of the
+pxc initials and what these do is they
+allow you to boot from a network so thin
+clients will often pixie boot but you
+can also like do an install over the
+network by pixie booting or having a tft
+a combination of a dhcp server and a
+tftp server that will
+tell the system where to locate the boot
+files and then it will go to the tftp
+server which is just a very simplistic
+file server on your network and it will
+download the kernels to boot and rather
+than a local device it'll literally boot
+off the network which is just cool as
+heck the difference with ipxy is that
+instead of using tftp which is like i
+said is very simplistic it'll allow you
+to use an http stored
+kernel image and it's faster etc etc but
+functionally they are the same thing
+this is just to boot off of the network
+and so all of those are determined by
+bios or uefi however there are other
+boot sources that you can do but you
+kind of already start the process like
+you start to boot from the hard drive
+and then the linux grub 2 bootloader
+takes over and before it boots linux
+proper it will allow you to do a couple
+other things you can boot to an iso file
+so instead of burning a dvd to a disk
+and like hoping that you have a dvd
+drive it will actually allow you to boot
+directly from an iso file
+i've actually never done that but it's
+like a big feature of grub 2 so you know
+yay for yay for that um mem test is
+usually built in it's a it's a very
+stripped down operating system that will
+allow you to test ram in case you have a
+periodic kernel
+panics which we'll talk about later
+you could also boot other os's like
+let's say you have windows and linux
+grub2 could allow you to choose which
+thing it's going to boot so this is kind
+of like an interim it's like a
+it's like boots to this but then
+grub 2 decides where it's going to boot
+to now the bootloader that we have to
+learn about is grub 2 and you're
+probably wondering okay what about grub
+one well at the last iteration of the
+linux plus exam we did have to learn
+about grub one or grub legacy and grub
+two but they've eliminated any mention
+of grub legacy in this current iteration
+of the linux plus
+objectives so we don't have to learn
+that but just so you know
+grub 1 or just grub at the time or grub
+legacy is an older
+less flexible version grub 2 is
+obviously its successor and is more
+powerful it has a little bit of
+confusion that we're going to come into
+when we look at ubuntu and red hat
+separately but just know this is the
+software uh that
+starts the booting process and like we
+just learned it can actually either boot
+linux or boot something else or you know
+directly to boot from an iso file but
+grub 2 is the bootloader that we're
+going to learn about in linux there
+aren't other options grub 2 is it and
+now this is just a quick reminder i'm
+going to go through the entire boot
+process that linux takes i am
+purposefully going to just touch on a
+couple things because remember this is
+the very first section of the linux plus
+course we are just getting an overview
+of how stuff works you don't have to
+worry about configuring the nitty-gritty
+details of all of these processes you're
+just supposed to understand what
+actually happens when the linux system
+boots and so we start at the very
+beginning very good place to start with
+the bios or uefi depending on your
+system and it will you know if it
+doesn't boot to like a usb drive and it
+just goes right to the hard drive and
+starts grub 2
+grub 2 will then
+load uh vm
+linux or vm linus now these are the
+actual kernel that ships with your
+distribution okay this is after install
+so we've installed the system uh grub 2
+then we'll use this kernel and what's
+important to know is that first of all
+the difference here vm linux you
+probably won't see anymore because vm
+line is with a z is simply the same
+kernel just compressed to save space so
+you're going to see one of the two
+you're probably going to see it with the
+z but it's it is the kernel that is uh
+the the full kernel that ships with your
+uh ubuntu or with your linux system and
+it doesn't matter the hardware that you
+have this is a like a generic uh kernel
+compiled to work with a multitude of
+hardware
+and that's where things get tricky
+because they don't want to have you
+compile your own custom kernel every
+time
+we need to be able to load the specific
+things that your system needs and that's
+where init rd or init ram disk comes in
+what the init rd does is it loads just
+enough software like kernel modules to
+recognize your hard drive uh
+anything that it will need to load the
+full kernel so basically your hard drive
+like let's say you have an nvme drive or
+some special
+sata drive or something that needs
+kernel modules to load init rd will
+include that
+just so that it has enough to mount the
+whole system so that it can see all of
+the other installed files okay so this
+is like it it's kind of like
+bootstrapping the install uh process by
+just having a temporary init ram disk so
+it doesn't it only exists in ram like it
+uses the actual ram of your system to
+create this and those are the modules uh
+you actually create this init rd
+specifically for your computer and you
+don't do it the installer does it as you
+install your system it looks for what it
+needs and then it creates an init ram
+disk using the make init rd tool i only
+say that because it specifies that in
+the objectives and it creates this init
+ram disk that it uses
+once it it loads up the other stuff
+it will then
+mount the hard drive where all of the
+full kernel modules are because the the
+linux kernel is modular almost
+everything that you have to put into it
+are just modules that are external files
+that you like load into memory and so
+the full kernel is going to be on a hard
+drive
+once we can load that hard drive and
+mount that file system with the init rd
+then
+all of the modules that are on the
+actual physical hard drive can be loaded
+and so then the init rd you know it gets
+rid of that and it actually starts using
+just the fully mounted uh file system
+and so um
+that's after it boots now i do want to
+point out something let me i made a mess
+here so let me erase some of this um
+it's often confused when we say init rd
+versus the init ram
+fs and init ram fs this is this is
+getting down a rabbit hole and this is a
+little bit too deep maybe even for this
+video but i really want to touch on it
+the init ram fs is a file system that vm
+linux that the actual strip down bear
+kernel
+uses uh to
+it's kind of an
+in addition to the init ram disk and it
+uses um
+dynamic tools in fact
+drakut is the tool that you create the
+init ram fs with and what it does is it
+uses uh
+auto detection to dynamically uh create
+the devices required in order to mount
+the system
+to get all of the stuff loaded and i
+know that that's just you know that's
+just a whole nightmare of things
+but it's not the same thing as init rd
+that's the part i really wanted to point
+out init rd has all the stuff that your
+your kernel will need in order to load
+stuff init ram fs is a temporary file
+system that it creates and then
+dynamically mounts all the the devices
+that it needs in order to finally
+mount the full system
+and no longer depend on those things
+once the full system hard drive is
+mounted it has access to all of its
+kernels or all of its kernel modules it
+loads up and it works just fine all of
+this happens usually in a matter of
+seconds uh but that's the process that
+it goes through uh which is really
+chaotic but that that's how it goes so
+that was the boot process it's okay if
+it was like a little confusing you're
+like wait i thought i understood how
+linux boots and now i don't
+just look at that slide and those terms
+are things that you need to understand
+or not understand know about but not
+fully understand i'm not going to get
+into how we create the init ram fs using
+drag code and auto detected devices on
+the system during boot etc that's beyond
+the scope of probably even linux plus in
+general but that's the process it goes
+through when it boots now once it's
+booting again grub 2 is our bootloader
+that does all of those things and if you
+need to make changes to those it's
+important to know where the files live
+because knowing the name of the files is
+is just a nightmare and so i'm going to
+show you on both an ubuntu debian based
+system and also a red hat using rocky
+linux uh what to look for and it's going
+to be different all the time and it's so
+stinking annoying but first let's go to
+a bunch of because that's the simplest
+and
+i'll show you where you can figure
+changes in grub all right so first of
+all uh we're on ubuntu mata here i'm
+logging as rude i did sudo su just so i
+could b root because some things you
+need root access to c but if we look at
+the boot folder again that's where the
+kernels are stored we learned that in
+our last video you'll see that there are
+sure enough vm linus just like i said
+you know and this is just a symbolic
+link to the latest version of vm linus
+on our system
+and we have the init ram disc that is
+detected and created for our system
+there's actually a generic one long
+story a lot of hardware is
+detected and easily used inside a knit
+ram uh the init rd so that's perfectly
+fine there's like a system map the
+system map actually tells the system
+like okay once i can actually mount my
+hard drive where are all of my kernels
+that's in the system map files and so
+this and the config these are the
+configuration options that were used
+during the build of the kernel
+you got all that down all right what i
+wanted to show you though is inside here
+there's going to be so inside boot
+there's going to be efi for if it's a
+uefi system uh and if it's not uefi it's
+just going to be a grub folder it gets a
+little bit confusing here because a lot
+of times it will just be created inside
+the grub folder and then it'll be
+symbolically linked to the efi folder
+but anyway let's look really quick at
+the grub folder inside there
+we'll see this grub dot cfg this is
+where the configuration for
+what the system is supposed to do when
+it boots is located but it is not where
+you configure it do not mess with this
+grub config manually that's just not
+what you do okay the other thing if we
+look in
+the efi
+looks like there's going to be okay
+there is a
+grub 64.efi your installer is going to
+know the thing to create and it's going
+to put it in the right spot but again
+since this is not where we edit it this
+is just where they are eventually stored
+where we edit the configuration is going
+to be inside etc
+default and you'll see inside here
+there's a bunch of stuff but the one we
+want to look at is grub okay
+and let's just look at that vi
+grub
+this is where we can make changes so
+greet grub default like the first menu
+entry uh
+hide the system so it doesn't show you
+all the stuff as it scrolls by these are
+where we can make a bunch of different
+changes you're not going to need to make
+changes in here very often but if you
+need to make changes to grub it's going
+to be in this file so you make those
+changes
+and then on ubuntu all you have to do is
+say update dash
+grub
+uh oh
+it's either going to be update dash grub
+or update dash grub 2 and they're the
+same file right it's just one is a
+symbolic link to the other
+it's just update grub that you have to
+run and that will create all of the
+proper files it finds all of the init
+disks etc etc it creates it it creates
+that grub config file where it needs to
+be if it needs to be in the efi folder
+if it needs to be in the et cetera grub
+folder it finds all of those things and
+creates it just fine it's really nice
+that's all you have to do now
+the update grub actually uses a couple
+different command line tools some of
+those are let's see uh i'm just going to
+type grub
+dash and then hit tab a couple times to
+show us the few that are mentioned in
+the objectives are going to be grub
+install which is how you install the
+system like if it gets corrupt and you
+want to rub run grub install to get
+everything back to where it's supposed
+to be that's what the installer the
+operating system installer does at the
+beginning it will run that to put
+everything in the proper place
+the make config is actually what update
+grub does behind the scenes and i'll
+show you that more in depth on the red
+hat system because red hat doesn't have
+update grub you have to do it manually
+using grub mk config all right so that's
+that's important and then there's one
+other one that they mention oh grub 2
+update but in ubuntu it's just update
+grub and again that's uh that's when you
+make a change you do that and it it
+creates it so that's how it works here i
+do want to point out that this is super
+annoying again because remember i said
+the grub and grub 2 thing well it used
+to be that these things were called grub
+2 dash mate config but now since grub 1
+isn't an option ubuntu decided why are
+we using the 2 why don't we just call it
+grub dash make config and have that
+point to the grub 2 program that we use
+so it's important to look at your
+particular system to see what the tools
+are called because like the objectives
+say grub 2 dash make config but on
+ubuntu it's grub dash mate config and
+it's the same thing it's all using grub
+2.
+and rocky linux is even rocky linux or
+red hat linux is even more frustrating
+but the same we start in the same place
+first of all we're going to go into etc
+default
+and we're going to see there is grub if
+we
+mess with grub here we have fewer
+options here but we can make changes
+here make these changes and then
+because we don't have update grub which
+automatically creates the grub.config
+file in the right place we need to use
+grub
+2
+different than ubuntu this one still
+uses grub 2 dash and we need to use grub
+2 dash
+make config but we need to know where to
+put that config file and so let's go
+into the boot folder
+and we'll see in here we're going to go
+into the grub 2 folder unlike a bunch
+where it was just grub
+so
+grub 2 and inside here we're going to
+see that's where the grub dot cfg file
+is okay so
+what we need to do if we make changes to
+that etc default grub command is run
+grub 2 dash
+make config dash 0 for output file and
+we're going to put it in boot
+grub 2
+grub dot cfg
+it will generate that it will put it in
+there
+it will automatically put the uefi stuff
+in the appropriate place which is really
+nice right we don't have to like try to
+figure out if we have to put it in the
+efi folder it does that part
+automatically but we did have to figure
+out where exactly to put that
+configuration file and that's where we
+put it again you very rarely have to do
+this stuff but it's important to
+understand what happens and to add
+insult on top of injury on top of insult
+on top of frustration
+with the newest versions of red hat
+enterprise linux it's not clear if
+editing etc default grub and then
+running
+grub2-make config actually updates
+things they really really really want
+you to use their tool called grubby now
+grubby is not mentioned in linux plus so
+i won't even demonstrate that but
+basically what grubby does it's a
+command line tool that allows you to
+make the changes that you would normally
+edit inside the configuration file like
+the timeout stuff that you know we
+looked at that that grub file that we
+can make changes to like the timeout and
+the the default option and all that
+stuff instead of making configuration
+file changes they want you to use grubby
+and just make the changes with the
+grubby command and then the grubby
+command does stuff behind the scenes to
+activate those changes that you do again
+it's not listed in linux plus so you
+don't have to know that for the exam
+however if you're configuring red hat
+enterprise linux a newer version like
+version 8 or especially 9
+just know that grubby is probably the
+way you're going to have to make changes
+not using the standard grub tool tools
+that you need to learn for the
+objectives and i know this video is
+getting long but the last thing i want
+to talk about is kernel panics because
+we've done a lot of stuff about kernels
+right like you've seen how you can like
+adjust things and there's multiple
+kernels vm lineath and like several
+kernels the nice thing about linux when
+you install a new kernel like an upgrade
+it keeps at least one of the previous
+versions in case something goes wrong
+with the new one you can roll back and
+rolling back isn't as obvious as it
+could be but i want to show you how you
+do that because a lot of times linux
+systems will have all that gr that grub
+menu stuff hidden so it's not ugly and
+you don't see a bunch of ugly text it
+just like keeps everything with like a
+nice little graphical thing in the
+middle so it's like oh i'm so fancy i'm
+a new operating system but you can't see
+options if you need to go through them
+so what you do is as you reboot the
+system hold down a shift key and that
+should reveal the grub menu which will
+allow you to pick a different way to
+boot the system remember it starts grub
+and then grub decides where to go from
+there one of the there's you can go to
+are a previous kernel so i'll show you
+on ubuntu we'll just restart it and i'll
+show you how you select that all right
+so i'm here on this ubuntu system i am
+just going to power it right down all
+right i'm going to power it up
+and as it starts
+i'm holding down the shift key so i'm
+holding it down and boom there we get
+the grub menu if you don't hold it down
+just as it's starting you're not going
+to see this menu but if you get to this
+menu you can go down to advanced options
+for ubuntu press enter and now look at
+this now there's recovery mode you can
+try to fix stuff but generally if you
+get a kernel panic right after an update
+uh you can go back to the previous
+version in our case this is 5.15 0-2-5
+instead of 4-1 so this is the older one
+the one before the update happened just
+press enter and it will boot to that
+kernel and then you can like remove the
+new kernel and reinstall it and see what
+went wrong but you'll be able to boot
+your system without the kernel panic
+okay that's that's how you boot to a
+previous kernel hold down that shift key
+so you see this grub menu and that's
+really only if something
+drastically happens suddenly like you
+just made a change to a kernel or you
+just made grub updates or you know like
+i said the system updated to a new
+kernel and then just panics like when it
+restarts it like i'm not starting like
+killing init can't find init rd all
+those sorts of kernel panics that
+happened after an update that's how you
+would fix it unfortunately that
+that's not usually how kernel panics
+happen usually kernel panics happen
+periodically or randomly or like when
+the system gets like a lot of ram usage
+because usually kernel panics mean a
+hardware problem and it's so frustrating
+and hard to track down it could be one
+bad stick of ram and you could try
+running mem test which is one of those
+options in grub where it'll test your
+memory sticks you could try pulling out
+a stick of ram and see if it kernel
+panics and if it if it does kernel panic
+would that stick out well you know that
+stick's probably good and just keep
+swapping them to see if you can find the
+one that causes the kernel panic uh it
+could be uh your cpu's not seated it
+could be uh something on your
+motherboard is bad it could be
+uh it could be so many different
+hardware related things that it's very
+difficult to troubleshoot a kernel panic
+but
+if you know if if you get a kernel panic
+especially if it only happens sometimes
+it's probably hardware related and you
+need to track that down using just
+troubleshooting uh usually process of
+elimination
+but if it's kernel related something you
+just did you can roll back because that
+is uh it's usually obvious when
+something goes wrong like that anyway
+that's the boot process for linux i know
+it's crazy it's a little bit it's a lot
+of it confusing but if you followed
+along and and you kind of understood
+what i was saying that's going to get
+you to the place you need to be for the
+linux plus exam because again this is
+just a quick overview of the boot
+process and what uefi is and and how the
+init rd kind of fills in the gap so that
+it can fully boot and mount its hard
+drives uh to get access to all the
+kernel modules and all that sort of
+stuff anyway i hope i hope this is fun
+for you because this kind of stuff even
+though it's confusing it is fun and i
+always love delving deep into what linux
+actually does uh so if you found this
+interesting you're gonna love the rest
+of the course and if you found this
+overwhelming stick with it uh stick with
+me hopefully the rest of the course will
+uh make a little bit more sense you know
+come back and be like oh i get it i know
+what's going on anyway i'll see you at
+the next video i hope this was helpful
+bye

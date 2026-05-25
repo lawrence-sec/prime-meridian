@@ -1,0 +1,120 @@
+a race condition is when two events
+happen at nearly the same time with an
+application and the application doesn't
+take into account that these two
+conditions may be operating
+simultaneously this is something
+application developers commonly check
+when they're building their application
+but there may be times when a
+combination of different events inside
+the application might have an unexpected
+outcome and this would be the textbook
+example of a race condition one common
+type of erace condition is a Toto this
+is a time of check to time of use attack
+this means the application is going to
+check the system to retrieve information
+that may be stored and then after it
+retrieves that information it may
+perform a particular function with that
+value but sometimes there's another
+process that occurs behind the scenes
+between the time when you've checked the
+system for the value and you're actually
+using that particular value and if you
+don't take into account that that value
+might change without you knowing it
+you've run into a race condition let's
+look at a practical example of a race
+condition where you have two users that
+are moving dollars between two different
+accounts there's user one and user two
+and the two accounts are account a and
+account B the race condition that you're
+going to see here is one that was
+created because the application
+developer takes deposits that are put
+into the account and has them
+immediately updated in the application
+but if someone withdraws money from an
+account that information may not be
+immediately updated in The Ledger let's
+see how this would play out if the two
+users are transferring information from
+one account to another we'll start with
+two accounts account a and account B and
+both have a starting account value of
+$100 user one is going to transfer $50
+from account a to account B user one is
+going to check the balance and see that
+account a is $100 and account B has $100
+user 2 is also going to check the
+balance and see that both of the
+balances are indeed at
+$100 so far everything is working as you
+would expect now user one is going to
+add $50 to account B because deposits
+are updated immediately we know that now
+account a has $100 and account B with
+extra $50 in it has a
+$150 value now user 2 is going to
+perform the same function they're going
+to add $50 to account B and when they do
+that because this deposit is represented
+immediately we now have account a with
+$100 and account B with $200 and again
+everything is still working exactly as
+expected now user one is going to remove
+$50 from account a from user one's
+perspective account a now has $50 and
+account B has $200 now user two is going
+to perform the same transaction and
+remove $50 from account a because these
+withdrawals are not updated immediately
+for all users from user 2's perspective
+account a has $50 and account B has $200
+this is the step where the race
+condition really occurs because the
+application is not immediately taken
+into account any withdrawals the final
+ending account value for user two is
+going to have account a as $50 and
+account b as 200 when in reality account
+a should have
+0 these types of race conditions can
+occur anywhere the application is not
+taking into account one of these many
+different events that can occur in 2004
+we saw a race condition occur on the
+planet Mars with the Mars rover Spirit
+there's a safety mechanism within the
+Rover where it will reboot itself if it
+recognizes that a fatal error has
+occurred and in the case of Mars Rover
+the problem that was occurring was with
+the file system itself so during this
+reboot process the Rover recognizes that
+there's a file system error and its
+programming knows that it should be
+rebooting itself to correct this it
+reboots itself and runs into exactly the
+same file system error again and we
+effectively have a reboot loop in this
+example the developers were able to send
+additional code to the Rover to bypass
+this particular error and get the Rover
+back up and running and it seems
+appropriate that we should have a race
+condition that occurs inside of a car
+and indeed we had one during Pond to own
+in Vancouver 2023 with a Tesla Model 3
+this Toto attack took Vantage of a
+vulnerability in the Tesla of its
+infotainment system that you could
+access through Bluetooth they were able
+to elevate privileges to be the root
+user of the infotainment system and this
+allowed the attackers to earn a
+$100,000 US prize and they keep the
+Tesla

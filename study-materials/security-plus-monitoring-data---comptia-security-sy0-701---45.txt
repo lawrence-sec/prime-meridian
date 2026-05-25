@@ -1,0 +1,185 @@
+if you've ever managed a server or an
+application instance then you know that
+there are a group of files associated
+with that application that never change
+and other files that seem to change all
+the time usually the application
+executables and libraries that make up
+this application would rarely change
+unless the application was upgraded of
+course there may be data files and
+cached information that changes
+constantly with this app but there is a
+core set of files that would rarely
+change this means it would be very good
+to know from a security perspective if
+these files that should never be
+changing are suddenly being modified and
+there are ways to provide monitoring and
+alerting if any of those files change we
+refer to this software as a file
+Integrity monitor or a fem in Windows
+this file Integrity monitoring is done
+on demand using the built-in system file
+Checker utility or sfc sfc will scan all
+of your critical operating system files
+check to make sure that none of those
+files have been changed or modified and
+if they have been modified sfc will
+replace those files with a good version
+if you're running Linux one popular
+utility for file Integrity monitoring is
+tripwire tripwire will also monitor for
+file changes and can provide real-time
+monitoring so you'll know instantly if
+anything is modified and there are many
+different options available for host
+based intrusion prevention systems not
+only will an intrusion prevention system
+look for and block any attacks against
+known vulnerabilities it can also
+perform file Integrity monitoring this
+is a bit different than a network-based
+intrusion prevention system because this
+IPS is on the operating system itself it
+can monitor all of the files that are on
+that file
+system another good monitoring tool is
+data loss prevention or DLP these are
+systems that can look for sensitive data
+being sent across the network and block
+that traffic in real time so if someone
+is transmitting Social Security numbers
+medical information or anything else
+that might be considered sensitive we
+can block that using a DLP solution one
+of the useful features of a DLP is
+blocking this traffic in real time so it
+is constantly monitoring traffic either
+sent across the network or information
+that might be stored on a local machine
+there are DLP Solutions available that
+are network connected that can watch the
+packets going by and there are also DLP
+solutions that will run as software on
+the operating system itself we'll often
+refer to these oncom computer DLP
+Solutions as something that will monitor
+data in use which means the data is in
+the active memory of that system or
+we'll refer to it as an endpoint DLP the
+endpoint being that individual system if
+the DLP solution is connected to the
+network and it's monitoring packets in
+real time we refer to this monitoring as
+dat it in motion this DP functionality
+may be integrated into a Next Generation
+firewall or it might be a Standalone DLP
+Appliance and if you need to monitor
+files that are stored in the file system
+of an operating system then you need to
+monitor data at rest this is a DLP
+solution that usually runs as software
+directly on that server or operating
+system
+itself if you're running DLP software on
+a workstation or endpoint you may have
+many different options for allowing or
+blocking certain data transfers one of
+these options may be associated with the
+USB connection on that device USB drives
+are very portable you can easily plug it
+in transfer data and remove that drive
+and because it's so small you can take
+it almost anywhere unnoticed this also
+works in the other direction where
+someone may bring in a USB drive and
+connect it to your workstation this is
+what happened in November of 2008 with
+the US Department of Defense someone
+bringing in a random USB drive connected
+it to their system and unknowingly
+launched the worm virus agent agent. btz
+this was able to easily replicate itself
+using this USB storage so every device
+in the US Department of Defense was
+banned from using flash media and any
+type of USB connected storage device
+every device connected to the dod
+Network had to have all of their USB
+drives either disabled or blocked using
+a local DLP agent these restrictions
+were lifted in February of 2010 when new
+guidelines dictated how USB drives were
+to be used going
+forward of course these days many of our
+applications are not on our local
+devices or even in our local data center
+instead they may be running in the cloud
+and we also need data loss prevention
+solutions for cloud-based applications
+this is very similar to the DLP solution
+that might run on a local workstation or
+network-based Appliance this is simply
+running as a cloud-based Appliance and
+is watching all of the traffic going in
+and out of a particular cloud-based
+application instance so if someone does
+try to transfer sensitive information
+into this cloud-based storage the
+cloud-based DLP will recognize that data
+and block it before it's stored in the
+cloud many of these cloud-based DLP
+Solutions can also look for and block
+other types of traffic such as malware
+viruses and anything else that may seem
+malicious one of the most common threat
+vectors for sensitive information or
+data that should be blocked on the
+network with DLP is your email system
+email is a very easy way to send
+sensitive information across the network
+and you need a DLP solution to block
+those messages from being sent from your
+organization this email-based DP can
+look for sensitive information in
+outgoing emails or in incoming emails
+and there are options available if you
+run your email system locally in your
+own data center or if your email system
+runs in the cloud for inbound emails the
+DLP can look for keywords that may make
+this email a bit suspicious it can
+identify any emails that may be spoofed
+or may be imposters and all of these
+emails can be quarantined so that they
+never arrive in the user's inbox these
+Solutions can also look at outbound
+email being sent by anyone in the
+organization this can block fake wire
+transfer emails that are being sent back
+and forth and if someone's trying to
+send W2 information which should include
+Social Security numbers it can block
+those as well anything that is outbound
+email that appears to contain sensitive
+data can be blocked immediately using
+this email-based DLP
+solution this email-based DLP solution
+would have come in handy in November of
+2016 when a Boeing Employee sent their
+spouse an email containing a spreadsheet
+when they looked at the spreadsheet it
+appeared to be blank but in reality
+there were hidden fields in the
+spreadsheet that contained personal
+information for 36,000 Boeing Employees
+this included their social security
+numbers date of birth and other sens II
+information an email-based DLP solution
+would have blocked that email ironically
+Boeing sells its own version of DLP
+software that was not used in this
+instance normally that DLP is used on
+customer networks that have classified
+information

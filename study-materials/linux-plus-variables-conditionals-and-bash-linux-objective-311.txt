@@ -1,0 +1,490 @@
+hey everybody it's Shan powers and we
+are getting back to the Linux plus
+course I know it's been a while lots of
+crazy things have been going on in my
+life but nevertheless today we are
+starting section three which actually
+includes all sorts of stuff that I cover
+in my bash C course up there so I'm
+going to put a link up there I'll also
+put a link in the description I have an
+entire playlist of bash scripting
+playlist that covers much more even than
+is listed here and in fact what I'm
+going to do is use some of the footage
+from that course when I'm explaining
+some of these Concepts not because I'm
+lazy well no it's probably because I'm
+lazy I just I'm really happy with that
+course and I think I explained it pretty
+well there so I'm just going to use past
+Sean to explain some of the things that
+we're covering for Linux plus and again
+if I ever go too quickly and you like
+didn't quite catch it be sure to look at
+that entire bash playlist it's all free
+it's all on YouTube and it goes really
+in depth on how to bash Dash script with
+all sorts of nuances and stuff like that
+but what we're going to cover in this
+video are how
+variables uh work really quickly we're
+going to cover variables and then I also
+want to look at conditionals so like if
+then and then we'll talk about uh
+switches or the case uh command as well
+so uh we're going to learn about testing
+and so these are the things we're going
+to do first of all what is a variable in
+bash and again I'm going to say it over
+and over and over as we go over this
+Linux Plus stuff if any of this is
+confusing I really cover it in so much
+more depth in my bash scripting playlist
+which is going to be linked everywhere
+all around so anyway uh first of all
+let's look at old Shawn who and I mean
+in fact old sha uh in fact it's gonna be
+this guy and and we're even wearing the
+same shirt today which is funny but even
+though I don't have green hair and I'm
+using a different microphone it's the
+same me and recovering uh the same
+material so uh when it comes to
+variables in Linux there are a couple
+nuances that we need to understand uh
+other Sean what do I mean so if you've
+been around the channel before we've
+done some work with variables
+specifically environment variables so we
+can set variables on the command line we
+can see what's there if we just type EnV
+it'll show us all of our environment
+variables which there's a lot of them
+there so we won't actually uh go through
+what all those mean let me clear the
+screen and I'm going to set a variable
+right on the command line so we can say
+uh thing one
+equals
+a cool
+thing and now if we Echo dollar sign
+thing one a cool thing right when you
+reference a variable that you've
+assigned you put a dollar sign in front
+of it but when you actually assign it
+you don't use the dollar sign so like we
+just did here thing one equals a cool
+thing and it will stay uh assigned in
+our environment here unless we were to
+close this terminal and log back in and
+then it would be gone uh so we can Echo
+it more than once and it'll be there
+however it doesn't work automatically in
+child processes now what do I mean by
+that well let's make a a quick little uh
+sample script so I'm just going to say
+um VI test one. sh and we'll just do
+this properly we'll make it a script
+with a shebang up there and now if we
+were to Echo what did I call it I called
+it thing one I think thing one so what
+this is going to do is it's going to
+Echo the variable thing one and then and
+then leave right so let's say this now
+if we do uh CH mod we did this in the
+last video if you didn't catch that uh
+check out the first video where we talk
+about use or actually doing bash scripts
+but uh let's do that and now if we do
+test sh nothing happens at all but what
+if we do
+Echo thing one H what what's the deal
+and the deal is that by default when you
+assign a variable it does not get
+inherited by a child process in the the
+shell that you're currently in in the
+terminal that you're in and so because
+when we run the test one shell script it
+actually creates another environment uh
+and it doesn't automatically inherit
+things but if you do want to have it
+inherit what you do is export and you've
+probably seen people do this where you
+type like
+export and we can just say export the
+variable we could actually assign it and
+Export it at the same time so we could
+say export thing one
+equals look Mom no assignment I don't
+know well we'll figure out what that
+means but any do that and now if we were
+to execute this
+script look at that because we exported
+it that means that anytime we start a
+new process or a new shell it's going to
+inherit from the existing environment
+that we're in so if we want to have uh a
+variable get inherited by a child we
+have to export it but there is a catch
+and that catch is you absolutely cannot
+send it backwards right a child process
+cannot insert a variable into the parent
+process there was just it's bash doesn't
+allow that so you can only do it going
+from the parent to the child okay so
+that's how uh variable stuff works let's
+actually get rid of this uh script we
+don't need this anymore uh get rid of
+that script and we can do
+unset thing
+one and now if we were to Echo thing
+one it's gone right we unset it so that
+variable is not set anymore
+hopefully that made sense because
+understanding how variables work are
+really really important to pretty much
+everything that we're uh going to cover
+from Loops to conditionals to assigning
+other things so uh that is what a
+variable is and now if we're going to be
+testing variables uh there's a couple
+different ways that we can go about do
+that doing that and an if then else and
+case are the main conditional things
+that we're going to cover and old Sean
+did a really good job of this and so I'm
+going to again give the mic back to him
+but let's look at the cool script which
+is a script I wrote and this is this
+introduces something uh that is very
+useful for an interactive session with a
+bash script okay this is a way to bring
+in data not just like dollar sign one
+dollar sign two for arguments but like
+it will query you to enter data as it
+runs okay it's just it's a really
+convenient thing especially when you're
+learning and you want to enter different
+values without editing the script and it
+it works just like this so here we have
+um Echo are you cool it just puts on the
+screen are you cool and then the read
+command followed by a variable name and
+what that'll do is it'll just wait on
+the command line for you to enter
+something and press enter and then
+whatever you put on the the line there
+and press enter that will become uh the
+contents of the cool in this case the
+cool variable okay and then let's
+actually walk through this see if we can
+see what's going to happen so we put
+something in the cool variable and then
+it says if and then it opens up the
+double brackets if cool is equal to has
+the contents of yes then it's going to
+say I think you're cool too and
+otherwise it's going to say well hang
+out with me and I will make you cool
+okay so that's uh what's going on right
+there this is a string comparison uh so
+we are just doing a string comparison
+the equal the double equal sign like is
+saying has the value of and that's why
+we can do that with a string the word
+yes all right so let's run this and see
+how it
+goes are you cool yes I think you're
+cool too well thank you script but if we
+do that again and we say no now the
+value of cool is going to be no so it
+should say well hang out with me and
+I'll make you cool but there is a
+problem right the problem is what if I
+didn't know exactly how to respond so
+we'll run it again are you cool yes well
+hang out with me and I'll make you cool
+see it only looks for the exact word
+capital Y lowercase e lowercase case s
+and that's kind of a problem because
+people might respond in different ways
+they might just say why for example or
+capital y or lowercase y so there's lots
+of options and we want to be able to
+check for those and this is a part of
+the this is the part of the video where
+I let you know that the world of bash
+scripting can be frustrating because
+there's like a hundred ways to do
+everything and there's not one that is
+right or one that is wrong there's just
+lots of different ways to accomplish the
+same task so I'll give you a few and you
+can either use those or come up with
+your own cuz again there's just so many
+ways that we could test for multiple
+things like that so let's edit this
+script again VI cool and one of the
+things that we could do is add multiple
+tests and we can do that by saying so
+what if cool is equal to yes and then if
+we do double pipe symbol that's the one
+like above your Enter key on a US
+keyboard um shift and above the enter
+key it's just the pipe symbol right it's
+a really tall line uh that means or in
+this in this context that means if cool
+is equal to yes
+or cool is equal to
+yes let's add a couple more
+or uh cool is equal to just a y and
+we'll do one more uh
+or cool is equal to just a lowercase y
+let's say they just did that all right
+so with all of those options in there
+any one of those should make it evaluate
+as true and what we've done is we've
+just put those different tests inside
+the double brackets and we've put an or
+between them so this or this or this or
+this and if either one if any of those
+are true then it will evaluate as true
+so let's test
+it all right
+cool I got to actually type it out cool
+are you cool yes all caps I think you're
+cool too awesome uh cool yes
+traditionally I think you're cool too
+awesome cool uh are you cool affirmative
+uh well crap it doesn't it doesn't test
+for everything right it's not perfect
+but we've been able to test for other um
+potential repes now we could just add to
+the echo like are you cool and then give
+options to them like y or n that kind of
+a thing and then kind of like show them
+how to go about doing it in the
+instructions uh but you know this is how
+we can also test for multiple things now
+there's another way that we could test
+for multiple options let me show you
+let's go back into cool
+again so here let's get rid of all this
+stuff inside the test now this is where
+we can only do this inside of Double
+brackets because this is one of the
+extended things that bash will allow you
+to do inside double brackets this is not
+backwards compatible with like an old
+Shell or anything like that this only
+works in bash because it requires the
+double brackets but what we could do is
+say if cool is equal to and then do the
+at symbol let me find my keyboard at and
+then open parentheses and then put a
+bunch of options like
+yes or
+yes
+or
+Y or lowercase Y and we'll even add
+affirmative if any of those uh is in
+there and what it's going to do is this
+is using regular Expressions basically
+and it's saying if it matches any of
+those then it will uh count as true and
+so let's run this
+one cool are you cool yes I think you're
+cool too are you cool no well hang out
+with me I think you're so it will test
+for all of those things I guess I
+shouldn't have done just the first one
+right are you cool just why I think
+you're cool too so it it looked and it
+matched one of those so it evaluated as
+true okay so that's another way and of
+course there's there's yet another way
+actually there's several more ways and
+I'm not covering all the possible ways
+we could do this but let's go back into
+there and one more time uh let's say we
+wanted to test for um things but rather
+than just do an if statement actually
+here I'm kind of getting tired of this
+so uh rather than using just an if
+statement with like multiple conditional
+things we could use a construct called L
+if which is kind of like else if and
+what that allows us to do is have
+multiple tests and let me show you I I
+have a file here so VI LF okay and I've
+already typed this all out so basically
+what happens here is the same thing it
+started the same way are you cool and
+then it reads that variable in and then
+it says if uh cool is equal to yes then
+it'll say I think you're cool too right
+and or I don't want to say and because
+that's actually a word in here so after
+that uh it says else if or just L if is
+actually the the sytax that we use but
+LF cool is equal to Capital y then I
+want you to say cool people usually use
+the whole word but what EV and if
+neither one of those is true then well
+hang out with me and I'll make you cool
+so what this will do is it will test for
+two different things but the unique
+thing about using LF is the results are
+different for each object that you have
+in there right so if it's yees it will
+evaluate and say I think you're cool too
+but if it's just a capital Y it will
+just say cool people usually use the
+whole word and anything else it'll say
+well hang out with me and you'll be cool
+so let's try it but hopefully that's
+clear what's actually going on the
+difference between this and making a
+whole bunch of uh tests in the same if
+statement is that with LF you can give
+it a different result if it has you know
+based on different inputs or different
+things that you're testing for right so
+let's get out of here we'll run LF are
+you cool I'm going to start with just
+yes I think you're cool too all right L
+if I'm going to say capital Y yah cool
+people usually use the whole word but
+whatever and see it gave us that
+alternate uh reaction and then anything
+else that we type are you cool blah blah
+blah well hang out with me and I'll make
+you cool and that's just uh another way
+that we can uh do multiple tests but
+again this one gives you the option uh
+to have different results for the
+different test that you're doing and
+then lastly I do want to show you how
+you would go up like if you have a bunch
+and you want to test for like a whole
+whole bunch of different options the LF
+statements can get messy and long and
+cumbersome right well there's another
+way to go about doing that and it's it's
+probably a better and neater way to do
+it and it's using the case statement
+this is not if this is completely
+separate from if but it's a different
+type of conditional so let's look I have
+a program or a script here all written
+out uh let's look at the case program
+we're going to start the exact same way
+okay it's going to read in the variable
+cool and it's going to say you know are
+you cool but here's where it varies and
+gets a little bit different see where it
+says instead of if it says case and then
+the variable that we're testing and then
+the word in so case cool in and then we
+have the different results that we're
+looking for or the different uh
+possibilities or potentials that we're
+looking for and it's basically the thing
+we're testing for and then uh
+parentheses like Clos parentheses and
+then all the lines after here are going
+to be executed so this actually has two
+in here if you answer yes all in caps
+it'll say nice stop yelling and I think
+my ears are bleeding if you say yes the
+normal way with the capitalized y then
+it just say uh nice me too and uh why
+why and then the last one is the asteris
+and that's basically a catchall it's
+like okay if anything else is in this
+cool variable like it doesn't match
+anything else it's like the catch all at
+the end then say that's okay hang out
+with me and you'll get cool okay so
+hopefully that makes sense the other
+thing I want want to point out that you
+may have missed because I didn't point
+it out yet um see how we can have
+multiple lines here that's not a problem
+however the way we denote that we're
+finished with this section if you will
+is by putting a double semicolon at the
+end of the final statement so like this
+one only has a single Echo statement and
+you put double semi colons at the end
+there so it's really important that
+that's how you end each segment
+otherwise the program doesn't know that
+that segment is over okay and same thing
+down here it ends with the double
+semicolons and then you remember how if
+started with if and then you had the
+then and the eelf and at the very end it
+was fi and that's how it ended so that
+bash would know that you're done with
+that statement case is exactly the same
+but it just looks ridiculous because
+it's a it's like a longer word so it
+starts with case and then when you're
+done esac which is case backwards see
+how that I mean if you didn't if you
+weren't looking for it to be backwards
+that's it's a weird word to have in the
+middle of your script but esac is how
+you end a case statement okay so
+hopefully this looks good let's try out
+a couple of these because it will
+function the same way as an if statement
+with um L if in there as
+well uh let's see so case are you cool
+yes all in caps nice stop yelling I
+think my ears are bleeding remember we
+that was in there that's what we would
+expect let's run case and now we're just
+going to say uh capital or lowercase y
+uh if cool means the minimum possible
+effort e maybe because I I guess I was
+being silly I didn't pay attention but
+um lowercase wise the least amount of
+effort and very cool and if we do
+anything that wasn't listed in there
+that asteris is going to catch it and
+the catch all is what's going to be put
+o sorry not as an argument we got to
+wait for it to prompt us are you cool no
+that's okay hang on with me and you'll
+get cool okay so it's the same end
+result it's just done in multiple
+different ways and a case statement is
+much more easier to read uh if you have
+a whole bunch of them down a row instead
+of a lot of LF LF LF LF kind of things
+uh going down the page but you have to
+remember it's case and esac at the
+bottom uh and I mean it makes sense now
+but otherwise esac like I said is a
+weird word to just have in the middle of
+a script okay in the next video we're
+going to cover loops and how loops work
+still using different variables and
+iterations and things like that but if
+what we just covered doesn't quite make
+sense be sure to check out the bash
+scripting playlist which this is the
+87th time I've mentioned it I'm sure uh
+but that will give you a far deeper
+understanding uh I'm just trying to
+cover the things mentioned specifically
+in the Linux plus objectives so for now
+uh learn everything do what you love and
+most importantly be kind thanks for
+tuning in it's good to see everybody
+again and hopefully the next video will
+not take months to come out because boy
+that sucked I'll see you next time

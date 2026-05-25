@@ -1,0 +1,179 @@
+one concern in networking is that it
+might be possible for an attacker to
+move from one device to another using
+some type of connection that previously
+exists but what if you're able to
+isolate the devices physically you might
+for instance have switch a and switch B
+and in this scenario we've created an
+air gap between both of those devices if
+an attacker does find a way to get
+access to switch a they would have no
+way to gain access all also to switch B
+if there is a requirement for devices on
+switch a to talk to devices on switch B
+then there would obviously need to be
+some type of connectivity this might be
+a direct connection or you might be
+passing the data through another switch
+or a router this air gap can be
+configured for a number of different
+scenarios for example you might have all
+web servers in one rack and all
+databased servers in another rack and if
+you have an air gap in place this
+physical isolation prevents either of
+those from communicating with the other
+you might also see this in a managed
+service provider where there are many
+customers being managed by that single
+company and for highly secure
+environments the managed service
+provider might use this physical
+isolation to put one customer on one
+switch and another customer on a
+completely separate physically isolated
+switch here's what this might look like
+we have customer a on one switch and
+customer B on the other switch devices
+plugged into customer a switch can
+communicate between each other and
+devices plugged into customer B switch
+can also communicate to each other but
+notice there's no connectivity between
+customer a and customer B of course with
+physical isolation we also need two
+separate physical switches and if you
+have a 100 customers you would need 100
+switches obviously this is not going to
+scale very well but there are
+Technologies built into your switches
+that allow for segmentation but still
+have everyone when connected to the same
+physical switch this is using vlans or
+virtual local area networks this allows
+you to configure certain interfaces on
+your switch as belonging to one VLAN and
+other interfaces on the switch as
+belonging to the other VLAN vlans cannot
+communicate to each other directly so
+this has the same effect as having two
+separate physical switches this would
+obviously simplify the network design
+and you would need fewer switches to
+accomplish the same amount of
+segmentation when we think about
+switching and routing we often consider
+the physical aspects of those devices
+there's interfaces we would connect to
+there's a power connection and we would
+send information through those devices
+to be able to for traffic from one
+device to another but inside those
+devices there are different operations
+that are occurring all at the same time
+we refer to these as planes of operation
+and from the perspective of sdn or
+softwar defined networking there there
+are three separate planes that we'll
+focus on one is the data plane the other
+is the control plane and then there is
+the management plane this allows us to
+break these devices apart into their
+individual functions and when you do
+that you can begin coding that as
+software this is a way to take the
+physical world turn it into software
+that can then be used in our cloud-based
+world the infrastructure layer or the
+data plane is the part of the device
+doing the hard work whenever we think
+about switching and routing we're
+talking about the process of forwarding
+traffic from one device to another and
+that forwarding process is what's
+happening in the data plane this is also
+where Network address translation occurs
+any type of encryption trunking or
+anything else relating to the networking
+part of forwarding data all of this data
+that's being transferred from one device
+to another is being managed by the
+control plane for example if you're
+using a router forward traffic between
+IP subnets there needs to be some type
+of routing table inside of the router so
+that we know where this traffic should
+go and in that scenario the control
+plane is responsible for managing the
+routing tables and then taking action on
+where this data should go this also
+includes any type of dynamic routing
+updates Network address tables or
+anything else that can tell the data
+plane how to get data from point A to
+point B and of course at some point
+you'll need to make configuration
+changes to this device when you're
+connecting to a switch at the command
+line through SSH and you're making
+configuration changes all of those
+changes are occurring in the management
+plane those changes would then dictate
+how the control plane manages its
+session tables and routing tables and
+ultimately that determines how the data
+plane is going to forward traffic if we
+look at a physical switch we can almost
+pull apart where the different planes of
+operation exist for example on the front
+of the switch we have a number of
+interfaces that we're connecting our
+devices to this would be the data plane
+because this is what's sending
+information from one device to another
+the control plane handles the lookup
+tables and address translations that are
+necessary for the data plane to operate
+and obviously we'll need to connect to
+this device over a console or management
+interface and that all occurs at the
+management plane now we can take these
+three planes of operation and turn them
+into more of a block diagram here's
+exactly the same switch but now we're
+only dealing with the data plane control
+plane and management plane in more of a
+block diagram we know that our Network
+traffic flows on the data plane of this
+device we have a control of that traffic
+occurring in the control plane so things
+like Dynamic routing protocols and
+static routes and the configuration of
+this device occurs at the management
+plane using SSH SNMP or application
+programming
+interfaces this has allowed us to create
+software versions of these physical
+devices that we traditionally have used
+so that we can now use these devices in
+the cloud here's a common cloud-based
+configuration we have an internet
+connection that's connecting to a load
+balancer and that load balancer is
+connecting to web server a web server B
+and the database server for this
+application with Cloud Technologies
+using sdn we can now immediately build
+out infrastructure devices we might need
+for example in this scenario we might
+want to add some firewalls so we can add
+a firewall that would separate the
+internet from the load balancer we might
+want another firewall to separate and
+control traffic between the web servers
+and the database server we're able to
+click a button and dynamically create
+this technology in the cloud thanks to
+our softwar defined
+networking

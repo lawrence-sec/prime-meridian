@@ -1,0 +1,186 @@
+in it security there is a constant fight
+happening between the attackers and the
+folks that are being attacked and one of
+the ways that we can learn more about
+our attackers is to watch the attacks
+themselves one of the ways that we can
+do this is through the use of a Honeypot
+we know that these attacks are often Not
+a Human Being who's typing into a
+keyboard interactively usually these are
+scripts or programs that are designed to
+attack many different systems
+simultaneously so one of the things we
+could do is to create a virtual network
+with virtual servers and virtual
+components that would be very attractive
+to one of these attackers we're
+effectively leaving out this virtual
+honey that hopefully will attract this
+attacker Sweet Tooth if you want to see
+what people are using as a Honeypot or
+you'd like to build your own there are
+many open-source versions available that
+you can install on your own systems the
+attackers though are very good at
+determining what might be real and what
+might be fake so there is a constant
+battle to build the best possible
+Honeypot so that you can attract the
+attackers and be able to watch what
+they're doing during these attacks but
+to make this attractive to the attacker
+we need more than simply a single server
+or a single device we need a number of
+different components we need servers
+workstations routers firewalls switches
+proxy servers and anything else that can
+make this system seem a little more real
+when we compile all of these together
+we've now created a honey net we now
+have a much larger deception framework
+we might have the attacker start with a
+workstation that's part of the honey net
+then they would move to a honey net
+server and then we might see if we can
+move them over to the honey net NZ these
+are commonly virtual devices and we can
+build any number of these to be able to
+attract the attackers if you want to
+read more about honey pots and honey
+Nets there is a wealth of information on
+the internet and a good place to start
+would be project Honeypot
+dorg in the world of it security a lot
+of the decisions that we make are based
+on risk risk is the exposure that we
+have to something that might be harmful
+or something that might be dangerous if
+we need to describe how possible it
+might be for something bad to happen
+then we would be describing risk risk is
+a constant concern for every
+organization and the larger the
+organization grows the more risk they
+tend to take on we would always want to
+consider how risky a situation might be
+during the process of expanding adding
+new applications making changes to a
+configuration or anything else in our
+organization that might open us up for
+attack whenever we're making business
+decisions on what we do next we always
+have a level of risk associated with
+that and it's important to be able to
+identify what that risk happens to be so
+that we can then make a business
+decision on whether we continue with
+that particular task or whether we add
+additional security controls to help
+protect that task
+if you've been reading through your
+monthly Microsoft patch notes then
+you've probably seen a list of
+vulnerabilities that have been
+identified by Microsoft these
+vulnerabilities are listing a set of
+weaknesses that are associated with the
+current version of the operating system
+and if someone was to take advantage of
+those vulnerabilities they could
+potentially gain access to our systems
+or our data and just because of
+vulnerability hasn't been discovered
+doesn't mean the vulnerability doesn't
+exist researchers are identifying
+vulnerabilities all the time that may
+have existed in an operating system for
+months or even years and of course there
+are many different types of
+vulnerabilities there might be a
+vulnerability associated with the type
+of data that could be injected into a
+data stream maybe the authentication
+process that's being used for the
+operating system has a vulnerability or
+a flaw that would allow someone to gain
+access to your system or maybe there's
+data that's exposed or security
+misconfiguration all of these can be
+categorized as a vul unability
+identifying that an operating system has
+a vulnerability is not the same thing as
+someone taking advantage of a data
+breach the data breach itself is
+described as an exploit this is when
+someone takes advantage of the
+vulnerability to gain access to a system
+or gain access to data usually the
+exploit is taking advantage of that
+vulnerability and there may be many
+different ways to accomplish this this
+might be a relatively straightforward
+exploit where a username is embedded
+within the code and we can use that
+username to gain access to the system or
+it may be a relatively complex series of
+tasks that an attacker needs to complete
+before gaining access to that operating
+system the threat is what is used by the
+attacker to exploit that vulnerability
+threats can also be things that might be
+accidental for example a fire or a flood
+could certainly be a threat to an
+organization's building but threats in
+our local area are things that we often
+understand and we can prepare for on the
+internet many of the threats to our
+systems are coming from somewhere
+outside of our organization so if your
+operating system has a vulnerability
+there may be a threat agent that takes
+advantage of that vulnerability by
+creating a threat action this threat
+action will exploit the vulnerability
+and allow the attacker to gain access to
+the system the results of that entire
+process means that an attacker could
+cause the system to become unavailable
+or they may gain access to private
+information or perhaps make that
+information available to others on the
+internet to be able to combat these
+attacks we rely on three fundamental
+principles of it security we refer to
+these as the CIA Triad this is sometimes
+referred to as the AIC Triad to be able
+to differentiate it from the CIA Central
+Intelligence Agency of the US federal
+government the C in the CIA Triad refers
+to confidentiality one way that we can
+help protect our data is to make that
+data confidential we can create data
+confidentiality by restricting access to
+the data or perhaps encrypting the data
+another leg of the CIA Triad is
+integrity integrity means that the data
+that we are referencing has not been
+modified by any third-party means for
+example messages sent across the network
+can't be modified unless there's some
+type of detection in place we commonly
+associate digital signatures with the
+Integrity arm of the CIA Triad and of
+course one of the core principles not
+only of it security but information
+technology in general is availability we
+want to be sure that all of the security
+that we're applying towards our data in
+our systems doesn't affect the overall
+access and availability of those systems
+themselves and for most people in
+Information Technology we understand
+that the importance of maintaining these
+systems and security involves making
+making sure that they are available to
+anyone who needs access

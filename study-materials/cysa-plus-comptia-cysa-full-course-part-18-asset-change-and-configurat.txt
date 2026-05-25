@@ -1,0 +1,484 @@
+I'll be the first one to admit all this
+business about change management. I know
+it doesn't sound like the most
+spectacular or glamorous topic in this
+training because these are things that
+you're supposed to do every single day.
+And just like every other thing that you
+do every single day, you know, like
+brush your teeth, tie your shoelaces, uh
+have breakfast, mundane tasks are not
+spectacular by definition, but they
+provide us with benefits every single
+day. Right? So let's see how asset
+change and configuration management can
+provide us with great benefits and also
+can help you with the size of plus exam.
+[Music]
+Now, you can probably remember that
+we've briefly covered this before as
+well, but the first step in protecting
+what you own is knowing exactly what you
+own. So, what exactly are your assets?
+And then secondly, we have to think
+about the question, well, what exactly
+is important to us? So, what is the
+definition of an important asset? And
+well, the definition of important is
+going to be different from person to
+person, from company to company. But
+long story short, important is something
+that keeps your business going. So those
+assets that the business as a whole
+relies on. But since we're here talking
+about cyber security and mostly about IT
+infrastructure, then your assets will
+most likely be somewhere along the lines
+of, you know, routers and switches,
+dedicated security devices, endpoints
+like laptops or servers or fixed
+workstations, mobile devices, and so on.
+So basically, it's going to be pretty
+much anything that you can connect to
+the network and you can also hold it in
+your arms or in your forklift arms
+depending on the on the weight.
+And to bring order to the madness,
+because every company has a huge number
+of devices to keep track of and not just
+devices that are used by their
+employees, but also infrastructure
+devices, devices leased from other
+vendors, devices leased from internet
+service providers, for example, even
+cloud services or or cloud applications
+and licenses. Well, you have to have an
+organized method of keeping track of all
+this. And the first step here would be
+something called asset tagging.
+Now, asset tagging is simply about
+assigning an ID, a unique identifier. It
+can be as simple as a a number, a QR
+code, a barcode, anything that uniquely
+identifies that specific item in your
+inventory. Ideally, this would also be
+reflected in a physical tag attached to
+the physical device. That's why you see
+in a lot of companies laptops with QR
+codes or identification numbers or even
+RFID tags that automatically get scanned
+by dedicated devices. RFID tags are
+actually very widespread nowadays.
+They're basically a chip that stores
+some data about that asset. Now, RFID
+tags are passive, which means they don't
+require some battery, but they activate
+when they come in the range of the
+scanner. So the electromagnetic field of
+the scanner actually communicates with
+that RFID powers it up and then the RFID
+tag returns some identification number
+or unique data. Now without endorsing uh
+any company or any specific person or
+product, you can easily find example of
+these tags online. You can find aluminum
+tags, you know, tamperproof tags that
+you cannot remove from those devices
+once they're attached, barcodes, QR
+codes, RFID tags, and so on. and of
+course the uh corresponding scanners
+that can work with those RFID tags. And
+of course for all these asset tracking
+and tagging, you should have a dedicated
+management software that keeps track of
+all these assets and the information
+related to them. And when I say
+dedicated management software, please
+try not to hear Excel because I did not
+say Excel, I said dedicated asset
+tracking software. And the advantage of
+a dedicated software is that you can
+store as much as as little information
+as you want in a very organized manner.
+Things like the type of the device, when
+it was purchased, where is the service
+information attached to, so where do you
+call when that device breaks, uh the
+serial number, uh who's responsible for
+it, who owns it, who takes it home every
+single day, for example, and so on. And
+among the benefits of asset tracking, of
+course, we have the inventory part
+because this is how you know what
+exactly is in your company and what are
+the assets that your company owns.
+Secondly, we also have to think about a
+inventory from a security perspective
+because this is also a way of knowing
+exactly what devices are we exposing to
+the outside world. Not just to the
+internet, but simply by know allowing an
+employee to take a device home. That's
+also an exposure. That's also an
+increased attack surface. So that's also
+a way of keeping track of how your
+infrastructure, how your assets is
+exposed to the outside world from a
+security standpoint. Uh secondly, of
+course, we have to think about warranty
+information. When those devices break,
+who do you call? What kind of response
+time you can expect to replace those
+devices? Of course, this is going to
+depend on how critical the device is and
+how much you paid for that extended
+warranty and support.
+and leasing information just in case
+those devices are leased from another
+company or from another vendor. Now, you
+have to know when you have to return
+them or when you have to replace them.
+Again, without endorsing any specific
+company or any specific product here
+because I'm not being paid for this, uh
+just to give you a real life example
+here, Ref Tab, for example, has a great
+inventory tracking software which can uh
+I believe they also let you use their
+software for free with limited
+functionality, of course. So for example
+in such an asset tracking software you
+can create categories you know to group
+your assets. Uh you can generate QR
+codes and attach them to your assets or
+barcodes or whatever type of code you
+deem necessary for your uh your internal
+management system. Uh you can attach
+whatever information you deem to be um
+relevant to your devices. You can also
+keep track of consumable items and
+accessories which is also a big big
+problem. And we're not just talking
+about ballpoint pens here, but you can
+also keep track of things like Ethernet
+cables, you know, tablets, printer,
+toner, chargers, keyboards, mice, stuff
+like that. You can also attach that
+information to specific users. So, you
+should always know who is responsible
+for a specific device and who you should
+contact if you want to get hold of a
+specific device. And even though we
+haven't specifically mentioned this,
+asset tracking software actually covers
+or can cover software as well because
+software licenses are assets as well.
+You pay for them, you own them.
+Sometimes you just pay a subscription.
+So you own them for just a limited
+amount of time. And keeping track of
+these licensing information is also very
+useful. And of course, the last
+functionality which everybody has and
+nobody is excited about is the ability
+to generate management reports and
+inventory reports for all or specific
+categories of assets in your inventory.
+Now, the title of this video refers to
+three topics, but they actually converge
+into a single one. You're going to find
+this under the generic definition of
+change management. And change management
+is very important not just for the exam
+but also for the daily operations in
+every company simply because every
+company goes through a process of change
+and you might think now about some you
+know public sector companies which you
+might think no those don't change those
+never change well they do even if it's
+just a small software upgrade a uh a
+Windows update on the workstations or
+even the introduction of a of a new
+connection a new VPN connection a new uh
+interco company link or a new
+application, there's always going to be
+change and change is a good thing,
+right? Progress comes from change and
+you know companies change on a daily
+basis and because in most companies
+there has to be a process for
+everything. We have a process for change
+management as well. And this process has
+to exist because for every asset in an
+ideal world there should be some record
+about what was its initial state when we
+purchased it. Right? Along with a record
+of every other change that was performed
+onto that asset during its lifetime, any
+installations, any upgrades, any
+replacements that have been performed
+and all thoroughly documented. So that
+is the process of change management. So
+well change is good. It brings progress.
+But why do you think there are people
+who are quote unquote reluctant to
+change? Well, that's because changes can
+also bring in new risks. Changes can be
+risky. And the grand purpose behind a
+change pattern and process is the
+intention to minimize this risk to
+perform those changes without adversely
+impacting operations to minimize the
+risk of any change that we perform. And
+since we are talking about cyber
+security then this change management has
+to include an assessment of the security
+impact of the change as well. And we
+have a concept here which might sound
+very familiar to a lot of you and that
+is the RFC which stands for request for
+change. And the RFC is actually the
+standard tool used for change
+management. If you think about it a
+request for change actually makes sense.
+And ideally when a company wants to
+perform any kind of change in the IT
+infrastructure well there should be a
+person who writes that RFC that requests
+for change and documents some standard
+elements. So at the minimum it should
+include a description of the chain an
+explanation of what is the expected
+impact of that change what systems are
+affected by that change and also an
+assessment of the risks that might be
+involved. And if we identify some risks
+associated with that change, then we
+also have to put in place a well-defined
+roll back plan so we can come back in
+time to the previous working state to
+roll back the change if the change fails
+or doesn't perform as expected from a
+performance, security, availability
+point of view. Doesn't matter which one.
+But the idea is that you always need to
+have a way to go back to how things were
+before attempting that change. That that
+is the definition of a roll back plan.
+Now the RFC by itself is of course a
+great idea. It's a great documentation
+tool, but if things go bad, you need to
+blame someone, right? So that's why the
+RFC actually has to go through an
+approval pipeline or an approval phase
+where it must be approved by some, you
+know, relevant authority before it is
+implemented. Now, of course, this might
+not be necessary for minor changes like
+a a small update or the a change on an
+IP address on some on some server or a
+DNS update. That might just be a a small
+approval between the IT engineer or the
+security engineer and their manager. And
+that might be just enough. But in case
+of major changes, this is where we
+involved in most cases in organizations
+change advisory board that's the CAB who
+should review and or approve or deny
+that change. Also as part of the change
+management process, we can automate this
+especially for repeatable tasks like for
+example if the uh storage engineers have
+to you know change some hard drives in a
+storage appliance every month or every
+two months or so. Well, the RFC is still
+going to be submitted, but it might be
+automatically approved by the system
+simply because it's a pre-approved
+change that has to be done whenever you
+know a hard drive fails. All right, so
+some things to keep an eye out for when
+performing these uh these changes in a
+organized change management process. Now
+the first thing is to be aware that some
+changes might imply or risk downtime.
+That is making devices, services or
+applications unavailable. It might be
+just a short downtime like 30 seconds or
+2 minutes while the virtual machine or
+the server simply reboots or it might be
+a longer downtime when you update the
+software and the server and the server
+fails to boot, fails to start. And then
+well you have to extend that downtime up
+to the point where you can fix the error
+and boot it correctly or you can roll
+back to the previously working state.
+And this is why you hear the term uh
+maintenance window. Those are the
+pre-approved time intervals which are
+usually wide enough to cover any
+unexpected situations or errors you
+might run into. Every time you want to
+change something in the infrastructure
+and especially if it's something
+critical, you announce that maintenance
+window so that everybody knows well
+between 4 and 6 p.m. you know that
+application might not work correctly.
+Don't rely on it. Try not to depend on
+it in that specific time interval. Now,
+if the change takes just 5 minutes, then
+by all means, congratulations.
+Everything worked fine. If it doesn't
+work fine after the first five minutes,
+well then you have almost two hours to
+decide whether you can fix it or roll
+back to the previously working state.
+Now a change can also cause a decrease
+in functionality. It might just
+partially affect the functionality of
+some systems or it might affect their
+performance. For example, updating the
+software but keeping the same hardware
+might not result in the same performance
+as you were used to having before the
+update. And don't forget that you have
+to think about the security part as
+well. Uh the update or the change might
+create some security issues or they
+might increase your attack surface from
+a couple of reasons. For example, some
+software update might reset your
+previously configured security settings,
+exposing more of the application or of
+the service than you previously intended
+to expose. Secondly, if you add
+something new to the network or replace
+a device in the network, you might have
+to do some security tasks as well like
+install some additional security
+software on that server or in that
+workstation or update some security
+rules or firewall rules on your security
+networking devices just to make sure
+that all those new assets are still
+covered by the same security policies as
+the rest of the network. And it makes a
+huge difference if all this process is
+reactive that is we just make the change
+and hope for the best and hope that
+nothing breaks and if it breaks then
+we'll see what we do and being proactive
+which is having a well-defined plan
+documented plan with solutions to not
+exactly the worst case scenarios but any
+scenario that isn't the best case
+scenario. Right? So every time that
+something fails or doesn't work as
+expected, you must have a plan for
+dealing with that exceptional situation.
+Don't forget about roll back procedures.
+We already covered these. Make sure you
+have a way of going back in time to the
+previously known and working
+configuration. And ideally whenever you
+make a major change before rolling it
+out, deploying it to all your employees,
+to the customers, try to run it to
+deploy it in a controlled environment.
+that is a test environment maybe with a
+limited number of users or even in a
+sandbox that is a controlled hardware
+and software environment where you can
+analyze in detail how that update
+behaves and if it works properly as
+expected. And finally the last category
+which again kind of merges into the
+grand concept of this video here is
+called configuration management. And
+it's not so different actually from the
+other two because configuration
+management is is actually concerned only
+with tracking operating system settings
+and device configuration. So we're
+talking from a purely software
+perspective about the configuration of
+our devices that are connected to the
+network. So for servers you would
+probably want to track operating system
+settings. For networking devices, you
+will most likely want to track their
+configuration files, their running
+configuration files. For endpoint
+devices, for workstations and laptops,
+you might want to track any Active
+Directory settings that are being pushed
+towards those devices. And also the list
+of software, for example, that is
+running that is allowed to run on your
+workstations. And you probably remember
+that we've mentioned baselining before
+because baselining is a very important
+concept in configuration management. If
+you don't have a baseline in knowing
+what exactly to expect and what exactly
+is the normal state of things in your
+network, in your servers, in your
+workstations, in your networking
+devices, then you won't be able to
+detect any anomalies on any
+misconfigurations that might happen
+accidentally or intentionally by some
+malicious attackers into onto your
+network. For example, if the
+configuration of a system has changed
+right after an update, then a CIS admin
+can compare the running configuration of
+that device to some well-known and
+predefined baseline to find out exactly
+what are the uh the differences between
+what we had before and the newer version
+after the update. And if we need to fix
+something, right, if if we for example
+just have just increased our attack
+surface by enabling some unnecessary
+additional services. And when it comes
+to tracking operating systems and
+applications, versioning is a very
+important concept because versioning
+allows us to pinpoint an exact instance
+of that software that is running on our
+devices. I know it sounds basic, but
+it's something that you have to keep
+track of. And you probably know with
+versioning, we have, you know, major
+versions, minor versions, and usually if
+there's a third number in there, that's
+going to be an a minor patch or a a
+minor update version. And versioning as
+basic as it sounds is actually a great
+tool for tracking the status of the
+software that's running in your
+environment and also of the firmware of
+the low-level firmware that's running on
+your devices. Now ensuring that way that
+whenever change occurs that change is
+desired and it's performed in a
+controlled manner so that we can
+minimize the risks to our daily
+business. All right. All right. So, for
+the exam, make sure you understand the
+importance of asset tagging,
+configuration management, and change
+management. Understand why they're
+important for an organization because
+they're going to help you every single
+day and on the ISP plus exam as well.
+All right, so thank you for watching.
+Don't forget to like and subscribe and
+see you next time when we'll be talking
+about software coding best practices.
+See you.
+[Music]

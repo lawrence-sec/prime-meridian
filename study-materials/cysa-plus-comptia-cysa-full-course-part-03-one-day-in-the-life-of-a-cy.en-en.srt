@@ -1,0 +1,388 @@
+1
+00:00:00,960 --> 00:00:03,920
+<font color="white" size=".72c">Well, you're probably learning 
+this stuff, firstly, because  </font>
+
+2
+00:00:03,920 --> 00:00:06,160
+<font color="white" size=".72c">it's exciting to learn something new</font>
+
+3
+00:00:06,160 --> 00:00:08,560
+<font color="white" size=".72c">we'll see how many of you stick to the end</font>
+
+4
+00:00:08,560 --> 00:00:14,400
+<font color="white" size=".72c">and secondly, because your current job, or 
+your future job requires you to know the stuff,  </font>
+
+5
+00:00:14,960 --> 00:00:19,440
+<font color="white" size=".72c">or even your past job, in case you were 
+kicked out for messing up something terribly</font>
+
+6
+00:00:19,440 --> 00:00:29,840
+<font color="white" size=".72c">So, let's see what a security 
+analyst does after the morning coffee</font>
+
+7
+00:00:36,480 --> 00:00:41,360
+<font color="white" size=".72c">The job titles in this cybersecurity 
+business and, more precisely, the titles  </font>
+
+8
+00:00:41,360 --> 00:00:48,080
+<font color="white" size=".72c">you might be able to put on your résumé, with a 
+certification like CySA+ include lots of jobs like </font>
+
+9
+00:00:48,080 --> 00:00:52,720
+<font color="white" size=".72c">Security Analyst or Cybersecurity 
+Analyst, Security Consultant,  </font>
+
+10
+00:00:53,680 --> 00:00:59,840
+<font color="white" size=".72c">CSO - that's Chief Security Officer, Security 
+Engineer, even just a Network Engineer or  </font>
+
+11
+00:00:59,840 --> 00:01:04,640
+<font color="white" size=".72c">Consultant - those guys are expected to 
+have their security knowledge up to date</font>
+
+12
+00:01:04,640 --> 00:01:08,320
+<font color="white" size=".72c">also Server Admins, Database 
+Admins, and even Developers</font>
+
+13
+00:01:08,320 --> 00:01:11,840
+<font color="white" size=".72c">Now, we'll cover aspects that 
+apply to all these jobs and more</font>
+
+14
+00:01:12,480 --> 00:01:17,520
+<font color="white" size=".72c">and, you can even add the word "Cloud" 
+before each and every of these titles,  </font>
+
+15
+00:01:17,520 --> 00:01:23,440
+<font color="white" size=".72c">because most of these traditionally on-premises 
+jobs now apply to cloud environments as well</font>
+
+16
+00:01:23,440 --> 00:01:29,200
+<font color="white" size=".72c">So, for the sake of consistency let's just 
+refer to one, that's the Cybersecurity Analyst</font>
+
+17
+00:01:30,320 --> 00:01:36,960
+<font color="white" size=".72c">Well, first things first: what is cybersecurity?
+Cybersecurity refers to the protection of  </font>
+
+18
+00:01:36,960 --> 00:01:44,000
+<font color="white" size=".72c">any information that belongs to you, or to the 
+company, from unauthorized access, attacks, theft,  </font>
+
+19
+00:01:44,720 --> 00:01:48,479
+<font color="white" size=".72c">data damage over computer systems and networks, </font>
+
+20
+00:01:48,479 --> 00:01:53,840
+<font color="white" size=".72c">so, at the end of the day, it's everything 
+that you are doing to protect your digital data</font>
+
+21
+00:01:55,759 --> 00:01:58,880
+<font color="white" size=".72c">Now coming back here to the role 
+of the Cybersecurity Analyst,  </font>
+
+22
+00:01:59,520 --> 00:02:01,120
+<font color="white" size=".72c">why is that guy getting paid?</font>
+
+23
+00:02:02,000 --> 00:02:07,680
+<font color="white" size=".72c">Well, a Cybersecurity Analyst is a senior 
+position within an organization security team  </font>
+
+24
+00:02:07,680 --> 00:02:11,840
+<font color="white" size=".72c">with direct responsibility for 
+protecting sensitive information,  </font>
+
+25
+00:02:11,840 --> 00:02:17,040
+<font color="white" size=".72c">and preventing unauthorized access to 
+electronic data, and the systems that process it</font>
+
+26
+00:02:17,600 --> 00:02:23,120
+<font color="white" size=".72c">So, the analyst can also have juniors under 
+his or her wing, and usually reports to the  </font>
+
+27
+00:02:23,120 --> 00:02:28,400
+<font color="white" size=".72c">CISO, so the boss is going to be the 
+Chief Information Security Officer</font>
+
+28
+00:02:29,120 --> 00:02:31,600
+<font color="white" size=".72c">But, what exactly do they do all day?</font>
+
+29
+00:02:31,600 --> 00:02:35,840
+<font color="white" size=".72c">Well, implementing, and configuring 
+security controls such as  </font>
+
+30
+00:02:36,400 --> 00:02:41,680
+<font color="white" size=".72c">firewalls, intrusion detection systems, and 
+other threat management appliances and software</font>
+
+31
+00:02:42,320 --> 00:02:47,520
+<font color="white" size=".72c">They work in a leading role in the 
+computer security incident response team or  </font>
+
+32
+00:02:47,520 --> 00:02:52,800
+<font color="white" size=".72c">CSIRT or security operations center 
+(SOC) to manage security incidents,  </font>
+
+33
+00:02:53,920 --> 00:02:59,760
+<font color="white" size=".72c">auditing security processes and procedures, 
+performing due diligence on third parties,  </font>
+
+34
+00:02:59,760 --> 00:03:05,680
+<font color="white" size=".72c">and delivering employee training, performing 
+risk assessments, vulnerability assessments  </font>
+
+35
+00:03:05,680 --> 00:03:10,240
+<font color="white" size=".72c">and penetration tests, and recommending 
+appropriate security controls or procedures</font>
+
+36
+00:03:11,520 --> 00:03:15,680
+<font color="white" size=".72c">And, they also have to keep 
+themselves informed and up-to-date,  </font>
+
+37
+00:03:15,680 --> 00:03:21,840
+<font color="white" size=".72c">so that they can provide threat intelligence 
+awareness and advice on legal compliance,  </font>
+
+38
+00:03:21,840 --> 00:03:24,400
+<font color="white" size=".72c">regulatory issues, not just the technical ones,</font>
+
+39
+00:03:25,440 --> 00:03:32,000
+<font color="white" size=".72c">And well, as far as the job requirements go, 
+it is kind of expected for you to have an  </font>
+
+40
+00:03:32,000 --> 00:03:40,640
+<font color="white" size=".72c">up-to-date technological knowledge, creative 
+thinking, problem-solving skills, and even empathy</font>
+
+41
+00:03:41,280 --> 00:03:43,760
+<font color="white" size=".72c">You have to think sometimes like a hacker,  </font>
+
+42
+00:03:43,760 --> 00:03:47,440
+<font color="white" size=".72c">think like someone who does 
+harm, or seeks some personal gain</font>
+
+43
+00:03:48,640 --> 00:03:51,600
+<font color="white" size=".72c">Some non-technical language 
+skills are also very useful,  </font>
+
+44
+00:03:52,320 --> 00:04:00,080
+<font color="white" size=".72c">you should be a very detail-oriented person, and 
+when bad things happen calm and self-controlled</font>
+
+45
+00:04:00,080 --> 00:04:03,440
+<font color="white" size=".72c">In many organizations Cybersecurity Analysts are  </font>
+
+46
+00:04:03,440 --> 00:04:07,680
+<font color="white" size=".72c">likely to work as part of a 
+security operations center or an SOC</font>
+
+47
+00:04:08,480 --> 00:04:14,720
+<font color="white" size=".72c">An SOC is a location where security professionals 
+monitor and protect critical information assets in  </font>
+
+48
+00:04:14,720 --> 00:04:20,560
+<font color="white" size=".72c">an organization and, well, because SOCs can be 
+difficult to establish, maintain, and finance,  </font>
+
+49
+00:04:20,560 --> 00:04:26,080
+<font color="white" size=".72c">they are usually employed by larger corporations 
+like a government agency or a healthcare company  </font>
+
+50
+00:04:26,080 --> 00:04:30,800
+<font color="white" size=".72c">that deals in personally identifiable 
+information and other companies like that</font>
+
+51
+00:04:31,920 --> 00:04:37,760
+<font color="white" size=".72c">SOCs, despite their differences in 
+size, scope, and responsibility,  </font>
+
+52
+00:04:37,760 --> 00:04:40,800
+<font color="white" size=".72c">tend to be designed with a 
+few key principles in mind</font>
+
+53
+00:04:40,800 --> 00:04:45,680
+<font color="white" size=".72c">So, an SOC should be first of all 
+supported by organizational policies,  </font>
+
+54
+00:04:45,680 --> 00:04:49,360
+<font color="white" size=".72c">giving it the authority it needs to be effective</font>
+
+55
+00:04:49,360 --> 00:04:53,680
+<font color="white" size=".72c">It should be able to balance its size 
+and its presence in the organization  </font>
+
+56
+00:04:53,680 --> 00:04:56,240
+<font color="white" size=".72c">without overstepping its bounds</font>
+
+57
+00:04:56,240 --> 00:04:59,360
+<font color="white" size=".72c">It should be staffed with motivated people</font>
+
+58
+00:04:59,360 --> 00:05:04,320
+<font color="white" size=".72c">I'll tell you a secret here: this is 
+one job where if you're lucky and lazy  </font>
+
+59
+00:05:04,320 --> 00:05:08,240
+<font color="white" size=".72c">enough you might not have to lift 
+a finger and get away with it</font>
+
+60
+00:05:08,800 --> 00:05:11,920
+<font color="white" size=".72c">Unless shit hits the fan, 
+definitely don't do that!</font>
+
+61
+00:05:11,920 --> 00:05:18,080
+<font color="white" size=".72c">But, beware that unmotivated individuals 
+can be very harmful for your organization,  </font>
+
+62
+00:05:18,080 --> 00:05:20,720
+<font color="white" size=".72c">especially if they're in charge of your defense</font>
+
+63
+00:05:21,280 --> 00:05:25,440
+<font color="white" size=".72c">Think about going to war with an 
+unmotivated army, or a football match,  </font>
+
+64
+00:05:25,440 --> 00:05:28,880
+<font color="white" size=".72c">where players in the team 
+have no motivation to win</font>
+
+65
+00:05:28,880 --> 00:05:29,920
+<font color="white" size=".72c">This is bad, right?</font>
+
+66
+00:05:31,440 --> 00:05:37,520
+<font color="white" size=".72c">It should be staffed with skilled professionals, 
+and not overstaffed with unqualified personnel</font>
+
+67
+00:05:37,520 --> 00:05:44,240
+<font color="white" size=".72c">It should be able to incorporate a wide variety of 
+security processes into a single operation center</font>
+
+68
+00:05:44,240 --> 00:05:47,280
+<font color="white" size=".72c">It should be equipped to 
+perform incident response duties</font>
+
+69
+00:05:47,920 --> 00:05:53,120
+<font color="white" size=".72c">It should be able to protect the SOC's own 
+systems and infrastructure from attacks</font>
+
+70
+00:05:54,080 --> 00:05:57,680
+<font color="white" size=".72c">Be aware of the strengths and the 
+limitations of each tool that it uses</font>
+
+71
+00:05:58,960 --> 00:06:02,640
+<font color="white" size=".72c">And, it should be aware of the 
+nuances involved in monitoring  </font>
+
+72
+00:06:02,640 --> 00:06:06,400
+<font color="white" size=".72c">to be able to separate the signal from the noise</font>
+
+73
+00:06:06,400 --> 00:06:08,720
+<font color="white" size=".72c">we'll talk more about this in future lectures</font>
+
+74
+00:06:09,440 --> 00:06:13,440
+<font color="white" size=".72c">And, of course it should be willing to 
+collaborate with other SOCs to share  </font>
+
+75
+00:06:13,440 --> 00:06:16,800
+<font color="white" size=".72c">valuable information on threat 
+intelligence and mitigation techniques</font>
+
+76
+00:06:18,240 --> 00:06:22,400
+<font color="white" size=".72c">All right, so for the exam make sure 
+you understand the responsibilities  </font>
+
+77
+00:06:22,400 --> 00:06:24,000
+<font color="white" size=".72c">of a Cybersecurity Analyst</font>
+
+78
+00:06:24,000 --> 00:06:26,000
+<font color="white" size=".72c">it's also equally important to understand  </font>
+
+79
+00:06:26,000 --> 00:06:30,800
+<font color="white" size=".72c">which tasks DO NOT fall under the 
+responsibility of a Cybersecurity Analyst  </font>
+
+80
+00:06:30,800 --> 00:06:36,080
+<font color="white" size=".72c">and you should be able to identify the main 
+functions of a security operation center</font>
+
+81
+00:06:36,080 --> 00:06:47,840
+<font color="white" size=".72c">Thanks for watching, don't forget to 
+subscribe, and see you on the next video</font>
+

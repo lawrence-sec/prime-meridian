@@ -1,0 +1,155 @@
+just like a virus inside of the human
+body a virus inside of a computer is one
+that's able to replicate itself from one
+computer to another to get this virus to
+start it requires some type of
+intervention very commonly from a human
+to be able to click a link or start an
+executable once the virus is running it
+can move through the file system on a
+computer or try to access other file
+systems across the network we commonly
+associate viruses with some type of
+outage or down time and for the vast
+majority of viruses that's probably true
+but there are some viruses that sit
+quietly in the background and you might
+not even realize that you're infected
+from a user's perspective a virus is
+probably one of the most common types of
+security concerns and that's why if you
+look at the operating systems we use
+today many of them include or have the
+option to include an antivirus software
+this software is always running on the
+computer and it's watching for
+executables to see if it recognizes is
+software that may have already been
+identified as malicious it's one of the
+reasons we often tell you to always keep
+your signature file updated in your
+antivirus because that's what the
+antivirus is using to be able to
+identify this malicious software there
+are also different types of viruses the
+one we commonly think about is when we
+click a link or an executable to run
+this as an application but there are
+also viruses that will sit in the boot
+sector of your system and when you boot
+up your computer the virus automatically
+runs as the system is booting your
+browser your operating system and many
+applications are able to run scripts and
+those scripts can contain malicious
+software as well and if you're using an
+application like Microsoft Office that
+has the ability to run macros there are
+viruses written in that macro language
+to take advantage of vulnerabilities in
+that software there's also a type of
+virus that doesn't use any files that
+are stored on your storage systems this
+type of virus is a fileless virus
+because it's never writing any software
+or any malicious code to your storage
+drives and since most antivirus software
+is also looking for information to be
+written to a drive this is one way that
+the virus can help avoid any of your
+antivirus software a Fus virus doesn't
+install itself as software on your
+system and it doesn't require that
+software to be loaded from your storage
+Drive instead almost everything
+associated with a Fess virus is
+occurring in the memory of your system
+here's a very common example of how a
+fileless vir virus is able to First
+infect your system and then from that
+point install additional malicious
+software this usually starts with the
+enduser Performing some type of function
+so it might be that the user is clicking
+on a malicious link that's inside of an
+email or part of an existing website
+that link will take the user to a
+website and that website is set up to
+exploit a vulnerability within your
+operating system or the applications
+running on your operating system so
+exploits associated with flash JV Java
+or a known Windows vulnerability would
+be a perfect way for this fileless virus
+to get into your operating system now
+that the virus is running on your system
+it can run other applications like
+Powershell which then downloads
+additional Powershell scripts and runs
+those scripts in memory as well at this
+point the virus can run additional
+Powershell scripts it can install other
+applications it can now start removing
+data from your system and even
+transferring that data to a third party
+since this virus is not saving any
+malicious software to the file system it
+needs some way to restart if your system
+is rebooted so normally this type of
+virus May add an auto start to the
+registry of your Windows operating
+system so that the next time you start
+your system this process occurs all over
+again so far we've talked about viruses
+and how the user has to click a link or
+have some type of interactivity to get
+that virus running in memory but there
+are certain types of malicious software
+that can run without any user
+intervention this malicious software is
+called a worm this malware is able to
+self-replicate itself between systems
+without any type of user intervention
+and obviously these days most of our
+systems are networked which makes it
+very easy and very efficient for a worm
+to replicate itself to every system that
+may be on your network these worms are
+replicating themselves at the speed of
+your network so an infection with a worm
+tends to occur very quickly if there's
+no other type of limiting factor and
+since there's no user intervention these
+worms are able to attack your systems at
+any time and move freely about your
+network network-based firewalls and
+personal firewalls along with intrusion
+prevention systems can make a big
+difference in identifying and stopping a
+worm from propagating itself throughout
+your network obviously these
+Technologies would need to be aware of
+this type of worm and have signatures
+and a process in place to be able to
+stop that traffic from going from one
+machine to another fortunately worms are
+a relatively rare occurrence but let's
+look at an example of a worm called The
+W to cry worm Not only was this worm
+able to propagate itself automatically
+it also installed ransomware so that it
+would encrypt and make unavailable all
+of the user files on these systems this
+started with a computer that is infected
+that computer then looked across the
+network to try to find another system
+that was vulnerable once the system is
+infected Eternal blue will install a
+back door pull down the ransomware code
+and infect the machine with that
+ransomware software at this point the
+worm continues to propagate itself and
+find all of the vulnerable systems that
+may exist on this network and infect
+those also with the same
+ransomware

@@ -1,0 +1,596 @@
+well threat research is all about
+understanding what is threatening your
+organization from a cybersecurity
+perspective how it works what it does or
+what kind of resources it attacks so in
+order to get a hold of this information
+we need two things first we need a way
+to detect those threats and secondly we
+need to find a common language to
+describe those findings so we can
+publish that information share it or
+even learn from each other how exactly
+we're going to do this that's precisely
+what we'll cover in the next minutes
+[Music]
+now for a long time we've relied on
+signatures to identify malware and
+that's exactly how your antivirus works
+by default right now
+which means that for malware that we've
+seen before or four attacks that
+somebody else has seen before there
+should be some specific strings or byte
+patterns that can help us recognize
+malware where do we find these patterns
+you might ask well you can find them in
+files in our disks you can look inside
+processes that are currently running
+inside our operating systems or you can
+look inside the network packets that go
+in and out of our network interface
+cards now keep in mind that when it
+comes to analyzing network traffic you
+might not always be able to inspect that
+content because it might be encrypted
+you might be transferring encrypted
+files uh sending an encrypted email
+or you might use a vpn or a just a
+regular https connection to a website
+that's also encrypted right
+still even with encrypted traffic we can
+look for some observable details like
+how big are the packets
+how often do they come in or do they
+have any protocol anomalies that you
+might be able to see things like
+requests without a response or misplaced
+flags or a packet structure that doesn't
+exactly look right but signatures are
+still very widely used because well
+they're efficient and easy to update it
+usually takes you just a click or two to
+update your antivirus software or
+windows defender or whatever you're
+using you are using an antivirus right
+so assuming you're an attacker and you
+want your attack to succeed right well
+you could try doing one of the following
+first you can create a piece of malware
+that doesn't have a signature just yet
+and cannot be found in any signature
+database but it's probably going to be
+just a matter of time before some
+antivirus vendor detects your malware
+and builds a signature for it so your
+virus is going to be just a short-lived
+fad or you can create a malware that
+it's so advanced
+that it's next to impossible to create a
+signature for it
+well how do you do this
+well you make it behave like a
+legitimate application and you make it
+act very slowly stealthily and you also
+make sure that if an anti-virus asks
+your malware what it's doing then it's
+going to report back and it's going to
+tell it that nothing malicious is
+happening in there as you can guess the
+second method is much more difficult but
+the odds will be forever in the
+attacker's favor
+alright so let's switch our perspective
+for a minute and stop thinking like a
+hacker but start thinking like a cyber
+security analyst what can you do if
+you're facing malware that doesn't get
+detected by normal antivirus signatures
+and actually ask yourself this
+if it's not being detected by any tools
+out there how do i know it's present in
+my network how do i find out that i've
+been infected and that's the most
+difficult part honestly because a lot of
+attacks a lot of breaches are detected
+very late in time or sometimes even
+never but it just might happen that some
+unexpected connection some abnormal
+traffic
+some errors get caught by some
+monitoring tools someday or even by the
+the admin and that's precisely the first
+thing that we do when we're facing
+malware that is so advanced that cannot
+be detected by signatures we stop
+looking for signatures and we start
+looking
+at behavior we start looking for proof
+that the malware is in there and it's
+doing something nasty and those proofs
+are called iocs that's indicators of
+compromise well what exactly is an ioc
+well just like the name says it's an
+well an indication and some artifact
+left behind some proof that you have
+been breached sometime in the past that
+an intrusion has happened and that
+malware has been executed generally
+these iocs are some artifacts that you
+might encounter at some point
+and they make you think
+well is that thing supposed to behave
+like that they might be some urls in
+some access logs a dns log a firewall
+log a proxy log
+or even your browser history it might be
+that some unexpected file
+is located on some disk or it might be
+that a file gets executed in some
+unlikely scenario it might be a process
+that someday you find it running in your
+memory and nobody knows how he got there
+and what it's doing it might be a file
+signature that indicates that there's a
+remote access tool controlling that
+machine and
+you know that that machine doesn't have
+any remote access utilities installed on
+it and don't forget that we can also
+look for hashes of files
+associated with bad reputation that's
+still kind of like a signature but we
+have to look for them because otherwise
+we risk missing the low hanging fruit we
+can look for some unexpected or foreign
+or new registry entries in windows
+registry especially those entries that
+dictate which programs which
+applications run automatically whenever
+you start your system we might be seeing
+at some point some excessive resource
+huge like too much cpu usage too much
+memory usage an overloaded disk or an
+overloaded network interface you can use
+netstat for example or other utilities
+that show you active connections uh you
+can look for open ports from i don't
+know undocumented applications for
+example applications that you've never
+seen before in your network you might be
+able to detect some unexpected protocols
+that
+shouldn't be found in your network
+because you know that there's no
+application actually using them or at
+least now no legitimate application you
+can also look inside a device manager
+for each system and find some new and
+unexpected devices that nobody knows how
+they got there or you might be able to
+see some weird usage
+in a user account in normal user account
+some changes in permissions some
+unexpected changes
+on security policies
+network connections file executions
+anything happening with that system that
+is somehow um beyond what you expect to
+be normal and the list doesn't end here
+there are actually thousands of
+potential indicators of compromise
+simply because computers are very
+complex systems and not to mention that
+we're going to have a complete different
+set of indicators when we're moving away
+from computers towards mobile devices
+cloud environments wearables
+iot devices industrial systems drones i
+don't know what else
+so there's so much more that you can
+look for and so many possible indicators
+that might show you that you've been
+compromised
+well we have a lot of things to look for
+because malware can be extremely complex
+so we need to change our way of thinking
+about malware
+and while we look for iocs there are a
+couple of things that we should keep in
+mind
+first while you could manually inspect
+all those iocs that we've mentioned so
+far you could definitely get much better
+performance visibility and well you'll
+analyze much more information if you use
+a dedicated automated tool for this
+so you'll find tools like these under
+the names of hips or heads which is host
+based intrusion prevention or host-based
+intrusion detection
+or endpoint security suits from a lot of
+vendors out there second
+sometimes a single ioc might just not be
+enough to prove that you've been
+breached because one single anomaly
+might be open to interpretation or it
+might not even raise an alarm at all but
+correlating multiple iocs can show a
+pattern this is also one of the reasons
+why for some specific attacks we simply
+cannot create
+one specific signature to identify them
+and the good news is that we also have
+dedicated solutions for this and we call
+them seams or cms that's security
+information event manager and we're
+going to talk about them later in
+another video
+third we still have the problem of
+identifying each indicator of compromise
+and determining if it's good or bad
+computers create files processes network
+connections all the time sometimes they
+can generate thousands of events every
+single second
+not every event is of course a security
+event it's a lot of effort that's
+actually involved in this triage process
+where you just try to determine uh which
+of those events are malicious and which
+are just
+you know regular daily business now to
+help us with this last issue to help us
+determine what's bad what's good what's
+ugly or what's just simply weird
+we have two methods and the first method
+we call it reputational which means that
+we can associate an ioc with some
+reputational data and reputation means
+being able to answer the question has
+this indicator ever been connected in
+some way to an attack to a previous
+attack or a piece of malware do we know
+anything bad about it
+a reputation is kind of like when you
+crash your car one day and then for the
+next few months all your friends don't
+want you to drive them anywhere because
+you just got the reputation of a bad
+driver
+and this reputation data came come from
+a lot of places
+those places can be a database an online
+feed a paid subscription basically we're
+looking for iocs that were previously
+detected by somebody else and identified
+as malicious
+just to give you some examples here ip
+addresses known to generate spam or
+denial of service attacks urls where we
+know that previously we found malware
+they hosted malware or they were used in
+some command and control scenario
+writing a distributed denial of service
+attack for example in a botnet even
+files usually identified by their own
+hashes can be submitted to a
+reputational database again hashing kind
+of works like signatures but instead of
+looking for a byte pattern inside of a
+file
+reputation databases store the hashes of
+all the files ever detected as being
+malicious and we can even look for
+things like layout of an email
+this is also one of the heuristic
+methods that we use all over the world
+to detect spam how does the email look
+like how is it structured of course all
+the databases to be useful need to be
+kept up to date so they're going to
+require real-time intelligence fed to
+them from all over the world that's why
+some of them well you have to pay to
+access them because there's a lot of
+effort involved in maintaining such
+databases large vendors usually do this
+uh fortinet does it cisco does it uh
+with their amp for endpoint solution for
+example and the centralized intelligence
+reputation center called talos cisco
+talos and while the second method for
+deciding if what a computer does is good
+or bad we call this method behavioral
+and as we mentioned advanced threats are
+usually not easy to detect because there
+isn't just one single proof involved
+there isn't just one single ioc that you
+can put your finger on and say well this
+is malicious so behavioral methods do
+something smart they correlate iocs
+with attack patterns
+what does that mean i mean well let me
+explain
+instead of looking at one or more
+specific files urls ip addresses
+we look at what's happening inside of
+our system then we decide if what's
+happening looks like an attack just a
+second let me give you some examples
+here uh think about calculator.exe your
+calculator application
+if you see it
+attempting to connect to the internet
+then pretty sure it's going to be
+effected
+if you detect an attempt to change
+hundreds or thousands of files at the
+same time on your disk
+then you might be looking at a crypto
+locker
+if for example changes to system
+settings are detected while a user
+without any administrative privileges is
+logged in then that host might be
+compromised and so on and so forth and
+one more mission here these behavioral
+methods work so much better if the
+software that you're using to monitor
+for these behaviors can learn how your
+typical workday or non-malicious
+activity looks like
+during a workday or during uh or even
+outside work hours or on specific
+weekdays this is called creating a
+baseline and once we have this
+information it gets so much easier to
+detect unexpected behaviors or changes
+or events that stand out from what we
+call normal all right so now that we
+know how to look for some of these iocs
+let's try putting this information into
+a larger context and that's going to be
+the context of an attack so to have a
+context the first thing that we have to
+define is something called a ttp
+which means what are the tactics
+techniques and procedures
+used by a hacker to conduct an attack as
+you can probably expect we can only
+define tdps for known attacks for
+attacks that we have previously seen and
+we have previously documented so let's
+see some examples of ttps for a
+distributed denial of service we should
+be able to see unexpectedly high traffic
+for example and perhaps even a random
+distribution of connections from all
+over the world for malware like viruses
+or worms we might be able to look for
+high cpu usage high memory consumption
+high disk activity abnormal local
+connections in case of self-propagating
+worms to detect if we are being scanned
+under a reconnaissance process uh we can
+look for a lot of scanning traffic like
+half open or very short-lived
+connections or if the connections are
+attempted at the same time will on a
+large number of ports especially in
+sequence you're probably looking at an
+attacker doing reconnaissance on your
+network now attacks coming from apts are
+usually going to be much more advanced
+but regardless how advanced they are you
+should always be able to identify the
+remote control traffic for communicating
+with the command and control center of
+the attacker now some of the gtps here
+would be something like this port
+hopping a technique that looks like a
+quick and apparently random change of
+ports for identical connections and also
+you can look for the hosts that are
+attempting such connections
+another one is fast flux dns that's
+quickly changing the ip address that is
+pointed by a dns entry
+the reason is that these mappings should
+be generally stable the dns systems
+shouldn't
+fluctuate so much but hackers often
+change them to evade ip blacklist data
+exfiltration stealing data from your
+company uh can be detected in a number
+of ways none of them is perfect but you
+can look for alerts generated by
+access control systems to sensitive
+information for example
+you can also look for high bandwidth
+usage and high database usage although
+these don't necessarily always indicate
+exfiltration and don't necessarily
+happen every time filtration attack
+happens sometimes just small data sets
+are exfiltrated protocol anomalies this
+means looking for anything that doesn't
+play by the rules of the rsc of that
+specific protocols so protocols that
+don't exactly follow their standard
+definition also we can look here for
+high volume
+of normally low payload protocols so
+protocols that we shouldn't expect to
+generate so much traffic in a normal
+environment in a normal scenario things
+like icmp or dns or ntp that write the
+network time protocol these can also be
+used to conduct attacks and also to
+exfiltrate data so that's what we called
+tdps tactics techniques and procedures
+all right so we have so much information
+already about attacks about reputation
+about malware signatures iocs and by the
+way this
+whole information is part of one big
+concept called threat modeling but how
+do we describe all this information in a
+structured and meaningful way how do you
+write this stuff down how do you share
+it how do you leave this wisdom behind
+and how do you communicate this to your
+loved ones well for describing storing
+and sharing this type of threat
+information we have a language called
+stixx and a protocol called taxi well at
+least the names are easy to remember
+right
+so remember when we first talked about
+information sharing indicators to
+compromise and dissemination well sticks
+is this one standardized way of
+describing these findings and the
+relationships between them
+stixx stands for structured threat
+information expression
+and at the moment of this recording the
+current version of sticks is version 2
+based on json version 1 was based on xml
+so make sure we remember this for the
+exam just in case
+they ask you the structure of sticks is
+of course not arbitrary it's a standard
+after all so it's made up of something
+called sdos or sticks domain objects
+just have to know about them you don't
+have to memorize them all so just to
+give you some examples sdos they can be
+things like observed data like an ip
+address a file property something that
+would generally be detected and recorded
+by some monitoring system automatic or
+manually indicators these are the
+patterns of observables that can be
+identified and might be relevant to
+cybersecurity attack patterns these are
+the known behaviors of an attacker these
+are the ttps the the tactics techniques
+and procedures that we covered just a
+minute ago they're basically one way of
+saying if this is happening to your
+system then you're most likely under
+attack uh campaigns and threat actors
+are the actual adversaries or attackers
+that are launching the attack along with
+the scope of the attack the scope refers
+to it might be just you being targeted
+or multiple organizations similar to
+yours all over the world in which case
+we're going to call it a campaign coa or
+course of action these are the
+instructions or what can you do in order
+to minimize the damage of an attack or
+to resolve an incident for example if we
+were to find out more about how to
+describe a malicious url we could access
+this link indicator for mauritius url
+where we get a nice description about
+how this indicator can be modeled and we
+can also see that it is used in
+conjunction with a relationship that
+points the url to a specific piece of
+malware because that's why the url was
+malicious in the first place
+now if you scroll further we can also
+find the json definition of this threat
+that describes in a list of objects
+an indicator which is the url a malware
+entry with a description and a unique
+identifier
+and finally a relationship between these
+two entities
+so if we have sticks to describe this
+data we also have taxi as a protocol to
+transport this threat intelligence
+basically it's just a rest api with
+well-known api operations just like any
+api that transports threat information
+over https now taxi defines two types of
+services or methods for sharing this
+information depending on how you want to
+implement it
+the first one is a collection this is an
+interface to a threat information
+database or repository in the collection
+model this data can be directly
+requested by the clients and responses
+are of course returned from the server
+this is the most basic description of
+any pretty much any client server model
+out there now channel implementation
+works slightly different and that is it
+relies on the
+data that is being pushed to the clients
+instead of being requested so clients
+just subscribe to a taxi data feed and
+whenever there's new information
+available out there it gets
+automatically pushed to them kind of
+like a file synchronization service
+think about dropbox for example well is
+there any place where you can see it in
+action where you can access some
+stixx files or taxi feeds right now for
+some freely available ioc definition
+there is the open project called open
+ioc it uses an xml format and the
+definition includes logical statements
+like file names dns domains ip addresses
+stick string patterns and so on
+now fireeye also provides a windows
+utility compatible with open ioc which
+is called the ioc editor you can use it
+to visualize those text files in a much
+nicer interface you can see here all the
+observables that are found within the
+file
+the logic between them
+and of course you can also edit your own
+ioc definitions you can add your own
+logic here and your own observables now
+for example a
+network dns name
+like malware.com
+or
+let's say you would also want to
+customize it with a specific port number
+import local port
+any number you want and you can see the
+definition gets updated automatically
+of course at the very end you can just
+save this and export it
+misp or the malware information sharing
+project should sound just a bit familiar
+to you because we've talked about it in
+the video about intelligent sharing but
+misp can also work with sticks
+cdos and open ioc also in the same video
+if you remember we've covered ibm's
+x-force exchange which is a cloud
+application that works with taxi and can
+automatically export known threats in
+this styx language
+all right so for the exam make sure you
+understand clearly what is an ioc an
+indicator of compromise and what exactly
+we should look for the methods that we
+have for detecting malware and such
+indicators and also be sure that you are
+able to explain what are the stixx
+language and the taxi protocol so thanks
+for watching don't forget to subscribe
+to certify breakfast and see you on the
+next video
+[Music]
+you

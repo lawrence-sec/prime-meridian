@@ -1,0 +1,613 @@
+hey everybody I'm Sean powers and today
+we are going to cover the next section
+in the Linux plus certification series
+that we are doing specifically we're
+going to cover archiving and compression
+and if that sounds a little bit familiar
+it's because we covered this topic when
+we did the Linux Essentials course and a
+lot of what we're going to cover today
+was in the video that we did for that so
+I'm gonna go kind of quickly now if if
+I'm going too quickly and it just goes
+too fast you can always go back to the
+video in the Linux Essentials course
+I'll I'll link to it up there and that
+will give you like a slower more
+in-depth look at the individual commands
+but I'm gonna go quickly we're still
+covering it because there are more
+things in the Linux plus objectives than
+were specifically in the Linux
+Essentials now in this video we're going
+to go over this section which I'm
+calling 1.2.4 it's actually part of the
+1.2 objective for Linux plus a lot of
+this like I said was in Linux Essentials
+but specifically there's a couple
+commands that weren't even mentioned
+before so I'm going to explain those
+however before I do I want to take a
+minute just to thank all of the people
+who support me on patreon you'll see
+it's getting pretty crowded over there
+I'm gonna actually have to start
+scrolling the names which is just so
+humbling on so many levels so whether
+you're a patreon supporter or you share
+my videos when I post them it's because
+of you that I can continue doing this so
+thank you so so very much now let's talk
+about the difference between archiving
+and compression because there was some
+confusion during Linux Essentials I want
+to make sure that I cover it here and
+make it really clear so let's say we
+have a bunch of files and they are you
+know possibly in different directories
+and they're in different sizes and
+they're just kind of scattered around
+our file system when we create an
+archive all we're doing is lining them
+up end to end so where one file ends the
+next file begins and we just lay them
+all out you know end to end to end and
+make a single file that contains all of
+those other files in one one file just
+put together now the thing it does not
+do though is it doesn't squeeze the
+files together it the same exact size
+they're just all put together one after
+another and created into a single file
+and that's what archiving is talking
+about now when we add compression what
+that does is it squeezes all that that
+single file that we've created that
+archive file it squeezes it into a
+smaller version of itself using
+compression tools and this is a little
+bit confusing because if you come from a
+Windows background you're probably used
+to zip and zip both archives and
+compresses when it creates zip files but
+in Linux we do them separately now we
+can do them at the same time but it's
+two separate processes archiving and
+compressing are two separate steps and
+the two tools that were not in Linux
+Essentials are cpio and DD so first off
+we're going to talk about cpio which
+stands for copy in copy out and
+basically this just takes a list of
+files on standard input so you have to
+feed it a list of files and then it
+dumps them as a single archive again it
+just puts all those files together into
+a single uncompressed they're the same
+size bunch of data and it actually dumps
+it to standard outputs so you have to
+redirect the standard output into a file
+if that's what you want to do if you
+want to have that archive in a file you
+have to use standard input and standard
+output with cpio and that's actually why
+it's not used terribly widely anymore
+it's not really commonly used because it
+doesn't do a really great job of like
+doing any recursion in fact it doesn't
+do any looking at the file system at all
+you have to completely feed it a list of
+every file you wanted to include in the
+archive all right and you use it like
+this you would say like LS to get a list
+of files and then you would pipe that
+those results into cpio-0 for I want you
+to Output So when you say cpio Dash o
+means I want you to output and then you
+have to redirect standard output into
+the name of a file and and then you have
+your archive and then in order to
+extract that out you say something like
+we'll do it on the command line but
+really quickly you say cpio Dash I for
+input and then you would use a less than
+Arrow to redirect standard input and you
+would tell it the archive file is what
+you want to input into cpio and then it
+would dump out the file system basically
+that you fed it hopefully that makes
+sense again it's not terribly commonly
+used but we're going to go over doing it
+and then the other one is DD now DD it's
+not really clear what it stands for uh
+disk dump or possibly data duplicator
+this is usually used for devices like
+for Imaging like a USB drive or for
+Imaging a hard drive you use it because
+remember in Linux everything is a file
+so you input it the file of like Dev
+sda1 and that's like the first partition
+on the SATA drive one and that you feed
+that as an input and it will output that
+to a file so if you ever download like a
+DOT IMG file to write to a USB disk you
+can use DD to write that image file back
+to a device because again on Linux every
+device is a file okay so this is usually
+used for Imaging a hard drive and the
+format is you say DD and then if equals
+and then the input file in our case it's
+going to be like a hard drive device
+right because again every device is a
+file and then of means output file and
+then you write it to like an image file
+and then when you want to write that
+image file to a device you just do it
+backwards you say DD if for input file
+equals file.img and then of for output
+file equals and you give it the name of
+a device that you want to read it to so
+let's do these really quickly because
+these are the new ones that we haven't
+seen before okay on my hard drive here I
+just have one folder full of stuff it's
+actually called stuff so if we look in
+the stuff folder we'll see there's a
+couple files and then there's a folder
+if we look inside that folder that
+directory it's icons and inside there
+there's some more directory series and
+then inside there there's some icons so
+it's basically just a folder uh called
+stuff that is full of stuff all right if
+we do d u minus H summarize uh stop this
+is just going to show us it's about uh
+97 megabytes in size okay so that's how
+big the stuff folder is now let's clear
+the screen
+all right so now if we were to use cpio
+to make a copy of that I'm going to do
+it wrong first because first if we use
+the example and I say LS LS is going to
+give us that one directory called stuff
+so if we do LS and then we pipe that
+into cpio Dash output so I wanted to
+output and then I redirect what that
+output is into
+archive.cpio it's going to say it only
+took one block and if we look at LS
+minus L it's pretty small it's 512 bytes
+instead of like almost 100 megabytes
+right so something's going on well I
+don't know what's going on there well we
+have to feed it a list of every single
+file we want it to add and in this case
+all we fed it was a folder so it just
+archived an empty folder so let's get
+rid of that because that is not what we
+want and clear the screen what we would
+actually do is something like the find
+command because if you say find stuff
+the find command will go through there
+and recursively look for every single
+file and write directory in the stuff
+directory itself so if we do that and
+press enter we're going to see it lists
+out every single file that is in there
+with its full path that's what we
+actually want okay so let's clear the
+screen we're going to say find stuff and
+then that whole long list we're going to
+pipe into cpio Dash output and then we
+have to redirect standard output into a
+file and then a file is
+archive.cpio this should take a little
+bit longer a lot more blocks right and
+now if we do LS minus L look at that
+archive and it's like yeah it's 80 or 90
+however many megabytes it's large right
+that's the entire directory structure
+saved not compressed but saved as an
+archive as a cpio directory or as a cpio
+file all right so if we're Brave we
+could say RM minus RF stuff so all of
+our stuff is gone now all we have is
+that a cpio file and then to get the
+folders back and the directories and
+files back we would say cpio Dash input
+again now we're we're telling cpio we
+want to input a file and we use less
+than so that we can redirect standard
+input from a file and that file is
+archive.cpio press enter and now we have
+our stuff folder back and if we look in
+the stuff folder it's been recreated
+entirely so that's how cpio works I'm
+going to get rid of the archive thing we
+don't need that anymore but we don't use
+it often because standard input standard
+output and using the find command it's
+kind of a pain in the butt when there
+are easier ways to get a recursive
+backup Archive of a folder like that
+right so I'm going to clear the screen
+we're going to look at DD again a DD can
+be used on files but it isn't ever it's
+only ever used for devices usually I
+guess you can make like you can do some
+crazy things with it but generally it's
+used on files and so to do that now
+we're going to do it on a hard drive
+um specifically sda2 the second
+partition of our main hard drive and
+normally it's a really bad idea to use
+DD on an active uh hard drive but that's
+the only hard drive in our system so I'm
+going to do it anyway and the second
+partition is like the UEFI partition so
+it's about 512 megabytes anyway we're
+going to say sudo DD because in order to
+access an actual hard drive partition we
+have to have root access so sudo DD
+if it's actually input file equals Dev
+SDA 2 and output file equals I'm just
+going to call it
+sda2. IMG all right so press enter
+asked me for my password and now it's
+creating an image file from that
+partition okay it told us to complete it
+and sure enough like 513 megabytes
+copied LS minus L there it is sda2. IMG
+now I could use DD and swap it around
+and say that the input file is that
+image and the output file is sda2 but
+since this is a currently active hard
+drive that'd be a really bad idea I
+could crash the system so that's what we
+would do um normally would do it like if
+you're booted from a USB drive you could
+do it to an internal hard drive that
+wasn't currently in use all right but
+that's that's how you go about doing it
+so let's get rid of that file oh I have
+to be rude oh it was already gone okay
+apparently it wasn't right protected
+anyway so yeah let's talk now about tar
+because tar is another way to Archive
+files
+um but this is kind of the way we always
+do it now so tar actually stands for
+tape archive and it's because tar used
+to be how we would dump a file system
+onto a tape backup and it's just the
+same tool that we use now and by itself
+it will archive files and folders
+recursively but since we don't use tape
+drives all that much or if we do we want
+it to be compressed and remember by
+default tar doesn't compress we usually
+now use tar with the dash F and a file
+name because it will also create
+archives in a file instead of writing it
+directly to a tape drive so usually we
+do Dash F in a file name and the format
+is something like this we say tar and
+we're going to do this on the command
+line I just want to show you quickly
+Dash C for create and then Dash F and
+the name of the file that we want it to
+create as an archive as a tar archive
+and then what it is we want it to add to
+that thing and it will do it recursively
+if you if we give it a folder okay so
+that's good to know and then if we want
+to extract it we have a like file.tar we
+would say tar Dash X for extract Dash F
+and the name of the file and then it
+will extract it and bring us back our
+archive back to our file system so let's
+look at that really quickly and then
+we'll move on to compression all right
+let's clear the screen and we just have
+our folder full of stuff
+so in order to make an archive of it we
+would say tar Dash C for create and then
+Dash F the name of the thing that we
+want so I'm going to say archive dot tar
+and then we tell it what we wanted to
+add and I wanted to add the stuff so we
+do that and if we look we should have
+archive.tar and if we do LS minus L
+we're going to see look it's the it's
+like the full size right it's it didn't
+compress anything we just have a tar
+Archive of that entire stuff folder and
+we could say RM minus our
+stuff you know it's gone and now if we
+want it back we could say tar Dash X for
+extract and we could do Dash F and the
+name of the file but we could also put
+it right together so we could say Dash x
+f as long as f is the last one because
+immediately after the F flag we have to
+tell it the name of the file and in this
+case it's archive.tar and now it should
+extract it and if we look sure enough we
+have our stuff folder back and
+everything is in our stuff folder so we
+have it now we still have this
+archive.tar file and remember it is just
+about full size of that whole uh all the
+stuff inside the stuff folder so let's
+talk about compression because tarring
+it is usually only the first step we
+also want to compress it so we can get
+it in our carry-on luggage right we want
+to sit on it and get it to close so we
+want to Arc or we want to compress it
+but with Linux there's a bunch of ways
+to compress and we have to look at three
+ways in particular now there are of
+course other ways to compress but
+generally in Linux and specifically on
+the Linux plus exam we're we're going to
+look at gzip bzip 2 and XZ and this is
+kind of goes in age the oldest is gzip
+and then bzip two is the new kid on the
+Block but then XZ is the even newer kid
+on the Block and in general each one is
+like offers a little bit better
+compression algorithm okay but it's
+important to know how to use all three
+of them and in order to compress
+something with gzip you use the gzip
+command so you would say gzip and then
+the name of the file and now what we're
+going to use is this Dash K Flag and all
+that does is it will keep the original
+uncompressed archive file so it's going
+to keep our original file because
+normally what it does it compresses it
+and then it erases the old one because
+you have a compressed version why would
+you want the original well we're going
+to compress it a bunch of times so Dash
+K just keeps the original file that's
+all Dash K does okay so we're going to
+do gzip Dash K in the file to compress
+it and we're going to do bzip two which
+is the command to compress it with bzip
+two compression again we're going to use
+Dash K to keep that original file and
+then same thing with XZ now we did this
+in the Linux Essentials course so I'm
+going to go quickly all right and then
+when we decompress it we say gzip Dash D
+the name of the file or there's a second
+tool called G unzip which looks like
+gunzip uh the name of the file these are
+completely the same they're equivalent
+you can do the original compression
+program gzip Dash D for decompress or
+you can just say G unzip in the file and
+the same thing with bzip or B unzip two
+bnzip two or B sub 2 or B unzip two and
+ecstasy or unex Z so they all work for
+decompressing there's a secondary tool
+or you can use the original tool with
+the Dash D flag to make it happen so
+let's look and compare how they do
+compressing all right so I'm going to
+clear the screen and we have in the
+folder we have archive.tar and it's like
+I said it's just a not compressed
+file and then we have our original stuff
+folder so first let's do gzip so gzip
+I'm going to do Dash K so it keeps
+archive.tar otherwise I would just
+delete it uh and we're going to say gzip
+archive.tar and
+and we do LS minus L we're going to see
+we have
+archive.tar.gz it added its own
+extension and sometimes you will see dot
+tar.gz sometimes you will see dot tgz
+it's the same thing they mean the exact
+same thing one is not better than the
+other
+um just a lot of times people will
+shorten it and instead of dot tar.gz
+it'll just be dot tgz okay just you'll
+see it both ways all right so let's do
+the other two really quickly bzip two
+Dash K to keep the original
+archive.tar this one takes a little bit
+longer because it's doing a little bit
+more compression
+and then let's do x z without even
+looking uh Dash K we're going to keep
+the original file archive.tar this will
+take even longer because it's doing even
+more compression uh unless I'm wrong but
+I think that's what we're gonna see when
+we when we look at the results here
+all right LS minus L and sure enough we
+have the original which is like 86
+megabytes uh tar.gz which is the gzipped
+one is about 35 uh bz2 is 26 and then
+archive.tard.xz is only 13 megabytes so
+again XZ is by far the most uh most
+compressing one that there is if that
+makes any sense now since we have all of
+these copies let's do some quick
+extraction and just see what it looks
+like so RM minus RF stuff this is going
+to get rid of that folder uh well let's
+get rid of the original archive and now
+if we are going to uncompress it we
+would do like gzip Dash D for decompress
+archive.tard.gz do that and now if we do
+LS minus L we're going to see it erased
+itself it erased that gz file and it
+left us with an archive.tar which is the
+original size again okay so it it extra
+it uncompressed it and so now we have
+that original tar I'm going to get rid
+of that original tar file again
+because we also have two more copies now
+we could use something like
+um B zip 2 Dash D or we could say bun
+zip to archive.tar.bz2
+again either one is going to do the same
+and now we can see we have that original
+file again and it's the exact same
+length well let's erase it because we
+have one left
+and in this case let's do x z Dash D
+again for no good reason actually I'm
+going to move one real quick so let's
+move
+[Music]
+archive.tar.xz to Archive dot t x z
+because remember I said you'll see them
+shortened that way sometimes and so now
+we have archive.tx Z but it's still
+going to work exactly the same it's
+going to be so XZ Dash D for decompress
+and it's going to give us back that
+archive.tar file and the archive.tar
+file we could do tar Dash extract Dash f
+archive.tar
+and now we have our stuff folder back so
+we can get rid of archive.tar if we want
+because
+we have all of our stuff back now
+generally we don't do it in two separate
+steps like that because tar gives us the
+ability to call that third-party
+compression Suite right at the same time
+that we're creating or extracting a file
+so we're going to do the same thing even
+quicker with tar and it will call those
+other commands because while it's
+important for you to understand that the
+compression part and the archiving part
+are different generally we'd use tar and
+we do the them at the same time okay in
+order to do that it will call one of
+those other compression Suites on the
+command line so what we would do is we
+would say something like tar Dash C for
+create Z for use gzip compression and
+then F file.tgz and then what it is we
+wanted to add and then we would use that
+same sort of thing if we come across
+like a t b z file we could say tar Dash
+X for extract Dash lowercase j I have no
+idea why it's lowercase j but Dash
+lowercase j means this is a bzip two
+file and it's going to use the bzip2
+suite and then F the name of the file
+and it will extract it and then the same
+thing for x z compression but in that
+case the extra flag we use is capital J
+and that will tell it to use the X Z
+compression Suite or decompression Suite
+so we're going to go through and do that
+but then lastly we're going to look at
+zip which again if you're from a Windows
+background this is the one that you're
+most familiar with anyway and zip
+archives and compresses by default in
+one step so it is simpler it doesn't do
+quite as good of a job of compressing
+but it does compress and archive in one
+step you do have to remember the dash R
+flag otherwise it doesn't recursively go
+through a folder so basically you just
+say zip Dash R for recursive the name of
+the file you want to create and then
+what it is you want it to actually
+compress and then to unzip it you use
+the unzip command the name of the file
+that's it so let's look get those really
+quickly and we'll be done let's clear
+the screen we have our stuff folder so
+first of all let's create a compressed
+tar file in one step so tar Dash C for
+create and I'm going to use uh
+capital J so I'm going to use the X Z
+Suite of compression and then F the name
+of the file is going to be
+archive dot t x z okay hopefully that
+makes sense because we're using the X Z
+Suite since we use the capital J flag
+and then I wanted to use the stuff
+folder to make the archive so we do that
+it's going to take a while because
+remember x z has the highest compression
+rate
+all right if we do LS minus L we're
+going to see we have that file and again
+it's 13 megabytes just like it was when
+we did it in two steps this doesn't give
+us better or worse compression it just
+combines the the act of archiving and
+compressing into one step by using this
+capital J flag or the lowercase j flag
+for b zip2 or the Z flag for gzip
+compression anyway so we're going to
+leave that there we have the
+archive.txz now let's use zip because
+zip is available in Linux 2. but here
+we're going to say zip remember Dash R
+we have to say Dash R otherwise it won't
+recursively go through the folder and
+it's just like with cpio we'll just end
+up with an empty folder compressed and
+you could really shoot yourself on the
+foot if you think you have a backup and
+you don't okay so zip minus r and then
+the name of the file so I'm going to say
+archive.zip and then what it is we want
+it to zip up and that is the stuff
+folder so I'm going to press enter and
+it actually shows us verbosely all the
+stuff that it added so that's a nice way
+to know if it only showed you like an
+empty stuff folder you'll be like uh I
+should have a bunch of files in there
+and if we do LS minus L we're going to
+see sure enough we have archive.zip but
+check this out so archive.txz is 13
+megabytes the zip file is 39 almost 40
+megabytes so zip doesn't do as good of a
+job you can increase the the compression
+rate but out of the box zip doesn't do
+as good of a job but it does both
+compress and archive in one step and
+then uh let's we can do RM minus RF
+stuff one last time okay so we only have
+those two things and we can say on
+zip archive.zip and it's going to bring
+everything back if we look inside our
+stuff folder everything is back so I
+know that was kind of a whirlwind look
+at exactly how compression And archiving
+Works in Linux but again if I went too
+quickly for you I encourage you to go
+back and look at the compression And
+archiving video that I linked earlier
+I'll try to put a link in the
+description as well because we go
+through it a little bit more slowly with
+a few more examples but hopefully uh the
+the more in-depth stuff we covered made
+sense and um
+you should be able to not only
+understand what it is but how to do it
+on Linux using multiple tools uh to
+accomplish whatever task you might need
+anyway learn everything do what you love
+and most importantly be kind I'll see
+you at the next video

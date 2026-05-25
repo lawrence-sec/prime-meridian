@@ -1,0 +1,179 @@
+a deny of service is an action or series
+of actions that causes a service to fail
+often this is an overloading of a system
+where others are not able to access
+because no resources are available on
+that particular system for example if
+someone was to overwhelm the
+capabilities of a server that would
+certainly cause the server to become
+unavailable and therefore cause a denial
+of service sometimes an attacker will
+find some type of vulnerability in an
+operating system or an application
+that causes that service to become
+unavailable in those cases they can
+pinpoint that particular weakness and
+cause the entire system to fail
+relatively easily this is one of the
+reasons that we often say you should
+keep your system up to date with the
+latest security patches so you don't
+find yourself being taken advantage of
+by one of these vulnerabilities when the
+denial of service is underway that
+system is no longer available which
+would be perfect for your competitors
+and there have been times when the
+competition has been identified as the
+organization causing the deny service to
+begin with sometimes this deny of
+service is a distraction in reality the
+attackers are going after a different
+part of the network but by bringing down
+this one particular server all of your
+trouble shooting resources are now
+spending their time on this server
+rather than the other parts of the
+network that could be under attack and
+of course a denal of service does not
+have to be complicated someone could
+walk into the side of your building pull
+the main power for your entire facility
+and then you would have an enormous
+denal of
+service many times a deny of service is
+caused by a third party but it's very
+easy to accidentally create a deny of
+service situation yourself for example
+if you were to connect multiple switches
+together with multiple connections and
+you were not using spanning tree
+protocol you would be creating a loop on
+the network this Loop would cause more
+and more traffic to Traverse the network
+and very quickly you would find that the
+capacity of those switches would be
+completely overwhelmed if your internet
+connection has limited bandwidth then
+simply downloading a single Linux
+distribution could effectively cause a
+deny of service for anyone that needed
+to use that internet connection you also
+have to think about the physical
+environment where your data center
+resides something as simple as a water
+leak or a leak from the roof could cause
+an entire section of the data center to
+become
+unavailable unfortunately a large
+percentage of deny of service situations
+are caused by multiple devices all
+acting in unison to cause this denial of
+service situation we refer to this as a
+distributed denial of service or a Dos
+for example a single botnet may be able
+to take over millions of personal
+computers and have all of those devices
+direct all of their traffic towards one
+single server on the internet this type
+of coordinated attack from multiple
+devices that may be located anywhere in
+the world is a very common form of a
+distributed denial of service attack and
+in that particular case devices with
+very limited access to the internet
+could still manage to bring down systems
+with many more resources available we
+refer to this as an asymmetric threat
+because the attacker has so few
+resources and yet they're able to
+disrupt and bring down systems with many
+many more
+resources the attackers have also found
+ways to make their process so much
+easier when they attacking someone with
+a denial of service they refer to this
+as a dods reflection and amplification
+with this attack the attacker sends a
+little bit of information into the
+internet and the internet is able to
+multiply that particular attack and send
+a much larger amount of traffic to the
+victim's device since this doesn't
+require many resources for the attacker
+it's become a very popular way to
+overwhelm the capabilities of a
+particular remote host the attack ERS
+have effectively taken the systems and
+protocols that we use every day and
+turned all of those against us protocols
+such as the network time protocol domain
+name system or the internet control
+message protocol can all be used to
+amplify the messages that are sent to
+the victim's computer let's take a look
+at what this amplification looks like
+before the attack actually occurs a DNS
+query is one where a device is commonly
+requesting an IP address from a server
+it's a Rel relatively low bandwidth
+communication and very little
+information is normally transferred but
+there is information stored on a DNS
+server that can return much more
+information than simply an IP address
+here's an example of what this looks
+like we're running the Dig command with
+the any parameter to the name is c.org
+and instead of Simply receiving an IP
+address in return we're getting
+information such as DNS key information
+that is embedded within that DNS server
+these Keys returned as part of this DNS
+query are normally used to verify a
+digital signature that's being sent out
+in an email but in this case the
+attackers are using this large amount of
+information to amplify the message
+that's being sent to the victim's
+machine here's how a distributed denal
+of service would look when you're using
+DNS amplification this starts with a
+botnet command and control this is the
+device that is managing the process of
+the distributed denal of service but
+that's sing device needs to include
+other machines that can add to this
+total amount of traffic and the command
+and control machine is using a botn net
+to provide those additional hosts this
+botn net is connected to the internet
+where there are also DNS resolvers that
+are open and available for anyone to
+query also on the internet connection is
+the web server that will be the victim
+of this distributed denal of service the
+command and control device sends a
+message to the botnet telling them to
+send that DNS query to one of these Open
+DNS resolvers the botnet sends this
+relatively small query to the DNS
+resolvers and as we've already seen the
+response to that query is a much larger
+amount of information the botnet devices
+are spoofing the source of these
+requests so the responses are going to
+go to the web server and since so much
+information has now been Amplified it
+overwhelms all of the resources
+available on that web server and the
+system has now become a victim of a
+distributed denal of service this
+amplification process has effectively
+taken a query that was 28 bytes in
+length and extended it out to, 1300
+bytes as a response this makes it very
+easy for these attackers to quickly
+overwhelm these remote devices on the
+internet

@@ -1,0 +1,1065 @@
+[Music]
+Hi everyone. Today we're going to talk
+about firewalls. So firewalls, remember
+those devices in movies that hackers
+always hack and crack and bypass? Now
+they have to be some pretty useless
+devices if they can be bypassed so
+easily, right? So why do we have them in
+the first place? Well, let's see. So
+what is a firewall? Now contrary to
+popular belief, a firewall is not a
+device that is impenetrable, right? We
+don't use firewalls to to block all
+traffic. If you want to block all
+traffic, this is what you need. A
+disconnected network cable. This is what
+blocks all traffic, not firewalls.
+So a firewall is a is a network security
+device, right? that looks at the
+incoming and the outgoing traffic going
+to or from your network and decides
+whether to allow that traffic or to
+block specific traffic based on some
+predefined set of security rules. Now,
+how how complex those security rules can
+be or how carefully or how deep can the
+firewall actually look inside that
+traffic and make its decisions. This
+depends on various features of the
+actual firewall device itself. And
+firewalls have evolved a lot over time.
+Now they they started as dumb very basic
+packet filtering devices. And nowadays
+they've evolved into something
+absolutely huge. Not huge as in size,
+but huge as in the number of features,
+the number of uh security techniques and
+methodologies that they implement to
+secure your network. Now, they've
+actually gone so far nowadays that
+vendors are advertising their own
+firewalls as all-in-one security devices
+with all the security features into one
+single box or one single virtual
+machine. But we're getting ahead of
+ourselves. So, let's go back to the
+basics and see exactly what types of
+firewall we can encounter.
+Now, the first and the most basic
+firewall type is called stateless. Okay,
+so it apparently doesn't have a state.
+What does that mean? So for this I'm
+going to draw an extremely ugly firewall
+here in the middle assuming that it
+connects two networks. So we're going to
+have a local area network on the left
+hand side and the internet on the right
+hand side. So that's the worldwide web.
+And of course we assume that we do have
+two connections. One towards the land
+side and one towards the internet. Now
+let's also assume that we have two hosts
+that want to communicate. So on the LAN
+side we have a host here which I'm going
+to call PC1. And on the internet side,
+we have another host.
+Let's say that this one is a public
+website. And we're going to call this S1
+right from server one. Now, assuming
+that these two entities want to
+communicate, they're going to have to go
+through the firewall. So PC1 first is
+going to send a request and then server
+one is going to respond with a reply.
+Now, the firewall is only going to
+permit the traffic if it has a valid
+rule for that specific type of traffic.
+So, in order for our request to go
+through the firewall, we would probably
+need a rule that looks like this. Permit
+all the traffic that you see coming from
+PC1 and heading over to server one. All
+right, this rule would allow the request
+to go through the firewall. Now, what
+about the reply? Similarly for the reply
+we would probably configure another rule
+on the firewall that says permit all the
+traffic coming from server one and going
+back to PC1 right all these two rules
+here would be configured right on this
+firewall box now do you see a problem
+here this configuration here this rule
+configuration would allow our PC1 to
+communicate with server one but what if
+other people inside of our LAN want to
+communicate with that server one Well,
+we could create a rule for each and
+every host in this in this LAN, but it
+would be much easier to just say
+something like this. That is to permit
+all the traffic coming from our entire
+LAN going to server one and then permit
+the return traffic from server one to
+anybody who might have initiated that
+connection from within the LAN. Does
+this work? Well, it kind of works. Yeah,
+pretty good. But what if we have more
+than one server that we want to access?
+We have the entire internet that we want
+to access. tons of websites and web
+destinations and and remote servers that
+we can connect to. How would these rules
+look like? Well, we could probably start
+by doing something like this like permit
+all the traffic coming from our LAN and
+that is heading towards the entire
+internet which again it is a valid rule
+right we would expect everybody in a
+local network to be able to access the
+internet. Now what about the return
+traffic? How would that rule look like?
+It would look something like this.
+Permit all the traffic coming from the
+internet heading to our land.
+Does it work? Yes, it works. Do you see
+a problem with this? We've basically
+cancelled the entire firewall, right?
+We're allowing all the traffic to flow
+through the firewall directly unimpeded
+any kind of connections in either way.
+So why do we have the firewall in there?
+So you can see that this approach where
+we actually need a separate rule for
+each type of connection that we want to
+allow through that firewall
+is not going to work with a stateless
+firewall. We need the firewall to be
+able to track the connections that are
+being initiated from the LAN and to
+dynamically know how to allow those
+responses back to our local network but
+nothing else. So, if I'm just a regular
+user, I'm Andrew, right, in my home
+network, and I want to send a request to
+access Facebook. Now, the request is
+going to go through the firewall, of
+course, because I do need a rule to
+allow me to access the internet. But I
+need the firewall to be smart enough to
+look at that request and figure out that
+it is supposed to allow the return
+traffic for that request and only for
+that request. I'm not going to allow the
+entire internet to connect back to my
+local network, back to my host, but I
+will allow whatever traffic I have
+requested, nothing more. Now, this
+behavior is actually the behavior of a
+stateful firewall. It's called stateful
+because it remembers this state
+knowledge. It remembers the connections
+initiated from the inside of our LAN
+here. looks at this connection right
+here, sees who initiated it, sees that's
+it's it's PC4, sees that it is aimed for
+server one, and it doesn't just look at
+the source IP address and the
+destination IP address, but it's al it
+also looks at the source port number and
+the destination port number. Now, the
+source port number here would be
+something random like, I don't know,
+maybe 35,128,
+but the destination here would probably
+be something like port 80. So a rule
+that we would configure on our own as
+admins on this firewall would probably
+look something like this. Permit all the
+traffic from our local network going to
+the internet. So nothing new so far. But
+here's the catch. We only need to
+configure this single rule right here
+because when the firewall sees a
+connection being initiated from the LAN
+from a PC inside of the LAN to any
+destination on the internet, it is also
+going to automatically create a rule for
+the return traffic to allow the return
+traffic. So we would probably see a rule
+that looks kind of like this. So the
+firewall is automatically going to
+permit all the traffic coming from
+server one from port 80. That's the web
+server port going back to PC1 inside of
+our local network on port 35,000
+whatever port was chosen when that
+connection was initiated. And the
+stateful firewall is smart enough to
+allow us to configure this rule on the
+inside interface. the one pointing to
+what LAN and the dynamic rule
+automatically created by the firewall is
+going to be automatically applied to
+this outside interface where we expect
+the return traffic to come back to us.
+Now the advantage of this is of course
+you only need to specify the rules that
+allow the traffic to go out from your
+network. The return traffic is going to
+be automatically determined and allowed
+and permitted by the firewall. That is
+state knowledge. So, the ability of the
+firewall to look at the state of the
+connection, figure out now this has been
+a request. This is a host in inside of
+the local network attempting to
+communicate to someone on the outside.
+I'm expecting a reply from that uh
+remote location. So, I'm going to
+automatically create a rule that allows
+that inbound traffic. Now, how does the
+firewall know that there's supposed to
+be a reply coming back or how long is it
+going to allow this this dynamic rule
+here to live on the outside interface?
+Well, the idea behind this behavior is
+actually related to the fact that the
+firewall not only looks at the first
+packet, but also looks at the layer 4
+information inside of that traffic. So,
+looks at the TCP or UDP type of traffic.
+Now, for a connection to behave just
+like we described it here, we're
+basically going to talk about TCP
+connections, right? And as you probably
+know, the TCP connection is initiated by
+a three-way handshake. Now, which means
+that we're going to have a sin packet to
+open the connection, a sin act packet
+back to open the connection from the
+server side, and to confirm the
+connection from the client side. So, I
+have a synchronization and
+acknowledgement in the same packet and
+then back an acknowledgement from the
+client. Now the stateful connection
+inside of the firewall is actually
+created the moment the firewall detects
+this send packet coming from the
+internal network. So for how long is the
+return rule going to live? How long is
+the firewall going to keep it in there
+and allow traffic from the outside?
+Well, for as long as this connection
+here is still valid. That is as long as
+traffic is being transferred. So,
+there's going to be an internal timeout
+in there. If the connection simply dies
+and no further packets are transferred
+for 5, 10, or 15 minutes, then the
+firewall is going to tear down the rule
+that allows the return traffic because
+it's not used anymore, or until either a
+FIN message is detected,
+which indicates that one of the parties
+wants to end that connection, or until a
+TCP reset is detected. That's when you
+know you're not behaving properly and uh
+the other party wants to forcefully
+terminate that connection and refuse any
+further communication with you. So the
+firewall is going to keep that dynamic
+stateful inbound rule up and running
+until either the connection is
+gracefully terminated, forcefully
+terminated, or simply times out due to
+inactivity. Now, one thing to remember
+is that you won't be finding any
+stateless firewalls anymore in the real
+life. They are a thing of the past, but
+do remember how they work for the exam
+and also remember that sometimes they
+are called packet filtering firewalls
+because that's exactly what they do.
+They they have no knowledge about the
+connection, the state of the connection.
+They only look at individual packets and
+if you want to allow individual packets,
+you will need dedicated rules for each
+direction and for each type of packet
+that is supposed to pass through that
+stateless firewall. Now, on the other
+hand, stateful firewalls are the ones
+that you will find pretty much
+everywhere. And yes, even the firewall
+that is built into your home router, no
+matter how cheap, is still going to be a
+fully stateful firewall. Now, another
+type of firewall, so to say, it's called
+UTM, which stands for unified threat
+management. And I don't completely agree
+with the fact that this is a completely
+different type of firewall even though
+CompTIA says so because it is actually
+more of a marketing term rather than a
+technology. Basically it's a combination
+of the stateful firewall functions that
+we've already seen and some additional
+functionality security functionality on
+top of that. uh things like IPS, traffic
+inspection, intrusion prevention or
+antivirus, malware scanning, uh URL
+filtering, filtering traffic based on
+the reputation or the actual URL of the
+site that you are about to access from a
+browser. And we could go even further.
+Uh some UTM boxes also provide anti-PAM
+functionality and even DLP
+functionality, data loss prevention. uh
+which basically means that it is able to
+inspect the traffic up to the actual
+content the application layer and figure
+out what type of files are being
+transferred over a multitude of
+protocols and then of course apply some
+policies and some decisions to deny or
+allow that file transfer. And actually
+if you buy a firewall nowadays, you will
+definitely get a combination of these
+services here listed on the on the
+blackboard because nobody creates pure
+firewalls any longer. We have to to make
+our security posture uh stronger,
+smarter, that is adding additional
+security functionality and additional
+services to our traditional rulebased
+firewall functionality. Another one that
+CompTIA considers to be a dedicated type
+of firewall is a proxy firewall. Again,
+not exactly found in today's networks as
+a dedicated device uh used solely for
+the purpose of proxying web connections
+for example, but it is going to be
+implemented as an additional
+functionality onto the firewall or onto
+the UTM box uh for specific
+applications. And a proxy actually works
+kind of like a man in the middle for all
+the connections that go through it. So
+it's going to terminate the connection
+on the firewall box with the proxy
+functionality and then it's going to
+initiate an additional connection from
+the firewall to our internet destination
+on behalf of the internal client or PC4
+here on the left. Now this uh connection
+breakage that happens here in the middle
+actually allows the firewall to peek
+inside of the traffic uh inspect what is
+going on in there even sanitize the
+contents of that connection maybe look
+for abnormal protocol usage uh which is
+also a great way of um detecting attacks
+before they they happen. Now the return
+traffic connection is of course also
+going to be proxied on the same box. So
+the connection is going to be broken
+again when it comes back to the uh to
+the original requester. Uh but this time
+we can also implement some additional
+services like of course inspecting what
+content is being returned from the
+internet and also we can provide some
+caching services like the uh the proxy
+can actually uh hold in a limited amount
+of memory the most frequently accessed
+content uh that your your network is
+usually requesting from the internet and
+they can uh serve that content directly
+from the cache without going to the
+internet and requesting that resource
+every single time. And of course, this
+is going to help users get a much better
+experience. Lower latency, higher speeds
+when accessing frequently as accessed
+content. Finally, the last firewall
+type, and unfortunately, this one is
+also a marketing term. It's called NGFW.
+That's next generation firewall. As far
+as the terminology is involved, I'm
+really curious what's going to happen
+with uh this term when the next next
+generation is going to emerge.
+Anyway, uh next generation firewalls
+combine uh stateful filtering like the
+stateful firewalls that we've been
+discussing with application level
+security. So they have the ability to
+look inside the traffic, look inside the
+packets at the application layer.
+they're actually able to determine the
+actual content of the HTTP request or
+the contents of the of the files that
+are returned from the from the web
+server, the actual operations performed
+on an FTP server for example or the
+domains that we are requesting using uh
+using DNS. So next generation firewalls
+are application aare. So for example,
+you could use such a such a next
+generation firewall to allow access to
+the internet or to Facebook but at the
+same time deny access to Facebook chat
+to messenger Facebook Messenger or to
+Facebook games. So we you do get this
+granularity in in your decisions in your
+policies so that you can exactly specify
+what type of application traffic you
+want to allow not just uh which uh
+source and destinations can communicate
+on or on which ports. Now they also have
+advanced mechanisms to fight APS for
+example and uh some might also rely on
+machine learning and uh you can also
+augment the intelligence of a next
+generation firewall and most of them
+actually do this by accessing online
+reputation feeds. So at any given point
+in time whenever you're accessing the
+internet, you're trying to access a
+website or download some content, the
+firewall is going to check the
+reputation of that location of that of
+that web page actually or even of the
+elements in the web page down to the
+actual hyperlinks in the HTML code and
+check whether the reputation of the site
+is going to indicate that there might be
+malicious content in there or if it's uh
+safe to access. And in real life, the
+differences between uh all these types
+of firewalls are not so obvious anymore.
+Well, apart from the stateless one
+perhaps. Most firewalls that you can buy
+nowadays will be a combination of next
+generation firewall which with
+application awareness and UTM with
+features such as proxying or uh traffic
+inspection uh either available as an
+option as a pay subscription or enabled
+by default. Okay. So how should we use a
+firewall? Well, while we have a lot of
+advanced threats nowadays and we we
+cannot just focus solely on perimeter
+security, we cannot ignore it completely
+either. So it actually matters where do
+you place your firewall. So in a lot of
+firewall designs out there, you will
+find about three zones. First off, you
+have your internal zone. That is your
+local network, the highest security
+zone. Secondly, we have the outside or
+the external zone, and that's in most
+cases going to be the internet. That's
+the place where you can expect nasty
+things to come knocking at your door.
+And finally, we might have something
+called the DMZ. That's the demilitarized
+zone connected to the same firewall.
+Now, the DMZ, it's it still belongs to
+you. is still your own network, but it's
+dedicated to those services that are
+exposed to the outside world, to the
+internet. Things that you want people
+from the internet to be able to reach.
+Things like your web server that is
+hosting your company website. Uh your
+email servers so that you can, you know,
+send and receive emails. Uh the DNS
+servers so that people can reach your
+web or email servers. Uh VPN endpoints
+so that your employees can connect
+remotely back to your your home company.
+So all these publicly accessible and
+publicly available services will most
+likely be placed inside of the DMZ.
+And the DMZ is a special area because
+normally you would not allow any access
+from the outside zone, the external zone
+to the internal one. So the DMZ was
+introduced to kind of allow admins to
+define custom security rules that allow
+some limited external access to just
+some servers, a subset of servers while
+still protecting your internal network.
+And there are two major designs in which
+you will find the DMZ implemented. The
+first example is the one that you see
+here on the screen with the DMZ as a
+dedicated interface on the same firewall
+that acts as the barrier between your
+internal and your external networks. And
+there is actually a second type of
+design that uses two different firewalls
+of course connected to each other. But
+the DMZ in this case is located right
+between them. So this network segment
+right here, this one is the actual DMZ.
+Now you might be thinking, well this is
+inefficient. I actually need two
+firewall boxes to get the exact same
+kind of behavior. Well, not exactly. You
+don't actually need two firewall boxes
+because in real life, this kind of
+deployment is most likely going to be
+implemented as a single device. So this
+one right here is the physical firewall
+while these two smaller firewalls that
+you see inside of it are just virtual
+contexts or virtual domains or in other
+words virtualized instances of the same
+firewall software both running on the
+same box. So just like virtual machines,
+they actually are running as virtual
+machines or as containers. You can
+actually have multiple firewall
+instances running on the same box, each
+of them behaving completely
+independently. You can actually dedicate
+firewall instances to specific services.
+Like I want this uh this instance right
+here to only manage uh VPN services,
+right? I want this one right here to
+only manage I don't know maybe IPS or or
+policy routing for the DMZ. So you can
+actually multiply your firewalls by just
+instantiating additional virtual
+versions of the same firewall software.
+Now most enterprise firewalls support
+this feature. Sometimes you'll have to
+pay for it extra, but in any case, this
+type of design is doable by leveraging
+multiple firewall instances.
+Now let's talk about firewall rules for
+just a minute. Now, firewall rules are
+the actual pieces of information that
+the firewall uses in order to decide
+which type of traffic to allow and which
+type of traffic to deny. So, these are
+most likely going to be configured by
+you, the admin. Now, the firewall rules
+are often called ACL's. ACL stands for
+access control list and it's exactly
+what the name says. And the ACL is
+actually just a list of entries while
+each entry describes
+a type of traffic and an action to take
+when the firewall detects that type of
+traffic. Now, how does an access list
+actually detect that traffic? How does
+it match on a specific type of traffic?
+Now, we have a number of ways of doing
+this. The most basic one would be by IP
+address. A basic principle, right? In
+any firewall, you might want to filter
+for specific subnets, specific VLANs,
+specific internet destinations by IP
+addresses. And you can also use this
+type of IP address based filtering to
+filter illegitimate IP addresses. Now,
+what is an illegitimate IP address?
+Well, for example, uh let's think,
+should we be receiving private IP
+address source traffic from the
+internet? Most definitely no. Should we
+be receiving multiccast traffic if we
+know that there is no multiccast running
+inside of our network? No, we should
+not. Uh should we be receiving traffic
+from our own loop back on a physical
+network interface? Again, no. Now, all
+these uh IP addresses are sometimes used
+in uh attacks that rely on IP address
+spoofing. So at a bare minimum, you
+should at least filter against these
+type of illegitimate IP addresses, which
+by the way are called boons. And there's
+an actual best practice for filtering
+this type of IP addresses. And that is
+called boon filtering. I'm going to
+leave this link here in the video
+description to read more about it. But
+basically, it covers just the type of IP
+addresses that we've just talked about.
+You can also use access list to filter
+by protocol. Basically, you're denying
+traffic from the outside for protocols
+that should only be found in your
+internal network. For example, why would
+you be receiving uh DHCP traffic from
+the internet or I don't know spanning
+tree protocol traffic or SMB traffic for
+file sharing? Depending on the uh
+inspection ability of your firewalls and
+how the access lists are structured, you
+can also use them to filter by network
+application. This is also going to be a
+type of traffic filtering but but
+filtering by applications means that the
+firewall itself has some application
+level visibility. So it is able to
+identify multiple applications for
+example running on the same protocol or
+on the same port. Finally, some access
+lists also have additional capabilities
+for uh filtering for specific types of
+protocol fields uh like flags, TCP flags
+or fragmented IP packets. These are
+important because they can also be part
+of exploits or network grades attacks.
+So we mentioned that after an ACL entry
+matches a specific type of traffic, it's
+going to take one action and these
+actions can be as follows. First we have
+the accept action. Just let the traffic
+pass, forward it to rer the routing
+engine because firewalls usually have
+some routing functionality in them as
+well and let the packet go on its merry
+way to the final destination.
+Second one is to reject. This means
+blocking traffic and then informing the
+source of that traffic that its packets
+have been blocked. Usually this is done
+by sending a TCP reset response or an
+ICMP port or protocol unreachable
+message. Now this seems elegant and well
+educated for a network application. But
+this right here is just free information
+for an attacker. You you're basically
+telling the attacker that there is
+somebody in there enforcing security
+that there is a security policy that
+they've encountered.
+Finally, we have the drop action. This
+means just ignore the traffic. Don't do
+anything. This makes hacking a bit more
+difficult because port scans are not
+going to return so much information. Of
+course, if you are not the attacker and
+you're just trying to troubleshoot your
+network, this lack of feedback is kind
+of making your troubleshooting more
+difficult for you as well. And another
+really important concept here in general
+firewalls and ACL's as well are based on
+a concept called implicit deny. This
+means that unless a specific type of
+traffic is explicitly allowed through an
+ATL, that traffic will be denied. Think
+of the name access control list. So it's
+just a list of who has access. If you're
+not on the list, your access is denied.
+So remember this that all ACL's end with
+an implicit deny at the bottom. Now some
+vendors will allow you to see that entry
+and of course not allow you to change it
+to modify it. Others won't, but you have
+to know that it is in there. If traffic
+doesn't match an ACL, it's going to be
+dropped, denied, rejected, whatever.
+It's not going to pass. And another
+important concept when uh using
+firewalls and in fact when applying
+access lists is the answer to the
+question in which direction are you
+going to apply that access list. It
+could be inbound or it could be
+outbound. And we're talking here about
+ingress filtering or egress filtering.
+Now normally ingress and egress
+basically mean uh whatever type of
+traffic enters or leaves your firewall.
+But in let's say security speak real
+life situations will address ingress
+traffic as traffic that is about to
+enter your high security network your
+internal network while egress traffic is
+about the traffic that is about to leave
+your internal network. So, traditionally
+we have always focused on ingress
+filtering which is about, you know,
+keeping the nasty stuff out, keeping it
+from getting inside of our network. And
+this still applies, don't get me wrong.
+There's an entire world full of
+networkbased threats out there. But now
+with the more advanced threats that we
+are facing, we have to accept the fact
+that malware might enter our network
+without being detected by our perimeter
+firewall. So we have to focus on
+containing the damage or the malware
+that attempts to communicate for example
+with some command and control server on
+the internet. This is where egress rules
+come into play. They're going to stop
+malware that is already in your network
+from contacting their their master their
+their attacker that controls uh the
+botnet. Then actually egress filtering
+is not just useful for blocking command
+and control traffic but also for
+blocking access to known malware sites
+or domains or IP addresses with bad
+reputation or any other restricted
+locations on the internet. We might
+choose to deny your users from
+accessing. For example, you might want
+to deny your users access to public file
+sharing services or peer-to-peer
+downloads like torrent because they're
+definitely a possible point of entry for
+malware. You can also rely on publicly
+available uh IP and domain name
+reputation lists. So whenever you see an
+internal user attempting to connect to a
+location to an IP address or to a domain
+name that is known to have a bad
+reputation, you can choose to deny that
+traffic before giving that user the
+chance to connect to that malicious
+location and potentially become infected
+and not just their workstation but
+potentially your entire network as well.
+You can also use egress filtering to
+block outside access for any subnets or
+hosts that should not have any kind of
+internet access that should not connect
+to the internet. Think about industrial
+systems, manufacturing engines or highly
+secured servers that should not ever
+connect to the public internet. And
+another interesting concept here also
+related to firewalls is the concept of
+firewalking. Now, from an attacker's
+perspective, a firewall is a barrier,
+but it's a kind of a barrier that still
+lets some traffic in in specific
+conditions. Otherwise, you wouldn't have
+any online presence at all, and you
+would be much safer simply disconnecting
+entirely from the internet. So,
+firewalking is a set of techniques for
+testing quote unquote firewall rules
+while mapping it from the outside. So
+basically an attacker who performs firew
+walking tries to hit the firewall with
+various types of traffic and watches how
+the firewall reacts to that traffic. It
+can rely on setting different TCP flags.
+It can rely on TTL that's time to live
+manipulation. These techniques can be
+used to locate forwarded ports
+configured on that firewall that might
+be sending you directly to some device
+behind the firewall. So you can use this
+technique to easily find those those
+forwarded ports and firewalking can be
+performed in a number of ways. One of
+them is TTL. Now TTL is an a field in
+the IP header. It can take any value
+from zero to 255. Now the TTL as the
+name says time to live is actually a
+very old method uh starting from the uh
+the beginnings of the IP protocol for
+avoiding routing loops. Initially, it
+was designed to measure the time a
+packet spends inside of a network. It
+was never implemented that way. So
+nowadays, as it has been for quite some
+time. So the TTL nowadays is actually a
+hop count where a hop is considered to
+be any router on the path to the
+destination. Any layer three
+intermediate device on the path to the
+destination. And as we said, the TTL was
+designed as a mechanism against IP
+packets ending up in an infinite loop uh
+in an IP network. So when IP packets are
+sent, they're initialized with a default
+TTL value depending on the operating
+system, let's say something like 64. And
+on every hop along the way, on every
+router, that value is decremented by
+one. Now, what happens when the TTL
+reaches zero? Well, of course, the
+packet is not forwarded anymore, but the
+router that decrements this TTL field
+and reaches zero also sends back an ICMP
+message to the originator of the
+original IP packet, informing the sender
+that the TTL has expired and the packet
+cannot reach its destination. Now, I'm
+sure you can think of a couple of um
+benefits from an admin point of view
+from using this TTL in network mapping,
+network discovery, uh reachability
+testing and so on. But we can actually
+use this TTL as a technique for
+firewalking as well. So, in this example
+right here, host A is attempting to
+communicate with host B. And we have a
+couple of routers/ firewalls in between.
+Now let's assume that ace tries to send
+a packet here with a TTL of five. Now
+this TTL of five is of course going to
+reach the first router here which is
+going to decrement it set it to four.
+Forward it to the next router which is
+going to set it to three. Forward it to
+the next one. Sets it to two. Then one.
+And finally
+the last one here the actual destination
+is going to decrement this TTL field and
+it's going to reach zero. Now when this
+happens host B is going to inform the
+source of this traffic. It's going to
+inform host A of the fact that the TTL
+has expired. And this is actually going
+to be an ICMP message called time
+exceeded. Now, there's not much use in
+this message normally, right? We just
+know that the TTL wasn't enough to reach
+our intended destination. But if this
+last device right here was a firewall,
+so let's assume that this one right here
+is a firewall, the fact that we were
+able to decrease the TTL starting from 5
+4 3 2 1 and then reaching zero
+means that we were able to reach a
+server behind that firewall. So we found
+a hole in that firewall. We found a
+forwarded port. We found a u an access
+policy that allows us to reach the
+server. Now the server might not be
+configured to answer to any outside
+requests or to any unauthenticated uh
+sessions or we might not even know what
+ex what type of service that that
+service that server is running. But ICMP
+time exceeded messages are very often
+forgotten by admins. People just forget
+about it. people just allow ICMP because
+they know it allows them to ping and
+trace route and so on and so forth. They
+don't think about specific ICMP messages
+and what they do. And very often you
+will receive a time exceeded message
+from a server that should be protected
+by a firewall. And this is how you
+discover that a specific port or a
+specific uh IP address behind of that
+firewall is reachable from the outside.
+And that's a very important information
+as an attacker or as a pentester. And by
+the way, ICMP time exceeded is ICMP
+message code number 11. Remember this
+for the exam. might help you out one
+day. Let me just close this video with a
+short example. What you see here on the
+slide is an example from the dashboard
+of a 40iggate next generation firewall
+from Forinet. And you can see here on
+the left that I'm currently in the
+policy and objects section under
+firewall policies. So what you see here
+on the screen each line is actually a
+firewall policy defined on this device.
+Let's let's just choose one here and uh
+try to understand what exactly is going
+on in here. First of all, you can see
+that these policies here are listed in a
+specific order, which is relevant
+because a firewall normally will search
+within these these policies from top to
+bottom and it's going to find the first
+one that matches a specific type of
+traffic. Now, when it finds a policy
+that matches that traffic, it's going to
+apply the action under this column right
+here. You can see that most of the rules
+here are set to accept the traffic. We
+do have a couple of rules here that deny
+the traffic. And at the very bottom, we
+can even see the implicit deny rule
+which cannot be removed, cannot be uh
+modified in any way. And you can see
+that it is actually a rule that applies
+to all traffic from any interface going
+to any interface, applies to any source,
+any destination, always runs for all
+services, which means all protocols, all
+applications. And the action is always
+deny. So if I don't have any other valid
+policy that is going to match my
+traffic, my traffic is going to be
+implicitly dropped. Now let's go back
+here to one of our examples. This policy
+here, you can see it has a name and an
+ID. Under the from column, we're going
+to see two interfaces. Now, normally you
+would think about the fact that if a
+firewall has a number of physical
+interfaces, you can only define policies
+between those physical interfaces. That
+is not true because we can also have uh
+virtual interfaces as well like VLANs or
+sub interfaces. In this case, we have
+two traffic sources, two interfaces. The
+first one is a VLAN and I believe the
+second one is also a VLAN as well. All
+right. Now, under the two column, we can
+see we have a physical destination. This
+is the WAN uplink destination. It's a 10
+Gbit per second physical interface
+located on the actual device. All right.
+So all the traffic that comes from these
+two VLANs and attempts to exit this
+physical interface is going to be
+subjected to this firewall policy. Now
+the source and the destination refer to
+subnets. Right? In this case the all
+keyword means I don't exactly care what
+IP addresses are coming from those uh
+those VLANs or what kind of IP addresses
+uh my users are trying to access as the
+destination. I'm just going to match all
+traffic. Next one is a schedule.
+As part of the next generation firewall
+policies or more advanced firewalls
+anyway, you can actually create firewall
+policies that run on a predefined
+schedule. So you might have a set of
+policies that apply during work hours,
+not a set of policies that apply outside
+working hours or during weekends and so
+on. The service column is going to state
+the protocols that are matched by our
+policy. In our case here, you can see
+that we're using again the old keyword
+which matches all the protocols. But if
+we look under other policies under the
+same column you can see that uh there
+are policies that apply only to certain
+pro protocols like for example sys log
+and DNS. Moving forward NAT is a very
+typical type of policy traffic policy
+that applies to firewalls. Firewalls
+will most likely perform network address
+translation as well. Not for all
+policies of course, but if you use a
+firewall as an internet connection
+device, you will probably perform that
+for any connections that attempt to
+reach the internet. Next up, under the
+security profiles column here on the
+right, you can actually see the advanced
+functionality
+available in a next generation firewall.
+And that's exactly what we talked about
+a couple of minutes ago. Now, if you
+remember, we talked about next
+generation firewalls and UTMS. And
+there's a lot of overlap between these
+two marketing terms, but basically they
+both refer to devices that are not just
+stateful firewalls, but devices that are
+able to inspect traffic up to the
+application level and also provide
+additional security features such as
+antivirus monitoring or uh application
+identification, web traffic monitoring,
+IPS traffic inspection, intrusion
+prevention here, and finally SSL. In
+this case, this is an SSL inspection,
+but it can also be an SSL offloading
+service. Now, all these are security
+profiles that can be assigned to a
+firewall policy, and they're going to be
+automatically applied to all the traffic
+that matches this specific security
+policy. So, you can pretty much imagine
+that to be able to provide antivirus
+monitoring to a simple policy that
+matches all traffic and all protocols,
+well, that firewall should be pretty
+smart. and uh you know decomposing
+traffic reassembling the actual files
+within an HTTP or an FTP transfer and
+figuring out if those files are
+malicious or not. So this is definitely
+deep packet inspection sometimes even
+traffic decryption and this is certainly
+application level awareness and
+intelligence. Last column here is about
+logging. uh depending on your uh your
+environment, you might want to log all
+traffic or you might want to log only
+denied traffic, everything that was
+dropped by your firewall because that
+kind of traffic has some potential of
+being malicious. And finally, the last
+entry here shows you exactly how many
+bytes have matched this policy. It's a
+great way to validate that the policy is
+actually matching the traffic that
+you're intending to match and also works
+quite well for uh reporting purposes. So
+that's an example of a next generation
+firewall/UTTM
+device called Forigate available for
+Forinet. By the way, you can access this
+uh this demo publicly. It's freely
+available for everyone. Of course, you
+only get readonly access here, but it's
+more than enough to figure out what are
+the uh the potential capabilities of
+this this platform and of pretty much
+any next generation firewall/UTM
+uh device available for from other
+vendors out there. All right. So, I
+really hope you found this section
+useful and informative because firewalls
+are becoming a critical infrastructure
+component in anything related to
+security nowadays. Now, they're becoming
+a security in a box type of devices
+where companies are trying to implement
+everything that is related to security
+in one single device. Now if they
+succeeded this or not uh remains to be
+decided but they're definitely one of
+the most important devices that you will
+find in enterprise networks especially
+from a security standpoint. So for the
+exam make sure you understand the
+purpose behind firewalls. Make sure you
+understand uh what is um what are the
+typical types of firewalls that you can
+encounter. Uh make sure you familiarize
+your yourself with the with the names
+even though even the marketing ones.
+Make sure you understand the basic
+concepts of matching traffic and then
+acting on it, allowing it or denying it.
+Remember that there's an always implicit
+deny rule in pretty much any firewall or
+access control list out there. And make
+sure you understand the purpose behind
+firew walking as well. So, thank you so
+much for watching. Like and subscribe if
+you found this useful. Good luck on the
+exam and see you next time.
+[Music]

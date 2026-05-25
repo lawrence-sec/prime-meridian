@@ -1,0 +1,235 @@
+hey everybody I'm Sean powers and today
+is going to be kind of a quick one we're
+going over how to use system CTL to
+manage services in a systemd controlled
+Linux environment that sounds far more
+complicated than it is but we're going
+to call this
+1.4.1 of the Linux plus objectives and
+we are going to cover the one command
+system CTL however it has a bunch of
+different arguments and it's important
+to know how they work and even more
+importantly what they do to the services
+that are installed on your system
+because it can be confusing if you don't
+understand the nuances between like
+enable disable and mask and unmask and
+that sort of a thing speaking of which
+I've kind of separated the different
+commands into their groupings for
+example start and stop what we're going
+to see on the command line in a second
+we'll start and stop services in real
+time like right now if you do systemctl
+start Apache 2 it'll start the Apache 2
+server systemctl stop Apache 2 it'll
+stop it but that has nothing to do with
+what happens during boot or when the
+system starts up fresh that's where
+enable and disable come into play and
+this is only affecting when the system
+boots okay so if we enable a service
+which we're going to do it will enable
+it to start automatically when the
+system boots up disable will do just the
+opposite it will make sure that when the
+system starts up like you reboot your
+computer whatever sys whatever service
+we're talking about will not start
+automatically we could still do it
+manually with start but by default it
+will not start if we have it disabled
+when the system boots up and then these
+two are less commonly used and these are
+the ones that can cause a little bit of
+confusion so mask and unmask means we
+basically make it so that it cannot be
+used so if you mask a service like if we
+do systemctl mask Apache 2 we will not
+be able to start or stop up the service
+because it's masked and that just means
+like it's completely I don't want to say
+the word disabled because that actually
+means something but it's it's completely
+unable to be run it will not start on
+boot it will not start if you tell it to
+start if it's mask and then to remove
+that limitation you unmask okay and I'll
+when we get in there I'll show you what
+it actually does but just know that mask
+and unmask are completely making it so
+that it cannot be started automatically
+or otherwise all right and then status
+is just kind of a standalone that does
+you'll never guess give you the status
+of of a service on your computer see if
+it's running see if it's not running if
+there are errors it'll show you just a
+brief little version of what went wrong
+when it tried to start and that sort of
+a thing so let's get to the command line
+and actually do uh some system CTL work
+okay so I'm here on our Linux system and
+the one system CTL command that we can
+do without root privilege without using
+Sudo is system CT now status and then
+what service we want to look at in our
+case I did install Apache 2 so we can
+play with that service so I'll say the
+status of Apache 2 and it will give us
+what that status is and it tells us some
+things here it says that it's loaded
+it's currently inactive meaning it's not
+running it's dead
+and let's see the Apache 2 service is
+disabled okay so it will not start on
+boot and preset means like when it was
+first installed what was here let me
+stretch this out because it actually
+hid some of it all right there we go uh
+so it's disabled now but the preset
+meaning like when we installed it it was
+enabled so if you're on a Debian machine
+and you install Apache 2 by default it
+will be enabled and will start every
+time the computer boots up okay so that
+just tells you what it was and you can
+tell that I came in here and disabled it
+because it's in disabled mode all right
+so I'm going to press Q because we
+there's there's a bunch here if there's
+a bunch of lines we could scroll up and
+down uh so we're kind of like in the
+less command but I'm just going to press
+Q on my keyboard to get out of here
+right so we have the command line back
+and now what we could do is say sudo
+remember everything else requires sudo
+systemctl start Apache 2 okay so it
+started and now if we do systemctl
+status we should see different stuff
+and sure enough it says that it is a
+loaded it's active and running it still
+says that it's disabled and the preset
+isn't is enabled I didn't change the
+presets or I didn't change whether it's
+enabled or disabled I just started it
+okay and it started and it gives us a
+little bit of information here all right
+so we can do the same thing to stop it
+well almost the same thing sudo system
+CTL stop Apache 2 and then we're going
+to be in the same boat that we were just
+a little while ago see it's inactive
+it's dead and all that stuff now in
+order to
+hey it's me Sean from about 10 minutes
+in the future I realized that I didn't
+talk about the restart command and I'm
+not going to reshoot the video because
+you can probably figure out what pseudo
+system CTO restart Apache 2 does
+it restarts the service so uh pretend I
+taught that and demonstrated it restart
+you got it thanks
+make sure it starts when the computer
+boots up do you remember what command we
+would use we would say sudo system
+ATL enable
+Apache 2.
+okay what it actually does is it
+actually creates a symbolic link in the
+proper place on the system so that it
+knows to start up but if we do a status
+now it should be a little bit different
+so systemctl status Apache 2. we can see
+it is inactive it's dead I didn't start
+it I've left it in the stopped mode
+however now it is enabled so if I
+rebooted the computer it would start
+automatically on system boot hopefully
+that makes sense and to change that back
+we would do the same thing we'd say sudo
+systemctl
+disable
+Apache 2. okay it actually removed that
+syslink and stuff that it does and now
+if we do the status Apache 2
+we're going to see sure enough it's
+disabled again okay that's pretty simple
+now the thing is if we were to do mask
+it's different so pseudo
+system CTL mask apache2 okay this is
+what it does it's actually interesting
+how it works it created a Sim link
+of Etc systemd system apache2. service
+but it symbolically linked it to Dev
+null which means it cannot possibly
+start because it's pointing to Dev null
+which is I mean that's pretty drastic
+right if we try to start it it should
+give us an error in fact pseudo system
+CTL
+start
+Apache 2 whoa it says it's masked it
+recognized that it's you know completely
+I don't want to say disabled it's
+completely uh unusable because it is
+mask in fact we can't enable it now
+either pseudo system CTL enable apache2
+it's gonna say I can't do that because
+it is masked okay if we do
+systems CTL status Apache 2 we're going
+to say boom it's inactive dead and it's
+masked so it doesn't even tell us
+anything about it right as far as a
+computer is concerned Apache 2 does not
+exist so let's unmask it so we can
+actually do some stuff with it
+sudo systemctl unmask
+Apache 2. and now
+if we look at the status we're going to
+say it's still disabled because when I
+tried to enable it it failed so it
+didn't change whether or not it was
+enabled on boot if we want to enable it
+now we can because we unmasked it sudo
+system CTL enable
+apache2
+and now if we look at the status we're
+going to see it's enabled it's still not
+running so we'd also have to do sudo
+system CTL start a pet G2
+and now if we look at status it's going
+it's running okay it's active it's
+running and it's enabled okay so it will
+restart when the computer reboots now
+like I said this video was pretty quick
+but I didn't want to lump this in with
+some other command I wanted you to
+really get the gist of using system CTL
+to control system D services uh how when
+they start how they start if they start
+if they're able to be started using all
+of those tools anyway a special thanks
+to the folks who are scrolling by over
+here who are my patreon supporters maybe
+that's you if so thank you so much I
+have to admit I used to hate system D
+but I've kind of grown to love it I
+think it's a pretty elegant way to start
+and stop services and I write my own
+Services that's how I start my Docker
+containers is I actually write a system
+D initialization file and then I use
+systemctl to start and stop my Docker
+containers so in fact there's a video
+maybe I'll put a link to it up there how
+you can do that but I used to hate
+systemd I've grown to love it and you
+need to know it for the Linux plus
+certification so I hope this has been
+helpful remember to learn everything
+do what you love and most importantly be
+kind I'll see you in the next video

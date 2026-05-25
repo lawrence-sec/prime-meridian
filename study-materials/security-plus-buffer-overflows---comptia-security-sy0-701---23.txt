@@ -1,0 +1,89 @@
+a buffer overflow attack is one where an
+attacker can write more than what is
+expected into a particular area of
+memory and that additional information
+that they're writing overflows into
+another area of memory normally the
+application developer is performing
+bounds checking so they're checking to
+see that anyone writing into that
+section of memory is only writing eight
+bytes of information and not any
+additional information the attackers go
+through every part of an application
+trying trying to perform buffer
+overflows and see if they can modify the
+way that this application is designed to
+work however this is not a simple
+vulnerability to be able to exploit even
+if you find a buffer overflow you may
+find that adding additional information
+to memory can be unexpected and might
+cause the entire system or application
+to crash or they may be able to use just
+the right type of buffer overflow into
+the right area of memory with just the
+right information to be able to have the
+application perform a particular
+particular function that is advantageous
+to the attacker what the attacker is
+really looking for is a buffer overflow
+that is always repeatable and it always
+is providing the attacker with a
+particular function that provides them
+with an
+advantage here's a buffer overflow
+example where the attacker can take
+advantage of this issue to be able to
+create elevated rights and permissions
+for the attacker this is a case where we
+have two different variables in memory
+variable a and variable B and you can
+see that variable a has nothing
+currently written to it it is all zeros
+and it has eight different bytes that
+you could store as variable a variable B
+has already been written to memory it is
+two bytes long and you can see the
+decimal value of variable B is currently
+1,979 for this particular application
+variable B contains information on how
+this application should provide rights
+and permissions and if this value is
+below 2,000 you have effectively user
+rights or guest rights for this
+application but the attacker would like
+to have administrative rights but for
+administrative rights the value of
+variable B must be anything over 24,000
+normally variable B is not something
+that could be changed from inside the
+application but this attacker is found a
+vulnerability with variable a that
+allows us to perform a buffer overflow
+the attacker knows that they can use
+nine bytes into variable a and that will
+fill up the eight bytes of what normally
+would be variable a and it will overflow
+that last bite into variable B in this
+example the attacker is chosen to store
+the word excessive into variable a but
+excessive has nine characters the first
+eight characters are stored as part of
+variable a and the ninth letter e which
+is also the same as hex value 65 is
+stored as the first bite of variable b
+as it overflows into that particular
+variable you can see that this buffer
+flow has now changed the value of
+variable B and now its value is
+2,856 and as we've already said any
+value of over 24,000 in variable B
+provides that user with the rights and
+permissions of an administrator this
+attacker was effectively able to use a
+buffer overflow to provide elevated
+rights and permissions for this
+application without having any type of
+credentials as an
+administrator

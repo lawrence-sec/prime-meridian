@@ -1,0 +1,143 @@
+we often think of penetration testing as
+something that's done over the internet
+in a digital form but physical
+penetration testing can be an important
+security tool that's because it's
+exceptionally easy to circumvent the
+security of an operating system if you
+have physical access to the device you
+can modify the boot process you can boot
+from other media that you might bring or
+you can modify or replace the files
+associated with that operating system
+this is why our servers tend to be
+locked inside of a highly secure data
+center because physical security is so
+important so if a company participates
+in a physical penetration test they're
+going to try to gain access to your
+physical facility they'll try to enter
+the building without a key they'll try
+to see what type of access might be
+available inside the building and
+they'll try every possible way to gain
+access they'll try the doors the windows
+elevators and anything relating to
+physical secur security of your
+location we tend to think of penetration
+testing as an offensive action but there
+are many nuances to pin testing
+obviously there is an aspect to pin
+testing that is on the offense this is a
+group of people that's called the red
+team and they attack systems they look
+for vulnerabilities and they attempt to
+exploit those vulnerabilities but
+there's also a defensive side to pin
+testing this would be the blue team that
+is able to identify the attacks coming
+in in real time and block any of these
+attacks from occurring the best
+combination would be to integrate these
+two teams together to have a system that
+is constantly providing feedback on
+itself you'll have the red team
+constantly attacking systems and when
+they identify an opening they pass that
+information to the blue team to be able
+to patch it and better identify it next
+time the individuals performing the
+penetration tests may have different
+types of information depending on the
+test that's occurring and depending on
+what what you know about the environment
+you may use different techniques during
+the penetration test itself for example
+an organization May provide the pin
+tester with a known environment this is
+full disclosure of all of the systems
+that will be attacked during this
+penetration test there may be times when
+only some of that information is
+provided to the pin tester this would be
+a partially known environment which is a
+mix between the known environment and
+the unknown environment this is often
+used when you want the pin testers to be
+sure to attack certain systems within
+your environment and of course there is
+the unknown environment where no
+information is provided to the pin
+tester and they have to find all of the
+information on their own you'll often
+hear this referred to as a blind
+test even when all of the information is
+provided to the pin tester there's still
+information that needs to be gathered
+before making any type of attack the
+reconnaissance process is used by the
+pin tester to gather as much much
+information as possible about the
+environment this allows them to
+understand exactly what security tools
+might be in place what servers might be
+installed and what applications might be
+running on those servers this allows the
+pin testing team to identify the Key
+Systems that may be in an infrastructure
+and focus their efforts on gaining
+access to those individual devices once
+they're done with the reconnaissance
+they can build out an entire network map
+IP address configuration the list of all
+the n works in the infrastructure and
+understand better how they're connected
+to any of their remote
+sites this reconnaissance process may
+not start with connecting to the
+customer network instead they may be
+using other sources to gather
+information about what they might find
+we refer to this as passive
+reconnaissance because we're gathering
+information from sources that don't tie
+us directly back to the customer's
+Network a good example of these might be
+finding information on social media
+about the customers networks there might
+be details on a corporate website where
+you can browse and learn more about the
+company there might be online forms or
+Reddit posts that can gather information
+about what's in that company's
+infrastructure you could also perform
+social engineering to try to get
+information out of people who may work
+in the company and of course you might
+go dumpster diving to find documents
+that may have been thrown out in the
+trash you could also talk to third-party
+companies that do business with that
+organization to learn what they might
+know about that customer's
+infrastructure active reconnaissance is
+a much more direct way to gather
+information because you're going into
+the network and querying devices that
+might be there with active
+reconnaissance we can be easily seen on
+this network because we're sending
+packets across their Network and very
+often the evidence that we were there is
+stored in log files that may be on a
+firewall or some other device an example
+of active reconnaissance might be a ping
+scan or a port scan of a device perhaps
+a DNS query to the corporate DNS server
+or maybe someone performing operating
+system scans or operating system
+fingerprinting anytime you're looking
+into Individual Services on a device or
+you're performing some type of version
+scan you are certainly performing active
+reconnaissance

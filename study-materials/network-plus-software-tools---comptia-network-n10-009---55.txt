@@ -1,0 +1,194 @@
+every network administrator will
+eventually be faced with a problem that
+says the network is slow in actuality
+the network probably is working just
+fine but it will be the responsibility
+of the network administrator to
+determine what part of the network
+communication is performing poorly and
+one of the ways that you can find this
+information is with a protocol analyzer
+this will capture frames that are on a
+wired or wireless network and present
+the results of those frames in a format
+that a human being can understand this
+capture capability may be built into the
+device you're using so the switch the
+router or the firewall may have a
+capture function built into the software
+sometimes you can view the output on
+that device or you may be able to Output
+the file and view it in a protocol
+analyzer such as wire shark wire shark
+can often Show additional protocol
+decodes and additional details about the
+entire conversation traversing the
+network and some Network administrators
+will capture all packets to dis for
+later analysis this is a big data
+analysis feature that allows you to
+store large amounts of information and
+quickly sift through that information to
+find exactly what you're looking
+for although this is used often in it
+security a network administrator will
+also find a great deal of use in the
+program inmap inmap is network mapper
+and it's able to find a great deal of
+information about open port numbers
+operating systems and the versions of
+applications you would use inmap app to
+scan this device and it could return
+information such as all of the open port
+numbers that may be available on that
+Remote device you can also use inmap to
+find information about operating systems
+what type of operating system is on a
+device what version of operating system
+is on a device and you can do all of
+that without actually logging in to that
+device and inmap is able to scan
+services on that device so not only are
+you able to tell that there's an open
+port you are able to tell what service
+is running on that open port mmap also
+has an additional scripting engine so
+you can write your own scripts and
+extend the capability of this utility
+inmap is an active scan it sends queries
+to a device and it examines the results
+of those queries to make decisions about
+what ports may be open what operating
+systems are on that device and what
+services may be running if you're not
+scanning a single device you can tell
+inmap to scan an entire range and it
+will find all of the active devices in
+that IP address range this allows you to
+build a map not only of the IP addresses
+that are on the network but information
+about the operating system services and
+so much more if you were trying to find
+rogue devices or devices that you were
+not expecting to find on the network
+inmap is a great way to scan for those
+mmap can perform scans on the same
+subnet with just Layer Two which makes
+it very difficult for a rogue device to
+hide from an inmap scan here's the
+results of an inmap scan that was done
+to a single device at 10110 222 you can
+see that inmap ran and found the host
+was up and then found a number of
+different open ports on that device
+including Port 22 which normally would
+be for SSH Port 80 for HTTP and of
+course Port 443 for https there's also
+other ports open on this device such as
+548 for the Apple filing protocol and
+NFS is open on this device on Port
+2049 if your inmap scan discovers that
+there are port numbers on that device
+that are open but you weren't expecting
+those port numbers to be open then you
+might need to do additional research and
+find out what services are running on
+those individual
+ports if you were to look at the front
+of a switch it's very difficult to tell
+what devices are plugged in what vlans
+they might be a part of or what their IP
+address might be fortunately there are
+some protocols that we can use on this
+network to be able to gather that
+information automatically one of those
+protocols is a proprietary protocol from
+Cisco known as CDP or the Cisco
+Discovery protocol although this is very
+specific to Cisco devices it can provide
+a lot of information about the
+configurations of that switch without
+having to log into the device itself a
+more vendor neutral version of this
+protocol is llddp or the link layer
+Discovery protocol and almost all
+switches support llddp at a minimum so
+that you can start to gather information
+about how that device has been
+configured here's a protocol code I took
+of a device that has both CDP and llddp
+on it this Cisco device is sending CDP
+packets and you can see a breakdown of
+the Cisco Discovery protocol version two
+in this protocol decode within this
+decode we can see that CDP is telling us
+that we have one address on this
+particular interface and it is
+101102 51 and the port number associated
+with that IP address is Port gigabit
+Ethernet number two you can also see
+information about the software that's
+running on this device the native VLAN
+on this device and how individual
+interfaces may be configured at the
+hardware level llddp shows similar
+information this is the protocol decode
+for the link layer Discovery protocol
+you can see Mac address information for
+the interface it is indeed gigabit
+Ethernet interface number two this is a
+switch named Studio
+328 and you can see for this there is a
+VLAN ID associated with this interface
+it's running on VLAN 10
+using both CDP and lldp can tell you a
+lot about a switch without having to log
+in and many thirdparty applications and
+devices can use these protocols to
+present this information in a
+Consolidated
+form when you're connecting to the
+internet it's often useful to know how
+much bandwidth is available on that
+particular link and one way that you
+could test this is to send a lot of
+information over the link and measure
+how long it took to send that
+information both in a download and an
+upload form we can do that by using a
+number of free sites that are speed test
+sites this can be very useful to perform
+prior to making a change and then after
+making a change to the network so that
+you can tell if there's any difference
+in speeds between the pre and postc
+configuration update it might also be
+useful to measure this information at
+different times of the day you will
+probably have more bandwidth available
+during the off hours than you might have
+during the middle of a workday and
+although there are many different speed
+test sites they are certainly not the
+same some are located farther away and
+therefore may give you a different value
+than a speed test site that might be
+located closer to you some speed test
+sites may also be constrained by
+bandwidth and therefore may not be able
+to provide you with the most accurate
+statistics often some of the most
+accurate speed test sites are going to
+be those that are provided by your local
+ISP so if you're running on an Xfinity
+Network you might want to use the
+Xfinity speed test site if you're on an
+AT&T network you might want to use at
+TNT speed test that way you're getting
+the most accurate representation of the
+speeds available on your local network
+if you'd rather use some third-party
+speed test sites there are number
+available on the internet fast.com and
+speed ofme are very good choices along
+with speed test.net and testmy.net

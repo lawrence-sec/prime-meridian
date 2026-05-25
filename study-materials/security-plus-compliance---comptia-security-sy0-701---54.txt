@@ -1,0 +1,202 @@
+compliance is the process of meeting a
+series of Standards these standards may
+be created by regulations or laws or
+they might be an agreement that you make
+with a third party there may be
+extensive amounts of compliance that are
+required by your organization and many
+of these may be based upon your type of
+business or laws associated with your
+area of the country one of the most
+important considerations though when
+dealing with compliance is there are
+often penalties if you are not in
+compliance these penalties could be
+fines they could be loss of employment
+for yourself or others and in worst
+cases it may involve incarceration there
+may be compliance based on the laws of
+your particular country or this
+compliance may be
+International many organizations will
+perform their own internal compliance
+checks often this is associated with a
+central compliance officer or CCO this
+is an individual responsible for making
+sure that that the entire organization
+is complying with State local Federal
+and any other requirements this is also
+the office that is responsible for
+informing others of the compliance
+status of the organization you might
+also have external compliance
+requirements especially when working
+with a third party that has set
+requirements for your company this may
+also require ongoing reporting so you
+may have to create a compliance report
+every year or in an interval determined
+by the compliance self if the reporting
+is incorrect or you miss one of those
+reporting periods there could be
+penalties or sanctions associated with
+that
+mistake a good example of Regulatory
+Compliance would be the sarbanes Oxley
+act or socks this is formally known as
+the public Company accounting reform and
+investor protection act of 2002 if
+you're in the healthcare field you're
+probably familiar with the compliance
+associated with HIPPA this is the health
+insurance portability and accountability
+act this compliance ensures that
+everyone's medical information in the
+United States remains private and
+another Regulatory Compliance would be
+the Graham leech Bley Act of 1999 or
+glba if you're in the United States
+you'll occasionally get a note from your
+financial institution that describes
+their Privacy Information and that is
+due to the Graham leech blyly act we
+mentioned earlier that there can be
+significant penalties for being out of
+compliance a good example of this are
+the Hippa non-compliance fines and
+sanctions it's important to understand
+what the results might be for not being
+in compliance it could be a fine of up
+to
+$50,000 or up to one year in prison or
+both of those because that would be a
+class six felony if this compliance is
+done under false pretenses the fine goes
+up to
+$100,000 up to five years in prison or
+both and that would be a class five
+felony if there is an intent to sell
+transfer or use individually
+identifiable health information for
+commercial Advantage personal gain or
+malicious harm the fine goes up to
+$250,000 or up to 10 years in prison and
+for other civil fines the maximum would
+be $100 for each violation with the
+total amount not to exceed
+$225,000 for all violations of an
+identical requirement this is a good
+example of why we spend so much time and
+money making sure that our organizations
+are in compliance with everything that's
+expected of us there's also reputational
+damage that might occur if you fall out
+of compliance for example many states
+have requirements for disclosure if an
+organization is hacked or breached and
+the reputational damage of disclosing
+that hack could cause stock prices to
+drop at least in a shortterm with that
+organization a good example of how
+reputational damage could harm a company
+started in October of 2016 the company
+Uber was breached and 25.6 million names
+email addresses and phone numbers were
+exfiltrated from their systems however
+Uber didn't announce this breach until
+November of 2017 over a year later and
+in the meantime they allegedly paid the
+hackers
+$100,000 to have them keep quiet by
+using a non-disclosure agreement this
+caught up to the company in 2018 and
+Uber had to pay
+$148 million in fines the hackers owned
+up to this and played guilty in October
+of 2019 in May 2023 Uber's former Chief
+security officer was sentenced and got 3
+years probation and a $50,000 fine the
+company would have been in compliance if
+they announced the breach originally
+instead of trying to keep the breach
+quiet and have it go away this
+ultimately affected the company fin
+financially and
+reputationally these aren't the only
+things that could happen if you're not
+in compliance you could lose a
+particular license that is associated
+with that compliance this could be a
+significant economic hit to the company
+especially if that license is required
+to sell the company's product other
+organizations may also be limited from
+purchasing from any other company that
+is sanctioned and it might be very
+expensive to regain that license in the
+future some compliance is done at a
+contractual ual level where there is an
+agreement between two organizations to
+stay in compliance and if a company
+doesn't maintain that compliance the
+contract is then breached since this is
+between two private organizations it is
+possible to resolve this out of
+compliance issue between the two
+organizations without any type of legal
+proceeding you can see how being out of
+compliance might affect an organization
+negatively and that's why a lot of
+organizations will have individuals that
+are specifically tasked with compliance
+monitoring you might often hear the
+terms due diligence and due care
+associated with compliance monitoring
+this is a way to describe how the
+companies are acting in good faith and
+honestly about the terms of the
+compliance normally the activities that
+you're doing internally are referred to
+as due care and any activities that you
+perform with a third party would be
+based on due diligence it's very common
+to have the executive who's in charge of
+this compliance process to be the one
+who signs off stating that the
+compliance is indeed in good standing we
+refer to this as attestation and
+acknowledgement and ultimately it's the
+executive who is responsible for making
+sure that all of that information is
+done in good
+faith as you can imagine a large company
+with many types of products may have a
+significant amount of compliance
+requirements and that's why it's
+important to provide ongoing monitor
+moning of the compliance normally you
+would use internal tools in the
+organization to keep track of where the
+status is of all of the compliance tasks
+this may be something that is completely
+internal or you may have to interact
+with third parties to gather more
+information to determine if you're truly
+in compliance that's why many
+organizations will find ways to automate
+this process as much as possible the
+compliance requirements are quite
+different between different types of
+companies and this automation will vary
+a great deal from one company to another
+fortunately there is a large Market of
+automated compliance monitoring systems
+that collect data from people from third
+parties and from other parts of the
+organization a company can use these
+automated processes to collect as much
+compliance information as possible
+compile reports and make sure that they
+are always up toate with all of their
+compliance
+details

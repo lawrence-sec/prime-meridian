@@ -1,0 +1,540 @@
+now most of the time that you will spend
+as a security analyst is going to be
+about trying to keep the bad guys out
+and you're not going to be using your
+fists for this you will need some tools
+and most of the time it's going to be
+about something that you need to change
+in the network something that you need
+to add
+even something that you need to remove
+from the network because things become
+obsolete
+well when we say something we actually
+refer to any piece of hardware or
+software or even a specific
+configuration of a device that has some
+security implications for us that helps
+us improve our security posture and that
+something is what we'll call a security
+control
+now for a long time we've seen security
+implemented in some sort of a reactive
+way a lot of companies are still doing
+this nowadays that is they just wait for
+a threat to become real enough to
+actually be threatening to their company
+before they actually take some action
+and we've kind of grown used to thinking
+about attacks in two different
+categories the first one being what we
+call cross network attacks so attacks
+that come across the network or over
+some network from somebody else's
+network for example and we've had some
+ways to mitigate those
+things like firewalls and ips's and some
+classic devices that do
+starting from
+basic nat up to layer 7 filtering for
+example and the second category would be
+related to those so-called host-based
+attacks like viruses worms trojans
+anything that attacks a specific host
+and it might come or it might not come
+over a specific network but it
+definitely targets a specific host
+and we've had ways to mitigate those as
+well
+number one being the firewalls and the
+security suits that we install on our
+working devices but nowadays the problem
+is that things aren't so simple anymore
+we cannot just wait for an attack to
+happen we have to try to prevent them
+before they occur because when we detect
+them if we keep being reactive it might
+be too late there's so many businesses
+nowadays that completely rely on it
+infrastructure and i.t services that
+being reactive like we were used to
+it's just too risky
+so the bottom line would be for once
+let's just try being proactive about
+security let's not wait for things to
+happen
+before we take action but unfortunately
+there are just so many unknowns that
+this is going to be a very tough mission
+for this we're going to take a
+structured approach and the first step
+in this structured approach would be to
+have a well-defined asset inventory and
+classification that is just like we've
+mentioned some videos ago what exactly
+do we want to protect
+and also
+evaluate those assets evaluate their
+value to you to your business and try to
+answer the question are they worth
+protecting are they worth any security
+investment in order to keep them safe
+secondly try to implement risk
+management now risk management basically
+boils down to evaluate all the potential
+risks that can affect you right and also
+think about how likely are those risks
+to happen if a specific attack
+is going to happen on a specific host so
+how likely is that threat to your
+environment and third
+think about what security controls what
+harder software solutions you can
+implement to improve your security
+posture and we're gonna talk about the
+classification of security controls
+because they're just so many ways that
+we can approach this problem and
+unfortunately there is no silver bullet
+there is no magical uh single networking
+security device out there that we can
+enable and that can help us feel safe
+forever and ever right we need them to
+complement each other so again we're
+gonna need a structured approach when we
+choose security controls as well
+all right so let's start with the last
+one this security controls right here
+because it's the easiest one to
+understand right now a security control
+is something that you install in your
+network and protect your company
+protects your network basically so at
+the end of the day we can think about
+security controls as some sort of device
+or hardware device or software solution
+that helps you with confidentiality
+integrity and availability or even not
+repudiation that is the inability of a
+person or any subject or entity to deny
+having performed a specific action
+that's very important for data integrity
+and for accountability
+but that's going to be a bit more
+specific only for certain environments
+so we have a number of ways to
+categorize security controls and before
+we dig deeper into the any type of
+classification it's important to have
+these categories because when we
+try to implement the security controls
+the idea is that we try to make them
+complement each other like having
+different security controls from
+different categories installed at the
+same time this is what provides us with
+that defense in depth and the first
+well-known and widely recognized
+way of categorizing security controls is
+the one defined by nist that's the
+national institute of standards and
+technology actually this type of
+categorization is described into special
+publication 800-53
+probably the only one the only
+publication that you really need to
+remember for the exam
+right and we start first with technical
+or logical controls now what exactly do
+we mean by technical controls
+basically we mean something that can be
+called a system for example a firewall
+an access control system a proxy any
+software or hardware or even a specific
+configuration that helps us keep the bad
+guys away so that's a technical or
+logical control
+this is also where we find specialized
+systems as well not just general purpose
+firewalls and ips's but also things like
+web application firewalls one example
+would be actually two examples here
+would be the first one being the uh open
+source web application firewall from
+apache called mod security
+we also have a web application firewall
+for iis
+that's another way we can implement it
+in a completely free and open source way
+of course we do have specialized uh
+solutions equipment or software
+solutions from other vendors out there
+paid vendors like for example forty web
+from fortinet and uh another type of
+specialized system would be for example
+a database firewall which scans the
+traffic going towards the database and
+tries to look for specific known attack
+patterns like sql injections or a
+privilege escalation attacks that
+attempt to reveal more information or
+corrupt the database so we do have all
+these technical logical controls here
+which are basically ways to implement
+some sort of hardware or software device
+that keeps us safe secondly we have
+operational controls also known in
+specific publications as administrative
+controls this is where we focus on
+things that can be implemented by using
+people real people
+things like trainings that you conduct
+for your employees or your partners the
+security trainings that everybody must
+attend in a in a company or security
+guards
+that you hire in order to protect your
+perimeter your building so people are
+security controls as well and finally we
+have management controls now management
+controls are considered to be a high
+level overview or refer to a high level
+overview of your security system this is
+where we find for example regulations or
+procedures or any documentation or a
+piece of information that help you
+with choosing one type of control over
+another so this is where we think about
+what kind of documents are you going to
+review when you need to choose a
+specific firewall for example for your
+company also the same documentation the
+same management controls that we've been
+talking about are the ones that are
+going to help you with risk assessments
+because those documents are going to
+help you decide what is critical for
+your infrastructure and where do you
+need to focus your efforts when you want
+to protect it now this
+is not the best classification in my
+opinion because it does create a lot of
+confusion there are a lot of gray areas
+in here as you probably guessed already
+an example of such a confusion would be
+the fact that nist says that
+planning the act of planning for
+security is
+a management control
+but the act of contingency planning
+planning for disasters
+with regards to security
+is an operational control so which one
+is which pretty hard to decide now a
+better classification i would say even
+though it's a bit more granular this
+time is by the goals that they perform
+their purpose and by the way this is
+going to be a very important exam topic
+so don't glance over this one
+and we start here with preventative
+controls the preventative controls are
+supposed to reduce or even completely
+eliminate in an ideal world the
+possibility of an attack this is where
+we think about those controls that
+actually enforce some policy that keeps
+the bad guys away
+so an example here would be
+simple firewall rules or firewall
+policies or the antivirus signatures
+that you have installed on your
+workstations and with regards to the
+attack continuum as in what happens
+before during and after an attack these
+preventative controls of course are
+going to
+become important
+before the attack takes place so we
+install preventative controls to
+actually prevent the attack preventative
+controls might sound a bit useless at
+first because they don't stop an attack
+they actually do nothing to stop the
+attack but they do notify you those are
+the controls that generate alerts
+logs any proof that you need to review
+during or after the attack in order to
+understand what really happened in there
+then we have corrective controls and
+these corrective controls are going to
+come into play after the attack now you
+might ask what can you do after the
+attack has already completed well after
+the attack of course you might want to
+restore your business right bring it
+back to compliance being bring it back
+to operation level so this is where
+things like backup and restore comes
+into play now after an attack assuming
+that the attack was successful some data
+loss some data corruption happened a
+restore from a properly maintained
+backup is going to save the day
+and also don't forget about patching
+this is also where patching comes into
+play you have been breached the attack
+was successful those things are not good
+news of course but at least do something
+to prevent it occurring a second time so
+see what vulnerabilities were targeted
+and try to patch them this is also a
+corrective control and a couple of bonus
+ones don't forget about physical
+controls and yes we are talking here
+about
+locks doors fences don't forget to lock
+your door when you leave your home right
+regardless of what state-of-the-art
+security system you have in your home if
+you don't lock your door well that's
+going to be a major vulnerability
+so these are the security controls in
+the physical category of course they're
+going to prevent the attack as well then
+we have deterrent not detergent but
+undeterrent that's something that's
+preventative in a manner that
+discourages the attack from taking place
+from the very beginning so it not only
+stops the attack actually doesn't stop
+the attack but discourages the attacker
+from even attempting the attack now what
+kind of controls could we have here this
+is where we could cover things like a
+warning signs that you are being
+surveilled or the trespassers would be
+prosecuted also security guards
+or security dogs even the simple
+presence of a security guard
+is most likely going to discourage a
+large percentage of potential intruders
+into your building cameras as well video
+cameras cctv closed circuit television
+that's also going to be a deterrent it's
+of course it's also going to be
+detective it helps you detect if a
+breach has happened but a camera system
+a visible camera system is also going to
+discourage potential intruders and of
+course you also have here the
+opportunity to install fake video
+cameras which are of course going to be
+deterrent only because they're not going
+to be able to detect anything but
+they're still going to discourage let's
+say
+potentially
+lower skilled intruders and finally we
+have compensating controls now this one
+here the last one is a bit weird because
+compensating controls you have to think
+of them something on the lines of if we
+cannot protect this the right way the
+way we're supposed to protect it well
+then at least we're doing this
+so that's a compensating control it's
+substitutes compliments to put it in a
+more elegant way a main control just in
+case the main control cannot be
+implemented now why couldn't we
+implement a specific control for a
+specific kind of threat well it might be
+because that control is just
+prohibitively expensive we don't we
+cannot afford it right or some business
+requirements don't allow us to implement
+that specific control or even some
+technical requirements now this concept
+was introduced by pci dss and it kind of
+makes sense when it comes to compliance
+as its purpose is to deploy a control
+that does the same job as the
+recommended one
+but in a using a different method in a
+different manner now i wouldn't say in a
+unorthodox matter but it's still going
+to be a different manner
+now the problem with compensating
+controls is that they have to be
+thoroughly documented
+and then formally approved and keep this
+detail in mind for the exam as well
+because
+if you think about it well i'm not going
+to install a firewall but i'm going to
+do some patchwork in there that's using
+a linux server redirect the traffic
+towards a raspberry pi or something like
+that which of course is not going to
+provide you the same security or
+performance like a normal firewall which
+means that that control is to be
+expected to perform worse and not to
+improve your security the way a normal
+firewall would be able to so that's why
+you have to
+formally approve these type of controls
+because they are non-standard they are
+just workarounds and well as you may
+notice we can have another round at the
+guessing game right here because for
+example security guards are they
+considered to be
+preventative
+yes
+detective
+yes they can detect are they deterrent
+do they discourage yes they do as well
+so there you have it right there's no
+universal way to categorize security
+controls at least not
+by assigning one to a very specific
+category now an equally important step
+after we've selected our desired
+security controls is to test them to
+evaluate them because we need to be sure
+that the controls comply with our needs
+and expectations and we have a number of
+ways of doing this we can start with
+quality control this is something that's
+usually done in the factory you don't do
+it by yourself it's done by the
+manufacturer and it's designed to
+determine if the device or the software
+solution is free from defects does it
+boot up and does all its components spin
+up and work properly now there is
+something you can also do on your side
+which is for example to check if the
+device is dead on arrival or if some
+components don't work properly
+when you actually take it out of the box
+or at least check if the firewall wasn't
+dropped on the stairs by the delivery
+person right
+so quality control is part of the
+quality assurance process which
+describes what exactly do we understand
+by quality what can we expect from the
+product and how it was measured
+now when it's about software then
+quality control and quality assurance
+become something called as verification
+and validation verification first this
+is more of a compliance testing process
+and it's basically aimed to give an
+answer to the question
+does this piece of hardware or software
+meet the requirements of our design or
+our framework second we have validation
+which answers the question does it do
+what we want it to do is this the right
+fit for our specific environment for
+example you can use a firewall to keep
+malware out of the building but you're
+not going to use a firewall to keep the
+burglars out of the building right
+and finally interpreting the answers to
+these questions can be formalized in
+something that is called evaluation
+and then assessment starting with
+assessments an assessment is about
+subjecting that product
+to a checklist of requirements
+things like is the firewall properly
+configured is the antivirus security
+suit installed on all our employee
+workstations now on the other hand
+evaluation is much more subjective
+because humans have to evaluate the
+control's usefulness usually for the
+purpose of proving that the control is
+properly doing its job so it's related
+to continuous monitoring of the
+performance and of how fit
+that security control is for our
+specific environment does it protect
+what we wanted to protect and does it do
+it in an efficient manner now of course
+both evaluation and assessments are
+going to be much more useful if they
+somehow can take into consideration the
+current state of your environment
+this way you can identify problem areas
+and find out what needs to be fixed and
+where should the investments go
+now auditing is a somewhat similar
+process to evaluation and assessments
+but it's more formal perhaps even more
+rigid
+now audits involved a predefined
+baseline and they're aimed at finding
+faults of non-compliance of your
+environment
+versus that baseline now if it sounds
+like a compliance or regulations check
+it is most regulated industries require
+such audits actually to validate
+compliance and when it comes to security
+controls one last thing that you need to
+remember
+is about monitoring you're also going to
+find it under the names of continuous
+monitoring or csm that's continuous
+security monitoring and it's nothing
+more than a continuous process of risk
+assessment and the purpose of this csm
+continuous security monitoring is to
+track anything that can be involved in a
+security incident in a company it can be
+anything related to network traffic
+communications any data exposure hosts
+endpoints you know business operations
+of course all these need to be tracked
+measured using finely tuned algorithms
+and systems that can quickly detect and
+log any issues basically continuous
+monitoring is that magical method of
+turning reactive processes into
+proactive ones when it comes to cyber
+security but unfortunately it's costly
+it's time consuming requires
+well-trained well-paid and
+well-motivated staff but the good news
+is is that it can also keep most threats
+at bay from touching you and luckily a
+lot of tools can partially automate this
+process i'm going to see a couple of
+those tools in the next videos
+all right so for the exam make sure you
+understand what a security control is
+and what it's supposed to do and make
+sure you remember the categories that
+we've discussed starting with the nest
+categories of technical logical
+operation or administrative management
+and following with the security controls
+by the goals that they perform the ones
+that we've mentioned just a couple of
+minutes ago and i'm just going to
+reiterate them just make sure you know
+at least one example out of each
+category here those categories being
+preventative detective corrective
+physical
+deterrent and compensating all right
+thanks for watching good luck on the
+exam don't forget to like and subscribe
+and see you on the next episode
+you

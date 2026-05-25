@@ -1,0 +1,241 @@
+when you start working with IP version 4
+one of the things you'll hear about are
+classes of IP addresses and in casual
+conversation we might even refer to an
+address as a Class A address a Class B
+address or a Class C address this was a
+method of describing an IP address as it
+related to its subnet mask anything that
+is a class A address has eight bits
+assigned for the network address and 24
+bits that are associated with the host
+address this means that the subnet mask
+for a class A address would be 255.0.0.0
+a Class B address default subnet mask is
+255.255.0.0 and the default subnet mask
+for a class C address is
+255.255.255.0 this style of class-based
+subnetting is one that we have not used
+since
+1993 but we still refer to some of these
+addresses in a very colloquial sense and
+although you may hear someone refer to
+an address as a Class A address or a
+Class C address in reality we no longer
+use a class-based form of subnet masking
+so if we don't use classes why are we
+doing a video on class-based networking
+that's because these classes do act as a
+starting point when we begin any type of
+subnetting on our networks if you're
+going to subnet a network it's important
+to know where to begin the subnetting
+process and this class-based system is
+the starting point these Class A Class B
+and Class C addresses have an obvious
+demarcation between the network part of
+the address and the host part of the
+address with class A that line is drawn
+after the first eight bits in a class B
+address that line is after the first 16
+bits and in a class C address that line
+is after the first 24 bits here's a
+table that defines the different subnet
+classes for class A Class B Class C
+class D and the reserved Class E and you
+can see if you look on the right side
+the default subnet masks are the ones we
+just saw where Class A has a default
+mask of 255.0.0.0
+Class B is
+255.255.0.0 and Class C is
+255.255.255.0 the way that you can look
+at an IP address and tell immediately
+what class that IP address is associated
+with is the very first octet of the
+address address if the decimal octad is
+between 0 and 127 as the first number of
+that IP address it's a Class A address
+if the first number of the IP address is
+between 128 and 191 that's a Class B
+address and if the first number is
+between 192 and 223 that is a Class C
+address if you were to look at that
+address in binary if the first bit was
+Zero it's a Class A address if the first
+bits are one zero it's a Class B address
+and if the first three bits are one one0
+it's a Class C address class D addresses
+are used for multicast communication and
+therefore they are not assigned to an
+individual device but there is a range
+for class D addresses and that is
+between 224 and 239 or the first four
+bits of a Class D address are 11 one0
+and there is a range of IP addresses
+that are not used for any purpose this
+is a reserved range we refer to this as
+the class E range between two4 4 and 255
+or the first four bits of
+1111 So based on that chart and those
+ranges of IP addresses let's see what
+class a particular IP address would be
+part of let's start with the IP address
+of 17.
+22907 to be able to determine the class
+we need to look at the first octet which
+in this case is the number 17 and if you
+refer back to that chart the number 17
+is in a class A address let's do another
+one IP address is 22010
+7740 if we look at that first octet it
+is 220 and 220 is in the cclass the next
+IP address is
+16524 1 we need to look at that first
+octet in this case that's 165 and 165 is
+in the range of a Class B address next
+on our list is 128. 19010 do2 that first
+number is 128 which means that is also
+also a Class B address the IP address of
+19177
+24250 has the first octet as 191 and if
+we refer to our chart 191 is in the
+range of a Class B address and lastly 19
+19211 12.5 we're looking at that first
+octet of 192 which falls in the range of
+a Class C
+address when you start calculating an IP
+subnet there are four different values
+that are very important to know the
+first is the IP address associated with
+the network address this is the one that
+defines all of the other devices on this
+particular subnet to calculate a network
+address you set all of the host bits of
+that address to zero and then determine
+what the decimal representation of that
+might be the second important piece of
+information you need for an IP subnet is
+the first usable host address on that
+subnet this is always going to be one
+number higher than this previously
+defined Network address you also need to
+know the network broadcast address this
+is the last IP address of this
+particular Network address to be able to
+calculate the network broadcast address
+you would set all of your host bits to
+one which is the same as 255 decimal and
+perform the conversion between the
+binary and the decimal and just as you
+need to know the first usable host
+address on the network you also need to
+know the last usable host address and to
+calculate that you look at the network
+broadcast address and it's one number
+fewer than the broadcast
+address so let's calculate those four
+important subnet values and let's start
+with the IP address of
+10742
+22.11 if we look at our chart we know
+that this starts with the number 10
+therefore this must be a Class A address
+and the default subnet mask for a class
+A address is 255.0.0.0
+since we're using this class a subnet
+mask we know that everything that's on
+the left side of our bar or this first
+octet is going to be our Network address
+and everything on the right side will be
+associated with the host ID so let's add
+those to our chart we have a network
+column and a host column obviously the
+tin dot is going to be in the network
+column that's what's on the left side of
+that bar and then everything on the
+right side is going to be the host
+address we first need to calculate the
+network address and to do that we set
+all the host bits to zero this means
+that everything in that second column
+will be zero and the network address
+therefore will be
+10.0.0.0 the first host address is one
+more than the network address so our
+first host address would be
+10.0.0 one to calculate the broadcast
+address for this subnet we set all the
+host bits to one which means that the
+broadcast address is
+10255
+255.255 and as you recall to calc
+calculate the last usable address on
+this subnet we need to subtract one from
+the broadcast address so the last usable
+address on this network is 10.
+17216
+188-200 if we look at that first octet
+we can see that that is a Class B
+address which means the default subnet
+mask for this network is
+255.255.0.0 this means that we would
+draw our line right in the middle
+between the first 16 bits and the last
+16 bits so everything on the left side
+is associated with the network address
+and everything on the right side is
+associated with the host address now
+let's perform those EX exact same
+calculations we want to determine what
+the network address is so we will set
+all host bits to zero this means that
+the network address for this particular
+subnet is 172.16.0.0
+to be able to calculate the first host
+address we need to add one to that value
+or 172.16.0.0
+to calculate the broadcast address we
+set all host bits to one which means the
+broadcast address for the subnet is
+17216
+255.255 5 and to define the last usable
+host address on this network we subtract
+one from the broadcast address which
+means the last usable address is
+17216
+255.255 let's see if we figured out this
+process and step through another IP
+address in this case
+192168491
+to that fits into the range of a Class C
+address which means the default subnet
+mask is
+255.255.255.0 if we were to draw our
+line the network side of the address is
+the first three octets and the host side
+is the last octet let's put that into
+our chart so our first three octets
+192.168.0 is the network side
+and77 is the host side to be able to
+calculate the network address we set all
+host bits to zero so the network address
+for this particular subnet is
+192.168 . 4.0 if we add one to that
+address we get our first host address of
+192.168.1 to be able to calculate the
+broadcast address we set all host bits
+to one which means the broadcast address
+is
+192.168
+4255 and if we subtract one from that
+broadcast address we get the last host
+address and that would be 192168491
+subnetting we can still use the same
+process when we look at anything that
+may be class or non-class based and as
+we go through our additional subnetting
+videos you'll notice that the same
+process is used over and over again
+regardless of the IP address and the
+subnet mask

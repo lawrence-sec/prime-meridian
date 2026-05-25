@@ -1,0 +1,184 @@
+mitigation is the process of reducing
+the impact of a security event or a
+potential security event and in this
+video we'll look at some of these
+mitigation techniques one great way to
+stop an attack is well before the attack
+even happens and the best way to do this
+is by patching any known vulnerabilities
+this will not only keep your system more
+secure but occasionally it will also
+keep your system more stable
+organizations like Microsoft create a
+series of patches every month that you
+can then push out to keep all of your
+systems up to date with the latest
+security patches you might also get
+security patches from application
+developers or device manufacturers to
+make sure that those devices are also
+secured and you may find that your
+operating systems at home patch
+themselves automatically it's built into
+the operating system to constantly check
+to see if new patches are available and
+if they are it will download them and
+install them without any type of user
+intervention in a large organization
+however this might not be an automated
+process instead the information
+technology department May test the
+patches first and only once they know
+that they're working properly do they
+push them out to everybody else's system
+and although some of these patches
+arrive on regular intervals there may be
+times when an emergency patch is pushed
+out especially if it's a significant
+vulnerability and the attackers are
+actively taking advantage of this
+unpatched opening another way to
+mitigate these security events is to
+limit how much data and a attacker could
+get their hands on many file systems
+include encryption as part of the file
+system itself it's integrated into the
+operating system so you can select the
+file or the folder and have the
+operating system only encrypt that
+specific piece of data in Windows you
+might see this file level encryption
+referred to as EFS that refers to the
+encrypting file system that is
+integrated into the Windows operating
+system if there are devices that are
+leaving your building and you're
+concerned that someone might have access
+to the storage drives on those systems
+you might want to enable full dis
+encryption or fde this will encrypt
+everything on that storage volume
+including the operating system and the
+user files in Windows you can enable
+this with bit Locker Mac OS uses file
+Vault and there's other Technologies
+available for almost any operating
+system some applications don't assume
+that file system or full dis encryption
+is even in place and Will encrypt data
+itself inside of the application this
+ensures that regardless of the type of
+encryption being used the application
+data will always be
+protected in order to identify these
+security events it's important to have
+constant monitoring and be able to log
+all of the information that's occurring
+on your network monitoring can be done
+using Technologies built into switches
+routers and other devices or you might
+have a separate sensor that sits
+external to those devices many security
+devices will include this type of of
+monitoring so if you're running a
+firewall or intrusion prevention system
+or an operating system where
+authentication is occurring all of this
+log information is stored automatically
+in the operating system many times these
+logs are spread across many different
+systems so it can be useful to have all
+of those log files Consolidated back to
+one Central Source very often we use a
+SIM or security information and event
+manager to consolidate all of those logs
+and provide a central source for
+creating reports and monitoring data if
+you look around at the rights and
+permissions assigned to users in your
+company you may find that there are very
+few of them with administrative access
+that's because most organizations use
+the best practice of least privilege
+this means that the rights and
+permissions assigned to a user are
+limited to the specific job role for
+that individual they don't need
+additional rights and permissions if
+their job doesn't require them to have
+those permissions the best case case
+scenario would be that no user runs with
+administrative permissions if you need
+additional rights you can Elevate
+permissions temporarily and then bring
+those rights back down to normal
+permissions when you're done if
+malicious software or an attack occurred
+on that particular user's account the
+access would be limited to only what
+that user can see this can limit the
+scope of an attack or a data breach and
+it could be a significant difference
+between an attacker gaining access to a
+little bit of data and all of the
+company's data another good idea is to
+enforce the configuration of the systems
+that are connecting to your network we
+would commonly do this during a login
+process and perform a posture assessment
+this checks your system to see if you're
+running the latest version of the
+operating system if you've installed the
+latest patches if your antivirus is up
+to date and checks for other security
+features as well this might check to see
+if you're running the latest version of
+an operating system including all of the
+most recent patches this might also
+check for the EDR or inpoint detection
+and response version make sure you're up
+to date with the latest signatures this
+might check to see if your local
+firewall and EDR are configured and
+turned on properly and it might even
+check for a certificate to see if your
+system that's connecting is really one
+that is trusted by the organization if
+any of those settings are not up to date
+with the configuration that's expected
+your system may be quarantined or set
+into a private VLAN where you can make
+changes to bring it up toate with the
+latest configurations once those changes
+are made you can try logging in again
+have the posture assessment complete and
+if everything is working properly you
+would now have access to the
+network when we are past the usable
+lifetime of a piece of equipment we
+often put it in the corner or forget
+about using it at all but there may be
+sensitive information on that device
+that we need to remove before completing
+the decommissioning process this is
+often associated with a storage drive so
+if you have an SS SD a hard drive a USB
+drive or any other storage device you
+may want to remove that or delete all
+information from that storage drive
+before decommissioning this equipment if
+this decommission device has an SSD and
+you want to use that SSD for another
+system within your own organization you
+can simply move that from one system to
+another you may need to format that
+drrive before moving it into another
+system but at least you can recycle some
+of those storage drives if that storage
+Drive is no longer needed and you feel
+there might be sensitive information
+still on that drive it might be a better
+idea to Simply destroy the drive itself
+which would certainly prevent anyone
+from Gaining access to that
+data

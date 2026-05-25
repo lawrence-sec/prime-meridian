@@ -1,0 +1,127 @@
+many Enterprise networks take advantage
+of a three tiered architecture this is a
+very common design and you'll find many
+organizations use a three- tiered
+Network design for their Network this
+starts with the core of the network and
+this is where we might have the central
+point for all of our resources so our
+servers our applications our databases
+and other critical points are going to
+be contained within the core of the
+network the second tier in a three-
+tiered architect is the distribution
+layer this distribution is the midpoint
+between the users and those core
+resources this is usually a series of
+switches that provides redundancy and
+connectivity for those users to access
+those critical resources and lastly our
+users need somewhere to connect and they
+often connect to an access layer these
+are switches that are usually located
+very close to the user usually on the
+same floor of a building for example and
+that access layer allows us to connect
+to the distribution which then connects
+to the core of the network this three-
+tiered architecture is very common to
+what we might see in a large city the
+downtown area of the city is the core of
+the city and all of the major resources
+for that City may be located in a very
+small geographical area in the center or
+core of that location to be able to get
+to downtown we need some type of
+distribution method for example we need
+some type of Highway that might connect
+our homes to the downtown area and our
+homes are usually connected to these
+larger highways through access roads
+this allows us to use our local roads
+for all of our daily chores but when we
+need to get to the core downtown we may
+need to use those distribution highways
+here's what this three- tiered
+architecture looks like in a network
+diagram the core of the network usually
+has core routers that're allowing us to
+connect to other resources in the core
+the distribution layer in the middle is
+the one connecting the core to the
+access switches and at the very bottom
+the access layer is the one that all of
+the users are connected to you'll notice
+there are multiple links between the
+access and the distribution and
+occasionally you might even find
+multiple links between the distribution
+and the core so if one component happens
+to fail we can always use other parts of
+the network to complete that
+communication path this is often
+combined with multiple buildings so here
+on a single campus we have two separate
+buildings all the users are connected on
+each floor of the building to an access
+switch each access switch in the
+building is usually connected to one or
+more distribution switches and those
+distribution switches are connected to
+the core of the network which may be
+located in a central data center if
+you're a smaller organization there may
+not be a need for a much larger three-
+tiered architecture instead you might
+want to use a collapsed core
+architecture this is a two-tier
+architecture that combines the core and
+distribution layer into a single
+collapsed core and you could see the
+access layer is still exactly the same
+as it was before this allows for a more
+simplified design and hopefully a much
+easier design when you're
+troubleshooting this is also a lot less
+expensive to implement because you have
+less devices that you have to purchase
+and install onto the network however as
+you can tell by this diagram there's not
+a lot of options for redundancy so this
+may not be quite as resilient if you
+happen to lose any of these individual
+components when you're describing the
+flow of traffic within a data center
+it's important to know where the traffic
+originates and what the destination is
+for that traffic one way to describe
+traffic flow is an eastwest traffic flow
+this means that the origination and
+destination for this data flow is all
+within the same data center this also
+means that we probably have very good
+response times from one device to
+another since they're all located on the
+same local network if the traffic flow
+is one that is leaving the data center
+or is coming into the data center from
+an external Source you would refer to
+that as North South traffic this would
+probably have a bit of a different
+security posture than something that is
+east west traffic because we really
+don't know where this traffic is going
+once it leaves the data center and any
+inbound traffic could be coming from
+potentially anywhere here's a better
+view of this traffic type if data is
+coming into the network from the
+Internet or we're sending information
+out to the internet we would refer to
+that as North South traffic any traffic
+that is inside this local data center
+for example if we have a file server
+that is sending information to an image
+server all of that traffic is staying
+within the data center and would be
+considered eastwest traffic

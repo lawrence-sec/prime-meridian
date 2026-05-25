@@ -1,0 +1,258 @@
+many organizations have a firewall that
+provides them a way to allow or disallow
+access from certain applications but
+what if you wanted to filter on the data
+inside of those web pages you can do
+that by using a Content filter sometimes
+you may hear these content filters
+referred to as a URL filter or simply
+website category filtering sometimes
+these web filters are designed to
+control what data is going out and what
+data is coming in and this is especially
+important if your organization deals
+with a lot of sensitive types of data
+most organizations will Implement some
+form of content filtering to restrict
+what type of information is seen in the
+browser on user desktops if you're at
+home performing the same function we
+sometimes call this parental controls
+because we're filtering what information
+might be seen by others in your home and
+some content filters are designed to
+block access to known bad sites these
+types of content filters might stop you
+from visiting a site where there is
+known to be viruses malware and other
+types of malicious code one type of
+content filter is one that filters based
+on a uniform resource locator or URL
+sometimes you'll hear this referred to
+as a uniform resource identifier or URI
+if you would like your users to be able
+to access a particular website you can
+add that URL to an allow list and if you
+want to block that site you would add it
+to a block list as you can imagine
+adding individual fully qualified domain
+names to these lists can be somewhat
+difficult to manage instead many of
+these filtering technologies will group
+together like URLs for example you can
+have URLs managed by a category for
+auction hacking malware travel
+Recreation and many others URL filters
+are very good at controlling the
+information that you see inside of a
+browser window but obviously there are
+many different ways to access data on
+the internet in this video we'll not
+only talk about controlling information
+in a browser but we'll talk about other
+ways to provide content filtering as
+well there used to be a big market for
+Standalone URL filters these days this
+URL filtering capability is commonly
+built into next Generation firewalls so
+you need one single device to be able to
+manage all of your firewall rules IPS
+and URL
+filtering a URL filter built into a
+firewall assumes that the users are
+going to be in a place where the
+firewall is managing that traffic and in
+today's networks where people are very
+mobile and there's many people working
+from home you may not have that luxury
+instead you may want to put the control
+of those URLs on the client itself these
+would be agent-based content filters
+that are installed on the user's
+desktops and other devices all of these
+are of course managed through a central
+console but the decision process occurs
+on the user's device directly this means
+we don't have to be behind a particular
+firewall or be located on a particular
+Network to have this filtering work
+properly instead the user can travel and
+connect to any network they'd like and
+the agent that's on their system will
+manage the control of the content with
+agent-based systems we would also need
+to make sure that the agents were
+constantly updated with the latest list
+of URL categories we would need to push
+out updates to all of these devices on a
+regular basis so that we always have the
+latest list of URLs on those agents
+instead of managing the control of this
+content from a standalone URL filter or
+next Generation firewall some
+organizations use proxies a proxy is a
+device that sits between users and an
+external network and allows you to
+control the flow of traffic through that
+proxy with a traditional firewall the
+users communicate directly to the
+websites that may be located on the
+internet but a proxy sits in the middle
+of this conversation and makes those
+requests on behalf of the user so the
+user makes a request to view a
+particular web page the proxy then makes
+that request to the web page directly
+from the proxy and receives the response
+from that website to the proxy the proxy
+can then make a decision based on what
+was received on whether that traffic
+should be forwarded to the user and if
+everything in that response looks okay
+it will send that down to the user's
+computer since this proxy is sitting in
+the middle of the conversation we can
+have it do a lot more than simply
+provide URL filtering for example we
+could have this proxy act as a cache if
+somebody makes a request to an external
+server that information can be saved
+locally on the proxy if someone else
+requests the same web page the proxy can
+simply respond with the information
+that's in the cache instead of going out
+to the internet and making a second
+request this proxy can also provide
+access control which means it limits
+which devices are able to communicate to
+the internet this control can be based
+on a username and password provided by
+the in user or it may be based on an IP
+address with some proxies we have to
+tell our application to use a proxy for
+communication rather than communicating
+directly to a server we refer to this as
+an explicit proxy because we are
+explicitly configuring that proxy in the
+application config there are also
+proxies that don't require that type of
+configuration and are simply able to
+work without any special configuration
+on the client since this proxy is able
+to work without the enduser even
+realizing that it's there we refer to
+this proxy as a transparent proxy this
+is a configuration of a proxy that we
+would install specifically for users to
+gain access to the internet we often
+refer to this as a forward proxy
+sometimes you'll see it referenced as an
+internal proxy with a forward proxy the
+user and the proxy are in the internal
+network of the organization and
+generally the organization has control
+over the configuration of that proxy the
+user makes a request to the proxy and
+then the proxy makes its own request to
+that website on the internet the proxy
+receives a response from that website
+where it can then provide additional
+security such as URL filtering and
+checking for any type of malware once
+the proxy has checked this data and it
+knows that all of the information is
+safe it can send that response down to
+the user these content filters and URL
+filters are designed to block based on a
+fully qualified domain name and you
+could configure a block filter with a
+specific fully qualified domain name
+such as professor.com you could also set
+these rules based on a category of web
+site most URL filters have over 50
+different categories of sites including
+Adult Educational gambling government
+home and garden and many more this
+allows you to set some very granular
+controls over what types of sites might
+be allowed and what sites might be
+blocked for example in your organization
+educational sites might be allowed Home
+and Garden sites might be allowed but a
+message is put into a log or an alert is
+sent when someone visits one of those
+pages and if someone tries to visit a a
+page that's categorized as gambling it
+may be blocked by your url filter some
+content filters and URL filters look at
+more than just a fully qualified domain
+name they might evaluate the reputation
+of that site and be able to allow or
+block based on the perceived risk of the
+data on that site websites with a good
+reputation would be allowed through and
+anything with a bad reputation would be
+blocked by the URL filter there are also
+different levels of reputation would not
+be usual to see a URL filter with
+trustworthy lowrisk medium risk
+suspicious or high-risk as categories
+you can associate with a website's
+reputation with millions and millions of
+websites it's not possible to manually
+look at every site and provide a
+reputation for everyone this process is
+often automated a scan will look at a
+website evaluate the information that
+was received from that site and make a
+determination on what reputation should
+be associated with that URL of course
+you can manually assign these
+reputations as well if there's a
+particular site where you may not agree
+with the automated reputation you can
+manually set the reputation yourself
+this allows you to set some granularity
+with your filtering if anything is
+categorized as high-risk you may decide
+to block that traffic and anything that
+has been clearly marked with a
+reputation of trustworthy would be
+allowed there's also a way to provide
+content filtering without a Next
+Generation firewall a prox or a URL
+filter instead you can use DNS filtering
+this is the domain name system and every
+time you connect to a website this is
+the device that provides an IP address
+when you give it a fully qualified
+domain name there are many domain names
+that are known to have questionable
+content or may simply contain malicious
+code in those cases we can configure the
+DNS to not provide the user with the IP
+address of that site all of this
+information is automatically updated in
+the D DNS server using realtime thread
+intelligence and there are both
+commercial lists and publicly available
+lists that you could use for DNS
+filtering this means that a user who
+makes a request to visit dubdub dub.
+malicious site.org will not receive the
+IP address of that malicious site from
+the DNS server instead they are either
+provided with a default IP address or no
+IP address at all and the connection is
+simply not made one nice feature of this
+DNS filter is it works on more than just
+web pag Pages if someone has installed
+malicious software that is trying to
+communicate to a command and control
+server it may create a DNS request to
+receive the latest IP for that command
+in control and if you have DNS filtering
+installed that lookup for the malitia
+site will fail and hopefully will
+restrict the capabilities of that
+malware

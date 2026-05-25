@@ -1,0 +1,259 @@
+one common way to limit the type of
+traffic that can Traverse the network is
+by using an ACL or an access control
+list this is a generic term that
+describes a list of traffic that is
+allowed and traffic that is disallowed
+it's often grouped with different
+categories so that you can create very
+complex combinations for example you
+might want to use Source IP address
+destination IP address a port number a
+time of day or an application and
+combine all of those together to create
+a rule where traffic may be allowed or
+disallowed acl's can also refer to a
+group of these criteria for example you
+can have a group of IP addresses and
+some of those IP addresses would be
+allowed access to the system and another
+group of IP addresses would be denied
+Access Control list can be found on many
+different devices including routers
+firewalls operating systems and anything
+that needs to make a decision about
+access the security policies we often
+see in a firewall are a very complex
+form of an access control list this
+Access Control list or set of security
+policies includes the name of the rule a
+source and destination Zone a source and
+destination address a destination port a
+username and so on as you can see from
+this console you can make some very
+specific and very fine grain security
+controls using this security policy list
+most firewall rules are interpreted by
+starting with the first rule number and
+working down through the list until it
+finds a match this top to bottom
+approach is very common on most
+firewalls that you'll run into this can
+be a very specific set of rules or they
+may be very generalized we tend to put
+the more specific rules on the top of
+this list so they'll be matched first
+before it ever gets to the more general
+rules and with most firewalls if you get
+all the way through the rule base and
+none of those rules are matching the
+data that's flowing through the firewall
+that data is automatically denied
+we refer to this as an implicit deny
+although there is not a specific rule
+denying that traffic the lack of any
+other rule matching that traffic means
+that we implicitly deny that traffic in
+this rule set there is an implicit deny
+at the bottom you can imagine a rule
+eight at the bottom of this firewall
+rule set that denies all other traffic
+that didn't match any of the rules from
+Rule Number 1 through 7 let's step
+through this firewall rule set and see
+what each line is providing us for
+security rule number one allows any IP
+address from any port number to connect
+to port number 22 on this particular
+device over protocol TCP you can see the
+allow action is the disposition at the
+end of this particular rule Port 22 is
+commonly associated with SSH so this
+would allow anyone to connect to this
+device over that SSH Port rule two is a
+similar rule to Port one it has a remote
+IP of all and a remote port number of
+any so anyone can connected this device
+over local port number 80 running the
+TCP protocol we know that Port 80 is
+commonly used for web traffic and all of
+that traffic would be allowed well if
+we're allowing Port 80 for our web
+server then we're probably also going to
+allow Port 443 and the next rule in the
+rule set is Port 443 and it is allowed
+to this service port 4 allows any remote
+IP and port number to connect to TCP
+port
+3389 on this device all of these are
+allowed and of course Port 3389 is
+commonly associated with the Microsoft
+Remote Desktop protocol or RDP This
+Server must also make DNS requests
+because in rule five we're able to
+connect to any remote IP address over
+Port 53 from any local port on this
+device using UDP you can see that action
+is indeed to allow that traffic and very
+similarly we have rule six where we can
+connect to any remote IP address using
+Port 123 over UDP from any local Port
+that is allowed traffic and Port 123 of
+course would be the network time
+protocol or ntp and then lastly our
+network administrator has decided not to
+allow someone to Ping this device or use
+any other aspect of the internet Control
+Management protocol or
+icmp this is Rule 7 and it says that any
+remote IP address using icmp is
+denied being able to filter traffic
+based on an IP address or port number is
+important but it's only part of the
+security posture that we might want to
+present there are other ways to filter
+traffic one of these is through URL
+filtering this allows you to specify
+either a specific uniform resource
+locator URL or you can specify a
+category of URL sometimes you'll see
+this referred to as a uniform resource
+identifier or URI and often this is put
+into an allow list or a block list for
+an organization we could of course
+specify individual URLs that people are
+able to visit but we might have to put
+hundreds or even thousands of URLs in a
+database to be able to make that happen
+it's much easier if we could roll all of
+those URLs up into a very broad category
+and that's what most URL filtering
+devices will do they might allow you to
+allow or disallow access to auction
+sites hacking sites travel sites
+Recreation sites and many other
+categories users often try to find ways
+around the URL filtering or find
+different ways to access those websites
+without having to go through this filter
+for that reason we often combine URL
+filtering with a firewall rule set so
+that we can prevent any type of
+circumvention of our security rules and
+most Next Generation firewalls have URL
+filtering already built into the
+software so you can simply enable or
+disable these categories and include
+them in an existing firewall rule
+URL filtering is a type of content
+filtering we are choosing what content
+inside of the data is allowed or
+disallowed through the network but other
+types of data may be used for content
+filtering as well we might have internal
+documents inside of our company that we
+don't want to get out or there might be
+Financial details we might have content
+filtering software or Hardware that is
+looking for that data and if it finds
+any of that data inside of our Network
+traffic it can allow or prevent that
+traffic from traversing the network some
+organizations will use content filtering
+to prevent any non-safe for work type
+content being shown on the screen or you
+might use it at home for your parental
+controls and one of the most common
+types of content filtering are built
+into our antivirus and antimalware
+software we're looking for malicious
+software being transferred across the
+network and this software will filter
+any of that bad
+content one of the challenges we have is
+making services available to the public
+over our network but we don't want that
+public to have access to our internal
+Network one of the ways we can
+accomplish this is through the use of a
+screened subnet this allows us to create
+a separate area of the network that is
+specifically designed for visitors to
+our Network this allows them to access
+services that we'd like to make public
+such as public web servers or public
+email servers but all of that traffic is
+going to this separate screened subnet
+we still have our internal Network and
+anybody on that Network can communicate
+out to the internet but anyone who needs
+to visit our web server will be directed
+to the screen subnet and away from our
+internal
+services on the firewall console we saw
+earlier you might have noticed that
+there were zones referenced as part of
+the firewall rule these zones can be
+used to create very broad references
+inside of our firewall rules instead of
+using an IP address range you can simply
+use a security Zone you would first need
+to separate the network into different
+zones there might be two zones on your
+network a trusted Zone and an unrusted
+zone or you might have an internal Zone
+and an external Zone and if you wanted
+to have additional zones for additional
+granularity you might have an inside
+Zone an internet Zone a server Zone a
+databases Zone and a screen subnet Zone
+this allows us to simplify all of these
+security policies that we're building
+inside of our firewall so we could
+create one rule that says if you're on
+the trusted Zone you can communicate to
+the untrusted zone you don't have to add
+any IP addresses there's no port numbers
+there's no specific applications you're
+simply saying that all traffic in one
+part of the network is able to
+communicate to a different part of the
+network the same thing might apply from
+the Internet or from the untrusted zone
+you may allow that traffic to visit your
+screened subnet or perhaps you'd like to
+prevent anyone from an untrusted part of
+the network from being able to
+communicate to The Trusted part of the
+network and we could create a firewall
+rule that denies that traffic based on
+those two zones visually we can overlay
+some zones onto our existing Network
+design we have an internet connection
+coming into a firewall there's a router
+with another firewall that firewall
+takes some traffic and sends it over to
+honeypots and the rest of that traffic
+is sent inside to our normal Network we
+can overlay some security zones on top
+of this for example example we can make
+a security Zone where the internet is
+first connecting to our firewall and
+then everything else on the network can
+be another security Zone we can then
+name these zones one of them might be
+the untrusted Zone which is where the
+internet lives and the other would be
+the trusted Zone which is the inside of
+our network if you need more granularity
+with your firewall rules you could break
+this into other zones for example we can
+have an internet Zone at the top you
+might have a screen subnet where people
+are connecting and there may be an
+internal Network that is separated by a
+separate firewall if you'd like to have
+more control over the firewall rules and
+you'd like more granularity you might
+want to add more security zones to your
+zone-based firewall

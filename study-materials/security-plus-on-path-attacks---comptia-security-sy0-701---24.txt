@@ -1,0 +1,140 @@
+an onpath attack allows an attacker to
+sit between two devices and watch all of
+the traffic go back and forth between
+those systems you might have also heard
+this attack referred to as a man in the
+middle attack the attacker in the middle
+of the conversation is responsible for
+transferring information from one device
+to the other and as it's passing through
+the attacker can look at the information
+that's being sent between devices and in
+some cases modify the information that's
+being sent in real time as it's
+traversing the network what's perhaps
+even more concerning especially for the
+parties involved is they have no idea
+this attack is taking place the onpath
+attack is effectively invisible for the
+victim devices one type of an onpath
+attack is AR poisoning ARP poisoning
+occurs on a local IP subnet so the
+attacker would need to be on the same
+subnet as the victim devices because ARP
+doesn't have any type of security or
+encryption associated with it this is a
+relatively easy attack to imp Implement
+let's see how an attacker might use ARP
+poisoning or ARP spoofing to be able to
+monitor traffic between two devices the
+two devices the attacker would like to
+monitor is this laptop and this router
+the laptop has an IP address of
+192.168.1 N and a MAC address that ends
+in 38 delta5 the router has an IP
+address of
+192.168.1.1 and its Mac address ends in
+bravo bravo Fox Echo when the laptop
+first connects to the network it doesn't
+know the hardware address of the router
+all it has is the IP address of the
+router but of course our devices
+communicate by Mac address it's the
+address resolution protocol or ARP that
+allows us to resolve the MAC address
+from an IP address so the first thing
+the laptop will do is send a broadcast
+across the network asking if any device
+out there happens to be
+192.168.1.1 and if you are this device
+please send back your Mac address the
+router will obviously see this broadcast
+and it will send back a response that
+says I am
+192.168.1.1 and here is my entire Mac
+address and you can see the MAC address
+here is the same as the MAC address
+already associated with this router once
+the laptop receives that ARP reply it
+saves that reply into a cache on this
+local device this allows the laptop to
+continue to communicate to the router
+without having to perform this ARP
+request over and over again the ARP
+cache will normally time out after
+number of minutes at which time the art
+process will occur again it will be
+cached again it'll be saved locally for
+the next interval now we have our
+attacker our attacker is an IP address
+of
+192.168.1.1 14 and you can see that the
+MAC address of the attacker ends in Echo
+Echo fox fox this laptop already has the
+MAC address of the router saved in the
+cache and there's not been a subsequent
+request to update that ARP information
+but the attacker sends an ARP response
+anyway way that says that I am
+192.168.1.1 and my Mac address ends with
+echo echo fox fox you'll notice that is
+identical to the MAC address associated
+with the attacker ARP doesn't have any
+type of authentication function or
+additional security so when it receives
+this type of message it will update its
+cache with this new detail so you can
+see the ARP cach is now been overwritten
+with the
+192.168.1.1 and the new Mac address of
+echo EO fox fox this same process will
+occur to the router which means now that
+whenever the router wants to talk to the
+laptop and the laptop wants to talk to
+the router it will send all of that
+information through the attacker's
+device at which time the attacker can
+monitor traffic modify information
+that's being sent between these two
+devices or effectively turn off the
+connection between the laptop and the
+router the previous art poisoning
+example involved a number of different
+devices all communicating over the same
+network but what if the attacker could
+perform this onpath attack on the same
+device as the victim this is referred to
+as an onpath browser attack with an
+onpath browser attack or what you may
+have heard as a man in the browser
+attack malware or trojen on this device
+is configured as a proxy that is able to
+redirect traffic before and after it's
+sent to the network this means that even
+if the network traffic was encrypted
+this type of attack would still you will
+be able to see all of the information in
+the clear because it's running on the
+same device as the victim and of course
+because it's an onpath attack everything
+looks normal to the victim device now
+the malware waits for you to log into
+something important like your bank
+account and captures all of the
+information that you sent to the bank
+including your username your password
+and other
+credentials once you open up your
+browser and connect to your bank with a
+username and password the attacker now
+has all of the information they need on
+on your device to start other sessions
+behind the scenes that you as the victim
+would never see these sessions may be
+transferring data from one account to
+another spending your money at an online
+shopping site or any other location that
+requires a username and password that
+has now been captured by the onpath
+browser
+attack and

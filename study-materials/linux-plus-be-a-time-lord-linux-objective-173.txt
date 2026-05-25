@@ -1,0 +1,472 @@
+hey everybody it's Sean powers and it's
+been a minute I feel like it's been a
+long time since I made a video I just
+feel so out of sync with YouTube yes
+we're doing a video on time
+synchronization but before we do we have
+to cover another couple things which
+don't really seem related to me but
+we're talking about some system services
+that we need to configure so we're going
+to look at SSH and we're going to look
+at syslog really quick and then we're
+going to talk about Network time
+synchronization crony and then some
+tools that we can use to synchronize our
+system oh and this is a section 173
+we're going to finish off the 1.0s today
+yay it's about time so the first thing
+we're going to look at is SSH now when I
+talk about SSH specifically I mean the
+SSH Daemon or the SSH server that is
+running on your system if you have the
+SSH server installed on your system so
+we're going to look at that it has a
+little odd sort of configuration the way
+it's named so let me show you what I'm
+talking about now we're here on Ubuntu
+it doesn't really matter what system
+you're on as long as you have SSH server
+installed or open SSH servers it's often
+called if you go into the ETC SSH folder
+you're going to see a whole bunch of
+files in here now you'll notice none of
+these files end with DOT comf like most
+Unix or Linux based configuration files
+there is a config.d folder but the
+specific file we're going to look at is
+just called sshd underscore config again
+very oddly named but nonetheless that's
+what it's called now this one SSH config
+is for configuring the client so like
+when you are running SSH to connect your
+remote a remote server that's where the
+configuration is going to be but we're
+talking about system services and so in
+this case we're going to look at sshd
+dot or underscore config I almost said
+Dot conf and if we look at that I'm
+going to be root so sudo visshd
+underscore config there's some
+configuration stuff in here that you may
+or may not want to change now I will
+point out something interesting it
+includes all the files in sshd
+underscore config.d and all the files in
+there have to be named dot comp which is
+just for some reason amuses me but
+nonetheless this is the location where
+you would change things for incoming SSH
+connections now there's not a whole lot
+that you would probably change in here
+some of the things that you might are
+like permit root login if you uncomment
+this and then restart the SSH service
+this is going to allow the root user to
+log in however the prohibit password is
+here and by default what that means is
+you can't log in over SSH using a
+password so this would enable the root
+user to log in but only if they have SSH
+Keys set up now I do have probably I'll
+probably remember to put a link I'll
+probably forget but uh if you go on my
+YouTube channel there's a whole playlist
+about SSH and I talk about that sort of
+a thing like SSH keys and how that would
+work but that's like an example of
+something you might change so you'd make
+a change you'd save the file and then
+you would either restart your computer
+or restart the SSH server system or the
+service and it would be active now
+another thing that we're going to look
+at before we go into like the time
+synchronization stuff is uh syslog now
+syslog is okay so let's talk about the
+elephant in the room and that's
+basically that almost every modern Linux
+distribution now has system D doing
+pretty much everything as far as
+services and all that stuff goes and
+it's no different with syslog like the
+way that log files are created however
+however it does kind of integrate with
+syslog so that you still get
+conventional
+text-based log files even though systemd
+itself uses binary log files and you
+need to use Journal CTL to look at those
+but that's not mentioned in this
+objective so we're not going to cover
+like Journal CTL and systemd formatted
+log files but just know that systemd has
+its hooks in there and it still will
+create some log files using the
+traditional syslog stuff which actually
+isn't even syslog now it's R syslog in
+almost every distribution but I'll show
+you where those configuration things are
+because again this is about configuring
+the service and you still can configure
+syslog Services even if underneath it's
+often relying a lot on systemd we're
+still on the same system again they're
+pretty much all the same in this regard
+but if you go into VAR log I think we've
+talked about this in in other videos
+like this is where most log files live
+right this is where uh you know syslog
+itself lives you'll see here this is
+where everything goes to by default but
+there is a configuration file that will
+split them up you'll see there's a lot
+of different files in here not every
+single thing is dumped into the syslog
+file so if you go into
+Etc r syslog d or rsyslog.d
+and look there's a the one file that's
+going to have most of the configurations
+is going to be
+this 50-default.com and this is just
+what I want to show you basically this
+is where it splits up incoming log stuff
+into multiple files and so here it says
+like mail is going to go into
+varlogmail.log and in instead of just in
+the standard uh syslog file so this is
+where you would make changes to how
+things are logged what level things are
+logged all of that sort of thing this is
+where that configuration is is in the 50
+Dash default.com inside the r syslog
+folder in the ETC folder hopefully all
+that makes sense now there's stuff that
+we could go over but I don't want to go
+too deep into the weeds as far as syslog
+stuff goes and uh
+as far as log rotate it's not even
+mentioned in the objectives because most
+of the log rotate stuff is actually
+handled by System D go figure however it
+is important to understand what log
+rotate does and that is it it will like
+take a log file after a certain amount
+of time or a certain size and it will
+truncate it that's why you see like uh
+something dot log.1 something.log.2 it
+is important that you understand how
+that works if you do stuff like set up
+Docker containers that might get long
+log files because systemd is not going
+to manage those log files for you so you
+may have to set up that log rotation or
+your hard drive might fill up on you I
+actually do have a whole playlist on on
+Docker stuff and one of the things I
+talk about is uh configuring log rotates
+so that you don't fill up your hard
+drive so you might want to check that
+out as well but let's get to time
+synchronization actually I just picked
+up my notes we're not quite there yet we
+have to talk about a Locale CTL which is
+is honestly it's just a command line
+tool that came with guess what package
+it came with guess what package it came
+with yeah systemd so we're back on
+Ubuntu here I'm going to clear this
+actually let's do CD and then clear what
+we can do is do Locale CTL and it's
+going to you can do that or you can type
+Locale CTL I think status here do the
+same thing yeah and it's going to show
+us the Locale information meaning like
+localization stuff like how do numbers
+look do they have commas or or periods
+or what all those different things like
+do you have a dollar sign like if you're
+in the US or or whatever the symbol in
+other countries are for your currency
+this is the Locale information but if
+you wanted to change this for whatever
+reason you could also use the Locale CTL
+command to change the Locale for your
+system first of all we can see the
+available locales so we could type
+Locale CTO I think it's uh show no list
+list locales and it's going to list all
+the available locales that are installed
+on our system and so we have uh here
+these are the ones that we have now this
+is going to be important for certain
+packages like for example if you do
+postgres
+databases they're really big on what the
+system Locale is and if you don't have
+it set to the proper thing and then you
+change it the existing databases might
+have issues so it is important to set
+this up it's usually set up when you
+install the system but nonetheless it is
+an important thing to look at and so
+this is how you would set it you would
+just do as root sudo locale
+CTL set Locale and then like Lang for
+language equals uh we're gonna do well
+it's already set to this but maybe it'll
+give us an error underscore Capital us
+Dot utf-8 and so there I I set I set my
+Locale to that I could have set it to
+something different and then set it back
+but if we do Locale CTL we're gonna see
+that is what it's set to so that's how
+you set the Locale on the system but now
+now for real we can do uh Time stuff and
+there are three basic uh ways that a
+Linux system will keep its clock
+synchronized to the rest of the world
+now the oldest one is just ntpd Network
+time protocol Daemon and that uses the
+ntp protocol well that's redundant
+Network time protocol protocol anyway it
+uses that protocol to communicate with
+remote servers and it can do multiple
+ones and it like checks for like
+staggered time and it just keeps it very
+very accurate
+um there's also a newer program called
+crony and cranny has a server and a
+client all in the same package and they
+work together but the difference there
+is well it's it's just like ntp it's a
+rewrite from scratch of ntpd but it has
+better it's just better right it does
+better synchronization it does faster
+synchronization with Time stuff but
+there's also the most common one which
+comes with
+system D and it's called system D Dash
+time sync D and this comes like on
+default with Ubuntu and a lot of other
+distributions and the difference here is
+it doesn't have a server component to it
+it doesn't uh like
+allow other computers to sync up with it
+and it won't go to multiple places and
+like find the difference in like how
+long it took for uh you know the Ping or
+the time to travel and do all this crazy
+stuff it will just get a time from a
+server and set its local time to match
+that it's uh very simplistic it's
+usually all you need but if you need
+something more precise you'll want to
+install one of the daemons either crony
+or ntp d uh in true systemd fashion it's
+kind of integrated in the system in a
+really bizarre way depending on the
+distribution you're on so we're going to
+look at three different distributions
+because we have three different tools
+the first one we're going to look at is
+an Ubuntu stock out of the box so you
+can see what that looks like now
+regardless of the distribution they're
+all going to use the tool time date CTL
+in order to show you how the system is
+synchronized sort of thing now of course
+time date CTL account comes with system
+D but everything uses it now and just
+like with Locale CTL if you press enter
+it's going to show you the information
+you could also type status but it shows
+you the status if you don't give it
+another command so that's the default
+but basically what we have here it shows
+the the local time universal time uh the
+RTC real-time clock time and then what
+our current time zone is we can set the
+time zone using this I'm not going to go
+into that it's just like setting the
+Locale you'll just like list the time
+zones and you can set the time zone
+doing that or you can use like TZ config
+on your system so there's lots of ways
+to do it but that is one thing you can
+do with time date CTL that the program
+is manage the time zone but it shows us
+that our system clock is synchronized
+and that ntp service is active
+however it doesn't mean ntpd the Daemon
+it means it's using uh you know an
+online and it's actually using S ntp
+which is a simple ntp thing that has the
+client only installed and we can check
+that if you want just by doing like PS
+aux and then grep for time sync and it's
+going to show us all sure enough we have
+a systemd times sync dink D that's the
+thing that's installed by default it's
+keeping our system up and running that's
+cool now we can control a couple things
+with this we could say time date CTL
+set ntp off and what that's going to do
+is it's going to turn off this time
+synchronization damage so if we do a
+Time CTL now it's going to show us that
+the ntp service isn't active our our
+system clock is still synchronized
+because like it just has you know it's
+running so it hasn't like gone out of
+sync all of a sudden but it's an
+inactive service so it's not currently
+being synced and the interesting thing
+is it actually does system D commands
+behind the scene to disable that time
+sync Daemon in the background so if we
+do that PS aux and then grep for time
+sync again it's not running and so we
+can set that we want that back on right
+you want your system to stay in sync and
+so time date CTO set ntp even though
+we're not using ntpd it's not the Daemon
+it's talking about the protocol here so
+set ntp on and it's going to use the the
+Daemon that it is configured to use
+which happens to be systemd times sync D
+so we do grip there it's running again
+okay now if you are do using time sync D
+there's one more cool thing we can do
+time date CTL
+time sync Dash status so not just status
+but time sync Dash status and this is
+going to show us what server it's
+connecting to how often it pulls and
+just information about the offset and
+all that sort of stuff so you can get
+information if you're using the system D
+based time sync d That's Ubuntu out of
+the box how it normally goes goes if you
+need something more precise you can
+install ntpd or crony if we're going to
+go to Red Hat though and by default red
+hat does not use time sync D it uses
+crony like out of the box that's what it
+uses and so uh we're gonna look at that
+now if I can switch over boom okay so
+here we are this is uh Rocky Linux here
+let me move my face here see Rocky Linux
+running so it's just like red hat and
+here we have the same command we have
+time
+date CTL and we're going to see that the
+system clock is synchronized it says ntp
+service is active oh cool that's awesome
+however if we do this psux grip time
+sync whoa there's no time sync Damon
+running that's because red hat is using
+crony behind the scenes but
+time date CTL integrates with crony even
+though it's not it's its own native
+system dbase time synchronization thing
+it still integrates with chroni so we
+could still do
+um time date CTL
+set ntp off
+and now if we do the time bait CTL we're
+going to see that ntp Services now
+inactive but what it deactivated is
+crony not time sync D and so in fact
+let's let's reactivate it so I can grab
+and show you so I turn it back on it
+started that system D service for crony
+and we can do psaux and grip for cron
+this time and sure enough crony D is
+running and that's how it is keeping up
+with the system so so that's really the
+difference between like a Ubuntu system
+running the standard default client only
+time sync D and red hat which installs a
+crony which is a client and server that
+is a little more precise but works
+pretty much the same way now it just
+because I like to be clear and upfront
+with you it isn't always as simple as
+this nice smooth integration with time
+date CTL and cranny for example all
+right so Big Tuna this is actually just
+the computer that we're recording on
+this is my desktop works station it's
+running Debian and I do I mean Debian
+runs systemd but I have
+time date CTL here as well and you'll
+see that time is synchronized yes but it
+says ntp Service instead of active or
+inactive it says not any and that's
+because it it is not in control of or
+has any integration with the underlying
+system that is keeping my my system in
+time and that's because I'm using ntpd
+on this server and we can we can do that
+or check that by doing psax and we'll
+grep for ntp and we're going to say sure
+enough here I have ntp running this is
+the ntp Daemon that's what's keeping my
+system going unfortunately there's not
+that direct integration like there is in
+red hat with crony so if we do something
+like uh time date CTL set ntp off it's
+going to be like uh no it's not
+supported so it's important to know
+what's going on behind the scenes
+because sometimes the the one simple
+command to rule them all like time date
+CTL is not going to be able to control
+your underlying Daemon depending on what
+you're running and so if you need to
+configure crony or ntp it's going to be
+in the ETC folder just like other things
+to configure like what servers you're
+connecting to and that sort of a thing
+but the biggest takeaway is
+understanding that there are basically
+three different synchronization programs
+that might be running on your system it
+could be just the built-in system D
+times sync D or it could be cranny if
+you're in a red hat based system or it
+might be ntpd so time date CTL will show
+you if your system clock is up to date
+and you may or may not be able to use
+that to configure the actual
+time servers now you can set the date
+and time with it but there's other tools
+that we've talked about to set the date
+and time as well but again systemd often
+comes with a Zone set of tools to do the
+same thing you can do with other stuff
+so anyway hopefully that's helpful you
+can play with your system you can
+install any any
+Damon that you want to keep track of
+your time generally what they come with
+by default is fine for most server
+situations you know you don't have to
+have like hundredths of a second
+Precision for most applications but if
+you do you're going to want to install
+something like cranny because it is
+better at maintaining that perfect
+time on your system anyway thank you for
+tuning in thank you for your patience
+it's been so long it's about time I made
+a video
+anyway uh remember to learn everything
+do what you love and most importantly be
+kind thank you to everyone and all my
+patreon supporters who I forgot to
+scroll but pretend they're scrolling
+here they're aren't they so nice oh oh
+look oh that person is amazing I I'm
+horrible I'll see you next time

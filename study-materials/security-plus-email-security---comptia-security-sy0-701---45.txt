@@ -1,0 +1,177 @@
+if you check your spam folder right now
+you'll probably find some messages in
+there that say they're from a friend or
+a family member but obviously those
+messages did not originate from those
+people that's because the protocols that
+we use to get emails from one server to
+another don't have a lot of Security
+checks built into the protocols
+themselves we've had to add on
+additional security features just to
+include some type of checks and balances
+with our emails and it's remarkable how
+many of these emails in our spam folder
+are spoofed this means that the name
+that is on the email is not the person
+who actually wrote this email this is
+obviously a significant concern not only
+for individuals but for corporations and
+other organizations they want to be sure
+that if you receive a message that it
+really did originate with that person
+for example you may see an email from me
+that says it came from James
+professormesser.com but how do you know
+that that message really originated from
+me fortunately there are additional
+Security checks that we can add to our
+DNS servers that will allow us to
+confirm if an email address was really
+sent from a legitimate server first we
+need some device that will be able to
+make the decision on whether this email
+is legitimate or if it should go into
+the spam folder this decision is often
+made by the mail Gateway this is the
+gatekeeper of all of the mail for your
+organization sometimes there's a single
+server there may be mult multiple mail
+gateways for your environment this will
+take information coming from other mail
+servers on the internet and it will grab
+those emails before putting them into
+your email inbox it checks those emails
+to see if it was really sent from a
+valid source and if it's valid it gets
+put into your inbox if it's not valid it
+will probably be discarded or put into
+your spam folder if you have a mail
+Gateway that is on premises then you're
+probably putting that into a screened
+subnet because it does need to
+communicate with other devices on the
+internet but of course you could have
+that mail Gateway function also stored
+in the cloud and there are many
+thirdparty services that will provide
+that functionality for you if you're in
+charge of email for a domain then you
+need to add a sinder policy framework or
+SPF record to your DNS server this SPF
+protocol defines which email servers are
+authorized to send mail on our behalf
+these are added to your DNS as a text or
+txt record that means that anyone on on
+the internet could query your DNS server
+to see the values that are saved in that
+text record so when an email that I sent
+to a third party is received by that
+third party's email Gateway it will
+check my DNS server and try to find all
+of the servers that are allowed to send
+mail on my behalf in this txt record you
+can see for professormesser.com that
+mail gun. org is allowed to send mail on
+my behalf and if the third party looks
+through the headers of that email and
+they see it originated at mail gun. org
+they can feel comfortable that this
+email really did originate from an
+authorized server if you have a webbased
+front end to your DNS you can add this
+information very easily this is a text
+record that I'm adding this is the
+content of the text record that says for
+professormesser.com we're going to
+include mail gun. org as one of the
+authorized
+servers an additional verification to my
+outgoing emails can be provided using
+digital signatures I can configure my
+mail server to automatically digitally
+sign all of the email being sent to a
+third party this is using a key that can
+be validated from a dkm or domain Keys
+identified mail record that is in my DNS
+this is not a digital signature that I'm
+adding to my message this is a digital
+signature added to the transport process
+between mail servers this is not
+something that's commonly seen in your
+email you would have to look at the
+headers of the email and you should find
+a dkim signature in those headers the
+receiving email server can then query my
+DNS server and find the text record
+containing the dkim public key that
+public key can then be used to validate
+the digital signature and confirm that
+that really was sent from my server
+because the DCM information is also
+added to a DNS text record it's the same
+process as adding an SPF record you can
+see that we're putting in host name
+information there's the content which is
+the public key for this record and then
+we can save the changes into our
+DNS when I send an email to a third
+party they're able to validate the SPF
+and dkim information and feel
+comfortable that that email really did
+originate from me but what if the SPF
+and dkim information did not properly
+validate what process should the
+receiving email server take with that
+particular email we can specify what we
+would like people to do with those
+emails by adding a a dmar record to our
+DNS dmar stands for domain-based message
+authentication reporting and conformance
+this is an extension of the sender
+policy framework and the domain Keys
+identified mail function as you probably
+guess there is a DNS text record that we
+would add defining what to do with these
+messages that don't validate and we can
+specify different actions depending on
+what we would like to have happen to
+these emails for example your options
+for Demar are to accept all messages
+send those messages to a spam folder or
+simply reject those emails so now when
+that third-party mail server is not able
+to validate the email they can check
+with my DNS server to see what I would
+like to have happen to those messages
+another nice feature of Demar is you can
+specify a destination for compliance
+reports this means that the receiver of
+email messages that say they're from me
+can validate those and create a report
+showing how many of those messages
+validated proper L and how many of those
+messages did not validate properly all
+of these metrics can be sent to one
+centralized reporting engine this allows
+the domain owner to create report
+showing how many messages are being sent
+and validated properly on the internet
+and how many messages may be sent that
+are spoofing my email domain here's a
+DeMark record and it is added to the DS
+server as a txt or a text record you can
+see that it's designated as dmark 1 I've
+set my emails to be put into quarantine
+if they're not properly validated and
+all of the statistics aring the
+receiving of these email messages is
+sent to one Central DeMark reporting
+engine now I as the domain owner can go
+to this reporting engine and get an idea
+of how many emails are being received
+properly by the in users and how many
+emails may be spoofed by a third party
+and what the disposition of those emails
+might
+be

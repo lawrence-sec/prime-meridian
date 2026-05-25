@@ -1,0 +1,270 @@
+I'm James Messer and welcome to
+Professor messer's Sy
+y701 Security Plus training course in
+this video I'll give you an overview of
+this training course and give you an
+idea of what to expect in this course as
+we go forward if you're working towards
+your Security Plus certification then
+you're probably already aware that
+CompTIA is one of the largest
+certification bodies in the world if
+you're working in information technology
+or you're looking to get a job in
+information technology then you're
+probably familiar with their A+ Network
+plus Security Plus and many of their
+other industry certifications and of
+course if you're working towards a
+career in cyber security it security or
+any of those related fields Security
+Plus is a great place to start you might
+also find that many organizations
+require you to have a Security Plus
+certification to work for that
+organization this is especially true for
+governmental agencies or very large
+corporations that have an emphasis in in
+cyber security but even if you're not
+required to earn a Security Plus
+certification for your job this can
+still provide you with a great deal of
+personal knowledge and
+satisfaction CompTIA stands for the
+Computing technology industry
+Association and they are the largest
+provider of independent certifications
+in the IT industry there are a number of
+organizations that are part of CompTIA
+and these include it resellers
+Distributors manufacturers and other
+organizations that have key Technologies
+associated with the it field the CompTIA
+certifications are recognized in over a
+100 countries and you'll find that the
+exam is available in many different
+languages if you're looking for a
+Security Plus course from someone who
+has been in the IT industry and worked
+in cyber security then you're in the
+right place my it experience ranges from
+supercomputer operation software
+engineering network analysis and
+ultimately cyber security systems
+engineering I'm also a training course
+author and publisher with many different
+courses available and of course I have
+A+ Network plus Security Plus and many
+other IT industry
+certifications the version of the
+Security Plus exam that we're going to
+talk about in this course is the one
+that was released on November the 7th of
+2023 and it's labeled with a version
+number of Sy
+y701 if you're working to take the Sy
+y701 exam then you should be sure that
+all of your study materials have been
+specifically written for this version of
+the exam depending on when you're
+watching this video you might want to go
+to the CompTIA website and verify that
+the Sy
+y701 is still the most current version
+of this exam if there's a newer version
+of the exam available you might want to
+come back to the Professor Messer
+website and look for the most updated
+version of this course you'll also find
+that this course consists of over 120
+different videos I've taken all of the
+topics from the the exam objectives and
+created bite-size videos so that you can
+find exactly what you're looking for
+learn that piece of information and then
+you can decide to watch another video or
+come back later and continue your
+studies this is also a complete course
+for the Sy
+y701 Security Plus exam we haven't left
+out any information and all of our
+videos are written to correlate exactly
+with the compt exam objectives the
+videos I make available are not a subset
+of the videos I don't hide anything
+behind a pay wall and you'll find that
+every minute of every video in this
+course is available for you to watch for
+free on YouTube the goal in this course
+and all of the courses that we create at
+Messer Studios is to give you your first
+job in it or get you a better job in it
+earning these industry certifications
+can help with your overall professional
+development and ultimately provide you
+with more flexibility for higher paying
+jobs in the future there's nothing
+special you have to do to gain access to
+these videos all of these videos are
+fully indexed on my website and you can
+watch them for free online one of the
+things that I also provide is an offline
+version that you can purchase so that if
+you wanted to download every video and
+all of the audio files associated with
+this course they're available on my
+website for a fee we also make
+additional study materials such as
+course notes and practice exams and you
+can also find out about those on my
+website as well to watch the videos or
+learn more about these additional
+training materials visit our website at
+professormesser.com
+to earn your Security Plus certification
+you take a single exam this exam is 90
+minutes long and you could get a maximum
+of 90 questions although you could get
+fewer than 90 questions during your exam
+the scoring system for this exam may be
+different than what you might be
+accustomed to it's on a scale from 100
+to 900 and you need to score a 750 to
+pass your exam there are five areas of
+focus for this exam CompTIA refers to
+these as domains domain 1.0 is the
+General Security Concepts and it's 12%
+of your exam domain two is threats
+vulnerabilities and mitigations and that
+is 22% of the exam that you'll take
+security architecture is domain three
+that is 18% of your exam security
+operations is domain four that is 28% of
+your exam and domain five is security
+program management and oversight and
+that makes up 20% of your exam
+a majority of the questions that you'll
+get on your exam are multiple choice
+questions where you'll get a single
+question and multiple answers to select
+from that's obviously very
+straightforward you can choose A B C or
+D and if you get the right answer then
+you earn points for that question but
+CompTIA also asks other types of
+questions and you may get a handful of
+these questions at the very beginning of
+your exam these are questions that might
+be matching drag and drop sorting or
+some other type of question format
+CompTIA refers to these as
+performance-based questions and they
+require you to perform a task or
+complete some other type of process
+that's different than a typical multiple
+choice question to be able to answer
+these multiple choice questions or
+performance-based questions you'll need
+to know the content that comes directly
+from the compy exam objectives and these
+videos step through every single bullet
+that's in those objectives to be sure
+that you know exactly what's expected to
+you when you walk into the exam room
+those official objectives are free for
+you to download and they are a wealth of
+information you can get a link from them
+directly at comptia.org I have links on
+the Professor Messer website that will
+lead you also to the correct pages on
+the CompTIA website once you have those
+exam objectives you can put them side by
+side with our videos and step through
+each video at a time to cover every
+topic from the objectives I also
+recommend that you get a good book we
+have some choices that might be good for
+you on the The Professor Messer website
+and get plenty of Hands-On so you can
+try out some of these different ideas
+and techniques in your own time using
+your own system and before you walk into
+your actual exam you might want to step
+through a series of practice exams and
+we have plenty of practice exams on the
+Professor Messer website for you to go
+through you'll notice that the exam
+objectives from CompTIA are numbered by
+domain and subdomain numbers and my
+videos are numbered exactly the same way
+which makes it very easy for you to look
+at a topic in the exam objectives and
+immediately find the right video that
+correlates back to those topics if
+you're using a thirdparty book it's very
+common that there would be an appendix
+for cross reference or they may give you
+a list of the comp exam objectives at
+the very beginning of a chapter that
+makes it very easy for you to correlate
+what's in your book with the appropriate
+videos to watch for that topic we've
+designed this course so that you can
+start at the beginning and watch all the
+way through or if you're reading a book
+or need to find a particular particular
+topic you can easily jump into a video
+learn exactly what you need to learn and
+jump right back out again you can use
+the technique that works best for your
+style of study there are two different
+ways to take your exam you could either
+take it at a testing center or you can
+take it at home there are advantages and
+disadvantages to both so you should find
+the method that works best for you a
+thirdparty testing center is usually a
+training center a community college or
+something very similar and they have
+inside of their facility a training room
+specifically set up to provide these
+exams that means all you have to do is
+register for your exam and show up at
+the right time at the testing center and
+they'll take care of everything from
+there CompTIA wants you to have as
+secure a testing environment at home as
+they can provide in a testing center so
+be sure to check the CompTIA website so
+that you know the rules and regulations
+when you're taking an exam in your home
+that's everything you need to get
+started you can check the Professor
+Messer website for books training videos
+and so much more whether you're stepping
+through our comprehensive video training
+course you're looking through our course
+notes or practice exams everything you
+need to be successful for this exam is
+available at professormesser.com as I
+mentioned earlier you'll also want the
+exam objectives and I have a link to the
+CompTIA website from professormesser.com
+objectives we also maintain an amazing
+community of people that are working
+towards their certifications you'll find
+our Discord chat is a ailable at
+professormesser.com
+Discord and if you'd like to have some
+fun with your studies join us for our
+monthly study groups where I ask you
+questions that come from the exam
+objectives and you'll have an
+opportunity to ask questions of me
+regarding the exam technology or
+anything else that you'd like to ask
+we'll be with you for every step of your
+Security Plus studies and we wish you
+the best with your certification efforts
+we'll see you in the next
+video

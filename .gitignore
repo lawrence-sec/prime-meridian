@@ -30,3 +30,4 @@ logs/
 # Build
 dist/
 .cache/
+ingested.json

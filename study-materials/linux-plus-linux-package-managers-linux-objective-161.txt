@@ -1,0 +1,633 @@
+hello everybody I'm Sean powers and
+today we are talking about packages oh
+my God look at my package
+no we're talking about Linux packages
+specifically RPM and Deb based package
+management as part of the Linux plus
+exam objectives whether or not you want
+to take the exam that's where we're
+basing this video on so we're going to
+look at package management using
+multiple tools dnf yum apt zipper and
+we're going to look at the two different
+types of packages that are specified
+here RPM and then it doesn't spell it
+out but D packages for DOT Deb files and
+that's what we're going to look at even
+though there are other options out there
+for package management these are the
+main ones that we're going to look at
+they're the most common they're used in
+Red Hat variants and Debian variants
+like Ubuntu Etc and we're going to talk
+just briefly about these this is an odd
+sort of thing they added on to the
+objectives but kernel updates generally
+require a reboot not always but almost
+always they'll require a reboot and I'll
+have to rebuild a bunch of modules so
+this isn't necessarily done every time
+you update your system you can update
+packages either like depending on your
+distribution you can update all the
+packages you can update the packages
+that are in need of security updates uh
+there's a there's several different ways
+you can go about updating packages and
+kernel updates and the most important
+thing is to make sure that you have the
+most recent versions if there are
+security fixes but we're going to look
+at a bunch of different tools that you
+can use to manage packages on your
+system and because by default just
+managing individual packages is not the
+way to go because like I said we're
+going to look at Dev files like dot Deb
+which Debian is where that came from and
+then dot RPM which stands for Red Hat
+package manager and back in the old days
+there didn't used to be like this big
+database way to install and manage the
+things on your system you used to have
+to install the dot RPM or the dot Dev
+files and it was really a pain in the
+butt because an individual RPM file or
+dub file does not necessarily contain
+all the dependencies although they do
+know what dependencies they require and
+if you try to install them manually you
+end up with a nightmare let me show you
+what I mean first we'll start with Rocky
+Linux which is the same as red hat so it
+uses RPM so this is like I said Rocky
+Linux which is just like a red hat
+Enterprise Linux version nine I think
+this is red or this is Rocky version
+nine anyway in here I have an RPM file
+now this is not like I said normally how
+you would get and you know a file
+installed on your Linux system but it
+used to be this way and occasionally
+you'll have to install an RPM but let's
+say we had this RPM file and we wanted
+to install it using just the RPM tools
+not the package management system well
+we would do sudo RPM Dash I for install
+and then the file that we want to
+install and now if there are no
+dependencies or all the dependencies are
+already installed on your system hey no
+problem however well I got to put in my
+password
+you'll see here it's not going to
+install because we also have to have a
+lib team and uh libteam so.5 which is
+probably uh part of the lib team file
+yeah that's actually what it's saying it
+needs it from the lib team file so what
+we'd have to do is then go online and
+try to find the proper version of lib
+team
+a DOT RPM with like the exact version
+that we're looking for on the repos we
+would install that and then if that has
+its own dependencies we end up in
+something that used to be called RPM
+hell and it was kind of a play on the
+term of dll Hell which is what Windows
+users would talk about like this dll
+Dynamic link library and windows
+interferes with this dll and so I can't
+have them both installed and I can't get
+my package to work etc etc so this used
+to be a very frustrating way to install
+packages and of course it's not limited
+just to RPM based things the same thing
+is true like on a Debian or Ubuntu
+system that uses devs so here I'm on an
+Ubuntu system which uses dot Dev files
+and you'll see I've already downloaded
+this is a curl like the curl we talked
+about in a previous video curl is a to
+fetch a URL or you know a file online
+the curl program though to install it we
+could use the d-package system or the
+d-package program which manually
+handles.dev file so we could do sudo D
+package Dash I for install and then this
+file curl blah blah blah blah blah and
+we'll press enter and if there were no
+dependencies that were unmet it would
+have installed and it would have been
+installed on our system and we could use
+it however just like with that RPM file
+this says well no this depends on lib
+curl for and so in the old days we'd
+have to like go and find the lib curl
+with the exact version that it's looking
+for install that Deb file of course that
+Deb file might have some other
+dependency like lib curl might depend on
+g-lib C or something and we have to find
+that one and go all the way back until
+all the dependencies were met but
+thankfully there is a better way in fact
+there's quite a few better ways because
+in the world of RPMs like using red hat
+or rocky Linux or even Susa Linux which
+also uses the RPM system there's a pack
+package Management Systems which kind of
+wrap around RPMs or devs in the case of
+a you know Debian based system and they
+kind of keep a database of all the
+available packages on a repository on
+the internet and when you say I want to
+install something it says okay what else
+what other dependencies are there and
+then it finds all of those dependencies
+downloads and installs them all so you
+don't have to track down each individual
+one it has made managing Linux so much
+better than it used to be but there are
+a lot of ways to skin the same cat which
+is a horrible horrible metaphor I don't
+like that there's a lot of ways to
+manage packages in Linux so I'll show
+you the various ways mentioned in the
+objectives but no there are others like
+if you're an Arch Linux there's going to
+be Pac-Man we're not covering that we're
+just going to cover the ones mentioned
+in the objectives and they are the most
+common so for example we're back here
+we're on Rocky Linux which like I said
+is just like Red Hat Linux and instead
+of using the RPM tool we can say oh well
+there's two different tools that come
+with red hat variants which is
+interesting one is Yum which stands for
+Yellow Dog updater modified there's
+another whole story there and the other
+one is dnf which was written by red hat
+and it stands for dandified yum which I
+think is a little bit silly dnf is newer
+it's the one that you should be using on
+a red hat based system because it has a
+few more features like the ability to
+roll back if you want to make a change
+I'll show you what I mean but first of
+all to install like let's say this uh
+this team D thing that I had downloaded
+we could say sudo uh yum
+install
+Team D and this is the difference see we
+couldn't install it before because there
+were dependencies the dependencies were
+lib team and like I said lib team might
+have its own dependencies and sure
+enough it does if you look
+lib team apparently depended on lib
+nl3-cli but the nice thing about using a
+package management system like yum is
+that it gets all of those dependencies
+and it will install all of them so in
+order to use yum to install this team D
+package that I just randomly picked I
+would just say yes and it would download
+all of the packages required install the
+dependencies and then install that
+package now I'm going to say no not
+because this doesn't work this would
+work perfectly fine but I want to show
+you how you would you do the exact same
+thing but using dnf and in fact that the
+command line flags are almost identical
+when you're using dnf or yum so let's
+see sudo dnf
+install Team D
+and I look at it even looks exactly the
+same right it's just has some more
+features so it's yum but dandified thus
+the name dnf
+um and this is going to do the exact
+same thing it's going to download the
+dependencies we'll actually do it this
+time but it does the same thing whether
+you're using yum or dnf
+um it's saying that there is a gpg key
+do I want to import that I'm going to
+say yes I want to import that and boom
+there it is installed it and now it's
+running and it keeps up it keeps like a
+database of everything that is installed
+on the system so the next time we
+install something if one of its
+dependencies is this team D or or lib
+team or whatever it was it'll say oh
+that's already installed I don't need to
+download that so like I said yum and dnf
+are almost exactly the same when you're
+using them on the command line it's very
+possible that yum will go away in the
+future right now it's still installed
+it's still perfectly cromulent way to
+you know manage the packages on your
+system and you can mix or match you
+could use yum and then you could use dnf
+they have the same database of
+information that they pull from so you
+can use either or right now but it would
+not surprise me if yum goes away at some
+future version of red hat stuff it's
+just been replaced by dnf so there's no
+reason not to use dnf and dnf will do
+like I said it will roll back it'll
+allow you to take back uh like if you
+install something in your side you want
+to undo that dnf allows you to do that
+whereas yum does not and that really is
+one of the big differences between the
+two is dnf has more features that being
+a main one but whether you're using dnf
+or yum you can do things like update
+which will update all the packages on
+your system if you say update and a
+package name it will only update that
+one package I'll show you really quick
+how to do the rollback because since we
+use dnf we could roll back so we're back
+here on the system that we just
+installed uh Team D Actually I don't
+even know what team D is but you just
+installed that and now if we do dnf now
+we don't have to be root to do this one
+but we could say dnf
+history
+and it's going to show us the stuff that
+it did now it says it shows a full
+history you're going to see that before
+the video I actually removed Team D so
+that all this would work but this shows
+a history of all the things that have
+been done with dnf on the system and
+since we see that this was done the
+install Team D was um ID number three so
+we can say now this does require sudo
+because it's going to make some
+system-wide changes we could say sudo
+dnf history undo and then the number
+three that last thing if we do that
+it's going to remove the packages and
+the dependencies that we just installed
+basically it's going to just roll back
+exactly what we just did
+so I'm going to say yes
+and now we have we don't have Team d
+installed anymore so that's one of the
+advantages of dnf over yum when it comes
+to upgrading packages on your system
+whether you're using yum or dnf there
+are two very similar sounding and kind
+of confusing terms you can either do uh
+yum or dnf update and if you do that if
+you specify a package it's just going to
+update that one package but if you do it
+without any other you know things at the
+end just update and press enter it's
+going to update all of the packages on
+your system which is normally what you
+want to do normally you want to update
+all the packages to get them up to date
+and you can see there's a whole bunch of
+them it actually shows you different
+kinds like it's going to install a new
+kernel because there's a new kernel and
+then it will activate that so I'll have
+to restart it's going to upgrade all
+these packages and it's going to install
+these dependencies down here because the
+new updated packages require updated
+dependencies as well so you can can do
+update and that's pretty safe the other
+thing the other option that you have I'm
+going to say no here the other option
+you have and again whether using dnf or
+yum so we'll use dnf this time just
+because you can say upgrade instead of
+update and the difference here is that
+it's going to allow the system to get
+rid of obsolete packages and these are
+packages that are obsolete no longer
+like current however it's possible that
+some of those packages are things you're
+still using so it's a little more
+dangerous to do upgrade a lot of times
+if you have update upgraded from like
+red hat 8 to Red Hat 9 on your system
+you can do upgrade and it will get rid
+of obsolete packages and replace it with
+updated ones but just know that it could
+break stuff if you're actually using
+those older packages so upgrade is
+generally not used as much as update on
+a red hat system but we'll say upgrade
+and it's going to do the exact same
+thing in this case it's the same
+packages there aren't any the obsoleted
+ones that it's you know worrying about
+getting rid of because again we're not
+changing anything drastic on our system
+and so it's going to do the exact same
+thing but just know that upgrade has the
+potential to Break Stuff uh easier than
+update does and it I hate that it's like
+such similar words but the thing is
+upgrade think of it as like I upgraded
+to a new version of the Linux system as
+opposed to just updating my current
+packages maybe that'll help anyway we
+say why it's going to go download all of
+the stuff it's going to install it again
+in this case it's a kernel package that
+it's updating and going to recompile all
+the all the modules that it needs to and
+it will tell us that we need to reboot
+in order to you know complete and
+activate it and so if that's the kind of
+thing that it's a production system you
+might have to time when you can upgrade
+it if it's going to require a reboot now
+you probably remember that I said Souza
+Linux also uses RPM and that's true the
+underlying packages are RPM on Azusa
+Linux box however it does not use yum or
+dnf to manage the packages it uses
+something called zipper and so I'll show
+you that again the underlying stuff is
+still RPM files and that's how it you
+know maintains its packages but the
+actual system to keep track of
+dependencies and what's installed and
+and where all the repositories online
+are and stuff that uses the zipper
+program which is completely different
+from red hat or rocky Linux so I'm here
+on open Souza and this is again an RPM
+based system but it uses zipper and
+zipper has slightly different commands
+in order to do things rather than just
+update and upgrade there are update or
+just up it allows you to use shortcuts
+there is dist upgrade which is very
+rarely used and that's the same sort of
+thing where it can remove packages for
+you uh even if you don't want it to so
+we don't normally do dist Dash upgrade
+but zipper or open Souza has another
+option that red hat does in it that's
+called patch and patch basically just
+installs the very important things like
+security updates and stuff that you know
+if there's a security release that has
+to be installed even on a production
+system you can do patch and it will
+install those without updating all of
+the other packages that may have updates
+but they're not like super important
+they're not security related updates so
+patch is something that you can use more
+often on a production system knowing
+that it's just going to update the
+things that are a security risk on your
+system it's kind of cool actually and it
+works similarly uh sudo z y p p e r is
+the program instead of dnf or yum it's
+zipper and then you can do things and I
+didn't show you this with yum and dnf
+but you can search for a package too so
+we'll do it here it works the same on
+the others I mean you can play with it
+and look at the man page but we can say
+search for Firefox I guess oh and this
+is something it says sudo password for
+root but it's my local password that it
+wants that's just some weird open Sousa
+thing and it looked in its repositories
+and these are the things that it found
+so we could install for example uh
+Mozilla Firefox we can install using
+zipper and it's going let's let's do it
+sudo
+zipper
+install or you can just do in it they're
+real big on like shortcuts but I I mean
+it's confusing enough having multiple
+ways to install packages on multiple
+distros so I'm just going to type the
+whole thing
+install
+Mozilla
+Firefox now it did the exact same thing
+it found any dependencies that it might
+need and it did find a dependency it
+said it's going to install the following
+two packages this package and this
+package in order to get the Mozilla
+Firefox and it looks like it's going to
+upgrade it it looks like it's already
+installed which is fine so do I want to
+do this why is the default but I'm going
+to say yes it's going to download all of
+those things it's going to install it
+um and I shouldn't have said yes because
+I'll just I'll fast forward I won't make
+you wait but oh really quickly look you
+see it's downloading RPM files so it is
+using an RPM system underneath so I'm
+glad I hit enter so I can show you that
+um so okay that's installed we could do
+the same thing with you know update or
+or dist upgrade but the one thing that's
+kind of unique here sudo
+zipper
+patch what this will do is it will
+there's nothing to do there are no
+security issues currently on on the
+system that a patch would would do so we
+can even if you know there are upgrades
+available or updates available for our
+packages we don't have to necessarily
+install them on a production system
+because there are no security ones
+currently available hopefully that makes
+sense that's a again a big deal but we
+could do sudo
+zipper
+update and this will update all the
+packages that are available to update
+and you can say if we if we hit yes here
+it's going to get 232 packages to
+upgrade three of them new one of them is
+going to change its architecture
+interestingly enough but notice here it
+says open Sousa Tumbleweed requires a
+zipper
+dup dup again they're all about
+shortcuts is short for dist Dash upgrade
+and that's because Tumbleweed I'm
+getting in the weeds here with Souza but
+in the weeds I didn't even mean that um
+it's a it's a rolling distribution and
+so that means that we're basically going
+to upgrade will be more more common
+because it it doesn't like have releases
+it just is a rolling release so to fully
+upgrade Tumbleweed we will do dist
+upgrade or just dup it's shortcut so I'm
+going to say no just so I can show you
+that and then we'll be done sudo zipper
+I could do dupp but again I don't like
+that dist upgrade and this is going to
+go through and now install again it's
+installing the same packages it's just
+telling you like hey when you have
+Tumbleweed the rolling distribution you
+should use dist upgrades so you know do
+it that way you will usually we don't
+use that in a production server
+environment anyway but nonetheless
+that's the difference between the two we
+can press enter and it's going to
+upgrade all of the things but it does
+tell us that a system reboot is going to
+be required because it's installing a
+new kernel which is awesome information
+for it to tell us in advance and that
+leaves us with the system that I
+actually prefer I use the most is a
+Debian based system or dot Deb files
+using apt and apt is the package
+management system for Dev files uh apt
+is used in Ubuntu and Debian there are
+some others like apt-get is kind of a
+package management system that uses the
+app database and just like you can use
+yum and dnf at the same time you can use
+apt and apt-get and it just writes to
+the same database so you can use either
+one apt alone apt is the most recent one
+and it's the one mentioned in the
+objective so that's what I'm going to
+show you that's what I use and there are
+a couple nuances with dev-based systems
+versus RPM based systems and the biggest
+difference and this really is a big
+difference is that with yum and dnf and
+zipper when you search for a package or
+install a package before it does
+anything those systems will go and
+refresh everything on the web like they
+will get an update of all of the
+available packages and versions but with
+an apt-based system
+that's an extra step you actually have
+to refresh the what is available
+database and to do that sudo apt update
+so in this case update means I want to
+update my cached information of packages
+that are available and what versions are
+on my repositories on the internet so it
+means something drastically different
+but it's important to do this first
+because if you don't update then you
+have old information you don't know what
+packages are available so sudo apt
+update oh come on there finally and it
+will get you know it'll refresh its
+cache of what stuff is available this
+goes pretty quick as you can see it's
+already done and now we can use apt to
+upgrade or dist upgrade and this is
+similar in that like the the different
+degrees of upgrade because upgrade is
+going to do all the packages that have
+updates but it's not going to allow it
+to remove package is and like do big
+changes this is the same sort of thing
+generally dist upgrade in an app system
+is a little more dangerous and dangerous
+isn't really a good word but it's it's
+more apt and that's too punny for me to
+say it's possible that if you do dist
+upgrade it might break packages on your
+system but if you're doing like going
+from one like version to another dist
+upgrade will bring all of your packages
+up to the current distribution numbers
+versions by removing old stuff and
+installing the new versions of them if
+they exist that sort of thing so
+generally you just do upgrade but dist
+upgrade is available if you have like a
+drastic change that you've done and so
+we can simply do sudo apt upgrade oh
+when we used D package to install curl
+uh it screwed up the database uh you
+remember earlier when I try to do it
+manually it actually screwed it up and
+so what we can do we could say
+pseudo apt Dash F install and it will
+fix what I broke in fact in this case
+it's going to install curl properly by
+getting its its dependencies so I'm
+going to say yes and uh that's a really
+nice feature that it will clean up my
+mess because I tried to do it manually
+even though I would never do that in
+real life I was showing you kind of the
+old way that we had to do it anyway so
+it's fixed that and now I can actually
+run upgrade and it'll say okay there are
+75 upgrades uh five new installs three
+are not upgraded 30 are standard
+security updates and so this is how you
+can keep your system up to date it says
+that these have been held back if we
+were to do dist upgrade these would also
+be upgraded but again it has the
+potential to break your system maybe
+um yeah it's it's kind of a frustrating
+thing generally you can avoid disk
+upgrade and just do upgrades and you'll
+be fine so that's pretty much what we
+would do here I just press enter it's
+going to go and upgrade all the stuff so
+depending on your system you have lots
+of options for package management the
+big thing to remember is on a Debian
+based system so using apt you have to do
+apt update and then apt upgrade in fact
+you have to do apt update before you do
+like an apt install so like if we were
+to do apt install Firefox we'd have to
+do apt update first otherwise it's going
+to try to pull an old version that
+doesn't exist anymore so you always need
+to do apt update before you make any
+changes to your system it's funny that
+yum and dnf and zipper all do that step
+automatically and app just doesn't but
+that's how it is with great power comes
+great responsibility and this is one of
+those examples anyway I hope that was
+helpful I encourage you to play with the
+different tools to see what they can do
+and the different options and and how
+they work differently install a couple
+systems distributions in a virtualized
+environment so if you break it you know
+so what and just have fun but as always
+learn everything
+do what you love and most importantly be
+kind I'll see you in the next video

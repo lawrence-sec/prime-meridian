@@ -1,0 +1,355 @@
+hey everybody I'm Sean powers and today
+we're going to dive right into the Linux
+plus course where we left off uh on
+Section
+2.3 now we're going to cover this entire
+objective uh during this video uh but
+it's not going to be terribly
+complicated the main thing is you have
+to understand how firewalls work and
+then we're going to do a couple use
+cases where we actually use the two
+different types of manipulation tools
+that are mentioned uh to do things now I
+do want to cover a couple things like
+these key features uh they're odd
+features to pull out on their own but
+nonetheless zones are uh they're a
+concept that you can use with firewall D
+which is one of the tools that we're
+going to look at and it's basically a
+nice way to separate zones like if you
+are at work you can have like a firewall
+and install that for your work zone so
+you can have things come in and be
+blocked or be allowed at work and then
+you can have another zone for like the
+public like let's say you're going to be
+in a coffee shop and then one at home so
+zones are basically just a set of rules
+that you can apply for a certain
+situation and that's a feature of
+firewall D services is just a way to
+specify the various things that we would
+allow in like if we allow an opening in
+our firewall to allow the web traffic in
+for example that service would be a web
+service or HTTP and https services and
+basically they just map to Ports right
+for HTTP it's going to be Port 80 for
+https it's going to be Port 443 so it's
+basically just a way to refer to what
+ports we're going to open for a
+particular service and then stateful
+versus stateless now this is a little
+bit tougher to understand but not too
+bad basically a stateful connection is
+when somebody from the outside or From
+the Inside Out connects two computers
+together select client and server
+they're connected but they keep their
+connection active so that they can send
+information back and forth across that
+established stateful connection that
+state stays connected okay and the
+advantage of a stateful connection is
+you allow that first you know packet in
+or you establish it from the inside out
+to a remote a remote server and then
+both sides can communicate back and
+forth through that stateful connection
+that has been established once it's
+established it's treated in a way that
+okay it's up so traffic can go both ways
+now stateless means that a port like on
+your firewall is open so you can have
+traffic come in but as soon as that
+connection and that transfer of data is
+done there's no more connection right
+that it it loses state it doesn't it
+doesn't remember that those two were
+talking and so every time information
+has to come into the you know past the
+firewall it has to meet the rules so
+like the outside server can't just keep
+talking to the inside server if that
+state isn't established and kept so
+stateless is it just means that
+basically it doesn't stay active so
+every time information tries to come in
+it has to establish a connection and it
+doesn't keep that state so that state
+full versus stateless and routers or and
+or firewalls statefulness is something
+that has to be kept track of right like
+they have to have a a table of
+connections that remain connected
+stateful and so it can use more memory
+to have a stateful connection between
+you know the client server so
+too big of a list of stateful
+connections can require a bigger
+firewall with more memory and that sort
+of a thing so that's probably all you
+need to understand as far as stateful
+and stateless goes but nonetheless there
+are there are two main uh firewall
+manipulation tools that exist on the
+Kernel level and then we have two
+different sort of wrappers around those
+underlying uh things that we can use to
+manipulate them so let's go back to that
+slide and I'll show you what I mean
+we have right here common firewall
+Technologies these are in really odd
+orders because I P tables and NF tables
+these are both kernel level
+tools that allow the the kernel to say
+what can and can't go through a firewall
+so these are pretty much similar in
+function iptables being the older
+technology that is slowly being replaced
+with NF tables and so that's why they're
+both listed however
+again I don't know why they're in this
+order firewall D and uncomplicated
+firewall are kind of like a wrapper that
+is an easier way to manipulate those
+underlying tools
+because I'll be honest IP tables it can
+be really really complicated to write
+and understand the rules that are going
+on because basically how I'm going to
+start with iptables again it's the
+oldest one uh you have basically rules
+that apply to a particular interface you
+have like a table for the incoming port
+or the incoming traffic on that Port you
+have it for like the outgoing meaning
+coming into the computer so like the the
+ethernet port is you know it's access to
+the outside world and you can specify
+rules for at the very edge and then the
+Inside Edge also you can specify tables
+to do Network address translation so
+like if you have internal computers that
+are all on like a private IP range it is
+IP tables that then become sort of a
+Browder kind of so I mean that's a
+little bit beyond the scope of this
+firewall video but nonetheless it gets
+really complicated that's that's kind of
+my point is it gets really really
+complicated
+um so rather than manipulate iptables
+directly which you can do we generally
+use tools like uncomplicated firewall in
+winner I don't know if it's in Debian by
+default but uh it's in Ubuntu by default
+this is the the wrapper to manipulate IP
+tables or firewall D which is the
+default in like red hat and and Fedor
+and things like that the actual tool is
+firewall Dash CMD to manipulate firewall
+D but it's important to note that the
+actual
+firewall itself is either iptables or
+the newer NF tables and NF tables is
+just a slightly simpler it's a newer way
+of doing the same thing that iptables
+did again that's
+not there's more Nuance but that's you
+know that's probably all you need to
+know uh that NF tables is replacing IP
+tables but because this is Linux there's
+a lot of like uh backwards compatibility
+things so as long as you understand how
+to use uncomplicated firewall or
+firewall D you're going to be able to
+manipulate the firewall rather whether
+your current version is using iptables
+or it's using NF tables you may not even
+know what's happening behind the scenes
+and so that is okay and that's what's
+really nice about having a wrapper
+system like one of these two uh in place
+but basically uncomplicated firewall is
+far simpler than even firewall D but
+they create the rules in the background
+that are applied at the kernel level
+they create these iptable tables and
+rules that get applied and so
+um when you are doing system
+administration you generally have to
+know how to use uncomplicated firewall
+or firewall D tools and so I'll show you
+really quickly how to use both of those
+again using Ubuntu and we're going to
+use Rocky Linux because again it comes
+firewall D is the default in a red hat
+based system and uncomplicated firewall
+is the default in a Ubuntu based system
+so we're here on Ubuntu and you'll
+notice that I am root here on the Ubuntu
+system I could use sudo but I just
+became root so that it was easier and I
+didn't type sudo and uncomplicated
+firewall by default is not uh enabled so
+by default it's inactive I think I don't
+think I messed that up but it's I'm
+pretty sure that's the default in order
+to activate it you just simply do ufw
+enable and did I type that wrong oh yeah
+I have to spell enable correctly and now
+it's active and it's enabled on system
+startup which means that when you do
+something with ufw it creates something
+so that it will stay persistent on
+reboot so right now it's going to come
+up and it's not allowing anything in we
+can we can tell that by saying ufw
+status
+and it's going to say it's active but it
+doesn't tell us that there's any ports
+open so let's say we installed a web
+server and we wanted to make sure that
+people could actually access it from the
+outside we would say ufw allow and then
+we would use those Services remember I
+talked about services are pointing to
+the ports that they require so I could
+say uh ufw allow http
+and then we can do multiples by just
+putting a comma in HTTPS so if I do that
+interesting well it used to be able to
+do it that way we have to do it one at a
+time no ufw allow http
+okay and ufw allow https
+okay forgive me you used to be able to
+do a comma maybe you can't now uh
+nonetheless we've enabled both of those
+services and now if we do ufw status
+we're going to see that these have now
+been opened up so basically uh Port 80
+and Port 443 uh both with ipv4 and IPv6
+are allowed from anywhere meaning that
+we can anywhere in the internet or
+anywhere on that this network Port is
+going to be available in our case it's
+an internal Network so it's just going
+to be available internally it will allow
+that traffic to come in on these ports
+now it's a little bit more complicated
+on the firewall D and I mean pun
+intended there right this is called
+uncomplicated firewall and so the one
+that's slightly more complicated is the
+other option which is firewall D and
+that is what comes with Rocky Linux or
+red hat Enterprise Linux or Fedora now
+there are like I said zones that work
+with firewall D so we could say firewall
+Dash CMD which is the command line tool
+to manipulate late firewall D we could
+say Dash that well first of all if we do
+dash dash help we're going to see all
+the commands that we can do so there's a
+bunch of different commands that we can
+do but we're going to learn just a
+couple right now and the first one might
+be uh get default Zone and it's probably
+going to be public yeah so this is the
+the default Zone if you don't mess up
+you know don't mess up if you don't
+create other zones it's going to use
+public it's the default Zone and so
+that's what we're going to manipulate
+today just know that zones exist and you
+can create new ones and then switch
+between them as you need to all right so
+we could say firewall firewall CMD
+list services and this is going to show
+us what services are currently allowed
+now again you'll see it's a little bit
+different than with uncomplicated
+firewall it just shows us a list of the
+services that are allowed in right now
+SSH is allowed in DHCP version 6 client
+is allowed and cockpit I don't even know
+what cockpit is it's a program that is a
+lot and opened up the the firewall is
+open up to allow that but we can add
+another one if we wanted we could say
+firewall CMD Dash Dash and dash service
+equals http
+and press enter and now if we do list
+Services we're going to see that it has
+been added so HTTP has been added
+however firewall D doesn't automatically
+have it happen on boot if we wanted to
+have that stick and like stay open on
+boot and also we would have to do https
+if we wanted both uh HTTP and https just
+like on complicated firewall you have to
+you have to specify both of them so if
+we did that uh it but when we restart it
+it would not stick if we wanted it to
+stick we would have to do firewall Dash
+CMD Dash Dash
+permanent
+Dash Dash
+and service equals http
+and then https and now if we restart it
+will stay because it is permanent like
+those original ones were already
+permanent these three that came set up
+by default those were already permanent
+and since now we've added these with the
+permanent flag this will be this will be
+permanent too if we restart the computer
+now the other thing specified in this
+particular objective is talking about
+how to enable and disable IP forwarding
+now we covered that in a video a while
+back but that is basically uh what
+allows your Linux computer to act as a
+router particularly well act as a router
+but that's generally used when you have
+like a Nat or a network address
+translation happening and that is in the
+proc file system you can specify IP
+forwarding equals one for yes or by
+default it's zero for no and then when
+you set up firewall rules to allow
+masquerading it will allow that to come
+through but uh that's pretty much how
+firewalls work and again the important
+thing to know is that IP tables has kind
+of been the standard for a long time I
+mean if you want some weird history
+before that it was IP chains then
+iptables took over and now NF tables is
+taking over and depending on what
+version of what distribution you have
+you may have iptables you may have NF
+tables but
+because we use a wrapper and because a
+lot of the stuff is even backwards
+compatible if you were to like directly
+use IP tables uh nomenclature when
+modifying NF tables stuff it'll probably
+still work because they try to make it
+backwards compatible uh even though it
+can be simpler you can still use that
+anyway but using the tools like ufw or
+firewall Dash CMD we can more easily
+manipulate the firewall rules regardless
+of what the back end actually is so
+anyway here are my dogs barking so I'm
+gonna go take care of them but hopefully
+this was helpful remember to learn
+everything
+do what you love and most importantly be
+kind hopefully it won't take as long for
+me to get to the next video and I will
+see you then bye

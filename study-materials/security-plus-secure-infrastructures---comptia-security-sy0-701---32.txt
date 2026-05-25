@@ -1,0 +1,153 @@
+I've worked on hundreds of different
+networks in my career and everyone's
+Network tends to have unique
+characteristics this makes sense because
+if you're working in a manufacturing
+environment your network infrastructure
+is going to be very different than if
+you're working in a medical environment
+but even with these dramatic differences
+between the overall goals of the
+organization there are still parts of
+the network that are very similar from
+one network to another we tend to use
+firewalls to help us segment the Network
+and determine where we might Place
+different devices in our Network
+infrastructure this can help us keep the
+attackers on the outside of our Network
+while allowing legitimate traffic to
+pass through but of course the firewall
+is not the only security technology we
+might use there are other devices that
+either include their own security or can
+help with the overall security
+architecture devices such as honeypots
+jump servers sensors on the network and
+load balancers can help create a more
+secure computing
+environment one characteristic that can
+help in the process of Designing a
+secure environment is the idea of a
+security Zone a security zone is very
+different than an IP address range or
+subnet description instead a security
+Zone allows us to logically separate all
+of the devices on our Network by their
+use or their access type each section of
+the network would be assigned a zone for
+example you might create a very basic
+Network design where part of the Network
+can be accessed from the outside and
+part of the network is prohibited from
+outside access you might assign one of
+those zones as a trusted Zone and the
+other as the untrusted Zone by
+themselves those names don't tell us a
+lot about what those zones do some
+organizations refer to these as an
+internal Zone and an external Zone and
+if you wanted to expand on those
+descriptions to provide more granular
+security you can have many different
+zones some that might be called inside
+internet servers databases or screened
+this makes it easier for us to
+understand what the security rule is
+based upon and it makes it easier to
+maintain these rules in a very large
+rule base for example we might have a
+rule that says we are allowed to send
+data from a trusted Zone to an untrusted
+zone or you might allow access from the
+outside the untrusted part of the
+network to a screened Zone which is
+where our screen sub might be or in
+certain circumstances there may be
+untrusted traffic that is allowed to
+move onto the trusted Network here's how
+we might put these into practice this is
+a network that has an internet
+connection on the outside there's a
+firewall and then there's a router that
+connects to the rest of the internal
+Network which includes mail servers
+database servers directory servers and
+other internal devices a very simple
+Zone configuration then might be
+everything on the outside and everything
+on the inside we might call one of those
+zones The untrusted Zone where the
+internet is and then we would have the
+inside which is the trusted Zone here's
+a similar design where we're using an
+internet Zone a screened Zone and an
+inside Zone and you can see that we have
+more granularity when we start breaking
+these up into smaller zones and can set
+more precise security rules in all of
+our
+firewalls an attacker is going to work
+very hard to find any opening that might
+be on your network and for that reason
+we should think about how would an
+attacker get into our network if this
+was our house they could get in through
+a door a window or perhaps the basement
+in our Network they could get in through
+application code an open port that might
+be in a server the authentication
+process itself or simply human error we
+could work very hard to make sure that
+we patched all of our applications and
+we've closed any open ports that are
+unnecessary on our servers but if we've
+got one firewall rule that we've
+accidentally configured improperly that
+human error could result in someone
+gaining access to our Network we refer
+to this combination of potential
+openings of our Network as the attack
+surface and our goal is to minimize the
+size of the possible attack surface for
+example we may want to audit any code
+that we're putting into our Network we
+might want to specifically block certain
+ports on our firewall and we'll always
+be monitoring traffic in real time time
+to get an idea of who's entering our
+Network and what applications are being
+used and of course part of that attack
+surface is the connectivity that we
+build throughout our network of course
+every device on our Network tends to be
+connected in some way to every other
+device so it's important that we
+integrate security into the network
+connectivity as well one thing that we
+can do is secure the network cabling
+that we have in our facility in many
+organizations the cabling is simply
+sitting out there are both physical and
+logical iCal protections that we can
+apply to the network drops that are next
+to our desks and our conference rooms we
+might also want to consider protecting
+the cabling as it goes between different
+parts of the building if someone is able
+to tap into the network they can watch
+all of the traffic traversing between
+devices for that reason it's always a
+good idea to provide application Level
+encryption so even if they are able to
+capture the actual packets they have no
+idea what's contained inside of those
+packets for our remote sites and people
+cannect in from offsite we may want to
+include additional encryption for those
+links It's Not Unusual to build IP
+tunnels from site to site or to have a
+VPN concentrator so that anyone on the
+outside can securely connect to the
+corporate
+office

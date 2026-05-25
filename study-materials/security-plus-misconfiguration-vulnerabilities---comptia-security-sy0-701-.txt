@@ -1,0 +1,182 @@
+one very easy way to get your data into
+the hands of the attacker is to Simply
+leave all of the information sitting in
+an open area of the internet
+surprisingly this happens very often on
+the internet so much that the attackers
+will use this as a method of
+reconnaissance to see if someone may
+have put some data on a cloud service
+and simply forgotten to secure it they
+know that eventually they're going to
+run across some data that someone forgot
+to secure and from there they can easily
+download it and disseminate it to others
+on the internet a popular example of
+this occurred in June of 2017 when 14
+million Verizon records were found on
+the internet open and available to be
+downloaded a third party had left an
+Amazon S3 data repository open without
+any type of passwords or security
+fortunately this information was found
+by a researcher and not an attacker so
+they were able to close this particular
+security loophole and and confirmed that
+no one else had downloaded any of this
+information although this story turned
+out to be rather insignificant for the
+14 million records that were exposed
+there are many other examples of
+information being made public on the
+internet without the intention of the
+data
+owner another security challenge is with
+unsecured admin accounts this in the
+Linux world is the root account in
+Windows this is the administrator
+account and sometimes we refer to both
+of these as the super user account
+usually there are methods built into the
+operating system that would prevent you
+from creating a root or administrator
+account with no password on it at all
+but unfortunately administrators will
+often assign a very easy toog guess
+password to the root account a password
+like 1 2 3 45 6 or ninja or football
+which makes it very easy for an attacker
+to brute force a password on this root
+account a good best practice is to
+completely disable the ability to to log
+in with the administrator account this
+means you would first have to log in
+with your normal user account and then
+use an elevated access by using the Su
+or sudu option to be able to get a root
+account access this is very similar in
+Windows where you would log in with your
+user account but if you needed to run
+something with elevated access you would
+use the windows feature to run as
+administrator ideally you should have
+very few accounts that have root or
+administrator access this would
+certainly limit the scope of an attack
+and make it much harder for an attacker
+to even find an administrator account
+that they could then
+compromise so far in this course we've
+talked quite a bit about encryption
+encryption algorithms and ways that we
+can protect data when we're sending it
+across the network but this encryption
+isn't going to help very much if we use
+protocols that don't take advantage of
+any of these encryption Technologies
+protocols such as tnet FTP SMTP and IMAP
+send all of their traffic AC across the
+network in the clear you would need to
+use the secure versions of these
+protocols to be able to enable
+encryption and other security features
+one way to tell if the data you're
+sending across the network is secure or
+insecure is to Simply perform a packet
+capture I have the results of a packet
+capture on the screen here and you can
+read everything that is listed in this
+particular packet and we know that we
+can read everything cuz right at the top
+you can see that the protocol that we're
+using is http p and not
+https this means we can see information
+about which version of browser is being
+used the referral URLs information about
+the cookies and any other information
+that's transferred between these two
+devices this is something that a quick
+packet capture and wire shark can easily
+display in the clear data and it might
+prompt you to use more secure protocols
+such as SSH SFTP https and others this
+is a picture taken at Devcon 22 which is
+a security conference at this conference
+they are constantly monitoring the
+traffic going across their wireless
+networks and if there are any insecure
+protocols such as HTTP IMAP or pop 3
+they will pull the data out of those
+frames show you the email addresses part
+of the passwords associated with this
+transaction the IP addresses and other
+information that was sent over the
+network in the clear they refer to this
+as the wall of sheep and you can see
+that there's a lot of details that are
+listed when you send this information
+across the network without any
+encryption or additional
+security if you've connected a device to
+the network for the first time you were
+probably prompted for a username and
+password and of course there is a
+default username and password for all of
+these devices some of these devices will
+prompt you to change the password the
+first time you log in but a great deal
+of devices have no security associated
+with the username or password there's a
+botnet that that takes advantage of
+these default accounts it has a list of
+all of the default account names and
+passwords for every internet of things
+or iot device that you can think of
+there are more than 60 default
+configurations that this will look for
+on your network including cameras
+routers doorbells garage door openers
+and anything else that connects to the
+network if this botnet finds one of
+these devices with the default
+credentials it's able to gain access to
+that device and then provide the
+attacker with information on where they
+can connect as well this is also
+software that anyone can run because the
+marai botnet has been released as open
+source so both researchers and attackers
+are using this open- Source botn net to
+identify places where the default
+credentials may still be in use each
+time you enable an inbound service on a
+server you are opening a port number
+that port number is used by someone on
+the outside to gain access to that
+specific application this process C of
+opening port numbers is effectively
+giving someone a little bit of access
+into a section of your server so it's
+important to limit the number of open
+ports that might be accessible by others
+we will often manage this type of access
+to port numbers using something like a
+firewall this gives us the option of
+allowing or disallowing access to a
+specific port number on a specific IP
+address unfortunately this also adds a
+level of complexity that might cause a
+security issue the firewall rule sets
+tend to be relatively large and it's
+very easy to accidentally provide access
+to a specific IP address or port number
+this means that the firewall
+administrator may have enabled access to
+a device that normally should not be
+accessible and of course if it's open
+the attackers are bound to find it this
+is why we should always schedule
+periodic audits to make sure that our
+firewall rule base is in good shape and
+we're limiting the number of open ports
+available on our Network

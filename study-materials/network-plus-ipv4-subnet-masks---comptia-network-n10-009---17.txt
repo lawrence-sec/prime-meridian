@@ -1,0 +1,197 @@
+in a previous video we talked about
+class-based subnetting and how IP
+addresses could be assigned a Class A
+Class B or Class C address but since
+1993 we've not used class-based
+subnetting instead we use classless
+subnetting sometimes you'll see this
+referred to as classless in domain
+routing or CER this classless addressing
+means that we can assign a subnet mass
+that doesn't fall into those same class
+A a Class B or Class C arrangements and
+instead of referring to the subnet mask
+in its decimal form we can simply refer
+to it as the number of bits that number
+of bits is referred to as a cider block
+notation for example a decimal subnet
+mask of 255.0.0.0
+is the same as a sl8 cider block
+notation because it has eight individual
+bits as part of the subnet mask so it
+would be very common to see an IP
+address written as
+192.168.1
+44/24 everything with the sl24 is
+referring to the number of bits in a
+subnet mask and a sl24 mask would be the
+same as
+255.255.255.0 when you're configuring a
+device you're often giving it an IP
+address a subnet mask a default gateway
+and very often a series of DNS servers
+most of the time an operating system is
+expecting you to put the subnet mask in
+as a decimal mask so for example in
+Windows you may put the IP address and
+then you might add in the decimal
+version of the subnet mask but if you're
+using a router or a switch it may be
+expecting the CER block notation for
+those masks so instead of using
+255.0.0.0 you would simply input sl8
+make sure you check the documentation of
+the device you're using to see what
+notation it perer refers for the subnet
+mask as you've probably seen in our
+previous examples of subnet masks The
+Mask consists of a contiguous series of
+ones followed by zeros so the ones would
+be on the left the zeros would be on the
+right for example here is a subnet mask
+you can see the contiguous set of ones
+on the left and the zeros that are on
+the right in this example you can see
+three separate octets that are set to
+one so there are 24 ones in this
+particular mask and there are eight
+zeros at the end if we were to write
+this out in decimal it would be
+255.255.255.0 and if you were to write
+this out in cider block notation you
+would count how many ones are associated
+with the subnet mask in this case there
+are 24 so the cider block notation would
+be
+sl24 the subnet mask is obviously used
+to separate the network part of the
+address from the host part of the
+address so for this particular subnet
+mask the network address is 24 bits in
+length and the host address is 8 Bits in
+length let's convert a binary subnet
+mask to one that is the cider block
+notation for a subnet mask and we'll
+take this subnet mask that we have on
+the screen which has all ones in the
+first two octets and all zeros in the
+last two octets if we were to count the
+number of ones in this subnet mask we
+have eight in the first octet eight in
+the second octet none in the third and
+none in the fourth that means the total
+number of ones in the subnet mask would
+be 16 so the cider block notation would
+be
+sl16 this means that the first 16 bits
+of the subnet mask are associated with
+the network and the last 16 bits are
+associated with the host ID let's do
+another one in this example the first
+three octets are all ones but the last
+octet has two ones and six zeros so
+let's count the number of ones in the
+subnet mask there are eight in the first
+octet eight in the second octet eight in
+the third octet and two that are in the
+fourth octet if we count all of those
+together we have 26 so the cider block
+notation of this subnet mask would be
+sl26 the sl26 means that the first 26
+bits of this address are the network
+part of the address and the last six
+bits are reserved for the host ID and
+here's one more in this subnet mask we
+have the first octet of all ones the
+second octet has four ones and four
+zeros and then the third and fourth
+octets are all zero since we are
+counting number of ones we have eight in
+the first octet and four in the second
+octet and if you count those together
+the subnet mask Insider notation would
+be a sl12 that means that the first 12
+bits are for the network ID and the last
+20 bits would be for the host ID we've
+looked at the subnet mask in binary and
+we've calculated the cider block
+notation but we often refer to the
+subnet mask as a decimal value if we
+were to convert these binary subnet
+masks into a decimal value there are
+only a certain number of these that you
+would run into for example all zeros
+would obviously be a decimal zero but
+anything that starts with a binary of
+one and the rest zeros would be a
+decimal of 128 if there are two ones
+it's 192 three would be 224 and so on
+this means that you could create a chart
+that shows all eight of the bits within
+a single octet and what the decimal
+equivalent would be we can now use that
+chart to calculate the cider block
+notation and what the decimal
+representation of that subnet mask would
+be so let's look at a subnet mask of all
+ones in the first octet there are four
+ones in the second octet and the rest of
+this would be all zero
+if you refer to our chart you can see
+that all ones is 255 four 1es and four
+zeros would be 240 and then of course
+all zeros would be zero and if we were
+to count the number of ones we know that
+correlates back to a sl12 so a /12 cider
+notation is the same thing as
+25524 z.0 in decimal notation and of
+course since there are 12 ones the
+network section is 12 bits in length
+which leaves the remaining 20 bits
+available for the host ID let's look at
+a subnet mask we've not seen yet this
+one is all ones in the first octet all
+ones in the second octet there are three
+ones in the third octet and of course
+the rest of this is zeros if we look at
+our chart we can see that of course all
+ones is 255 and in the octet that has
+three of these ones we refer to the
+chart that is the same as 224 in decimal
+and obviously all zeros in binary is the
+same as zero decimal if we then count
+the number of ones in all of these
+octets they all add up to 19 so your
+cider block notation would be
+sl19 which corresponds back to the
+decimal representation of 255
+25.22
+4.0 this of course means that the
+network part of this address is 19 bits
+in length and the host section is 13
+bits in length of course we can do this
+in Reverse as well let's let's say that
+we have a subnet Mass that's been given
+to us as a sl26 in cider block notation
+if we were to write this out in binary
+that means that we would have all ones
+in the first three octets and two ones
+in the last octet and if we were to
+refer back to our chart all ones would
+obviously be 255 and the last octet that
+has two ones correlates back to a 192 in
+decimal so a sl26 where your network ID
+is 26 bits in length and the host ID is
+six bits in length is the same as a sl26
+Insider block notation or
+255.255.255.192 in decimal let's do
+another one where we've been given a
+sl20 in cider block notation that means
+there are 21s in this particular subnet
+mask so your first two octets are all
+one and the third octet has four ones
+and four zeros and of course the last
+octet will be all zero if we refer to
+our chart we know that the decimal
+version of that binary subnet mask will
+be

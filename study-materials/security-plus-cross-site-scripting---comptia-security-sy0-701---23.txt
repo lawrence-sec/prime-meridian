@@ -1,0 +1,232 @@
+in this video we'll talk about
+cross-site scripting and you may see
+this also abbreviated as
+xss it seems like we would use the
+abbreviation CSS for cross-site
+scripting but that abbreviation has
+already been taken by cascading
+stylesheets so instead we use xss to be
+able to differentiate between both of
+those Technologies this attack type was
+originally called cross-site scripting
+because of vulnerabilities that we found
+inside of our browsers these vulner IL
+is created a situation inside of your
+browser where information from one site
+could be shared with another site crossy
+scripting is one of the most common
+vulnerabilities for web-based
+applications this takes advantage of the
+trust that the browser has for different
+websites although there are challenges
+in creating a cross-site scripting
+exploit once you have that exploit there
+are many different ways to take
+advantage of it many of these cross-side
+scripting vulnerabilities are based
+around an attack using JavaScript
+JavaScript scpt is a very popular
+scripting language within our browsers
+and practically everyone has JavaScript
+enabled in their
+browser from a high level let's see how
+a cross-side scripting attack might be
+exploited let's start with the victim
+that would be our system a trusted
+website that we might commonly associate
+with and of course there is the attacker
+one way that you could exploit a
+cross-site scripting vulnerability is
+for the attacker to send a link to the
+victim that has a malicious script
+inside of it this could be sent over
+email it might be a text message or any
+other method that would get that
+malicious link into the hands of the
+victim the victim will click the link
+inside of that message which takes them
+to a legitimate site and it's one that's
+trusted by the victim but because the
+attacker has provided this link there's
+additional information included with
+this connection usually it's a malicious
+script that's also running along with
+the connection to the trusted website
+this malicious script is not usually
+seen by the victim but behind the scenes
+means there's data that's being sent
+directly to the attacker this might
+include cookie information session
+details other specifics on that
+particular website and anything else
+that may be considered private or secure
+information one common type of a
+cross-site scripting attack is a
+non-persistent attack this might also be
+called a reflected attack this is one
+where a third-party website might be
+configured in a way that would allow
+people to run scripts inside of these
+user input blocks a website like this
+one providing a search engine should not
+allow someone to run their own
+JavaScript within that input box that's
+exactly what has been found here by an
+attacker the attacker is going to email
+that link that takes advantage of that
+vulnerability and behind the scenes that
+script is going to send those private
+details to the attacker so the attacker
+is the one sending the malicious code to
+the user but the user is the one
+executing that malicious code against a
+thirdparty website the thirdparty
+website May send session ID information
+to the attacker which means the attacker
+will now have the same access to that
+thirdparty website as the victims's
+machine here's an example of a website
+that has a cross-site scripting
+vulnerability this is one that has a
+shopping cart in it you can see there
+are a number of items within the
+shopping cart and on this particular
+site it's the credit card number field
+that does not do any type of checking
+for scripts which means we could embed a
+script within that credit card number
+field to be able to perform this cross
+site scripting attack so here I've
+created a very small amount of
+JavaScript it's a very simple script
+that simply puts an alert message on the
+screen and that alert message shows your
+session information and then the session
+ID within the cookie for this site so
+when we're putting in credit card
+information we would also include that
+entire script along with the credit card
+details and you can see we've pasted it
+in on that credit card field when we
+click the purchase button a message
+appears on the screen with the
+information about our session and it
+includes the session ID now obviously
+the attacker is not going to have a
+session ID message pop up on your screen
+instead that session ID will be sent
+directly to the attacker behind the
+scenes and the victim has no idea that
+that session information is now in the
+hands of the
+attacker instead of the attacker trying
+to find some specific way to directly
+send a link to a user what if the
+attacker simply posted the link on
+Facebook this is the idea behind a
+persistent or stored cross-site
+scripting attack the attacker will post
+a message on a social media site and it
+will include with that message the
+malicious payload which is probably
+malicious JavaScript this is why it's
+now called persistent because the
+attacker has now stored that information
+on that thirdparty social networking
+site everyone who visits that page with
+the malicious software will effectively
+have that code run inside of their
+browser from the attacker perspective
+this means that they're effectively
+attacking everyone who visits that
+social networking page so all of the
+viewers of that information will have
+that JavaScript run inside of their
+local browser and because this is a
+social networking site the attacker
+might include other code that would
+allow people to share their malicious
+code so anyone who views this message
+can have it posted to their own feed on
+that social media site and the next
+person that views it on their feed goes
+through the exact same process and again
+and again as this m message is now
+spread to all of these different users
+using a persistent or stored cross-site
+scripting attack an interesting crossy
+scripting attack was found in June 2017
+by Aon Guzman he's a security researcher
+who is looking at the Subaru front end
+on their website that allows them to
+manage different capabilities within
+their vehicle when you log into the
+Subaru website you get a token and this
+token never expires which from a best
+practices perspective I is probably not
+the best idea normally there would be
+some expiration for instance the token
+might expire in a day which would
+require you to log in again after 24
+hours Not only was there no expiration
+associated with this token the token
+allowed you to perform any service
+request on your vehicle not only did
+this create a security concern for your
+vehicle but you could add your email
+address to someone else's account and
+the same token would allow you access
+into managing their veh vehicle as well
+the cross-site scripting part of this is
+a vulnerability that was also on the
+Subaru website which means an attacker
+could send a link with malicious code
+inside of it and receive the token for
+that particular Subaru website from the
+victim and now since we know that this
+token has such power as soon as the
+attacker has that copy of a user's token
+they're able to use it forever because
+the token doesn't expire and if the
+attacker adds their email address to
+another Subaru account that same token
+will also grant them access to that
+account this is effectively a single
+token that allows an attacker full
+access to anyone's vehicle that may be
+registered on the Subaru website
+fortunately this particular
+vulnerability was found by a security
+researcher who informed Subaru of the
+issue and they were able to resolve and
+remove these
+vulnerabilities there's a few things we
+can do to protect ourself against a
+cross-site scripting attack one of these
+is to not click a link that you may not
+already trust you should not click links
+inside of your email your messages or
+anything else that's coming from a third
+party instead you should open a browser
+separately and only type in domain names
+that you can trust you may want to
+consider either disabling JavaScript or
+limiting the capabilities of JavaScript
+sometimes you can do that with a browser
+plug-in but this offers limited
+protection and ultimately it may limit
+what website you're able to visit
+perhaps most importantly you should
+always make sure that your browser and
+your applications are always updated to
+the latest version as manufacturers
+locate and identify these cross-site
+scripting vulnerabilities they will push
+out patches to prevent your browser from
+being susceptible to these problems and
+if you're an application developer you
+need to make sure that all of the inputs
+to your application are checked to make
+sure that a user can't add their own
+script to any of these input
+fields

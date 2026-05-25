@@ -1,0 +1,595 @@
+hey I'm Sean powers and we're going to
+finish up the 1.4 objective of Linux
+plus today we're going to look at all
+this stuff that hopefully I can
+superimpose over there basically we're
+talking about processes in Linux process
+States and uh the most fun state to talk
+about the zombie state but we have a
+bunch of stuff to talk about and this
+video has a sponsor it's actually you
+this is sponsored by you because every
+time you watch a video you help support
+the channel every time you share my
+training with somebody else it brings
+somebody new in and helps make it so
+that I can make these videos possible so
+thank you very much my patreon
+supporters go above and beyond but don't
+minimize what you do just by watching
+and sharing the videos that I create
+this is a real tier but I'm not getting
+emotional it's just the wind and the Sun
+is is combining to to make me cry but no
+I mean I'm very emotional as well so
+anyway Let's uh talk about zombies
+so in the past few videos we've only
+talked about processes in two states
+either running or not running either
+because they finished or because we
+killed them but there are several states
+that a process can exist in and of
+course zombie is the last one we're
+going to talk about but basically it can
+be running which means exactly what you
+would think it means it's actually
+currently running doing something using
+resources like a CPU etc etc the other
+thing that it could be is stopped and
+now stopped is not the same as not
+running
+if something is stopped this kind of
+means it's paused in the background and
+we're going to specifically talk about
+the background and foreground in jobs
+but stopped means like it's stopped but
+not terminated hopefully that makes
+sense it's just like it's paused if you
+will uh then there's two kinds of
+sleeping modes that a process can be in
+now the normal sleeping mode is uh it's
+called interruptible Sleep which means
+that if a program is running in a
+sleeping state that is interruptible you
+could still send it like a kill signal
+and it will accept a signal and stop so
+like if it's just like paused in the
+background like a sleep command believe
+it or not is is sleeping state for most
+of its existence and it's just waiting
+for something but there's also an
+uninterruptible sleeping State and this
+one means that it's not just like
+programmatically waiting for something
+to happen it is trying to do something
+but it can't usually something will go
+into an uninter interruptible sleep
+State when it's like waiting for disk IO
+so like if the system is overtaxed and
+it can't get any access to the disk to
+do reading or writing it'll kind of like
+be in this uh uninterruptable sleep mode
+where it is trying to do something and
+it's not going to respond until it can
+do that thing that it's already trying
+to do the unfortunate thing about a
+sleeping process that is in an
+uninterruptible sleep is you can't kill
+it off like you it won't respond to even
+the Sig kill like Sigma or kill minus
+nine it won't even respond because it's
+putting all of its attention on the
+thing it's trying to do and it doesn't
+have any time to listen to your nonsense
+sort of thing you know to to
+anthropomorphize a running process but
+this is the one that is actually the
+most difficult to get rid of and unless
+your system resources or whatever it is
+it's causing it to be in that kind of
+stuck mode is resolved the only way to
+get rid of it is going to be rebooting
+it and that leaves us with the last
+state which seems like it would be the
+most difficult to to kill off and that
+is a zombie process but a zombie process
+cannot be killed only because it's not
+really running what a zombie process is
+uh is a a process spawns off a child
+process so there's like one main process
+and it spawns off like a a subset of
+itself a child process in that child
+process is killed off or it finishes
+what it was doing but the parent was
+irresponsible and didn't clean up the
+code so to speak if it doesn't clean up
+the code this child still has like a
+spot it still has a process ID even
+though the process itself is not running
+and so since it's in this weird state of
+like having a reference where it's like
+shown that it's there because the parent
+didn't clean up after itself it's
+technically still counted as a process
+but since it's not running it can't be
+killed there's nothing to kill there's
+no process running even though it's
+still in the process table so it's very
+very frustrating and the only way that
+you can really kill a zombie process or
+get rid of because again it's already
+dead it's not running is to either kill
+the parent process if you kill the
+parent process the child process will
+disappear as well even in the process
+table or sometimes you can kind of Kick
+the uh the parent process in the butt
+with sending it a Sig child that's uh
+you can use a kill signal to try and
+that kind of like says hey you know
+clean up your children it doesn't
+usually work if there's a zombie process
+it's usually because either some poor
+programming has happened or something
+went slightly wrong zombie processes
+don't hurt anything because they're not
+running but eventually they can fill up
+in your process table it gets you know
+kind of ugly zombies everywhere but
+anyway the only way to truly be sure
+that you're going to kill off a zombie
+process is to kill that parent process
+you know in order to tell what state a
+process is in we use the PS command and
+the PS command has account column for
+what state it's in and you these
+different things are represented by a
+single letter so a capital R is going to
+be it's running capital t is going to be
+that it's stopped remember it doesn't
+mean that it's no longer running it
+means it's kind of paused in the
+background an S is going to be sleeping
+but interruptible so it'll respond to a
+Kill signal D in Linux means that it's
+sleeping in an uninterruptable state so
+like it's waiting for disk i o or
+something so it's it's not doing what
+it's supposed to be but it's trying and
+it's not going to respond to a Kill
+signal and then a zombie process is
+represented with a z and again zombie
+processes aren't really usually an issue
+and usually they'll eventually get
+cleaned up especially if the parent
+process dies off or completes or catches
+up and cleans up after itself but zombie
+processes uh aren't really running
+that's the important thing to remember
+is that a zombie process is not alive
+thus its name zombie so it's not as much
+of an issue as a sleeping process that
+is an uninterruptible sleep because that
+means something's going wrong like with
+your system like you don't have enough
+disc i o or something to keep up i o
+meaning input output so like it's trying
+to write to the disk or it's trying to
+read from the disk or some other aspect
+of your system and it's stuck trying to
+do something that it can accomplish and
+so it's no longer responding to signals
+at all and then before we get to the
+command line I gotta make my face
+disappear because I'm in the way here
+but I want to talk about how we can do
+some things with processes or jobs on
+the command landline and basically we've
+talked a little bit about like control C
+we'll actually send Sig int or interrupt
+to a program that is running in the
+foreground so if you want to cancel or
+stop a program control C is usually a
+way to stop the program from running
+control Z will put a program in the
+stopped state it actually sends a signal
+Sig STP and this does it puts it in that
+state where it's kind of paused okay and
+it also will put the process in the
+background Now cover foreground a
+background when we get to the command
+line but just know that this actually
+does two things it puts the the process
+that is like currently running it puts
+it in a stopped State and it puts it in
+the background and then control D I
+think they put it in here just for
+clarification's sake so Ctrl D doesn't
+actually send a signal control D sends
+end of file and I say sort of here
+because it's a little more complex than
+that it's like endophile is how it it is
+interpreted by the Linux system when
+control D is sent to the terminal well
+it sends end of file eof instead of a
+signal so there's no way to use the kill
+command to send something like you could
+send Sig stop to something and that
+would be the same as doing control Z but
+there's no kill signal to send end of
+file you have to use Ctrl D if you want
+to send that and control D is a way that
+a lot of times if you're entering text
+control D is a way to let the program of
+listening know hey I'm done entering
+stuff end a file oddly enough if you're
+in an interactive terminal and you do
+control D it will close the terminal
+because it's like this is the end of
+what we're doing I think the important
+thing to note is that it's not a signal
+though and sometimes if you look on the
+internet some sites actually earnestly
+will say that control D sends Sig quit
+but it does not send Sig quit it does
+does not send a signal it's really
+really important to know that control D
+does stuff it sends end of file but it
+does not send a signal okay so that
+that's if you come away from with
+anything I want you to realize that
+control D does not send a kill signal at
+all it sends end of file and I know I
+said a lot about foreground and
+background so what we're talking about
+is when we're on a terminal we can have
+a process running and then use control C
+to send your signal to stop it so we can
+do like sleep a hundred press enter and
+it's just going to sit there on the
+command line doing its thing or we can
+do control C which will send a signal to
+stop it right or to kill it off but
+there are other things we could do too
+we could do sleep 1000 and press enter
+and then we could put it in the
+background by doing control Z on the
+keyboard right now
+and it's done two things remember it has
+sent Sig stop so it's paused in the
+background it's not counting anymore
+it's not counting to a thousand it
+actually halted right where it was but
+also it put it in the background see
+where it says right there uh number one
+and then plus this means that it is job
+number one in our current terminal
+session job number one and the plus
+means that it is the default like if we
+were to say
+um if we were to do a command it would
+execute on that unless we specified a
+job number we could have more than one
+job though we could say
+sleep 9999 and then do control Z and now
+that one is in the background and the
+default see it's num job number two and
+it added the plus there it's the last
+one that we've been interacting with so
+it makes that the default assuming
+that's the one we want to interact with
+next we can type jobs to see them both
+so they're both stopped right now but
+the plus is in front of the second one
+and again that just means that it is the
+default so if I were to say
+foreground f g
+if I say f g and press enter job number
+two again the default is in the
+foreground again so right now it's it's
+executing again I brought it in the
+foreground so it is no longer in a
+stopped State uh however it is
+um taking up my terminal so if I want to
+put in I want to stop it again so I get
+my terminal back so Ctrl Z okay it
+stopped again job two again it's in the
+background still job two
+instead of foreground I could say
+background
+and press enter and it's going to
+execute on job number two because that's
+the default actually if you specify a
+job so I'm going to say background one
+all right so if I say background one and
+press enter
+now if we do jobs
+we're going to see they're both in the
+background uh that maybe isn't the good
+terminology both the jobs are active
+that's the word I'm going to choose uh
+job number one is running now it's no
+longer in a stopped mode so it is
+counting to a thousand in the background
+for us right now and uh because we said
+background one it means it put it in the
+background but made it active so that's
+job number one is running counting to a
+thousand as soon as it's done it'll stop
+job number two is currently stopped
+still because we did that control Z to
+put it you know out of our out of our
+way but it put it in a stopped mode so
+if we wanted it to run in the background
+we could say background and we could say
+job number two but remember it has a
+plus next to it so that's the default so
+I could just say background enter
+and it put the default one in running
+mode now too so if we do jobs you can
+see they're both in running mode does
+that make sense they're both running
+they're both counting in the background
+and you can see it changes it puts an
+ampersand that means it's running in the
+background and we could put something
+immediately in the background not in a
+stop state by adding that Ampersand
+which you have seen me do in previous
+videos so I could say sleep 7777
+Ampersand enter and now job number three
+is running and let's do jobs so job
+number three is now running and uh it is
+not in a stop State because I didn't do
+Ctrl Z to stop it I put it directly in
+the background using the Ampersand and
+now all three of those jobs are running
+in the background okay let's do
+um
+see
+when we bring it to the foreground using
+FG we could either if we don't specify a
+number like if I were to just press f g
+and enter the Sleep 7777 would come to
+the foreground and I would have direct
+control of it because that's where the
+plus is but if we did a foreground one
+for example
+now that I have direct control of it see
+I don't have my cursor back because it's
+just running sleep in the foreground for
+me right now if I want to get rid of it
+I can do I could do control Z to put it
+in the in the
+active but in the stop state so Ctrl Z
+and now if we look at jobs
+it stopped but it's still an active job
+and it became the default because it's
+the last one that I interacted with
+hopefully that makes sense you can put
+jobs in the background uh and and see
+them there is one downside of having
+jobs running as Jobs you know active or
+whatever
+um while you're on the terminal and that
+is if they have an output it's going to
+keep spewing even if they're running in
+the background so let's say I were to do
+something like
+um ping google.com
+and then Ampersand so that it's going to
+be in the background running not in a
+stop State it's going to be running
+I get the response now see if I press
+enter I still actually have my terminal
+and I can like do LS and see stuff but
+every time there's output from that job
+it pollutes the screen so it's not like
+a great way to put a whole bunch of
+stuff in the background and just have it
+go if there's output so there are some
+downsides and it's important to
+understand what's happening now if I
+were to say foreground it's going to
+well hold on I'm going to type jobs and
+look really quick of jobs look really
+quick okay it's job number four and it
+is not the default so if I want that to
+come to the foreground I have to say
+foreground Space 4 enter and so now it's
+in the foreground if I wanted to stop I
+could either do Ctrl C to stop it in
+fact that's what I'm going to do Ctrl C
+I stopped it okay I don't want it to run
+anymore if we look at jobs that one
+isn't running anymore we still have our
+sleep commands running but that's the
+downside of
+um a job that's running in the
+background the out put still dumps onto
+your screen okay now as far as process
+States go you can look at a job here and
+it'll tell you what state it's in
+although it doesn't see we don't have
+any that are sleeping uh well I mean we
+do the Sleep commands are in the
+sleeping state but they're reported as
+running but they're kind of not let me
+show you what I mean so if we were to do
+PS
+and then I'm gonna do a very specific
+formula for what I want PS to show me
+I'm in fact here let's do Alias because
+I I typed this out earlier if we type
+Alias we're going to show all the Alias
+is currently set up on my system and
+this is an alias that I set up if you're
+not familiar with aliases or in a
+previous video where we talk about
+aliases but PS minus o for options and
+the columns that I wanted to display are
+the user who's running the thing the
+process ID the percent CPU the state
+that it's currently in the command that
+is running and W Chan will make sense in
+a second so basically I just made an
+alias for PSS that has that output so if
+I type ps-o user comma PID comma
+percent CPU comma
+State comma CMD comma W Chan enter it's
+going to show us all of our currently
+running processes in this terminal
+session and it's going to show that
+information
+this column right here is the what state
+is the processing column and you
+remember that slide where I said the
+different letters mean the different
+states well that's what this means our
+bash command is actually in the sleeping
+State obviously it is interruptible
+sleep but it's in a sleep State because
+it's just waiting for us to type
+something so it can do something so it
+makes sense that bash is currently
+sleeping it's just currently sleeping
+and the weight Channel column says what
+is it waiting for right it's like what
+is the next thing that it's doing or
+expecting or whatever and it's just
+waiting for us to do something so it can
+respond
+this sleep command
+is in the T State do you remember what T
+stands for T stands for stopped it is
+not counting to a thousand because it is
+in the stopped State and you can see
+over here do signal stop when you do
+control Z it sends Sig STP or Sig stop
+and that's what happened it said it's
+doing what it was told to do it's in the
+stopped state or gets in the stopped
+State again it's still active it hasn't
+terminated it's just not doing anything
+it's uh it's stopped it's kind of paused
+and then this one is in a sleep state
+that is the state it's in it's in an
+inter it's it's interruptible right it's
+not like locked up and it's just doing a
+syscall 64 as it counts okay and then
+same thing here HR timer Nano sleeper
+whatever these are both
+um currently executing how they're
+supposed to they're counting but because
+they're not really doing anything on the
+system they're not using system
+resources they're in a sleep State and
+an interruptible sleep state if they're
+uninterruptable it would be a d here and
+then this last one is the PS statement
+that we just typed and it's in a running
+State because as it was typing this out
+it was running to do tell us all this
+information all right so hopefully we
+got everything uh that you know makes
+sense with the exception of the zombie
+State now remember a zombie state is
+talking about a process ID that is not
+currently active it is it's not uh it's
+not alive at all it's a dead process
+but it hasn't been cleaned up out of the
+process ID table because the parent
+remember the parent it's always spawned
+by a parent hasn't cleaned up after
+itself now I have a program that will
+create a zombie process for us to see
+and we can experiment with so let's
+let's do that now and this is just a
+really simple C program uh it's called
+zombie maker and put it in the
+background so it's running in the
+background all right and now if we do
+PSS which is just an alias to this whole
+long string that I don't want to type
+out every time if we do PSS we're going
+to see all of our other stuff is still
+there okay the all of the stuff is still
+going uh zombie maker the parent process
+you can tell it's the parent process for
+in a number of ways one it's in a sleep
+State the process ID is this and then it
+spawns a child process so the process ID
+is going to be one bigger and that's
+what this is it's like the next PID
+you'll see it's in a defunct State and
+the state is reported as Z for zombie
+now what this means is this process ID
+is not a running process remember a
+zombie process is dead so if I were to
+say something like
+um kill minus 9
+339424 and then press enter
+and then do PSS again it's still there
+and not because it's like locked up in
+IO it's not in an uninter in
+uninterruptible sleep it's because it
+doesn't actually exist as a running
+process it's just still in the process
+table because the parent process was
+slopoly coded or for some reason didn't
+clean up after its child process was
+complete now if we want to kill it off
+we could do this we could say
+um kill
+one three three nine four two three the
+parent process if we do that
+and then do PSS
+not only is that parent process that we
+killed now dead but it also eliminated
+the zombie process which again wasn't
+really running it was just in the
+process table and hadn't been cleaned up
+because the zombie maker process was
+coded in a way to create a zombie and
+not clean up the you know create a child
+process and once the child process
+exited it didn't clean up after itself
+so hopefully it makes sense the
+different process states that can exist
+and how you can interact with them in
+the foreground the background with jobs
+and I encourage you to play around the
+Sleep program is a great program to use
+for experimenting with putting things in
+the foreground or the background because
+it doesn't have output that pollutes the
+screen while you're trying to do other
+stuff and then remember uh two two weird
+things to remember control D does not
+send a signal it sends Enzo endophile
+which is important for a few things like
+if you're like putting in text sometimes
+Ctrl D is the way to tell the program
+that's I'm done typing and
+a zombie process is not running it's
+already dead it's just its carcass is
+hanging around in the process ID table
+and the only way to get rid of it is if
+the parent cleans up the dead body or if
+the parent process is killed off then
+the child process which is a zombie will
+also disappear
+also zombie processes aren't the end of
+the world it is a process in
+uninterruptible sleep that is more of a
+concern on a day-to-day basis anyway I
+hope that this is beneficial because uh
+understanding how processes work is is
+really key anyway learn everything
+do what you love and most importantly be
+kind I look forward to seeing you in the
+next video uh just occurred to me so if
+the only way to kill a zombie is to kill
+its parent if one of my kids becomes a
+zombie
+oh boy

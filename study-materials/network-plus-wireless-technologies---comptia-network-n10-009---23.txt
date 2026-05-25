@@ -1,0 +1,211 @@
+we become so accustomed to wireless
+networks being available that we often
+forget that there's a lot of work that
+happens behind the scenes to create
+these wireless connections this work is
+done primarily by The Institute of
+electrical and electronics Engineers or
+the itle E there's a committee in the it
+e called the
+802.11 committee and that is the
+committee that focuses on creating
+worldwide standards for wireless
+networking in the past we've referred to
+the standards name to be able to
+describe the network for example we'll
+describe
+802.11ac 802.11 ax or 802.1 be the I
+committee realized that these numbers
+and letters combinations weren't very
+appealing for most people so they've
+also assigned separate names that are a
+little easier to keep track of for
+example 802.11 AC is WiFi 5 802.11 ax is
+Wi-Fi 6 and Wi-Fi 6E the extended
+version of Wi-Fi 6 and
+802.11b is also called WiFi 7 as
+additional major releases of the 802.11
+wireless standards are released they
+will also increment those Wi-Fi numbers
+so in the future we should see Wi-Fi 8
+Wi-Fi 9 and so on there are a number of
+Technologies used by 802.11 Wireless
+networking and the first is the
+frequencies that are in use 802.11
+commonly uses 2.4 GHz 5 GHz and 6 GHz
+frequency ranges sometimes there's a
+combination of those you may have an
+access point that supports both 2.4 and
+5 GHz and some access points May support
+all of those frequencies at the same
+time instead of having to memorize
+individual frequency numbers the itle E
+has created groupings of these
+frequencies known as channels these
+channels help us easily understand what
+frequencies we may be using for example
+on this access point we're using both
+the 2.4 G range and the 5 GHz range the
+2.4 GHz range is using Channel 6 which
+is centered on
+2437 GHz and the 5 GHz band is using
+channel 44 which is centered on
+5.22 GHz you can see that referring to
+this as Channel 6 is much faster and
+more efficient than saying that this
+particular access point is centered on
+2437 GHz the amount of frequency that we
+use is referred to as the wireless band
+with and when I say that Channel 6 is
+centered on 2437 GHz there's actually
+more frequencies that we're using for
+that single Channel different frequency
+bands have different sizes of bandwidth
+that can be used but it's very common to
+see 20 MHz 40 MHz 80 MHz and 160 MHz
+bandwidths here's a diagram that shows
+the 2.4 GHz range the 5 GHz range and
+the 6 GHz range that's used by 802.11
+Wireless networ networks we'll start
+with the 2.4 GHz Spectrum you can see
+there are three nonoverlapping channels
+in that particular range and it's using
+the 20 mahz bandwidth to describe those
+three channels next is the 5 GHz
+spectrum and you can see there are many
+more frequencies available in the 5 gahz
+range you'll also notice that we might
+use different bandwidths depending on
+the access point that we're using so we
+might use anywhere from 20 MHz to 160
+mahz and you can see the ranges that are
+available for those particular
+frequencies and in the 6 GHz range we
+have even more frequencies available
+giving us options to be able to transmit
+and use these wireless networks without
+conflicting with other wireless networks
+that might be
+nearby as you can tell there are many
+frequencies available to choose from for
+your wireless networks but not every
+frequency is going to be the best one to
+use there may be differences in the
+environment where you happen to be where
+one frequency might work better better
+than the other or there may be other
+access points that are already using
+certain frequencies you might also be
+using older devices that aren't able to
+communicate on the five or 6 GHz ranges
+and may only be able to communicate on
+2.4 GHz frequencies but if you have a
+modern wireless device you might have
+options your phone for example may be
+able to support two or more different
+types of frequencies it just needs to be
+able to choose the optimal frequency for
+where you happen to be your access
+points can be set up with a feature
+known as band steering this allows you
+to specify how the users might be able
+to use the frequencies in the best
+possible way for example you might have
+a user that has a mobile phone and that
+phone can support either a 2.4 gigz
+connection or a 5 GHz connection and you
+might have access points that also
+support both of those frequencies so
+which frequency does your phone choose
+when it's connecting to that access
+point if band steering is not conf
+configured in the access point the
+device will simply use the one that has
+the best possible signal sometimes that
+best signal will provide you with the
+best throughput but that's not always
+the case and you may find that you get
+better throughput using a different
+frequency even though that frequency may
+not be the one that has the strongest
+signal if band steering is turned on the
+administrator of the access point can
+determine what frequency a user will
+choose if they have a choice for example
+if a user is connected to an access
+point with band steering enabled and
+that device can support either 2.4 GHz
+or 5 GHz you can force it or steer it
+into using the 5 GHz frequencies by
+default one of the challenges with these
+wireless networks is that each country
+makes its own decisions about how this
+Wireless bandwidth is to be used for
+example in the United States we have the
+Federal Communications Commission and
+they are responsible for managing all of
+the frequency allocations in the US of
+course the FCC can't control how other
+countries manage their frequencies but
+they do work very closely with other
+countries around the world to make sure
+that everyone is properly managing these
+very important frequencies another
+challenge with this is that we are
+coming up with new technologies and new
+ways to use these frequencies all the
+time and we sometimes have to make sure
+that different Services can use similar
+frequencies without any type of conflict
+the popularity of these wireless
+networks has almost required that all
+all of these countries work together to
+come up with standards that everyone can
+agree on a good example of these
+organizations working together can be
+found in the
+802.11h standard this adds a number of
+interoperability features to 802.11
+wireless networks so that you can have
+many different wireless networks in one
+area but still allow all of those
+networks to work together there are a
+series of guidelines for Wireless
+Communications that are published by the
+international telecommunications Union
+the itu provides a worldwide approach to
+managing these many different Wireless
+Technologies one of the things that is
+included in these standards is called
+DFS this is dynamic frequency selection
+this allows our wireless access points
+to use frequencies that are not going to
+conflict with other access points that
+may already be operating this is one of
+the reasons that when you turn on your
+wireless access point today that you
+don't have to manually configure any of
+the wireless settings inside of that
+device it automatically looks at the
+frequencies that are in use and chooses
+a series of frequencies for you that are
+not going to conflict with anything that
+may already be operating and if
+something does change with the wireless
+environment and your access point needs
+to change its Channel it will tell all
+of the devices on that Network to also
+move along with the access point another
+interoperability feature is TPC or the
+transmit power control traditionally
+we've set the power that we would use
+for these wireless networks on our
+clients but TPC puts the transmit power
+control in the hands of the access point
+this means that the access point can
+tell a client to use less power to be
+able to communicate over this wireless
+network this means that we can have many
+devices communicating at their optimal
+power level without having any type of
+conflict with other third-party services

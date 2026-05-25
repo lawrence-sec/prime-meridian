@@ -1,0 +1,166 @@
+if you connect to a network at work or
+at home then you're probably very
+familiar with wireless networks you may
+have also noticed that no matter where
+you go with your wireless device and
+whatever Network you connect to you
+always seem to have the required
+connectivity this is because there is an
+international standard for wireless
+network that's managed by The Institute
+of electrical and electronics Engineers
+or the i e the i e standard for wireless
+networks is in their standards committee
+for the 802 series specifically
+802.11 so anytime you hear anyone
+mention 802.11 they're referring to the
+standards associated with wireless
+networks another interesting
+characteristic of wireless networks is
+that they are constantly evolving and
+constantly changing so you'll want to
+check in with the it e standards to see
+which type of wireless network you're
+using there's another organization
+involved with wireless networking called
+the wifi Alliance and you'll notice
+there is a Wi-Fi trademark logo on every
+device that the Wi-Fi Alliance has
+tested this ensures interoperability
+with the standards that are set by the i
+e in the past we used to refer to these
+wireless networks with their standards
+name for example
+802.11b or 802.11 ax we've recently
+added additional names to these
+standards to make them a little easier
+to understand for everyone who's
+connecting to these wireless networks
+for example if you're using the six G
+generation of Wi-Fi networks then you're
+connecting to an 802.11 ax network but
+we also refer to this network as
+wii6 this chart shows a list of all of
+the major Wi-Fi standards listed by
+their 802.11 name I've also included the
+new generational name for those
+standards the frequencies they happen to
+use and the maximum theoretical link
+rate for each of those standards the
+first three of these standards 802.11 a
+B and G are rarely used today and we did
+not formally set a generation name to
+those although you could colloquially
+refer to these as Wi-Fi 1 Wi-Fi 2 and
+Wi-Fi 3 the newer standards of Wi-Fi 4
+through Wi-Fi 7 are covered through the
+standards of
+802.11n through 802.11 be you'll also
+notice there's a difference on the type
+of frequencies that are used for each of
+these standards and most of these refer
+to the 2.4 GHz the 5 GHz and the 6 GHz
+ranges
+there are a number of differences on how
+these Wireless standards can be
+implemented there might be a different
+number of antennas or a different number
+of radios and that accounts for the
+differences in the theoretical link
+rates that you see in this final column
+notice as we've introduced newer
+standards of wireless networks that
+we've also increased the overall link
+rate of those
+networks but we use more than our local
+802.11 networks for wireless networking
+if you have a mobile phone or mobile
+tablet then you're probably using a
+wireless providers Network that uses 4G
+LTE or 5G Technologies LTE stands for
+long-term Evolution it is what we refer
+to as the 4G technology and it was a
+conversion between different standards
+of GSM and CDMA into a single standard
+that every provider can use these 4G
+networks supported download rates of
+approximately 150 megabits per second
+and the improved version of LTE which is
+LTE Advanced or LTE supports download
+rates that double that to 300 megabits
+per second a more modern version of
+mobile networking is the 5G networking
+that was introduced in 2020 this greatly
+improve the performance of wireless
+mobile networks and with the right
+configuration the goal will be to have
+10 gbits per second as the overall
+throughput and in other implementations
+you may see more reasonable speeds such
+as 100 to 900 100 megabits per second 5G
+has dramatically changed the way we look
+at mobile connectivity especially since
+we're now able to get similar bandwidths
+over our mobile providers that we
+currently have with wired Network
+providers in our own homes this also
+means that we're able to greatly
+increase the size of our internet of
+things or iot footprint because now
+bandwidth is no longer a constraint this
+means we can transfer much more data
+over a shorter period of time we can
+receive notifications much faster than
+we could in the past and because we can
+transfer more data we can process more
+of that data in the
+cloud there may be times when an
+organization might have a remote
+location that is not accessible through
+any type of traditional internet
+connectivity for that reason we may want
+to use a non-terrestrial form of
+connectivity known as satellite
+networking this means that we can add a
+satellite dish to a location and begin
+sending and receiving data from the
+satellite this obviously adds additional
+cost and complexity and the speeds of
+satellite networking although reasonable
+are not as fast as those we might have
+for traditional terrestrial based
+networking for example satellite
+networking can commonly provide you with
+100 megabits down and 5 megabits up this
+means that if you have a remote site
+that has no other way to communicate you
+can add a satellite dish to the roof and
+begin communicating directly to the
+internet as you can imagine there is a
+delay as information is sent into space
+and back down to Earth again traditional
+satellite networking provided 250
+milliseconds up and 250 milliseconds
+down so each conversation to and from
+the satellite took approximately half a
+second newer Technologies such as
+starlink advertises a 40 millisecond
+latency and they're working to decrease
+that down to 20 milliseconds another
+challenge with satellite networking is
+that it requires a direct line of sight
+to the satellite that's in orbit above
+the Earth this means means if anything
+does get between the satellite receiver
+and the satellite then we may have a
+decrease of performance or lose
+connectivity altogether for example if a
+thunderstorm was to come through we
+would suffer through what we call Rain
+fade where we lose connectivity while
+that storm is going over in those
+situations it may be necessary to wait
+for the storm to blow through or we may
+have other forms of connectivity that we
+might use when a storm is currently
+active

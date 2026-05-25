@@ -1,0 +1,192 @@
+one of the important foundations of
+cryptography is ensuring that when
+someone sends data to a third party that
+that third party is able to verify that
+that information really came from the
+sender this is something that we think
+of all the time as part of a contract we
+sign a contract at the bottom it's our
+name it's our signature and if somebody
+was to look at this contract later they
+could see our signature and could
+reasonably say that the contract was was
+signed by us just like our signed
+contract we have a similar set of
+features in cryptography and today we'll
+look at how this non-repudiation works
+using proof of integrity and using proof
+of origin with high Assurance of
+authenticity proof of integrity means
+that any data that we've received we can
+verify that it's exactly the same data
+that was originally sent this means that
+our data is accurate consistent and we
+know that nothing inside of the data
+we've received has been changed in
+cryptography we can accomplish this by
+using a hash a hash is a short string of
+text that we can create Based on data
+that is contained within the plain text
+this is sometimes referred to as a
+message digest or something like a
+fingerprint this means that if anything
+changes with that data we'll have a
+different fingerprint or a different
+hash this is the same as an actual
+fingerprint if the person changes you'll
+see that the finger print is very
+different although a hash is very good
+at verifying the Integrity of the data
+it doesn't associate that data with a
+particular individual we can verify that
+the data that we've received is exactly
+the same as the data that was sent but
+we can't verify who sent the data
+however there are ways to provide that
+additional Integrity we'll talk about
+those in just a moment let's see how
+this hashing works by using a practical
+example there is an organization called
+Project Gutenberg on the internet and
+they have published the Gutenberg
+encyclopedia I downloaded volume one of
+that encyclopedia and it's 8.1 megabytes
+of data and then I ran an application
+that took all of that data and created a
+hash or a fingerprint of that particular
+encyclopedia volume one and here is the
+exact hash that I've created from that
+volume now if I was to change one
+character inside of that file anywhere
+although the size of the file is exactly
+the same after making the change
+somewhere in that Hast stack of data
+there is some type of difference but it
+would be very difficult for a human to
+read through all of that data 8.1
+megabytes of text and somehow determine
+where that individual change might be
+but if you perform a hash of the changed
+data you'll see that the hash value that
+I create is very different than the hash
+value that was was original so if I have
+downloaded this file perform my own hash
+and compare it to the original I can see
+that something has indeed changed with
+this particular volume one of the
+Gutenberg
+encyclopedia at this point we might want
+to download again to see if we happen to
+get a corrupted or modified version or
+perhaps we perform a diff or a
+comparison between those two files to
+see exactly where the change might be
+between the original version of the
+volume one and the version that we
+received by using these hashes we're
+able to provide proof of Integrity we
+know if anything was changed when the
+information was sent from the original
+sender but we can also add to this an
+additional level of Integrity called
+proof of origin where we can verify the
+person that sent the data to us
+sometimes you'll see this referred to as
+an authentication when we are looking at
+the source of the message by using a
+digital signature we provide
+non-repudiation so not only do we know
+the person that has sent that data to us
+but anyone else could examine this
+transaction and verify that the
+information we received really did come
+from the sending party just as someone
+can use a pen and paper to sign a
+contract and send it to you in
+cryptography we use a digital signature
+this digital signature uses a private
+key that is only known to the person
+who's sending the data no one else has a
+copy of this private key to verify that
+private key was used we use the public
+key associated with that private key and
+that way we can ensure that the
+information we received is not only the
+same as what it was sent but we know
+that it had to be sent by the person who
+provided the digital signature in
+Practical terms adding a digital
+signature to a document is usually
+created by clicking a box that says add
+a digital signature and a lot of of
+cryptography happens behind the scenes
+let's lift the hood a little bit and see
+what that process might be that's taking
+place when you check that box to add a
+digital signature we'll start with a
+conversation that's occurring between
+Alice and Bob Alice is sending a message
+to Bob that says you're hired Bob and
+the first thing that Alice will do is
+provide a digital signature before she
+sends it the first thing that happens
+when she clicks that checkbox for the
+digital signature is that a hashing
+algorithm creates a hash of that plain
+text in this case the plain text is
+you're hired Bob once that hash is
+created we now need to have some way to
+verify that it really came from Alice
+and since Alice is the only one with her
+private key we're going to encrypt that
+hash with Alice's private key take that
+encrypted hash send it along with the
+plain text so that Bob is going to
+receive a message that says you're hired
+Bob and then attach to to that message
+is a digital signature in most cases
+Alice is going to send that message over
+to Bob using email or some other type of
+electronic delivery Bob is going to
+receive exactly that message that was
+sent it says you're hired Bob with the
+digital signature included with it Bob
+is going to use Alice's public key which
+is a key available to anybody and he's
+going to examine the digital signature
+and decrypt it using that public key
+once that decrypt takes place we have
+the original hash that was created of
+that plain text message and at this
+point Bob wants to see if the hash that
+was in that digital signature matches
+the hash of what he received so he's
+going to perform the same hashing
+function that Alice originally performed
+Bob is going to take the original plane
+text run it through the same hashing
+algorithm to come up with a hash of what
+he received Bob can now do a comparison
+to see if the hash that was included
+with the the digital signature is the
+same as the hash that he manually
+created from the plain text and if that
+matches we not only know that the
+information we received is exactly the
+same as the information that was sent
+but we know that it had to be sent from
+Alice as I mentioned earlier this entire
+process of creating a digital signature
+and verifying the digital signature is
+something that's usually created through
+clicking a button on your screen or it's
+something that happens automatically you
+normally never see this process occur
+but having an understanding of the
+digital signature process and the
+verification of the digital signature
+process can help you better understand
+the Integrity that we're looking for and
+the proof of origin that's so important
+when working with transactions like
+this

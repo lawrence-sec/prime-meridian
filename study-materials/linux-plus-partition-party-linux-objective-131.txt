@@ -1,0 +1,530 @@
+hello I'm John Powers and I'm here to
+remind you to learn everything do what
+you love and most importantly be kind
+now today we are diving back into the
+Linux plus certification Prep course
+whether you're hoping to get certified
+prepping for that or if you just want to
+learn Linux a little bit more thoroughly
+uh this video hopefully will benefit you
+and specifically today we're looking at
+section 131 which is actually a part of
+section 1.3 or objective 1.3 I just
+split it up into multiple videos so I
+just I'm calling this one 1.3.1 anyway
+we're going to look at kind of a
+hodgepodge of the topics inside this
+objective basically we're going to look
+at how we can identify the storage
+Hardware on our systems uh how we can
+partition them into usable space for our
+systems and then how we can look at how
+much disk space is used on the systems
+that are in place and then ones that we
+create as well now there's a couple
+different ways to do most things we're
+going to look at for example fdisc and
+parted or part Ed depending it's for
+partition editor they do the same exact
+thing but we're going to look at both
+and uh same thing over here you know a
+lot of these looking at block devices do
+the same sort of thing but they're going
+to work differently in different
+circumstances before we get started a
+quick thank you to my patreon supporters
+you make it so that I can continue to do
+this regularly and provide this training
+for free for anyone who it might benefit
+I am so incredibly grateful if that's
+something that you want to do you can
+join my patreon supporters I'll put a
+link in the description to my patreon
+page but it's certainly not required
+everybody is welcome to join in on this
+and on our Discord uh so I hope to see
+you there or at the very least I hope to
+see you in the comments on these videos
+now let's dive in to uh working with
+disk partitions and block devices all
+right so we're here on an Ubuntu system
+and this is a virtual machine but it has
+one hard drive that is in use and then I
+added another Virtual Drive that we can
+play with but I'm I want to show you a
+couple tools specifically the ones that
+are listed on the objective so we're
+going to start with BLK for block ID and
+of all the tools this might be the least
+helpful unless you're looking for things
+like the uuid of a partition that's in
+use but this will show you partitions
+block devices that are currently in use
+on the system like they're mounted this
+one is an ext4 device and it will give
+you that uuid but this will just give
+you a list of the block devices that are
+in use on your system but if you're
+trying to add another new device it's
+not going to show up because you have a
+chicken and an egg thing right you have
+to have it in use before block ID or BLK
+ID will show it to you so we can also do
+a couple other things we can do LS SC s
+i or LS scuzzy and we'll get a list of
+all the scuzzy devices on the system and
+I know some of you are like whoa whoa
+whoa whoa whoa why are the Serial ATA
+devices being shown as scuzzy devices
+scuzzy means something thing different
+serial attached ATA is not scuzzy and
+you are technically very very correct
+however most device drivers most storage
+block device drivers refer to pretty
+much every device as a scuzzy device
+these days
+just so that uh they're they're easier
+to find all in one place so you'll see
+here we have the CD-ROM is Dev sr0 and
+then we have two actual hard drive block
+devices that are virtualized serial atas
+uh one is SDA and one is sdb but this
+doesn't show you anything other than
+here they are we can actually look at
+our third tool for identifying block
+devices that one is lsblk and this is
+going to show us this is annoying but if
+we press enter it's going to show us all
+of the devices but that includes
+loopback devices that are used in Ubuntu
+specifically for SNAP programs or
+applications that are installed and
+that's super annoying
+um I don't want to have all these Loop
+devices listed and if you do
+um
+lsblk-h you can see that there are
+options for only showing certain types
+of
+um devices but I just want to get rid of
+certain types of devices so we could do
+Dash e and exclude the loopback major
+device number but I just have an easier
+way to remember than worrying about the
+flags that you have here I just like to
+do
+lsblk and pipe that through grep Dash V
+Loop now grep dash V we've covered in
+previous videos but basically it shows
+you everything about what you specify
+it's like I want you to show me
+everything in the contents that I'm
+gripping except for the thing I'm
+specifying so this should show us every
+line except ones that include Loop so if
+I press enter look at that it's a nice
+small list of the things that we have
+and why I like this more than LS scuzzy
+is it shows us not only the devices but
+it also shows us a nice tree view of the
+partitions if they exist so SDA is our
+current booted hard drive and it shows
+that there are three partitions there's
+one here there's the EFI the UEFI
+partition and then sda3 is our main root
+partition and it's just really really
+verbose in the information that it's
+showing you now it also shows us the
+other two
+scuzzy devices sdb but there's no tree
+listing here because sdb is a brand new
+hard drive that is not partitioned
+that's we're going to do next and so
+that's listed and of course our CD-ROM
+drive is sr0 it's listed as well so
+that's how you can kind of see the
+blocked devices that are in your system
+and now that we've identified that we
+can actually go through and partition
+that new hard drive that we've
+discovered on our system okay so uh
+there like I said there's two tools to
+do that parted or part Ed it's like
+partition editor or fdisk and let's
+start we'll just start with one
+arbitrarily so we're going to say first
+we have to be root because again we're
+editing like actual Hardware devices so
+we're going to say sudo
+f-disc Dev s d b for that new block
+device press enter it's going to ask for
+my password and then we get this text uh
+only interface for fdis now fdisk is
+kind of older and the reason uh parted
+or part Ed exists is because there was a
+period of time where fdisc did not work
+for newer large drives now fdisk has
+been modified so it will work on pretty
+much every drive and parted will as well
+so you can use one or the other what
+for a while fdisk was kind of crippled
+it only worked for older disks that's
+not the case anymore and I don't think
+that'll be something your question done
+but hey now you know so anyway we're
+inside here and generally the first
+thing I do because I never remember all
+the commands is to do just like it says
+it says M for help so I'll press M press
+enter and it will give me a list of the
+different commands that I can do when
+I'm in here so first things first we
+could print the existing partition table
+so that will just show us what's on the
+drive itself so I'm going to press p
+press enter and it will give us the
+information about it looks like it's a
+10 gigabyte Drive
+um and it looks like there's no other
+partition information on there at all so
+let's create I'm going to scroll up here
+so we can look let's create a new
+Partition using fdisk to do that we use
+n for new Partition okay so I'm going to
+press n and it will walk us through this
+which is really nice so press n enter
+it's going to say okay what kind of
+partition would you like to create
+primary or extended and I'm going to say
+primary now oh quick side note the
+reason it's asking it this way is
+because this happens to be a Dos
+partition table by default we it said
+that we're going to say that
+um disk label type is Dos if we made a
+GPT partition table which we could do
+with the G command then we wouldn't have
+to worry about primary and extended
+we've learned about that in previous
+videos as well whereas the older MBR
+Master boot record format is a little
+bit different anyway we're going to just
+use the defaults here uh so I'm going to
+say P for primary partition partition
+number one through four I'm going to say
+one again default I'll just press enter
+uh the first sector and it gives us the
+first usable sector here and it's 2048
+so again I'm gonna accept the default
+and the last sector it's going to
+default to the last sector of this hard
+drive I'm going to press enter again
+and now if we do p for print out the
+partition table we should see along with
+that information that we had before now
+it shows we have Dev sdb1 and it's 10
+gigabytes then it's the Linux type of
+partition it's labeled as a Linux
+partition we could change that if we
+wanted it to be raid or something but
+that's a whole other video anyway so
+it's here now if we want to quit we need
+to write the partition table to the disk
+right now it's just making all of these
+kind of like staged in memory and I
+don't remember how to get out so I'm
+going to press M again and it'll show us
+it'll say Okay save and exit there's two
+ways we can do it if we do W it's going
+to write the table to the disk remember
+I said all these changes are just kind
+of like staged in memory if we type w
+it's going to save it and exit if we do
+Q it's not going to save any of the
+changes it's just going to exit right
+out okay
+um I'm going to save the changes because
+I want to do something cool after this
+so I'm going to do W to save the changes
+it says that it's been um it's been
+altered calling ioctl to to reread the
+partition table that part's going to be
+important in a second and syncing the
+disks so now let's do LS BLK I'm going
+to pipe that through grit Dash V Loop
+and now look at that so we had our
+partitions from before and now we have
+sdb one now we haven't written a file
+system to it but we have a partition
+that is now active so let's use the
+other program to do that which is part
+add or parted but I need to get rid of
+this partition right I want to have a
+fresh hard drive like we did before so
+there's a couple ways we could do it we
+could go in with fdisc and delete the
+partition and then save that to disk but
+let's do a fancy thing using a tool that
+we've looked at in a previous video I'm
+going to do sudo DD input file equals
+Dev 0 output file equals Dev sdb count
+equals 100 I'll press enter okay so it
+has written 50 kilowatts I think that's
+going to be enough to wipe out that
+partition table let's show should be now
+let's do LS BLK
+oh and it already automatically did it
+it didn't wipe it out okay I was hoping
+I would have to the kernel noticed that
+I completely wiped out that partition
+and so it doesn't show it right here but
+there's another tool that we actually
+need to talk about which is part probe
+and what part probe does is it tells the
+kernel hey I've made a change to the
+partitions you really need to look at
+our partition table again to make sure
+you have a good idea of what's going on
+uh like I said it automatically did it
+when I did that DD command and wiped out
+that partition table that we wrote
+however it is clean and part probe is a
+way to make sure that the kernel has a
+current picture of what's going on so
+let's do it the other way now we're
+going to say sudo part Ed or parted Dev
+sdb and now this is the same sort of a
+thing it's just a command line interface
+there is a graphical user version of a
+parted called G parted uh we're not
+going to look at that because generally
+with the command or with the
+certifications they only look at command
+line tool tools so we're just going to
+look at the command line version of it
+and just like the other one it told us
+how to get help it says here type help
+to get a list of commands so I'm going
+to type help and I'll scroll up a little
+and first we'll look at this print which
+will display the partition table so
+let's say print unrecognized disk label
+and that's because we you know use DD
+and we just wrote to it so basically it
+says that there are there's an unknown
+partition table basically uh it's uh
+it's not usable at all it's just kind of
+a raw disk if you will we could create a
+partition table so let's do that I think
+if we actually made a partition it would
+make a partition table first but let's
+create the partition table so let's do
+MK table okay table if we hit enter I
+wonder if it will ask us what type yes a
+new disk label type let's do GPT this
+time okay and now let's do print and
+sure enough now we have a GPT label but
+there are no partitions so to do that I
+believe it was MK part yeah okay MK
+depart part partition name let's name it
+main file system type it looks like it's
+going to actually put a file system on
+it for us I'm going to do ext4 start 0
+and
+oh it actually doesn't have any defaults
+that's a that's spinning about okay uh
+let's start again MK p-a-r-t
+partition name uh Main
+file system type ex T4 start is going to
+be at 1 and the end now these are in
+megabytes and it's a 10 gigabyte thing
+so I'm going to say 10
+000.
+and there now if we do print we should
+see sure no it is uh 10 well nine nine
+nine nine nine but it's a 10 gigabyte
+partition ext4 and now how do we quit we
+type help we can see that in order to
+quit if we just type quit
+okay now let's do lsblk and we'll see
+sure enough our partition is back so we
+have our partition there again and
+that's all there is to partitioning up a
+drive using either fdisk or pardon I
+actually prefer fdisk and you can tell
+it's the one I use more often I actually
+purposefully did not go in and do
+everything uh in advance I wanted to
+make sure that I had to explore with you
+because I don't want you to think that I
+automatically remember all of the steps
+for every command it is okay to go and
+be like all right what am I what am I
+looking for here you know like oh it
+says type help so look at the help and
+then like uh okay this is what I want
+and then try it on like oh okay it
+doesn't default to you know the the
+biggest uh partition that you can do and
+so uh you kind of have to feel around
+and do stuff and that's okay that's
+actually how things are normally done I
+don't want anybody to get the idea that
+you automatically just know intuitively
+that it it will require you to know the
+number of megabytes in the partition
+that you want except Etc anyway that is
+how you make a partition the one last
+thing to look at is once the partitions
+are made and they're like mounted on our
+systems how do we look at how much space
+is being used right I mean we've
+identified the block devices we see how
+to create them we're going to mount them
+in a later video but the ones that are
+mounted how do we look at the amount of
+space that are that's being used well
+there are two tools that we're going to
+use to look at the amount of space being
+used but before we do that we need to
+look at FC stat now this is something
+that is mentioned on the objectives and
+this is only a viable or this only makes
+sense if you have a fiber channel
+adapter on your system and you're
+connecting two devices over fiber
+channel so I don't have fiber channels
+so I can't actually demonstrate that I
+can't even show you the tool but this is
+the tool it's FC stat and it has like
+some command line flags that will just
+show you information just kind of like
+the ls scuzzy did and LS BLK but this
+will give you information specific to
+fiber channel connections that are on
+the system if you have those drivers
+you'll be able to install FC stat to get
+stuff and thank you IBM for putting not
+only an example but actually the output
+of an example as well this is exactly
+what it will look like if we had a fiber
+channel adapter so FC stat the name of a
+fiber channel adapter and then it will
+show you the information about that I do
+however have a file system and so let's
+clear this screen and the two tools I
+want to show you and you've probably
+seen me use both of them in previous
+videos but first of all is DF now DF
+will show us the blocks in use on the
+mounted file systems on our currently
+running computer now I usually like to
+do DF Dash H for human readable and
+you'll see the difference you got to
+spell it right DF minus H and I like it
+because this shows me 1K blocks but but
+I don't want to do you know 1024 times
+whatever math in my head and so I like
+to do Dash H because it gives us human
+readable results like in megabytes in
+gigabytes so I always do DF minus H and
+basically this just shows us all of the
+file systems that are mounted on our
+system uh including the temp FF or temp
+file system so like our run file system
+is 200 megabytes in size currently 1.3
+is used same with temp FS looks like it
+has a gigabyte or this temp FS has a
+gigabyte it's mounted on dev shim this
+is actually going to be a future video
+where I use Dev shim a lot in my bash
+scripting as a temporary storage
+location that's just a foreshadowing of
+a upcoming video has nothing to do with
+Linux plus but anyway these are Ram
+disks basically these temp FS these are
+Ram disks that are mounted in the RAM on
+your system uh this is the UEFI
+partition and then of course where I
+passed it up here this is the main
+partition on our system Dev sda3 which
+is 20 Gigabytes uh 10 gigabytes of it is
+used we have 8.2 gigabytes available
+some of that is due to inode usage etc
+etc but anyway it tells us that it's 55
+used and where it's mounted the root
+partition right that's the only hard
+drive that we really have mounted on
+this system right now uh DF has a great
+tool the other one is Du which doesn't
+show us the size of partitions it shows
+us
+um individual files and folders how much
+space they use but it's kind of a pain
+in the butt at first I mean if you just
+type D U I'll show you you do this and
+just like the find command will
+recursively find every single file and
+folder that exists in from where you are
+currently you know down every folder
+you'll see it like went down every
+single folder here this isn't exactly
+what I want this shows how many blocks
+are in use by this particular file
+that's not as useful for me I also use
+Dash H for here and that will show us
+well I let's just do Dash H just to show
+you if we do this it'll show us in
+kilobytes and megabytes and or gigabytes
+but usually what I will do I don't think
+there's anything in this folder right
+now
+um let's go to Etc okay so there's a
+bunch of stuff in here I will do
+something like du Dash H for human
+readable and then Dash Dash
+summarize which will give me a summary
+of like if it comes across a folder
+rather than going in the folder and
+showing all the various things in there
+it will just add up all the stuff inside
+the folder and give a result for the
+entire folder let's do a summary of how
+much stuff is in the VMware tools folder
+so VMware tools and it will say okay
+there's 280 kilobytes in the VMware
+tools folder okay and that's usually how
+I do it du is disk usage and I will
+usually say dash dash summarize and then
+what it is I want to see and this is
+really useful if you're trying to find
+like okay which folder in my home
+directory is using all of the storage
+and you find out oh it's my videos
+folder happens to be like 85 gigabytes
+or something like that anyway these are
+the main tools for checking out block
+devices on your system how to partition
+them I encourage you to play around
+especially if you have a virtual machine
+create a couple block devices and part
+partition them and format them and play
+with them and use DD to completely
+destroy them and see what happens
+because
+um experimenting and playing really is
+the best way to figure out how all of
+these different things work but now you
+have some tools to actually look at your
+file system look at your devices see how
+much space they use and how to
+manipulate them and if you have fiber
+channel you know that you can use FC
+stat but I don't have fiber channels so
+in fact I don't think I've ever used FC
+stat in my entire life but that doesn't
+mean it's not important to know
+especially if you're going to take the
+Linux plus exam anyway I hope this was
+helpful and I look forward to seeing you
+on the next video

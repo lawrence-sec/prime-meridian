@@ -1,0 +1,542 @@
+[Music]
+all right everyone today we're going to
+be talking about endpoint security and i
+know it's not the first time we've
+talked about endpoint security but this
+time we're going to be focusing on
+behavior analysis
+that is we're not going to be talking
+about malware signatures and antivirus
+signature updates but instead we're
+going to be trying to identify malware
+by looking at the behavior at that
+malware itself how does it interact with
+our system instead of just looking for a
+predefined signature
+so when it comes to you know defending
+your your network and your system you
+know a special attention must be given
+to these endpoint devices and mobile
+devices as well because they're often
+the target of a lot of attacks out there
+also mobile devices because they are
+mobile they're so easily lost or stolen
+and unfortunately due to so much
+diversity in the world of endpoints i
+mean we have laptops we have desktops we
+have mobile devices like phones and
+tablets and think lines and smart
+wearables with so many operating systems
+so many versions so many applications
+running on each and every single one of
+these devices there is no single unified
+solution
+for protecting everything that's running
+in there in this ecosystem this mobile
+world but we can combine
+several techniques in an attempt to
+secure them remember security is a
+process so there's no just a check mark
+which says
+this solution is completely secure you
+can go home now
+take a vacation but don't forget one
+thing that no matter how well you secure
+your endpoints they will still have one
+major security flaw
+and that that flow is always going to be
+there and that's the biggest risk out
+there
+and that is
+their users
+and before starting talk about more
+advanced detection solutions against
+malware let's not forget that
+we also have our first
+line of defense like antivirus
+software right don't forget about those
+they are designed to look for known
+malware to scan based on some known
+signature predefined signature database
+of signatures and they don't just scan
+against viruses nowadays they look for
+trojans
+for spyware adware droppers and so on
+well they're still useful in real life
+antivirus solutions are now considered
+to be
+not enough and sufficient in the face of
+more advanced threats so let's see some
+complementary solutions out there and
+most of these complementary solutions or
+just smarter solutions are going to deal
+with behavior analysis and anomaly
+detection now why is that well because
+we don't know exactly what to look for
+when the malware becomes too advanced
+that's why we look at behavior and
+anomalies and that's because the things
+that we already know how to look for
+are already registered as malware or
+attack signatures in their databases and
+are traditional security devices like
+antivirus or network ips's and not just
+the antivirus and the ips devices know
+about those signatures but the attackers
+know about those signatures as well and
+they always try to evade them okay
+so let's get back to looking at malware
+from an anomaly perspective let's see
+what we can detect and how first type of
+software that it's worth mentioning here
+is of type heads or hips that is host
+based intrusion detection system
+or host bays you guessed it intrusion
+prevention systems they're usually
+packaged as suits of software that
+attempt to detect intrusions on a single
+machine so they're going to be running
+as a as a service on your local laptop
+on your local desktop and they're going
+to be monitoring things like you know
+the file system uh the especially the
+operating system files the drivers make
+sure they nobody has tampered with them
+nobody has changed them in the meantime
+app application executables even log
+files in order to detect tampering
+within the log files of course they're
+going to be looking at network traffic
+which applications are
+listening
+on specific ports maybe applications
+that are initiating connections to the
+outside without your knowledge or even
+sometimes applications installing new
+network interfaces i mean of course not
+physical network interfaces
+how would that look like but virtual
+network interfaces like tunnel endpoints
+you know for for applications attempting
+to exfiltrate data or to
+create a secure encrypted communication
+channel to the command and control
+center for example now a great advantage
+of these host-based solutions is the
+fact that they are able especially from
+a networking perspective to look at
+encrypted traffic because from their
+point of view that traffic has not yet
+been encrypted or has just been
+decrypted because they are located right
+at the end of any encrypted tunnel that
+you might be using if you're on a vpn if
+you're transferring some data over an
+https connection to with a website
+well at your browser level at your
+machine level that traffic is first
+unencrypted before it becomes packaged
+ready to be sent over the encrypted
+connection and well
+while that traffic is still not
+encrypted while those requests are being
+built
+that's when the host-based intrusion
+detection or prevention system is gonna
+get a chance to look at that traffic and
+decide whether it's there's something
+fishy happening in there now one
+additional type of tool that kind of
+falls within the same category here is
+the file integrity and monitoring tools
+now we do have a lot of solutions here
+but basically they all do kind of one
+thing you know they they just keep an
+eye on the files especially on the
+operating system files and they warn you
+or they create an alert or they even
+block any attempts to change those
+operating system files of unless of
+course you know a windows update for
+example happens
+but by by carefully monitoring those
+files and maintaining a database of file
+hashes
+the file integrity monitoring solution
+can ensure or detect whenever a
+malicious
+software attempts to modify any
+operating system files so again this is
+also a type of behavioral
+analysis because we don't know exactly
+what the signature of the specific
+malware is but as long as it tries to
+change some of the operating system
+files it's definitely up to no good all
+right so this is one way of behavior
+that we can look for now one example is
+going to be the trip wire tool this one
+i would strongly encourage you to
+remember for the exam another type of
+tool a more comprehensive one actually
+is the endpoint protection platforms
+these are kind of like the all-in-one
+softwares that you you sometimes see on
+on enterprise computers you know that
+complete security suit that takes care
+of everything like ids antivirus looks
+for root kits filters your your web
+traffic filters even your your
+search engine results that you get
+within the browser
+you know you know url filtering dlp
+enforcing all that stuff they're usually
+packaged into one single solution
+most of the time they make your computer
+run extremely crappy and that's the main
+reason why people kind of hate them
+especially the end users
+but they're they're good at what they do
+right in an enterprise environment
+they're very useful because they can be
+administered through a centralized
+management console for all the endpoint
+devices and you get a lot of visibility
+and a lot of control over the all the
+end points that your users are using
+now these solutions are mostly based on
+signature detection so there some of
+them have become smarter
+lately but most of them still rely
+solely on signature detection
+another one here actually kind of the
+next one on the evolutionary list as the
+endpoint detection and response
+solutions they
+work kind of like the endpoint
+protection platforms that we just talked
+about before but those are signature
+based now edr solutions pride themselves
+advertise themselves as being adaptive
+based on machine learning being able to
+identify these this malicious behavior
+without a specific signature so they
+just look for end point indicators of
+compromise or just suspicious behavior
+in an attempt to detect anomalies that
+might indicate the presence of malware
+there are a lot of vendors out there
+that are developing solutions like this
+just to mention one of these would be
+cisco amp for endpoints
+they are very good at containing malware
+including zero days because they they're
+able to identify
+a malware from its behavior from what
+it's doing on that specific host
+even when they don't have a specific
+signature for it so how do they do this
+well they're going to look for
+things that look out of context out of
+place things like i don't know duplicate
+process
+files like two processes launched from
+an executable with the same name but
+from two different disk locations
+why would that happen another suspicious
+behavior would be to have some known
+process that usually does not create
+network connections
+initiate some outbound traffic i mean
+how weird would it be to see an active
+tcp connection
+starting being initiated from
+notepad for example right
+another one would be look for processes
+with no attached information no metadata
+no description or no digital signature
+so we do have a lot of methods here to
+try to analyze things that just don't
+look right and sometimes we can even
+correlate this information over
+a larger set of hosts i mean we might be
+seeing
+a process a new process popping up on
+one host we know nothing about that
+process
+but let's say in uh in two minutes time
+we see the same process name popping up
+on another 50 hosts on the same network
+now that might be suspicious behavior
+that might indicate a worm propagating
+through a vulnerability in the network
+and finally the last one here and as you
+can see there's not that much difference
+between all these solution types but
+comptia kind of insists that you know
+these this terminology and especially
+this last one ueba user and entity
+behavior analysis i would bet that
+you're probably going to get at least
+one question in the exam about this one
+it's all about what do users do how do
+they do it when do they do it what are
+their usual actions on their
+workstations so these are solutions that
+are kind of intrusive
+sometimes because they they track user
+behavior across multiple devices and
+multiple services accessed by that user
+and not everybody is going to be so
+happy knowing that everything that they
+do everything that they type every web
+location they access is stored somewhere
+and the company has access to that kind
+of information
+but
+well from a technical perspective this
+is good because we're feeding that
+information into some machine learning
+model and we're we're teaching that
+machine learning model to build a
+baseline for a single user for a for a
+job role for a user type which helps us
+then identify
+misbehavior and abnormal behavior not
+necessarily on behalf of that user so
+we're not actually blaming the user
+itself but suspicious behavior happening
+on a user's workstation which we know
+how it was supposed to behave that could
+indicate the presence of malware and
+again there's a lot of solutions out
+there you can
+pick which one of suits your
+desires and your pocket best so just to
+mention two of these we have splunk user
+behavior analytics and from microsoft we
+have advanced threat analytics
+so pick your poison and now well
+all these automated tools are great and
+smart and useful and sometimes you you
+just don't have them at your disposal
+they cost money and manpower to
+configure and to manage well there are
+some tasks that you can perform on your
+own manually when you don't have a tool
+to do that job for you now especially
+when troubleshooting some suspicious
+behavior on a host remember that you
+won't be able to see anything suspicious
+if you don't know how that normal
+quote-unquote normal looks like for
+example on a windows machine you should
+see just one single idle
+that is process identifier zero pid zero
+and one system pit that is number four
+you should see just one of these
+processes both kernel processes any
+other processes should belong to the
+windows session manager subsystem which
+is smss
+that's the first user mode process which
+should be a child of the system process
+you should also see one single instance
+of wininit.exe
+as it is responsible for drivers and
+services you should also see one single
+instance of services.exe and all the
+other services that are launched by
+windows should be child processes of
+services exe or svc host exe which is
+just a wrapper for multiple services now
+if you ever wonder why you see so many
+processes called svc host exe and you
+thought that
+it might be a virus well it's not
+necessarily because that's a wrapper
+which encapsulates the actual executable
+file that represents a specific service
+and as we all know windows has a bunch
+of services running at all times also
+all the system services should be
+digitally signed so check for the
+digital signature
+services should be launched by either
+the system the local service or the
+network service accounts not any other
+type of account you should also find
+just one single instance of lsas.exe as
+this is the process that handles
+authentication and authorization so
+careful with this one especially if it
+becomes compromised
+when log on this one handles the gui the
+graphical user interface of windows and
+there should be just one instance for
+each user session so finding multiple
+executable files like these might
+indicate that somebody else is connected
+to your machine user init you should not
+be able to see this for too long because
+it enables the use of explorer exe
+and then exits it should not persist if
+it persists it might be indicator of
+malware which tries to exploit the fact
+that this executable file is most likely
+going to be whitelisted in uh in any
+solutions but you should not be able to
+see this for a long time and then we
+have explorer exe not just windows
+explorer it's not just a file manager
+but also the parent process
+for any other processes that are
+manually launched by the current user
+everything else is being launched by
+explorer exe now in order to see this
+information of course you do have
+windows task manager on windows i don't
+think i need to show you windows text
+manager at this point
+but some better utilities you can find
+within the sysinternal package which is
+freely available from microsoft website
+and i strongly encourage you to downl
+you out of the box
+like the procmon utility which is part
+of sysinternals where you can get the
+chance to actually see the process tree
+not just the list of processes
+if you click on the process tree here
+you're going to see how each and every
+process was launched by whom and
+what does the actual tree look like so
+you can see there's the idle process the
+system process and there's wind in it
+right here so i wasn't lying to you
+right
+this idle with a pit 0n system with a
+pit number four
+so when it comes to analyzing suspicious
+processes try to examine their behaviors
+like does it write does it change any
+files on the disk
+where was it launched from where is it
+launch location a process that looks
+like a system one
+but starts in your home folder
+doesn't look good not to mention if it
+starts in your downloads folder right
+then try to see if the process is
+somehow obfuscated or compressed is this
+normal right this is going to be
+highlighted in purple by the way in
+process explorer which is another tool
+as part of the assistant drones
+utilities does it have a weird
+relationship with its parent
+[Laughter]
+actually does it have the wrong parent i
+know that doesn't sound any better uh
+does it have the right parent
+was it launched by the process that we
+expected
+uh we expect our process to normally
+launch it okay so try to analyze that
+process tree and try to find some
+anomalies in there now what happens if
+you try to delete the process
+does it come back how does it come back
+how easily does it come back is it
+normal for the process to automatically
+come back if you try to kill it and how
+does it interact with the network is it
+listening on a port
+does it have active connections open
+is it sending
+is it initiating connections to the
+outside and is it sending any type of
+traffic over that type of connections
+and for all this information task
+manager can provide some high level
+information but up to a point now a
+better tool would be process explorer
+again part of this is internal tools
+where you can again see the the tree of
+processes how much resources they
+contain who launched them and so on or
+you can even dig deeper into each and
+every one of these processes here uh in
+order to analyze performance statistics
+uh tcp connections active connections
+all right security information like the
+groups or the users or the services that
+the process
+is using their permissions to run with
+environment variables as seen by that
+specific
+actual strings that are being detected
+within the image the the disk image or
+the memory image of the process and so
+on and so forth or even the list of
+threads that the process is constantly
+creating or killing over the the the
+lifetime of that process and there are a
+couple of command line utilities built
+into windows that you can use to explore
+the the list of processes i'm going to
+mention just a single one which is task
+list right i'll leave you to discover
+the rest of the switches and parameters
+supported by task list finally one last
+tool that i would like to show you also
+part of this this internals package is
+auto runs
+autoruns can identify any user mode
+malware that is set to run on system
+boot as well as the scheduled tasks that
+you might have been uh we might have
+maliciously created on your on your own
+system so have a look over the output of
+the autoruns tools and make sure that
+everything that you see in here
+actually corresponds with the the tools
+and the pieces of software that you
+expect to find and you know they should
+run
+on each and every boot on that specific
+host
+all right so that's pretty much it about
+behavior analysis remember what we just
+talked about especially for the exam
+make sure you can explain the difference
+between behavior analysis and signature
+analysis uh make sure you understand
+just a couple of the acronyms that we've
+covered like host-based intrusion
+prevention endpoint protection endpoint
+detection and response things like that
+and be sure to be able to identify it
+out of context and maybe in a specific
+scenario on the exam uh what type of
+information you should be looking for
+especially in a manual scenario where
+you don't have an automated tool to do
+that job for you what type of
+information you should be looking for
+when you're trying to determine whether
+a process is malicious or not on a host
+so thank you so much for watching hope
+to see you on the next video because
+next time we're going to be talking
+about harvard assurance
+we're also
+getting pretty close to the end of this
+series but we do have a couple more
+chapters to cover before we can wrap
+everything up so thanks so much for
+watching don't forget to like and
+subscribe and see you next time good
+luck
+[Music]
+you

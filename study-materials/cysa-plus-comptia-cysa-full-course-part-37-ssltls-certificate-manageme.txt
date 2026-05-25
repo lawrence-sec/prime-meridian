@@ -1,0 +1,630 @@
+[Music]
+Hi everyone. This is going to be a
+discussion about digital certificates.
+Actually, it's going to be a discussion
+about certificate management. And I want
+to stress this uh because it's important
+to understand that CISO plus doesn't
+expect you to know everything about the
+the life cycle of a certificate as in
+how it is generated, how it is
+maintained, how it is distributed, uh
+what kind of algorithms uh go inside
+that certificate, what kind of fields we
+expect to find in the digital
+certificate, stuff like that. That's not
+the focus of the CISO plus that is part
+of the security plus exam and learning
+materials. All right. So just focusing
+on CISA plus we're going to talk a bit
+about how to manage uh digital
+certificates. All right. Now hopefully
+you already know that digital
+certificates are the number one method
+for authenticating or for proving the
+origin or the identity of a of a person
+of a piece of code of an email of a of a
+website of a machine. But certificates
+can also be used to facilitate uh
+digital signatures and we can also use
+them to help us with encryption of data.
+Right? So let's have a better look at
+this concept. All right. So we have
+digital certificates and we can assign
+digital certificates to people to
+servers to signed codes or applications.
+Uh but in order for anyone or any kind
+of entity to trust them and to consider
+those certificates as being valid and
+useful, well, you need to recognize them
+as valid. And they need to be digitally
+signed by another entity that everybody
+trusts. Just like a national ID card, if
+you think about it, a a password or even
+or even a parking permit or your
+university or high school diploma. If
+you trust the entity that signed that
+document, then you're going to trust the
+document as well and whatever the
+document says. So for digital
+certificates, we have CAS. Those are
+certification authorities that are the
+entities that issue those digital
+certificates. Now, not all CAS are
+trusted. In fact, you can actually
+become a CA yourself by yourself in just
+a few seconds. It's no big deal. You can
+start publishing certificates, but
+nobody would trust you because nobody
+knows you. Well, you might be able to
+convince some friends perhaps, but
+generally if you go outside in the wild,
+wild web and you start uh issuing
+certificates, nobody is going to
+recognize them because they're going to
+see that, okay, they're signed by
+Andrew. Who the heck is Andrew? I if I
+don't trust the owner of that
+certificate, why would I trust some
+Andrew nobody on the on the web? So, we
+need some method to fix this, right? We
+need some method to ensure that at some
+point we can start trusting some
+authorities, right, that sign
+certificates. So, trust has to start
+somewhere. So one solution for this is
+the fact that client machines like
+operating systems that we're running on
+our desktops or laptops, even our mobile
+phones, even our smartphones come with
+pre-installed so-called root CAS, root
+CA certificates which are trusted by
+default. Uh they use them to validate
+websites that use HTTPS. That's why when
+you visit uh Gmail or Microsoft or any
+website basically nowadays, you're going
+to see the lock icon in your browser
+that says the the connection is secure,
+the website is trusted and everything is
+okay. You're you're safe to to provide
+your your credit card details over that
+uh encrypted connection. We also use
+them in our computers to validate email
+signatures. Now, no, not everybody signs
+their emails, I know, but that's the
+same process. Uh also VPN connections.
+Sometimes when you connect to a VPN uh
+VPN endpoint, you might receive a
+message that says the uh the remote
+location is not trusted or the
+certificates is invalid. And this very
+often happens especially in smaller
+companies that use self-signed
+certificates. When people try to connect
+from the outside to that VPN endpoint,
+they're not going to trust that
+certificate or the the VPN client is not
+going to trust the certificate. Now, you
+might be able to override this and say,
+"Okay, I know what I'm doing. just go
+ahead and connect. But that's not the
+secure way of um of of connecting over
+an unsecure network such as the
+internet. All right. So, just to recap,
+we can use digital certificates to
+verify identities for people like in
+email signatures or for web servers, for
+example, when you're accessing them
+using a browser. We can use them for
+non-repudiation. Remember
+non-repudiation
+is the inability
+of someone of a person of an entity of
+denying having sent a message. If we
+trust that only that specific person has
+the valid key that can be used to sign
+an email message or to encrypt a
+specific file, then there's no way for
+that person to deny ever having done
+that action because nobody else could
+have done it in their place. So that's
+nonrepudiation. This is also one of the
+things that we we get, one of the
+benefits that we get by using digital
+certificates, electronic signatures.
+Just like we said before, we can sign
+our our messages. We can sign our code
+as well. Whenever you're distributing
+binary code or applications, to your
+customers, to your clients, uh that
+code, that signature attached to your
+code, that's a confirmation for the end
+user that the code actually came from
+you and not from a malicious third
+party. And finally encryption. Now
+there's an entire discussion here going
+from public private key cryptography. So
+from asymmetric cryptography to
+symmetric cryptography and what exactly
+happens whenever you establish a secure
+tunnel like an IPSec tunnel or or a TLS
+tunnel that's beyond the scope of the
+plus. Again this is also covered in the
+network and security plus uh courses
+from CompTIA. But suffice to say that
+digital certificates can help us uh with
+securing data sent over an encrypted
+connection first by authenticating the
+endpoint so that we can be sure that
+Alice is communicating with Bob and
+there's no nobody in between and
+nobody's impersonating anyone and also
+gives us a security environment where we
+can decide what kind of encryption
+method what kind of encryption key are
+we going to use in order to uh send a
+big amount of data a large amount of
+data. Now some of the tools that you can
+use to view your own certificates start
+with the cert MGR utility in Windows
+that's a certificate manager. So right
+here we can see on the left hand side
+that we have personal certificates
+trusted root certificate authorities and
+a bunch of other certificate categories.
+For example, under the personal section,
+if I collapse this one, I'm going to see
+my own certificates and a couple of U
+company certificates
+that I've manually imported. The trusted
+root certificates. Again, this is going
+to include all the trusted CAS that my
+computer knows about. So, if right now I
+visit a an HTTPS website which is
+directly signed by uh search sign. All
+right? or it is signed by a CA that is
+signed by search sign then I'm going to
+automatically trust uh that website I'm
+going to trust that connection another
+way to view my current certificates my
+personal certificates is by using the
+sig check utility this one is available
+within the CIS internal package freely
+available from the Microsoft website so
+sig check.exe-tv txe-tv.
+All right, it's going to show me the the
+trusted and valid certificates that I
+currently have installed on my computer.
+Now, apparently I also have a
+certificate from Blizzard. Don't
+remember playing anything from Blizzard,
+but anyway, apparently this one is here
+as well. All right, and as I just
+mentioned, this is internal suit of uh
+of utilities freely available on the
+Microsoft website. I'm going to leave
+the link in the video description. go
+ahead and download that package because
+it has a bunch of very useful utilities
+for the Windows environment. One
+additional thing to note is that some
+applications will maintain a separate
+certificate store just for themselves
+like for example VPN clients or even web
+browsers. So for example in Firefox if I
+were to head to the settings section and
+search for certificates right here right
+I can click on view certificates and I'm
+being presented with a certificate
+manager which is completely separate
+from what we saw before and this is the
+set of certificates that is built in
+every Firefox browser
+so they're automatically trusted. Uh one
+more interesting thing to remember is
+the fact that there is something called
+the certificate transparency framework
+uh which is nothing else than a grouping
+of major companies that agreed among
+themselves to publish their own CA logs.
+That is anybody could see actually with
+what kind of uh domains what kind of
+subdomains they've published
+certificates for. So from a
+reconnaissance point of view as an
+attacker or as an uh a security analyst,
+there's a lot of useful information that
+can be discovered in these public logs
+of the CAS as well. So go ahead, start
+from this website right here and then
+navigate to one of these major vendors
+uh at the bottom. Also remember that
+certificates might not identify a
+specific entity just one specific server
+for example because we do have two
+additional types of special
+certificates. The first one is called a
+SAND that is a subject alternative name.
+This is the kind of certificate that can
+be used with other domains closely
+related domains from the parent domain
+for for which the certificate applies.
+We can also use it if our website is
+hosted on different uh IP addresses or
+uh we want to also use it to validate or
+use it as a signature for email or if
+you want to create some subdomains for
+email addresses. This is useful when you
+have a certificate for your business but
+you don't want to purchase another
+certificate for each and every resource
+that you're hosting. So it's a way to
+use the same certificate for multiple
+resources. Uh, and another kind of
+certificate that kind of does pretty
+much the same thing is a wildcard
+certificate. This one is a bit more
+broad because it covers a larger
+spectrum of of possible domain names.
+This one applies to all the subdomains.
+For example, multiple unrelated hosts
+that all belong to the same company.
+Doesn't matter which host it is. So,
+this one will attempt to automatically
+validate or confirm the identity of any
+entity that is under your control inside
+of your company. Careful with this one.
+It might apply to multiple completely
+unrelated entities. It's going to make
+forensics and and logging extremely
+difficult because it makes it very hard
+to identify which entity you're actually
+talking to. But again, it's another
+solution if you don't want to purchase a
+specific certificate for each and every
+subdomain or each and every resource
+that you own. All right. So, from a uh
+from an analyst perspective, from a
+security analyst perspective, the daily
+certificate management tasks are most
+likely going to include things along the
+lines of well, the installation of
+certificates onto new network devices,
+web applications, uh internal servers,
+updating those certificates whenever
+they need to be replaced or renewed. uh
+validating the root certificates because
+sometimes they get compromised and a
+root key compromise means that all the
+certificates ever generated by that CA
+become compromised as well. Then of
+course we're going to be focusing on
+installing, updating and revoking user
+and machine certificates. Be very
+careful here uh with code signing
+certificates, those that we use to sign
+application code because they can be
+used to push malware using properly
+signed code. And just to give you an
+example for this, what can you do if you
+manage to get a hold of Apple's signing
+certificates for their own applications
+in the app store? Well, you get the
+chance to put hacked applications,
+malware applications onto iOS devices.
+No, that's that's like the holy grail of
+hackers, right?
+And it actually happened not so long
+ago. All right. Other than that, be very
+careful with self-signed certificates.
+They are very convenient because anybody
+can generate them but they rely on user
+awareness. They're they cannot be used
+to validate any kind of identity because
+if you're stating your own identity and
+nobody can vouch for you then that
+statement means nothing. Okay. Also
+careful with self-signed certificates
+because captive portals, especially
+those in public Wi-Fi, you know, the uh
+those wireless networks that redirect
+you to a signing portal the moment you
+you connect to that public Wi-Fi.
+Captive portals usually have these
+self-signed certificates in order to
+inspect the traffic that you are
+sending. Yes, they are doing
+man-in-the-middle, but they will be
+doing it only if you agree to accept and
+install their own certificate. So,
+careful with accepting certificates on
+public wireless networks. Most likely,
+it's going to lead to some
+man-in-the-middle traffic inspection. It
+might be it might be just to to secure
+the web access, but it most likely it's
+going to be malicious, especially since
+most people when they see a warning and
+it does have an accept button, they will
+they will press the accept button
+because they want to have internet
+access. They don't really care what it
+says. But anybody can create a captive
+portal, including a hacker trying to
+steal your credentials, right? you just
+you just clicked on accept and continue
+and you you've given all your traffic
+from now on to be captured by the
+attacker. Be sure to revoke untrusted
+certificates as soon as possible. We
+actually have two methods that allow you
+to check if a certificate has been
+revoked by its certification authority.
+And those methods are CRL that is the
+certificate revocation list which is
+well just like the name says is the list
+published by the CA that can be
+downloaded and checked which includes
+all the serial numbers of all the
+certificates that have been revoked by
+that CA. Now, of course, it's up to the
+client, the the one that actually
+validates uh any kind of certificates it
+receives to download this list
+periodically and well, double check all
+those certificates if they're not found
+in that list before accepting them. Now,
+there are some problems with CRLs. Of
+course, as you can see, downloading that
+list every single time you need to
+validate a certificate is not very
+efficient or convenient. It's a lot of
+overhead. And secondly, CRLs are most
+likely not published instantaneously.
+that is it's going to be a delay which
+can range from a couple of minutes
+perhaps to a few days or weeks uh before
+the CRL is updated and another piece of
+delay before the actual entities that
+need to validate certificates think
+about you know downloading an updated
+version of that CRL. So it's not very
+efficient. Uh some certificates might
+get through even though they have been
+revoked. So we have a better method.
+This is called OCSP. This is the online
+certificate status protocol and just
+like the name says it's a way to online
+verify if the status of the certificate
+is okay or not if the certificate is
+revoked or not. It's basically instead
+of uh downloading the entire list of
+revoked certificates uh you're running a
+query and reply conversation with the CA
+just by asking uh dear CA just please
+let me know if this serial number has
+been revoked or not and the CA replies
+immediately. Now the behavior is a bit
+high traffic is a bit more interactive.
+So this might consume some resources on
+both sides. So we do have some methods
+of optimizing this by caching those
+responses on our uh on the web server
+itself and that's called OCSP stapling.
+This on the other hand is a discussion
+for the security plus training. Right?
+So we don't need to know this for
+decisive plus for decisive plus exam.
+It's more than enough for you to know
+the differences between CRL and OCSP.
+And a couple of utilities you should
+know about for managing certificates on
+both Linux and Windows. We have OpenSSL
+on Linux and search util on Windows. All
+right, short discussion here about SSL
+and TLS. As you hopefully already know,
+websites that use HTTPS as communication
+protocol, uh, which is a secure
+protocol. Well, that protocol is secure
+because it uses TLS in the back end. So
+in order to be able to implement TLS, we
+need the server to have a valid
+certificate. Because when you're trying
+to communicate with that server, your
+browser basically receives that
+certificate from the web server, checks
+the signature on that certificate,
+checks to see if the certificate has
+been signed by a valid, a trusted CA.
+And if it has been, then it's going to
+trust that certificate and it's going to
+trust the entire communication with that
+website from from that moment on. Now in
+the background what really happens is
+after we're uh accepting that
+certificate so we are validating the
+identity of that website we are
+negotiating some encryption algorithm
+and some encryption keys that will be
+used to transfer all the data between my
+browser and the specific website. Now it
+is also possible to have the client
+authenticate itself with a certificate
+as well. This is not often used but it
+can be done so that the server trusts
+the client as well. Usually the client
+has other means of providing its uh its
+identities like usernames, passwords,
+you know, onetime passwords and so on,
+multiffactor authentication but well one
+of those factors could actually be
+something that you have that something
+being a certificate.
+Most likely this feature is used in uh
+VPN connections, not so much on the web
+and in enterprise networks that require
+this kind of mutual authentication. Now,
+one thing to really understand here is
+the fact that SSL from version 3.0 on
+has become TLS version 1.0. Right now,
+SSL by itself is not considered secure
+anymore. Actually, not even TLS 1.0,
+zero, but you should be seeing at least
+TLS 1.2 on every website that you're
+visiting, if not even TLS 1.3. So, don't
+try if you're if you're managing a
+website, if you're managing anything
+that uses TLS encryption, try not to use
+anything lower any u previous version
+prior to 1.2. And god forbid that you
+use SSL. Also, keep in mind that most
+people still refer to TLS as SSL, even
+though the real protocol in in there is
+actually TLS, but we've gotten so used
+to the SSL terminology that we still
+call an encrypted HTTPS connection uh
+HTTP over SSL. And that's just because
+people have gotten used to the SSL term.
+Now of course since we we said that the
+protocol itself is used to negotiate
+a specific encryption algorithm and
+encryption key well the protocol itself
+first has to be supported allowed on
+both the server and the client. Uh which
+means if you're using an older browser
+and un a browser that hasn't been
+updated in some time well the browser
+might not know anything above TLS 1.0
+01.1
+in which case it depends on the website
+if they agree to downgrade their TLS
+version in order to talk using the same
+version as the one supported by the
+client. Most likely this this kind of
+downgrade is not done for for malicious
+purposes but it is performed so that we
+can find the highest version number that
+we can both use. Unfortunately, it can
+also be abused. So an attacker can force
+a web server to downgrade its encryption
+algorithm down to the lowest possible
+version. Why? Well, because lower
+versions, older versions have
+vulnerabilities in there. They're much
+easier to attack. So careful with this.
+You might have a website that by default
+is going to present itself as TLS 1.2,
+too. But there might be some settings in
+there which you might have overlooked
+that allow that website to downgrade to
+very very old cipher suits and very very
+old uh SSL versions even. Now since 2018
+we have TLS 1.3 and it brought on some
+uh some big improvements uh especially
+regarding this downgrade attack. So it's
+basically uh now preventing TLS from
+ever downgrading to an unsecure version
+and there are also changes in the
+handshake protocol that is uh that is
+performed between the client and the
+server in order to reduce the number of
+messages and speed up the uh the
+connection. These types of
+vulnerabilities given by the version of
+SSL or TLS can be easily detected by any
+vulnerability scanner or web application
+scanner as these are among the first
+things that a web server is going to
+report to a client whenever they try to
+initiate a connection. These are the
+supported algorithms and supported
+protocols that I can use. Pick one. And
+just to end with a couple of examples,
+we've got the searchert util utility on
+Windows. You can ask for more
+information using the dash question
+mark. And you can see we have uh we have
+this utility here that we can use to
+generate certificates, enumerate them,
+back up from the from AD, restore them
+to AD, import certificate from external
+files and so on and so forth. So we
+really have a lot of functionality
+within this very small utility and we
+can also use it to list our own
+certificates in our own certificate
+store on local machine using the dash
+store parameter. Now if you move over to
+a Linux prompt here we have the open SSL
+utility can prefix this using the man
+command so we can access the man page.
+And if we scroll down here, we can see
+under the description that this is an
+utility that we can use to manage the
+creation of private keys, public keys,
+uh public key, cryptographic operations,
+creation of standard certificates, uh
+CSRs and CRLs. So these are the
+certificate signing requests. When you
+you apply for a certificate, you want to
+get a certificate. So you you basically
+fill a form and you send it to the to
+the CA in order for them to to generate
+the certificate for you. and CRLs, the
+ones that we've just talked about, you
+know, certificate re revocation lists.
+All right, so just remember these two
+utilities for the exam. And one more
+tool here that I want to show you, of
+course, it's just one of the many tools
+out there that you can use to check the
+sanity and validity of the certificates
+that you're using on your web
+applications or websites, uh, is this
+one right here from Digiert. Uh, you can
+just click on this check SSL TLS
+certificate button on the left. Now,
+let's add something like uh, I don't
+know, YouTube. All right, click check
+here and just a couple of seconds here.
+It's going to give us a lot of
+information about who generated the
+certificate for for YouTube, what kind
+of validation we have, domain
+validation, what's the algorithm type
+that is being used, the key size, the
+serial number, a revocation check method
+here, by the way, OCSP, right? The one
+that we've just talked about.
+Let's see what else do we have here.
+These are the SAS subject alternative
+names. Remember these? Look how many of
+them are right. They are all related, of
+course, to Google and YouTube in some
+way. And of course, at the very end of
+the of the page, you can see if the
+certificate is still valid. So, use this
+one, especially if you own a website, if
+you own a company, uh just perform some
+sanity check on your on your
+certificates from from time to time,
+right? So, by now you should have a
+pretty good understanding about what are
+the generic certificate management tasks
+that an admin is supposed to perform on
+daily basis. And for the exam, make sure
+you remember those special certificate
+types like the SAND subject alternative
+names and the wild card certificates.
+Also, make sure you understand the
+difference between OpenSSL and TLS. How
+are they implemented and why the version
+is relevant. Make sure you are able to
+at least recognize a couple of the
+command line utilities involved in
+certificate management. And last but not
+least, thank you so much for watching.
+Like and subscribe and see you next time
+when we're going to be talking about
+mobile threats. See you.
+[Music]

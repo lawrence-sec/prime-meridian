@@ -1,0 +1,951 @@
+Now, if it were up to me, I would say
+that these following chapters where
+we'll talk about software development
+and application code are probably among
+the most important topics in any
+discussion about cyber security. And
+that's simply because at the end of the
+day, it all comes down to pure software.
+The information that we're protecting
+using cyber security is stored using
+software solutions. the methods that
+we're using to protect that information,
+the security controls, those are also
+software solutions. Even your dedicated
+hardware security devices like your
+firewalls or IPS's that you install in a
+rack, those are nothing else than
+specialized computers running a software
+operating system that allow you to
+configure them and ensure that a
+software solution is actually going to
+protect your network. So let's talk
+about software development principles
+because this is where everything begins
+and everything ends. All the problems in
+cyber security and all the solutions.
+We have all these security measures in
+place to protect us against attacks and
+threats and vulnerabilities being
+exploited. But here's a crazy idea. What
+if we built from the very beginning our
+applications so secure that we wouldn't
+have to worry about cyber attacks
+anymore?
+That's a crazy idea because it doesn't
+work. It never works. The harsh truth is
+that is virtually impossible to build an
+application that is bug free,
+vulnerability free, that cannot be
+exploited or attacked in any way. But we
+do have methods in place that we can try
+to leverage so that at the end of the
+development of an application, we can be
+pretty confident that our product is as
+close as possible to that ideal state of
+security that we intend to have. And
+this is where something called SDLC or
+software development life cycle comes
+into play. And it all started with our
+need for software applications. We need
+applications to run our businesses to
+ensure that they're making money, that
+our customers are happy. Uh we need
+applications to keep us connected. We
+use apps to deliver entertainment,
+pizza, and groceries to deliver
+ourselves from one place to the next. We
+use applications for a ton of stuff. We
+even use social applications to get a
+date. We rely on them every single day.
+We want them now. We want them up and
+running, functional, especially if they
+introduce some new idea that
+revolutionizes one specific segment. And
+this all applies not just to the apps
+that we buy and download to our devices,
+but also to the apps that we're
+developing for our customers. So,
+everything sounds pretty good. What's
+wrong here? What's wrong with this
+approach? What's the problem? Well,
+let's assume that our company has an
+awesome idea about a new application
+with a revolutionary idea. Now at some
+point during development of that
+application well the application will
+grow sometimes beyond the initial
+requirements because we or the customer
+wants more features. So let's say the
+customer suddenly wants to allow the
+users to store their profile or their
+personal data somewhere in the cloud. So
+there you have it. Now you have to
+develop a new functionality in the
+application that allows and secures
+cloud connections and build everything
+around those cloud connections that
+store the user profiles. Maybe the
+customer suddenly decides that we want
+to let users import their data or their
+profiles from some other prehistoric
+junk app that they've been using up
+until that point. So we need a migration
+process and a migration functionality
+for those users. Maybe allow them to
+share content, maybe to post to
+Facebook, to Twitter, to I don't know,
+LinkedIn or Tik Tok or whatever, or use
+the application in the car while they're
+driving or maybe voice control or
+location aware services or inapp
+purchases, of course. Well, it all
+sounds great, but all these additional
+features, all that additional
+functionality actually does one very
+important thing. Well, first it keeps
+our customers happy, of course, but it
+also drastically increases our attack
+surface, our exposure to the outside
+world where we are vulnerable to
+attacks. So, how do we manage this? How
+do we keep adding functionality to our
+applications while still keeping the
+focus on security practices and making
+sure that everything that we add to that
+application is non-stop, checked,
+secured, validated? Well, one way of
+doing this would be well, you decide to
+add a new functionality and then you
+talk to the developer and say, well,
+make sure you implement this and also
+make sure you secure it. And the
+developer asks, how should I secure it?
+And you say, I don't know. Just ask
+someone on Stack Overflow. Just copy and
+paste some code from there and you're
+good to go. Well, don't laugh. That's
+actually modern software development,
+and it happens more often than we would
+like to admit. But a better solution of
+course would be to have an organized
+approach to this process where we focus
+on security almost as much as we focus
+on the final features themselves. And
+that organized process is generally
+known as the software development life
+cycle which is nothing else than a
+concept a process that we use to split
+the development of our application into
+very specific phases. And one thing to
+keep in mind is that not only the
+developers are focused on the software
+development life cycle but for the exam
+you should also known that testers or
+software architects, product managers,
+project managers and so on are also
+involved in the same process. And well
+if I were to show you this slide right
+here you might say that well we are
+already doing something that looks like
+this right? So we're thinking about what
+we need to develop that's the design
+phase. Then we start developing the
+code. Then we test it just to make sure
+it works. And then finally we ship it to
+the customer. So do we really need to
+call this a process? Isn't this the
+natural way of doing things in software
+development? Well, even if you're
+already doing this, this is a reactive
+approach to software development. It's
+not a highle overview that you've
+decided to do. It's something that
+happens naturally, right? You decide you
+want a feature, you implement the
+feature, you test it, and then you show
+it to the customer. But there's no
+highle overview of what everybody is
+doing at a certain point in time. So
+it's more like the way things just
+happen to work. And don't get me wrong,
+this is okay for smaller projects,
+especially for projects where maybe one
+or two developers are involved and
+there's not much coding involved. Like
+there aren't many features or you're not
+coding for a very long time. Well, this
+kind of approach might work just well.
+But for larger projects, more complex
+projects, there's just so much
+complexity that this cowboy approach is
+going to bring your project to a
+complete stop. And this even applies to
+the second model here on the screen.
+Because even if you at some point just
+decide to go back and develop some
+additional features or just change your
+mind and stop working on a feature and
+come back and test some more because
+some things aren't working properly.
+This is also a reactive approach. So
+we're going to talk about bringing some
+structure to these approaches and let us
+not forget that we work with cyber
+security. So we're going to be concerned
+about the security aspects at every
+phase in the software development life
+cycle. And security is something that
+definitely doesn't just happen to be
+implemented. It has to be a clear
+direction, an overview, a a process for
+writing or testing and deploying secure
+code. Otherwise, today's coding mistakes
+are going to be tomorrow's security
+vulnerabilities. And of course, we're
+not the first ones to have thought about
+this. So, from a purely security
+perspective, we also have secure
+development life cycle. Like for
+example, the Microsoft security
+development life cycle. And if we move
+on to the more open area of development,
+we also have the OASP software security
+assurance process also known as OSAP.
+But no and their main purpose is to
+embed security in the software
+development life cycle with a big focus
+on web applications. So you need to know
+exactly the phases of an SDLC and these
+are general phases but we'll try to talk
+about each and every one of them from a
+security perspective. All right. So
+we're going to start with planning. This
+is kind of obvious right? This is the
+big picture. These are the things that
+you're going to think about when you can
+sleep, when you have a new idea, when
+you're on the toilet. Doesn't matter
+where. But this is where we're going to
+analyze things like the market that we
+want to develop and distribute our
+application in. So we're going to look
+at market surveys, going to ask perhaps
+some domain experts. We're going to talk
+with regular 2B users that are going to
+probably use our application and see
+what their input is. Focus on their
+needs. Focus on any ideas that they
+might have and also look at the
+competition because probably you're not
+going to be the very first one that
+comes up with that specific idea. Now
+from a security perspective, the
+planning phase is going to involve the
+training of the developers and the
+testers in best practices related to
+security and good security principles so
+that they know what to look for and how
+they should approach any new feature
+that gets implemented or tested.
+Secondly, we move to the requirements
+phase or the requirements and analysis
+phase. And this is where we're going to
+prepare the plan or the recipe for the
+rest of the life cycle. We're going to
+think here about business requirements
+because the application has to solve a
+business need of the users or of the
+company. So we have to address to be
+sure that the features that we plan to
+develop actually solve and address that
+business requirement. And also of course
+we need a way to measure our results. So
+if we are unsatisfied with our current
+business process by implementing this
+app we should be able to demonstrate
+that we have improved it by x% or any
+other metric that we deem necessary but
+again this is also going to be on the
+highlevel overview but with a focus on
+actual business needs. Now this is all
+on the business side. On the development
+side, we're going to think about any
+software requirements like internal
+libraries, external connections that we
+expect our applications to have, any
+hardware requirements, what devices our
+application is supposed to run on, and
+what are the minimum specs for those um
+for those devices. Also, from a
+development and security perspective, we
+have to think about the data. How do we
+store data? How do we store it securely?
+Where do we want to store the data? Is
+it in a cloud environment? Is it on a on
+a user device for example? Do we let the
+user directly access the data or do we
+manage it for them? What connections is
+the application going to have? How is
+the traffic going to flow to and from
+the application or to and from other
+external cloud services that we might be
+uh leveraging? So basically we think
+about addressing the answer to the
+question how is our data going to be
+secured when it's stored or when it is
+in transit. Another way of saying
+securing data at rest or in transit. And
+finally, from a security perspective as
+well, a big design point is how do we
+manage users and permissions? Who can
+create users? What kind of default
+permissions they have? How are
+permissions updated, upgraded, changed
+or maintained over time. Third, we move
+on to the design phase. This is where
+the developers are 100% involved because
+we have to do some risk analysis here.
+decide what kind of libraries we use in
+our code, what kind of uh features,
+connections we're going to enable from a
+security perspective because we need to
+decide what threats we're going to face
+with each new design decision. If we
+decide to add something new, something's
+going to come in and say, well, this
+requires an external connection or this
+requires opening an additional port to
+the outside world, which is a new
+potential attack vector. On the design
+phase, the product managers and the
+developers should also pay very close
+attention to reusing third-party
+libraries or thirdparty code and that
+includes again the code that you just
+paste from Stack Overflow. But for most
+common implementations like for example
+you know accessing HTTPS or any an SSL
+library or connecting using an API to a
+well-known application developers are
+most likely going to use predefined
+libraries or SDKs that are going to help
+them avoid reinventing the wheel every
+time they need to implement that
+well-known functionality. So be very
+careful here what kind of code you're
+going to be reusing and what kind of new
+vulnerabilities you'll be introducing in
+your code perhaps even without even
+knowing about them. Functional
+requirements come up here as well
+because we're talking about the design
+of the application. So we need to think
+about usability. This is where we'll uh
+have to design not just the application
+but also some usage scenarios about how
+the application is going to be used by
+its users. From a security perspective,
+the requirements here have to be
+detailed in a much more granular manner
+because we have to think about exactly
+what kind of libraries we're going to be
+using. How much access will allow our
+users, who can communicate with whom,
+and we have to think what encryption
+algorithms we use, digital signature
+algorithms or hashing algorithms and all
+that stuff that has to be decided before
+we actually start implementing those
+security principles. Have to choose the
+best tools for the job at hand. And
+let's not forget that also in this phase
+we have to design some audit logging
+functionality which means we have to
+have a way to identify and store
+long-term preferably what the users are
+doing for debugging purposes for
+investigation purposes even for
+performance purposes because we need to
+monitor how the application is behaving
+and we need to know what part of the
+application we need to address when some
+complaints start coming in in the tech
+support department. Next phase is the
+implementation phase and this is where
+the actual code gets written. During the
+implementation, we'll also have perhaps
+code review sessions and unit testing
+that is testing a minimal functionality
+like a method or a class that you've
+just designed just to see that it does
+what it's supposed to be doing. This
+also has to be done with security in
+mind. So starting from the smallest
+piece of code that you add to your
+application, that piece of code has to
+be tested not just for performance and
+features but also from a security
+perspective. And this is called white
+box testing because you actually have
+access to the entire source code. Uh you
+can see the execution of the program
+going from one line to the next. You can
+see the branches and the decisions and
+then you can decide if there are certain
+places where vulnerabilities might exist
+or uh behaviors in your applications
+that can be exploited. And of course we
+have a dedicated testing phase. This is
+where we get the code from the
+developers and then we run it through a
+bunch of automated tests. Now of course
+manual testing is going to be included
+here as well. But from a security
+perspective the first step here is to
+start looking at the code like an
+attacker and try to break the code. This
+is going to be along the lines of gray
+box testing. That is you have partial
+knowledge of how the application was
+written but not direct access to the
+source code or even blackbox testing
+where you hire a tester or a penetration
+tester or a security tester to try to
+break your application and try to
+exploit a vulnerability or make it crash
+without knowing what the actual code
+looks like. Just like an attacker,
+deployment is about pushing your code
+and delivering it to your clients or
+your users. Now, there is a slight
+difference here, especially in DevOps,
+uh, between the terms of delivery and
+deployment. Now, in most cases, delivery
+is about getting to that final state
+where the application is built, is
+compiled and is ready to be used, but
+it's not just yet in the hands of the
+users or the customers. Now on the other
+hand, deployment is going to be about
+actually providing access to the
+application, installing it into a cloud
+environment in your on premises
+environment or uh in an app store for
+example for users to be able to access
+it. And since we're talking about giving
+users access to our application, we have
+to think about a secure method of doing
+this. So for example, we're going to
+think about a secure distribution
+mechanism. How do we deliver the
+application to the end users in a secure
+manner? So, we're going to think about
+signing the installation package with
+our own signature so that the customer
+can always be sure that the product
+actually came from us and not a hacker
+that has injected their own code into
+our application. And we have to decide
+how are we going to package the
+application. Is going to be
+automatically downloaded from an app
+store? Is going to be fully delivered as
+a virtual appliance for example that is
+going to be deployed in a virtualized
+environment? Is it going to be a
+container? and so on and so forth. Each
+and every one of these methods of course
+has their own security best practices
+that we should follow in order to
+provide our customers with the necessary
+trust that our product hasn't been
+tampered with and is working as
+expected. Next phase is the maintenance
+phase. This is where we're going to do
+ongoing monitoring from a performance
+point of view. Of course, just to make
+sure the application doesn't crash and
+it's performing within acceptable
+parameters and also from a security
+perspective, just to make sure that the
+application has been breached, that a
+user did not escalate their privileges
+and no confidential information has been
+exposed outside of a secure environment.
+And the approach in a maintenance phase
+is most likely going to be an incident
+response type of approach. So that's
+going to be fully reactive. We wait for
+something to break. We wait for
+something to be detected as um
+malfunctioning and then we try to fix
+it. How do we fix it? Well, of course,
+this is where we'll going to develop
+patches and updates and fixes for our
+code. And of course, a lot of these
+updates are going to be security related
+as well. Just look at the update logs
+from uh the applications on your phone
+or on your operating system. In most
+cases, over half of the updates are
+focused on security patches and security
+fixes due to the fact that new
+vulnerabilities are identified every
+single day. Now, during maintenance, we
+also have to react to the changes of the
+underlying operating system. So, if
+everybody just starts updating their
+operating systems, it doesn't matter if
+it's a mobile OS, a desktop OS, you
+still have to test your application and
+make sure it works properly on the newer
+versions of the OS as well. And this is
+also part of the maintenance phase. And
+finally the application at some point is
+going to reach retirement or end of
+life. This is the point where you stop
+developing any additional features or
+fixes for the application. So you
+basically abandon the application
+altogether. This also called sometimes
+end of maintenance because the
+maintenance phase completely ends. So
+there you have it. It also can happen if
+the product or the parent company gets
+bought by another company and they
+decide just to let that project go and
+focus then their efforts onto different
+ideas. And as simple this phase might
+sound, it's not just about pulling the
+plug on the on the application, but it's
+actually going to require you to think
+about how do you retire a software that
+might still be in use by some customers
+out there. So for example, you should
+think about let's say external services.
+If any external services that your
+applications rely on are going to shut
+down at some point, you won't be able to
+update your application anymore, what's
+going to happen to any users that are
+still using that application. Now, if
+you need some inspiration for the
+security best practices, especially when
+it comes to an organized process of
+software development, have a look over
+to the OAS website where uh you're going
+to find a huge community effort with a
+lot of secure programming resources,
+especially for web applications. And
+also have a look over to the SANS
+website. This is the CISA admin network
+and security institute. and they publish
+a lot of papers on security research uh
+secure coding and general best practices
+not just for web applications but for
+development in general. Now we know
+about the general development life cycle
+the life cycle of an application but how
+is this actually translated into real
+world? How is software development
+implemented in the real world? And this
+is where we'll start talking about
+software development methodologies. Now
+the first one is going to be called the
+chaos methodology which as you can
+probably guess isn't much of a
+methodology at all. You just start
+coding. You just start fixing whenever
+you detect some bugs or then some things
+that don't work properly. Not really
+documented. So you don't have an
+overview and a detailed plan about what
+you need to do tomorrow or the day after
+tomorrow. You just start coding. And
+then uh when do you stop? Well, that's
+kind of a problem here because you don't
+exactly know when to stop. You just
+decide at some point, well, I'm done
+with this application. This is the end
+of development and this is the final
+product. Now, I probably don't have to
+explain why this is mostly a bad idea
+for most projects out there, but uh let
+me mention just one. For example, if
+there's a major change that needs to be
+performed in the code because somebody
+changed their mind in the middle of
+development, well, without any
+documentation, without a clear way to
+track progress for every feature and how
+and where it was implemented, it's going
+to be pretty difficult to identify even
+where to start working when you need to
+change or add a new feature. Also, on
+the downsides here is the fact that you
+cannot really measure anything. You
+cannot measure your code quality. You
+cannot validate if the features are
+working properly because you don't have
+a clear list of features and how they
+should be tested just to make sure that
+everything is working fine. If I start
+talking about security, well, we don't
+even know anything about security here,
+right? It might be in there. We might
+have just copy and pasted some public
+implementations for example, maybe
+important some open libraries that help
+us secure our code, but we don't really
+have an overview. And again, we don't
+have a way to test that security because
+we don't have any documentation. Now
+probably the only uh situation where
+this approach is beneficial is with very
+very small projects with one or maybe
+two people working on the code at the
+same time because they can communicate
+directly and they know mentally what
+stage of the project they're currently
+in, what still needs to be developed,
+what still needs to be tested. But
+that's pretty much it. More than two
+people and well chaos emerges and not in
+a good way, not in a software
+development methodology uh kind of way.
+The second methodology is called the
+waterfall. And well, this looks like the
+first example that we've given a couple
+of slides ago. And if you think about it
+for a second, you might think, well,
+this is how software development should
+look like. I mean, you you have a plan.
+You have a very strict plan. You design
+your requirements, you follow the
+requirements, you implement it, you test
+it, and then you give it nicely wrapped
+to the end customer. So this should be
+the only development method out there,
+right? So why isn't everybody doing it?
+Well, the answer is that it's extremely
+difficult to implement this in the real
+life. So in most cases, this remains
+just a theoretical model for software
+development. The main idea with the
+waterfall implementation is that you
+first make a plan and then you follow
+each step in a strict manner and you
+only advance to the next phase if the
+current phase is fully completed. So
+it's pretty much like cooking a recipe,
+right? You look at the recipe, you
+prepare your ingredients, you cook the
+ingredients, and then you, you know, ask
+for feedback for example when the dinner
+is ready. And just like cooking a
+recipe, the main advantage is that it's
+really simple to understand. So you have
+requirements, you have system design,
+you have implementation, testing,
+deployment, maintenance. Kind of like
+the entire definition of the software
+development life cycle here, but with
+the restrictions that we've mentioned
+before, right? you have to finish each
+phase before you advance to the next
+one. Now, in some official documents,
+I've found the idea that even in the
+waterfall model, you should assume that
+you can always at least go back one
+single step. For example, if you start
+testing your code and then you realize,
+well, uh the this entire piece of code
+here is broken. This entire
+functionality cannot be accessed. Well,
+you stop testing and then everybody goes
+back and start developing some more and
+fixing those bugs in there before you
+move on to the next phase. And it kind
+of makes sense, right? But by its uh
+let's say official definition, Warflow
+model doesn't allow you to go back at
+any point in time. In real life though
+well where this model can be implemented
+it is going to allow you to go one step
+back. So keep this in mind for the exam
+as well. Now when is this functional
+when is this working properly in
+situations where the requirements are
+very well documented beforehand and we
+know exactly what are the tools that we
+have at our disposal and we know exactly
+what the customer wants or what we want
+to develop. So everything works if it
+can be perfectly planned. It also works
+for smaller projects because those are
+easier to understand, easier to document
+and most likely there's not going to be
+much change from the very beginning to
+the end. The advantage from a security
+perspective is that security can be
+checked and implemented and validated at
+every step along the way. But of course,
+it's not so good for those projects that
+might require some changes after the
+initial design was established, which is
+pretty much all software projects out
+there, right? Everybody's going to
+change their mind at some point. The
+customer is going to want some new
+feature. You're going to realize that
+implementing a specific feature is
+perhaps too costly or takes too much
+time and you make some changes here to
+adapt on the way. Well, this is not
+something you can do with the waterfall
+model. So among the pros here, we have a
+structure that is easy to learn, to
+understand. It's easy to focus on one
+single phase at a single time. Everybody
+knows what they have to do, what they're
+in charge of. It's well documented who
+did what, why they did it, when they did
+it, and developers know exactly what to
+do, right? We have clear goals for each
+step, directions for moving on. Now on
+the con side, you might not expect this,
+but it's actually hard to decide when
+the development should end simply
+because everybody is a bit of afraid of
+that moment because that's the point
+where development completely stops. So
+the state of the application actually
+becomes locked in. So you cannot make
+any further changes. So you'd better be
+absolutely sure that the application is
+correctly designed, coded, implemented
+whenever you decide to stop the
+development phase. So that might be
+actually more difficult than you would
+think. Deciding when to stop. And of
+course, the biggest con here is the fact
+that major code changes are next to
+impossible to implement in a waterfall
+model. Right? If there's a big enough
+change, in most cases, the entire
+process starts from the beginning. Next
+one is the agile methodology, which is
+not really a model in itself, but it's
+just a way of doing development. So it's
+somehow a way to focus on uh specific
+values, principles and rules to live by
+while you're developing your code. So
+for the exam at least, you have to
+understand the big picture, not the
+individually each and every aspect of
+this uh agile development methodology.
+And if you want to actually understand
+more about what agile means, I would
+encourage you to read at least once the
+agile manifesto available at agile
+manifesto.org, or which is a website
+that kind of screams welcome to 1997
+here. But the big picture here is that
+among the values of the agile model are
+the people and interactions. So we focus
+on the people and interactions. Uh we
+focus on working software. strive to
+obtain something that is working that
+something that as minimal as it is as it
+is we can show it to the end customer
+and say this is what we have so far and
+let's talk about this let me know what
+you think and then we'll move on from
+here so of course it's going to involve
+a lot of customer collaboration involve
+the customer directly and uh be sure and
+be ready for changes to occur during the
+development phase so in agile change is
+welcome so we expect things to change we
+expect the customer to change their
+mind. We expect us to change direction
+and maybe completely change some
+features during the development phase.
+So one of the values is actually the
+ability to quickly respond to change to
+allow change to happen to implement it
+as quickly as possible to test it as
+quickly as possible preferably in an
+automated manner and then quickly
+showing it back to the customer saying
+well this is a prototype of the change
+that you just requested let me know what
+you think so far. Another principle of
+the agile method is to deliver working
+software frequently. That is always have
+something to show to the customer. And
+at the very beginning, this is sometimes
+called a minimum viable product MVP. If
+you find this acronym in the exam, it
+encourages face-to-face communication
+very much. Well, not so much nowadays,
+but you know what I mean. And the main
+metric that we use to measure our
+progress, to measure our software is
+actual working software. So we need
+something to show to the customer and
+then we'll continue development from
+that point on. Now it probably sounds
+good, right? Everybody's collaborating,
+everybody loves each other and
+everybody's flower power here. But the
+idea is that and the idea is that it
+actually focuses a lot on teamwork. It's
+very flexible. It also allows for cross
+trainining between different uh
+development teams and also can provide a
+more realistic approach because the
+development team constantly checks in
+with the customer and they decide
+together what still needs to be done or
+still needs to be improved. So there are
+no you know fake expectations or just
+relying on promises. We're actually
+looking at a partially developed product
+and we know exactly where we are. Now on
+the con side is not really useful for
+small projects. So the overhead that is
+brought on by this let's say extreme
+collaboration during agile might
+actually be unnecessary on very small
+projects where just a couple of people
+can decide what needs to be done and
+start working on it and then show a
+mostly final product at the uh at the
+end of the development period. Now on
+the con side it might not be ideal for
+very complex projects because we might
+lose track of the big picture by
+focusing only on the details especially
+if we don't have some highlevel overview
+goals that are clearly defined from the
+very beginning which we mostly don't
+have using agile and we also have a very
+high dependency on the individuals
+because there's not much documentation
+happening during these processes. So the
+people are the ones that will hold all
+the information. Now the next model is
+the iterative model which uh generally
+doesn't focus on the big picture of the
+application but just on a specific
+feature or just a part of the final
+software. Now this model is based on
+iterations. So once we finalize one
+iteration for one feature for example
+we're going to move on to the next
+iteration where we design test implement
+repeat all these steps as many times as
+we need until we reach the uh desired u
+end state. Just like the waterfall
+model, this one is good for projects
+that have well-defined requirements that
+have been pre-established before
+starting work on the project. But unlike
+the waterfall model, this one expects
+some functionality to be requested later
+on. So for example, we might add a new
+functionality if you're working with
+developers that do not know yet all the
+technology that is involved on that
+project or some resources are not
+available yet. Again, these are
+situations where the iterative model
+adapts more quickly than any other um
+well-defined pre-planned model that
+we've talked about. So, among the
+advantages of this model is the fact
+that is uh it's quite good for measuring
+progress. It's easy to test at each step
+where we are also from a security
+perspective. And also risk analysis is
+uh is improved because if we run a risk
+analysis and we detect some additional
+risks, we can always reiterate over that
+phase until we reach a you know a
+desired security posture. On the con
+side, it's going to use a bit more
+resources than other models out there.
+And while it's pretty good for adding
+additional requirements to the project,
+it's not exactly ideal for changing
+previous requirements. And also, it's
+not really useful for small projects
+because it includes some overhead that
+might not be necessary for uh for small
+projects where just a couple of people
+can talk among themselves and decide
+what to code, when to test, and when to
+deliver. Finally, the last model that
+we're going to cover is this spiral
+model, which is basically just a
+combination between the waterfall model
+and the iterative model that we just
+talked about. And it relies on
+incremental releases of the software,
+but not by following a linear path. So,
+we have the ability to revisit the same
+phases as many times as we need multiple
+times. Hence, the spiral representation.
+So you might have to go multiple times
+through the phases of you know
+determining some objectives, some new
+objectives or some changed objectives,
+identify and resolve any security risks
+that we might be facing. Go through the
+development and testing phases of course
+and then uh see if we need to plan for
+the next iteration and how should the
+next iteration should look like. As you
+can expect, it's good for long-term
+projects where requirements are expected
+to change simply because it takes just
+so long to develop the final product or
+if the customer is not sure about all
+the requirements from the very
+beginning. So you give them some u
+freedom you know to decide along the
+way. So of course the pros of this
+approach are the fact that it allows you
+to add new features on the fly. Uh any
+changes can be done easier of course and
+uh development is broken down in smaller
+parts. So we have the ability to
+evaluate and to mitigate risk in a
+better manner in a more efficient way.
+On the coin side management can be
+difficult because we have a lot of
+intermediary stages. We don't really
+know exactly how many uh you know cycles
+through the spiral we're going to be
+doing until the end of the project. So
+it requires a lot of structure and a lot
+of documentation and also somebody to
+decide beforehand when the development
+should stop. So so it doesn't continue
+until the end of time. All right. So for
+the exam make sure you understand and
+you can clearly explain all the phases
+and what happens in all the phases of
+the software development life cycle and
+also make sure you understand all the
+development methodologies that we've
+covered so far. And next time we're
+going to talk about actual coding best
+practices or how to code securely. So,
+thank you so much for watching. Good
+luck on the exam. See you next time and
+don't forget to like and subscribe.
+Thank you.
+[Music]

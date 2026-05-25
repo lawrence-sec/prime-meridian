@@ -1,0 +1,133 @@
+as an IT security professional you'll be
+expected to always keep up to date with
+the latest threats that could be
+affecting your organization you not only
+need to know about the threats you also
+need to know about the threat actors
+which might tell you where a threat
+would originate fortunately there is a
+lot of information on the internet that
+can inform you about the different
+hacker groups and help you understand
+the different tools that they might use
+to attack a network you can then make
+your security decisions based on this
+intelligence if you needed additional
+security tools or you want to get
+trained on different types of security
+techniques you may be able to specify
+what type of tools you'll need based on
+this thread intelligence and of course
+there may be many different parts of the
+organization who can take advantage of
+this thread intelligence this threat
+intelligence might be used by
+researchers in your organization to
+better understand the risk associated
+with these threats and there may be
+parts of the IT department that are
+focusing on understanding threats and
+how to protect against them one source
+for information may come from ENT this
+is open- Source intelligence and it's
+information that is available to anyone
+you just have to know where to look on
+the internet you can focus on individual
+discussion groups especially those that
+might be hosted by hacking groups and
+there may be social media posts and
+other researchers who put information
+online that you may be able to gather
+you can also gather a great deal of
+information from the government almost
+everything the government makes is open
+source and aail able to read so you can
+go through different public hearings
+maybe view different reports and
+websites that can give you more details
+about the particular subject you're
+researching and there might be
+commercial data that's publicly
+available for example an organization
+May release financial reports or
+databases that contain details about
+projects or risks associated with those
+organizations there are also companies
+that are built around this information
+intelligence where they will compile the
+information for you and provide that to
+you for a fee one advantage that threat
+intelligence Services bring to the table
+is that they're able to analyze threats
+across many different organizations
+simultaneously and if they happen to see
+certain threats occurring in one segment
+they can inform you of that threat
+before it arrives in your organization
+one advantage that these proprietary or
+thirdparty intelligence sources provide
+is a way to view many different
+organizations simultaneously so they may
+be able to see trends of ATT s that are
+occurring across multiple Enterprises
+and provide an alerting function for
+other organizations these organizations
+are constantly monitoring the threat
+landscape to understand what the new
+threats might be and they can give you
+ideas on how you may protect against
+those latest
+threats some organizations will compile
+this threat intelligence to make the
+data available to their customers
+sometimes this threat data is compiled
+from public sources other times it's
+from classified information that's been
+made public private companies tend to
+collect specific types of intelligence
+and often these private companies have
+additional resources that they can use
+to compile additional details about
+these threats this allows organizations
+to work together they can look for
+information about threats on their
+Network and share it with everyone else
+who may be part of that organization an
+example of this is the Cyber threat
+Alliance or CTA this is a group of
+organizations that gather details about
+these threats put it together into a
+standard format and distribute that
+information to everyone else in the
+alliance the alliance will validate each
+submission and then they'll score those
+submissions to set a severity level for
+that threat everyone in the alliance can
+then view that threat intelligence and
+decide how they want to use that
+intelligence with their
+Network one way to get detailed thread
+intelligence is you go to the source and
+one of the best sources for that is the
+dark web the dark web is an overlay
+Network that uses the internet for
+transport but all of the content on the
+the dark web is only accessible by using
+specialized software on the dark web
+you'll find a number of different
+hacking groups you can see what the
+activities they may be up to you can see
+what tools and techniques they're using
+to attack the different organizations
+and you might even run across one of the
+stores where they sell information that
+they've acquired for example you can
+purchase credit cards on the dark web
+that have been acquired by these hacking
+groups in these different types of
+attacks they're usually forums and posts
+that you can view and it might be a good
+idea to constantly monitor those to see
+if your organization's name happens to
+pop
+up

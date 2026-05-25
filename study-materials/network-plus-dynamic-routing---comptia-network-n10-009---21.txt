@@ -1,0 +1,228 @@
+static routing requires the network
+administrator manually configure every
+route on every router in the
+organization if you have three or four
+routers that might not be a big problem
+but if you have tens or even hundreds of
+routers you might want to have a more
+automated way for configuring your
+routing tables one way to do that is
+through the process of dynamic routing
+Dynamic routing will have the routers
+handle this process for you automat aut
+atically discover these routes and
+update each other as to where the best
+route might be this means that you as
+the network administrator don't have to
+do any type of static route
+configuration you don't have to SSH into
+the router make any configuration
+changes or update those routes if
+anything changes with your network
+infrastructure anytime you bring a new
+router online all of the other routers
+will automatically know where the new
+route is and if you happen to remove a
+router from the network all of the
+routers also know that that route is now
+no longer available there is a bit of
+overhead required inside of the router
+to be able to automatically discover
+these routes and update the routing
+tables this will require some CPU and
+memory inside of the router so you may
+need to do additional monitoring to make
+sure that your router is able to handle
+that load this also requires you to
+initially configure the dynamic routing
+protocol this may be a relatively easy
+configuration process or it may require
+additional planning and Engineering to
+be able to implement it properly in the
+config of the router let's look at this
+network configuration where we have Sam
+that may want to communicate across the
+network to Jack or to tilk you'll notice
+that there are three different routers
+and for this particular example let's
+focus on router one you'll notice that
+router one is directly connected to
+three different subnets but there are
+two subnets on the other side of router
+2 and router 3 that router 1 simply
+can't see so we need some way to update
+router 1 with those additional routes
+one way to do this would be to have
+router 2 send a routing update via eigrp
+to router 1 router 1 receives that
+update and then updates its own routing
+table with this new route to 10.10.20
+Z24 and the way that you get to that
+network is to go to
+101040 two we also have another eigrp
+update that has come from router 3 and
+when that update is received router 1
+identifies a new route to 101030 do0
+that's the subnet down at the bottom and
+you can see that the next hop is
+101050 do2 all of these updates occurred
+in real time behind the scenes without
+any type of user intervention and if we
+happen to add or remove routers from
+this network this routing table will be
+updated with an additional eigrp update
+that will either add or remove those
+routes from the table although it looks
+relatively straightforward to perform
+these Dynamic routing updates there's
+actually a lot of work that occurs
+behind the scenes first the router needs
+to listen to the traffic that is on the
+local subnet and see if there are other
+routers that are sending routing updates
+that it can use to build its own routing
+table these are very often sent directly
+from router to router either directly or
+with a multicast once router then builds
+its routing table it needs to inform
+other routers of routes that it knows so
+it will send its own multicast to other
+routers that are nearby informing them
+of all of the routes that that router
+happens to know once the other routers
+receive this update they need to
+interpret this information and determine
+if that's a better route than what they
+already have or if they should use this
+as a secondary route different routing
+tables use different methods to make
+these decisions and they will update
+their routing tables differently
+depending on the protocol you happen to
+be using and of course if there is any
+change to the network infrastructure
+these routers need to inform all of the
+other routers that the change has
+occurred so if we add a new link into
+our router we remove a router or we add
+a router we need to make sure that all
+of our routing tables are updated across
+the entire
+network there are number of different
+Dynamic routing protocols to choose from
+so which one would be the best for your
+particular implement M ation different
+routing protocols make routing decisions
+in different ways for example would you
+like your traffic to be routed based on
+the state of the link whether the link
+is up or down or would you like to be
+able to make that decision based on the
+number of hops that a link might be away
+from you or the speed of that connection
+based on the routing protocol that
+you're using that decision might be very
+different some routing protocols will
+use a different criteria to determine
+the best way to get to a remote location
+you might also find that some writing
+Protocols are able to make changes very
+quickly if anything happens to the
+underlying infrastructure so if you add
+a new router to the network it might
+take a number of seconds or it might
+take a minute depending on the type of
+dynamic routing protocol that you're
+using and in some cases we need to take
+into account the type of router that
+we're using some routing protocols such
+as bgp and OPF are very common and can
+be used across many manufacturer devices
+some routing protocols such as e igrp
+may work best in a Cisco Centric
+environment so if you have a lot of
+Cisco routers that might be a better
+routing protocol for you although eigrp
+tends to be very Cisco Centric you may
+find eigrp is also available on other
+manufacturers routers but there are some
+aspects of eigrp that are proprietary to
+Cisco so you tend to see it mostly in
+Cisco related configurations but one
+advantage of eigrp is that it is
+relatively easy easy to set up you would
+turn on eigrp in your Cisco router give
+it a few minor configuration options and
+it's now up and running with the eigrp
+protocol when there are changes eigrp
+tends to converge relatively quickly and
+it's also able to identify any loops and
+prevent those from occurring on your
+routed network eigrp is also very good
+at identifying other eigrp enabled
+routers and sending updates over a
+minimum ofor Network traffic this keeps
+your network more efficient and leaves
+your bandwidth available for other
+applications if you want a more generic
+Dynamic routing protocol that can be
+used across different manufacturers
+routers then you might want to try OPF
+this is the open shortest path first
+routing protocol and it's one that
+you'll find available on a number of
+different manufacturer devices this is
+often implemented in a network where you
+have complete control of those systems
+we often refer to this as an as or an
+autonomous system for example if you're
+running a wide area Network that has 50
+different routers those 50 routers would
+be part of your single autonomous system
+another advantage of OPF is that it's
+available on many different
+manufacturers devices this is a common
+standard and you can download this
+standard from the internet and read
+through every aspect of OSF we refer to
+OPF as a link State protocol which means
+it determines what the best route is
+based on uptime and availability between
+the different OPF routers opfs can be
+used to assign costs to an individual
+link so certain links may have a higher
+cost than another this allows OPF to
+make routing decisions based on what the
+least cost might be this cost is often
+associated with how much throughput may
+be available on a particular link if
+that link is up or down and how long it
+takes to Traverse that particular
+connection with OPF the lowest cost and
+the fastest path is going to be the best
+route to a remote location and if there
+are identical costs on OPF many
+implementations will allow you to load
+balance across both of those
+links if you need to Route traffic
+outside of your autonomous system to
+other organizations then you might want
+to use an external Gateway protocol such
+as bgp bgp is the Border Gateway
+protocol and it's commonly used on our
+wide area networks and internet
+connections connect the internet
+together and being able to dynamically
+update the routes on the entire internet
+is a daunting task and this particular
+routing protocol was designed with this
+specific task in mind sometimes you'll
+hear bgp referred to as the three
+napkins protocol because it was sketched
+out on napkins initially to solve this
+particular type of problem if your
+organization has one or more connections
+to the internet and you want to be able
+to dynamically route to those internet
+sites then you'll want to use a protocol
+such as bgp

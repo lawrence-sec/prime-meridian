@@ -1,0 +1,526 @@
+attack framework the cyber kill chain
+the single most awesome movie you've
+ever seen the matrix the avengers fast
+and the furious ain't got nothing on us
+[Music]
+now before going deeper let's spend just
+a minute describing what exactly is an
+attack framework well an attack
+framework is just a standardized way of
+describing what's happening before
+during and after an attack starting with
+who is the attacker what kind of
+resources are being attacked and how is
+the attack actually being conducted so
+how does this help us well it helps us
+with threat modeling because basically
+at the end of day an attack framework is
+a way of describing an attack and
+because there's just so much diversity
+in cyber attacks there's no one single
+description that fits every scenario
+we're gonna have to take one attack and
+try to split it into specific stages
+which are going to match more or less to
+pretty much all the attacks out there
+well newsflash we're not the first ones
+who thought about describing attacks
+this way
+so we can learn from what lockheed
+martin defined as the cyber kill chain
+or the intrusion kill chain in this
+white paper right here this kill chain
+defines the phases for common attacks
+but applies mainly to those conducted by
+apt groups the same document also talks
+in detail about iocs
+mitigation methods
+ways to reconstruct an attack after it
+has already happened and campaign
+analysis in order to determine those
+ttps that we already covered in a
+previous video now i honestly believe
+that this right here is a much better
+visual representation of the attack
+phases and this one actually looks so
+good that i'm going to use this instead
+of a slide all right so we should be
+able to identify in this cyber kill
+chain for the exam exactly what is going
+on in each of these phases starting with
+reconnaissance right this is where the
+attacker gets to know you as a target
+they won't ask you out they won't buy
+you dinner uh they will stalk you and
+they will be the creepiest stalker
+you've ever encountered
+they're going to look for what defenses
+you have in place what security
+weaknesses you might have
+not only in technology but also in
+things like business processes and
+people
+ideally this is going to be done in a
+stealthy manner you know it's not called
+stalking unless you get caught doing it
+right
+so if the attacker doesn't want you to
+discover that reconnaissance intake is
+taking place at least not until he
+really knows what he's up against so in
+this phase the attacker actually decides
+how he is going to ruin your day
+second step is weaponization
+if the reconnaissance phase was
+successful from the attacker's
+perspective which means that a weakness
+has been discovered if this weakness can
+be exploited this is where the attacker
+chooses the exploit or even starts
+developing his own tools
+crafted requests
+compiling malicious codes whatever
+injecting apples with poison spitting in
+your coffee stuff like that
+then comes the delivery phase
+after selecting the exploit the attacker
+chooses and prepares a delivery method
+so this is where the hacker thinks about
+how can that weakness actually be
+exploited how can they
+reach you or your systems and how can
+they deliver that malicious code now it
+might be possible to do it directly over
+the internet but it also might require
+some inside help
+like sending a malicious email
+attachment or a link with cat videos to
+an employee who thinks that cat videos
+should come with the exe extension it
+also works with
+forgotten usb sticks left in a meeting
+room or in a parking lot just waiting
+for someone to plug it into a company
+computer you would be amazed how often
+people are happy to consider themselves
+lucky for finding an usb stick so happy
+that they plug it into the first
+computer they see
+just to check how big is the price how
+much capacity or what's interesting
+files it has
+now the exploitation phase
+means actually executing the exploit
+code depending also on the delivery
+method this might happen automatically
+or remotely controlled by the attacker
+or it again might require some inside
+human intervention remember that the
+execution of some malicious code can be
+done by some unaware employee but also
+by an insider threat right like an
+employee who works with the attacker or
+even an employee who is the actual
+attacker
+nevertheless attackers rely on someone
+on the inside
+uh during the installation phase we need
+to remember that the purpose of
+exploitation is to gain access to a
+system
+usually with the intent of installing an
+additional piece of software on it that
+gives the hacker direct access to that
+system so the installation phase covers
+any back door along with any
+configuration changes that might be
+required like creating a new user for
+the attacker and new firewall rules to
+allow the attacker to reconnect to the
+compromised host anytime in the future
+think of the installation phase just
+like you would get installed into a new
+home you arrange the furniture you leave
+some personal things behind so that the
+next time you come back you feel well at
+home
+the c2 phase or the command and control
+phase
+is relevant because of course for the
+attacker to gain access to his newly
+compromised system
+a data channel has to be established to
+some of the attackers central control
+software basically this means that the
+malware
+calls back home right to the attacker
+and lets him know that the system is all
+good healthy and still perfectly
+compromised
+this channel is called command and
+control because it allows the attacker
+to send commands and remotely control
+the compromise systems
+usually command control connections are
+initiated from the inside of the company
+so from the compromised host because
+connections initiated from inside of the
+company network are in most cases
+allowed
+by the firewalls and any proxies you
+might have
+but not vice versa you cannot connect
+from the outside so easily so in many
+documented attacks identifying the
+command and control channel in firewall
+or dns logs was actually the first proof
+that indicated the presence of
+compromised systems and it's still one
+of the first methods of detecting apts
+in your network for the actions on
+objectives phase finally with persistent
+access to the desired system the
+attacker can complete his original goal
+well it might be any number of goals
+actually it might be the intention to
+exfiltrate to steal data to corrupt some
+data to destroy a database some some
+files some important files to alter some
+records to change something cover the
+desk with toilet paper i don't know
+simply snoop on some users for example
+or activities of interest
+well does this sound right believable
+well yeah but myself and others like me
+don't really like this model because
+it's too focused on securing against
+outside threats
+and kind of ignores the insider threats
+in cloud environments too also it would
+be hard to determine in which phase of
+the attack you're currently in um if
+you're facing an attacker who erases his
+or her tracks right what if the entire
+exploitation and action on objectives
+takes less than one minute and then the
+attacker immediately erases all traces
+so it's a not one solution fits all but
+it's still a pretty good abstraction of
+most apd attacks out there
+but just in case this doesn't satisfy
+you there are other models out there one
+example would be the cyber kill chain
+model from 80 volt that has a slightly
+different approach
+addressing and paying close attention to
+insider threats too now 18 volts model
+does this first by distinctly separating
+a classic kill chain
+this one here from an internally
+initiated one
+this one right here
+and secondly it defines steps that apply
+to external attacks and steps that apply
+to both external and internal attacks
+well let's also talk about defense for
+just a minute now these models
+tell a nice story but their main purpose
+is to allow you to prepare your defenses
+so you can counter attacks before during
+and will even gather some information
+after the attack has happened to allow
+you to understand what happened and how
+you can avoid a similar attack in the
+future
+so let's see how you can use these
+models to defend yourself well
+the main method for defense is the
+installation of security controls so we
+have some controls and actions that we
+can implement to help us on every step
+for example during the reconnaissance
+phase
+well we should always aim to reduce our
+attack surface
+to give as little information as
+possible to anyone attacker or no
+attacker so we try to communicate only
+what is strictly necessary on the
+company's website or on job postings
+right some outside penetration testing
+services would be recommended as well to
+get a better image of how you look like
+from the attacker's point of view also
+educate your users train your users
+against sharing too much of their
+personal and professional lives on
+social media and teach them how to
+identify and reject phishing attempts
+now against weaponization
+this is where you should scan for
+vulnerabilities now patch known
+vulnerabilities scan for new ones from
+time to time install some technical
+controls in there that could detect and
+even prevent attacks before they happen
+for the delivery phase
+well it depends on the delivery method
+we could think about
+restricting the use of external storage
+devices like usb drives and we can
+filter internet traffic for example but
+mostly
+we should think about training those
+users that constantly send funny links
+to each other or click random links
+without a second thought
+against exploitation well again we have
+the same solution patch patch and then
+update some more and try to minimize the
+attack surface by disabling any
+unnecessary services especially if they
+are accessible from the outside
+against installation of malware
+endpoint security tools can detect any
+abnormal activity foreign files
+especially executable ones
+processes network connections this is
+also where you can rely on signature
+scanning but don't forget that a
+well-educated user
+can also help by noticing and reporting
+unfamiliar behavior on their workstation
+right so try to motivate users to work
+alongside this security team and helped
+out when they can
+at the command and control phase again
+endpoint security solutions would be
+able to scan look for monitor for
+outbound connections from unexpected
+processes
+perimeter security can help as well as
+you can block those outbound connections
+at the perimeter firewall or you can
+detect when they try to resolve
+suspiciously looking domain names to
+reach those command and control servers
+like randomly generated dns names
+finally for the actions on objectives
+phase well if the attacker has reached
+this phase unfortunately chances are
+there is not so much you can do because
+most likely you've failed to detect the
+attack unless you happen to have some
+security solution in place that matches
+precisely the attacker's intent
+for example you might have a strong
+access control system to allow access to
+confidential files on a central file
+server or a dlp that's data loss
+prevention or data leak prevention
+solution against exfiltrating internal
+documents you know read-only access to
+data files read-only access to databases
+against tampering corruption deletion
+generally against data loss you can
+protect yourself using off-site backup
+so backups that are not stored in the
+same location as your main data
+but generally if a and if an attacker
+has already reached this phase there
+isn't much you can do
+against
+a data breach it has already happened
+unfortunately now remember we mentioned
+that the lockheed martin model isn't the
+only one out there and it kind of has
+some downsides uh one of them being the
+fact that it's too simple
+uh an alternative of this lockheed
+martin model is the attack framework
+from mitre now this framework is a
+database of known tdps which are mapped
+to a in a matrix right to a larger
+number of attack phases now of course
+not all these phases are going to apply
+to each attack just like not all the
+techniques described within a phase will
+be found in a specific attack but with
+this stack framework you get to pick and
+choose
+so the purpose of this framework is to
+analyze the attack and then check what
+applies to your specific case right from
+each column notice there is no specific
+order in which these ttps must
+should or are
+expected to happen which is much more
+like real life scenarios treat this
+bottle as something like a restaurant
+menu rather than an instruction manual
+okay so let's pretend for a minute that
+we want to know more about a specific
+type of attack
+let's say an attack that performs
+what's the first thing that comes into
+your mind let's see
+let's say pivoting right lateral
+movement right here
+uh you did think about pivoting right my
+mental skills are out of this world so
+pivoting or attacks that try to infect
+additional systems
+we can see that under lateral movement
+here we can find techniques like
+exploitation of remote services or
+internal spear phishing
+attacking
+shared contents
+or transmission through removable media
+under such an example we can see
+multiple malware versions that rely on
+this technique and also some ways to
+mitigate them right to fight against
+these techniques and as we can probably
+guess against usb malware we can disable
+autorun or limit access to unnecessary
+external usb devices and again i would
+add here train your users to be
+suspicious of random usb devices found
+around the office my recommendation is
+to have a look over the attack framework
+don't learn it by heart of course but
+try to understand the different types of
+techniques presented here it is truly
+probably the single most comprehensive
+collection
+of cyber attacks and information about
+cyber attacks it's a great learning tool
+for discovering understanding how cyber
+attacks look nowadays and also this
+entire database is based on real
+observations so everything in here was
+observed documented and used as an
+attack technique at some point in time
+in real life
+finally one last model is the jewel
+no wait the diamond of intrusion
+analysis
+not exactly my favorite one because it
+can prove to be a bit difficult to
+follow even though at first sight it
+actually looks kind of simple and well
+this model is focused on a single
+intrusion event by describing the
+relationships between four core features
+and those features are an adversary
+a capability
+a victim
+and the infrastructure now the lines in
+this model are the relationships between
+these concepts and they tell us that it
+is possible for an analyst
+to reach the other connected points
+given enough information for example if
+we analyze a victim now we can see the
+capabilities used by the attacker
+against that victim so we can see how
+the victim was attacked
+if we have infrastructure visibility
+over the network or the logs then we
+draw even more conclusions about how the
+capability used the infrastructure to
+compromise the victim
+well coming from the attack framework
+and even the cyber kill chain
+this sounds terribly oversimplified
+right
+well it is but that's not all each event
+actually has additional meta features as
+well like an event timestamp when did
+the event happen a phase
+was this during reconnaissance
+weaponization and so on a result was it
+successful or not did compromise any
+part of the cia triad or
+was it just a failed attempt direction
+was it initiated by the victim or from
+the outside or even bi-directional a
+method what exactly was the attack was
+it fishing was it an exploit was it a
+denial of service
+and finally the resources required to
+complete the event you know like
+reconnaissance information that might be
+required any password hashes that the
+attacker might need to have access to
+the presence of a vulnerability anything
+that the attacker needs to assume or
+gather before conducting the attack and
+each of these features is then assigned
+a confidence level which of course is
+based on an assumption
+so remember we said that one such
+diamond focuses on a single event so if
+you think about it we're going to need
+at least two events
+for a malicious outcome we need at least
+an initial reconnaissance phase and then
+we need an actual attack or exploit
+phase so the diamond model is actually
+used to describe so-called activity
+threads during an attack which are made
+up of multiple such phases or diamonds
+and as you can probably see this is
+becoming very similar to the cyber kill
+chain that we saw at the beginning of
+the video
+now these events can be linked and they
+can tell you how an attacker could
+behave when an attack is in progress so
+how exactly is the attacker progressing
+from one phase to the next right what
+information it needs in between and so
+on an attack might have multiple threads
+but also might address multiple targets
+so describing phases like in this
+example can also show when an attacker
+pivots within the network and tries to
+compromise additional targets in the
+same environment
+all right
+so we kind of went from over
+simplification to over complication
+right seems a bit hard to follow now it
+kind of is and that's because this model
+was actually designed for automatic
+processing so this kind of a description
+of an attack
+that somehow resembles a state machine
+is actually used by machines or by
+appliances security appliances software
+security solutions designed for threat
+modeling one such solution is this
+threat connect app from splunk which is
+actually designed to model threats
+using this diamond model
+they actually give you a very nice
+example here about how the destruction
+of the death star in star wars would
+look like if we were to model this
+threat using the diamond model so have
+fun with this one told you we're talking
+about movies in this video
+alright so for the exam make sure you
+remember that attack framework the cyber
+kill chain is the single most awesome
+expression from this training i'm
+kidding
+make sure you understand the phases of
+an attack both in the kill chain from
+lockheed martin and in the mitre attack
+framework don't forget to subscribe to
+certify breakfast thanks for watching
+and see you on the next video
+[Music]
+you

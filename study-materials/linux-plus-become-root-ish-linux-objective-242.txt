@@ -1,0 +1,378 @@
+hey it's me Jimmy or you can call me Mr
+Beast today we're learning about Linux
+but wait it's not me I'm impersonating
+another user I'm really Linus Sebastian
+no that was a lie it's really me Sean
+today we're covering covering how to
+impersonate or how to escalate privilege
+to other users on your Linux system so
+this is section 2.4 of the Linux plus
+objectives and we're covering this stuff
+right here basically we're going to look
+at how to escalate privileges and
+there's like three different ways that
+you can do it on a Linux system uh there
+is the old school way that isn't used by
+itself very often because you need the
+root password there's the way that
+everybody's been doing it forever the
+way that I still do it to this day and
+then there's like a newish way to do it
+that behaves differently it's better in
+some ways but I'm not gonna lie I never
+use PK exec because policy kit is
+frustrating and it's over complex overly
+complicated and sudo generally does
+everything I need and yeah I know some
+of you are like it's not pseudo it's
+sudo hey I've said sudo forever so uh
+you can pronounce it however you like
+this is a pronunciation judgment-free
+zone I'm going to show you what they all
+do and why you might choose one over the
+other now the first tool we're going to
+look at is Su and this does not stand
+for super user this stands for
+substitute user because if you type Su
+and you don't specify what user you want
+to become it will default to the root
+account and that's usually what we do
+usually we escalate privilege so that we
+can accomplish things with root level
+access and so Su is often mistakenly
+called super user but really it means
+substitute user so we could say s u root
+or we can just say Su and it will ask us
+for the root user's password now the
+same thing if you're going to do su to
+another username it's the root password
+that you need and that's why Su is not
+generally used used a lot because we
+generally don't know the root user's
+password now I happen to so I'm going to
+type this in in fact in Ubuntu which is
+what we're on here by default there is
+no root password like the root user
+doesn't even have a password so you
+couldn't use Su on its own uh you'll see
+I'm logged in as root because I didn't
+specify a different user if we press
+exit now we're back to the S Powers user
+now the one really really common flag
+here is you'll often see Su Dash just
+like a Dash without any other flags and
+this is short for
+su-l or SS dash dash login and that one
+probably gives away what actually is
+happening if you do just Su Dash or Dash
+l or dash dash login it creates a login
+shell instead of an interactive shell
+which means that you get the the root
+users path variables so like you have
+access to S bin in your path generally
+if you want to do things interactively
+as the root user you're going to want to
+use is the dash so Su Dash is a very
+very common but like I said usually you
+don't know the root user's password so
+Su on its own is not all that useful
+that's where sudo or
+s-u-d-o comes into play and that is
+substitute user do and usually it just
+means that you can do a command as
+another user same thing as with Su if
+you don't specify the user it assumes
+you want to do it as the root user so
+you can say sudo
+um LS for example and it will usually it
+will prompt you for your password now
+I've set up the pseudoers file here so
+it doesn't I'll show you that in a
+second but it would prompt you for a
+password just like suit Su did however
+with sudo it's prompting you for your
+user password so it would ask me for my
+S Powers password and as long as I'm in
+the pseudos file and I have access to
+use sudo it would allow me to execute
+the command as the root user so uh
+pseudo LS is going to uh give me the
+here let's I'll show you an example of
+something that wouldn't work as a
+regular user so if I am my S Powers user
+and I say LS the root folder what's in
+there it's going to say you can't do
+that only root can see in there so if I
+say sudo LS root it does it as the root
+user and so then I can see what is
+inside the roots folder because it's
+escalated my privilege for the ls
+command now the nice thing about Sudo is
+when you install a system the first user
+that you you know add to the system like
+usually the one while you're running the
+installation script it will add that
+user to the sudo group and being part of
+the pseudo group is what allows you to
+use sudo to escalate privilege so that
+you can do things as the root user and
+so usually you don't have to do anything
+to have pseudo access again and when
+sudo asks you for a password it's asking
+you for your own password whereas if you
+try to use the Su command on its own
+it's ask asking you for the root
+password which you probably don't have
+now you'll remember back here that it
+specifically mentioned the sudoers file
+and it's a file that I mentioned we're
+going to look at this next and you can
+edit it directly however that's not a
+good way to do it because if you mess up
+the syntax in there accidentally
+ow Jesus what was that for it doesn't
+matter it's in the past uh you can shoot
+yourself in the foot and not have any
+root access to the system because
+remember you probably don't know the
+root user's password itself and if you
+no longer have the ability to use sudo
+you can't do things on your system that
+require pseudo access so in so that you
+don't accidentally mess up the format
+and lock yourself out there's a command
+called VI sudo and VI sudo edits that
+file it just uses the your default
+system Editor to edit this text file
+however when you save it it runs it
+through some like checks to make sure
+that you have the syntax correct and it
+won't let you save it if it's going to
+lock you out of the system so you never
+edit this file directly you always use
+the program VI sudo and you have to be
+rude to do this so you basically do sudo
+VI
+pseudo and then it will edit that file
+and I'll show you the different things
+that you can change in there because how
+suno works is it gives an individual
+user or group the ability to do things
+to various programs Now by default again
+it's all but we'll look at that in a
+second and that's really the big thing
+to pay attention to Sudo is focused on
+what a user can do based on who that
+user is or what group that user belongs
+to so remember that because policy kit
+is different even though it does similar
+things it does it kind of the reverse so
+again sudo is based on the user or the
+group that the user belongs to so let's
+do VI sudo and check it out so again
+it's just a file right the configuration
+file or the Privileges file it's just in
+ETC
+sudoers that's the name of the file so
+we can cat it while we can we have to be
+root so if I say pseudo cat Etc sudoers
+it will show us the file but if we if we
+want to edit it we should always do sudo
+VI pseudo and it's going to open it up
+ironically it opens it in Pico or Nano
+not in VI even though the actual program
+is called VI pseudo it's kind of funny
+but anyway this is the file this is how
+you determine who can do what and by
+default it's set up so that everybody
+here in the pseudo group and remember
+that first user that gets installed is
+in the pseudo group now if I wanted to
+put this back to what it was as the
+default I would get rid of this no
+password so let's just backspace over
+this and now what this means these
+fields mean anybody in the pseudo user
+group that's what that percent means
+from any host and generally it's
+localhost but anywhere in the network
+can execute as any user in any group so
+all in all are key are special words
+here meaning like any and they can
+execute any command now they will have
+to authenticate themselves but that's
+what this means now if we wanted to do
+one let's say I wanted that to be the
+case but also I wanted s powers from all
+hosts
+as all users all groups to be able to do
+with no password prompt LS now what this
+is going to say is that Sean like s
+Powers he can do all of these things
+um because he's in the pseudo group
+however when it comes to the ls command
+don't even prompt him for a password so
+I'm gonna do control X save this it
+checks to make sure the syntax is good
+and it's not good I did I did ad okay so
+it says what now and I'm going to say
+edit the sudoers file again because
+if we save it with a syntax error it's
+going to not work and possibly lock us
+out of the system so I need to change
+this to bin LS because it has to have
+the full path so it knows what like
+let's say there were two ls's on the
+system
+um I have to be able to you specify
+which one so the one that is bin LS is
+the one that Sean is allowed to use
+without a password so do exit yes and
+now it's saved without any problem
+because there was no error because I
+specified the full path and now if I
+were to do sudo LS it's not going to ask
+me for a password but if I were to do
+sudo uh who
+it's going to ask me for my password
+because the only command that said no
+password is that LS command anything
+else I'm going to have to enter my
+password and again it's my password it
+says the password for S powers
+which I typed in correctly
+and there now it it allowed me to
+execute any program but anything other
+than LS I had to use my password now
+policykit is a whole framework of
+security and how to like what programs
+are allowed to do what and why they do
+things and what they have access to and
+you can escalate privilege just like you
+can with Su or sudo using PK exec
+however the things you're allowed to do
+are not based on the user they're based
+on the program now the user has to be an
+administrator on the system but again
+that first user that you install when
+you're setting up a computer is an
+administrator but as long as you're an
+administrator it's you're allowed to
+escalate privilege based on the rules
+for a particular program so let me show
+you what I'm talking about how PK exec
+works because quite honestly it's very
+similar to sudo we can say PK exec LS
+and this does have a GUI interface it's
+going to ask me for my
+um login so or my password did I type it
+wrong again oh I really got to type my
+password password right okay there so it
+after it I got my password correct which
+took too many times uh it allowed me to
+run it as the escalated privilege to the
+root user now if I were to do something
+like uh PK exec uh G parted for example
+uh it's going to again ask me for my
+password which I got right in the first
+time and it opened it up it allowed me
+to do that however this is not again the
+settings for a particular software
+package are based on the software itself
+not the user and so if we wanted to
+change how things worked with the G
+parted program we would have to go into
+user share Paul kit one and then that's
+an actions yeah here's everything so I'm
+gonna do LS grep G parted for example
+and here is the policy for the G parted
+program and so now
+um I'm gonna kind of do this funny I'm
+gonna do use sudo to edit a
+PK exec policy file uh so v i org gnome
+parted policy okay so I do this and down
+here it will show you what the default
+policy is for uh like this G parted
+program so auth admin means that you
+have to authenticate and you have to be
+an admin now there could be options here
+that say like auth self which means you
+don't have to be an administrator but
+you still have to authenticate or it
+could be like or it could just be yes
+which means anybody can if you do PK
+exec it won't even ask you for a
+password it's kind of like that no
+password flag in sudo it will allow you
+to do stuff but it's not good practice
+to edit these files this is like the
+default it's based on if you want to
+override them you would generally do
+something usually most systems I haven't
+checked here so this should be this is
+an adventure for both of us it should be
+in ETC uh pulkit one yeah okay
+um oops CD Etc
+pull kit1 uh this is where you can make
+settings that will then override the
+default policy but in practice really
+the only thing that I've personally ever
+used PK exec for is if I've accidentally
+locked out a sudoers file not using VI
+sudo like an idiot and you can't do
+anything on your system you can usually
+edit the file using PK exec and fix it
+and then use sudo for everything else
+but um I mean it is a way that you can
+fine tune things specifically for
+packages but I generally don't do it
+because sudo just makes so much more
+sense to me and I like to uh I like to
+divvy things up based on user instead of
+policies for individual programs so for
+me
+um it makes more sense to make
+modifications to the system using sudo
+and so that's how you can execute
+commands as other users generally it's
+as the user and I'll leave you with one
+little final trick and that is you can
+you can combine sudo and SE so you can
+do sudo
+Su Dash and that will give you a bash
+prompt as the root user as if you logged
+into the system as root now I made a
+YouTube short about this a while back
+and somebody said you could also just do
+sudo uh Dash I and that will do the same
+thing it'll give you an interactive
+session as root and I didn't know that
+so that is cool but this works and uh
+this apparently works as well and that
+just allows you to become the root user
+you'll see me do that a lot in videos so
+anyway that's how you escalate privilege
+uh the P the policy kit and sudo do
+things a little bit
+backwards they approach it from a
+different scenario
+but in the end they both allow you to do
+things as the root user on a system
+which as administrator you will have to
+do all the time hopefully that was
+helpful remember to learn everything
+do what you love and most importantly be
+kind thank you again to all of my
+patreon supporters who should be
+scrolling around I don't know what my
+subscriber count is by the time you're
+watching this but we're just about to
+hit 10 000 which is quite a cool
+Milestone I'm actually it doesn't make
+me a huge YouTuber but it's pretty
+exciting so thank you for being a part
+of that and I'll see you in the next
+video uh for now have fun messing up
+your pseudoers file and then using PK
+exec to fix it so you can still
+administer your system see you next time

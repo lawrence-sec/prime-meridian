@@ -1,0 +1,774 @@
+[Music]
+continuity planning and risk assessment
+now the bad news in all this security
+business is the fact that a company does
+not make any money by simply being
+secure now instead security is there as
+a continuous process
+to make sure that you
+get to live another day that you get to
+sell your whatever you're selling and
+whatever brings you money so security
+protects your assets and your business
+and at the end of the day to keep
+yourself safe you need to identify what
+risks you're facing and that's the
+process of risk identification in an
+enterprise a risk is much more difficult
+to identify and this process even though
+it's a vague term
+the process that deals with these risks
+in an enterprise environment it's called
+enterprise risk management or erm so the
+goal here is to protect your assets okay
+and since you have to start somewhere a
+good idea would be to prioritize first
+and prioritize your assets according to
+the
+damages they could create if they were
+to be compromised so we should be taking
+into consideration assets through the
+perspective of business continuity for
+example how do you keep going if a
+disaster happens how do you keep making
+money how can you still have a business
+post incident
+business continuity boils down to
+redundancy in hardware and software if
+you want to call it high availability or
+fault tolerance backups of course they
+all need to be backed up by some sort of
+a well well-established policy and test
+procedures high availability sounds
+great on paper but if it doesn't work
+it's just wasted money then from a legal
+perspective well sometimes you don't
+directly lose business but if an
+incident happens and certain assets are
+being affected you become liable for
+prosecution beat criminal or civil
+prosecution that's never good news and
+it's very likely that it will lead to
+loss of business and money somewhere
+down the road
+then we have to think about the
+reputational perspective again choose
+assets that might impact your reputation
+if you if you don't lose any money or
+you're not legally liable a security
+incident might show you as not being so
+trustworthy
+in the eyes of your your customers your
+clients your investors okay
+not every publicity is good publicity
+and a bad reputation is sometimes the
+hardest one to recover from
+so we're going to need something called
+the continuity plan this is just a set
+of processes that ensure that you can
+continue doing your business and just
+like with every other type of procedure
+out there
+it would be advisable to document it
+properly to review it periodically and
+also to test it from time to time and
+this continuity plan should rely at
+least on three other types of procedures
+or documents first off we have the
+disaster recovery plan this is going to
+include the procedures for recovering
+from a disaster and maintaining
+stability of the of the systems of the
+business also it should be based on the
+business recovery plans these should
+describe a list of steps
+that tell you exactly how to keep your
+business up and ensure recovery in an
+orderly manner again when disaster
+strikes and finally
+it should be based on the contingency
+plan these are just a list of actions or
+the procedures that you should be
+following when you have to resume
+operation by replacing some resources
+for example by replacing personnel or
+replacing an entire site as an actual
+building or data center so how do you
+calculate risk now in real life you
+might think that it's riskier to
+get inside your car and drive to another
+city than to take the train
+but why is that well you might not even
+realize it but your your brain
+automatically processes information that
+could threaten your life and evaluates
+those risks so most likely you've heard
+in the news much more about traffic
+accidents than about train accidents so
+your brain thinks that it's much less
+likely for a train accident to happen
+simply because
+not so many happen so far
+does this seem too simple
+yes and the actual risk calculation
+process is actually not very different
+from this
+so as complex as a risk assessment can
+be calculating one single individual
+risk is basically a product of two
+elements we have first the chance of
+that threat being realized and secondly
+we have the impact of that threat being
+realized now this depends on the value
+of the assets that might be affected of
+course but it also depends on other
+indirect implications that might occur
+after losing that asset
+so basically risk is going to be the
+product between probability and impact
+now assuming that we know the chance and
+the impact we can calculate risk in
+almost three ways actually two major
+ways first off we have the quantitative
+risk assessment
+this is where we try to assign numerical
+values to something extremely subjective
+like risk so we're going to define some
+some elements here some some variables
+that are going to hold some specific
+numerical values such as the av that's
+the asset value how much does it cost us
+to replace a specific asset in case we
+lose it a hard drive a server a network
+switch something like this an entire
+data center perhaps
+next we have ef that's the exposure
+factor this is the percentage of the
+assets value that would be lost
+right now if you think about it well how
+could i lose 30 of a server well you
+might not lose 30 over this server but
+you might lose for example uh 30
+of a three-story building in case of a
+flood right which happens on the first
+level just making assumptions here so
+knowing these we can calculate the
+single loss expectancy this is how much
+financial value we expect to lose from a
+single
+nasty event
+right so this single loss expectancy is
+basically going to be the product
+between the asset value and the exposure
+factor how much do we assume that we're
+going to lose
+of that specific asset when a disaster
+happens or when a unhappy security
+incident happens now to calculate this
+cost over a year just like finance
+people like it we need another one aro
+that's the annual rate of occurrence
+it's basically a number that says how
+often does this type of event happen
+within a year
+and then pretty obvious if we multiply
+the single loss expectancy
+with the annual rate of occurrence we're
+going to get something called the annual
+loss expectancy that's ale so basically
+the alle is going to be how much do we
+expect to lose
+over an entire year taking into
+consideration the asset value of the
+exposure factor how often that incident
+is supposed to happen and then we can
+draw the line and decide this is how
+much we expect to lose over the course
+of a year due to one specific type of
+risk
+and the problem with all this is that
+it's painfully subjective it's just
+guesswork most of the time it's going to
+take into consideration
+historical data but if you ever try to
+predict the stock market or the weather
+using historical data
+you know how well that works
+okay still experience in this field
+helps if not for the actual precise risk
+assessment then at least for
+justifying the business investments that
+result out of this risk assessment and
+they then materialize into actual
+security measures that get implemented
+now the next type of risk assessment
+that we can perform is called the
+qualitative risk assessment this is
+about
+telling a story and asking people's
+opinions
+about which risk factors
+should be taking into consideration and
+how high do they think that a specific
+risk factor should be like low medium
+high right now the result of this is
+going to
+most often be displayed in some sort of
+a traffic lights report which kind of
+looks like this right pretty simple to
+read right we have the impact on the top
+row the probability of the on the first
+column here combining these two is going
+to result in a low medium or high risk
+okay
+just a bit easier to guess since we
+don't really need to assign numerical
+values and then we have to wonder where
+did we come up with those numerical
+values but at least it's easy to
+understand don't forget it's still
+guesswork it's a lot of guesswork here
+finally we also have a semi-quantitative
+risk assessment which as you can
+probably guess it's kind of a middle
+ground between these two methods simply
+because sometimes you need to have a
+dollar value for some assets but
+sometimes it's completely impossible how
+much for example is your reputation
+worth how much is the morale of your
+employees worth and all the risks that
+might address your reputation or morale
+that's not something you can easily put
+a number on
+all right business impact assessment
+another key term especially for the exam
+this is a process for estimating the
+losses for a specific threat scenario or
+in other words what's the business
+impact of a specific threat and since
+the business is going to make money only
+as long as it's up and running business
+impact assessments rely on metrics that
+involve availability so how long is our
+business actually available and of
+course if we're talking about the entire
+business then all the assets within the
+business have to be available as well
+right so we're going to address a couple
+of measurable
+factors here starting with mtd that's
+the maximum tolerable downtime the most
+amount of time that a business can
+tolerate an asset being down or unusable
+crashed broken disconnected right this
+is also sometimes called the maximum
+period of disruption or mptd and depends
+on how critical is that asset
+the mean time to repair or mttr is the
+average amount of time that it would
+take to repair an asset or component
+when a disaster or a failure occurs now
+this only applies in general to
+repairable
+components or repairable assets that is
+if a switch breaks you might be able to
+send it back to the vendor or the vendor
+is going to immediately send one back to
+you if you report it as an rma incident
+and
+the switch might get its i know it's
+main board replaced its power source
+replaced it is repairable but for a hard
+drive or an ssd well that's not gonna be
+repairable that's not gonna we're not
+gonna have a mean time to repair but
+instead we're probably gonna have
+something called a mean time between
+failures that's the average amount of
+time that an asset or a component will
+be operating or we expect it to be
+operating before a failure occurs now
+when you purchase a new device the mean
+time between failures should be an
+important consideration and it's a piece
+of data that the vendor can provide you
+during your decision making process for
+example if we were to head over to let's
+say cisco right and look for one of
+their switches access switch all right
+and search for
+mtbf right here we can see we have a
+specific section table 12 let's scroll
+down here
+that's the weight here it is right main
+time between failure and hours you can
+see most of the models here have this
+number in the range of hundreds of
+thousands of hours now of course
+i believe you can guess that nobody
+actually waited this long until this
+switch actually failed right this value
+is built using statistical models don't
+expect that whenever you buy such a
+switch it will definitely last at least
+this amount of time but it's still a
+metric that can be used in a risk
+assessment
+all right we also have a metric called
+recovery time objective or rto now rto
+is the shortest period of time that an
+asset or a component should be
+fixed to prevent any negative
+consequences from occurring to the
+business essentially the recovery time
+objective should be the acceptable
+amount of downtime and as such it should
+be smaller than your maximum tolerable
+downtime so basically is the amount of
+time that we expect to have to wait to
+bring that asset back into a functioning
+state
+next we have the work recovery time or
+wrt this is the difference between your
+maximum tolerable downtime and the
+recovery time objective basically this
+metric tells us how much time is left
+over after our recovery time objective
+but before any negative effects are
+really experienced now this time here
+might be used to reintegrate that device
+into the network to reconfigure that
+replace system to restore the data from
+a backup any any additional work that
+needs to be performed on the device
+itself before it can actually be used
+just like it was some time before it
+crashed so you might be able to to get a
+new server in two hours but you might
+need like six hours to restore a huge
+backup on that server
+right
+in that case a recovery time objective
+would be of two hours and the work
+recovery time would be six hours and you
+would better calculate your maximum
+tolerable downtime to be less than eight
+otherwise you're gonna have a problem
+finally we have the recovery point
+objective the rpo it's relevant to data
+it's more like a point in the past it's
+the amount of data loss that a system
+can support measured in time think about
+storage or databases if you lose your
+storage devices and you have to rely on
+backups well if those backups are
+conducted daily then your rpo is going
+to be
+something along 24 hours so it's
+basically going to be the most recent
+time in the past from which you can
+restore a valid backup that's a recovery
+point objective or
+if you want to look at it from a
+different perspective how much data
+you are comfortable losing
+whenever you are restoring from a
+previous backup because the backup is
+not probably not going to be completely
+in sync one one-to-one with your working
+data it's still going to be behind one
+day a few days a week perhaps now if
+you're comfortable with that amount of
+time because well you are the one who
+configured that backup in the first
+place and you agreed with the backup
+policies then that's going to be your
+recovery point objective so we identify
+the risk what can we do with the risks
+that we identify well first
+we can perform something called a risk
+avoidance that is
+terminating the cause of the risk
+completely stop doing whatever you're
+doing that attracts that risk
+now if you get rid of risk you're
+probably gonna have to get rid of some
+functionality that presented that risk
+in the first place as well now if this
+is applicable to your business if this
+doesn't shut down your business
+completely then by all means think about
+it as a valid solution
+next up we have transference or sharing
+risk sharing this means that the risks
+can become
+somebody else's problem
+this is going to be uh some sort of a
+involvement of an insurance company it's
+also some sort of a risk transference
+whenever you are contracting services
+from a cloud provider or from your isp
+now of course apart from the obvious
+benefits there are still two downsides
+of this uh risk transference or sharing
+first off it costs money right you're
+basically converting risks into money
+you're gonna have to pay for insurance
+if you want to
+shift the risk from from you to the
+insurance company
+and even though you will transfer the
+tangible risk again breaches of data
+loss
+it's not everything about the cost an
+insurance company might reimburse you
+with a nice sum of money for your loss
+but nobody can put a price on your
+reputation and the trust that you lost
+in front of your clients we can address
+the risk by mitigation or remediation
+that's basically do something to reduce
+the risk
+we either reduce the likelihood of the
+risk or we reduce the impact of the risk
+right we reduce it to a level where we
+make it acceptable
+usually this is going to involve
+deploying some counter measures some
+control in there so as nice as your
+vendors think their solutions are
+mitigation is never about
+completely removing a risk it's just
+about lowering it to an acceptable level
+which brings us to risk acceptance right
+the the last step just like in the in
+the stages of grief the last one is
+acceptance
+sometimes the effort the the time or the
+cost of a security control that
+mitigates a risk is too high right and
+also after implementing and patching and
+you installing the compensating controls
+there is always still going to be some
+residual risk
+right and perhaps that residual risk is
+going to be made up of unknown
+vulnerabilities right we've patched
+everything that we know about
+but we should be aware of the fact that
+there might be some
+unknowns in there things that we don't
+know about the vulnerabilities that
+haven't yet been discovered or disclosed
+and the risk is still there right so you
+can never bring the risk back to
+complete zero unless
+you absolutely
+perform avoidance and that is you're
+removing the source of the risk
+altogether
+and of course risk acceptance has to be
+performed only after everybody has
+understood
+what kind of risks we have decided to
+live with right
+so basically the risk assessment process
+is a process that we perform in order to
+bring all the risk in the enterprise
+down to an acceptable level not to zero
+the impact of an incident is a
+definition of how much impact will a
+security event have is it going to cost
+us money is it going to cost us
+availability reputation are we going to
+lose anything
+due to that event so the first step when
+an incident is discovered is to properly
+identify it to understand what is that
+we're dealing with and how we can expect
+it to affect us right so we have a high
+level classification which is kind of
+like a taxonomy based classification in
+which we just label it we identify it
+right so we're going to define incidents
+by their category what kind of incident
+was it was it phishing was it enough
+service was it a host compromise
+was it some worm outbreak out there and
+so on then we can go deeper and then try
+to identify the vector who or what was
+affected how long it lasted
+stuff like that and from an impact
+perspective of course we should decide
+how severe was the incident of course
+this is going to be highly subjective
+but we still have to assign some values
+to this
+now from a scope-based classification
+we're going to think about how much was
+it affected was anything critical
+affected did we have a local or an
+organizational event an organizational
+event is going to affect the mission
+essential functions it's going to affect
+the overall operation of the
+organization while a local event is only
+going to affect probably a department
+maybe user group maybe a few systems
+maybe just a single user right now this
+type of scope can be used to evaluate
+the severity of the incident at least at
+first sight
+and unfortunately where you draw the
+line here is not always clear
+for example if the web server was
+affected you could say the impact is
+local but if it also damages the online
+business
+because
+all your business was conducted through
+that web server then the impact can also
+be organizational on the other hand the
+number of systems affected doesn't
+necessarily and accurately reflect the
+impact of the incident
+it might be that you have hundreds of
+workstations affected by a worm but no
+data breaches and with no impact to the
+overall business perhaps just a loss and
+performance another classification is by
+how difficult is the recovery going to
+be and how it should be done now
+consider the number and complexity of
+all the steps required for recovery how
+much time will it take perhaps consider
+that the business will not function at
+all until you recover completely how
+much money do you need to spend to bring
+everything up online another
+classification is is this about an
+immediate impact or a total impact
+immediate impact means that this is the
+direct cost of the incident specific
+asset damage specific cost from downtime
+fees penalties anything that we can
+easily calculate now total impact
+is going to be any costs that arise
+after the incident
+right did it affect our reputation did
+we lose some clients did we lose some
+business did we lose some partners right
+that's basically the result of the
+immediate impact after we draw the line
+well in a couple of days or weeks and
+see the you know the the ripple effect
+of all the negative stuff that stemmed
+from that original incident so at the
+end all this evaluation all this
+classification is going to be a bit of a
+complex answer to the question how big
+is the impact going to be
+so for a risk assessment
+the purpose is to determine the
+probability of a threat and risk
+assessments should be conducted whenever
+a new system is installed or whenever a
+new system is is planned to be purchased
+or integrated or even periodically
+because other things other related
+factors might change in your environment
+and the risk assessment should address
+a couple of very important points here
+starting with the system characteristics
+understand the system understand the
+risks that apply to it how is the system
+used and what kind of risks does this
+type of usage going to attract right
+from a hardware software user connection
+perspective right pretend you're an
+auditor that you are evaluating a
+completely new device or a completely
+new solution
+then it should also address threat
+identification it might be human threats
+it might be technical threats like you
+know breaking passwords malware job
+service and so on uh motivation for
+those threats as well and that should
+also be part of that risk assessment if
+we know that we're withholding some very
+sensitive information that a lot of
+people would
+pay a lot of money or or they would be
+willing to perform some data breaches to
+obtain it and that's probably
+a good enough motivation another topic
+that risk assessment should address is
+vulnerability identification things that
+we know could be exploited you know
+vendors security intelligence or our own
+vulnerability scans or penetration tests
+should also be part of this risk
+assessment so we should be evaluating
+ourselves as part of that risk
+assessment then control analysis right
+what we already have what kind of
+devices we have in our network technical
+and non-technical uh assets as well
+preventative assets uh detective assets
+deterrent assets you know we talked
+about this in a previous video then it
+should also address the likelihood how
+often can we expect that event to happen
+is it going to happen every hour every
+day every month every year right take
+that into consideration
+impact analysis that's going to be the
+adverse impact of a compromise do we
+expect to lose confidentiality integrity
+availability money
+right
+human life even
+so this is where you should draw the
+line and actually calculate
+the entire risk that you're facing and
+finally after you've evaluated and
+calculated the risk make sure you think
+about control recommendations because
+the the actual purpose of a risk
+assessment is not only to figure out how
+we are currently standing from a
+security perspective but how we can
+improve so we need to recommend some
+actions we need to recommend some new
+controls to be implemented and of course
+this should be part of risk assessment
+because we should ask ourselves the
+questions like is this specific control
+worth it is it worth investing this
+dollar amount in order to lower the risk
+by this much or not and of course just
+like everywhere else in it don't forget
+about documentation if you're doing this
+and you're not writing it down it's
+going to be lost in a couple of days or
+weeks or months it's its value is going
+to be zero especially later on when
+somebody else comes after you and tries
+to figure out what is the current state
+of things and where exactly they should
+start
+if they want to improve your security
+posture
+and whenever you're performing or
+preparing for a risk assessment try to
+keep in mind the first and foremost
+objective security of assets these
+assets are going to start with people of
+course and then all the other assets
+that make your business valuable and
+functional so what you're looking for is
+to minimize the risk minimize the loss
+try to make sure that any security
+incidents or
+unhappy security events don't happen
+again
+make sure that the recommendations of
+the risk assessment will increase the
+stability of your network of your system
+and also that the risk assessment is
+going to ensure that you avoid being
+liable for other damages related to any
+potential security incidents
+and finally as part of the planning
+phase you should take care of a couple
+of things starting with an incident
+response team this is probably going to
+made up of
+people representatives from each
+department that are going to identify
+the critical services in each department
+because that's where you're going to
+start from from with from the critical
+assets
+then you also have to have some trained
+individuals with mixed skills right like
+networking servers cloud databases and
+so on also part of the incident response
+team you should think about a business
+impact assessment to assess risk this is
+going to help you determine the loss in
+case of an event make sure everybody
+knows what their responsibilities are
+and the tasks for each member in case an
+incident happens and don't just think
+about technical procedures and technical
+people think about communication how do
+they communicate with each other what
+kind of information that should be
+sharing at any point in time especially
+during an incident so develop the risk
+assessment policies and procedures
+develop the incident response policies
+and procedures step by step don't forget
+to communicate them to your employees to
+the involved people by performing
+trainings and workshops and making sure
+that there is enough awareness for these
+policies to be properly applied and
+don't forget to test them test them
+using drills using tabletop exercises
+try to bring to the table any kind of
+idea any kind of new idea even from
+unexpected people from other departments
+you might not realize what risks you're
+facing because you don't completely
+understand how a specific department
+works so talk communicate ask for
+feedback ask for input and try to bring
+it all together into something that is
+going to improve your security posture
+and it's going to make you sleep well at
+night
+right so for the exam make sure you
+remember and you can understand and
+recreate and use in practice the
+formulas that we just presented right
+here for risk calculation and the
+quantitative risk assessments right
+understand what is the asset value
+exposure factor single loss expectancy
+annual rate of occurrence and all that
+stuff uh you're most likely going to be
+asked about those in the exam and most
+probably it's going to be as a as a
+scenario with actual data that you need
+to calculate
+also regarding recovery after a disaster
+make sure you understand um maximum
+tolerable downtime make sure you
+understand the difference between rto
+and rpo what does uh mttr or mtbf mean
+right also make sure you understand all
+that you should be able to explain these
+things without much difficulty because
+otherwise you risk confusing the terms
+which is exactly what the exam is going
+to test you on
+so make sure you really understand what
+all these acronyms mean because you will
+need to apply them in real life
+scenarios all right so thank you so much
+for watching hope to see you next time
+on the next video because we will be
+talking about incident response phases
+and communication
+and that is going to be the last video
+of this isopost training right so thank
+you so much for watching like and
+subscribe if you found this useful and
+see you next time
+[Music]
+[Music]
+you

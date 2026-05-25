@@ -1,0 +1,592 @@
+[Music]
+policies and procedures now i must say
+that this is by far not my favorite
+topic i honestly don't know anyone whose
+favorite topic is this
+or i don't know maybe i'm just not part
+of the right circles
+but anyway we have to cover this as well
+because the the exam might ask you about
+some of the
+ideas that we'll be talking in here
+we're going to talk about policies and
+procedures because there is never going
+to be a technical control a security
+device that will not be vulnerable to
+the human factor so humans can be and
+are the weakest link in pretty much any
+kind of cyber security context and also
+the first step in an organization should
+be keeping this human weakest link under
+control so to do this we're going to
+need some well-defined security policies
+and one of the things that characterizes
+a security policy is the fact that
+you're mostly going to follow
+a set of rules or a guidance document
+that is going to help you reach that
+secure state using policies and
+procedures and this kind of guidance
+we're going to call it a framework so a
+framework is just a method to make order
+from chaos or a blueprint for
+implementing security and we have
+different frameworks for different
+aspects of security uh some of these are
+just for certification purposes so you
+just need them to prove that you have
+done your homework
+to a legal authority or to a parent
+company for example
+just to mention a couple of these we're
+going to start with nist that's the
+national institute of standards and
+technology it has a risk-based framework
+iso should also be mentioned they also
+have a cyber security framework along
+with iec
+tilgaf again it's a standard for
+enterprise security architecture
+modeling which is basically a way of
+saying how to design those policies and
+those procedures sabsa is about
+information assurance also risk analysis
+uh cobit it's about id governance it's
+an id governance framework which is
+specifically focused on security and
+finally we have itil
+which includes some best practices for
+aligning i.t and businesses also from a
+security perspective not necessarily
+focus on security but they are touching
+on this topic as well now just a brief
+mention here even though it's not
+included on the slide an esa that's an
+enterprise security architecture we also
+have esa frameworks which are made up as
+entire lists of activities and
+objectives that a company follows in
+order to reduce and mitigate risk now a
+framework as i said before tries to
+bring order to the madness it's the
+highest level policy in a company and as
+the highest level policy we use it to
+help an organization realize their
+current security or cyber security
+capabilities or whether they should
+be in the future and where we should
+prioritize the investments to reach that
+desired state now since there's no exact
+science in this area as you can probably
+guess there's a lot of frameworks out
+there because a lot of people had a lot
+of different ideas about how to govern
+this process of managing i.t and
+specifically cyber security and actually
+have about two categories here so first
+we have the category of prescriptive
+frameworks now these are going to be
+backed by regulations or compliance
+requirements and among the ones that
+we've already talked about this is where
+we find things like cobit which stands
+for control objectives for information
+and related technologies
+it's not an exact acronym i know and we
+also have itil here
+um we also have the international
+organization of standardizations that's
+iso specifically we should mention iso
+27001 right this one is specifically
+about information security and also the
+payment card industry data security
+standard also known as pci tss
+now how well these frameworks are
+implemented it's measured as a level of
+maturity within a company that's because
+most organizations start by being
+reactive which basically means we get
+attacked we do something we learn how to
+defend well these frameworks try to move
+the behavior
+towards a more proactive one where you
+raise your defenses before the first
+attack hits you how well your defenses
+looks like well that's the actual
+maturity level or model of your chosen
+framework so for example a first level
+would be just having risk assessments
+and that's it it's it's on paper
+that's where it ends
+next level would mean that you have some
+policies and procedures in place so now
+you're getting somewhere now the third
+level would be a deep integration of
+these security policies and procedures
+into your business processes also this
+is level where you should have something
+to continuously monitor how well those
+policies and procedures are being
+followed and should also have some ways
+of evaluate and mitigate any potential
+risks that might occur
+from now on right not just at the moment
+of the policy's definition now the
+second category is about risk-based
+frameworks and risk-based frameworks
+address the the problem of this
+prescriptive framework that we just
+talked about that is some organizations
+adapt those frameworks and simply
+check the box on paper next to the
+firewall next to the ids next to the cm
+appliance next to the the backup
+appliance but nobody bothers anymore to
+check the thousands of alerts generated
+a day generated by the seam or the
+constant attacks deflected by the ids
+system so risk-based frameworks admit
+that well there is no universal
+framework that applies to everyone we
+know this not even in the same industry
+everybody is different everybody is
+special so instead they say something
+like you know do your homework your
+internal risk assessment have a list of
+what exactly matters to you
+and then we'll discuss and then we'll
+start from there so one example here is
+going to be the nest cybersec framework
+which is made up of a couple of
+components first we have the the
+framework core which identifies the five
+cybersec functions which we should
+address like you know how to identify
+threats how to protect from them how to
+detect them a continuous detection that
+is how to respond to a threat or to
+attack and how to recover after an
+unfortunate incident
+also another component is the
+implementation and we have this uh
+defined under a number of tiers sort of
+a maturity level if you want i can like
+the ones that we've discussed before so
+this this tier level this maturity level
+is going to describe how the core
+elements are integrated within the
+company's processes so we could be
+looking at something just partially
+integrated we're just getting started or
+risk informed this is where we know
+about the risks and we just haven't done
+anything about them yet
+it's still something right it's not
+nothing next one might be repeatable
+right we know what we're doing and we
+keep doing it
+but we're not thinking ahead and last
+one would be adaptive it's not only
+repeatable but we're continuously
+improving the processes so we have some
+sort of a feedback loop generated by
+this this continuous monitoring and
+finally we have also the framework
+profiles and this is a term which means
+that we should have an actual list of
+statements about what we have and what
+we need so
+this is what is going to be used for
+future investments we have to be able to
+put a finger on a list of
+security controls or appliances or
+policies that need to be implemented so
+where should the money go to better
+protect ourselves now as you can see
+these risk-based frameworks are much
+closely related to
+real life right they're more down to
+earth
+when it comes to actually implemented
+real security functions
+and what exactly are you going to find
+inside the inside of a framework we're
+going to find a lot of things and you
+can actually access most of these that
+we've talked about for free online but
+just to cover a couple of the major
+topics here first of all we're gonna
+find things such as acceptable use
+policy or also known as
+fair use policy sometimes this one this
+one is a policy that says how you're
+allowed to use certain resources in your
+company things like computers how you
+should use the internet how you should
+use the phones even mobile phones right
+usually the main idea of such a policy
+is that you shouldn't be using anything
+that belongs to the company for illegal
+purposes or for things that might create
+tension
+let's say tension things like propaganda
+you know spam or for
+uh or running your own business your own
+side business okay
+also make sure you enforce an aup an
+acceptable use policy because uh if it's
+not enforced and people know about this
+it's like it's not there okay so you're
+gonna need some technology controls in
+there not just a policy because people
+don't really listen and they'll try to
+bypass
+you know those policy that
+make them unhappy or uncomfortable
+another one might be the code of conduct
+also known as code of ethics this is
+somewhat related to the acceptable use
+policy uh so it's basically the with
+great power comes great responsibility
+clause
+the code of conduct is the expectation
+to behave ethically even when you are a
+privileged user so it should include
+conditions such as you should only
+perform authorized job functions not
+something else on the side uh you should
+take care to protect
+the confidentiality the integrity of the
+data that you own that you manage
+you should take care to to secure things
+like account credentials don't share
+them stuff like that you should also be
+aware of compliance requirements and you
+shouldn't try to shortcut them again
+we're reaching into that ethics area and
+you should also respect the privacy of
+others even when you have access to
+their
+personal profiles their their email data
+and browsing history perhaps if you're
+part of the iit department as you can
+probably guess next up we have the
+privacy and privacy is generally
+expected by anyone at least up to a
+certain level everybody expects a
+certain right to privacy but it has to
+be balanced if we need to actually see
+what's going on and enforce some
+policies based on this type of
+monitoring so first of all privacy
+should be signed and agreed upon by all
+the employees everybody should know that
+they are being surveilled for example in
+the workplace right so employees do have
+their rights to be monitored or not and
+this type of monitoring can be done for
+a number of reasons which of course
+should be specified in this in this
+privacy document
+first of all we could do this for
+security assurance because we could be
+doing workplace surveillance to just
+look for security incidents and that's
+it secondly we could be doing it to
+monitor data or to monitor the employee
+productivity and well this is the type
+of monitoring that people don't really
+like right we could also be doing this
+as a purely physical monitoring as in uh
+just to check how many people
+are currently in the open space how many
+people have checked in how many people
+came to work right
+in a thursday for example right what's
+their behavior where exactly are they
+present and so on ownership is about
+data
+of course so we're going to address the
+security of data as well as you know
+from the previous videos if you create
+the data you own that data so you are
+the data owner now data is used in
+business workflows right so in order to
+be used inside of a workflow we need to
+classify data first especially by
+sensitivity level so we need to know
+what kind of data we have access to and
+we're allowed to use and how i have a
+big problem here because uh again we're
+running into those privileged users like
+admin users root users and this policy
+is the only thing protecting you from
+those admins developing super powers and
+taking ownership of your data so
+sometimes you actually have those uh
+those absolute privileges over data or
+over somebody's personal information
+and the only thing that stops you as an
+admin from
+doing bad stuff with that data is is a
+policy is that the threat of a legal
+action or of a fine or of being fired
+the backup policy should be addressed as
+well so in
+simple terms right short-term backup uh
+we're talking here about things like
+file versioning it's good if you want to
+revert to a previous version it's sort
+sort of a backup actually versioning is
+not exactly backup but it's still sort
+of a backup it allows you to recover
+from accidental deletions of files or
+data and it allows you to sometimes even
+recover from ransomware based on crypto
+lockers which encrypt the contents of
+your disks
+on the long term well you're usually
+going to do this for legal requirements
+other policies that might be implemented
+in there to abide by certain standards
+and so on and also within the backup
+policy there should be some mentions
+about how the destruction process
+should be performed when we don't need
+that data anymore now really doesn't
+have to be a very complicated
+destruction process but it has to be
+adequate to the sensitivity of the data
+that we're trying to destroy and finally
+we have job-related security functions
+here that should be addressed things
+like separation of duties right a job
+rotation rotating multiple people over
+the same positions in your company so
+that there's no collusion happening in
+there where people don't uh you know get
+used to their their privileges too long
+and start abusing them we should also
+address things like mandatory vacation
+if you think this this is required again
+this is against you know overstepping
+your privileges and with mandatory
+vacation when somebody else comes in and
+you know takes over your job for at
+least two weeks or so if you are doing
+something nasty in there the risks of it
+being discovered are high right so if we
+force people to go on vacation
+we're basically signaling them that they
+shouldn't be doing anything nasty on the
+job
+because when they're on a beach it might
+be visible to somebody else
+a dual control means that especially for
+uh very restricted privilege it's higher
+privileged operations we're gonna need
+two people to perform an action in order
+to be considered an administrative
+action so that we need two people to
+agree
+before moving forward again we're doing
+this against privileged abuse two people
+might be tougher to
+threaten to convince to persuade than
+one
+a least privileged principle we are on
+video number 56 on this security
+training i honestly hope i don't need to
+explain again what is the least
+privilege principle
+okay
+and finally don't forget to audit all
+these permissions all these policies
+because things change
+people change requirements change new
+data is introduced new systems are
+introduced every single day right so you
+need to adapt as well right don't run
+your company using policies written 10
+years ago mentioning systems and types
+of data that don't even exist nowadays
+now corporate policies are those
+policies that usually come from the
+upper management and they're initiated
+first by
+creating awareness at the management
+level so that you get the support from
+management to to publish this kind of uh
+this kind of policy and of course the
+management has to approve any kind of
+change to your security policy as well
+so that's also going to be the type of
+policy that comes down from upper
+management
+also creating management awareness and
+convincing management to take action can
+help a lot from a legal standpoint as
+well if a bad secret incident happens
+there's proof
+for due care and due diligence that
+management did its job properly and such
+a policy should state clearly the goals
+and responsibilities for each department
+so for example technical department like
+the you know the cto might be
+responsible for defining the policy the
+uh the hr department should be
+responsible perhaps to ensure training
+and dissemination of that information to
+all the employees the operations
+department should be tasked with
+implementing the security controls that
+correspond to the policy and so on and
+as much as possible these security
+policies should be secret on a need to
+know basis right we shouldn't provide
+any sensitive info to potential
+attackers so not everybody needs to know
+how the ids or the firewall policies
+look like in the companies that they're
+working so we talked about policies we
+should mention procedures as well now
+procedures are much easier to understand
+procedure is basically just a list of
+steps
+now a couple of
+examples
+of procedures that you might have in
+place first of all these procedures are
+oftentimes
+found as compensating controls remember
+this topic from a while ago so
+compensating control is the control that
+you're using when you cannot implement
+the right control to secure
+that specific type of data or that
+specific information right when you
+don't have the necessary i know the
+technical expertise or the money to
+invest into a technical solution to
+protect data well the least you can do
+is to actually specify a procedure of
+how that data should be handled right
+you're just telling people you know be
+careful where you leave that data how
+you access it how you encrypt it or how
+you decrypt it if you don't have an
+appliance or some sort of an application
+to do this for you so this is sometimes
+the reason why procedures are considered
+to be a type of compensating control so
+long story short if you cannot protect
+it you just rely on people following the
+right procedures especially helpful for
+internal threats
+continuous monitoring is also a type of
+procedure that should be performed on a
+daily basis good documentation not just
+about no programming and code and such
+but a documentation of all the moves as
+changes that pertain to your network
+your systems and your security policies
+this also part of a procedure that
+should be followed in order to make sure
+that nobody forgets to update the
+documentation a control testing is
+another type of procedure how do we test
+whatever type of security control we're
+about to implement in the network before
+we actually add that device or that
+policy into the inside of a network how
+do we test a new firewall for example
+that's a procedure a change management
+pretty obvious that's basically the
+definition of a procedure right having a
+list of steps that describe how we're
+supposed to replace devices how you're
+supposed to upgrade them how you're
+supposed to roll back if something goes
+wrong stuff like that and also the
+change management procedures might
+include some exceptions as well for
+example for management just to give an
+example you might want to include some
+exceptions from the bring your own
+device policy
+for top management patching updating
+right again this is the type of
+procedure that should be strictly
+followed and finally we should address a
+procedure whenever we need to retire
+technology whenever technology becomes
+obsolete we don't need it anymore or
+simply want to replace it what do we do
+with the old stuff
+that's a procedure as well how do we
+decommission
+software hardware
+or even how do we decommission people
+right how do we fire people
+and since we just mentioned exceptions
+well how do you deal with exceptions in
+some situations your your policies might
+be required to bypass specific personnel
+especially high ranked ones there is not
+much you can do about this except
+properly document and then implement
+that exception right at a minimum you
+should at least keep track of who and
+what business processes were affected by
+that exception uh what kind of personnel
+was involved
+what are the reasons for the exception
+because later on you might have to
+review
+those exceptions and decide if they
+should still be in there a risk
+assessment showing that you have done
+your homework and that everybody agrees
+that the exception is going to add
+some risk
+and that risk is acceptable otherwise
+you're not going to do it otherwise the
+exception is not going to happen and
+also the duration of the exception for
+how long should we
+expect this exception to last in in our
+company and what are the steps to roll
+back to compliance
+when we don't need that exception
+anymore
+right so that's it about security
+frameworks not the most stellar topic in
+this isoplus i know and i'm sorry about
+this but you really need to know this
+stuff at least for the exam and part of
+it actually it's not that bad i mean i i
+try to present it in a way that it
+actually makes sense so try to apply
+logic and common sense to these
+questions except when they're asking you
+about acronyms and you know the acronyms
+you just have to know them sorry about
+that again
+all right so
+make sure you review what we just talked
+about and uh thank you so much for
+watching don't forget to like and
+subscribe and see you next time because
+next time we're gonna be talking about
+continuity planning and risk assessment
+right so again we're pretty getting
+closer to the end of the training and
+we're coming back down to earth and
+talking about
+more realistic stuff when it comes to
+you know disasters and incident response
+alright so see you next time because
+that one is going to be a much more
+interesting video bye bye
+you

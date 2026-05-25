@@ -1,0 +1,233 @@
+as it professionals we're often tasked
+with installing security patches for
+applications which have been found to
+have a buffer overflow a SQL injection
+or some other type of vulnerability the
+process of creating an application from
+scratch is challenging and usually
+there's a balance between how quickly it
+takes to get that application finished
+and the security of that application
+itself many of these problems with the
+application code are found in quality
+assurance and there's usually a testing
+process where they'll not only test the
+functionality of the application but
+they'll also run a series of Security
+checks as well and if those
+vulnerabilities aren't found during the
+QA process then there's probably a
+researcher or an attacker who will
+certainly identify those vulnerabilities
+and in some cases find a way to exploit
+them application developers will often
+perform input validation when
+information is going into their
+application this ensures that any
+unexpected data that's put into into one
+of those inputs will not be interpreted
+by the application as you can imagine
+there are many different ways to input
+data into an application there might be
+a form where you're typing information
+in there might be fields on the screen
+or you might be putting in free form
+text the application developer is
+responsible for analyzing all of that
+input and ensuring that it matches
+what's expected by the application for
+example if there is a field to input a
+zip code it should only be a certain
+number of characters long there might be
+a certain set of numbers or in different
+countries there might be a different
+format that standard input validation
+needs to occur for every field in the
+application that's using a zip code and
+if anybody inputs something that doesn't
+follow that format the application
+should recognize that and prompt the
+user to correct the input there are
+automated processes for providing
+different types of input for these
+applications we refer to this process as
+fuzzing fuzzers will put random types of
+data into the Imp inut fields to see
+what the application might do and if the
+application performs unexpectedly the
+application developer may need to go
+back and change the way that they're
+doing their input
+validation if you've worked at all with
+troubleshooting browsers then you're
+probably familiar with cookies cookies
+are small bits of information that are
+stored inside of your browser that help
+provide tracking information for sites
+that you visit it might personalize the
+information that's shown on a web page
+or it's responsible for maintaining the
+session once you log into a website the
+cookies themselves are just a data file
+they're not in executable they don't
+contain any type of malware but the
+information within the cookie could
+provide an attacker with valuable
+details for that reason many browsers
+will use secure cookies which means
+there's a special attribute set in the
+cookie that requires it to only be
+transferred if you're using https or an
+encrypted connection there's no special
+security built around cookies and
+anything you put into a cookie can
+easily be read from the browser for
+those reasons application developers
+don't put sensitive information inside
+the cookie because that information
+could potentially be seen by a third
+party one way that application
+developers use to test the security of
+their applications is to run it through
+a process of static code analysis you
+may see this referred to as static
+application security testing or sast the
+developers will put their code into the
+static analyzer and that analyzer will
+look through the code to try to find
+vulnerability such as buffer overflows
+database injections and other types of
+vulnerabilities this process of trying
+to find vulnerabilities by using a
+static analyzer isn't perfect there are
+certain security concerns that can't be
+found by simply looking at the code
+that's in an application for example
+there may be cryptography that's
+included with an application but the
+implementation of the cryptography is
+ultimately what creates the
+vulnerability that type of security
+issue is probably not going to be found
+by a static analyzer and ultimately the
+output from the analyzer may not be
+perfectly accurate either a developer
+may have to go through the output of the
+analyzer to see if there are any false
+positives within the feedback here's a
+sample of some output from a static code
+analyzer you can see there are a number
+of issues that need to be addressed
+within the code of the application for
+example in the first line of the static
+code analyzer output you can see that
+file test.c on line 32 has a problem
+with the gets function because it
+doesn't check for a buffer overflow this
+analyzer even gives recommendations to
+use fgets instead of using gets the
+developer would then be responsible for
+going through this entire set of output
+to see if these recommendations are ones
+that apply to the code that's listed in
+the application by using this static
+code analyzer output the application
+developer can find some of those glaring
+problems and correct them before the
+application is
+distributed each time you install an
+application on your system there is the
+potential that someone has embedded some
+malware within the application itself
+and by installing the application you're
+also infecting your computer there are
+ways to check to see if the code that
+you're installing is the same code that
+was sent by the manufacturer or the
+application developer and the way that
+we do that is through code signing code
+signing answers a number of questions
+for us first has the application been
+changed in any way since the time that
+it left the developer and secondly is
+this application that we're in calling
+really originating from that developer
+to answer these questions the developer
+simply needs to digitally sign the code
+itself and send that digitally signed
+code to the end users to install this is
+very similar to any other digital
+signature process this uses asymmetric
+encryption where a certificate Authority
+is responsible for signing off on that
+particular developer's key once the
+developer has that sign key they can
+then use that to sign any code that they
+may be Distributing during the
+installation process your operating
+system will Analyze That code it will
+check the signature and if something
+isn't right with the validation of that
+digital signature it'll put a prompt on
+the screen informing you that something
+has changed with that
+application another useful security
+technique for applications is the
+ability to sandbox the application this
+means when the application begins
+executing it only has access to the data
+necessary for that application to work
+there's also another type of sandbox
+that is used during the development
+process itself developers will help
+create their code in a digital sandbox
+that is separated from anything else in
+the organization so while they're
+working on creating a new app they're
+not affecting the production Network at
+all once the application arrives on your
+local computer it's using sandboxing
+within the app to perform a similar
+function for example if you're using a
+virtual machine that VM is separated
+from any other VM that might be running
+on that system your mobile devices have
+sandbox ing built into the operating
+system of your mobile phone so that you
+can run applications that may be able to
+use data on your phone but protect that
+application from using other personal
+information that may also be stored on
+that phone for example we may be using a
+browser on a mobile phone and that
+browser will show us all of our stored
+bookmarks but the browser by default
+does not have access to your camera roll
+so an attacker getting access to your
+device through a browser has limited
+scope on where they may be able to
+access data on that device many
+developers will build monitoring into
+the applications that they're creating
+this allows them to monitor the use of
+the application and any security
+concerns that may arise for example they
+can see if anyone's trying to perform
+any type of SQL injection into the
+application or someone trying to take
+advantage of a vulnerability that may
+have previously existed this creates
+extensive logs for this application use
+and the developers can use tools to
+analyze those logs to try to find
+unknown vulnerabilities or attacks they
+may not have been thinking about inside
+of the application and of course if
+something unusual occurs with the
+application it'll be reflected in the
+monitoring services so if there's an
+unusual type of file transfer or an
+increase in the amount of access for a
+client you'll be able to see this in the
+security
+monitoring

@@ -1,0 +1,260 @@
+if you've done anything with networking
+then you've probably run into an IP
+version 4 address in this video let's
+look at the different configuration
+options for IP version 4 the IP address
+is the unique identifier that every
+device on the network must have if it
+wants to communicate using that IP
+protocol an IP address is a series of
+four numbers separated by a period this
+would be something like
+192.168 .11 165 to be able to properly
+communicate on the network every device
+needs to have its own unique IP address
+the IP address is combined with another
+value referred to as the subnet mask the
+subnet mask is also a four octet value
+for example
+255.255.255.0 the subnet mask is used in
+conjunction with the IP address to
+determine what IP subnet this particular
+device is on this isn't something that
+us transmitted across the network it's
+instead used by your local device to
+make the determination of what devices
+are local on this IP subnet and what IP
+addresses may be outside of this local
+IP subnet this becomes especially
+important when you need to send traffic
+outside of your local subnet and you do
+that through the use of a default
+gateway the default gateway is the IP
+address of a device that's on your local
+subnet that allows you to communicate
+outside of this subnet for example if we
+have an IP address of
+192.168.1.1 165 and a subnet mask of
+255.255.255.0 a common default gateway
+could be
+192.168.1.1 this is an IP address that
+is configured and assigned to the router
+on your local subnet by your network
+administrator and it must be an IP
+address that is on your local network
+there are also other IP addresses you
+should be familiar with one of these is
+a loop back address this is a way to
+define your local device without having
+to know a specific IP address every
+device on the network has a loopback
+address and it's a number that is
+between 127.0.0.1 through
+12725
+255.255 so if you wanted to Ping your
+local device you could ping
+127.0.0.1 and hopefully your local
+device would be able to respond to you
+this is often used to conf confirm that
+your local IP stack is working properly
+and it would then be able to communicate
+to other devices we also have a range of
+IP addresses that we've set aside as
+reserved addresses this is a range of IP
+addresses that should never be assigned
+to other devices they're used for future
+use or for testing in the future this
+range of reserved addresses is 240. z.0
+do1 through
+254-255 255.255
+anything that is a Class E address is
+also a reserved address we'll talk about
+classes of addresses in just a moment
+and another address type you might run
+into is one that is not real it's a
+virtual IP address or a VIP virtual IP
+addresses are not associated with a
+physical ethernet adapter instead VIPs
+are addresses that you would assign to
+the internals of a device so that you
+could always reference that device using
+that virtual IP address for example you
+might assign a VIP to a virtual machine
+or the VIP may be part of an internal
+address that you're associating with a
+particular
+router the IP protocol and IP version 4
+operate at OSI layer 3 so anytime you're
+working with an IP address you're
+working at that Network layer of the OSI
+model let's break apart an IP version 4
+address and really see what it's made of
+let's take the address 19216
+81131 we refer to these four values as
+octets that's because they consist of
+eight individual bits and you can see
+the representation of that same IP
+address broken out into those four
+groups of eight bits sometimes you'll
+see these eight bits broken out and
+described as one bite or sometimes one
+octet so if you were to count up all of
+these bits there are 32 total bits in an
+IP version for address and that is the
+same as four bytes or four octets since
+each one of these individual groups
+inside of IP version 4 consist of eight
+bits the maximum value that you would
+ever have in decimal for any of these
+groups would be a maximum of
+255 in the early days of networking we
+had to manually configure the IP address
+subnet mask and default gateway all in a
+manual way we had to visit that device
+change a configuration file and then
+that device would be able to communicate
+on the network if anything changed with
+our network configuration or we needed
+to change the IP address of that device
+we had to revisit the device and
+manually make those changes today of
+course we can plug in any of our devices
+and it automatically receives an IP
+address the way that we are able to
+receive this automated IP addressing is
+through a protocol known as DHCP or
+dynamic host configuration protocol when
+we plug into a wired ethernet Network or
+a WI wireless network and we're
+automatically able to communicate out to
+the Internet it's because we've received
+all of our IP configuration settings via
+DHCP but if you've ever connected to a
+network that does not have a DHCP server
+you may notice that you're still
+assigned an automatic address but this
+address is not quite as capable as a
+DHCP address instead it's what we call a
+link local address because it can only
+communicate to other devices that are on
+your local subject net and we cannot
+route that traffic outside of your local
+subnet for example if you're assigned a
+link local address you can't communicate
+to the internet because that's outside
+of your local Subnet in IP version 4
+this link local address is assigned
+through a process known as automatic
+private IP addressing or
+apipa this range of IP addresses
+automatically assigned through apipa is
+169.254
+do1 through 169.254
+2
+55254 there are also Reserve sections of
+that range the first and last 256
+addresses are reserved and they're not
+assigned to inst stations so if you
+receive an apipa address on your device
+it's between 169.254
+1.0 through 169.254
+254-255 just as DHCP Works automatically
+to assign your address apipa also has an
+automated process to assign this address
+it uses ARP to confirm that no one else
+on your local network has that link
+local address and if nothing responds to
+that address resolution protocol query
+then it will assign a random number
+between that functional
+block one of the challenges with ipv4 is
+that there are far more devices in the
+world than there are IP version 4
+addresses and in recent years we've used
+up all of the available blocks of IP
+version 4 addresses there are no other
+IP version 4 addresses that can be
+assigned in these blocks so we need to
+find other ways to be able to
+communicate via IP version 4 one way
+that we've been able to extend the
+functionality of IP version 4 is to
+create an assignment of IP address
+ranges that can only be used on the
+inside of a network we refer to these as
+a private IP address range and anything
+that is a private IP address cannot be
+routed on the public internet
+fortunately these are very large ranges
+and we're able to use those ranges on
+the inside of our corporate networks if
+you were to look at the IP address
+that's assigned to your device right now
+it's likely that it's a private IP
+address so if your device is currently
+using a private IP address and you're
+watching this video on the internet how
+are you able to communicate on the
+internet with an address that is not
+able to be routed across the internet
+we're able to do that through a
+functionality called Network address
+translation this allows us to convert a
+private IP address into a public IP
+address and use that public IP address
+to communicate on the public network
+we'll learn more about Network address
+translation as we go through this
+training course if you want to learn
+more about private IP addresses you may
+want to reference a request for comment
+or RFC rfc1 1918 is the standard that
+defines these ranges of private IP
+addresses and how they can be used on
+our
+networks if we were to look into the
+details of rfc1918 you would see three
+different ranges have been set aside for
+private IP addressing these three ranges
+are 10.0.0.0 through 10255
+255.255 and if you were to count up all
+of the possible addresses in that range
+it would be over 16 million addresses we
+often refer to this as a single class a
+block of addresses and we often write it
+as 10.0.0.0 sl8 if you were to write out
+the subnet mask of that sl8 address it's
+5
+5.0.0 this means the host size of this
+particular IP address range is 24 bits
+in length another range is 172.16.0.0
+through
+17231
+255.255 this gives us a total of just
+over 1 million addresses that we can
+assign in 16 contiguous Class B address
+ranges if we were to write this out in
+cider block notation it would be
+172.16.0.0 sl12
+the decimal subnet mask for a /12
+network is
+25524 z.0 which means our host ID size
+is 20 bits in length and the last range
+is
+192.168.0.0 through
+192.168.255.255
+this allows us to assign over 65,000
+addresses as part of 256 contiguous
+Class C address ranges The Cider block
+notation for this would be
+192.168
+0.016 and that /16 subnet mask is the
+same as
+255.255.0.0 half of this address is
+assigned for hosts so your host ID size
+is 16 bits in length as we step through
+the next series of videos you'll learn
+more about cider block notation the
+different classes of IP addresses and
+other details that you see associated
+with these private address ranges

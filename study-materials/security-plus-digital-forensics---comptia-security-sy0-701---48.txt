@@ -1,0 +1,261 @@
+as Security Professionals we are often
+responsible for collecting data when a
+security event occurs this process of
+digital forensics is not only important
+to understand what happened during the
+security event but also to understand
+how we can protect ourselves in the
+future and be able to use this
+information in any type of legal
+proceeding the specifics on how to
+collect this data and store this
+information is a bit outside the scope
+of the Security Plus exam but there is
+an RFC number
+3227 which is the guidelines for
+evidence collection And archiving if you
+wanted to read through a set of best
+practices they're all documented in this
+RFC the it security industry has created
+a number of best practices for digital
+forensics so it's important to
+understand what those best practices
+might be for the acquisition analysis
+and reporting of this data because of
+how this data may be used in the future
+it's incredibly important to follow
+these sets of best practices when we're
+collecting data today it's very possible
+that the data you're collecting today
+will be used in legal proceedings that
+occur years from now so it's important
+that you follow the best practices for
+this data collection and be able to take
+extensive notes and information on how
+this data was
+obtained one type of data acquisition
+request is called a legal hold this is a
+process usually initiated by a lawyer or
+some other type of legal entity and they
+will form you in a document of the type
+of data that needs to be stored and how
+much of that data needs to be available
+these requests are usually sent to the
+data custodian who obviously has access
+to all of the data associated with this
+particular request the custodian will be
+responsible for evaluating the legal
+hold and understanding where to start
+with acquiring that data in most cases
+an organization will have a separate
+area where all of this ESI or
+electronically stored information will
+be held all of the data that is
+described in the legal hold is acquired
+and stored in this repository and this
+may be a bit more involved than simply
+copying a file from one place to the
+other the information you need to
+acquire may be part of a much larger
+database or it may be stored in a format
+that needs to be modified before storing
+it as part of the legal hold for example
+an email client might store data into a
+proprietary format and you may need to
+convert that back to the text format of
+email to be able to store it in a form
+necessary for this legal hold it's also
+important that all of this information
+be properly preserved this is data that
+is being requested by the courts and you
+are responsible for making sure that
+that data is safe and is able to be
+provided to the court when
+requested one of the most important
+Concepts in this type of data collection
+is that the information remains in its
+pristine or unmodified form during the
+duration of this analysis this means
+when the data is first acquired there
+needs to be a process in place to ensure
+the Integrity of that data going forward
+and of course there will most likely be
+multiple individuals who need to gain
+access to this information as this
+particular event proceeds to better
+understand exactly who accesses this
+data and to confirm that the data has
+not changed during this process we need
+to put in place a chain of custody in
+the physical world we would take
+evidence and place it into a bag that
+could be sealed if anyone then ask
+processes that evidence inside of the
+bag they would need to document that on
+the bag itself in the digital world we
+can use hashes and digital signatures to
+maintain the Integrity of the data and
+understand exactly who accesses that
+data at any particular time this allows
+us to understand exactly how this data
+has been stored during a particular time
+frame we know who accessed the data and
+we can confirm the data that we're
+looking at in the future is exactly the
+same data that we originally collected
+there may be times with a legal hold
+when you know exactly what type of data
+you should be collecting and how that
+data should be stored but in the case of
+a broader security event you may need to
+collect a lot of different types of data
+from different systems and in those
+particular cases you will need to have a
+chain of custody for every bit of data
+that you've
+collected the acquisition of this data
+is commonly the first step and we may
+need to obtain this data from many
+different types of sources for example
+the data might be stored on disk or in
+memory of a system it might be part of
+the firmware or it might be files that
+are stored as part of the file system we
+may also find that this is an attack
+that took place over a number of
+different systems so we may need to
+collect data from multiple devices we
+may need to gather information from
+servers that are on the network there
+might be data stored in network devices
+there might be logs on a firewall that
+we will also need to acquire if this is
+a virtual system we may want to take a
+full copy of everything associated with
+that VM for example you could obtain a
+snapshot of that system and that
+contains all of the files and all of the
+information about that virtual machine
+and some of the most interesting
+information you'll acquire may not be in
+the most obvious places for example
+there's data that's inside of log files
+inside of a system there may be data
+that's stored in a recycled bin or some
+temporary storage area there might be
+browser bookmarks or saved logins and
+other temporary files that can gather
+more details about this particular
+event when dealing with this type of
+data it's not only important to acquire
+the data but it's also important to
+document how that data was acquired we
+often create detailed reports on the
+data acquisition process not only to use
+internally for understanding how this
+data was acquired but in the future if
+this is used for any type of legal
+proceeding will need a lot more
+information on how this particular data
+was acquired and how it's stored the
+this reporting process is going to give
+us the documentation that we need we
+often start with a summary or an
+overview of the entire event and the
+process that led us to begin acquiring
+this data there then needs to be
+detailed documentation that describes
+all of the steps that it took to get the
+data from its original source to the
+data that was acquired this allows a
+third party to look over the process
+later and understand all of the
+Integrity checks that were put in place
+so they can feel comfortable able that
+the data they're looking at now is a
+proper representation of the original
+data you might also be required to
+create an analysis of the data that was
+acquired this is usually a factual
+description of the structure of the data
+and how this data can be used or
+understood by a third party and if we're
+using this data to provide insight into
+this security event we may want to
+create a conclusion we may analyze the
+data have an understanding of how this
+data relates to the security event and
+then make conclusions as to what
+happened with this data during this
+particular
+event acquiring data is obviously an
+important step in this forensics process
+but we also have to think about how
+we're going to store this data and the
+preservation of this data becomes
+especially important especially when
+these types of events turn into legal
+proceedings that can occur even years
+down the road since we are referring to
+a digital representation of this data
+it's very easy to make copies from the
+original media and then use the copies
+in our analysis this not only ensures
+that we have a backup of the data it
+also prevents us from making any changes
+to the original data source this is
+especially important with mobile devices
+which can be easily erased from a remote
+location so you want to be sure to make
+copies of those mobile devices and work
+from the copies of that data for both
+our mobile devices and our desktop
+operating systems being able to collect
+data in a live form is a very important
+skill this can be especially important
+on systems that have some type of
+encryption technologies that
+automatically lock themselves down when
+you power off the system so if you are
+in a situation where you are acquiring
+data you may want to find ways to do
+that while the system is still running
+and as we've already mentioned this
+information might be used years down the
+road in legal proceedings so we want to
+be sure to follow the best practices for
+acquisition and the best practices for
+preserving this data during that time
+frame this forensics process might also
+involve eisc Discovery this is the
+process of collecting preparing
+reviewing interpreting and producing
+electronic documents as a security
+professional you may find yourself being
+asked to gather large amounts of data
+and provide that data in a form that may
+be used by a third party this
+e-discovery process is all about
+acquiring data it doesn't have any
+requirement that you provide analysis of
+the data it's simply listing out the
+type of data that needs to be acquired
+and putting that into your hands to
+properly acquire it this ecovery process
+often Works in conjunction with a formal
+forensics process so you might be asked
+to collect an image of a particular
+drive and provide that drive to a
+digital forensics professional creating
+the image of that drive is the only
+thing required by the ecovery process
+once that image is handed over to the
+forensics team they might look at the
+data on the drive and make
+determinations of whether the data is
+still on that drive or whether the data
+may have been deleted and at that point
+they can go through the processes and
+procedures for undeleting or recovering
+that data if
+required

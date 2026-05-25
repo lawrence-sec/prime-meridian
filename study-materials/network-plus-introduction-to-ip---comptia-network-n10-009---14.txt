@@ -1,0 +1,348 @@
+in this course there will be a lot of
+conversations about tcpip moving packets
+across the network and very often we
+lose track of exactly what that means so
+I thought it would be good if we started
+with an overview of Internet Protocol
+and how it operates the goal of course
+is to get data from one side of the
+network to another and there are a
+number of different processes involved
+in being able to transfer large amounts
+of data from one computer to another
+other in the analogy that we use today
+we're going to describe this transfer of
+data from one device to another as using
+a moving truck to get data from one
+house to another we can also think of
+the roads that we're using as the
+network that we've created this might be
+a wired ethernet Network a wireless
+network a wide area Network Technology
+or many different types of network
+connections but in this explanation
+those network connections are referred
+to as the road that our moving truck
+will drive on in this example this truck
+is the Internet Protocol it's the one
+that is doing the heavy lifting and
+moving that data across the network just
+as we might pack up items or objects in
+a room into a box and put that box onto
+the moving truck we do effectively the
+same thing with our application data we
+package that information into a virtual
+moving box and we put that moving box
+onto the truck which in this case would
+be IP so now we have a highway which
+would be our Network we have a moving
+truck which would be the Internet
+Protocol we have boxes within that
+moving truck we commonly refer to those
+boxes as the TCP or UDP protocol and
+then inside of those boxes is
+application data that we need to
+transfer from one device to another this
+process of encapsulating data within
+other protocols which are then
+encapsulated within even larger
+protocols is a fundamental process when
+we describe the transfer of data across
+the network if we were to visualize the
+ethernet frame that we use on our
+networks it would look a lot like the
+one that we have on our screen now we
+have a client that is communicating to a
+server and information is being sent
+between those two devices you'll notice
+there is an Ethernet payload in the
+middle of this Frame at the beginning of
+the frame is an Ethernet header and at
+the end of the frame is an Ethernet
+trailer if we were to provide a little
+more detail about what's inside of that
+ethernet payload you would see there was
+be some IP information and within the IP
+header the rest of the packet has the IP
+payload deconstructing this further you
+can see that the IP payload consists of
+a TCP or UDP header and inside of that
+part of the packet is the TCP or UDP
+payload so if we were to look at a
+protocol decode of a single frame on our
+ethernet Network we would see an
+Ethernet header inside that ethernet
+header would be an IP header inside the
+IP header might be a TCP header which
+would hold HTTP or website data and then
+finally at the end of the frame we would
+have the ethernet
+trailer you'll notice that inside of
+that IP header we had either TCP data or
+UDP data so it might be useful to break
+out those two protocols and describe
+what the differences might be both of
+these Protocols are very similar in
+their function they're obviously moving
+data from one device to another but the
+internals of how those protocols work
+are a bit different between the two and
+an application will use the one that
+makes sense for its particular function
+if you recall our video on the OSI model
+you'll remember that TCP and UDP operate
+at OSI layer 4 or the transport layer
+it's in this layer that we're able to
+send many different applications across
+the network simultaneously between
+exactly the same devices we refer to
+this as multiplexing and it describes
+the efficient process of transferring
+multiple applications simultaneously
+between multiple
+devices let's first look at TCP or the
+transmission control protocol we refer
+to TCP as a connection oriented protocol
+that's because there is a formal process
+to set up the communication between two
+devices and when that communication is
+done there's a formal process to tear
+down that particular Session One feature
+that makes TCP different than UDP is the
+ability for station to acknowledge that
+it is received data we refer to this as
+a reliable delivery free method that's
+because sending data to another device
+will always result in an acknowledgement
+that that device has successfully
+received that data this means the
+sending station will always know if
+information was properly delivered to
+the destination this also means that the
+sending device can recover from any type
+of Errors if it doesn't receive an
+acknowledgement it can assume that that
+information was not received by the
+destination device and it will resend
+that information to ensure that is able
+to receive all of the data
+these packets are also numbered so the
+receiving device will also be able to
+request anything that may have been lost
+along the way without having to resend
+multiple packets and recreate that data
+having this conversation between these
+two devices about how well traffic is
+able to be transferred allows the
+receiving station to configure flow
+control this describes the process of
+the receiving station telling the
+sending device to either send data
+slower or speed up the transmission
+UDP or the user datagram protocol is a
+much more barebones protocol there's no
+formal process to set up a session
+between two devices and no formal
+process then to tear down that session
+we refer to this as a connectionless
+communication because there's no setup
+or warning that information may be
+inbound to a particular device this
+means that we can send packet after
+packet of UDP data from one device to
+another and no UDP acknowledgement is
+ever sent back to the originating device
+we refer to this type of communication
+as unreliable not because there is a
+higher chance of having problems
+communicating in fact UDP and TCP are
+able to communicate in exactly the same
+way with exactly the same probability of
+getting that information sent across the
+network the difference is that we don't
+receive any acknowledgements when using
+UDP so we can't guarantee that that
+information has truly been delivered and
+since there's no acknowledgement and no
+notification that anything has been
+delivered there's no way to perform any
+type of error recovery or be able to
+retransmit portions of the data which
+may have not been received and because
+there's no ongoing communication back
+and forth between these two devices
+using UDP there's no way to configure
+any type of flow control the receiving
+station can't reach out and tell the
+sending station to speed up or slow down
+because nothing is ever sent back to the
+originating station
+now that we've loaded our boxes of data
+into our IP truck we need to tell the
+truck driver where to take this
+information and in the moving truck we
+do this by giving the truck driver the
+destination address for the truck in the
+world of Ip we give it a destination IP
+address but of course in a house we have
+many different rooms that we might
+deliver these boxes to some boxes might
+be for the bedroom others might be for
+the kitchen or bathroom and when we
+bring the box into into the house we can
+take that box directly to the
+appropriate room IP Works in a similar
+way where each box of data is provided a
+room name and in the world of Ip it's
+provided via a TCP or UDP port number
+instead of having bedroom living room
+kitchen or bath there will be a number
+associated with that data such as Port
+80 Port 443 Port 123 or Port 25 when
+those TCP or UDP boxes arrive at the
+house we simply look at the TCP or UDP
+port number and deliver that box to the
+appropriate application running on that
+server if you were to look at a protocol
+decode of ipv4 traffic being sent over
+the network you would see a set of ipv4
+sockets for the server and for the
+client this socket is a combination of
+data that consists of an IP address a
+protocol which would be TCP or UDP and
+then there would be an application port
+number for the server side there would
+be a server application port number and
+on the client side there is a client
+port number once both sides of the
+conversation know what the IP address is
+they know the protocol and they know the
+port numbers of both the server and the
+client we're able to send information
+properly between both devices to the
+appropriate application if you were to
+look at well-known applications that are
+using TCP or UDP you'll notice that many
+of those port numbers are from0 through
+1023 we refer to these as non-ephemeral
+ports which means they are permanent
+port numbers if we need to communicate
+to a web server we're almost always
+going to use port 80 and Port 443 those
+are very common and permanent port
+numbers that you would find on almost
+any web server on the client side we
+tend to use port numbers on a temporary
+basis and we refer to those as ephemeral
+ports those are ports that are commonly
+associated with with
+1,24 through
+65,535 although it's very common to find
+applications using non-ephemeral ports
+and the clients using ephemeral ports
+the reality is any device can use any
+port number that it would like to and
+although we commonly associate servers
+with non-ephemeral ports and clients
+with ephemeral ports the reality is you
+could find application servers using
+port numbers within the ephemeral Port
+range so you can see this is not a hard
+fast rule but instead broadly describes
+the way that we use these port numbers
+on our
+Network anytime you see a TCP or UDP
+Port it can be a number between 0 and
+65,535 that is a lot of room to be able
+to use different port numbers for
+different applications most servers as
+we mentioned will use non-ephemeral or
+non- temporary port numbers but that's
+not always the case and you could see
+applications using port numbers that are
+in the ephemeral Port range remember
+that changing port numbers is simply a
+way to designate what room inside of the
+house will be receiving that particular
+data it's used for communication and
+this is not a security mechanism you'll
+still need a firewall to decide whether
+traffic is truly allowed or disallowed
+through the network and simply changing
+a port number doesn't increase or
+decrease any type of network security if
+you're connecting to a web server your
+browser automatically knows that it
+should be looking for Port 80 or Port
+443 and it will use those ports by
+default if you change the port numbers
+of the server your browser will no
+longer know how to connect to that web
+server that's because we expect web
+servers to always use port 80 or always
+use port 443 these are well-known port
+numbers and if you change those port
+numbers you'll have to make sure that
+all of the clients use the new port
+number instead of what normally would be
+well known also keep in in mind that TCP
+port numbers are different than UDP port
+numbers although both of them can be
+between 0 and
+65,535 TCP Port 80 is a different port
+number than UDP Port 80 and you could
+theoretically use two different
+applications with both of those
+protocols at the same time here's how
+this might be practically configured on
+our Network in this example we have a
+server its IP address is 10.0.0 two and
+we have a client at
+10.0.0 these two devices are
+communicating across the network using
+three different applications the server
+has a web server at TCP Port 80 a
+Voiceover IP server at UDP Port 54 and
+it's also providing email Services over
+TCP Port 143 this means the client can
+communicate to the server with all three
+of those applications simultaneously
+because they all have different TCP and
+UDP port numbers if we were to then look
+at the IP data that was being sent on a
+single communication you can see that
+this IP address of 10.00.01 our client
+is sending information to this 10.0.0
+two address you'll also notice that the
+client is using a temporary port number
+for this session in this case the
+randomized temporary port number is Port
+3000 and this device is communicating to
+the web server so it's using the
+well-known port number of Port 80 and
+you can also see there is HTTP data
+contained within this packet as well
+this data is received by the server and
+when the server needs to send
+information back to the client it simply
+reverses the TCP Source port and
+destination port and the IP source and
+destination to be able to send that
+information back to where the original
+request was sent the same process occurs
+if you're using Voiceover IP data in
+this case the client is using a source
+Port of 7100 and the UDP destination
+Port would be 54 which would be the
+Voiceover IP service on that server and
+for email data The Source Port that's
+being used is a random number of
+4407 and the destination Port is the
+well-known port for email Port 143 so
+every device on the network that is
+communicating via IP is using this
+fundamental process to transfer data
+this allows us to scale up into a
+worldwide internet and be able to send
+data between two devices anywhere in the
+world world

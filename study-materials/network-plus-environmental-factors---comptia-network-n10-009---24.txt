@@ -1,0 +1,87 @@
+in the United States and indeed around
+the world we have many different data
+centers that are operating 24 hours a
+day 7 days a week it is estimated that
+approximately 2% of all us power
+consumption is used by these data
+centers much of the power we use in
+these data centers is to manage the
+environment where all of this equipment
+resides this allows us to manage the
+humidity the temperature and other
+environmental controls managing humidity
+in a data center can be a bit of a
+challenge if you have a high humidity
+then you've got condensation and having
+any type of water in a data center is
+never a good idea if your humidity is
+too low you could have excessive static
+discharge which is also potentially
+harmful to the equipment many industry
+guidelines put the ideal humidity levels
+somewhere around 40 to 60% this is high
+enough to prevent any type of static
+discharge but low enough to prevent any
+type of condens ation this can vary a
+bit depending on the geography but these
+humidity levels tend to be the average
+that you'll find in most data centers a
+lot of this power also goes to keeping
+the data center cool as this equipment
+is running it's generating heat and all
+of that heat needs to be cooled down
+there is an optimal temperature range
+and many data centers are trying to keep
+the temperature somewhere around 64 to
+81° F the cooling equipment in our data
+centers is constantly working to keep
+the temperature at that range but of
+course there are external influences
+that can affect the temperature inside
+the building for example the outdoor
+temperature may increase or decrease and
+that may add additional load to the
+cooling systems you might also find that
+as your system load increases and you're
+creating more heat from the systems
+inside of the data center that we will
+need to add additional cooling most data
+centers will have a well-engineered
+heating ventilation and air conditioning
+system this is an H HV vac this HVAC
+system is designed to maintain a
+particular humidity and temperature
+level most of these HVAC systems have
+sensors that are located throughout the
+data center and they're working to make
+sure that the same temperature and
+humidity is the same across the entire
+data
+center another important concern for
+data centers is what you do if there is
+a fire data centers contain a large
+amount of electrical equipment that are
+in a very large area so we need to be
+sure that we have some way to press any
+type of fire normally we would use water
+to be able to control a fire but in an
+environment such as a data center when
+you have this much electrical equipment
+you'll want to use other means for fire
+suppression if you were to look into the
+back of the data center there's probably
+a tank that contains some type of inert
+gas or chemical agent that is designed
+to either suppress the fire or remove
+any type of oxygen from the air if
+somebody pulls the fire alarm all of
+those chemicals are dispersed throughout
+the entire data to Center and although
+this may cause damage to the equipment
+it will prevent a fire from spreading
+you'll often see these fire suppression
+systems integrated with the existing
+HVAC this means that if a fire is
+detected the HVAC system will shut down
+and prevent any type of oxygen from
+feeding that fire

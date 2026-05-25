@@ -1,0 +1,230 @@
+every organization has a formal process
+for acquiring goods and services from
+third parties this is part of the
+purchasing process and it's often a very
+formal process which requires sign off
+and approval by a number of different
+parts of your organization this process
+usually starts with the end user they
+may have a particular software or
+Hardware requirement and they'll work
+with the information Technology Group
+and the purchasing department to obtain
+those goods or services
+this usually involves analysis of the
+budget and if that particular Department
+can afford to purchase that particular
+product and of course formal approvals
+by individuals in it the purchasing
+department and most likely the
+management of the company this process
+will probably require some type of
+negotiation with the supplier to be
+assured that the organization is getting
+the best price for what they're
+purchasing this usually involves a back
+and forth process between the
+organization and the supplier as they
+negot negotiate pricing any terms of
+Licensing and any particular contract
+details once the negotiations are
+complete the actual purchase can be made
+this usually starts with the supplier
+providing the goods or services and then
+once those goods or services are
+delivered they will provide an invoice
+for the cost there are usually terms
+associated with the invoice those terms
+may require the company to pay the
+entire amount of the invoice in full
+immediately upon receiving the goods or
+there might be a time frame such as 30
+days or 60 days before the company must
+pay that invoice in full if the company
+is purchasing a tangible product they'll
+receive those goods then add that into a
+central asset tracking system this is a
+way to manage all of the assets received
+by the company and be able to track them
+for the entire life cycle of that
+particular product the first step is
+understanding who has control of that
+particular asset and their assigned
+ownership in this asset tracking system
+so if someone receives a laptop the
+laptop is put under their name and if we
+need to make any changes or updates to
+that laptop we visit that user to be
+able to gain access to the asset our
+asset tracking system will allow us to
+designate the type of device this might
+be so we can call it a laptop a desktop
+a mobile device or any other type of
+system we also then need to determine
+whether this is hardware or whether this
+is software this not only allows us to
+recognize what type of asset this might
+be but but it also allows us to
+understand the tax liability for these
+different types for example Hardware is
+a capital expenditure and there may be
+depreciation that is taken on the
+hardware and that affects the taxes
+associated with that asset software
+however doesn't generally depreciate so
+this is purely an operating expense and
+it's taxed differently than a capital
+expense our asset tracking system is not
+only used when we purchase the product
+but we also use it for the entire life
+cycle of that product to inventory
+understand where the product happens to
+be and provide some type of tracking for
+the product for example you may be able
+to pull an inventory of the devices on
+your network to understand where all of
+the laptops the routers all of the
+cables might be and every other Hardware
+component associated with these devices
+this is also very useful for our help
+desk not only can they associate a user
+with a particular help Des ticket they
+can populate that ticket with detailed
+information about the device make and
+model so that the technician knows
+exactly what they're looking for when
+they start working on this ticket the
+asset tracking system also allows the
+enumeration of these devices for example
+a desktop computer is more than just one
+computer inside of that device is CPU
+memory storage drives keyboards mice and
+other peripherals our asset tracking
+system allows us to see it as a single
+entity or to understand what those
+individual components might be inside of
+that device and to provide additional
+identification of the device we might
+include an asset tag that we can
+physically attach to the device not only
+does this tag allow us to associate a
+particular number or barcode with a
+device having that label on the physical
+device can also act as a security
+feature should this device become lost
+or stolen there may be times when we
+need to reuse a particular device and
+this can be a bit of a challenge if
+there is a storage drive on that device
+we may need to remove all of the company
+data from that device and ensure that no
+one could ever recover that data
+especially if we're decommissioning or
+giving this device away there are
+different ways to sanitize the media on
+these devices depending on what you're
+planning to do with that device for
+example if you're planning to completely
+dispose of this device and send it for
+recycling we may want to delete
+everything that's on that storage drive
+but if we're planning to use this device
+internally for another employee we may
+only need to delete certain files that
+might be sensitive on that device
+if we are planning to reuse these
+storage drives the goal is to use a
+utility that can securely delete the
+information on these devices that would
+mean that no one would be able to
+recover that data once the secure delete
+is complete that information is no
+longer accessible this allows us to
+reuse these devices with the same
+storage drives which means that we can
+allow others in the organization to make
+use of that asset without worrying that
+sensitive data might be seen by others
+if we want to guarantee that the data on
+that hard drive will never be seen by
+anyone again then we may want to
+physically destroy the drive one way to
+do this is by using a shredder or
+industrial pulverizer that will
+completely destroy the drive if you only
+have a few drives that you need to
+physically destroy you can probably do
+this yourself with a drill or a hammer
+once you put holes into these dry
+platters there's no way to recover the
+data that was on those storage drives if
+you want to render a hard drive unusable
+and destroy all of the the data on that
+drive you can deal the drive this uses a
+strong electromagnetic field to be able
+to delete all of the data on that drive
+and if it's a hard drive it will render
+that drive unusable and in some cases an
+organization may choose to incinerate
+all of these storage drives which will
+definitely ensure that no one would be
+able to use that drive again some
+organizations though have hundreds or
+even thousands of devices that they
+might be retiring and they need to make
+sure that all of those drives are
+completely destroyed but they don't have
+time to destroy thousands of drives
+themselves so they'll contract with a
+third party that specializes in Drive
+destruction this usually involves more
+than simply handing drives off to a
+third party that third party has to not
+only destroy the drives but they need to
+provide a confirmation that the drives
+are indeed now destroyed this
+confirmation is commonly referred to as
+a certificate of Destruction this
+certificate provides a confirmation that
+all of the drives that you've given to a
+third party have now been completely
+destroyed and now you know that all of
+that data is no longer
+accessible just as there are times when
+we need to destroy data there's also
+times we need to be sure that we retain
+data this data retention might involve
+the original data sources any copies of
+those data sources backups of the data
+and any other place where that data may
+be stored in the organization depending
+on the rules and regulations associated
+with your organization there might be a
+mandate to provide data retention for
+example certain organizations are
+required to keep emails for a certain
+number of years or there might be
+financial data that needs to be stored
+for a certain amount of time they're
+usually a set of policies and procedures
+that are specifically written with data
+retention in mind especially if it's an
+organization that is mandated to keep
+that data retaining data might also be a
+good best practice for your organization
+for example you might tie this into your
+backup policy in case there's data
+that's accidentally deleted and of
+course if you need to call a disaster
+and move all of your data to another
+location you'll have that data retained
+to bring it up and running at that new
+site different types of data may require
+different types of retention so you need
+to know exactly what data you're working
+with what the requirements are for
+retaining that data and make sure that
+all of the proper procedures are in
+place to provide the right type and
+length of data
+retention

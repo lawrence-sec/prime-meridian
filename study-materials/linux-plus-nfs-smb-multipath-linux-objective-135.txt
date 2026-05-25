@@ -1,0 +1,601 @@
+hey everybody I'm Sean Powers I'm here
+to help you learn everything do what you
+love and most importantly be kind now we
+are diving right back into our Linux
+plus certification course and today we
+are finishing up this section of the 1.3
+objective uh from CompTIA now I'm
+calling this section 1.3.5 but this is
+going to finish it up and we're going to
+cover uh some pretty common things you
+do and one that I've never actually done
+professionally in my life we're going to
+look at how to mount NFS shares and SMB
+or sips I want to talk about the
+difference between SMB and sifs because
+there's a lot of confusion for good
+reason on what exactly we should use and
+why we use it and what is what and then
+NFS shares we're just going to mount
+really quick but something that I've
+actually never done is used multi-path
+or multi-path D is the Daemon that
+allows for that and so I want to set
+that up and show you how it works
+because it's something that you might
+actually use specifically if you're
+using a sand or a storage area network
+in your environment so we're going to
+cover these really quickly and uh it's
+actually kind of cool it was it was fun
+to learn how to do multi-path stuff now
+I'm able to continually do videos like
+this because of my patreon supporters
+thank you so much for supporting me
+financially which allows me to spend
+some time when I'm not at my day job
+making these videos so seriously I
+cannot thank you enough and if
+supporting me on patreon is something
+you're interested in doing I'll put a
+link down below but thank you so much I
+appreciate it now if you want to follow
+along and do these things on your own
+setup what I have installed on this
+computer are a handful of tools so uh
+sudo app install mine are already
+installed but I'm just going to let you
+see what they are open eye scuzzy we're
+going to use that when we cover
+multipath
+multi-path tools and then to mount Samba
+shares we're going to use sifs
+utils and then lastly NFS Dash common
+now these might be named slightly
+different depending on your distribution
+but in Ubuntu Debian as well I believe
+that's what they're called here and like
+I said they're already installed on my
+system but that will give you all the
+tools that we're going to be using today
+now the first thing we're going to do is
+NFS we're going to mount an NFS share
+and on my server which we're not going
+to cover this is about this is not about
+setting up the server I have the same
+share shared two different ways it's set
+up to share via Samba and it's set up to
+share via NFS so the first thing that we
+would do let's clear the screen in here
+we have nothing so let's make well first
+of all let's become root just to save
+myself a lot of pseudotyping so sudo Su
+Dash and now if we type LS we'll see
+there are a handful of folders One Snap
+because I haven't gotten rid of the snap
+Daemon on this virtual server that I
+just set up but we have NFS and Samba
+and there's nothing in there uh they're
+just empty folders that I'm going to use
+for mounting okay the first thing we're
+going to do then is mount an NFS share
+to do that we're going to say Mount Dash
+T NFS and the location where the share
+is stored remember I said it's on the
+same server and the same share it's just
+shared two different ways so the IP
+address of the server on my network that
+is sharing this is
+192.168.1.14 okay and colon and then
+what this share is called and it's
+called volume three share and then I
+need to tell where I want it to Mount
+and I want it to mount on NFS right here
+okay so I'll press enter and it should
+Mount that's all we need need to do we
+could put this in our Etc FS tab if we
+want to turn on automatically on boot
+but if we look now if we do uh DF minus
+H we're going to see right down here we
+have this and it's mounted on root NFS
+if we look in NFS now we're going to see
+there's a network file.txt so we've
+mounted it that's where it lives okay
+but we could also Mount the exact same
+share with Samba or SMB or sifs and the
+difference between sifs and Samba is
+confusing because SMB or server message
+block is kind of like the the big
+all-encompassing way that you mount
+Windows shares or the Windows File
+shares happen so sifts or common
+internet file systems cifs is a dialect
+of Samba or of SMB sorry not Samba of
+SMB and it is the like first one so like
+SMB version one is also called sifs or
+common internet file system okay and so
+Windows moved on they now use smb2 SMB
+2.1 or now smb3 and Beyond and it just
+provides a more secure more robust less
+chattery all sorts of things so you
+don't want to use sifts anymore because
+sifs is SMB version one
+but the problem is on Linux you there
+are tools called SMB Mount and smbfs and
+and that sort of thing but sifs you'll
+notice I installed sif's util versus
+utils when I was installing packages
+that's because sifts on Linux supports
+the other versions of SMB in fact by
+default it will not mount an SMB version
+1 or the fifths dialect of Samba
+protocol of the SMB protocol it will not
+even mount it by default because it's
+old and not secure so it's really
+confusing that we use sifs to mount
+things that are no longer actually sift
+because sifs is that old dialect of SMB
+so that's why there's a ton of confusion
+just know that it is perfectly
+acceptable and it's what I do it's what
+I recommend and it works just fine to
+use sifs as the way you mount Windows
+shares in Linux because it will default
+to the newest version of SMB that it can
+so by default it'll try like smb3 or
+maybe it tries SMB 2.1 I don't know but
+it does not use the old Sif so if ever
+if somebody says to you why sifs is so
+old I can't believe you're still using
+that you can say I mean I kind of am I'm
+using a tool called sifs to mount things
+that are not Sif
+and then they can be like what and you'd
+be like I know right
+just know sips utils Mount uses the
+newer version of SMB hopefully that's
+clear and hopefully you understand why
+it's okay to use sis now got it cool so
+back here the biggest confusion is the
+way we specify the server okay and
+because we're going to use the same
+format we're going to say Mount Dash T
+but instead of NFS we're going to say
+sifs because that's the file type again
+it's really going to be using like SMD
+version 2.1 or SMB version 3 not the
+original
+sif's dialect which is SMB version one
+but we're going to say Mount Dash T
+sifts and then this is the part that's
+confusing to specify the server URL you
+do forward slash forward slash and then
+the IP address or the host name but I'm
+going to use the IP address for
+simplicity's sake so 192.168.1.14
+and then the name of the share now
+you'll remember the NFS share specified
+volume 3 and then the name of the share
+that's just how my it's actually running
+on a Synology box that's actually how it
+creates the NFS share with Samba shares
+it doesn't do that even though it's the
+same location on the on the actual
+server it's just called share okay it's
+not we don't specify the volume it's
+just the name of the share right after
+here and it's called share if that's
+confusing but that's how it works and
+then I'm going to mount it on the samba
+folder and press enter uh it'll hahaha I
+forgot one more thing NFS does not use
+any authentication at all now it does
+have restrictions based on the IP
+address of who's connecting to it but it
+does not know username and passwords at
+all that is handled on the FI on the
+server itself usernames are transferred
+over so if you create a file with use
+user ID 1000 and another server mounts
+the NFS share it's going to see username
+1000 even if it's a different user on
+that system so NFS does not use
+authentication Samba does though and so
+that's what we need to do when we mount
+a Samba share we need to tell it the
+username and password that we want to
+use to connect to that remote server and
+so let me hit Ctrl C
+because I just forgot all about the
+username and password which is an option
+that we have to put on there so I'm
+going to push up arrow and that should
+get us that I'm going to actually get my
+face out of here because it's going to
+go too far all right so I'm still here
+you just can't see me so that part is
+correct I want to mount it on the samba
+folder in the local folder here but we
+have to say Dash o for options and then
+username equals and the username on the
+system that I created is
+test comma password equals
+pass one that's the username and
+password that I created and now if we
+press enter
+and we look in the samba folder we're
+going to see that same network file that
+we had before in the NFS folder because
+it is the same share just mounted in a
+different way now there are ways that
+you can use sips and store the
+credentials like in a file on the file
+system and instead of saying username
+equals comma password equals you could
+say credentials equals and then point it
+to a file on your file system that has
+username equals and password equals
+inside of it and that's so that if you
+put this like in an Etc FS tab file for
+example you don't have to put the
+username and password right there in the
+options you can have it in a file that
+is not readable by everybody on the
+system okay so it is possible to do that
+but you have to pass along the username
+and password because Samba Shares are
+authenticated file shares as opposed to
+NFS which is not so hopefully that's
+clear and even though it's the same
+share there are some slight differences
+when we Mount them that's the way that
+we do it now the other thing that we're
+going to cover is multi-path because it
+was just one little throwaway line in
+the objectives but it's kind of a big
+deal and here I am in all of my
+concerned glory and that's because I
+want to explain how multi-path Works
+basically we're going to use multiple
+multipath with iSCSI which wasn't
+specifically mentioned but it's
+important to understand what iSCSI is
+iSCSI is a remote mounted block device
+remember block devices are like a hard
+drive right like sdb like Dev sdb Dev
+SDC those are block devices hard drives
+and iSCSI allows us to mount a remote
+block device on our local computer so
+iSCSI is just like basically a way to
+attach a hard drive remotely which is
+kind of cool it has advantages and
+disadvantages that are beyond the scope
+of this video but that's how iSCSI works
+but you can also do multi-path which is
+something that like I said earlier
+earlier is usually done with the sand or
+a storage area network and how that
+works is you generally have like at
+least two ethernet like ports on your
+server and on the the sand device so
+there's like two ethernet cards two
+completely separate networks with
+different subnets and different IP
+ranges and they both connect to the same
+thing and so let's say you wanted to get
+into my brain or my sinus cavities if
+that's a little less gross let's say
+that we wanted to take one path right up
+my nose here uh you know that would go
+right up here and we could take another
+path up this nostril to go all the way
+up into my sinus cavities and if you've
+ever stuck your finger up your nose and
+I know you have don't FIB you know that
+unless you have an issue there's
+separation right there there you can't
+like put your finger up one nostril and
+out the other some people can most
+people can't I can't
+um because they're separate and the same
+sort of thing you generally have have a
+completely separate path to go to the
+sand so two different paths to go to the
+same sand and that's what we have set up
+on our Network here we have two
+different ethernet cards on our virtual
+machine with two different subnets and
+our server that one that's on
+192.168.1.14 there's another ethernet
+card on another subnet that is
+192.168.2.14 okay so two paths to the
+same exact thing and multi-path D the
+multi-path Daemon actually sets things
+up automatically so we can have multiple
+paths to the same exact iSCSI drop block
+device and uh use it so if one fails we
+still have a connection and that's kind
+of the the rationale behind it you want
+to make sure you have multiple ways to
+get to that block device so that if you
+have a network card fail or you know a
+network issue go on you can still
+connect to it it's redundancy to your
+store average block device sort of thing
+okay hopefully that makes sense so we're
+back here on the command line and I'm
+going to clear the screen because we're
+we're diving into the iSCSI stuff now
+now remember this video this objective
+doesn't specifically talk about iSCSI
+but that's the easiest way for me to
+demonstrate multi-path D or the
+multi-path Daemon it's possible to do
+NFS version 4.1 via multi-path but it's
+not
+really easy to do it works good with
+esxi sometimes it's a little funky
+whereas with iSCSI it's pretty standard
+fare and if you're going to be doing
+something it's probably going to be with
+iSCSI and multipath so I set all this up
+with that and if we look IPA this is
+going to show us we have two ethernet
+cards in this system ns19 and that has
+this internet address
+192.168.2.37 and if you look where's our
+other one let me scroll up a little
+right here ens 18 and it has the address
+of
+192.168.1.37 okay so we have an Ethernet
+card in both the dot one subnet and Dot
+two subnet and then like I said there
+are two different ethernet ports on our
+server that has 192.168 1.14 and
+192.1682.14. all right so we have two
+different paths from two different
+ethernet cards to the same iSCSI thing
+and first of all let's explore if I set
+up our system to use iSCSI so we're
+going to say I scuzzy ADM
+dash dash mode
+discovery
+hype
+send targets
+and I need to tell it what portal I want
+to use meaning like what path out of my
+system so
+portal
+and to do that I specify the IP address
+that I wanted to query which is
+192.168.1.14 okay so if I do that it
+should tell me what they're actually
+called targets they have available we're
+going to be the iSCSI initiator here and
+we're connecting to an iSCSI Target all
+right so if I press enter it's going to
+show us the targets and it actually
+shows us both of the targets the one
+that's on
+192.168.1.14 and the one that's on
+192.1682.14 okay you'll notice it's the
+same Lun or the same device it's just
+located in two different locations okay
+so I am going to connect to the iSCSI
+like the first iSCSI one okay we can
+actually well let's query it on the
+other uh portal first so if I push up
+arrow and then I change this to 2.14
+we're going to see the exact same thing
+right I just queried the other IP
+address using my other ethernet card to
+its other ethernet card okay so we got
+the same information because it reported
+both devices which is really the one
+device regardless of which way we
+connected to it whichever you know which
+which IP address we connected to so
+let's Mount the first one and to do that
+uh we do I
+got the admin or ADM
+the mode this time is node
+the target name
+is and it's this whole thing here so I'm
+just going to copy pasta
+this so the iqn
+I'm going to copy
+and then I'm going to paste all right so
+that is the Target that we're going to
+connect to and I want to tell it what
+portal to use so portal is going to be
+192.168. let's do the 1.14 so we're
+going to use that ethernet card to
+connect to it then we say dash dash
+login which will allow us to connect to
+it so I'm going to press enter
+boom it said it's logged in it's
+successful and we can tell that it's
+successful if we do LS Blk and I'll
+check this out lsblk shows us
+sdb so it's a new block device just as
+if it were a hard drive here it's a hard
+drive here it's our iSCSI block device
+and it actually is automatically
+recognizing that it is a multi-path
+available device okay so sdb and it has
+this like sort of it's it's not really a
+partition it's a it's a device in the
+it's a device it's a mapped device which
+I'll go over in just a second okay so
+we've mounted it through that first
+ethernet port let's do the exact same
+thing let's mount it again but this time
+use the second portal or our second
+ethernet card and its second ethernet
+card so I'm just going to push the up
+Arrow because that was a lot to type
+because the only thing we're changing is
+instead of using the 192.168 1.14 portal
+we're going to do the
+192.1682.14 portal which is again
+separate ethernet cards separate Network
+press enter and boom it says successful
+again okay so now if we do LS BLK we're
+going to see we now have sdb and SDC we
+have two different block devices on our
+system and you're probably like okay
+that doesn't make any sense it's the
+same exact thing it is it's the same
+exact
+um Target it's the same volume so we
+don't want to use sdb and SDC directly
+but remember I said it automatically
+detected that it was a multi-pass of
+where device that's where it created
+this and so the block device we use is
+actually in
+Dev
+mapper
+it's empath a for multi-path a the very
+first just like it it does like
+sdasdb SDC
+um same thing with empath this is empath
+a is the device that we can use and then
+if either one of those ethernet
+connections goes down we're still going
+to be able to use empath a the block
+device okay it's like a virtual block
+device that we can do and we can
+actually uh I mean we install a file
+system on there so we could do mkfs like
+ext4 on dev mapper
+empath a
+it's creating a block device across the
+network and it's going to allow us to
+mount it it's going kind of slow because
+it's across my slow Network generally
+it's going to be a really fast Network
+that we have but anyway so there it's
+it's done there and now
+um let's see let's make a directory
+called I
+scuzzy and now we could say Mount Dash t
+ext4
+Dev mapper empath a on
+hi scuzzy and now if we do DF minus H
+we're going to see look at that we have
+a 10 gigabyte Drive mounted on root
+iSCSI because we're the root user and
+that's the folder we just created and it
+is this device Dev mapper M path a and
+if we were to take down one of those
+ethernet cards it would still function
+as a block device perfectly fine because
+we have multi-path enabled now that's
+how multipath works I'm gonna go super
+fast on how we can actually make it
+happen automatically on boot because if
+you do this you probably wanted to mount
+that hard drive or that block device
+using multi-path on boot and it's not
+entirely clear how to do that out of the
+box so even though this is more specific
+to iSCSI with empath added on or
+multi-path added on I just want to show
+you really quick so if you want to quit
+the video now I will not judge you but
+really quickly I'm going to show you how
+to make it happen automatically on boot
+okay I could I guess we should look at
+the multi-path tool so if we do a multi
+app most of it is automatic but we can
+do Dash LL and it will show us our two
+devices I it didn't really say that I
+had to show you that tool and it's not
+all that useful but it shows you that
+both of them are mounted right there so
+multi-path Dash LL but if you want to
+make this happen automatically you have
+to go into Etc I scuzzy and inside here
+there's a file called iSCSI d.com so
+let's edit that
+and then we need to change where it says
+node.startup equals manual we want that
+to be node.startup equals automatic and
+then save this file
+but that isn't enough okay that is not
+enough to make it actually happen what
+you have to do
+if you type LS you'll see there's a
+folder called nodes if we go into nodes
+you're going to see why look at that
+that is our iqn of our uh devices of our
+device devices depends how you want to
+call them that's a folder though if we
+go into the folder we're going to see we
+have a folder for each specific way or
+portal that we connect to it see there's
+the 1.14 and the 2.14. so these are two
+different folders I'm going to do LS
+star you see inside of each one of these
+folders is a file called default so we
+need to edit each of those so I'm going
+to do edit dot 1.14 default the file
+called default inside that folder and
+I'm going to change node.startup equals
+manual to node.startup equals automatic
+I'm going to save this file and then I'm
+going to do the exact same thing for the
+second portal version of that there's a
+file called default same thing I'm going
+to change this to
+automatic I'll save that and now when we
+reboot the computer it will
+automatically Mount that and that empath
+a will be created for us automatically
+so then we could put the empath a
+directly in our Etc FS tab file if we
+wanted that to mount somewhere
+automatically so if we just reboot this
+when it comes back up it will
+automatically log into the iSCSI using
+multipath using both portals because we
+changed the global iscsid.com file to do
+automatic and each individual iSCSI
+Mount we changed as well so that they
+will each be automatically mounted when
+the system boots up so let's go back and
+if we do
+lsdlk we're going to see it
+automatically mounted sdb and SDC and
+created Dev mapper and path a okay so it
+has created that automatically when the
+system booted up so then we could Mount
+that again because it's already
+formatted ext4 and we can mount that
+somewhere on our system anyway it was a
+lot of fun for me to learn about
+multipath stuff I haven't really done it
+in production this is really the first
+time I've played with it a whole lot
+with iSCSI I've done iSCSI before but
+I've never really done multi-path with
+iSCSI I haven't really had the
+infrastructure to do that and so I got
+to play with that so I hope that was fun
+you can set that up too I used all
+virtualized stuff to set it up but it's
+fun to play with and fun to understand
+what's going on so even though iSCSI
+wasn't particularly or wasn't
+specifically mentioned in this it's the
+easiest way to learn to use the
+multi-path Daemon which honestly is
+mostly automatic there's not much you
+have to do it senses everything and and
+does most of the things by default
+anyway I hope that was as fun for you as
+it was for me remember to learn
+everything
+do what you love and most importantly be
+kind I will see you in the next video

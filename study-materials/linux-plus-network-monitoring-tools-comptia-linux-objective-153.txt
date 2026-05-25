@@ -1,0 +1,653 @@
+hey everybody Sean Powers here it is 5
+15 in the evening I just finished work I
+have another appointment at six o'clock
+but it's been too long so we're doing
+this video and we're gonna do it right
+now Linux plus uh the next section
+before we get started though I want to
+take a minute to thank DJ Eric Santos
+who is the newest top tier patreon
+supporter of this Channel and of me and
+all the things I do and I just cannot
+thank you enough uh it it just humbles
+me that people are willing to spend
+their actual money to support what I'm
+doing here so thank you and top tier it
+I had to actually look to see what all
+the benefits were because uh you are my
+second top tier supporter and I didn't
+even remember what all the benefits were
+so thank you and I will get uh your
+welcome basket boxed up and sent out to
+you and uh without further Ado let's get
+on to this Linux plus objective
+1.5.3 now in this video we're looking at
+network monitoring tool tools we're
+going to look at TCP dump and Wireshark
+or t-shark and then these tools we
+looked at some of these tools before net
+stat and ping we're going to look at
+Tracer out and MTR which is my trace
+route newer tool but I do have to
+mention when we're talking about TCP
+dump and Wireshark people tend to get
+very very opinionated a lot like my dogs
+apparently who are barking about
+something you'll probably hear them
+through this whole video I can't seem to
+get them to quiet down but this video is
+not like a a training video on Wireshark
+there are entire courses devoted to
+Wireshark and TCP dump I'm just going to
+show you what they do how to do a couple
+very simple things with them so that we
+can understand it as a tool to meet the
+requirements of the Linux plus
+objectives but also just so you get a
+feel for what's possible this is not
+going to be a complete and thorough
+course on TCP dump Wireshark t-shark
+that sort of a thing this is just to
+give you a feel for what you can do with
+some network monitoring tools before we
+get into those particular tools I want
+to talk about some of the things that
+we've already looked at and share some
+similar properties so ping you've seen
+me use ping all the time and basically
+we just do like Ping google.com I mean
+this is doing a lot of things it's doing
+a DNS lookup for the IP address and then
+it's sending out an icmp packet to the
+IP address that it finds now that icmp
+packet goes there and then it responds
+with the with a another icmp packet an
+AC reply we're not going to go into the
+nitty-gritty of networking but basically
+this sends out an icmp which is not TCP
+it is not UDP it's icmp which is a
+different type of traffic specifically
+for uh Making Connections work and just
+as a really brief rant there are a lot
+of Security Experts who believe that
+blocking icmp at the firewall is really
+wise or not responding thing to icmp
+traffic is a way to stay more secure now
+maybe there are some security reasons to
+do that I don't think that the security
+benefits it might provide are uh are
+worth breaking how the internet is
+designed to work icmp is a type of
+traffic that regulates how the internet
+works it makes things work better so I'm
+personally not a fan of blocking icmp
+traffic like pings uh but I don't want
+to get into an argument about it but
+just know if something doesn't reply to
+a ping it's probably somebody who
+decided that blocking icmp traffic is a
+way to secure their place uh their you
+know their systems and so you might have
+to do something else which we'll talk
+about in a second anyway this sends out
+that icmp traffic and then it responds
+and it tells you um how long it took to
+respond and you can see this it you know
+it's it's very valuable information
+especially when you're doing Network
+troubleshooting now one of the things
+that that ping does and icmp allows you
+to do is uh do a timeout like if it only
+goes a certain number of hops like if it
+takes more than this many hops like
+going from this router to that router to
+this router to that router it will fail
+and you can use that knowledge of like
+how like uh fail after one then fail
+after two then fail after three
+to get information about every step
+along the way specifically that is what
+trace route is doing so let me clear the
+screen if we were to say a trace route
+and then google.com
+Well it Well it gave us a whole bunch of
+stuff really quickly uh basically what
+it does is it sends out a series of ping
+commands or icmp packets with specific
+um time to LIT maybe I don't think time
+to live is the x is that is the proper
+terminology but uh so that it maybe it
+is time to live but only goes one hop
+and then uh if it's not at its
+destination it gets that information so
+basically it pings every step along the
+way and gives us information like for
+example the first hop is my home PF
+sense router
+192.168.1.1 okay so that's pretty cool
+then the next hop is here the next top
+is here the next hop is here and it will
+continue to do that until you get to the
+destination which apparently was this IP
+address here for google.com now there
+are some times where you're not going to
+get responses and you'll get things like
+this and that is where that particular
+node or that hop along the way decided
+not to return icmp traffic it still
+allows it to go through but it doesn't
+reply you can see it allows it to go
+through because we got a response from
+the next hop along the way so if you're
+if you see these like asterisk asterisk
+asterisk that just means that it didn't
+receive an icmp reply at that hop
+hopefully that makes sense but it has
+still forwarded those you know packets
+on to the next destination because again
+we got the the things from there so that
+is how traceroute finds the path it
+traces the path from one place to
+another and it gives you information
+along the way you know how long it took
+to get to that that particular hop from
+where you are so it's it's really useful
+information but it's kind of old right
+it's it's an old school way of doing
+things and there is a new kid on the
+Block that gives us even more
+information in kind of a really nice way
+as well and if you remember the video we
+did on top and then I talked about h-top
+being a newer program that is probably
+the one you should use because because
+it's newer and better and faster and and
+more user friendly and does more things
+this is the same sort of thing MTR
+stands for my trace route and it's
+probably not installed by default on
+your distribution so you'd have to like
+install it like with yum or with apt or
+whatever your package management system
+is uh it's probably in your repositories
+though and then you can use that in the
+place of or in addition to Ping and
+trace route to get that same sort of
+information and
+the same binary works either GUI or on
+the command line so let me show you both
+really quick so we'll clear the screen
+and now if we use MTR and we just
+without any Flags just give it a domain
+google.com
+it will pop up a GUI window if you're on
+a desktop that has you know an x windows
+or I'm sure Wayland as well but with an
+X server installed it's going to pop up
+a GUI window and you'll see it keeps
+updating in real time now this is the
+Tracer out information let me yeah
+scroll down here okay these are the same
+sort of things that we got when we use
+traceroute but it allows us to see
+things update it just keeps sending
+packets and then we get like the
+standard deviation of how long it took
+these are in milliseconds so like the uh
+it took the last ping was 11
+milliseconds here 21 milliseconds seven
+milliseconds 16 milliseconds uh and you
+can see along the way like if there's a
+spot along the path where there's a
+rough connection oh like see there we
+just had some uh loss there's some
+packet loss at that section along the
+path from us to Google and so this is a
+really great way to see if it's you or
+if it's them you know like the site is
+it down for everyone or just me this is
+a great way that you can test to see if
+there's a spot along the path that is
+having issues like apparently this
+spectrum.com site is really having some
+issues because we have packet loss at
+that section of the journey so to speak
+it doesn't necessarily mean that there's
+a problem because they could just not be
+replying because of load concerns like
+if it's heavily loaded it might just
+drop packets instead of responding but
+this is if you have an issue and it's
+not working well something like this
+might show you a problem along the way
+and this will work internally too like
+if you have a bunch of routers inside
+you can trace route an or MTR between
+them as long as it you know changes
+subnets and that sort of thing so anyway
+this is MTR but this is the GUI version
+and we can change things we can pause it
+uh we can restart from scratch maybe oh
+unpause it there we go we can do all
+sorts of things change how quickly it
+updates but it also works on the command
+line if you do MTR Dash t
+uh we'll do again this is apparently
+what we're doing today is google.com and
+this will do the exact same thing but in
+a text interface so like if you're if
+you're SSH into a server uh you're going
+to get this without the dash T because
+if it doesn't sense an X server it's
+going to give you the text version but
+if you want to have it in your terminal
+instead of a GUI pop-up you can use Dash
+T to get the same information on a
+terminal and then the keys up here it
+shows us there's like help and display
+and restart we can do restart I just
+press R to restart and it will do all
+that Q should quit yeah and Q quits okay
+now do you remember when I talked about
+some places stopping icmp traffic well
+with MTR you can do a really cool thing
+where we can do MTR dash dash let's say
+UDP
+google.com and what this does oh I
+didn't do Dash T so it popped up another
+window here but what this is doing now
+is instead of using icmp traffic it is
+sending out a UDP data packet
+um and we are getting information based
+on UDP instead of icmp and we can do the
+same thing
+mtr-tcp google.com and this is not using
+icmp traffic again this is using TCP uh
+traffic let's go over here
+I keep forgetting it's going to pop up a
+gooey window but that's okay gooey
+windows are cool and the same thing
+rather than icmp right now it is using
+TCP to check every hop along the way all
+right so there's some really cool things
+that you can do with it but basically it
+is uh like a more advanced version of
+trace route and now the one more
+non-controversial tool that I want to
+show you let's clear the screen uh is
+netstat and I've shown you netstat
+before and I I even told you the flag
+that I use 99.5 of the time do you
+remember it netstat Dash
+tuna right nut stash netstat Dash tuna
+and this is going to show us the port
+information on our local computer so
+netstat Dash tuna I'll just press that
+and it'll show us all of the ports that
+are open or in use on our local computer
+okay and that's important I mean this is
+just testing our local computer querying
+our our local interfaces now usually
+what I do let me stretch this a little
+bit because it that wrapped in an
+awkward place there we go uh yeah you
+can see the top ones uh so this is going
+to show us like if a Damon is listening
+like for example on this computer
+apparently there's an SSH server running
+because it's listening on Port 22 on
+0.0.0.0 which means all interfaces uh on
+TCP version four it's listening on Port
+22 and it says it's listening right
+there so that's what we can do there but
+I thought for this video uh specifically
+why don't we explain what each of those
+uh letters in tuna is for so let me
+clear the screen uh first of all
+netstat
+has to be spelled correctly Dash t means
+I want to know about TCP ports on the
+system so the T is for TCP
+the U is for can you guess the U is for
+UDP dash n that means I want to know
+about localhost I want to know about
+0.0.0.0 I want to know about you know if
+it's only listening on one of the IP
+addresses like 192.1681.1 I want to know
+all of the network addresses
+on the system tell me about all of them
+and then a is similar but slightly
+different a says I want you to tell me
+about all interfaces so N means all IP
+addresses like the localhost and every
+IP address that might be assigned to the
+system including that special one
+0.0.0.0 which means all a means every
+interface so eth0 eth1 eth2 which I know
+if zero isn't really used anymore but
+like I always forget the like here let's
+uh
+emp8s0
+basically the a means I want you to tell
+me about all of the interfaces on the
+system as well and then usually like I
+showed you before uh usually I don't use
+that whole long thing usually I will
+grep the results so I'll do something
+like net
+net stat Dash tuna and then I will grep
+for the word listen all in caps
+I gotta type the word crap
+grab for listen and it will show us just
+the ports that are currently listening
+meaning like a Daemon that is listening
+on the system like if we had a patchy
+installed it would show like Port 80 uh
+was here and it would be in the listen
+state so that's something I use netstat
+for and that covers everything except
+the TCP dump t-sharp and uh Wireshark so
+let me quickly explain what they do and
+basically they cause people to get
+really opinionated
+what a TCP dump and Wireshark are both
+packet capture tools so they capture
+packets from an interface like a network
+interface on your computer now the
+important thing to note about any of
+these tools TCP dump or t-sharp is the
+text version of Wireshark a Wireshark is
+a GUI program they can only capture
+packets that they see and what I mean by
+that is if you are on a network where
+your computer is plugged into a switch
+it's only going to be able to see
+traffic that that switch Port sees so if
+two computers on two separate ports are
+talking to each other your switch Port
+is never going to see that traffic
+that's what switches do switches only
+connect the traffic to where it needs to
+go a hub on the other hand a hub just
+spews it everywhere and whoever it's for
+can listen uh but it that's why they're
+less efficient because it the a hub
+makes things very very messy everybody
+just screams uh all your information and
+then whoever needs it listens but a
+switch will connect two parties together
+and only those two are going to see each
+other so that's why if you want to
+capture packets for an entire network or
+for something else your switch might
+have like a mirror report where like
+your Uplink Port you could mirror it on
+another Port plug your computer into
+there and and listen and it would be it
+would hear all the traffic on this port
+as well so there's ways that you can get
+stuff but also you might have to SSH
+into a remote server and capture the
+packets you want to see bring them back
+locally to examine them in Wireshark so
+when you capture packets just realize it
+can the computer can only capture what
+it sees and with modern switching
+technology it doesn't see all the
+traffic in a network that's just not how
+networks work except wireless networks
+wireless networks are just hubs for the
+most part you're going to have to use
+sudo or root access to capture packets
+just because you need access to the
+interface and usually only root has it
+there are ways to set it up using group
+permissions and stuff but generally
+you're going to need root permissions to
+do a packet capture on an interface and
+so the first tool we're going to look at
+is the older one which is TCP dump it's
+been around forever so I'm going to do
+sudo TCP dump now we can specify what
+interface we want to listen on but it'll
+choose your default interface if you
+don't specify it so that's you know what
+I'm going to do otherwise we could do
+Dash Ai and tell it what specific
+interface but again I forget the names
+of the interfaces like en ps075 blah
+blah blah anyway to TTP dump will use
+your default network interface and if
+you just press enter it will just show
+all of the information that it sees on
+the network again just everything that
+our local computer sees right here but
+it's going to show a whole bunch of
+traffic as it goes through the default
+interface on my system so I'm going to
+hit Ctrl C because that's just a lot of
+information and it's not usually how
+it's used usually you'll capture
+something into a pcap file and that is
+just a format that Wireshark can use to
+look at it later on and so like I said a
+lot of times you'll SSH into a remote
+server do a packet capture and then
+bring that back and that's why TCP dump
+is still often used so we can say I'm
+going to do that right now I'll capture
+some information using TCP dump
+so uh let's say sudo TCP dump and I'm
+still going to use the default interface
+but we're going to say
+uh we're going to filter so that's the
+other thing that it can do it can just
+get some traffic rather than all of the
+traffic everywhere I'm going to get just
+traffic that's going to
+um my router for example like just
+traffic going to the router or from the
+router so I'll say TCP dump and then
+host
+192.168.1.1 and then instead of just
+spewing it on the screen I want it to
+write the dash W to let's call it
+dump.pcap all right and that's going to
+save it into a pcap file that we can
+look with Wireshark later so when just
+press enter it's going to be listening
+it's dumping stuff in there it's just
+going to keep going and keep going there
+are ways to set up so it will only
+capture for a certain amount of time it
+will only capture a certain number of
+packets uh you can explore the help page
+for all those limitations there are also
+lots of other filters you can use you
+can say instead of just host that you
+can say host DS t for just the
+destination of 192.168 that one down one
+or just the source SRC of that and it
+will only capture packets whose source
+is from there and you can filter run all
+kinds of filters you can even and
+filters together but when we're done I'm
+just going to do control C
+okay and then LS minus L startup P CAP
+and sure enough there is our file it
+looks like we captured 47 kilobytes of
+information we'll look at that in just a
+second because looking at it the best
+way to do that is with Wireshark it just
+really is okay the other way we could
+capture it though is with uh Wireshark
+itself the GUI tool can capture but also
+t-sharp which is the text version of
+Wireshark can capture without needing a
+GUI interface and they do very similar
+things as far as capturing packets now T
+and this is where people might get
+controversial and be like no no it's so
+much better this is better that's better
+this is better that's better they're
+both great uh all three of them are
+great there are slightly different
+filters that you might be able to apply
+with t-sharp like based on the internals
+of a packet like if you're trying to
+troubleshoot sip information you might
+be able to craft a filter in one that
+works better than the other as far as
+like getting just sip information from a
+certain type of client or something
+thing anyway to do the same sort of
+thing with t-shark we do something like
+sudo
+T shark and then let's do a filter so in
+this case to do a filter with t-sharp
+it's Dash F and then the filter and I am
+going to do a filter of just icmp
+traffic okay and we'll just press enter
+and then what this should do is wait to
+look for icmp traffic on the network it
+looks like it I actually did find some
+I'm not saving this to a file I am just
+letting this print on the screen looks
+like it is going to save a temporary
+attempt file for us in the temp folder
+but I'm we're not going to look at that
+but we can write it to a file but what I
+want to show you now this the same sort
+of thing we could do using um
+TCP dump but we could do ping
+google.com and now when we ping it's
+going to capture or it's going to
+display all of those packets because it
+matched the filter of icmp traffic does
+that make sense so that's what actually
+happened uh it captured that again I'm
+not capturing it to a file uh but you
+could do the same thing with t-shark and
+then Wireshark is the GUI tool so let's
+open up Wireshark just to finish this
+video off and now remember all of these
+tools can do capture so we could just
+start capturing packets uh and in fact
+it'll just do that it'll just start
+capturing packets and we can look them
+click stop and then we can examine all
+of the packets that we have just
+captured and it just it just captured
+everything but it's cool because in with
+Wireshark you can explore them at your
+leisure without watching like having to
+watch them scroll by so look at this TCP
+packet for example it will show all of
+the details of a packet so if you're
+having an issue you can capture a packet
+and you can capture some packets and
+then search through to see okay here's
+where it's you know talking to this
+server so what's actually going on in
+this conversation and you can look at
+the entire packet of information and see
+what's going on including the actual
+data in the packet so you can examine
+all sorts of stuff now if you're
+thinking whoa if I can capture packets
+that means I can see passwords well you
+can see login in and passwords
+for protocols that are not encrypted so
+like traditional FTP or telnet without
+any encryption yeah you can see the
+actual text that's going through but for
+things like SSH you can capture the
+packets but they're all encrypted so all
+you're going to see is the encrypted
+stuff you're not actually going to see
+you're not going to find people's
+passwords in there anyway you can hear
+my dogs are excited again but
+what we can also do is open that file
+like where's that file well you see I
+have all sorts of stuff in there I'm
+downloading uh some television shows but
+uh dump.pcap this is the one that we had
+so I'm opening this I'm going to
+continue without saving our captured
+packets but this is the information that
+we captured using TCP dump remember we
+captured TCP dump and our filter was
+only stuff that was to or from the
+router
+192.1681.1 and you'll see all of these
+packets that it captured are either has
+a source or a destination of
+192.1681.1
+1.51 that's the computer that Ron that's
+my Big Tuna machine and it looks like
+the bulk if not all of the we had one
+that wasn't okay here's an ARP request
+uh this was Art but everything else
+looks to be DNS and so almost everything
+else uh oh here's a here's a broadcast
+in our broadcast uh looks like my
+ubiquity
+something was looking for somebody who
+knows who has the IP address of one dot
+or 192.168.1.1
+this ubiquity device is asking for that
+because it's it knows that's the router
+that it needs to use to get out to the
+internet
+but it does the way that networking
+works it has to get the MAC address of
+the computer with that IP address so it
+knows how to talk to it that's kind of
+deep into the weeds with networking but
+that's really what we're looking at with
+Wireshark here is the Nitty Gritty
+packets that we can capture on our
+system so yeah like I said this was not
+an in-depth look at Wireshark t-sharp
+TCP dump just know that it's for
+capturing packets to examine individual
+packets for stuff and usually the
+examination itself happens with the
+Wireshark utility the GUI version
+t-shark is you can look at stuff using
+t-shark it's not nearly as nice in my
+opinion usually you just want to capture
+a pcap file and then bring that to a
+computer with a GUI interface and then
+look at the captured packets with
+Wireshark so you can determine when
+something is going wrong but the
+important things to remember are it can
+only capture the traffic that it sees so
+if you are trying to capture all the
+traffic from another computer you
+probably want to SSH to that computer to
+do the capture and then you can bring
+that pcap file back anyway I hope that
+was clear networking is so much fun and
+again there's so many courses that we
+could have started with just the topics
+that we covered in this one but this is
+just how to use those tools and a little
+bit to make your life a little bit
+easier and to pass that Linux plus exam
+anyway learn everything and we have a
+lot to learn in this video do what you
+love and most importantly be kind I will
+see you in the next video and feel free
+to join us on the Discord I'll there's a
+link down in the description uh there's
+a lot of people there who are super
+smart and we love to talk nerdy stuff so
+hope to see you there and I will see in
+the next video and it looks like I
+finished with about 12 minutes to spare
+so I might have a cup of coffee before
+my next meeting I mean I guess I could
+edit I'll start editing

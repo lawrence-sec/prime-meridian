@@ -1,0 +1,555 @@
+[Music]
+all right then hardware assurance now
+what the heck is that hardware assurance
+is all about protecting your hardware
+not your software so we're protecting
+against malware and attacks but from a
+hardware standpoint from hardware point
+of view and while hardware exploits are
+perhaps not so common since they are
+extremely difficult to develop and to to
+implement to deliver you still need to
+have some certainty that the hardware
+that you're using to handle sensitive
+data has not been compromised so we
+introduced the concept of supply chain
+assessment and the main idea starts from
+the fact that a lot of companies rely on
+off-the-shelf products you might need a
+new laptop a switch a printer you just
+buy whatever is available now most of
+the time you just have to trust that the
+hard drive the computer the the wireless
+access point that you're buying has not
+been compromised in some way that it
+doesn't call home that it doesn't
+perform sniffing on you no key logging
+and doesn't have any malware installed
+on it we are used to assume that
+whatever we buy is safe and fine it's
+okay at least at the moment of purchase
+but for some larger companies this is
+not enough and especially governments
+they don't just trust that easily and
+have very strict connections with their
+suppliers so if you're one of them you
+have to make sure that the vendor of
+your hardware
+or software did not include something
+undesirable like a backdoor or a
+some spyware software within the
+solution that they're delivering to you
+and i would strongly encourage you to
+read about a very bad but very recent
+example
+the solar wind supply chain attack if
+you haven't heard about it from the news
+from the media
+it's a good time to understand just how
+dangerous a supply chain vulnerability
+or supply chain attack can be all right
+so how do you validate your hardware
+vendor well to mitigate and ensure that
+the the supply chain has been
+compromised you can start with you know
+common sense right also known as vendor
+due diligence basically this means
+checking at least the following about
+your venture
+does it have any risk management program
+in its development manufacturing
+shipping
+how well are the products supported
+during their lifetimes can you expect
+any more security patches later on after
+you purchase the product does it provide
+any assistance to you with forensic
+investigations if the situation requires
+it and perhaps even incident response
+and generally think about or evaluate
+their historical reliability read about
+them see if they have been proven to be
+trustworthy in the past
+and now it might be obvious here but i
+have to mention this even if you trust
+the supplier that doesn't mean you can
+also trust second hand or or gray market
+products from that same vendor simply
+because that's a completely different
+supply chain and you know nothing about
+it you have no control over the the
+source of that equipment you don't know
+who had their hands inside of that
+equipment and who perhaps made some some
+malicious changes in that hardware
+another check of the supply chain is
+called the trusted foundry program set
+up by the usdod that's the department of
+defense and includes a list of
+accredited suppliers that have proven to
+have a secure supply chain down to their
+factories their assembly facilities so
+that all electronics that you get from
+those vendors you can be pretty sure
+that they don't contain back doors and
+this was established to keep out vendors
+from countries that cannot prove this we
+might know who they are but i won't be
+naming them because they're surely
+monitoring me right now and i don't want
+them to poison my dog
+all right
+next one on the list is hardware root of
+trust rot or trust anchor
+and it's all about securing the hardware
+in our machines by using a secure
+subsystem
+dedicated to providing attestation about
+our systems what the heck is out of
+station oh attestation means proving
+that something is true
+right not clear yet basically you have a
+device in your computer that every
+single time your computer connects to
+the network signs digitally signs and
+then sends a digital report saying that
+this machine is okay
+it scans the boot metrics it scans the
+operating system files
+it confirms that they haven't changed so
+that this machine
+is not booting with any any malware in
+it it doesn't it's not booting from a
+malicious modified operating system
+infected operating system or a root kit
+inside of the system files now
+physically this route of trust is
+normally implemented using something
+called a tpm trusted platform module and
+that's a chip
+that stores everything related to to
+cryptographic operations like digital
+certificates keys private keys this can
+be a separate chip
+or as a function on the cpu itself on
+the processor itself so we're really
+going deep into the hardware here now
+tpm chips come with a hard coded
+unchangeable private key called the
+endorsement key now this key is used to
+generate all the other keys that you are
+going to be using to sign emails encrypt
+disks with windows bitlocker for example
+that key is also derived from this
+endorsement key and the very important
+function of the tpm is to keep this
+cryptographic content out of reach now
+of course if we are working with
+sensitive information like cryptographic
+keys we need to secure this environment
+this tpm environment and usually tpm
+chips are tamper-proof meaning that if
+you try to
+mess with it it's going to self-destruct
+its contents a process known as crypto
+shredding now this is done by using
+something called a puff
+puf that's a physical unclonable
+function which is a unique signature
+made up of uh distinct features of the
+device the tpm is running on so if you
+try to tamper with the tpm chip
+change its inputs or connect it to some
+other system and try to hack it it's
+going to fail and the self-destruct
+crypto shredding
+is going to be engaged look how many
+cool words i used in just one sentence
+now there is a limited amount of
+interaction that you can perform using
+this tpm chip one of them being erasing
+the tpm tip or resetting the
+cryptographic information from it and
+you can just do this either from the
+from the bias of the of the computer
+itself or directly from the operating
+system in case of windows you can do it
+through group policy and there's
+actually a dedicated interface for this
+you can access it using
+tpm.msc in the run window or right in
+the start menu we also have hsms or
+hardware security modules they're
+basically an alternative to tpms they
+actually work like a removable tpm so
+they're going to store the exact same
+kind of information like certificates
+and keys now the reason these devices
+exist
+is that the tpm was designed to be used
+to generate asymmetric key pairs public
+and private keys all right and the tpm
+makes sure that the private key never
+leaves the machine on which it was
+generated now sometimes in the
+enterprise environment in your company
+you need to keep those private keys
+someplace else safe like in key escrow
+or in air gap systems so this is where
+the hsm is useful because it can
+actually be removed like any other
+component and moved to another system
+also applies when you're basically
+refreshing the infrastructure you know
+you're changing the servers you're
+upgrading the servers but you still want
+to retain the same cryptographic
+information that you've been using
+up to that point now there are a ton of
+hardware security modules vendors out
+there i would just mention here the
+solutions from interest
+and the ones from talus another place
+where the hsm is often used is in cloud
+environments because in cloud
+environments a lot of customers use the
+same shared infrastructure so we need
+some sort of secure storage space where
+everybody can access their own
+cryptographic information and you can
+actually rent
+either physical hsms in in servers or
+partitions in dedicated hsms where you
+can just store your cryptographic
+information along with the keys of other
+customers of course without having
+direct access to their information so
+cryptographic storage in the cloud is
+often found under the term of a vault
+for keys which in turn is either
+implemented directly in software or if
+you pay some more
+for a dedicated infrastructure you're
+going to have access to a an actual hsm
+somewhere in a any cloud server another
+important concept is trusted firmware
+and protecting the firmware of a device
+is extremely important because that code
+always runs with the highest privilege
+it's the first code that runs and it's
+the first code that has complete access
+to the entire device and the purpose of
+the firmware is to first perform the
+hardware checks to initialize all the
+hardware and then to allow you to
+interact further on maybe load the
+dedicated operating system and other
+operations like these
+now firmware exploit with definitely
+given attacker the highest level of
+privileges and speaking of firmware we
+have to mention bias you probably heard
+about bias in a computer that's the
+basic input and output system is the
+industry standard code that boots up and
+initializes your pc whenever you press
+the power button now unfortunately bias
+is somewhat old it doesn't have any
+security built in that's why we have
+uefi unified extensible firmware
+interface kind of descriptive name if
+you think about it after it was invented
+uefi started slowly becoming the
+standard for all pcs now uefi is also a
+requirement if you plan on using tpm
+chips from your devices but uefi can do
+so much more for example you can get
+access to something called secure boot
+which means that the uefi firmware can
+use digital certificates and digital
+signatures from valid operating system
+vendors you don't need me to tell you
+which valid operating system vendors are
+out there right
+this means that the bootloader cannot be
+changed with something malicious or
+replaced you cannot trick the computer
+into booting a different operating
+system like from a live cd or a usb
+drive so that's a great security benefit
+another one is measured boot and
+attestation now measured boot does not
+mean measuring how long it takes your
+computer to boot but it's another
+function of uefi and can use the tpm
+chips key to hash and sign
+the system's state which means it's
+configuration it's boot settings the
+operating system kernel
+gathers all this information and then
+sends this summary to an external server
+like a network access control server
+whenever the pc starts booting up and
+attempts to connect to the network the
+next server checks this information and
+allows access to the network depending
+on the quality of the security report of
+that host this is measured boot and
+these kind of checks are very useful
+because they can detect indicators of
+compromise before they can even manifest
+i mean before you can even
+allow that computer to boot not to
+mention allow that computer network
+access into your internal network
+another concept here an important one is
+trusted firmware updates so we have
+secured boot we have measured boots so
+we can be sure that no unauthorized
+operating system is going to boot on our
+hosts
+but what if somehow the firmware itself
+gets replaced with malicious version man
+so many things to secure in here where
+does it end so how do you secure your
+firmware or how do you secure a firmware
+update well just like with any other
+piece of code you can digitally sign it
+now the problem is how does the cpu know
+which signatures are valid and which are
+not well this is solved by a technology
+such as intel boot guard that takes the
+public keys for authorized firmwares
+and fuses them in your device so that
+they cannot be changed now the end
+result is that other firmware is not
+going to be accepted if it's not signed
+by the uh the actual vendor key i don't
+know from from microsoft from from
+gigabyte from lenovo from whatever
+server manufacturer or even laptop
+manufacturer you have then it's not
+going to be accepted we're only going to
+accept the vendors whose public keys are
+hard coded within the cpu or within the
+a dedicated subsystem of that cpu now if
+this sounds extremely restrictive
+it actually is and that's exactly the
+point behind it and if you thought that
+you were done with locking down our pcs
+we have one more method left and that is
+called an e-fuse it's a hardware fuse
+meant to lock programming in place
+so that it cannot be changed what the
+heck does this mean well let me show you
+what it does as the device gets its
+firmware updated the device blows an
+electrical fuse every single time i'm
+not kidding it actually blows an
+electrical fuse there's no smoke coming
+out
+but it's a it's a microscopic fuse in
+there
+but when a nuke update comes in the
+update code actually goes ahead and
+checks the number of firmware fuses
+already blown
+if it's not the expected number then
+it's going to be assumed that the
+firmware was tampered with in the
+meantime and this is actually one of the
+reasons why hacking or jailbreaking
+phones iphones gaming consoles like
+xboxes and playstations or cars is made
+so difficult nowadays because they rely
+on this type of hardware security that
+cannot be bypassed so easily one more
+concept that is pretty self-explanatory
+is called self-encrypting drives or sets
+the purpose behind a self-encrypting
+drive and when i say drive or actually
+referring to hard drives or ssds right
+the purpose is to offload the encryption
+function to the drive itself so it
+doesn't use the operating system
+resources like the server's cpu or your
+laptop cpu actually now self-encrypted
+drives use something called a mac a
+media encryption key to encrypt that
+data and they store it securely by
+encrypting it with a keck a key
+encryption key which is generated from
+the user's password entered at the os
+level now if you thought that
+your
+password123 is the one that is actually
+used to encrypt the data on the disk now
+you're wrong it's derived from your
+password but the actual encryption key
+is much stronger than whatever puny
+password you chose to use has your login
+password all right
+now the keys for sets are not usually
+stored in the tpm since it's assumed
+that you might want to move the drives
+to another system and still be able to
+decrypt them simply by supplying a
+password at the operating system level
+so think about it if you were to store
+the password within the tpm you cannot
+remove the tpm and move it along with
+the drive itself so you're kind of stuck
+with using that drive within that
+specific server
+forever not to be desired last topic
+here i promise
+secure processing and the idea behind
+secret processing is the fact that a lot
+of the exploits are designed to access
+unauthorized memory areas and
+exfiltrates sensitive information from
+there no news here i suppose now secure
+processing is a concept that attempts to
+make sure that sensitive data in memory
+is not accessed by nasty processes and
+this concept is implemented in a number
+of ways one of them is called trusted
+execution this one uses the tpm
+and that secure boot attestation that we
+talked about a couple of minutes ago to
+make sure that only a valid operating
+system is running and no malicious
+kernel gets executed at boot time
+another one is secret enclave it's
+basically a secure area or a secret
+container i would say but i would not
+want to abuse the term container here
+because it's not about docker containers
+it's just a
+partition so to say a secure partition
+created by a trusted process
+where it stores the cryptographic keys
+if the operating system is trusted now
+the purpose of this secure enclave is to
+make those buffer overflows almost
+impossible because there's no way to
+overwrite any of the information from
+that secure enclave another one is
+processor security extensions like
+low-level cpu instructions that enable
+secure processing we have technologies
+here such as sme that's secure memory
+encryption on amd
+and txt that's trusted execution
+technology on intel and we also have
+software guard extensions sg also on
+intel i wouldn't suggest that you
+remember much more than these acronyms
+for the exam atomic execution is another
+interesting one because it refers to an
+indivisible operation now those are
+operations that are executed entirely
+or not at all
+this type of execution protects against
+race conditions
+where you don't know exactly what the
+end result of the operations is going to
+be
+buffer overflows or time of check time
+of use issues remember that one talked
+about it a couple of videos ago
+now time of check time if used just to
+refresh your memory means that when a
+resource needs to be changed it should
+first be checked for its state and then
+changed
+now these two operations the check and
+change itself
+have to be executed as a whole and while
+they're executed no other checks or
+changes can be performed on that
+resource otherwise we risk bringing the
+resource to an inconsistent state so
+that's another definition actually of an
+atomic operation check the resource and
+make the change in one single operation
+don't leave any other entity access the
+resource in the meantime or god forbid
+change it finally we have bus encryption
+as a last secure processing method
+basically it's about
+securing data in transit
+not on the network
+mind you but inside the internal
+circuitry of your pc like between the
+pci cards
+through the hdmi cable that you're
+transmitting video signals to your tv or
+your or your display or your capture
+card or usb devices now usually these
+are not encrypted but there's still raw
+data traveling in there which might be
+sensitive data so bus encryption makes
+sure that the device at the other end of
+the bus
+is trusted this concept is often used on
+encrypted hdmi links for drm purposes
+digital rights management for protecting
+movies for example or any devices that
+are hdcp capable that's high bandwidth
+digital content protection
+and that can play encrypted content now
+this is an entire different story here
+which is
+much better addressed inside the
+security plus training
+but
+just to give you a glimpse the idea of
+transmitting encrypted information
+and then the encryption key over the
+same link like when you need to encrypt
+the traffic over an hdmi cable and you
+you just have a dumb monitor at the
+other end which is hdcp capable well
+transmitting the the encrypted content
+and the key over the same link is
+basically security by obscurity this is
+one of the reasons why drm and digital
+media and music movies games software
+and so on
+has pretty much always been defeated so
+far because there's basically no way to
+hide that cryptographic key along with
+the encrypted content and make sure that
+nobody else is ever going to find it
+because you need to transmit the key
+along with the encrypted content
+otherwise how is the end tv at the other
+end of the hdmi cable going to know to
+decrypt that content that's the only way
+we can communicate with that tv we have
+to send the key along with the encrypted
+content over the same link
+and it's really tough to do out in plain
+sight
+alright so that's it about hardware
+assurance we talked about a lot of stuff
+here we started talking about supply
+chain assessment talked about hardware
+route of trust trust anchor talked about
+tpm chips hsm cards i would have said
+modules but hsm actually means hardware
+security module i talked about trusted
+firmware bios uefi efuses
+self-encrypting drives and secure
+processing methods so
+i don't think i need to mention at this
+point in the training that you really
+need to know this stuff for the for the
+end exam all right so good luck until
+next time when we're gonna be talking
+about black holes and sinkholes in the
+meantime don't forget to like and
+subscribe and hope to see you on the
+next video bye bye
+[Music]

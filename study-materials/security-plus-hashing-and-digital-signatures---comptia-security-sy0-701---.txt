@@ -1,0 +1,276 @@
+a cryptographic hash is used to
+represent data as a short string of text
+sometimes you'll hear this referred to
+as a message digest or a fingerprint
+just like our fingerprints that can
+represent us a digital fingerprint can
+represent data that is being stored
+elsewhere keep in mind that this
+cryptographic hash is not encryption you
+can't somehow recreate the data if the
+only thing you have is the hash for the
+same reason you can't recreate a person
+when all you have is their fingerprint
+in Practical terms we can use these
+hashes to verify that a document that
+we've downloaded matches the original
+document that was posted on a website
+this provides us with Integrity we can
+also use these hashes during the process
+of creating a digital signature and
+these digital signatures are used for
+authentication non-repudiation and
+integrity let's create some hashes we're
+going to use a very common hashing
+algorithm called The Shaw 256 hashing
+algorithm this will produce 256 bits of
+information that we will represent as 64
+hexadecimal characters so let's create a
+hash from a very simple text string this
+text string says my name is Professor
+Messer and there's a period at the end
+of that sentence if we were to put this
+into an application to create a sha 256
+hash from that sentence we would get
+this long string of characters that you
+see right here let's now make one change
+to this sentence this now says my name
+is Professor Messer but instead instead
+of it ending in a period it's now ending
+in an exclamation mark so there's really
+only one character that's been changed
+this is a very common characteristic of
+hashing where you make one minor change
+to the input text and the output hash is
+very different from each other one of
+the things we'd like to avoid when
+creating a hash is to make sure the
+hashes are very different for all types
+of input in Practical use we should
+never run into a situation where this
+hash is duplicated if we're putting
+different inputs into into the hashing
+algorithm we should expect to see
+different outputs as well if for some
+reason we do have different inputs and
+those inputs create exactly the same
+hashing value than we've created a
+collision in Practical use you're
+probably never going to run into one of
+these collisions and your hashing
+algorithm should be created so that
+collisions are an extremely rare
+occurrence unfortunately there have been
+hashing algorithms through the years
+that did have problems with collisions
+one good example of this is the hashing
+algorithm md5 this Collision problem was
+found in 1996 and because of that we
+highly recommend that you use a
+different hashing algorithm than md5
+here's how this md5 Collision Works here
+we have a string of input this is text
+that we're going to put into a hashing
+algorithm and we're going to take
+another string of text that's almost the
+same you can see these almost match up
+but every place there is a red character
+means there's a slight difference
+between each of these inputs puts but if
+we take both of those inputs and put
+them into the md5 algorithm we get
+exactly the same hash this is a
+collision and this is the reason we no
+longer recommend using md5 as a hashing
+algorithm we use hashing for many
+different purposes and you might run
+into hashing multiple times through a
+normal workday for example you may need
+to verify that a file that you've
+downloaded matches the file that happens
+to be posted on a website you often see
+this on sites where you're down loading
+very important files like a Linux
+distribution and you can see that each
+distribution has been associated with a
+particular hash this means that you can
+download the ISO file run the same
+hashing algorithm on the file you
+downloaded and compare it to the hash
+that's posted on the website if your
+hash matches the one that's on the
+website then you've downloaded the same
+file that exists on that site another
+common use of hashing is to store
+passwords ideally we would never store
+someone's password in plain text and we
+would not encrypt passwords because then
+someone could potentially decrypt and
+gain access to your passwords instead we
+provide a hash for all of the passwords
+that someone stores in reality it's a
+hash plus a little extra information
+called assaulted hash this way we're
+able to store everyone's password as a
+hash which means we have no idea what
+the actual password might be during the
+login process the password you input is
+changed to a hash compared to the one
+that's stored on the server and and if
+they match you've gained access to that
+system I mentioned earlier that when
+we're storing passwords we might want to
+add some additional information to make
+it more difficult to Brute Force we
+refer to this extra information as
+assault this is random information that
+we add during the hashing process to
+modify or randomize the resulting hash
+every user gets a different random salt
+to go along with their password which
+means if everyone's using the same
+password we'll still see very different
+hashes stored for every single user
+there's a technique for reverse
+engineering hashes called a rainbow
+table this is a pre-compiled set of
+every possible input and the series of
+hashes associated with those inputs this
+makes it very easy for someone to get a
+non-salted hash and very quickly be able
+to determine what the original password
+might be but if you're adding a random
+salt to everyone's password these
+rainbow tables will no longer work this
+would certainly slow things down for an
+attacker that's trying to find
+everyone's password by performing a
+brute force a rainbow table can find
+this information in a matter of seconds
+but brute forcing can take days weeks or
+even longer to find someone's password
+let's take some user passwords We'll add
+some salt to each password and let's see
+what the resulting hash looks like let's
+take the password of dragon and if we're
+not using any salting this is the hash
+that results from that password of
+dragon but now let's add some additional
+random text onto this password of dragon
+and as we add the different
+randomization for each one of these you
+can see that we have a very different
+hash that we're storing if someone was
+to gain access to our hashed database
+they would think that there were five
+different passwords being used when in
+reality there's a single password with a
+number of different salts added to that
+password hashes are also used during the
+process of creating a digital signature
+a digital signature is very similar to a
+signature you might use on any other
+document but this one is a digital
+version of the signature that proves
+that the message that you received was
+not somehow changed during the process
+of sending that message to you from that
+perspective digital signatures provide
+Integrity the digital signature will
+also help you prove the source of the
+message this provides authentication and
+if others want to prove that the message
+really was sent by the person who says
+they sent it we can confirm that with
+the digital signature that's also
+referred to as
+non-repudiation the process process for
+creating a digital signature is almost
+the opposite as encrypting data for
+digital signature the person signing the
+document will use their private key to
+create the digital signature when that
+signature is sent to another party
+they're able to confirm that that
+private key was used by verifying it
+with the public key for that user if we
+receive a digital signature and go
+through the verification process and
+find that the public key of the sender
+is not able to verify the digital
+signature
+then something in that document has
+changed and we can no longer trust the
+information that we've received if
+you're using a digital signature process
+built into your email system or you're
+using a thirdparty utility to provide
+digital signatures then you know it's as
+simple as clicking a button or checkbox
+to include a digital signature with the
+information that you're sending but
+behind the scenes there's a great deal
+of cryptography that's going on let's
+step through the process of creating a
+digital signature so that you can see
+what happens when when you select that
+checkbox we'll start with Alice who
+would like to send a message to Bob that
+says you're hired Bob we refer to this
+original message as the plain text Alice
+is going to click that checkbox that
+tells her email program to include a
+digital signature with this email
+message behind the scenes the email
+client is going to look at the plain
+text of your hired Bob and send it
+through a hashing algorithm to create a
+hash of that plain text the email
+application is then going to encrypt the
+hash that's been created with Alice's
+private key and since Alice is the only
+one that has her private key she's the
+only one that could have created this
+final digital signature just like a
+digital signature is a bit of
+information you add to the end of a
+document we can do exactly the same
+thing with this email so your hired Bob
+is still sent through the network in
+plain text we're not doing any type of
+encryption in this specific example but
+we do include the digital signature
+usually as an attachment or at the end
+of the email Bob now checks his email
+and he's got a message from Alice that
+has a message that says you're hired Bob
+and it includes that same digital
+signature now Bob wants to really verify
+that the message he received is really
+the message that was originally sent and
+he wants to confirm that it really came
+from Alice the first thing he's going to
+do is load that message into his email
+client and generally the email client
+will recognize there's a digital
+signature and will perform a
+verification in tell Bob that this is
+either verified or not verified behind
+the scenes what's really happening is
+that the email client is looking at the
+digital signature and it decrypts that
+digital signature using Alice's public
+key remember that the keys are
+mathematically related so if you encrypt
+with one key you can decrypt with the
+other the result of this decryption ends
+up being a hash of the original plain
+text now we simply perform the same hash
+that was done originally to the plain
+text to see what the results are and if
+both of those hashes match then we know
+that the digital signature verifies and
+that not only is the document exactly
+what was originally sent but we can
+confirm that it really came from
+Alice

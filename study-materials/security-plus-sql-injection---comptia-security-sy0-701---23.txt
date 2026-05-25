@@ -1,0 +1,128 @@
+a code injection attack is a very common
+application attack where the attacker
+will put their own code into information
+that is input into the application this
+obviously is an attack that should not
+be allowed in the application but the
+application developers have to put
+checks into their code to prevent any
+type of unnecessary or unwanted
+application data being injected during
+the normal input into the app and you'll
+hear about many different kinds of code
+inject
+there is HTML code injections SQL
+injections XML injections and others
+let's look at one specific type of code
+injection this is the SQL injection SQL
+stands for structured query language
+it's probably the most popular way to
+have an application interact with a
+database the way your application is
+supposed to work is that it will take
+information that you're inputting into
+the application and use that information
+as queries into the database a SQL
+injection or SQL I allows an attacker to
+put their own requests into this query
+that's being made to the database
+obviously the application should not be
+allowing this but if an application
+doesn't have the proper checks then you
+can send anything you'd like to the
+database this is also often not a
+difficult vulnerability to exploit you
+can do this within the browser that's
+being used as the front end to the
+application and simply inject your data
+into the input fields that are already
+in that
+application if you were to look behind
+the scenes at the code that's
+communicating between your browser and
+the web server and database server you
+would see something like this this is
+website code that does a select asterisk
+from users where name equals and then
+everything in red is added by the
+application in this particular query
+you're asking the database to select all
+information where a particular username
+equals a username that you're putting
+into the app so if you're using an
+application where you're putting in a
+name to search such as the name
+Professor the code that's sent to the
+database says select everything from
+users where name equals Professor now
+normally that would be the end of the
+transaction but if this application is
+vulnerable to code injection we can add
+our own SQL code into this query so
+instead of just asking for a username we
+would select asterisk from users where
+name equals Professor or 1 equals 1 one
+this is a common form to be able to ask
+for everything that may be in the
+database because obviously one does
+equal one and if you ever see any code
+being sent to a database where the
+request is asking if one equals one it's
+very likely that you've run into a SQL
+injection you can also see how easy it
+is to exploit this vulnerability all you
+have to do is add additional code into
+the input line of the application
+there's no additional software that has
+to be written written you don't have to
+somehow make a user click a piece of
+information all you have to do is add
+additional code into the app this type
+of exploit can also provide you with a
+great deal of control of the data in
+that database because you're
+circumventing the security of this
+database you effectively now have
+complete control to the data inside you
+can view everything that's in the
+database or delete everything that's in
+the database or simply make changes or
+bring the database down so that nobody
+can access the data let's look at an
+example of SQL injection I'm using an
+application that has been specifically
+written to be vulnerable it's part of a
+series of applications called webgoat
+and you can find it at webg go.org in
+this case we have two pieces of
+information we're going to add to the
+application an employee name which is
+Smith and a transaction authentication
+number which is something like a
+password and we're going to add that
+into that field for 3s
+l99a so if you were normally logging in
+with your name and your password you can
+click get department and it shows you
+the department information for that
+particular query notice that this query
+is limited to the name Smith and to this
+specific transaction authentication
+number now let's use SQL injection to
+view all of the information that's
+inside of the database we'll use the
+same username and the same transaction
+authentication number but I'm going to
+include additional injected code into
+this field we'll put an apostrophe or
+apostrophe one apostrophe equals
+apostrophe 1 so we're adding in that
+additional code that says look for
+everything where the transaction
+authentication number is 3sl 99a or any
+place where one happens to equal one and
+since one does equal one when we get
+Department it provides us with
+everything that's in the database and we
+effectively now have complete control of
+all of this data

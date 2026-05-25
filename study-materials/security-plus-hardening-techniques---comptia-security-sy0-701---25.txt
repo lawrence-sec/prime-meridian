@@ -1,0 +1,325 @@
+if you take a look around your network
+your servers and other devices you may
+find Opportunities to make those devices
+just a little bit more secure and in
+this video we'll go through a number of
+hardening techniques let's start with a
+server the system hardening refers to
+the operating system that's running on
+this server operating systems like
+Windows Linux Mac OS and others are very
+different but there are some best
+practices to ensure that these operating
+systems remain secure
+one of the first most significant steps
+for keeping these systems hardened is to
+always apply the security updates these
+would be updates to the operating system
+and security patches that are usually
+included with those manufacturers like
+Microsoft will release these patches
+every month and other manufacturers
+follow a similar schedule you should
+also make sure that the user accounts on
+these systems are well secured one of
+the ways to do that is with a password
+policy you could set a rule that says
+says that there should be a certain
+minimum password length and there should
+be a certain complexity associated with
+those passwords for example your
+password should be at least eight
+characters long and the password itself
+should include uppercase characters
+lowercase characters numbers and special
+characters another good idea is to have
+limited access for these accounts not
+every account on the system should be an
+administrator and each individual user
+account should only have the rights and
+permissions necessary for that user to
+do their job if you're accessing this
+device across the network it's also a
+good best practice to limit who may have
+access to this particular system you
+might include an IP address range that's
+permitted to access this server and if
+someone tries to access this server from
+a different IP address they would be
+denied access and of course it's always
+good to Monitor and secure the system
+with antivirus antimalware or some other
+type of endpoint
+detection another good hardening
+technique is to encrypt any data that
+you would like to protect on these
+systems one way to do this is with the
+file system itself you can select
+individual files or folders until the
+operating system to only encrypt that
+specific data this is easily done using
+things like the windows encrypting file
+system or EFS if you would like to
+secure the entire drive with operating
+system user documents and anything else
+that's stored on this system you might
+want to use fde or full dis encryption
+this does encrypt everything that is
+stored on a particular volume and you
+can do this with built-in tools like
+Windows bit Locker or the file Vault
+utility in Mac OS and if you're
+communicating between devices across the
+network you might also encrypt all of
+your network traffic this can be done
+using a virtual private networking
+option or VPN and the applications that
+you're using may have encryption built
+into those applications already for
+example if you're connecting to other
+devices from your browser you're
+probably using https on that address
+addess bar and that encrypts all of the
+data between that browser and the web
+server it's common these days for people
+to have two three or even more devices
+that they might use throughout the day
+and we also need to think about how to
+harden each of these individual user
+endpoints we're of course concerned
+about a tax that may be inbound to any
+of these devices there could be someone
+on the internet trying to access those
+devices directly if a device does become
+infected with malware it's possible that
+that malware may try to attack other
+systems using the user workstation as
+the starting point we need to think
+about the type of security that we might
+put on a desktop computer a laptop
+computer or even the mobile tablets or
+mobile phones all of these are probably
+running different operating systems
+using different applications and we need
+to apply the proper security for each
+individual platform and of course
+there's never one single option or
+button to push to enable or disable
+security you need to use many different
+types of security tools and utilities
+and all of those work together to
+provide defense in depth it's estimated
+that there are over 1 million malware
+variants created every day to address
+this scalability problem the industry is
+focusing on the next generation of
+malware detection through an EDR that
+stands for inpoint detection and
+response EDR can certainly recognize
+known malware and vulnerabilities based
+on a signature but it goes beyond
+signatures to provide additional
+security for example the EDR could use
+behavioral analysis watching what the
+user does watching what the applications
+do and identifying when something
+malicious may be occurring even though
+it may not have a signature for that
+particular piece of malware EDR might
+also include machine learning for Rapid
+identification of malware and malicious
+software and process monitoring can
+constantly watch all of the processes
+running on your system and if a new
+process suddenly began on your system
+EDR can recognize that that process and
+begin monitoring it for any type of
+malicious activity EDR also has the
+ability to go much further than a
+traditional antivirus or antimalware
+application for example the EDR itself
+can perform root cause analysis on the
+threats that it's seeing once EDR
+recognizes something that could be
+malicious it begins performing
+additional studies on What that
+particular process might be and after
+doing some research it can make a
+decision on whether that is something
+that is malici ious or something that
+should be allowed and once malicious
+code is recognized the EDR itself can
+immediately take action you don't need
+to wait for a technician or help desk
+ticket to be created instead EDR will
+isolate this system quarantine that
+threat and even roll back to a previous
+config to remove that virus from the
+system this entire process can be
+automated through the use of an
+application programming interface or API
+so the EDR can perform all of its
+functions autonomously and then report
+all of that information back to a
+central Management
+console it's very common these days to
+have a host-based firewall running on
+your operating system this is a
+software-based firewall that runs behind
+the scenes and it provides a way to
+allow or disallow certain traffic flows
+both inbound and outbound from your
+system since the software-based firewall
+is sitting on your operating system
+itself it gets to see all of the data
+before or after encryption has occurred
+so it has complete visibility to what
+might be going on and it can decide
+which processes should be allowed to
+communicate on the network and which
+processes should be blocked this is also
+a great place to monitor for unknown
+processes that may have been launched
+because of malware or some type of
+security vulnerability and if the host
+space firewall sees something unusual it
+can be configured to automatically block
+that traffic until administratively
+approved by the user this software-based
+firewall is running on each individual
+system but it can be managed from one
+Central Neal console it's very common to
+look for known attack types on the
+network by running an intrusion
+prevention system but there are also
+host-based intrusion prevention systems
+that can provide this type of security
+on each individual device this is often
+built into your EDR or your antimalware
+software and it watches all of the
+traffic that is inbound to your system
+to look for anything that might be a
+known vulnerability the host-based IPS
+or hips can also secure application
+configurations and operating system
+configs and it could look for and verify
+any inbound updates for securing that
+system we commonly associate intrusion
+prevention with looking for some type of
+malicious action so this might be
+something based on signatures that are
+stored in the IPS it might be based on
+heris or behavioral changes since the
+IPS is on the operating system itself it
+can extend this visibility into the way
+the operating system is working for
+example of the the host-based IPS
+recognizes a buffer overflow or registry
+change or perhaps some files were
+modified in the core Windows operating
+system folder it can send an alert and
+block that particular process from
+continuing each time you install an
+outward facing service on a server or
+workstation ports are opened inside of
+the operating system and those ports can
+be accessed across the network ideally
+you should close as many of these ports
+as possible each one of those ports is
+an opportunity for an attacker to find a
+vulnerability that would allow them to
+gain access to that system this control
+of open ports can certainly be done on
+the server or workstation itself you can
+also install a firewall to provide this
+port-based protection ideally you could
+even use a Next Generation firewall to
+provide much more granularity of not
+just the port number but the service
+that's using that port number sometimes
+these ports are opened without the
+knowledge of the enduser when you
+initially install an operating system or
+you install additional applications onto
+that operating system you could be
+unknowingly opening ports in that system
+and there are cases that I've documented
+that show an application manufacturer
+saying that you can install this
+application but once this application is
+installed you need to open port zero
+through
+65,535 this would effectively open every
+port on that particular server which
+would certainly not be the best practice
+for a system if you see an example like
+this for software that you're installing
+it's not because the software needs to
+have all of these ports open but they'd
+rather not be called if there happens to
+be an issue communicating across the
+network to the port number used by the
+application and if you're not sure which
+ports are open and which ports are
+closed on your system you can run a scan
+inmap is a great tool for scanning
+available port numbers on a system and
+after a few minutes it can give you a
+great deal of information about exactly
+what ports might be open on an
+individual system if you install a
+router a switch a firewall an access
+point or almost any other device there
+will be a default configuration screen
+that allows you to set the settings in
+that device these management interfaces
+might also be found in applications that
+you've installed on a system and all of
+these might contain very sensitive data
+and certainly information that would be
+interesting to an attacker normally when
+you would first log in to one of these
+management consoles it will prompt you
+to change the password but not all
+systems provide that prompt so it's
+important that you manually go into
+these devices and change the default
+configuration the attackers can very
+easily find what the default settings
+are for a username and password and you
+want to be sure that all of your systems
+are secured against that type of attack
+and in some cases you can configure
+multiactor authentication or perhaps
+centralized authentication that
+synchronizes with all the accounts in
+your network
+every piece of software that you use on
+a system has some type of bug inside of
+it this may not be a bug that you found
+yet but eventually you may find
+something that is a security
+vulnerability built into this software
+and of course you may have installed
+tens or hundreds of different
+applications on your system and each one
+of those applications probably has a
+different process for performing
+security updates this makes it very
+challenging to keep these applications
+up to dat and secure because you would
+have to go into every single application
+with their unique update process to
+ensure that everything is always running
+the latest version instead the best
+practice might be to delete any
+applications that you're no longer using
+this would certainly remove any security
+concerns and if you're not using the
+application anyway you certainly don't
+need to have it loaded on that system
+this is a relatively easy fix and it
+allows you to remove one more
+application from the list of keeping
+everything up to dat on your
+system

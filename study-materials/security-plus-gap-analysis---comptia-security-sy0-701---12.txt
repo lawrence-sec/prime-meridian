@@ -1,0 +1,178 @@
+as the name implies a gap analysis is a
+study of where we are versus where we
+would like to be and in the world of it
+security we are constantly performing
+Gap analyses to be able to understand
+exactly what securi is going to be
+needed in the future although this is
+very simple to explain it's a relatively
+complex process to perform the analysis
+of what's actually going on in your
+environment and putting together a plan
+of how to get from where you are to
+where you're going as you might imagine
+trying to understand every aspect of it
+security and how it applies to your
+organization can be a very involved
+process and this is something that
+commonly takes a number of weeks months
+or even years to compile as you can
+imagine this might involve a number of
+different people in your organization
+and there is an extensive project plan
+with emails and data Gathering and
+anything else that's needed to compile
+the information about what's happening
+with security in your environment before
+starting the Gap analysis it's useful to
+have a baseline this gives you something
+to work towards and an idea of where the
+goals should be for your organization
+there are a number of different
+baselines to choose from and some of
+these baselines have been specifically
+created for certain organizations for
+example your organization may be
+following a set of baselines from the
+National Institute of Standards and
+Technologies they publish a document
+called the special publication
+800-171 revision 2 and the title of that
+document is protecting controlled
+unclassified information in non-federal
+systems and organizations you might also
+use a baseline that was created by the
+International Organization for
+standardization and the international
+electr technical commission this is the
+iso IEC
+27001 or the information security
+Management systems and of course you
+could create your own baselines based on
+your specific needs as an
+organization these baselines will
+commonly involve an analysis of the
+people in your organization and the
+processes you use for security when
+evaluating people you might want to get
+a better understanding of their formal
+experience in Information Technology
+security you might want to understand
+what kind of training they've received
+and you might want to see if they have a
+knowledge of specific security policies
+and procedures that you can use in your
+organization even with the right people
+in place you'll still want to be sure
+that you're following the correct policy
+policies for it security this might
+start with an evaluation of the existing
+it systems and how they relate to your
+formal policies that have been created
+in your central security policy
+documentation the analysis portion of
+the Gap analysis will begin with a
+comparison of the existing systems that
+you have running in your environment and
+to identify any weaknesses that those
+systems might have you can also compare
+these weaknesses with the most effective
+processes for understanding how to
+compensate for those weaknesses
+ultimately you'll create a detailed
+analysis where you'll look at very broad
+categories of security and then break
+down those broad Securities into
+individual smaller segments here's a
+good example of how you might start with
+broad understanding of a process and
+then breaking it down into individual
+pieces this is the document
+800-171 revision 2 which is protecting
+controlled unclassified information and
+this is a table that Maps the access
+control requirements to the security
+controls that are in place for example
+this page shows Access Control where you
+would want to limit system access to
+unauthorized users processes acting on
+behalf of authorized users and devices
+this account management covers a number
+of different individual security
+controls so when we start to break this
+down we can look at user registration
+and deregistration we need to understand
+how user access provisioning is handled
+understand the management of privileged
+access rights a review of the user
+access rights and so on by looking at
+these broad areas we can now break down
+individual security tasks to see how
+well we're handling the processes and
+procedures for each of these individual
+steps once we've gathered all of this
+information for all of our processes all
+of our devices across all of our
+different locations we need to create a
+final document that summarizes
+everything that we've discovered we can
+start with a comparison that looks at
+the detailed Baseline object objectives
+and gives a perspective of where we are
+today versus where we would like to be
+with each one of these objectives
+perhaps the more difficult question to
+answer is how you get from where you are
+to where you'd like to be this path to
+get from where we are to where we'd like
+to be commonly takes time it takes money
+there may be equipment that we need to
+purchase and obviously there's change
+control so that you can Implement these
+changes in your environment once we have
+all of this information compiled and the
+plan of how we can get from where we are
+to where we'd like to be we can create a
+final Gap analysis report this report
+not only includes the information about
+where we are today but it also provides
+that pathway so that we can understand
+what it's really going to take to move
+forward into the future all of the
+recommendations you have about meeting
+this Baseline will be documented in this
+Gap analysis report here's an example of
+one of the tables that you might include
+in your Gap analysis report on the left
+side I have a series of system requ
+requirements and all of those system
+requirements were broken into smaller
+pieces in the detailed part of the
+report but we might want to get a much
+broader understanding about all of our
+different remote sites and how they are
+compared to the ultimate Baseline that
+we would like to reach for example our
+organization might have seven different
+locations and we've performed a gap
+analysis across all of these system
+requirements for all seven of those
+locations the locations that are
+relatively close to meeting the Baseline
+we can mark with a green color anything
+that might be in the midpoint we can
+Mark as yellow and locations that need a
+lot of work to be able to meet our
+standardized baselines will Mark with
+red so if we wanted to have the biggest
+impact on improving our security we may
+want to start with the locations and
+security requirements marked in red and
+then move to the ones marked in yellow
+and then finally the green the report
+obviously will include extensive details
+about why these colors were used and
+provide a summary of how we can
+Implement security controls to better
+meet the goals of these
+baselines

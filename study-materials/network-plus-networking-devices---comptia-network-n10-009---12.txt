@@ -1,0 +1,373 @@
+if you were to walk through a data
+center you will see many of these racks
+all together with a lot of different
+equipment installed in each one of them
+all of these devices work together to be
+able to take data from one part of the
+network and move it to another part of
+the network each of these devices is
+installed for a specific reason and it's
+helpful if we understand why we
+installed that particular piece of
+equipment to begin with over time we may
+be installing more of this existing
+equipment into to our racks or we may be
+installing new technology so in this
+video we'll look at different types of
+devices and how we might use them in our
+data center let's start with one of the
+most common devices that you'll find
+which is a router a router allows us to
+take data on one IP subnet and route
+that information to a different IP
+subnet these may be subnets that are
+next to each other in the same data
+center or these IP subnets may be
+located in different parts of the world
+world we refer to a router as an OSI
+layer 3 device at the OSI layer 3 or
+network layer we're referring to IP
+addresses and IP addresses is exactly
+what's used by a router to be able to
+determine the next hop for this
+information you may sometimes see this
+routing functionality also included
+inside of an existing switch and we
+often refer to these as layer 3 switches
+which of course is referring to that OSI
+layer 3 functionality it's not that the
+switch itself is now operating at a
+different OSI layer it's just within
+that same piece of equipment we have
+both a layer 2 switch and a layer 3
+router so we've abbreviated that as a
+layer 3 switch these routers often
+connect many different types of networks
+so we may be connecting a local area
+network or a lan to a wide area network
+or a Wan these might also be copper
+based connections or Fiber based
+connections so we may have routers with
+many different connections or interfaces
+on them and we're connecting many
+different diverse networks to all of
+those different
+interfaces another common device is a
+network switch switches operate at the
+MAC address layer to be able to forward
+traffic so we often refer to that as an
+OSI layer 2 or data link device these
+operate mostly in Hardware the hardware
+inside of these devices is referred to
+as an Asic that is an application
+specific integ ated circuit there are
+many different functions and
+capabilities inside of these switches
+especially if you're using one designed
+for the interprise for example many of
+these switches have the ability to
+include power on the same wires as your
+ethernet connection and we refer to that
+as power over Ethernet or Poe and as we
+mentioned before you may hear folks
+refer to this as a layer 3 switch if the
+switch includes some type of routing
+functionality built into the device
+itself
+Security on our networks is also
+important that's why you probably are
+using a firewall at home and you most
+certainly have a firewall in your office
+a traditional firewall allows you to
+filter traffic based on a TCP or UDP
+port number but if you have a more
+modern firewall you're probably using a
+Next Generation firewall or ngfw which
+is able to identify applications
+traversing your network and allow you to
+manage whether that application should
+be allowed or not allowed on your
+network most firewalls also have
+additional functionality for example
+it's common to find firewalls that will
+allow us to encrypt traffic traversing
+the network through a virtual private
+Network or VPN it's very common to have
+a firewall at one remote site and a
+firewall at another remote site and be
+able to create an encrypted tunnel
+between those firewalls using this VPN
+functionality and most firewalls can
+also operate as a layer 3 device which
+means the firewalls themselves can act
+as a router that's because they're often
+sitting right between the Ingress and
+egress point of your network where all
+the traffic on the inside of your
+network is going to the outside or
+internet connection and your internet
+traffic is coming inbound to your local
+network we rely on the firewall to be
+able to manage the communication between
+the inside and the outside of the
+network to be able to perform this
+functionality mini firewalls also
+provide provide Network address
+translation or natat and because they
+are a router it's very common to have
+Dynamic routing protocols supported
+inside of the firewall as well many data
+centers might also have Standalone IDs
+or IPS devices although much of that
+functionality is also integrated into
+the more modern Next Generation firewall
+IDs refers to an intrusion detection
+system and the IPS refers to an
+intrusion prevention system both of
+these work in similar ways they're
+looking for attacks that are inbound to
+your network and are able to identify
+alert and in many cases prevent that
+attack from Gaining access to your
+network these are commonly known attack
+types these might be exploits against
+operating systems or the applications
+that you're using and they might take
+advantage of known vulnerabilities with
+those applications or systems by taking
+advantage of a buffer overflow AC
+cross-site scripting vulnerability or
+other known vulnerabilities to those
+systems if you're using an intrusion
+detection system it's able to alarm or
+alert if it ever sees any of these
+inbound attacks if you're using an
+intrusion prevention system it's able to
+go a step further and block that
+particular attack before it gets inside
+of your network since an intrusion
+detection system is not able to block
+that traffic it's very common to see an
+intrusion prevention system used on our
+Enterprise
+networks if you've ever used a website
+that may be accessed by millions of
+people every day you may be wondering
+how that site is able to remain up and
+running without any type of downtime in
+most cases it's because that site is
+using a load balancer to be able to
+distribute that load across multiple
+physical servers as the in user you may
+have no idea that this load balancing is
+taking place but if you were to look at
+the data center for this organization
+you might find a large number of web
+servers or database servers in farms
+that can be used in conjunction with
+this load balancer to maintain uptime
+and availability these load balancers
+are also very good at identifying any
+outages to these servers so if one of
+the servers happens to fail due to a
+hardware error or some type of software
+problem the load balancer can recognize
+the issue take that server out of the
+rotation and continue to provide access
+to these services using the remaining
+devices that are connected to the load
+balancer
+here's a common design for a load
+balancer where users on the internet
+would be accessing a service at a
+location to the in users perspective
+they're accessing a single server but
+they're really accessing a load balancer
+that is Distributing that load between
+multiple servers inside of that
+company's data center these load
+balancers can also optimize the
+communication for example it may perform
+TCP offloading so that the communication
+to all of these servers on the inside of
+the network are occurring as quickly as
+possible these these load balancers can
+also act as an SSL offload which means
+that they will provide the encryption
+and decryption capabilities instead of
+having the servers themselves manage
+that process data might also be cached
+on the load balancer so requests made to
+the load balancer can be answered
+immediately instead of going all the way
+down to the server to provide that data
+and load balancers are also very good at
+prioritizing different types of traffic
+over others there might be certain web
+pages that have higher access than
+others and you can commonly perform that
+prioritization using quality of service
+or qos load balancers can also provide
+application Centric load balancing where
+certain pages may be located on certain
+servers and all of the requests to those
+pages would go exclusively to those
+individual
+servers many organizations have security
+concerns about individual users being
+able to directly communicate with a
+server or service that's on the internet
+one of the ways that the organ gation
+can manage these connections is by
+putting a device in the middle of this
+conversation called a proxy this proxy
+is responsible for taking the user's
+request performing that request on their
+behalf receiving the answer to that
+request verifying that the answer
+doesn't contain some type of malicious
+software or malicious code and then
+providing that answer to the enduser
+that is the purpose of a proxy to sit in
+the middle of the communication and make
+that communication on the user's behalf
+since the proxy is sitting in the middle
+of the conversation it's a perfect place
+to do caching so the user can make a
+request to a web server if that request
+has already been cached by the proxy
+server the answer can go right back to
+the user without having to access the
+internet we might also provide access
+control from the proxy server so that we
+can request a username and password from
+the user in order to gain access to the
+internet from that point we might want
+to filter URLs or perform some type of
+content scanning to make sure that the
+user is not receiving any type of
+malicious software some proxies require
+you to configure the operating system or
+the applications that you're using to
+identify the proxy and be able to use
+that to send and receive communication
+but not all proxies work in That
+explicit manner there are also
+transparent proxies that will work
+invisibly without making any changes to
+the operating system or the applications
+in
+use it's very common to store documents
+and other files on centralized storage
+facilities inside of our data centers
+one type of storage is referred to as a
+network attached storage or Nas we often
+refer to this network attached storage
+as providing file level access that
+means that if we wanted to gain access
+to information within a file we need to
+pull the entire file across the network
+into the memory of our system and when
+we're writing information or changing
+information in that file we will need to
+write the entire file back to the nas a
+more efficient way of communication
+might be through the use of a storage
+area network or a sand this is very
+similar to reading and writing
+information from a local storage Drive
+where instead of copying the entire file
+to be able to change just a bit of
+information within it we have Block
+Level access which means that we can
+change just the blocks that have been
+modified and when you have very large
+files this can be a very efficient way
+to modify just a little little bit of
+information within that very large
+document whether you're using a Nas or a
+San you're probably transferring a lot
+of files to these systems and for that
+reason we want to be sure that we're
+using the most efficient method of
+communication it's very common for
+example to put the nas or the San on its
+own isolated Network and it's commonly a
+Network that has very high
+bandwidths if you're in your office and
+you look at the ceiling you might see a
+device like this this is an access point
+this device allows us to communicate
+wirelessly from our device to the rest
+of the network this is not the wireless
+router that you might be using at home
+which is a router and a wireless access
+point and a switch in the same device
+when you're in larger Enterprise
+environments you're usually using a
+device that is purpose-built for a
+single function and having an access
+point means that we're using this for
+wireless communication and wireless
+communication only on the other side of
+this wireless access point is very
+commonly an ethernet connection so this
+is bridging communication between the
+wireless network and the wired ethernet
+Network that's why we refer to access
+points as an OSI layer 2 device or a
+data link layer device because it's
+making that translation between the
+802.11 wireless network and the 802.3
+ethernet Network in most businesses of
+any size you probably have more than one
+access point that's because you probably
+have a very large building or series of
+buildings and you need to be sure that
+everyone is able to access that wireless
+network wherever they happen to be
+inside of these buildings but this means
+that we have to manage many different
+wireless access points wherever they
+might be in our local network or in a
+remote site Network and we might need to
+manage security settings access policies
+and other configuration parameters
+within that access point we also have
+users that may be very mobile and moving
+between different parts of the building
+or moving from one building to the other
+and we need to make sure that they can
+seamlessly roam from one access point to
+the other so that they are always
+connected to the network instead of
+connecting to each individual access
+point to make these configuration
+changes or manage this process we can
+have a centralized management tool that
+allows us to manage all of our access
+points from one central place this is a
+wireless land control controller and it
+gives us that single pane of glass so
+that we can manage the entire
+infrastructure while we're sitting in
+one chair from this single device we can
+deploy new access points with a full
+configuration we might want to set up
+performance or security monitoring and
+be alerted if we happen to see anything
+across any of our access points we can
+also take any changes that we need to
+make and deploy those automatically to
+all of our access points with one click
+of the mouse this also allows us very
+commonly to create reports on how much
+our access points are being used and be
+able to understand if we need to update
+or change any of our access point
+locations these are often proprietary
+systems so if we have an access point
+from one particular manufacturer then
+we're also using the wireless land
+controller that is also from that same
+manufacturer

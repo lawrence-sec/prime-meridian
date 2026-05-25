@@ -1,0 +1,154 @@
+you often hear myself and many other
+Security Professionals tell you to
+always keep your operating systems up to
+date make sure all of your applications
+have been patched and anytime a new set
+of updates comes through you should make
+sure that you patch your system as soon
+as possible this will make sure that
+you're able to avoid any type of
+vulnerabilities or security problems
+associated with this older code but of
+course when you're installing an
+application to a device there's always a
+concern that the application self might
+have malicious software inside of it and
+the same thing applies to these updates
+we're effectively installing a new
+application each time we install these
+updates and it may be possible for an
+attacker to find some way to get their
+malicious code embedded within the
+update itself and although we're telling
+you to update your system as quickly as
+possible when you find one of these
+security patches there are number of
+best practices that are associated with
+this update process first before you
+make any changes to any system you
+should have a backup this ensures that
+if something does go wrong during the
+update process you can revert back to
+the previous configuration and you'll be
+back up and running again you should
+also make sure that the sources that
+you're using for this update are trusted
+this means the software that you're
+using during this update is coming from
+a source that you commonly would use or
+one that is commonly associated with
+this update process and it's always
+worth mentioning again that your backup
+can solve a lot of problems for you if
+something does go wrong during the
+update process here's an example of a
+message that you might commonly see when
+an application needs to be updated this
+is for the Chrome browser and it says
+you're using an older version update now
+to keep your Chrome browser running
+smoothly and securely your download will
+begin automatically if not click here
+where it says update Chrome if this is a
+message that appears when you first
+start your browser before you visited
+any other websites then there is a
+reasonable amount of trust you can
+associate with this update message but
+what if this is a message that appears
+once you visit one of the links that's
+provided from a Google search there
+might be a question as to whether this
+particular update is legitimate and it
+may be something you want to perform a
+bit of extra checks before clicking that
+update Chrome button we're very often
+installing these updates from a file
+that has been downloaded from a
+thirdparty website so we need to look at
+where we're downloading this file from
+and we need to understand more about
+what might happen if we perform this
+update we should make sure that the
+source is one that is indeed trusted
+that we're going to a site that commonly
+hosts these types of patches if we're
+getting some random popup message during
+our normal web browsing session that
+tells us that we need to click here to
+update this might not be a legitimate
+update message and if you want to have a
+relatively high amount of trust
+regarding this particular patch you
+should download the update directly from
+the application developer site and many
+operating systems will only install
+install applications if they've been
+digitally signed that means that we'll
+get a message during the update process
+that tells us that this application is
+from Microsoft or adobe or Google and we
+can see the digital signature associated
+with that update because the digital
+signature is put there by the
+application developer and our operating
+system validates that digital signature
+we can have a high level of trust that
+this particular update is
+legitimate sometimes an application will
+have its own update process buil built
+into the app itself this usually does
+have Security checks and digital
+signatures built into this process and
+although you might not see the digital
+signature the update process of the
+application is automatically performing
+that verification this process has a
+high amount of trust because it's the
+application itself that is performing
+the update you don't have to download
+any files yourself and the update is
+being verified as coming from the
+manufacturer of the software however
+this process is not a 100% guarantee
+that the code that you're updating is
+indeed legitimate in December of 2020
+the company solar winds reported that
+their application Orion was performing
+updates for users but the update itself
+contained malicious software these
+updates followed the internal update
+process for the Orion application the
+update itself was digitally signed by
+the company and to anyone who's ever
+performed an update this looked like a
+normal update from a legitimate
+application developer unfortunately
+months earlier attackers had gained
+access to the development system in
+solar winds itself and put their own
+code into the solar wind software their
+malicious code was rolled up into the
+normal updates that were provided by
+other application developers within the
+company and the entire package was
+digitally signed and automatically
+distributed to their users this Orion
+software is high-end management software
+and some of the largest organizations in
+the world were running this software
+this allowed attackers to gain access to
+hundreds of large governmental agencies
+and companies and it allowed them to
+effectively have full rain to the entire
+system that was running this Orion
+software and from there they were able
+to jump from the Orion system to other
+unsecured systems within those
+organizations this type of attack is
+relatively rare but it does show that an
+attacker could use a trusted process to
+be able to automatically distribute
+their malicious code to hundreds or
+thousands of systems
+automatically

@@ -1,0 +1,606 @@
+1
+00:00:13,600 --> 00:00:18,000
+<font color="white" size=".72c">If today, out of all days, you 
+told yourself this morning: </font>
+
+2
+00:00:18,000 --> 00:00:21,920
+<font color="white" size=".72c">"Man, what a perfect day 
+for cybersecurity", then... </font>
+
+3
+00:00:24,400 --> 00:00:28,480
+<font color="white" size=".72c">Then it doesn't even matter, because you 
+did not say that. Nobody talks like that. </font>
+
+4
+00:00:28,480 --> 00:00:31,600
+<font color="white" size=".72c">But, if at some point you just 
+decided one day that you want to  </font>
+
+5
+00:00:31,600 --> 00:00:36,800
+<font color="white" size=".72c">learn some cybersecurity, that is awesome!
+That is perfect, because I'm going to share  </font>
+
+6
+00:00:36,800 --> 00:00:42,400
+<font color="white" size=".72c">with you the most complete series of tutorials 
+on this topic that you will ever find, and,  </font>
+
+7
+00:00:42,400 --> 00:00:48,480
+<font color="white" size=".72c">as a nice bonus, I will also prepare you to 
+pass the CompTIA CySA+ certification exam. </font>
+
+8
+00:00:49,040 --> 00:00:54,720
+<font color="white" size=".72c">Why does this training exist? Well, I made 
+this training because I was just a bit  </font>
+
+9
+00:00:54,720 --> 00:01:01,680
+<font color="white" size=".72c">disappointed by the current content that's out 
+there and I wanted to make something better. </font>
+
+10
+00:01:01,680 --> 00:01:06,400
+<font color="white" size=".72c">Actually, I wanted to make something much 
+better than what you can currently buy from  </font>
+
+11
+00:01:06,400 --> 00:01:10,720
+<font color="white" size=".72c">big name training companies.
+And also, why cybersecurity? </font>
+
+12
+00:01:10,720 --> 00:01:15,440
+<font color="white" size=".72c">Well, first of all because I personally love 
+it, and secondly, because it's an awesome  </font>
+
+13
+00:01:15,440 --> 00:01:21,520
+<font color="white" size=".72c">topic and it's useful for pretty much anyone, 
+nowadays, who uses a computer or a smartphone,  </font>
+
+14
+00:01:21,520 --> 00:01:27,039
+<font color="white" size=".72c">so yeah... basically to anyone, and we are 
+going to need cybersecurity right until,  </font>
+
+15
+00:01:27,840 --> 00:01:30,880
+<font color="white" size=".72c">I don't know... forever.
+It's always going to be relevant  </font>
+
+16
+00:01:31,440 --> 00:01:37,200
+<font color="white" size=".72c">because it's everywhere, it's in a non-stop 
+process of change, it's constantly adapting,  </font>
+
+17
+00:01:37,200 --> 00:01:42,000
+<font color="white" size=".72c">so if you like cybersecurity, and you're 
+even thinking about doing it for a living,  </font>
+
+18
+00:01:42,720 --> 00:01:46,800
+<font color="white" size=".72c">your job will always be safe.
+Well, at least as long as you keep up to date. </font>
+
+19
+00:01:47,440 --> 00:01:53,520
+<font color="white" size=".72c">Another reason is that cybersecurity is supposed 
+to be fun because it's a never-ending strategy  </font>
+
+20
+00:01:53,520 --> 00:01:56,800
+<font color="white" size=".72c">game that everybody is playing.
+The good guys are playing it,  </font>
+
+21
+00:01:56,800 --> 00:02:02,240
+<font color="white" size=".72c">the bad guys are playing it, the guys you entrust 
+your money in a bank, or when you go shopping,  </font>
+
+22
+00:02:02,800 --> 00:02:10,400
+<font color="white" size=".72c">the guys that hold your email, and cat videos, and 
+TikToks, the guys who make water, light, and...  </font>
+
+23
+00:02:10,400 --> 00:02:15,760
+<font color="white" size=".72c">pizza... right, to reach your house, and even 
+those guys with the tanks, rockets, and drones. </font>
+
+24
+00:02:16,560 --> 00:02:19,120
+<font color="white" size=".72c">So, this game should keep you up at night  </font>
+
+25
+00:02:19,680 --> 00:02:23,520
+<font color="white" size=".72c">because it's everywhere. it's about your 
+life, and you should be passionate about it.</font>
+
+26
+00:02:23,520 --> 00:02:28,960
+<font color="white" size=".72c">Hi, my name is Andrew and I will lead you 
+through this awesome quest on cybersecurity,  </font>
+
+27
+00:02:28,960 --> 00:02:35,840
+<font color="white" size=".72c">and, if you want, also for the CompTIA CySA+ exam.
+So, who is this Andrew guy and why does he think  </font>
+
+28
+00:02:35,840 --> 00:02:39,200
+<font color="white" size=".72c">that he can teach me something?
+Well, let me give you two reasons: </font>
+
+29
+00:02:39,200 --> 00:02:44,800
+<font color="white" size=".72c">First of all, my origin story says that I've 
+been working in IT for more than 10 years,  </font>
+
+30
+00:02:44,800 --> 00:02:50,400
+<font color="white" size=".72c">and I keep saying more than 10, because the real 
+number kind of makes me feel old, but I also hold  </font>
+
+31
+00:02:50,400 --> 00:02:56,800
+<font color="white" size=".72c">this many technical certifications, and I will 
+not go over all of these, but have a look over my  </font>
+
+32
+00:02:56,800 --> 00:03:02,320
+<font color="white" size=".72c">Linkedin profile, in the description and add me if 
+you want, but suffice to say that I do have some  </font>
+
+33
+00:03:02,320 --> 00:03:10,640
+<font color="white" size=".72c">experience with networking, security, and DevOps.
+And, yes, my dear relatives and friends, I am able  </font>
+
+34
+00:03:10,640 --> 00:03:17,440
+<font color="white" size=".72c">to fix your computers, and routers, and printers.
+Now, second reason, have a look over the videos  </font>
+
+35
+00:03:17,440 --> 00:03:22,640
+<font color="white" size=".72c">in my channel and decide for yourself 
+if I know what I'm talking about. </font>
+
+36
+00:03:22,640 --> 00:03:27,520
+<font color="white" size=".72c">But, if I do, please subscribe and help this 
+channel grow, because I really need your support  </font>
+
+37
+00:03:27,520 --> 00:03:32,480
+<font color="white" size=".72c">as all this content is always going 
+to be free. Free as in free beer,  </font>
+
+38
+00:03:32,480 --> 00:03:38,160
+<font color="white" size=".72c">not any other sneaky type of free.
+So what's in it for you? I will share with you  </font>
+
+39
+00:03:38,160 --> 00:03:44,079
+<font color="white" size=".72c">everything that you need to pass the CompTIA CySA+ 
+exam and I will also share from my experience,  </font>
+
+40
+00:03:44,079 --> 00:03:50,480
+<font color="white" size=".72c">and from all my previous certification exams, 
+because I realized one day, after I went through  </font>
+
+41
+00:03:50,480 --> 00:03:57,840
+<font color="white" size=".72c">so many certifications, and aspects of IT, that 
+I've ended up with a very nice perspective of all  </font>
+
+42
+00:03:57,840 --> 00:04:03,200
+<font color="white" size=".72c">these topics and I wanted to share that with you.
+I want to share which things matter and  </font>
+
+43
+00:04:03,200 --> 00:04:08,800
+<font color="white" size=".72c">which things don't, which concepts 
+apply only in books and trainings,  </font>
+
+44
+00:04:08,800 --> 00:04:13,840
+<font color="white" size=".72c">and which concepts will make people laugh at 
+you if you want to apply them in real life. </font>
+
+45
+00:04:14,400 --> 00:04:20,399
+<font color="white" size=".72c">And for free! There won't be any paywall, 
+no pay-per-view, no demo videos that  </font>
+
+46
+00:04:21,040 --> 00:04:24,800
+<font color="white" size=".72c">send you to buy the rest.
+Everything will be here, and free,  </font>
+
+47
+00:04:24,800 --> 00:04:28,800
+<font color="white" size=".72c">as long as Youtube shall live.
+Don't trust me yet? Subscribe now  </font>
+
+48
+00:04:28,800 --> 00:04:33,520
+<font color="white" size=".72c">and let's see in 10 years who was right.
+So, how are we going to do this? Well,  </font>
+
+49
+00:04:33,520 --> 00:04:38,560
+<font color="white" size=".72c">we're going to follow the exam objectives, the 
+official exam blueprint, because this gives us  </font>
+
+50
+00:04:38,560 --> 00:04:43,040
+<font color="white" size=".72c">a very nice structure to build our content.
+You should check out the CompTIA website,  </font>
+
+51
+00:04:43,040 --> 00:04:47,120
+<font color="white" size=".72c">download the exam blueprint, but be 
+aware that I will slightly change the  </font>
+
+52
+00:04:47,120 --> 00:04:52,320
+<font color="white" size=".72c">order of some topics simply because, in my 
+brain, they make a lot more sense that way. </font>
+
+53
+00:04:52,320 --> 00:04:57,040
+<font color="white" size=".72c">So go have a look over the official page of the 
+CySA+ exam. That's some very useful information,  </font>
+
+54
+00:04:57,040 --> 00:05:00,960
+<font color="white" size=".72c">like: the skills that you will learn, some 
+jobs that match this certification, and some  </font>
+
+55
+00:05:00,960 --> 00:05:05,360
+<font color="white" size=".72c">exam details like how many questions you'll get, 
+what's the passing score, and stuff like that. </font>
+
+56
+00:05:06,480 --> 00:05:11,440
+<font color="white" size=".72c">Now, for a detailed list of exam topics, you 
+just need to fill in a form to download the PDF,  </font>
+
+57
+00:05:11,440 --> 00:05:16,640
+<font color="white" size=".72c">which, fortunately, I have right here.
+So, we have five domains, or major topics  </font>
+
+58
+00:05:16,640 --> 00:05:20,640
+<font color="white" size=".72c">to cover. We'll talk about threats and 
+vulnerabilities, and how to make some  </font>
+
+59
+00:05:20,640 --> 00:05:26,080
+<font color="white" size=".72c">sense of these in a more structured manner.
+We'll talk about the day-to-day life of someone  </font>
+
+60
+00:05:26,080 --> 00:05:31,760
+<font color="white" size=".72c">working in security operations. We'll talk about 
+describing threats, measuring them to know just  </font>
+
+61
+00:05:31,760 --> 00:05:37,120
+<font color="white" size=".72c">how badly you could be, or have been hacked 
+in the past, how not to freak out if you find  </font>
+
+62
+00:05:37,120 --> 00:05:43,120
+<font color="white" size=".72c">vulnerabilities in your systems, and how to find 
+them, some tools that will help you with scanning  </font>
+
+63
+00:05:43,120 --> 00:05:48,880
+<font color="white" size=".72c">and assessments, some specific threats for things 
+that don't exactly look like a computer, you know,  </font>
+
+64
+00:05:48,880 --> 00:05:54,000
+<font color="white" size=".72c">like mobile devices, industrial systems, 
+your PlayStation, Internet of Threats </font>
+
+65
+00:05:54,000 --> 00:05:58,720
+<font color="white" size=".72c">Uh, sorry... Internet of Things, devices, 
+you know, like smart refrigerators,  </font>
+
+66
+00:05:58,720 --> 00:06:01,920
+<font color="white" size=".72c">and smart home devices.
+Moving on to the cloud,  </font>
+
+67
+00:06:01,920 --> 00:06:06,320
+<font color="white" size=".72c">because it does have its own set of threats, 
+even though we like to think about the cloud  </font>
+
+68
+00:06:06,320 --> 00:06:13,120
+<font color="white" size=".72c">as being something that just works. An entire huge 
+section about types of attacks, and trust me this  </font>
+
+69
+00:06:13,120 --> 00:06:18,640
+<font color="white" size=".72c">is going to be huge, but also very insightful.
+Then we'll move on to software and systems like  </font>
+
+70
+00:06:18,640 --> 00:06:23,840
+<font color="white" size=".72c">servers and workstations, and this is also where 
+we'll talk about virtualization and containers,  </font>
+
+71
+00:06:24,720 --> 00:06:30,880
+<font color="white" size=".72c">software development and best practices, or 
+how not to develop some piece of code that  </font>
+
+72
+00:06:30,880 --> 00:06:38,159
+<font color="white" size=".72c">shoots us in the foot. That's secure coding.
+Securing low-level hardware against some really  </font>
+
+73
+00:06:38,159 --> 00:06:43,280
+<font color="white" size=".72c">nasty and hard to detect attacks
+Working with specialized devices  </font>
+
+74
+00:06:43,280 --> 00:06:49,040
+<font color="white" size=".72c">like firewalls and IPSs, and quite a few others.
+About being proactive and looking for threats  </font>
+
+75
+00:06:49,040 --> 00:06:52,720
+<font color="white" size=".72c">even when you don't have any proof 
+that you've been compromised yet. </font>
+
+76
+00:06:53,520 --> 00:06:56,000
+<font color="white" size=".72c">Good luck explaining those 
+work hours to your boss! </font>
+
+77
+00:06:57,120 --> 00:07:01,120
+<font color="white" size=".72c">Some newer concepts here about automation, 
+because, well, you know the saying: </font>
+
+78
+00:07:01,120 --> 00:07:03,840
+<font color="white" size=".72c">"If it's worth doing once, it's worth automating" </font>
+
+79
+00:07:04,640 --> 00:07:11,200
+<font color="white" size=".72c">Moving on to incident response, which is how not 
+to panic when something bad really happens, how  </font>
+
+80
+00:07:11,200 --> 00:07:17,600
+<font color="white" size=".72c">to minimize damage and save as much money and as 
+many butts in a compromised company as possible.</font>
+
+81
+00:07:18,240 --> 00:07:23,200
+<font color="white" size=".72c">Learn how to investigate and understand what 
+happened if a cyber crime was committed.</font>
+
+82
+00:07:23,200 --> 00:07:26,480
+<font color="white" size=".72c">When the boss comes to you to 
+ask "What's happening here?  </font>
+
+83
+00:07:26,480 --> 00:07:30,080
+<font color="white" size=".72c">Are we under attack?", and you go "Whaaaat?!".</font>
+
+84
+00:07:30,080 --> 00:07:34,400
+<font color="white" size=".72c">And, going a bit deeper and really 
+investigate, you know, like CSI style,  </font>
+
+85
+00:07:34,400 --> 00:07:39,600
+<font color="white" size=".72c">in order to, well, if you took a beating at 
+least learn to defend yourself the next time. </font>
+
+86
+00:07:39,600 --> 00:07:43,040
+<font color="white" size=".72c">Fool me once, shame on you. 
+Fool me twice, shame on me. </font>
+
+87
+00:07:43,040 --> 00:07:45,520
+<font color="white" size=".72c">At least assuming the same type of foolery.</font>
+
+88
+00:07:46,560 --> 00:07:48,320
+<font color="white" size=".72c">And, the boring part.</font>
+
+89
+00:07:48,880 --> 00:07:52,400
+<font color="white" size=".72c">Nah, just kidding! It's not boring, 
+it's about policies, compliance,  </font>
+
+90
+00:07:52,400 --> 00:07:55,120
+<font color="white" size=".72c">and IT governance, and regulations, and,</font>
+
+91
+00:07:55,120 --> 00:07:58,400
+<font color="white" size=".72c">Nah, I'm kidding, it is 
+boring! But it's on the exam. </font>
+
+92
+00:07:59,120 --> 00:08:04,000
+<font color="white" size=".72c">About trying to look smart, while predicting 
+the future like you have some proof,  </font>
+
+93
+00:08:04,000 --> 00:08:08,240
+<font color="white" size=".72c">when everybody knows that you don't, 
+also known as "Evaluating risk". </font>
+
+94
+00:08:09,200 --> 00:08:14,240
+<font color="white" size=".72c">Then, documenting your previous attempt at 
+looking smart. That is: Risk Assessments. </font>
+
+95
+00:08:14,800 --> 00:08:17,840
+<font color="white" size=".72c">And, finally, you should 
+be ready to pass the exam.</font>
+
+96
+00:08:17,840 --> 00:08:23,520
+<font color="white" size=".72c">Now you might think: "That. is. a lot!"
+"What did I sign up for?"</font>
+
+97
+00:08:23,520 --> 00:08:27,920
+<font color="white" size=".72c">Well, it's a lot because security 
+has never been more complex. </font>
+
+98
+00:08:27,920 --> 00:08:33,200
+<font color="white" size=".72c">There's just so much diversity in 
+everything that's IT around us. </font>
+
+99
+00:08:33,200 --> 00:08:36,400
+<font color="white" size=".72c">Just a little while ago you only 
+had to secure, perhaps, your  </font>
+
+100
+00:08:36,400 --> 00:08:41,520
+<font color="white" size=".72c">router, or a firewall, so that hackers 
+would not mess around with your website. </font>
+
+101
+00:08:41,520 --> 00:08:48,960
+<font color="white" size=".72c">But today, we have so many devices interconnected 
+from wearables, phones, smart kitchen appliances,  </font>
+
+102
+00:08:49,600 --> 00:08:54,960
+<font color="white" size=".72c">robot vacuum cleaners, which sold like crazy 
+during this pandemic, smart light bulbs,  </font>
+
+103
+00:08:54,960 --> 00:09:00,640
+<font color="white" size=".72c">smart cars, smart windows, smart i don't 
+know, vibrators, and whatever scary smart  </font>
+
+104
+00:09:00,640 --> 00:09:03,360
+<font color="white" size=".72c">things might be out there.
+And this is the new internet.  </font>
+
+105
+00:09:04,320 --> 00:09:08,240
+<font color="white" size=".72c">It's also the new playground for hackers.
+Attacks evolved too. </font>
+
+106
+00:09:08,240 --> 00:09:13,120
+<font color="white" size=".72c">We hear in the media about 
+ransomware, APTs, and many, many more.</font>
+
+107
+00:09:13,120 --> 00:09:15,840
+<font color="white" size=".72c">We also work from home a 
+lot now, and you might say</font>
+
+108
+00:09:15,840 --> 00:09:20,560
+<font color="white" size=".72c">"Yeah, but we have VPNs, and that's the 
+definition of security right there!". </font>
+
+109
+00:09:20,560 --> 00:09:23,120
+<font color="white" size=".72c">Yeah, but who might have access to your laptop? </font>
+
+110
+00:09:23,760 --> 00:09:29,600
+<font color="white" size=".72c">What other infected devices you might have in 
+your home, without you even knowing about them? </font>
+
+111
+00:09:29,600 --> 00:09:33,360
+<font color="white" size=".72c">Because, let's be honest, who has 
+enterprise grade security at home? </font>
+
+112
+00:09:33,360 --> 00:09:37,040
+<font color="white" size=".72c">And even large enterprises get hacked, 
+and, by the way, are you even at home,  </font>
+
+113
+00:09:37,600 --> 00:09:44,080
+<font color="white" size=".72c">or relaxing on some beach, in a mountain 
+cabin, in some hotel, in your parents home,  </font>
+
+114
+00:09:44,080 --> 00:09:49,280
+<font color="white" size=".72c">on a wireless network that's so insecure that 
+you shouldn't even watch cat videos on it. </font>
+
+115
+00:09:49,280 --> 00:09:52,640
+<font color="white" size=".72c">So if you're wondering if this exam 
+is right for you, or what exactly you  </font>
+
+116
+00:09:52,640 --> 00:09:58,400
+<font color="white" size=".72c">should know before starting to study, I would 
+say the requirements are not very high, but  </font>
+
+117
+00:09:58,400 --> 00:10:04,400
+<font color="white" size=".72c">you will need some basic computer knowledge 
+and networking concepts, before you start. </font>
+
+118
+00:10:04,400 --> 00:10:08,480
+<font color="white" size=".72c">But, I would guess that you're 
+probably not attempting the CySA+ exam  </font>
+
+119
+00:10:09,200 --> 00:10:12,640
+<font color="white" size=".72c">if this morning was the first time 
+you ever started the computer.</font>
+
+120
+00:10:12,640 --> 00:10:17,680
+<font color="white" size=".72c">But, for more details on exactly how difficult 
+is the exam, and what you should expect,  </font>
+
+121
+00:10:17,680 --> 00:10:22,080
+<font color="white" size=".72c">keep watching, because this is exactly what 
+we'll be talking about in the next video.  </font>
+
+122
+00:10:22,080 --> 00:10:31,840
+<font color="white" size=".72c">So please subscribe, and see you next time</font>
+
+123
+00:10:35,600 --> 00:10:35,680
+<font color="white" size=".72c">you</font>
+

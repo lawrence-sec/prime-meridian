@@ -1,0 +1,61 @@
+there are many different people in the
+organization responsible for different
+aspects of the data that we're storing
+and in this video we'll look at some of
+those data responsibilities the first
+responsibility we'll look at is the data
+owner the data owner is usually someone
+at a higher level in the organization
+who is broadly responsible for that data
+that's being stored for example the Vice
+President of Sales would be the data
+owner for all of the customer
+relationship data and the treasurer of
+the organization would be the data owner
+for all of the financial information
+these individuals are responsible for
+overseeing all aspects of this data and
+they are ultimately responsible for all
+of the data associated with that
+particular role two other important
+roles are the data controller and the
+data processor the data controller is
+the one that manages how the data will
+be used and the data processor is the
+one that is actually processing or using
+that data data it's very often the data
+controller that provides instructions to
+the data processor on how that data
+should be used for example a data
+controller might be someone like your
+payroll department and a data processor
+may be someone like a payroll company
+the payroll department is certainly
+responsible for making sure that
+everyone gets paid they provide
+instructions to the data processor or
+the payroll company on how that payroll
+process should occur as the data
+processor the payroll company will have
+access to user information and Bank
+details and will be able to process that
+Weekly payroll and there's very often a
+data custodian or data Steward who is
+assigned to certain types of data they
+are responsible for the security of that
+data and making sure that the data is
+both accurate and private the data
+custodian or data Steward is responsible
+for making sure that the organization is
+in compliance with any laws or
+regulations associated with that data
+they may also be responsible for
+assigning sensitivity labels to the data
+and then associating those sensitivity
+labels with access control so that users
+can get to the data that they need this
+is often the person who will be
+responsible for determining what
+particular user has access to exactly
+what type of
+data

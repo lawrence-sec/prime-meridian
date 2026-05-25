@@ -1,0 +1,646 @@
+hey YouTube it's Sean Powers I am in a
+pretty deep Funk so I'm gonna do my best
+to get through the end of our security
+section of Linux plus but if I'm not
+quite as entertaining as I normally am
+uh we'll pre we'll say that's why and
+not just because I'm really a boring
+person but let's uh let's talk about
+permissions oh I didn't I should have
+switched to that slide right let me
+switch to the slide so we're going to
+look at there's permissions in Linux but
+it gets
+um it gets kind of complicated pretty
+quickly because we have standard
+permissions which actually I'm going to
+put a link to the video up there from
+the Linux Essentials course where I talk
+about permission standard posix
+permissions so I'm going to go over
+really really quickly here not explain a
+whole lot but in that video we even go
+over things like octal notation which is
+just cool stuff so we're going to look
+at standard permissions but then we're
+also going to look at ACLS and then
+attributes attributes attributes which
+are like one more layer of permissions
+that you can put on files alright so
+we're just just going to go through it
+really quickly and it's not going to be
+exciting that's my way to build it up
+Sean no but let's let's actually go and
+uh demonstrate first of all basic
+permissions in Linux now like I said
+you're going to want to watch the video
+that I'm going to link up there because
+that's going to show you in depth how to
+handle permissions but basically you
+have three things you have like three
+different uh sections that you can allow
+or disallow people to access files
+there's the user that owns the file the
+group that that user is in and what any
+other users in that group have
+permission to do and then other meaning
+anybody else in the system what they
+have access to do and the three
+different bits that we can use we can
+say they have read permission write
+permission or execute permission each
+one of those on a file I'll show you
+what I mean all right so here we have uh
+just a single file called test if we do
+LS minus L it'll show us the permission
+string and this first character
+says whether it is a file or a directory
+or it could be things like a pipe or a
+node all these different things but
+we're just going to look at two
+different things it's either going to be
+a d for directory or a dash right there
+and that means that it is a standard
+file and then the next Fields here the
+next characters are the three different
+things like these first ones are the
+user so the user who owns this file has
+read and write permission but not
+execute meaning it's not executable by
+the owner here we have read and write
+and not executable by anybody in the
+owner's group like the the group that
+owns this file I'll talk about that in a
+second they have the same thing they can
+read to it they can write to it but they
+can't execute it it's not executable and
+then anyone else on the system can read
+it so basically this file is readable by
+anybody on the entire system any users
+but they will not be able to write to
+the file because there's a dash right
+there that that means that it's not set
+on if you will and so nobody who is
+either not the owner or not in the group
+that is the group owner of this file
+will be able to write to it only they'll
+only be able to read to it and of course
+they won't be able to execute it either
+it's not an executable file all right
+now executable means literally execute
+like a program unless it's a directory
+and if uh if the execute bit is set on a
+directory that means you can read the
+contents of it so like doing an LS in a
+directory so I was able to do LS minus L
+of this current directory so if we were
+to do LS minus La we're gonna oh there's
+a whole bunch of them but what I want to
+show you is this the dot directory is
+the current directory that we're in and
+you'll see that first letter says it's a
+directory and we have read write and
+execute privilege execute privilege
+means that we can read the contents of
+it so if we do LS we're going to get a
+response and that's what it means if a
+directory is executable so the owner or
+the group owner is able to see the
+contents of it but other people in on
+the system are not able to see the
+contents of this folder so if they type
+LS home s Powers it's going to say not
+allowed you're not allowed to see the
+contents of it because other users on
+the system don't have that executable
+bit now how do you know who the owner
+and the group owner is well that's what
+these fields here are s Powers is the
+owner so that's me and anybody in the S
+Powers group which right now is just me
+but this could be a different group name
+um but it's not it's you know s Powers
+as Powers so anybody in the S Powers
+group is also going to have executable
+abilities in there but somebody who is
+not me not the S Powers user but is in
+the S Powers group they are not going to
+be able to write files into this folder
+which is interesting they can read stuff
+in here and they can see you know do a
+listing of the files in here but they're
+not going to be able to create a file in
+here because that write bit is not
+turned on for them so that's just kind
+of interesting right
+um so yeah that's that's basically how
+uh basic privileges work now if you want
+to change some privileges I'm going to
+clear the screen because it's messy when
+I did LS minus 8 showed all of the files
+even hidden uh I guess I could show you
+again LS minus a shows you hidden files
+any file that starts with a DOT or
+folder that starts with the dot is
+hidden and isn't shown if you just type
+LS see we only see files that don't
+start files and folders that don't start
+with a DOT if you just type LS so I'm
+going to clear the screen LS minus l so
+test is a file that has this permission
+but if we wanted to change that we would
+use ch
+mod this is going to change the
+permissions of a file and to do that we
+would say something like I want the
+group to not have or subtract write
+access to test okay so we we build this
+up by saying like chmod change the the
+you know permissions on here group minus
+W minus right access of the test file
+press enter and now if we do LS minus L
+we're going to see what we've changed is
+the group Trio here like these three
+read write execute we have removed
+from the W from there so that's what
+that CH mod with that does now you can
+string them together too we could say
+chmod group plus W comma
+other minus W or
+I guess it doesn't already are let's say
+other minus r okay so we're going to
+change it now where the group user again
+has write access we're going to put it
+back to where it was but we're going to
+take away the read access of other okay
+so the other meaning these last three
+anybody else in the system is no longer
+going to have right access so I do that
+and I do LS minus L and sure enough
+these last three it used to have that
+read bit turned on but no it doesn't now
+it we've subtracted that but we've also
+put back the right bit so that's how you
+can change permissions on a file same
+thing with a folder you do it the same
+exact way and like I said that video
+that I linked earlier is going to have
+all of this in depth and how to do it
+and even how to do it with like octal
+notation and stuff which is interesting
+in and of itself all right so these are
+basic permissions now let's say we
+wanted to have a little bit more
+flexibility
+like for example we want to have
+everybody in the S Powers group
+everybody or ever everybody in the
+Marketing Group let's say the file was
+like owned by marketing
+um and we wanted to have uh certain
+permissions for Marketing Group but also
+like Susie a user she's not in marketing
+but we also want her to have permissions
+well it gets really complicated when you
+only have the user the group and
+everyone on the system so you want the
+user and everybody in the Marketing
+Group plus Susie who's not in the
+Marketing Group to have access to a file
+you can't do that with standard
+permissions but you can do that with
+ACLS okay so with ACLS you can do
+individual specific things like that and
+let me show you let's say that we wanted
+everybody in the S Powers group to have
+access and we wanted of course s Powers
+the user to have access but we also
+wanted one other user like Susie to have
+access she's not in the S Powers group
+and she's not as Powers Now using
+standard permissions we could do
+something like a pseudo C8 own Susie
+test okay and now if we do LS minus L
+we're going to see so now Susie owns the
+file and anybody in the S Powers group
+which would include s Powers uh has read
+and write access to it but that gets a
+little bit weird because now Susie is
+the the owner and that's just weird so
+generally this isn't the way that you
+would want to do it you would want to
+use something like ACLS so um we could
+also change the group to something that
+Susie is a part of but you can be more
+fine-tuned with ACLS okay so I'm gonna
+put this back
+choness Powers test
+okay so it's back to how it was like
+normal if we do and clear the screen so
+these are the standard permissions if we
+do get fackle uh so get the ACL of test
+it's going to show us the file name is
+test the owner is s Powers the group
+possess Powers this is the user
+permissions the user has read write you
+know this is basically broken this up
+and explained it for us right but we
+could set a specific ACL for Susie that
+would function outside of the standard
+permission so we could say
+set fackle Susie read right execute test
+oh modify
+and now if we do get
+back all test we're gonna see what we've
+done here now is we haven't changed the
+file permissions in fact I'll show you
+LS minus L the file permissions are
+exactly the same however now there's a
+little plus here which means there are
+other things that are set meaning we've
+set more than could be set with standard
+permissions okay and what we've done is
+you know s Powers s power is User Group
+other however we've also set a specific
+ACL for Susie now Susie also has read
+write execute on this file even though
+she is not s powers and she's not in the
+S Powers group so you can do more with
+ACLS than you can with standard
+permissions but it does get complicated
+pretty quickly and so you really have to
+keep track of what you're doing and
+watch for that little plus because
+that's going to show you that something
+else has gone on something else is going
+on with this and the ACLS are there but
+ACLS are just like a a way to do more
+specific permission than you can with
+the standard permission Tools in Linux
+but if you want to do some other things
+you can use attributes which are even
+more wacky okay so with attributes
+there's a bunch of them you can do I
+think let's see if we do
+lsatr we're going to see this entirely
+huge string right this string is much
+bigger than the other strings that we
+have right up then this string here but
+all of these attributes can be changed
+and this is kind of like just the
+default this is the default attributes
+not a whole lot is turned on but if we
+do
+chattr chatter for change attributes I
+think if we do Dash H it'll show us all
+of them I don't know let's do man
+chatter because I want to show you all
+the different kinds of
+attributes that you can do you can well
+this is how you assign them but the
+attributes a a file with an a attribute
+can only be opened in append mode which
+is interesting right you can you won't
+be able to delete it or change what's in
+there but you can add to the end of it
+so like a log file you could keep adding
+to it but if you put the a attribute on
+you can't remove what is there
+a lot of them are here some of the more
+common ones are that lowercase a
+um but also another real common one is I
+which means immutable with the lowercase
+I set you cannot change it you can't
+delete it even if you're root so and
+that's usually what you'll run across so
+let's let's quit this uh if we do c h a
+t t r plus I on test uh do pseudo
+okay so I've I've plused like added the
+immutable attribute to test I had to be
+rude to do that so that was what sudo
+was all about now if we do lsattr uh
+we're gonna see so it's change right
+this is the immutable flag it's now on
+but now watch this uh so LS minus L we
+can see s Powers owns it but if I try to
+erase it I'll um test it's gonna be like
+oh you can't do that oh okay let me use
+sudo let's do it as root pseudo RM
+test nope it's not permitted even though
+I'm root I cannot delete this file
+because it is immutable so I mean you
+can use this as a joke if you know
+you go to somebody's system and make a
+bunch of files immutable and they can't
+delete them even if they do it as root
+but more more importantly or more
+usefully you can set the immutable flag
+on a file and then it can't accidentally
+be deleted all right so those are the
+things like I said the lowercase a you
+can add it and then
+um you can append a file but you can't
+erase what's there you can't overwrite a
+file you can only append to what's
+already there which is an interesting
+attribute to add and so those are three
+basic ways that you can change
+permissions on a file now there are
+another couple things that we need to
+cover set user ID group user ID and the
+sticky bit now first of all let's remove
+this attribute so sudo change attribute
+minus I for test and now
+lsattr test we're going to see it's back
+like it was so we can remove it now
+RM test and now boom it's gone okay so
+that's how you do you would remove the
+immutable flag from the file and you can
+get rid of it
+um but let's clear the screen
+there's these three things so set user
+ID this is setting a special bit on the
+user three things like the first three
+and so uh let's do touch test
+so it's there what we can do is chmod
+just like if we're doing regular
+permissions but if you were to add user
+so that the owner so the first three
+plus s that's going to be to set the the
+set user ID bit on test
+and now if we do LS minus L we're going
+to see that what's happened here is
+instead of an X this is now an S and why
+it's a capital S versus a lowercase s if
+it this is how we can tell underneath
+that that set user ID if it's executable
+or not now it was not executable so
+that's why this is a capital S if we
+were to Now do chmod
+user plus X on test and then do LS minus
+L we're going to see now it's a
+lowercase s so that's just how you can
+tell whether the the hidden X underneath
+is set or not so if it's a capital it
+was not executable uh if it's a
+lowercase it was executable underneath
+and now it is s now the difference here
+is if you see something with set user ID
+this bit is set as s what that means is
+when it is executed it runs with the
+permission of whoever owns the file and
+that seems a little strange I know but
+let's do an LS minus L of user bin okay
+if we do this and we go looking for
+U mount for example okay so the to
+unmount a file system uses u-mount right
+and with this set user ID bit set which
+it is set when this is executed by
+anybody like a plain old user it
+executes with the permission of whoever
+owns the file
+okay so since root owns this file if me
+as s Powers were to execute umount it
+would execute as the root User it's kind
+of like a little bit like sudo but it's
+uh executes as whoever owns it with that
+per that user's permission and so some
+things that need to have system access
+but you still want to have a user do it
+uh use use the set user ID bit now this
+is a huge security risk so you only do
+this for files or for programs that are
+specifically designed with security in
+mind so that they're not going to do
+anything nefarious if somebody has you
+know a regular user can have that access
+and make it function so that's what set
+user ID set group ID it does the same
+exact sort of thing let's see if we can
+find one of those here SSH agent this is
+another program on our system and user
+bin and this one has
+the set group ID now to do this we would
+just do chmod
+G Plus s you know to add that set group
+ID in that second string of you know the
+read write execute well now this is uh
+readable not writable and it is
+executable because there's a lowercase s
+that it changed to but what this does is
+when you execute SSH agent it runs with
+the permissions of the group that owns
+it so in this case underscore SSH that
+is uh
+very similar to set user ID but it's set
+group ID so instead of looking at the
+owner of the file it looks at the group
+of the file okay hopefully that makes
+sense this isn't something you normally
+set this is something uh either set user
+ID or group you or group user ID these
+are usually on a very specific system
+files you know that we have here now the
+thing about group user ID it does
+another it does something interesting on
+a folder now for set user ID you change
+that on a folder it doesn't do anything
+at all but the group user ID bit if you
+set it on a folder suddenly whenever a
+file is create I'll just show you let's
+show you all right I'll do clear uh what
+do we have in here okay I'm gonna get
+rid of that just because we already
+demonstrated that one so I'm going to
+make a folder so mkdir Susie okay so
+I've made this directory called Susie
+and now if we do LS minus L we'll see
+but it's still owned by me so I'm going
+to change it to be owned by Susie so
+sudo CH mod or no Cho no CH group
+Susie for the Susie folder okay so now
+if we do LS minus L we're going to see
+so as Powers is the owner Susie is the
+group now normally if I go into the
+Susie group and I create a new file so
+touch test1 and do LS minus L we're
+going to see it's owned by the person
+and the group the uh stand the main
+group of the user who created it right
+so test one is created it's owned by me
+and my group but if we change and we do
+chmod group plus s for uh dot Susie or
+just dot this is the current folder
+we're in so Susie uh let me go back a
+folder sorry if that was confusing LS
+minus l
+sudo CH mod group plus s up for Susie
+and now LS minus L we're going to see
+that okay now the group fold or this
+folder has the set group ID bit set
+right here see so that s right there in
+place of the X and now if we go back in
+there even as the S Powers user so I'm
+going to go back into Susie I'm going to
+touch
+test two and now check this out LS minus
+L anything that's created in here is now
+going to have the group ownership of
+whatever uh group owns that file that
+has it set to set group ID so since set
+group ID is set to Susie and the name of
+the folder maybe I should have named it
+Susie but uh that's the the folder that
+we set it to is the Susie folder now
+anything created in here is going to
+automatically belong to the group that
+this folder uh belongs to so that's why
+I created a file and now it has the
+group of Susie so that's set group ID
+the one last thing we need to cover is
+the sticky bit and I'll I'll put a video
+that I talk about sticky bit a whole lot
+up here but sticky bit only functions on
+folder so set set user ID only functions
+on files set group ID does something to
+both a file and a folder uh the sticky
+bit only works on folders it used to
+work on executables this is just a
+little bit of trivia it used to work on
+executables
+in that if you set the sticky bit on an
+executable it would stay in swap space
+so you'd be able to load it faster the
+next time but that's long gone that
+doesn't do anything so now the sticky
+bit only applies to folders and if you
+have the sticky bit which is the last
+three you know for other so again set
+user ID is the the user read write
+execute group user ID is the group
+rewrite execute the sticky bit is the
+other read write execute Trio there if
+you add you know turn that bit on then
+you can't I'll show you because the temp
+folder is a perfect example of this so
+let's uh let's go back to our computer
+here if we go into just The Root Drive
+and we do LS minus L and we look at the
+temp folder here so the temp folder has
+the sticky bit turned on now here's a
+really bizarre thing rather than an S
+for some reason for some reason it's
+denoted with a t for sticky bit but
+you'll see here this folder has t in
+place of the X and the same thing if it
+wasn't executable capital T but uh so T
+is in that place in the last three and
+what this means is if you create a file
+in a folder with the sticky bit on
+another user can't delete it on you
+right so if you create a file in there
+it's not able to be deleted by somebody
+else normally if you create a folder
+um or if you create a file another
+person can just delete it uh and what it
+but in this case you cannot and so I'll
+show you first of all
+uh let's just go back to our home folder
+uh make directory
+sticky LS minus L you'll see sticky is
+just a regular folder there in order to
+make that last thing there we do the
+same thing CH mod
+other plus s
+sticky and now LS minus l oh plus t
+sticky LS minus L now we're going to see
+that we turned on the sticky bit again
+why it's t and not S I have no idea but
+now the sticky bit is there and so if we
+create a file in there but uh somebody
+else is not going to be able to delete
+it so we'll go back to the VAR full or
+to the temp folder because it's on your
+system that's pretty much the only place
+sticky bit applies but we'll go into the
+temp folder and in here I have all these
+files I'm going to make a file as s
+Powers I'm going to say touch uh don't
+delete me okay so I've touched this file
+called don't delete me it's right up
+here it's owned by S Powers everybody
+has read access to it now normally
+a person would be able to just delete
+that file but here I'm logged in over
+here as Susie if Susie were to come in
+and go to the temp folder look in here
+oh I see Sean created something called
+don't delete me I'm going to delete that
+don't delete me uh it's going to say
+sure you want to remove it yes oh you
+can't it's not permitted and normally
+would say you sure you want to delete
+that that write protected file and
+if you say yes I would delete it and
+I'll show you let's remove the sticky
+bit real quick
+so CD dot dot I'm going to say sudo CH
+mod
+other minus t the temp folder and I've
+broken my system don't do this and leave
+it okay but if we do LS minus L we're
+going to see now the temp folder is just
+a regular folder okay so I'm going to go
+back in there CD
+temp now I'm going to touch
+no delete all right so it's in there and
+now Susie comes back into a folder that
+doesn't have the sticky bit turned on
+she's like let's see oh he created a
+file called uh no delete I'm gonna get
+rid of it RM no delete are you sure you
+want to remove that right protected file
+yes and boom it's gone now the don't
+delete me is still there but now even
+though she couldn't remove that before
+RM don't delete me you should want to
+remove that yes and now Susie is just
+the delete Nader and she's deleting
+everything so yeah that's the wacky
+permissions that you have with like
+sticky bit and set user ID and group
+user ID but ACLS allow you to do more
+than you can with just a user a group
+and an other that allows you to make
+specific entries for like specific users
+or specific groups on a on a file or a
+folder so it's like uh standard
+permissions but uh you know with like
+asterisk like plus Susie like has full
+access and then attributes are a little
+bit different uh the only ones you gen
+generally see are going to be like the
+the I attribute which is immutable which
+means you just cannot delete it you
+can't get rid of it you can't change it
+no matter what until you remove that
+attribute but that's how you can
+manipulate files on your system more
+than just the permissions uh that you
+see standard read write execute read
+write execute read write execute anyway
+I hope that was helpful I urge you to
+play around with those things I know we
+went over it quick we've gone over this
+most of this before especially in Linux
+Essentials but uh specifically with ACLS
+and attributes that's new information so
+play with those look at the band pages
+to get a feel for all that they do and
+have fun maybe prank your system I'm
+going to go and put the sticky bit back
+on my temp folder because otherwise
+things won't work right on my system
+remember to learn everything do what you
+love and most importantly be kind I'll
+see in the next video

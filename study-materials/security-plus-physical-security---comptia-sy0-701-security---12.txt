@@ -1,0 +1,217 @@
+it Security Professionals not only need
+to be proficient in digital security
+they also need to have a knowledge of
+physical security one common physical
+security method is to have a barricade
+or a Ballard that prevents people from
+accessing certain areas of a physical
+area these are often used to Channel
+people through a certain access point
+and it's common to have these Ballard
+set up so that individual people can
+pass through but prevent any cars trucks
+or other vehicles from getting into that
+area these barricades can also be a
+security notice especially if they're
+brightly colored letting everyone know
+that this is a high security area we
+often see these installed as concrete
+barriers or ballards but you can also
+create barricades in other ways for
+example you may have water around a
+particular building and require people
+to go over a bridge to gain access to
+that
+facility when you enter or EX exit a
+building there's also a great deal of
+physical security especially if you're
+using something like an access control
+vestibule this is one where there is a
+room you must pass through to be able to
+gain access to the rest of the building
+this might be a room where all the doors
+are normally unlocked and if you open
+one of those doors no one else can enter
+the room while that door is unlocked or
+this may have higher security where all
+of the doors to the room are locked and
+when you badge in or unlock lock the
+first door all of the other doors remain
+locked and cannot be unlocked while that
+individual door is open or this may be
+the case where one of the doors of the
+room is always locked and the other door
+is unlocked and when one door is open
+the other door cannot be unlocked
+regardless of the configuration these
+Access Control vestibules are designed
+to allow or control access through a
+particular area they may be a very small
+area where only one person can
+introverse at a time or maybe it's a
+controlled group of people where you're
+evaluating their identification and then
+allowing them through the room here's an
+example of one of the doors to an access
+control vestibule this one has a card
+reader or a biometric reader on the
+outside that could allow you access to
+the room at which point you would check
+in with Security provide authentication
+and they may give you a pass or a card
+to allow you access to the rest of the
+facility this is very common for very
+long large data centers or for areas
+where you just need additional security
+to make sure that only the appropriate
+individuals are able to pass through
+that particular
+area another type of physical security
+control is a fence this is one that's
+relatively common and it's something
+that you can easily see as installed in
+this example you can see the fence going
+across the front of this facility
+because this is so obvious it may not be
+the exact security control you're
+looking for but it does provide a very
+good way to prevent access through this
+area this may be a transparent fence
+where you're able to see what's on the
+other side or you may design an opaque
+fence where people can't see what's on
+the other side from a security
+perspective we would like these fences
+to be very robust we don't want someone
+to be able to bend the fence or knock
+down part of it to gain access to the
+area and in very secure areas you might
+want to make it more difficult for
+someone to gain access over the fence
+this might include a very high fence or
+you might have razor wire across the top
+just to prevent anyone from Gaining
+access by going over the fence some
+physical security techniques require
+someone to stand in an area and monitor
+a particular location to watch for
+certain security events to occur but you
+might be able to make this a bit more
+efficient by using a camera when you're
+putting a lot of cameras together that's
+for your own use sometimes you'll see
+this referred to as CCTV or the closed
+circuit television these cameras are
+becoming increasingly more intelligent
+so they have things built in such as
+motion detection so they can alarm or
+alert you if someone happens to walk
+through an area and in some cases can
+provide very detailed object detection
+and be able to read someone's face or be
+able to read the license tag on a
+vehicle most organizations will have
+multiple cameras these are all networked
+together and we'll send all of their
+video back to one single Storage Point
+so that you're able to record this
+information from every camera over time
+but sometimes you need more than a
+camera or some type of automated
+security and if that's the case you may
+want to add a security guard for
+physical protection for anything that
+may happen in a particular area this is
+someone who may sit at a front desk and
+validate that anyone walking into the
+building is either an employee or
+someone who is allowed in as a guest by
+an existing employee you'll often see
+security guards working as two or more
+people people simultaneously to provide
+two-person Integrity or control this
+means that one security guard would not
+be able to circumvent the existing
+security policy because there's always
+someone else there to provide checks and
+balances and in almost every
+organization you're required to wear an
+identification badge this is a badge
+that may be on a lanyard or it may be
+attached to a jacket or coat and it will
+have a picture a name and other details
+about the person who has that
+identification badge this is a badge
+that you would wear and have visible to
+everyone at all times so they can easily
+see at a glance that you're allowed to
+be in a particular area of the building
+these are often integrated with the
+electronic locks that we might have on
+doors so every time you badge into a
+room you can use your identification
+card and all of that information is
+logged to a central
+database one way to prevent a attacker
+from Gaining access to a building
+through a dark area is to Simply
+illuminate that particular area with
+lighting more light usually means means
+more security because someone trying to
+get into your building who is
+unauthorized will probably want to do
+this outside the view of someone else
+sometimes you can use cameras that have
+infrared technology to be able to see
+better in dark areas but nothing is more
+secure than having a well-lit area if
+you're trying to prevent somebody from
+sneaking into a building finding the
+right light for an area is important as
+well you want to be sure it's one that
+can illuminate the entire areas and you
+want to be sure that the lighting angles
+are important especially if you're using
+cameras to capture facial recognition in
+a parking lot for instance you may have
+lights to be able to eliminate all of
+the cars in the parking lot and then
+have cameras that are able to monitor
+that parking lot 24 hours a day and 7
+days a week as we mentioned we might
+have cameras using infrared technology
+to better see things that may be
+happening in the dark these are devices
+that can detect infrared radiation in
+both light areas and dark dark areas and
+don't need to have lights to be able to
+see what's happening it's also common to
+see this infrared technology being used
+in things like motion detectors where
+you're not necessarily looking for video
+You're simply looking to see if there is
+something that may be moving in a
+particular area in some organizations
+you might even use pressure sensors so
+when somebody moves across an area the
+pressure sensor notices the change in
+force and can alert or alarm you that
+something is passing through a
+particular location red is great for
+detecting Motion in a relatively limited
+area but if you have a very large area
+that you would like to monitor you might
+want to use microwave Technologies these
+are designed to detect a movement over a
+much larger area and therefore might be
+a bit more efficient than infrared and
+perhaps even more advanced is the
+ultrasonic detection this is something
+that can send ultrasonic signals so
+you're looking for a reflection of sound
+waves this allows you to detect Motion
+in an area and can even be used to
+provide Collision detection especially
+in something like a parking lot or a
+loading
+zone

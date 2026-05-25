@@ -1,0 +1,379 @@
+hello I'm Sean powers and today we are
+going to finish up section 1.2 of the
+Linux plus certification series that
+we're doing uh specifically we're going
+to cover how to copy files over the
+network now our objective list
+specifically talks about these three
+different tools so we're going to use
+all three of them I use the first two
+all the time I don't know that apart
+from showing how to do it I've ever
+actually used NC or netcat to move a
+file from one place to another but it's
+listed as a as a copying files between
+system methodology so we will do it even
+though in practice you'll very rarely
+use netcat to copy files from one system
+to another now this should be a pretty
+quick video as we're just going to cover
+the three tools really quickly but I do
+want to thank the people listed here who
+are my patreon supporters and who make
+it possible for me to continually make
+videos like this for everybody to enjoy
+so thank you so much if you want to join
+in be a patreon supporter just check out
+the link in the description and you
+could be on that list which listed over
+here which we're going to have to start
+scrolling soon because uh more and more
+people are getting on there which I am
+humbled and I appreciate so much so what
+we have here are two different computers
+now I know we're on the same computer
+but I'm SSH into our test server which
+is on the local network and then this
+terminal window is our local mate
+virtual machine that we do most of our
+demonstration at now over here on this
+test server I've prepared a couple
+things if we do LS we'll see we have
+cool thing file.txt and a folder called
+stuff and if we look inside stuff
+there's just two files in there as well
+all right so that's where our
+information is currently stored over
+here on our local computer there's
+nothing so let's start by learning the
+SCP command now SCP is secure copy and
+it works just like the copy command on a
+local file system except of course you
+have to specify the post so first we say
+SCP and we say what is the source of the
+file that we're going to copy and in our
+case we have to specify the remote
+computer which is test no just for
+clarity's sake at least this first time
+I will do it all out I'm going to say s
+Powers even though it's the user's s
+powers on both computers so I wouldn't
+have to do this but you can specify it
+it will assume the same user if you
+don't specify and then I could say test
+because that's a domain name like the
+DNS name but I'll actually spell out the
+or I'll write out the entire IP so
+192.168.1. I think it's 36 I believe and
+let's look over here IP a uh uh yes 36.
+all right so
+so that is the uh remote host and the
+remote username and then you do a colon
+and then you have to say where is the
+path well it's in home s powers and it's
+called cool underscore thing now we
+could just say we can use Globs here as
+well so we could say cool thing dot star
+and it will do everything that that
+matches which in our case is just the
+one file and then a space and then the
+destination and in this case the
+destination is dot or the current
+directory all right so we'll press enter
+and oh it's the first time I've
+connected so I'm going to say yes I
+would like to connect
+and I have to type in my password
+and if we clear the screen in LS look at
+that the file has been transferred now
+just like with CP if you specify a
+folder you have to do the dash R flag to
+recursively copy stuff so if for example
+if we wanted to get the entire stuff
+folder we would have to do SCP and I'm
+going to do it shorter this time all
+right instead of saying s power is at
+since the username is the same I'm just
+going to leave off that the username at
+and I'm also going to use the DNS name
+instead of the IP address so if we do
+scp-r for recursive
+test and then colon home s powers
+stuff to dot what this should do is
+recursively copy the folder stuff from
+the remote test server to our local
+computer press enter it's going to ask
+for the password
+and sure enough now if we look we've
+also copied that folder so that's
+basically just like copying from the
+local file system except it does it over
+the network which is really really
+convenient and we can switch around the
+source and destination we don't have to
+go from like the remote server to here
+we could also copy something from here
+to the remote server so let's actually
+do that so over here let's get rid of
+cool thing.jpg all right so it's not
+there anymore if we wanted we could then
+start from here and say SCP
+cool thing.jpg is now our source and
+then the destination where it's going to
+get put is test
+home s powers and as we can just leave
+that uh as the place it's going to put
+it and if we don't specify a file name
+it's going to use the same file name so
+if we press enter
+now it looks like it copied so if we
+come back over here to test and there it
+is let's copy that file back okay so SCP
+works almost exactly like the CP command
+um it just you have to specify a host a
+remote host instead of just local files
+now rsync works very very similarly but
+it's important to know that rsync
+actually works in two modes you can
+actually have an rsync Damon running and
+I think it runs on Port 873 or something
+like that and that's what it listens on
+uh generally though most of the time you
+will just use rsync over SSH and that it
+does that by default you don't have to
+specify anything uh special for it to
+use SSH but just know there is a Daemon
+version of rsync and a lot of times like
+a a repository of like ISO files for a
+Linux distribution might be hosted on an
+rsync server that is actually listening
+on Port 873 it's a little bit faster
+there's not the overhead of compression
+or of income encryption but also it's
+not encrypted so you know usually we'll
+do it over SSH these days so that's what
+I'm going to demonstrate but just to
+know just know it does work in Damon
+mode where it's just rsync but we're
+going to do it over SSH and that's
+usually what you'll do now the big
+difference between
+um SCP and rsync is that rsync will only
+copy files that have changed so if you
+want to keep something up to sync like
+you want to make sure that a remote set
+of files is up to date with the current
+set if you use rsync it will check all
+the files but it will only transfer if
+things have changed or if there's new
+files and there's a whole bunch of
+options you can like delete like files
+if they're missing on the source and you
+copy to the destination and there's
+extra files there there are flags to
+delete those so you can keep them in
+perfect sync
+um but by default it will work just like
+SCP except it will only copy the bits
+required it will check to see what's
+already be there and only copy stuff
+that's needed right so let's demonstrate
+that really quick
+I'm going to clear this screen
+so just to get a clear idea of what
+we're going to do all right what do we
+have over here anything
+all right good this is perfect so
+um I am going to
+look inside stuff what's it what do we
+have inside stuff we have Thing One and
+Thing Two so let's get rid of
+thing two all right so now inside stuff
+we have just thing one and we have uh
+this JPEG file in here we don't have a
+copy of file.txt and we only have one of
+the files and stuff so if we use rsync
+we should be able to get everything up
+to date both of the Thing One and Thing
+Two I will get a copy of that file.txt
+but it won't have to copy over cool
+thing.jpg or the thing one all right so
+let's see if that's really what happens
+let's clear the screen just to
+get a fresh start here and now we're
+going to say rsync
+Dash R because I wanted to do it
+recursively this is the same thing as
+SCP and CP if you wanted to go to the
+folders recursively you have to use Dash
+R okay so rsync Dash R and the source
+place or the source files that we want
+to copy our test and again the same
+thing if this was a different username
+we would do like user at test or user at
+192.168.1.36 I'm just doing the
+shorthand here so our sync Dash our test
+and then home s powers
+and I just I put a forward slash at the
+end of it and what that means is I want
+you to do all the stuff inside this
+folder I could actually just so it's
+clear say star that way it will copy all
+the files like star.star that it finds
+in that remote folder and the
+destination is going to be dot our
+current folder all right so let's see if
+this does uh exactly in fact I'm going
+to add
+a dash V flag for verbose and that's
+just going to give us more information
+about what it's actually doing I just
+want to make sure that we can see that
+it only copies the file that it's files
+that it needs so we'll do that should
+ask us for our password
+all right so it it did it got the whole
+file list it went through everything it
+said that it sent 117 bytes received
+that went that fast but here's the deal
+total size is a speed up is a 0.53 now
+that's a little weird you would expect
+it to be a little bit faster uh but
+let's see if we got everything
+a Thing One and Thing Two is in stuff
+and uh sure enough we have the file.txt
+and cool thing uh dot jpeg so let's
+clear the screen if we were to run the
+file or run our sync again it should go
+extremely fast and not even have to
+really copy any files because we already
+have a complete copy so press enter
+all right it did and I think because
+they're such small text files there's
+actually more overhead in checking them
+than actually transferring them but
+basically it didn't have to copy any of
+the files at all because everything was
+still there all right hopefully that
+makes sense now I'm going to clear the
+screen
+R minus RF star so everything is gone
+we're gonna clear the screen here now we
+will use netcat uh first of all I mean
+this video is not too long yet so
+usually when you have a netcat
+demonstration uh you actually uh you
+actually show this example that uh of
+how netcat work because netcat Works
+basically you set up an ad hoc Damon it
+listens on a certain Network Port and
+then on the other side you connect to
+that Network Port so in this case if we
+were to say NC which is netcat that's
+the netcat program Dash L for listen and
+on Port 9999 okay so we do that press
+enter
+netcat is just listening on Port 9999
+for somebody to connect to it with
+netcat so over here
+I can say netcat test so the server test
+or I could do the IP address but netcat
+test now there's no authentication here
+we're just connecting directly to the
+port and you have to tell it what port
+999. press enter and now they're
+connected and this is generally the
+demonstration that you see Hello press
+enter it appears over there person over
+here
+why hello and it just goes back and
+forth because they're just connecting
+those ports together however if you
+can't if you combine this concept with
+standard input and standard output you
+can actually transfer a file all right
+let's try that out so we just pick one
+of them here we'll just hit Ctrl C all
+right and so now netcat has been stopped
+so it's not running anymore clear the
+screen over here clear the screen now
+these are the files that we have so
+if we expand on the idea of listening on
+a port instead of our typing going
+through we can redirect standard input
+so that it reads a file instead of our
+typing so we would do the same sort of
+thing we would say NC
+Dash L for listen that doesn't matter
+what port I'm going to do 999 again
+and then less than means redirect
+standard input and we'll do that
+file.txt okay hopefully that makes sense
+so we do that and it's listening okay
+now since it's listening and it's trying
+to immediately send from standard input
+the contents of that file
+over here well first first we will just
+show you this this part
+NC
+test 9999 if I just press enter what do
+you expect to see
+the contents of that text file were
+immediately printed on our screen so
+it's kind of like uh we pre-loaded that
+chatting thing that we did and now it's
+on the screen so Ctrl C and we're done
+okay now if you remember over here
+there's no files so let's do this exact
+same thing again
+I'm going to redirect the file for
+standard inputs so that that's what it's
+serving out like when we connect to
+netcat that's the text that's going to
+be there well now we could say NC netcat
+test 999 but instead of displaying it on
+the screen I want you to redirect
+standard output into
+file.txt press enter and we don't see
+anything however if we press Ctrl C
+and do an LS
+now if we look at file.txt we have
+transferred that file over netcat
+hopefully that makes sense that's what
+we did in fact I don't know if I ever
+showed you the contents but over here
+that's what is inside the file.txt now
+like I said this is kind of just the
+very basics of using SCP rsync and
+netcat you can do a lot of things with
+each of those programs but this is how
+you transfer a file that's specifically
+what's mentioned in the Linux plus
+objective so I wanted to make sure you
+got that part down so you know exactly
+what's happening there but there's much
+more you can do with like rsync I use
+rsync all the time and generally like if
+I'm moving a folder full of like HTML
+files or something to a new server I
+will do rsync for a number of reasons
+one let's say it's copying a whole bunch
+of files or a whole bunch of video files
+and it gets interrupted halfway through
+well if you do rsync it will pick up
+where it left off because it scans all
+the remote files and then it only copies
+the stuff that is missing from from the
+destination when it looks at what you've
+specified in the source so anyway rsync
+is very very powerful SCP I generally
+think of it just like copy but over the
+network instead of on a local file
+system
+and like I said you'll probably never
+really use netcat but it's a cool
+program that does kind of a a really
+simplistic and cool thing anyway learn
+everything
+do what you love and most importantly be
+kind see in the next video

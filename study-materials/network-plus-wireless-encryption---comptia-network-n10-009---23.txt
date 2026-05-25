@@ -1,0 +1,76 @@
+the wireless networks we use both at
+home and in our businesses are sending
+private confidential and sensitive
+information all the time and we're very
+concerned that someone might have access
+to that data especially on a wireless
+medium that effectively could be tapped
+into and listened to by any device that
+happens to be nearby one way that we
+provide security on this wireless
+network is to limit what users are able
+to access the Network we would commonly
+do this with some type of authentication
+method such as a username a password or
+some type of multiactor
+authentication and of course we want to
+be sure that everything sent over this
+wireless network is protected so we need
+to add confidentiality in the form of
+encryption and to be sure that we've
+received the correct information over
+this wireless network we include a
+message Integrity check so that we can
+verify the information that we've
+received is exactly the information that
+was originally
+sent one of the first encryption Types
+on wireless networks is a method known
+as wired equivalent privacy or weap
+unfortunately web was discovered to have
+some significant cryptographic
+vulnerabilities so we needed to very
+quickly replace web with something that
+was much more secure and that
+replacement was known as WPA or Wi-Fi
+protected access WPA was implemented as
+a temporary stop gap between the
+insecure web and a more secure version
+of WPA this first iteration of WPA was
+designed to work on exactly the same
+Hardware as that older style web that we
+were replacing but we knew that we would
+need enhanced security that we would not
+currently have available in this initial
+WPA this replacement WPA we named WPA 2
+this is Wi-Fi protected access version
+two and it's a version that's been
+around since 200 and four you often see
+WPA2 reference with a block Cipher mode
+known as
+ccmp if we were to spell this out it
+would be counter mode with Cipher
+blockchaining message authentication
+code protocol or counter cbc-mac this
+effectively combined encryption and
+integrity in the same protocol the
+encryption was available with AES and
+the message Integrity check was enabled
+using CBC Mac the update to WP PA 2 is
+WPA 3 this is Wi-Fi protected access
+version 3 and it was introduced in 2018
+this includes a different and more
+capable block Cipher mode known as gcmp
+this is galwa counter mode protocol this
+continues to use AES for data
+confidentiality and we are using a
+message Integrity check with the galwa
+message authentication code or GMAC if
+you're planning to implement any type of
+security on your wireless network you
+want to use use the highest level of
+security available in your access points
+and on your client devices and if you
+have the option you should consider
+upgrading all of your devices to use the
+most capable security method available

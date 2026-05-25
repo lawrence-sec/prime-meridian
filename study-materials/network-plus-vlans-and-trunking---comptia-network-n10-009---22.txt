@@ -1,0 +1,313 @@
+as a very broad description a local area
+network or a lan is a group of devices
+that are in the same broadcast domain
+for example when we connect devices to a
+switch all of those devices are in the
+same broadcast domain in this diagram we
+have one switch on the left that's our
+red switch and all of the devices
+connected to that switch are in the same
+broadcast domain on the right side is a
+blue Network this blue network is also
+on its own switch and all of the devices
+connected to this switch are on their
+own broadcast domain because there are
+two separate switches and these switches
+are not connected to each other no one
+on the red Network can communicate
+directly with anyone on the blue Network
+one of the challenges with this
+configuration however is that we have
+two devices on the red Network and two
+devices on the blue network but you can
+see that there are 24 interfaces on the
+front of each of these switches this
+means we're running two separate
+switches with two separate power sources
+they're both taking up space within our
+rack and we have to manage each of them
+individually it would be much more
+efficient much easier to manage and much
+less expensive if we could have all of
+these devices reside on the same
+physical switch we can do exactly that
+and continue to provide that separation
+between the red Network and the blue
+Network on the same switch by using a
+functionality known as virtual local
+area networks or vlans the red network
+is still on its own broadcast domain and
+the blue network is on its own broadcast
+domain but all of these devices are
+connected to the same switch we've gone
+into the switch and defined each
+interface on the switch as belonging to
+either the red VLAN or the blue VLAN and
+only devices plugged into the blue
+interfaces would be able to communicate
+with each other and only the devices
+plugged into the red interfaces would be
+able to communicate with each other
+instead of colors vlans are defined by
+number so in this switch we have a VLAN
+1 a VLAN 2 and a VLAN 3 we can see that
+there are devices that are connected to
+interfaces that are configured for VLAN
+1 other devices connected to interfaces
+that have been configured for VLAN 2 and
+still other devices that are configured
+for interfaces that will only
+communicate on VLAN 3 this becomes a bit
+of a challenge when you want to connect
+VLS across individual switches for
+example you have two switches in this
+scenario I one of the switches has a
+VLAN 100 and a VLAN 200 and the other
+switch also has a VLAN 100 and VLAN 200
+we would like for VLAN 100 on one switch
+to be able to communicate with vlam 100
+on the other switch and perform the same
+functionality for VLAN 200 of course one
+of the ways we could do this is to
+Simply connect an Ethernet cable between
+VLAN 200 on both switches and connect
+another ethernet cable between vlam 100
+on both switches you can tell however
+ever that we're going to run into
+problems if we want to connect 10 20 100
+or even a th VLS across both of these
+switches we can't connect 1,000
+interfaces across each of these so
+instead we should find a way to connect
+these switches together by using a
+minimum of physical connectivity we can
+do this by implementing a VLAN trunk
+this is also referred to as an
+802.1q trunk or a1q trunk in instead of
+having these multiple ethernet
+connections between vlans we have a
+single ethernet connection between these
+two switches and you can see that we've
+configured that interface as a trunk
+interface this means that anything sent
+from VLAN 100 or VLAN 200 across this
+trunk will be dropped off onto the
+appropriate fan on the other side so how
+is the trunk connection able to keep
+track of what traffic is coming from
+VLAN 100 and what traffic is coming from
+VLAN 200 the way we do this is by
+tagging each frame this is a normal
+ethernet frame we have a preamble a
+start frame delimeter a destination Mac
+a source Mac a type A payload and a
+frame check sequence to be able to add
+additional tags into this Frame we're
+going to add an additional field right
+in the middle right after the source Mac
+address and we refer to this as the VLAN
+tag these VLAN tags are 12 bits long and
+if we're not counting the VLAN numbers
+that are result oberved we can have a
+total of
+4,094 vlans that can Traverse that trunk
+connection this makes the process
+relatively easy for connecting these VLS
+together between switches instead of
+having 4,000 physical interfaces that we
+are connecting to each other we have a
+single interface and we're simply
+tagging all of the data sent over that
+connection before there was an 802.1q
+standard to provide this trunking
+functionality there was a proprietary
+form of trunking known as ISL or inter
+switch link ISL is relatively outdated
+at this point and it's likely that any
+trunk that you'll ever run into will be
+an
+802.1q standard
+trunk let's see how these trunks will
+use that tag functionality to be able to
+transfer data from a VLAN 200 on one
+switch to a VLAN 200 on the other switch
+we'll start with a normal ethernet frame
+from a device that is connected to an
+interface defined as VLAN 200
+this packet needs to find its way to a
+device that is on the other switch on
+VLAN 200 so that packet will be sent to
+the trunk interface on the switch at
+that time an additional tag will be
+added that includes the VLAN 200 and it
+is sent across that trunk connection to
+the other switch the switch that
+receives that frame will look at the tag
+see that it was destined for VLAN 200 it
+will remove the tag from the frame and
+send that traffic to the end station
+so now we have a much more simplified
+design instead of having a separate
+cable that's running between switches
+for VLAN 1 VLAN 2 and VLAN 3 we can have
+a single ethernet connection between
+those two and simply trunk all of the
+traffic between those
+switches when you first configure a
+switch there will be a default VLAN for
+this switch that means that every device
+you connect to this switch by default
+will be connected to a VLAN very
+commonly this is VLAN one that is
+defined as the default VLAN but there's
+another type of VLAN configuration that
+you would have inside of a switch known
+as a native VLAN a native VLAN is one
+that can Traverse a trunk but a VLAN tag
+is not added to any of the traffic going
+over that trunk connection so it's
+common to define a single native VLAN
+within a switch that will never be
+tagged as that traffic is sent over that
+trunk connection this is because there
+are some devices that will not
+communicate over NATO 2.1 Q Network and
+some of the administrative functions
+within your switches where switches are
+communicating with each other may need
+to use the native VLAN to perform that
+communication for example management
+traffic or switch notification messages
+may use the native VLAN rather than
+being tagged as a separate VLAN inside
+of that switch if you're defining a
+native VLAN on one switch you'll need to
+make sure that that native VLAN is
+identical on the other switch that
+you're connecting to to otherwise you'll
+see error messages appear in the log of
+your
+switch up to this point we've been
+describing a traditional layer 2 switch
+that is referring to the OSI layer 2 or
+data link layer where switches make
+their forwarding decisions based on the
+Mac address of an Ethernet frame but
+there's another type of switch known as
+a layer three switch that's able to make
+forwarding decisions based on the OSI
+layer 3 or network layer of an IP packet
+this is looking at the destination IP
+address and making a routing decision on
+where that traffic should go you're
+effectively taking switch functionality
+at layer 2 and router functionality at
+layer three and combining both of those
+into the same unit with the layer 3
+switch we're not changing the switching
+process the switch is still operating at
+layer 2 and we're not changing the way
+that a router operates the routing
+functionality within this device is
+still operating at layer three but both
+of these are now combined Within the
+same device saving space saving power
+and making the administration process
+that much easier this means that we can
+have Layer Two functionality within our
+switch where we might have separate VLS
+within the same physical switch but now
+we can also have routing functionality
+that allows us to route between those
+vlans all within the same switch this
+means that we'll need to configure
+interfaces inside of the switch that are
+designed to route from one VLAN to
+another we refer to these as s V or
+switched virtual interfaces if you have
+a layer 3 switch it may not have the
+layer 3 functionality turned on by
+default so you may need to enable that
+in your switch configuration many
+switches require you to restart the
+switch once you make that configuration
+change and you may be thinking why don't
+we use layer three switches for
+everything instead of having two
+separate physical devices it seems that
+having one single physical device would
+be much easier to manage and in many
+cases that's true but the routing
+functionality of a layer 3 switch tends
+to be less capable than the routing
+functionality of a standalone router
+there is a term within the industry
+where we tell the switch needs to switch
+and a router needs to Route when you
+start combining those devices together
+you begin to lose functionality so if
+you have a smaller remote site or
+perhaps even an internet router at home
+you might have this layer3 switching
+functionality to be able to route and
+switch within the same device it's very
+common on our corporate networks to need
+both data functionality for our
+Computing devices and voice
+functionality to be able to make
+telephone calls before the days of
+Voiceover IP we would need to run one
+cable for our ethernet Network and a
+separate cable for our telephones our
+ethernet cables would connect to a
+switch and our telephone cables would
+connect to a PBX or a private Branch
+exchange with the Advent of Voiceover IP
+Technologies we can get rid of that
+individual voice cable completely and
+run both voice and data over the same
+ethernet connection and in many
+Enterprise environments you have a
+switch that is on the network you have
+telephone that you would connect to the
+switch and on the back of the telephone
+is an additional ethernet cable where
+you can plug in your local Computing
+device one of the challenges that comes
+with adding both voice and data to the
+same network is that you now have a
+great deal of contention between both of
+those Technologies data likes to use a
+lot of bursty bandwidth on the network
+but voice communication prefers a very
+consistent level of access if there's
+any type of congestion or a lot of usage
+on the network this could affect the
+Voiceover IP communication and none of
+your phone calls would sound very good
+to resolve this issue we can put our
+voice communication on one VLAN and put
+our data communication on the other VLAN
+but of course we're using a single WI to
+connect both our phones and our
+computers so we can use VLAN
+Technologies to do that within that same
+cable through the use of trunking this
+requires you to use a switch that will
+recognize that you're connecting both a
+phone and a computer at the same time
+but once you're using the right
+equipment this becomes a relatively
+straightforward process so now with this
+switch configuration we can assign our
+phones to be VLAN 200 assign our
+computers to be VLAN 100 00 and send all
+of that traffic to our switch where it
+will be able to break those two apart
+and put them on the correct VLAN for
+that particular use this means we can
+now download as much information as we'd
+like from our computer while we're on
+the phone communicating with others and
+be able to perform both of those
+seamlessly

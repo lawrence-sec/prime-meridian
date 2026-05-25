@@ -1,0 +1,262 @@
+as you're probably aware at the MAC
+address level there's no mechanism for
+counting how many times a frame might be
+seen on a network for that reason we
+have to be very careful that we don't
+create a loop on our switch Network
+because those frames will continue to
+Circle and circle and circle around that
+Network until you unplug one of those
+connections that's one of the reasons
+that it's so important to have spanning
+tree enabled on your network so that any
+potential Loop could be stopped before
+that traffic starts looping obviously
+switches forward traffic based on the
+destination Mac address that's inside of
+a frame so every unicast packet has a
+single destination on where that packet
+should be heading there are some packets
+that are sent to multiple devices on the
+network simultaneously broadcasts and
+multicasts are a very good example of a
+single frame that can go into a switch
+and that single frame can be transmitted
+out every other interface on that switch
+with I P we have a time to live field
+this time to live field prevents any
+particular packet from circling
+indefinitely around the network but
+there's nothing in the frame on a switch
+Network that can prevent that type of
+loop a normal switch Network might have
+a switch on one end of the network and a
+switch on the other end of the network
+and they're connected with one cable
+when we send traffic across that Network
+it traverses that cable to make its way
+to the destination device but inside of
+a wiring closet it's very easy to add a
+separate connection accidentally thereby
+creating a loop on the network now
+whenever traffic traverses this network
+it's trying to find its way to the other
+side of the network but instead it loops
+around and around and around the network
+and as more traffic is added to the
+network that traffic also loops around
+the network until very quickly both
+switches are overwhelmed and the network
+comes to a grinding halt this is why
+many Network administrators ERS turn on
+spanning tree to prevent loops on the
+network but how does spanning tree know
+where these different switches are and
+how is it able to prevent Loops one of
+the mechanisms used by spanning tree
+protocol is the bridge protocol data
+unit or bpdu all of these switches are
+sending Mac layer multicast to each
+other that contain these Bridge protocol
+data unit frames any other switch that
+is on this local broadcast domain will
+see these multicasts and see that they
+contain configuration details and they
+form whenever there's any topology
+change the default for spanning tree is
+to send these bpdus out every 2 seconds
+so we know that every switch that is on
+our broadcast domain is getting an
+update from our switch every two seconds
+and our switch is receiving updates from
+other switches every 2 seconds but if we
+don't see these hello frames arriving
+every 2 seconds we wait and see if
+another 2 seconds goes by without an
+update and if finally we see three of
+those that are missed the link is
+considered to be down at this point
+spaning tree realizes there's been a
+change to the topology of the network
+and it redesigns itself to prevent any
+Loops spaning tree relies on the concept
+of a root bridge this root bridge is
+elected when the network is first
+started all of the bridges participate
+in this root Bridge election and they
+choose the best connection to be able to
+communicate to that root Bridge you can
+manually configure which Bridge you'd
+like to use as the root bridge by
+setting Bridge ID to be a low value you
+can set these Bridge IDs to be between 0
+and
+61,2 40 and the one that has the lowest
+Bridge ID is the root bridge if you have
+multiple switches with the same Bridge
+ID the switch that has the lowest Mac
+address number is the one that becomes
+the root Bridge once the root bridge is
+elected all of the other switches
+configure their settings so that they
+know exactly how to communicate back to
+this root Bridge as an example we have
+this network with a number of switches
+on it we have Bridge 1 Bridge 6 Bridge 5
+Bridge 21 and Bridge 11 and all of these
+switches are connecting multiple
+networks to each other when this network
+was created a root Bridge was determined
+this is the bridge at the top that is
+Bridge one and you can see that this
+bridge has two designated ports that are
+connecting the route to the rest of the
+network all the other switches are
+configured with a root port and that
+root Port is the port that you would
+take to get back to the root Bridge and
+they may also have designated ports that
+are active and passing traffic some
+switches might also have blocked ports
+these ports have been blocked by
+spanning tree to prevent any loops on
+this network for example if we wanted to
+connect from Network a and connect to a
+device in network M we can simply pass
+through Bridge 6 we could also go all
+the way through the network to a
+different bridge but you'll see there is
+a blocked Port that would prevent us
+from looping around this network thanks
+to spanning tree protocol this
+configuration works great and we can
+communicate between Network a and
+network m without a problem but what if
+we run into an issue where we lose
+connectivity between Network a and
+Bridge 6 we now have no way to
+communicate from Network a to network M
+because we have these blocked ports that
+originally were blocking a loop spaning
+tree recognizes that this connection has
+failed because the hello was not seen
+within three updates and spaning tree
+will now go into a mode to reconfigure
+the network it first removes those
+blocked ports from those bridges so now
+Network a can communicate through
+Network y network c network J through
+the route and finally to network M this
+is how spaning tree is able to change
+the configuration of the network in real
+time to allow us to communicate to these
+different networks without causing a
+loop on the network spaning tree can put
+these interfaces into different states
+we've already seen the blocking State or
+the discarding state so that it's not
+going to pass traffic through that
+particular interface there's also a
+listening mode that spanning tree will
+use before making any changes to the
+network it's listening for other
+switches that might be on that local
+broadcast domain and it's able to set
+its configuration based on the other
+switches that it sees it then begins
+learning and adding information to the
+MAC address table inside of the switch
+and once it knows whether that
+particular interface should be enabled
+or disabled it puts it into either a
+forwarding mode or or a blocking mode
+and if you want to be sure that spanning
+tree will never use a particular
+interface to forward traffic you can put
+it into a disabled mode where the
+administrator of the network has
+administratively turned off that
+Port if you've connected a device to the
+network and it's received an IP address
+but yet it still can't communicate to
+other devices that are on the same
+network you may have a problem with a
+VLAN configuration every interface on a
+switch is associated with a particular
+VLAN
+this may be a single VLAN for a single
+device we refer to those as access ports
+and each access port is assigned a
+particular VLAN ID you can see on this
+switch some of these interfaces are on
+VLAN 254 and other interfaces are on
+VLAN 100 if you're connecting a device
+to switch interface number four and
+you're not sure which VLAN is associated
+with switch interface number for you'll
+need to check the configuration of your
+switch and determine what specific VLAN
+is assigned to that physical interface
+it may be that we were expecting switch
+interface 4 to be on VLAN 254 so we
+would need to make a change to our
+switch configuration to be able to
+change that ID or we would need to move
+to an available interface that's already
+configured for VLAN 254 you'll find that
+this is a very common issue especially
+when your network has a large number of
+vlans but fortunately it's something
+that can be resolved relatively
+quickly even after configuring the
+correct VL and plugging into the network
+and receiving the correct IP addresses
+and configuration settings you still
+might find that you're not able to
+communicate across the network you've
+looked at your switch configuration and
+your routing tables and everything
+appears to be configured properly but
+you may find that packets are still
+being dropped and not making it to its
+final destination you could be
+configuring everything correctly inside
+of your switch in your router but if
+you've got Access Control lists
+somewhere along the way it could be
+blocking some of the traffic that you're
+sending you'll need to check the
+switches and routers on your network to
+see if any access control lists have
+been configured on any of those
+interfaces this is usually a very quick
+check and it should be part of your
+normal troubleshooting process
+especially if you find that no traffic
+is able to communicate from one network
+to another Access Control lists work
+very similar to a firewall rule base we
+would like to have the more granular
+rules at the top of the list the access
+control list stops evalua ating these
+after finding a match so having the more
+common matches at the top of the list
+would make the network that much more
+efficient this also means that we can
+fire on more granular controls at the
+top of this list than the broader
+controls that might be lower down in the
+ACL as a best practice if you're making
+any changes to an access control list
+you might want to disable the ACL
+functionality first it's very possible
+to make a change to an ACL that would
+effectively remove your access to the
+same switch also remember if you add an
+access list to an interface the default
+for many devices is to automatically
+deny all traffic that's not specifically
+listed in an access control list so
+building an empty ACL would effectively
+filter all communication through that
+device

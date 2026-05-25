@@ -1,0 +1,73 @@
+when recovering from an outage one of
+the statistics that managers want most
+of all is how long is it going to be
+before we get back up and running the
+technical term for this is the recovery
+time objective or RTO the RTO is a time
+frame that defines how long it is before
+we can get up and running for example
+your organization may not consider you
+up and running until both the database
+server and the web server are
+operational the time frame it takes to
+get both of those systems running would
+be the recovery time objective another
+useful measurement would be the recovery
+Point objective or RPO recovery Point
+objective is a point in time where we
+can say that we are now up and running
+for example we may only consider
+ourselves operational if we have at
+least the last 12 months of data
+available for our customers to reference
+and if we have to reload data from our
+backups we know that we have to get at
+least 12 months of data in the database
+before we can say that we are now up and
+running that 12 months of data is
+referred to as our recovery Point
+objective when planning for outages we
+need to understand how long it will take
+to fix a problem that has occurred this
+describes the average amount of time it
+takes to resolve a problem that may have
+occurred and that includes both time to
+diagnose time to get replacement
+equipment time to install the
+replacement equipment and then get that
+equipment configured this is often a
+value that we can change based on what
+resources we might have available for
+example you might have a contract with a
+third party where they provide a
+replacement equipment within two hours
+if there's an outage or you might
+purchase additional equipment to have on
+site so if an outage occurs you can
+simply pull that new equipment out of
+inventory this means that you may be
+able to spend a little bit more money
+now to decrease the total meantime to
+repair if you're purchasing new
+equipment for your network you may
+notice that that equipment also includes
+a value for mtbf or meantime between
+failures this is the estimated time that
+the system will run before there is
+another outage and it's commonly used
+for planning purposes to know how risky
+it might be to use that particular piece
+of equipment this might be provided by
+the manufacturer as a prediction based
+on the type of equipment that you're
+using or it may be based on the
+historical performance of that equipment
+over time you can perform a rough
+calculation of meantime between failures
+by taking the total uptime for that
+equipment and dividing it by the total
+number of breakdowns this allows you to
+manage the risk of that downtime and
+predict when there may be issues
+associated with that particular piece of
+equipment

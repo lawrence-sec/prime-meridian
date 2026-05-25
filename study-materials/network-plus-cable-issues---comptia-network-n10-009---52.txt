@@ -1,0 +1,390 @@
+when you're working with fiber optics
+you have to make sure that you're using
+exactly the right kind of fiber optic
+connection this is because the light
+works very differently in one type of
+fiber versus the other for example with
+multimode fiber the fiber can use
+multiple modes to be able to find its
+way to the other end of the connection
+this means the light will use different
+paths to find its way from one end of
+the fiber to the other this is very
+different than using single mode fiber
+with single mode fiber the light sour
+uses a single path to go all the way
+through the fiber and you can see with
+single mode fiber that it is a much
+smaller fiber diameter than it is with
+multimode fiber and it's difficult to
+tell the size of the fiber core and
+cladding unless you look very carefully
+and even then it becomes very difficult
+for example in multimode fiber you often
+find two different sizes one that is a
+50 Micron and one that's a little bit
+larger that is a 62 and 1/2 Micron and
+there's also cladding around around that
+that makes the total size of the fiber
+125 microns which is identical if you
+were to hold them in your hand single
+mode fiber is very different you can see
+it's around 9 microns but still we have
+clading around the outside that brings
+it up to 125 microns so you could be
+holding one piece of fiber but that
+fiber could be one of three different
+standards that are commonly used on your
+network if you do mix fibers where you
+plug in a single mode fiber where multi
+mode should be or multi mode fiber where
+single mode should be you should see
+signal errors and have a difficult time
+communicating across that link often the
+fiber will have different colors to help
+designate what size it happens to be but
+you cannot always rely on those colors
+so make sure you document all of the
+fibers that you receive there will often
+be writing on the outside of the fiber
+that will tell you what type of fiber
+optic is inside and what sizes it
+happens to be this will help when you're
+troubleshooting to verify exactly what
+type of fiber you might be
+using not only can we mix fiber but we
+can also mix copper there are many
+different types of copper cables and
+they all look very similar from the
+outside the way that these cables are
+constructed is very standardized by the
+Telecommunications industry Association
+or Tia the Tia set standards for how
+certain types of cables should be
+manufactured and they have tests that
+confirm that the cable that was
+manufactured meets their strict
+guidelines once cable are manufactured
+and tested they will qualify as a
+certain category of cable and that's how
+we reference different types of cable
+and different constructions of those
+cable types so if you were to look at
+Category 5 cable versus Category 6
+versus category 7 you will not only see
+that they are constructed very
+differently but they're able to support
+different types of signals across that
+copper so if you look at the I standards
+for ethernet networks it will specify
+the minimum cable type that could be
+used for that particular standard so if
+you're reading through the 1000 Bas T
+standard it states that the minimum
+cable you can use for this is a category
+5 cable but if you read through the
+10gbase T standard you'll see that the
+minimum cable is a category 6 and a
+category 6A depending on how far you
+need to transmit that signal these it
+standards will often specify the speed
+of the signal moving through that copper
+cable so you'll see a bandwidth rating
+or speed rating associated with that
+this is the theoretical maximum data
+rate that we can get across that
+particular piece of copper and it's
+often measured in a number of bits per
+second sometimes you'll hear bandwidth
+and throughput mentioned in similar ways
+but throughput is different than
+bandwidth bandwidth is our theoretical
+maximum data rate over that link whereas
+throughput is the total amount of data
+that we're putting over that link in a
+particular time frame this is often
+measured also in bits per second but
+sometimes it's also measured in bytes
+per second so you may have to do a bit
+of a calculation to be able to translate
+between both of those and with all of
+these cable standards there is a maximum
+length that we're able to extend that
+cable and still maintain the standard
+amount of signal we need to know the
+maximum distances and they are usually
+part of the i e standard for example the
+i e standard for 1000 Bas t specifies a
+minimum category type of category 5 and
+you can extend that particular link to
+to 100 m of distance if you are using
+unshielded twisted pair and you are
+running 10g based T signals over that
+cable you need to use Category 6 and
+that unshielded cable will be able to
+run 55 M and still comply with the
+standard if you're installing cable into
+an existing building or you're building
+out a new network run it's always useful
+to test the cable that you're installing
+you need to validate the cable that it
+is not only installed properly but that
+it can support the signals that you plan
+to put over that particular link it's
+common to use a cable tester that will
+perform tests that are very similar to
+the ones that are used to qualify a
+particular category of cable so you can
+install your cable and run your tests
+and your tester will tell you what
+category of cable best matches the cable
+that you've recently installed if you
+use the wrong category of cable you'll
+see errors on the link and that will
+certainly cause a Slowdown these
+physical errors are often caused by
+signal attenuation you might have a loss
+of signal completely or you may be
+receiving CRC errors UTP stands for
+unshielded twisted pair cable this is a
+good example of an unshielded twisted
+pair cable you can see that there are
+four pairs of wires inside of this cable
+and none of those wires have any type of
+shield around them you can also see that
+each of these pairs is twisted and
+that's how we get the term unshielded
+twisted pair there's also a type of
+cable that is more resistant to
+electrical interference this is a
+shielded twisted pair or STP shielded
+twisted pair has a shield either around
+the entire cable or around individual
+pairs inside of the cable to help
+prevent interference and you'll also see
+that shielded twisted pair has a
+grounding wire so you can ground that
+Shield here's a shielded twisted pair
+cable that not only has a braid around
+the entire set of cables but each
+individual pair of the cables is
+shielded you would need to pull those
+back to be able to put it into an RJ45
+connector or to punch it down to a
+punchdown block the wires inside of
+those cables are very close to each
+other and sending an electrical signal
+through one pair of wires could affect
+the signal that's being transmitted or
+received on another pair of wires we
+refer to that interference as cross talk
+or XT this cross talk value describes
+how much of that signal is leaking into
+other wires and we can often measure
+exactly how much of this signal is being
+transferred over from one wire to
+another
+one of these cross talk measurements is
+known as next this is near end cross
+talk this means that we are measuring
+how much of this signal is leaking into
+those other wires at the closest end
+next to the testing device this is
+usually the strongest part of the signal
+and often that is the first cross talk
+value we'd like to see but we might also
+want to see cross talk values at the far
+end of the cable we refer to that as far
+end cross talk these two measurements
+can give you an idea of just how much
+signal happens to be shared between
+those wires as it's going from one end
+of the cable to the other you might also
+find that there's cross talk in your
+cable that's being transmitted from
+another cable we refer to this as alien
+cross talk because that's how you would
+describe interference that's coming from
+other cables and then you have the
+attenuation to cross talk Ratio or ACR
+this allows us to compare two different
+values one of those values is
+attenuation or it's our signal loss that
+we see when we plug into a connection
+the other value is near in Cross talk so
+we're able to compare how much signal
+we're losing versus how much signal is
+leaked between the different wires we
+can often see this as a signal to noise
+ratio where we have a total amount of
+signal that we're putting on the wire
+and then we have interference that's
+being caused by the near and cross talk
+we can then see how much good signal is
+getting through the wire versus how much
+is noise that may be disrupting that
+communication we would obviously like
+that ratio to be very large if we had a
+10:1 signal to noise ratio our signal
+would be 10 times stronger than the
+noise but if the ratio was a 1: one your
+signal and your noise would be exactly
+the same signal strength on that
+wire if you're seeing a lot of cross
+talk it may be related to the punchdown
+or the connectors that you're putting on
+the end of the cable and it might be
+worth reconnecting that particular cable
+you also want to be sure to maintain as
+many twists as you can in this cable you
+obviously need to untwist a little bit
+from the end to either put it into a
+punchdown block or into an RJ45
+connector but you want to maintain as
+much of that twist as possible category
+6A has increased the cable size and many
+category 6A cables will have the spacer
+in between that physically separates the
+different wires in order to minimize the
+amount of cross Talk and of course if
+you're wondering if a cable is working
+the way it should or you're installing
+new cables into a facility
+it always makes sense to perform tests
+on that cable to see if it passes a
+particular level of cable
+category earlier we described electrical
+interference and how a shielded twisted
+pair cable would resist that type of
+interference it's always useful to
+minimize the amount of Emi or
+electromagnetic interference that we
+would have both on an unshielded and a
+shielded cable you always want to be
+careful to protect the wire that is
+inside of these cables especially if it
+is a shielded cable and maintain that
+Shield all the way through that
+particular cable run if there is a break
+in that Shield there's a possibility
+that electrical magnetic interference
+will get into those wires there's also a
+minimum Bend radius that you can use and
+you'll want to check what the
+documentation for your cable to see just
+how much of a Bend you can make to that
+cable without causing any damage and of
+course you never want to use Staples on
+these cables and you want to limit the
+number of plastic cable ties a good best
+practice is to use some type of
+removable cable tie such as Velcro so
+that you don't crimp any of those wires
+inside of the cable it's also useful if
+you avoid any of these external sources
+of interference such as power cords
+fluorescent lights any type of
+electrical system or generator and any
+fire prevention components all of these
+can put out electromagnetic interference
+and that interference can find its way
+into your network cables and if you're
+wondering if your cable is coming close
+to one of those sources of interference
+you could always a cable test and see
+what your signal to noise ratio might be
+over that
+link attenuation describes a loss of
+signal as it is sent over a particular
+distance attenuation is something you'll
+find both in copper cables and in fiber
+optic connections as you are moving down
+that fiber or moving through that copper
+we are losing some of the strength of
+that signal as we are moving farther and
+farther away from the source you've
+probably seen this on wireless networks
+As you move farther and farther away
+from the antennas the attenuation of the
+signal becomes stronger and you start to
+lose the signal As you move farther away
+this is one of the reasons that we see
+distance limitations when we start
+referencing i e standards and the
+different categories of cable that we
+can
+use if you've ever worked with a cable
+plant or you've been terminating cables
+into a punchdown block or putting RJ45
+connectors on you know how challenging
+it is to have the perfect type of cable
+termination and often you can make or
+break a network configuration just by
+the terminations that you're doing with
+the cables themselves part of the
+problem is that many of these connectors
+look very similar to each other and yet
+there may be different specifications
+depending on the different connector
+type you also may find that different
+cable installers may have a different
+quality to the punch Downs that they're
+doing and it's true that connectors that
+are made by one individual may work
+better than connectors that were
+installed by a different individual it's
+always a good idea to find somebody who
+is well-versed in the standards for
+installing network cables versus other
+types of cables in most cable runs we're
+trying to match the pins on each side of
+the cable for example pin one on one end
+of the cable should be matched to pin
+one on the other side of the cable pin
+two should be matched to pin two pin
+three to pin three and so on if you have
+a mismatch between these different pins
+or you miss connecting the pins together
+you may find that the cable speed drops
+to a different stand standard for
+example you may be expecting to get a 1
+gbit connection and it's only able to
+support a 100 megabit connection it's
+very easy to make one little mistake
+where you might connect pin one to pin
+two and pin two to pin one and when you
+plug in that ethernet cable you get no
+signal at all sometimes you may find
+that a cable has crossed pairs where pin
+one might connect to pin 3 and pin 3
+might connect to pin one this is a half
+crossed view where you have four of the
+wires acrossed and the other other four
+wires are straight through this is
+sometimes a mistake that can be made at
+the ends of the cable when you're
+crimping on the RJ45 it could also be a
+problem at the punchdown Block so you'll
+want to check every connection along
+that path to see where this cross might
+have occurred this will be something
+that's very easy to see when you plug in
+your cable tester which is another good
+reason to always test a cable that
+you've installed and it will show you
+that instead of pin one connecting to
+pin one and pin two connecting to pin
+two you have a very different cross set
+of cables some ethernet chipsets however
+will recognize when a cable cross has
+occurred and it will reverse that cross
+in the electronics of the ethernet card
+itself effectively turning it back into
+a straight through cable this is
+something that's built around the auto
+IMX capability but it's not always
+turned on and it's not something that
+will always work across every ethernet
+chipset so it's always the best practice
+to install a properly terminated cable
+rather than relying on auto imex

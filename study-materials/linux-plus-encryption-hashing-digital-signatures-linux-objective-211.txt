@@ -1,0 +1,414 @@
+hey everybody I'm Sean powers and today
+we're going to talk about uh public Keys
+private Keys encryption hashing digital
+signing certificates if all of that
+stuff you kind of get but aren't really
+sure what piece does what this video is
+honestly uh going to be great for you
+also this video is part of now also this
+video is part of the security section of
+the Linux plus objectives that we're
+going over on the channel in fact this
+section I'm calling it 2.1.1 and we're
+looking at these things right here
+basically a public key infrastructure
+stuff but even if you don't know what
+Linux is or don't care what it is we're
+still going to cover all of the concepts
+around certificates and encryption and
+stuff so if you're not interested in
+Linux plus that's okay stick around
+we're still going to talk about that
+kind of stuff and I do want to point out
+let me erase some stuff here that
+specifically this section is to
+summarize the purpose so we're
+summarizing we're not going on the mix
+command line in this section it's more
+of a Marvin Gaye thing
+conceptual teaching
+viewer drop off no but anyway when I
+talk about uh Keys like public Keys
+private Keys symmetric asymmetric we're
+talking about encrypting data and for
+most encryption and hashing sort of
+thing you talk about a public key and a
+private key now you can also have like a
+a just a single they call it a a
+symmetric where it's just one key that
+does both encoding and decoding it's
+like a like an encoding ring from your
+cereal box when you were a kid so this
+would be a symmetric key that I probably
+spelled wrong but you can't read it
+anyway because it's messy uh whereas the
+idea of having two different Keys is an
+asymmetric encryption scheme okay and
+how it works is just kind of like what's
+on the tin the public key is something
+that you want people to know is yours
+you will post this like in your email
+signature on your website everybody
+knows that the public key is yours this
+is not a secret everybody the more
+people that know this the better that's
+your public key your private key is
+another just string of text it's like
+usually comes in a text file and this
+this is your private key you keep that
+on your own you never send it to another
+server it's always on your uh device
+it's it's yours nobody else should ever
+ever see the private key and the reason
+that this works so well is it can do a
+couple different things
+um for example let's say somebody is
+going to send you a a file if they
+encrypt it and encrypting basically
+means you take a file and you run like
+some mathematical transforms on it using
+the public key like your public key as
+the mechanism to do all of those maths
+to it and the file that is on the other
+end of that nobody can read because it's
+all scrambled it's encrypted up however
+with your private key and only with your
+private key you can decrypt it and get
+the original data back if you don't have
+that private key which is the other half
+of the public key that it was encrypted
+with you can ever get that data back so
+that's one of the advantages of it but
+you can do more with public and private
+Keys when it comes to hashing stuff but
+that's basically what encrypting means
+encrypting takes all of the data and
+does some mathematical transforms to it
+and then you still have like a large
+like you know like a gigabyte file let's
+say you give a person a file that's
+about the same size but it's been all
+you know encrypted and all messed up so
+it's not usable until you decrypt it
+with your private key and then you have
+that whole file again that is back to uh
+you know the original what it was before
+they encrypted it with your public key
+and that's what we're talking about with
+encryption right it transforms the data
+and then it can be decrypted or
+unencrypted whatever terminology you
+want to use with the other half of that
+public private key pair so the entire
+data is sent now a hash is a little bit
+similar in that you do mathematical
+transforms on stuff however instead of
+transferring all of the data like you
+don't have the entire data set what you
+do is you create a little signature it's
+a unique small signature based on the
+data set so you still start with a data
+set like a picture for example when you
+hash it though you do that mathematical
+stuff to it and you get like a string of
+letters and numbers usually it's usually
+text and when you hash it you can only
+get this exact string from the original
+data and what hashing does is it
+guarantees that the data that was put in
+at the beginning let's say you get that
+data from some untrusted place when as
+long as you hash it and you get the
+exact same hash you know that this data
+and the data that you got is the same
+because the hash is the same so it does
+the same mathematical stuff with a key
+but in the end you get a hash now
+hashing the data proves that it's the
+same data that's what a hash does it
+proves that the data that was over here
+is the data that you get when you
+transfer it you can run the hash to make
+sure it's like checking right it's a
+it's a check to make sure that the data
+is the same but there's a problem see
+hashing is great and it's a perfect way
+to make sure that you haven't like
+gotten a corrupted version of like a
+software package that is you know going
+to install on your system but what if it
+was corrupted Upstream right like
+whoever had the file on the server they
+hashed it and then they replaced the
+hash that's there like waiting for you
+to compare to with their new corrupted
+version well then they created a hash
+with the corrupted version you download
+that corrupted version you run the
+hashes like hey our hashes match yay
+well yeah it matches what you downloaded
+but what we need is to make sure that
+that original hash is hashing a thing
+that you're supposed to have does that
+make sense like you're proving that you
+have the same file but you're not
+proving that's the file that you should
+have in the first place if the server is
+compromised or there's a man in the
+middle attack or something uh you know
+that you got the file that was on the
+server but you don't know if that's the
+file that you want it could have been
+corrupted and that's where a digital
+signature comes into play
+so digital signing uh goes a step
+further digital signing kind of combines
+the two okay so first of all we run a
+hash like say I'm hosting a file I run a
+hash on the data set right this is the
+data set that I want to make sure that
+you get in the end okay so I hash it and
+I get my hash and then where the digital
+signing comes into play I encrypt the
+resulting hash using my private key
+again a hash is just a small little
+chunk of like text that you know
+guarantees that the data set will be the
+same when you get it but then I take
+that hash and I don't just give it to
+you directly I encrypt it using my
+private key
+and because the way public and private
+Keys work when you get that digital
+signature or that encrypted hash you can
+decrypt it using my public key right
+which you have already because it's
+public you have my public key and so uh
+you can decrypt that digital signature
+which is just an encrypted hash and then
+you know that that hash came from me
+because I'm the only one that can
+encrypt it using my private key because
+I'm the only one that has my private key
+so when you have a digital signature
+it's a hash
+that will guarantee you know then use
+that hash to compare with the thing you
+downloaded to make sure it matches the
+hash that I provided but since I
+encrypted it with my private key and you
+decrypted it with my public key you know
+that it's really from me and there
+wasn't a man in the middle attack or
+there wasn't you know somebody didn't
+compromise my server and post stuff
+there so that's what a digital signature
+is it's a combination of a hash and then
+in encrypting that hash so you can make
+sure of two things one that the data is
+valid because you still compare the hash
+that you create with the hash that you
+got from me but it also because it was
+encrypted guarantees that it's from me
+hopefully that makes sense that's where
+uh a digital signature a hash and
+encryption all kind of play together but
+wait there's more this is really the way
+we're gonna end but uh this is this is
+how web traffic gets encrypted as well
+it uses the same sort of thing it uses
+all of these things together so we're
+going to walk through exactly when you
+go to a website and it's a secure
+website you know like it has the lock on
+it
+um what actually goes on so first of all
+we start here the browser when it
+connects to the server like google.com
+or whatever it says Okay I want to have
+a secure connection TLS SSL I want to
+have a secure connection and then the
+server responds and it says okay here's
+my public key remember you know we need
+to have a public key of whoever we're
+going to be decrypting stuff from
+so here's my public key and here's my
+certificate now a certificate is kind of
+another whole concept but a certificate
+is a way of saying uh yes this public
+key is valid with this domain like this
+domain that it's being served from
+um and this the person who owns it uh is
+really the person who uh is providing
+you with this public key and so uh this
+certificate has to be trusted and that's
+that's where the the catch is that's the
+that's the frustrating part so anyway
+how it happens though the server sends a
+public key and a certificate of like
+authentication or a certain certificate
+of authenticity kind of thing and then
+the browser makes sure that the
+certificate is valid we're gonna talk
+about that in just a second that's the
+asterisks
+um it has a certificate it says okay yep
+you're really you and so then the
+browser creates a session key now
+remember at the very beginning I I said
+there's like the kind of encryption
+where there's a key pair like a public
+private and then there's the kind of
+encryption where there's just like the
+decoder ring where there's just one key
+in both parties encrypt and decrypt with
+the same key that's what a session key
+is okay so the browser creates one on
+the fly it creates a session key and it
+encrypts that session key with the
+servers public key and it sends it back
+okay and so then the server receives
+that encrypted session key so it's not
+being encrypted with the session key
+it's just the session key and it's
+encrypted using
+the server's public key which you know
+the browser got because the server sent
+it and then the server using its private
+key can decrypt that session key okay so
+then both sides then have this session
+key the browser created it and it sent
+it to the server but it used the
+server's encryption the service public
+key to encrypt it so only the server
+that provided that public key is going
+to be able to decrypt it and then all
+the web traffic that goes back and forth
+both ways both sending data and
+receiving data from the browser to the
+web server is encrypted using that
+session key so all the public and
+private key stuff and the certificates
+that's only to establish the connection
+once all of the verification takes place
+the web traffic itself is encrypted
+using the session key both sides use the
+same one because the the single key will
+encrypt and decree decrypt data and they
+both have the same key so they can send
+information back and forth oh and I did
+make a note for myself up here uh a wild
+card because it's mentioned in the
+objective so uh basically the
+certificate is made using the domain
+name uh however you can also make a wild
+card certificate that allows you to uh
+say that you are you for any sub domain
+so like google.com is a domain right a
+certificate can be made for google.com
+but a wild card certificate could be
+made for uh asterisk.google.com which
+means that Google could then use the
+same certificate to prove that they're
+them for like mail.google.com or
+web.google.com or search.google.com or
+whatever subdomain they have a wild card
+certificate allows you to prove anything
+uh dot google.com basically and so by
+default a certificate is only going to
+be one specific domain like
+www.google.com but if you use a wild
+card third certificate you can use the
+same one for all of your sub domains now
+I know that was a lot it's okay if you
+have to go back and look at the diagram
+and listen to me blabber again but the
+thing about a certificate is there are
+authorities so certificate authorities
+and all of those authorities are built
+into your browser like every every
+iteration of a browser every browser
+update will have a list of security or
+of secure certificate authorities where
+they will go to make sure that
+certificate's valid okay so they haven't
+built in that's how we don't that's like
+the the point of trust right we trust
+that the the certificate authorities
+built into your browser are to be
+trusted so that certificate is signed by
+a certificate Authority and then uh
+because it's a valid signature and the
+browser is like okay that's one of the
+certificate authorities that I have
+built in that I trust then it says okay
+so you're really you you have a
+certificate from someone I trust built
+into my browser that says it's you so
+now when you give me your public key
+I'll encrypt our session key and send it
+back and then we can then we can talk
+okay if you don't have a certificate
+Authority uh to sign that certificate
+you have and you sign it yourself that's
+called a self-signed certificate and
+you'll see something like this so I'm
+just here on a browser and if we go to
+like my router
+192.168.1.1 and press enter you're going
+to see this and this is what happens
+with a self-signed certificate so a
+self-signed certificate when you when
+you like if we click Advanced and go to
+continue there anyway it says unsafe
+because it's not signed by a certificate
+Authority that the browser trusts
+however it is important to know that
+once you start the session it is going
+like if you say okay and you go forward
+with it anyway and your browser is like
+okay I can't guarantee that this is who
+they say they are because it's not
+signed by by a certificate Authority but
+you say okay and go ahead that it's
+going to issue that session key and the
+actual traffic is still going to be
+encrypted so it's not like somebody's
+going to be able to listen in because of
+this
+um invalid certificate it just means
+that we can't guarantee who you're
+talking to is somebody we trust because
+it's not signed by a certificate of a
+certificate Authority that we trust I
+know that was a whirlwind of information
+but hopefully it makes sense hopefully
+you kind of get the concept of
+encryption versus hashing and then what
+digital signing is meaning a combination
+of hashing and then encrypting that hash
+so you know what where it's coming from
+and then with all that information
+hopefully it made sense as we went
+around the little chart about how web
+traffic works and what a certificate
+Authority is and why it matters and and
+that sort of a thing anyway I hope it
+was helpful I'm going to actually put
+this slide back on so you can look at
+this slide I just want to take a minute
+to thank my patreon supporters who have
+been patient because it this past month
+I have not been producing nearly as much
+as I would have liked to so anyway thank
+you to them they should hopefully be
+scrolling somewhere on this page right
+now I just wanted to leave this here so
+you can look at this and possibly go
+through it again positive if you need to
+and uh thank you for sticking along
+remember to learn everything
+do what you love and most importantly be
+kind I'll see in the next video
+[Music]
+[Music]

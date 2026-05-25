@@ -1,0 +1,222 @@
+in this video we're going to look at a
+detailed calculation of subnets and
+hosts using IP version 4 if you stumbled
+across this video I highly recommend you
+go back and look at our video on binary
+math classful subnetting and ipv4 subnet
+masks as we've been going through these
+subnetting videos you may be asking
+yourself why do we have to go through
+this process of calculating IP addresses
+their mask looking at default G ways in
+understanding what the first and last
+available IP address might be well
+that's because it would be functionally
+impossible to have one device that would
+know where every other device in the
+world might be instead we create smaller
+networks and we build routers that are
+able to get information between all of
+these smaller networks this allows us to
+communicate to anywhere in the world
+without knowing exactly where that
+destination location might be we simply
+send out the packet and the routers
+every step of the way allow us to get
+that information to the Final
+Destination well this means that we need
+to create these smaller networks and we
+do this by using a process known as VSM
+or variable length subnet masks as the
+name implies these subnet masks are not
+like the class-based networks that we
+looked at earlier which have a very
+fixed number of bits in the subnet mask
+instead we can create a subnet mask that
+has a different number of bits on every
+Network therefore creating a variable
+length of a subnet mask this means you
+as the network administrator can build a
+network that is exactly the right size
+with the right number of networks and
+the right number of hosts and you have
+complete control over what the subnet
+mask might be for that Network this is a
+lot like cutting a pizza into smaller
+pieces how many pieces do you need in
+the pizza should the pizza be cut in two
+pieces should it be four should it be
+eight or should it be even more than
+that if we apply this to IP we can look
+at a Class A Network which has 10.0.0.0
+and a subnet mask with a sl8 but if we
+wanted to cut that pizza into smaller
+pieces we might have a subnet mask of a
+sl24 or even a slash 26 since we're
+using a different number of bits than
+eight in the subnet mask we're using a
+variable length sub sub net mask that we
+can Define to be whatever we'd like
+let's perform some of this variable link
+subnet masking but let's first look at
+the default subnet mask for a class A
+address this would be 10.0.0.0 the
+default is Class A since that starts
+with the number 10 and the default
+subnet mask for that would be
+255.0.0.0
+this would be the default subnet mask if
+all we did was have classful addressing
+if you were to look at this class full
+address in binary the first eight bits
+would be one and the remaining bits
+would be zero in decimal that means it
+would be
+255.0.0.0
+and if you were to use the cider block
+notation this would be a sl8 subnet this
+means that the network bits would be
+those first eight bits of the address
+and the host bits would be the last 24
+bits of the address since this is a sl8
+subnet mask we are drawing our line
+after those first eight bits of the
+subnet mask but in reality of course we
+could pick a different number of subnet
+bits we just need to decide what works
+best for our Network for example let's
+draw our line right after the third
+octet this means that we still have our
+default first eight bits as part of that
+class A address but we're going to
+borrow the middle 16 bits as what we
+call our subnet bits this means those
+subnet bits would now be turned into one
+and the host section of the IP address
+would shrink down to eight bits this
+means that the decimal subnet mask would
+be
+255.255.255.0 and The Cider block
+notation for this new subnet mask would
+be
+sl24 we've been doing a lot of these
+calculations in binary and then we've
+been converting that binary back to
+decimal but that process tends to take
+time and one of the faster ways to
+perform these calculations is to look at
+a list of the powers of two for example
+you can look at 2 to the first power is
+two 2 to the second power is four 2 to
+the 3 power is 8 and so on if you want
+to calculate the number of subnets and
+the number of hosts you can calculate
+the number of subnets as two to the
+number of subnet bits and the number of
+hosts per subnet would be two to the
+number of host bits minus 2 that
+subtraction for the two means that we
+are subtracting the number that we would
+use for our Network address and the
+number that we would use for our
+broadcast address everything in the
+middle would be our host addresses so
+let's now use this chart with our powers
+of two to calculate the number of
+subnets and the number of hosts per
+subnet let's take the IP address of
+10.1.1 24 if we perform our calculation
+in binary we would write out all 24 of
+those bits as ones and the last eight
+bits would be zero the default for a
+class A address such as this one though
+would normally have our Network address
+as the first 8 Bits but we are moving
+that line another 16 bits over so that
+we are borrowing an additional 16 bits
+for the subnet that leaves us with eight
+bits left over for the host if we were
+to calculate the number of subnets using
+these powers of two we would take two to
+the number of subnet Bits And since we
+have 16 subnet n Bits 2 ^ of 16 is
+65,536 if we were to calculate number of
+hosts per subnet it's two to the number
+of host bits minus 2 we have eight host
+bits which means 2 to the 8 minus 2 is
+256 -2 or 254 so for this IP address of
+10.1.1 24 we can have a maximum number
+of subnets of
+65,536 and on each of those subnets we
+can have a maximum of
+254
+devices let's calculate another one
+we'll look at an IP address of
+192.168.1.0
+sl26 if we were to write out that sl26
+you can see there are 26 1es that leaves
+us with two ones in the last octet and
+we have six zeros left over at the end
+if we calculate the class of this
+address we look at the first octet which
+is 192 which means that is a Class C
+address that means it has a total number
+of 24 bits as the network address by
+default but we've borrowed a couple of
+extra bits into the last octet so there
+are two additional bits available that
+we will call our subnet bits and then of
+course we have the last six bits
+available as the host bits let's perform
+our calculation again to calculate the
+number of subnets we use two to the
+number of subnet bits we have two bits
+left over as the subnet bits 2 to the 2
+power is 4 to calculate the host per
+subnet we have six bits so we take 2 to
+the 6 power and subtract two from there
+that means we have 64 minus 2 or 62 so
+for this IP address of
+192.168.1.0 26 we can create a total of
+four subnets and on each of those
+subnets we can have a total of 62
+devices this same process works with any
+type of subnet mask let's take for
+example
+17265
+5.21 if we looked at this in binary we
+would have 21 ones which means we have
+eight in the first octet eight in the
+second octet and five ones in the third
+octet everything else of course would be
+zeros and if we look at this IP address
+it starts with 172 which by default
+would be a Class B address so by default
+the first 16 bits would be your network
+address we've borrowed some additional
+bits in this case five additional bits
+to be our subnet bits and then
+everything left would be our 11 host
+bits performing our calculation again we
+have five subnet bits so to calculate
+the number of subnets it's 2 to the 5th
+power or 32 we have 11 host bits left
+over so if we calculate that as 2 to the
+11th power minus 2 that would be the
+same as 248 minus 2 or a total of
+246 devices so for this IP address of
+17265
+5.21 we can have a total of 32 subnets
+and on each of those subnets we can have
+a maximum of
+2,46
+devices if you use this powers of two to
+perform these calculations it can be a
+very quick way to determine what the
+number of subnets might be and what the
+host per subnet might be but there are
+some shortcuts available that might get
+you to these values much faster and in
+the next couple of videos will give you
+some different options for calculating
+this process using those shortcuts

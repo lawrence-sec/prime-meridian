@@ -1,0 +1,168 @@
+if you look at your local network at
+home and in your office you'll notice
+there are a lot of devices connected to
+the network many of these devices are
+Hardware devices that don't generally
+give us access to the operating system
+that's running inside this might be a
+device used to control the air
+conditioning system you might use this
+device to clock in or clock out of work
+but in any case it's a device that has
+an operating system running inside of it
+but we don't generally have access to
+that oper System since these devices are
+connected to the network they are
+therefore a potential security risk so
+we need to make sure that we're always
+up toate with the firmware or software
+that might run inside of these Hardware
+devices if you look around at home this
+could mean that your stove your
+refrigerator your garage door the front
+doors to your house and all of these
+embedded Internet of Things devices or
+iot devices all could potentially be a
+security issue for your home and your
+office before iot our security concerns
+were basically focused on operating
+systems that we had control of our
+Windows laptop or a tablet computer or
+perhaps our mobile phone but with the
+Advent of iot and these hundreds of
+different devices that you could connect
+to your network we now have security
+concerns with every one of these devices
+we often refer to this operating system
+that's running inside of this Hardware
+as firmware this is the operating system
+that makes everything work in inside of
+this device and very often we have no
+idea what this operating system even is
+this means that the only people who can
+really update or manage this system is
+the manufacturer themselves they're the
+ones that created this device they're
+the ones that developed the software
+running in this operating system and
+they're the only ones that can really
+tell us how to upgrade the firmware in
+all of these Hardware devices
+unfortunately manufacturers of Hardware
+don't necessarily have the same focus on
+it security that others of us might have
+for example we ran into exactly this
+problem with train Comfort link to
+thermostats these are thermostats that
+are automated and you can control them
+from something like a mobile phone or a
+tablet train was notified of security
+vulnerabilities of these Comfort link
+thermostats in April of 2014 the
+manufacturer did not release a patch for
+these thermostats until April of 2015
+and another patch was was released in
+January of
+2016 in the World of Windows and Mac OS
+and Linux we generally turn around these
+patches in a month or less in this case
+the manufacturer took at least a year to
+provide the very first patch for these
+security problems and in some cases
+almost another year to release the other
+one this obviously created security
+concerns for people that were using
+these Train cover link to thermostats
+because during this entire period the
+vulnerability was known but patch was
+not
+available sometimes the manufacturer of
+these devices will inform you when a
+device is no longer able to be updated
+the first notice of this might be with
+an EOL notice or an end of life this is
+a notice that the manufacturer is giving
+to everyone to let them know that in the
+future they will stop selling this
+particular product it's important to
+keep these dates in mind because you can
+still get security patches and updates
+even though this product is not actively
+being sold this may be the first notice
+that it might be time to replace this
+device although there is a time frame
+where there is still support available
+eventually that time frame will go away
+once the device has already hit its end
+of life and the manufacturers decided to
+no longer support the device we now are
+at the end of service life or
+eosl the manufacturer themselves have
+stated they are not going to provide any
+additional security patches for this
+device although they may provide you
+with a very highend support option where
+you can pay a great deal of money to
+have them continue support for that
+device that Financial outlay is not
+something that most customers have the
+ability to do so often they will replace
+this device with something newer
+obviously EOL is an important step that
+might give you some warning that the
+support for this device is going away
+but the real important date is the
+eosl if you have equipment in your
+office or at home that has hit the end
+of service life you may want to consider
+replacing that device as soon as
+possible so that you always have the
+latest security patches
+installed if you work for an
+organization that has a large
+infrastructure you've got data centers
+that are located around the world and
+many different remote sites then you
+probably have equipment in one of these
+locations that have been installed for
+years and years this is a legacy device
+and it's one that might be running an
+older operating system maybe the
+application is very old and has not been
+updated in quite sometime or maybe the
+middleware that this application uses is
+very outdated in each of these cases the
+software that's running on these systems
+may be at their end of life or even
+their end of service life and if that's
+the case we may want to compare the risk
+of continuing to use this device or this
+application versus the security concerns
+or risks associated with keeping it on
+our Network the real challenge might be
+if this particular device or software
+has a very critical part of the overall
+goals of your organization this means
+that it's not as easy as simply turning
+off the device or replacing it with
+another device that we can get elsewhere
+this means we may need to keep this
+device running for a certain amount of
+time but we might also want to create
+some type of mitigation that would
+prevent someone from taking advantage of
+any known security vulnerabilities this
+means we may want to create additional
+firewall rules that would limit the
+people able to directly connect to this
+device or you might add additional IPS
+signature
+especially signatures that are built for
+some of these older operating systems so
+although this may not be something you
+can easily phase out of your network you
+may be able to put together a path to
+replace this device while at the same
+time providing the security needed for
+these Legacy
+platforms

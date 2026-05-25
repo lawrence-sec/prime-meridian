@@ -1,0 +1,132 @@
+if you're working with a service
+provider you may want to set certain
+requirements for uptime or availability
+and you can integrate those requirements
+into a document called a service level
+agreement or SLA this allows you to set
+minimum terms for the service that's
+provided by the third party for example
+you might have certain requirements when
+you're entering into a contract with an
+internet service provider for example
+you might want no more than 4 hours of
+unscheduled downtime if there is
+downtime you'd like a technician to be
+dispatched and you might even agree to
+keep equipment on site by the ISP in
+case your equipment was to fail all of
+this can be written into the service
+level agreement so that both parties
+understand the exact requirements for
+service levels between the two
+companies if you're entering into a
+partnership with a third party you might
+want to start with a memorandum of
+understanding orou these generally
+provide very Broad goals of what the two
+organizations will accomplish by working
+together this might also include
+confidentiality statements so that both
+sides only discuss this between each
+other until a later time this is also
+something that is very informal it's not
+a signed contract it's more of a broad
+overview of how two organizations might
+work together in the future what might
+come next in this partnership is a
+memorandum of agreement or M MOA this is
+one step above the mou and it describes
+in more detail the relationship between
+the two organizations this document
+provides more detail about how two
+companies may work together with each
+other and it may have some legally
+binding information within the document
+but this is not a contract and generally
+it's not something that provides any
+legal enforcement of the information
+inside the mo
+MOA if you're going to have an ongoing
+relationship with a third party you
+might want to create a master service
+agreement or or MSA this master service
+agreement is a legal contract that sets
+the terms between both organizations and
+it sets up a framework that can be used
+for additional work that might occur in
+the future for example the MSA might
+include the terms for the service there
+might be an overview of the billing and
+describe how the payment system might
+work this is often used as a foundation
+that additional services will use going
+forward between the two companies those
+additional Services would be documented
+in a work order or a statement of work
+this statement of work often includes a
+detailed breakdown of exactly what
+services will be provided and when this
+is often used in conjunction with the
+MSA so that we don't have to renegotiate
+all of the basic terms of the contract
+and can instead focus on this particular
+set of tasks a common statement of work
+would have the scope of the job the
+location that this particular job will
+take place the deliverable schedule and
+a list of exactly what what is expected
+during this service this is a valuable
+document for both entities because it
+describes in detail what the
+expectations might be and if there's any
+question at the end of the service if
+something was done or not done you can
+always refer back to the statement of
+work to see if that was
+covered there may be times when
+information shared between two
+organizations needs to be confidential
+one way to contractually agree of this
+confidentiality is through the use of an
+NDA or non-disclosure agreement an NDA
+allows both organizations to speak
+freely about Trade Secrets or other
+business activities without the worry
+that that information will get into the
+hands of someone else anything that you
+need to keep confidential will go into
+the details of the NDA the NDA can be
+written so that only one party is
+required to maintain confidentiality we
+refer to that as a unilateral or one-way
+NDA but many ndas are written so that
+both parties must make maintain
+confidentiality that is a bilateral or
+Mutual NDA or if more than two parties
+are involved it would be a multilateral
+NDA this is a formal contract and it's
+expected that both parties will sign
+this contract before discussing the
+terms that are associated with this
+NDA if you're entering into a formal
+partnership with a third party you may
+want to create a business partners
+agreement or BPA this describes the
+financial details associated with the
+agre agement and describes what type of
+ownership stake is acquired as part of
+this agreement but this might also
+describe how the business will work with
+this partnership in place for example
+who in the partnership gets to make the
+business decisions that information is
+documented in the BPA this BPA is also
+valuable for detailing what happens when
+things go wrong for example what if
+there are Financial issues between the
+partners or what if there is a disaster
+that shuts down the business how does
+that affect the partnership all of this
+should be documented and agreed to as
+part of the business partners
+agreement

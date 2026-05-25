@@ -1,0 +1,184 @@
+in this video we're going to talk about
+power and an important thing to remember
+is that you should never put yourself in
+a position where you will be able to in
+some way come in contact with any type
+of voltage you want to be sure that when
+you're working with a device that you
+are always disconnecting from the power
+source before ever putting your hands or
+any part of you near that particular
+component even when you disconnect from
+the power source you should also keep in
+mind that some devices will store a
+charge in capacitors older CRT monitors
+Laser Printers and other devices can
+easily shock you even when they're not
+connected to a power source your goal
+should never be to connect any part of
+your body to anything that could
+potentially be energized for example you
+should never connect yourself to the
+ground wire of an electrical system or
+anything else that might have some type
+of voltage go across it if you respect
+electricity you will have no problems
+keeping yourself and others around you
+safe as you're working on these
+devices when you start looking into the
+electrical specifications and the design
+of electrical systems you'll see a lot
+of different terms being used one of
+those is an ampere we often refer to
+this as an amp and it's often
+abbreviated with a capital letter A this
+value measures the rate of electrons
+that are moving past a particular point
+in a single second you'll often hear
+electricity compared to to a water hose
+where electricity flowing through a wire
+is very similar to water that may be
+flowing through a water hose the amount
+of water that you can fit through a hose
+will depend on the diameter of that hose
+and the diameter would be the number of
+amps we also measure electricity in
+terms of voltage this is often
+abbreviated as Volt or the capital
+letter V this is describing a pressure
+of electricity flowing through a
+particular wire if we go back to our
+hose analogy as we are turning the water
+on we are increasing the amount of
+pressure of that water through the hose
+and as we increase the pressure we are
+increasing the voltage for example
+you'll often see electrical systems
+described as a 120 volt system or a 240
+volt system and if you need to describe
+how much power is being used we would
+describe that as a number of Watts
+you'll often see this abbreviated with a
+capital w we can calculate watts by
+multiplying the number of volts times
+the number of amps for example if you're
+connected to a 120 volt power source and
+you have a device that is using .5 amps
+you are using a total of 60
+watts the type of power that we usually
+get from our wall outlets is alternating
+current or AC AC power is relatively
+easy to distribute over long distances
+so it is perfect to use for bringing
+into a home or an office you'll often
+see alternating current abbreviated as
+AC and it's often represented as the
+wavy Line This wavy line demonstrates
+the directional change of this power as
+it's moving Through the Wire that up and
+down frequency of that wave is different
+depending on where you happen to live if
+you're in the US or Canada we commonly
+see 110 to 120 volts of alternating
+current and it's usually running at a
+frequency of 60 hertz or 60 cycles per
+second if you're in Europe it's common
+to see 220 to 240 volts of AC current
+and it's frequent qu is 50 Herz our
+electrical components often use DC power
+to operate this is direct current where
+all of the current is moving in a single
+Direction with a constant amount of
+voltage this is often abbreviated with a
+DC and the symbol for direct current is
+this solid line on top with the multiple
+lines across the bottom this is why when
+we look on the back of our routers our
+switches and our other devices we often
+see that we're plugging into a wall
+outlet with this alternating current and
+we are converting that alternating
+current to direct current using the
+power supplies that are in those devices
+this conversion may be occurring in
+power supplies built into the device or
+it may be in the power cord that you're
+using to connect that device and
+obviously as an information technology
+professional power is one of the most
+important components we have none of
+these systems would work without this
+power source so it's important to
+consider how our switches our routers
+and our other devices will continue to
+operate even if there is an interruption
+of that power one way to protect
+yourself against a power outage is to
+use a UPS this is an uninterruptible
+power supply this is usually a device
+that is connected to our power source
+and inside of this device are a number
+of batteries that provide us with
+additional power if we lose that main
+power connection this can also help if
+the voltage on our line tends to drop a
+bit we refer to that as a brown out and
+if the voltage tends to spike or go much
+higher we refer to that as a surge the
+UPS will even out that particular surge
+or brownout and provide us with the
+power we need to remain up and running
+there are a number of different types of
+uninterruptible power supplies one of
+the least expensive are the offline or
+standby UPS which is simply waiting for
+the power to go out before it kicks in
+as you can imagine there's a small
+amount of time where there would be no
+power available to your systems and
+often with switches and routers that
+small gap of time is enough to cause
+that device to reboot One Step Up from
+that is the line interactive UPS if you
+happen to have brown outs and your
+voltage begins to drop the line
+interactive UPS will begin to increase
+the amount of power provided to be able
+to compensate for that drop but many
+data centers prefer to run an online or
+double conversion UPS where you are
+always running from battery power and
+the batteries are constantly being
+refreshed by the power source if you
+lose the power source it has no effect
+on the systems that are connected to the
+UPS because they've always been running
+from that primary battery power there
+are many different types of UPS's with
+many types of features there are some
+that can automatically shut down your
+system if the batteries happen to become
+very low some of them have a higher
+battery capacity than others the number
+of outlets on the back of the UPS can
+vary and some of them have additional
+interfaces to plug in phone lines or
+cable modem connections
+another useful power component is a pdu
+this is a power distribution unit and
+although it looks like a normal surge
+suppressor these are actually relatively
+intelligent devices that allow us to
+remotely connect to the device manage
+each of those interfaces and even allow
+you to power off and power on a device
+from a remote location you can see this
+one is a rack mountable unit and we
+would put that in our rack and connect
+our routers and switches to these
+interfaces there's also an ethernet
+connection we would assign an IP address
+to this device inside is a web server
+and that allows us to connect and manage
+this device from wherever we happen to
+be

@@ -1,0 +1,108 @@
+maintaining uptime and availability on
+the network can be a challenge and in
+this video we'll look at different
+methods for providing that Network
+redundancy one of the most common forms
+of network redundancy is active passive
+this is where you would have two
+separate pieces of equipment but only
+one of them is active or running at any
+particular time these two devices are
+constantly communicating between each
+other giving updates on their status and
+if the primary device fails the
+secondary device takes over as the
+primary device on the network this means
+the configuration between these two
+devices needs to be identical and if you
+make a change to the configuration on
+the primary device it needs to copy that
+configuration to the secondary device
+you also need to make sure that any
+real-time information is updated between
+both devices so if there is a session
+table or a routing table all of that
+information also needs to be copied and
+maintained on the secondary device that
+way if the secondary device does become
+active it has exactly the same
+configuration as the primary device did
+visually this is how it would look on a
+network map you have an internet
+provider let's say our network
+connection out to the rest of the world
+there are two firewalls in this
+configuration and behind the firewall is
+a router a switch and a web server in
+this case these two firewalls are
+running as an active passive
+configuration one of the firewalls is
+active and the other firewall is in a
+standby or passive mode when when
+traffic is sent through the network that
+traffic passes through the active
+firewall to the web server that's on the
+other side but let's say that primary
+firewall had a problem perhaps the power
+supply failed maybe the software crashed
+but something within that device has
+caused it to go offline this means that
+we now have no available firewalls on
+our network but of course our passive
+firewall has been in constant
+communication with that active firewall
+and recognizes that it's no longer on
+the network so so the passive firewall
+now makes itself into an active firewall
+and it becomes the primary device on the
+network so now any future communication
+on the network uses this new firewall to
+be able to complete that Communications
+path you might be looking at that
+Network design and think you've
+purchased two firewalls both of them are
+plugged in and they're powered on at the
+same time why don't we use both of those
+firewalls simultaneously and take
+advantage of all of that extra computing
+power having both of those devices
+operating simultaneously is referred to
+as an active active configuration
+however simply turning on both devices
+and running traffic through both of them
+is not always a simple task there's
+usually a bit more engineering required
+to make sure that you could turn on both
+of the devices and use both of them
+simultaneously for example you might
+have data flowing through the network in
+different directions maybe one part of
+the conversation goes through one device
+and The Return part of the conversation
+goes through a different device you need
+to have some type of mechanism that
+keeps track of all of these different
+data flows and what device they're
+flowing through this often requires a
+good bit of design work and
+understanding of exactly where the
+traffic flows are in the network how the
+routing is configured where the switches
+are located and how you would expect
+traffic to flow on a normal basis and as
+you would expect with an active active
+configuration where both firewalls are
+operating simultaneously you can send
+traffic through the network and one
+traffic flow may go through one of the
+existing active firewalls and a
+secondary traffic flow may go through
+the alternate or secondary active
+firewall if one of the firewalls was to
+fail you don't have to worry about
+failing over to a secondary because both
+firewalls are already active the other
+firewall that's remaining will continue
+to handle the load and traffic will
+continue to flow normally through that
+Network

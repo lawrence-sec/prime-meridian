@@ -1,0 +1,132 @@
+our organizations collect a massive
+amount of data and there are privacy
+laws that probably apply to a great deal
+of this information in this video we'll
+discuss some of these privacy concerns
+and how organizations are mandated to
+protect your data in many geographies
+privacy starts at the local and state
+level there's a great deal of data
+that's collected by our local
+governments especially information about
+our homes our vehicles and information
+about medical life licensing at the
+national level we have laws that protect
+the privacy of everyone in the country
+for example the HIPPA laws regarding
+health care are a very good example of
+regulations that affect everyone in one
+country and many countries are working
+together to ensure privacy for all of
+their citizens regardless of where they
+live a good example of a privacy law
+that affects multiple countries would be
+the gdpr this stands for the general
+data protection regulation
+this is a regulation in the European
+Union that affects privacy for everyone
+who lives in the EU some of the
+information that is protected by
+individuals living in these countries
+would be name address photo email
+details Bank information online social
+media posts and much more the gdpr puts
+the control of this data back into the
+users hands and they decide what happens
+with their personal data if someone
+feels that their private information
+needs to be removed from a website they
+can simply request that removal and the
+website is required to remove all of
+their private data putting this back in
+the hands of the data subject gives them
+the right to control where their
+information is we often refer to this as
+a right to be
+forgotten the gdpr defines a data
+subject as any information relating to
+an identified or identifiable natural
+person this would effectively be anyone
+one who lives in those particular
+countries so anyone who's interested in
+protecting their private data such as
+their name their address their genetic
+makeup their location data or anything
+else would be considered a data subject
+effectively all of us are data subjects
+the gdpr and many other privacy laws
+Define the perspective of data privacy
+from the data subjects perspective this
+is an important consideration since many
+privacy laws to this point put the
+requirement for privacy on a third party
+or company instead of the
+individual we've spoken in an earlier
+video about the responsibilities
+associated with data in an organization
+but it's worthwhile to bring this up
+again in the context of privacy we'll
+start with the concept of a data owner
+this would be an individual who has
+overall responsibility of the data for
+example if you're the Vice President of
+Sales you are the data owner for any
+customer relationship dat data and if
+you are the treasurer of the company you
+would be the data owner for all of the
+financial information associated with
+that organization many organizations
+also have data controllers and data
+processors the data controller is
+responsible for managing how this data
+is used and the data processor is the
+person who's actually using the data the
+data processor may be internal within
+your organization or you may be using a
+third party to process that data for
+example we can look at data and how it's
+used between a payroll department and a
+payroll company the payroll department
+would be the data controller they're the
+ones that Define how much people get
+paid and when they get paid they would
+then hand that information off to a
+thirdparty payroll company that actually
+processes everyone's paychecks every
+week this relationship means that
+there's a great deal of private and
+personal data that's being transferred
+between the data controller and the data
+processor and in the case of a
+thirdparty vendor a company might use a
+non-disclosure agreement to ensure that
+all of that information remains private
+if a company makes physical products
+they tend to have an inventory of those
+products the same thing applies to data
+a company that stores data has
+effectively a data inventory this data
+inventory is a listing of all of the
+data that this company collects and
+stores in their organization this would
+include the owner of the data how often
+the information is updated and the
+format of that data to properly
+understand the Privacy implications of
+this data inventory we need to
+understand how the data is used
+internally we might use this data for
+collaboration between different projects
+it security may use this data and we may
+perform data quality checks on all of
+the data that we store when sharing data
+with a third party that's not part of
+our organization we need to be sure that
+we're following all legal guidelines for
+privacy so we would need to understand
+what our data inventory is understand
+what type of data that might be and then
+make sure that if we're sharing that
+information it all falls within the
+realm of existing laws and
+regulations

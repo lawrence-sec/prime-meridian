@@ -1,0 +1,197 @@
+our networks run at a predefined speed
+for example a 1,00 Bas T gigabit Network
+operates and sends traffic at 1 gbit per
+second this network cannot pass traffic
+faster than 1 gabit per second but what
+if you have multiple 1 gig links plugged
+into a switch and both of those
+connections are sending traffic at 1
+gbit per second to the same destination
+obviously we can't fit 2 gbits per
+second into a 1 gabit per second link
+and in those cases we run into
+congestion this contention of both
+networks trying to send information at
+the same time we'll certainly queue up
+some packets into a buffer but
+eventually we will fill up that buffer
+and have congestion these buffers that
+are in a switch or a router are
+relatively small and they're not going
+to hold a lot of packets So eventually
+packets are going to need to be
+discarded so that we can keep the system
+running this means that we're going to
+lose information that we're sending
+between one station and another so to
+resolve that we will need to either
+increase the size and speed of the
+network or we will need to decrease the
+amount of traffic that's going over that
+Network often people will say the
+network is slow and what they're really
+saying is that there's some type of
+bottleneck on the network that is
+causing a Slowdown unfortunately this
+can be very difficult to troubleshoot
+because the problem might be with a
+number of different Technologies it
+might be related to the bus of the
+system that you're you're using maybe
+the speed of a CPU inside of a switch or
+a router perhaps you're using a hard
+drive or an SSD which would be very
+different in the speeds of that storage
+drive and of course we have different
+networks with different speeds that are
+sent across different locations we have
+to look at all of these different
+parameters between one device and
+another to really understand where the
+bottlenecks might be on a network
+sometimes it might be very obvious
+what's causing this bottleneck but often
+you need to drill down into the det
+details of these systems to be able to
+understand what resources are being used
+or slowing down that's causing this
+problem for everyone else here's an
+example of a web transaction response
+time you can see transactions on this
+network were running somewhere around
+1500 1750 milliseconds that's almost 2
+seconds of delay when somebody requested
+data notice that there was a lot of time
+that was being used by the database in
+this particular example it seemed
+obvious that our problem was somehow
+located in the database server itself
+and by making some configuration changes
+to this database server we were able to
+eliminate this bottleneck and you can
+see the response times went down to
+around 500
+milliseconds if you want to know how
+much a network is being used you might
+want to look at the bandwidth percentage
+this is a measure of how much a network
+is being used over a particular amount
+of time usually this is a percentage
+that's being presented so that we can
+understand how much of this network
+network is in use during that time frame
+we might also want to measure throughput
+which tells us how much data we were
+able to move through that Network during
+that time frame this gives us
+information about what size of data
+we're able to move and in what time
+frames we're able to move it there are
+different ways to monitor bandwidth
+statistics you may be able to gather
+these directly from a switch or you may
+use SNMP or netf flow to be able to
+gather this over time and if you're
+looking at bandwidth usage over a number
+of different links between two devices
+you'll find that the slowest link is the
+one that probably is holding up the
+throughput for all of the other
+networks latency is calculated as the
+delay between the
+request and the response whenever we're
+measuring latency we want to know how
+fast or how slow is this transaction
+occurring there will always be some type
+of latency on a connection because it
+takes time to move that information from
+one device to another but ideally we
+would want to measure these respon times
+at every stop along the way this allows
+us to understand just how quickly we can
+move data from one segment to another
+and we can break it down into its
+smallest parts to get a true measurement
+of this we would need some type of
+measuring tool in every single Network
+link along that path so this could be
+rather involved to be able to set up all
+of those devices but once you do you'll
+be able to capture the packets and
+determine what the true latency is of
+that connection because you're capturing
+packets you have microsc granularity so
+you're able to know exactly how long a
+packet stayed in a device how long it
+took to Traverse that Network and how
+long it took to forward to the next
+segment one of the problems a network
+administrator would like to avoid is
+packet loss if we're sending traffic
+across the network the ideal situation
+is for all of that traffic to make it
+across the network all of the time but
+there will be scenarios where that
+information simply can't make it across
+the network for one reason or another a
+packet loss or a discard means that
+there weren't any errors with the packet
+but some other reason caused us to
+discard that packet instead of sending
+it to its destination this may be due to
+an outage on the network or it could be
+that we have contention we simply don't
+have enough bandwidth to send all of
+that traffic across the network
+sometimes we're on a bad wireless
+network maybe we have a bad cable and
+the information we're sending across the
+network becomes corrupted when that
+corruption occurs during the
+transmission of that data it's
+identified when it reaches the other
+side and because that data is corrupted
+it is completely discarded and we have
+to resend that traffic across the
+network this takes additional time and
+resources and could cause significant
+delays to your
+application talking on a Voiceover IP
+phone call or watching live video
+streams are very sensitive to any type
+of delay you might put on the network we
+would like these packets to arrive at
+regular predictable intervals and as
+long as that's happening we can continue
+to have our phone call or watch our live
+stream and everything is working as
+expected but if we have congestion on
+the network or the packet is corrupted
+we have to discard that packet we can't
+rewind our conversation or rewind the
+live stream we simply have to discard
+that packet and continue forward this
+might cause a delay or a clicking noise
+on the phone call or we might see a
+small stutter on our live stream to be
+able to see if we're receiving frames at
+regular intervals we can measure the
+Jitter on the network Jitter is the time
+between those frames and we would like
+that Jitter value to be a consistent
+value all the time this is what we would
+like to see which has a relatively small
+amount of Jitter because there's a small
+amount of delay between each of these
+packets there is a little bit of
+variability between each of these
+packets but they are being received at
+regular intervals if we're having high
+Jitter values then we might have three
+of those packets come through and then a
+long delay and then three more packets
+very quickly and then another delay it's
+these high Jitter values that give you
+problems hearing on a phone call or give
+you that stutter during a live video
+feed

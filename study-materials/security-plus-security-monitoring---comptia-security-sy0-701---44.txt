@@ -1,0 +1,287 @@
+attackers are constantly trying to gain
+access to our systems and services so
+for that reason we also have to
+constantly be monitoring our networks
+and there is a lot of information to
+monitor we want to Monitor
+authentications and logins to our
+Network we want to understand what
+services people might be using what type
+of remote access we're providing and we
+need to verify that all of that activity
+is legitimate if we monitor in real time
+we can also react to specific security
+events we can view account access we
+could look at the firewall rule base and
+we could provide additional scanning to
+see what type of activities may be going
+on it's very common to roll up all of
+this information into a series of
+dashboards so that we can see at a
+glance what the current status is of our
+current security posture some obvious
+monitoring points would be our Computing
+resources things like systems where you
+have authentications people logging in
+and you want to see where they may be
+logging in from if you start to see a
+lot of authentications from another
+country and you don't have any employees
+in that country that could be a cause
+for concern and you would certainly be
+able to see that in your monitoring you
+could also monitor the services that are
+running on these devices including the
+type of activity and how much activity
+you can see if any backups have been
+completed on that device and what
+versions of software may be installed
+which could help you determine if a
+device needs to be patched we also want
+to monitor our applications check for
+availability and making sure these
+systems remain running should be a major
+part of our monitoring it's also
+interesting how many security breaches
+have been identified by monitoring the
+amount of traffic that has been
+transferred if you start to see a lot of
+traffic suddenly being transferred that
+is well above the norm that could
+indicate that an attacker is attempting
+to exfiltrate data and you also want to
+keep the lines of communication open
+between the software developers or
+manufacturers of these applications so
+that you can be informed if any security
+issues are discovered and it might be
+good to monitor the ongoing activity
+with your infrastructure for example you
+might have remote access systems where
+people are connecting in using the VPN
+you might want to know how many of those
+connecting are employees how many are
+vendors and how many are guests
+firewalls and intrusion prevention
+systems can also be a very good source
+of information if you suddenly see a
+large Spike of attacks that could give
+you a warning that someone is trying to
+gain access to your systems
+but monitoring all of these very diverse
+systems can be challenging you have
+different types of systems that keep
+logs in different formats and they're
+obviously monitoring and looking for
+different types of information
+fortunately there is a way to
+consolidate all of this information back
+to one single source and that Source
+would be a Sim that is a security
+information and event manager this
+allows you to consolidate log files from
+many different devices so you could grab
+files from firewalls switches servers
+routers and anything else in your
+infrastructure and bring all of that log
+information back to the central database
+in the Sim because all of these logs are
+now Consolidated and in one central
+place it makes it very easy to start
+creating reports from this one reporting
+engine and because all of these logs are
+contained in the database you can begin
+comparing and correlating data across
+what used to be very diverse types of
+data that are now stored in one Central
+database so you might be able to look at
+a report that shows authentication to
+the VPN concentrator and then shows what
+type of information was accessed once
+the user was brought on to the network
+you could also create a report showing
+what type of access users have to an
+application and show what process they
+use to get that access and this might
+also be a good place to measure how much
+data has been transferred so that you
+can get a view of what the normal amount
+of data might be on your network and get
+an alert if you happen to exceed those
+numbers
+Information Technology professionals are
+discovering new vulnerabilities every
+day so it's very useful to know what
+systems on your network may be
+susceptible to these specific
+vulnerabilities add to that challenge
+the fact that all of these systems that
+we're using tend to be constantly in
+motion our desktop computers don't tend
+to move very much but our laptops our
+mobile devices and our tablets are
+constantly in motion this makes it very
+challenging to be able to keep track of
+what type of vulnerability ities may
+exist in those systems for that reason
+many organizations have software and
+systems that can constantly scan all of
+the devices on their Network and report
+on interesting metrics for example you
+could see what type of operating systems
+may be running on these devices and what
+versions are installed you can see if
+there are particular device drivers
+installed and what versions they may be
+running you might want to see what
+applications are installed on a mobile
+phone or a laptop computer and you may
+be able to get a report on potential
+anomaly that have been identified and
+put into the logs of those devices this
+scanning process can look for a lot of
+information and it usually creates a
+mountain of details the goal is to grab
+as much information as possible and
+store that into a database where later
+you could create some very detailed
+reports these reports can contain
+extensive information about the status
+of these systems on our Network and very
+often we're looking for reports that can
+give us a clue of what to do next we
+refer these as actionable reports for
+example you might create a report that
+shows how many devices are up to-date or
+in compliance with these vulnerability
+patches what's probably more important
+is identifying what devices are not in
+compliance and then putting together
+what actions may be required to bring
+those devices up to date we might also
+run reports that show what type of
+operating systems are in use and if any
+of those operating systems need to be
+updated or patched with all of this
+information stored constantly in this
+datab datase we can instantly create
+reports especially given the latest
+vulnerability of the day for example you
+may find that a new vulnerability is
+suddenly announced and you can use this
+database to create reports to understand
+how many systems may be vulnerable to
+this specific vulnerability and there
+may be times when you want to perform
+some wh if analysis and perform ad hoc
+reporting these are reports where you're
+considering what could happen in the
+future and you create a report that
+shows the systems that may be affective
+by that hypothetical situation for
+example you may have an operating system
+you're using in your environment and you
+know this operating system will be end
+of life in about 6 months so the
+question will be when that 6 months is
+up how many systems will be susceptible
+to vulnerabilities going forward and an
+ad hoc report can easily provide that
+information in the movies an attacker
+will gain access to a network and then
+instantly alarms will go off and
+everyone has now discovered the attacker
+on the network the reality however is
+quite different in an IBM security
+report in 2022 they documented that it
+takes an average of about 9 months for a
+company to identify and contain a breach
+during that 9-month period the attacker
+is inside of the network looking at
+other systems gaining access to
+applications and resources and finding
+their home inside of your network this
+is just one of the reasons why having a
+very long-term backup strategy is so
+important you never know when an
+attacker main gain access to the network
+and they may be sitting in your network
+for months or even years before they're
+discovered in some organizations you may
+be mandated either by state or federal
+law to collect data over a certain
+amount of time that's to not only
+provide information about how the
+business is performing but it's also
+used from a security perspective to
+understand what may be happening with
+attackers inside of your network it
+would be useful if we were able to get
+some type of notification the instant
+our systems discuss discovered something
+unusual going on for example one of
+these alerts might be an increase in
+authentication errors which could
+indicate that an attacker is trying to
+use a spraying attack or some other type
+of Brute Force to gain access to
+someone's account or perhaps suddenly
+there is a large amount of data that's
+being transferred out of your data
+center and onto a site that's on the
+internet that type of activity should
+cause an immediate alarm or alert so
+that someone can look into what that
+type of traffic might be you can
+probably think of a list of many
+different things you would like to know
+about if it ever occurred in your
+environment that type of actionable data
+should result in some type of real-time
+alert so that people can look into
+what's happening on your network and
+understand if this is legitimate traffic
+or if it could be an attack instead of
+Simply showing this information on a
+screen or waiting for someone to come in
+in the morning and look at a report you
+can inform someone immediately with a
+text message or SMS or maybe you send an
+email message so that they can see more
+more detail about what's happening on
+the network and if you're part of a
+security Operation Center you can have a
+separate group of alarms and alerts that
+are specifically for the
+sock once an alarm is generated it may
+be important to react to that alarm and
+one of the most common reactions is to
+quarantine that system from everything
+else on the network this would prevent
+an attacker from Gaining additional
+access to that particular system and it
+would prevent anyone on that system from
+then jumping out to other devices on the
+same network the challenge of course is
+making sure that these alerts are
+accurate and this is an ongoing
+challenge for anyone trying to put
+together alerting or alarming this is
+usually a balancing act where you'd like
+to be able to view realtime alarms and
+alerts but there may be some of those
+alerts that aren't actually accurate and
+that would be a false positive perhaps
+even worse there might be certain events
+that aren't logged at all and therefore
+don't create an alert we refer to those
+as a false negative
+this usually takes a bit of time to tune
+these alerts and find the right place
+for your particular network but once
+everything is adjusted your alerts are
+now very accurate to what's going on on
+your network and you can start making
+immediate decisions about the
+information that's provided in those
+alarms

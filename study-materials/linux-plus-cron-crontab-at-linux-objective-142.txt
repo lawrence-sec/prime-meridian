@@ -1,0 +1,780 @@
+hey it's Sean so like the next video is
+on uh cron jobs and the at Damon dude
+shut up Cronin at are super awesome and
+don't forget about the batch command
+that's like the coolest one of them all
+look they can just Google it or
+something I mean everybody uses cron I
+don't need to explain one more time what
+the five fields are for and like the
+magical extra field for the system oh
+come on you have very few skills but
+making boring things interesting is like
+one of them I mean it's not really
+boring it's just you know I've done it
+before and and I don't know I don't want
+to teach it and like miss something or
+teach it slightly different than I did
+before uh no I think maybe you're just
+lazy you didn't even change your shirt
+for this bit okay good point different
+life decisions version of me uh let's do
+this let's talk about KRON and at and a
+little bit of batch okay in all
+seriousness we're going to cover the at
+Damon and then how to use cron both the
+personal cron Tab and the system contact
+or the system cron which is run by the
+cron Damon so cron cron Tab and at are
+what we're going to cover and it's the
+kind of thing that's super simple but
+it's really confusing especially KRON
+until you understand how to use it and
+then it's like so much simpler than even
+the um uh what is the Windows task
+scheduler that thing always confuses me
+uh but this isn't bad oh and I guess
+this is section
+1.4.2 uh if you're if you're keeping
+track with my numbering system that kind
+of goes along with the Linux plus
+objectives so the add Daemon is
+something that's really simple and I
+have to admit I don't use it very often
+in fact I for some reason I just never
+really use it I'll usually do something
+if I want to delay an action I suppose I
+should start there what the at Damon
+does is it allows you to have a command
+executed at a specific time just a
+one-time thing it's it's not a repeating
+thing that's what cron is for he
+foreshadows about the video but the at
+Damon is like you have to do something
+once but you want to do it in the future
+at a specific time that's what it's for
+usually I'll do something like
+um I'll just say like sleep for 10
+seconds and I'll put a semicolon and
+I'll say uh whatever it is I want to do
+so I'll press enter and then after then
+10 seconds are up and it slept for its
+10 seconds it will just do the thing but
+the at Damon is literally designed to do
+this kind of thing much much better and
+it just works like this you can say
+um at and then specify a time and it's
+extremely flexible you can say at
+tomorrow and it will happen 24 hours
+from the moment that you type that in so
+I could say at tomorrow you can say at
+uh now plus five
+actually let's do now plus two
+minutes
+and then you press enter and then you're
+in the interactive shell and this is
+where you can do a list of things you
+wanted to do I want to say
+um Echo hello and I wanted to redirect
+into uh the tilde
+temp
+hello.txt which is where I am currently
+in that directory and then to get out of
+here you press Ctrl D now you can't see
+me do that but Ctrl D and now if we type
+at Q it will show us the Q of jobs that
+are waiting to execute and it tells you
+when it's going to execute we can look
+in the directory here there's no file
+however once that time comes once
+Saturday December 10th at 6 31 PM
+happens it will execute the command that
+is in there let's see if it happened not
+yet how close are we oh we still have
+another 55 seconds hold on I'm going to
+pause the video
+a few moments later
+okay if we look at the date oh look it's
+SEC it's 6 31 if we type LS we're gonna
+see haha look that file is there and now
+if we type at Q to look at the queue
+it's empty because it executed and it's
+done it's a one-time thing all right so
+let's do uh something similar uh but
+this time I'll show you how to remove
+something so I'm going to say at
+tomorrow okay at tomorrow press enter
+I'm in the interactive at system where I
+type commands and you'll see it says
+when it's going to execute it's going to
+be tomorrow which is Sunday December
+11th at 6 31 PM so 24 hours from now and
+what I wanted to do is RM Delta temp
+hello.txt all right press enter and now
+press Ctrl D I could do a couple strings
+of command I could I could also like
+maybe reboot the computer or something
+but I'm not going to I'm just going to
+say Ctrl D I'm going to hold down the
+control key on my keyboard and press D
+that gets us out and the job is
+scheduled so we can do at Q and see that
+it's scheduled but I'm like ah I don't
+want to wait until tomorrow so what I
+can do is remove that at RM and then the
+job number that's the first field here
+which is job number six so at RM for
+remove six and now at Q There are no
+things in queue okay so it's really
+simple to do that and again there's a
+lot of things you can do you can say um
+at T time and it will schedule it for
+the next 4 pm which is interesting I
+suppose and you can just do uh so it's
+very very flexible like that uh you can
+do at you know Sunday 6 p.m something
+like that and it will it will do that
+anyway that's the at Damon now it's not
+mentioned in the objectives but batch is
+part of the at system and it's it's not
+widely used anymore because its
+usefulness has kind of gone away with
+how powerful computers are now but
+basically if you were to say batch and
+press enter you are in the at queue
+right here it looks just like we did it
+at a certain time right and if we were
+to say like Echo Audi and I want that in
+same place press enter Then control D so
+now it's scheduled
+just but you notice I didn't say a time
+I said batch and how batch works is it
+will do any commands that you've entered
+as batch as soon as the system has a
+load of below 1.5 okay so since systems
+now have lots of CPU cores uh generally
+the system load is going to be below 1.5
+all the time so every minute it'll like
+pick one off of your batch queue and it
+will execute it but when computers used
+to be less powerful it would allow you
+to schedule something to get done as
+soon as possible and it would just wait
+until the system kind of had a lull
+below a system load of 1.5 and then it
+would execute A bash a batch at command
+that you set up so it was just a way to
+make your computers a little more
+efficiently use their their down moments
+if you will it's not used very much
+anymore but that's what batch means it's
+actually referring to the at Damon and
+rather than a timing thing it does it as
+soon as the system load is below 1.5 now
+unlike the at Daemon cron is something I
+use constantly it is absolutely amazing
+it's flexible it's reliable it's just
+stinking awesome so let me explain the
+bits that are confusing especially at
+first there are five fields that
+determine when a command gets executed
+and the difference between at and cron
+cron is designed to run something over
+and over at a specific interval so if
+you have something that you need to do
+often like run a backup script or
+something like that cron is generally
+how you would do that there are other
+ways but cron is pretty much the de
+facto standard way of timing events at a
+regular occurrence and like I said there
+are five fields and using those those
+five Fields you can construct pretty
+much any interval that you want so the
+first field is um what minute of the
+hour so like uh 1 37 p.m this would be
+like 37 okay and the next field is what
+hour of the day 0 to 23 it uses a
+24-hour clock because that's easier than
+having to specify AM and PM so let's say
+that at uh I got to do some quick am pmf
+let's say at 2 pm or 2 37 p.m you want
+this to happen so you would say Okay 2
+p.m is going to be 1400 hours so the
+second field would be 14. and then uh
+what day of the month well if you want
+it to happen every day at 2 37 PM you
+would use an asterisk which is what that
+you know that's what it shows right here
+in asterisk that means every occurrence
+of this so every day I want you to do
+this and then
+um what month of the year if you only
+wanted this to happen every day of
+November then you would put in 11 in
+this field if you want it to happen
+every day it also has to happen every
+month so again you would put an asterisk
+there and then the last one is what day
+of the week so let's say that we wanted
+to have this happen
+every Wednesday at 2 37 PM well then we
+would say instead of an if we put a star
+here it would happen every day but if we
+just want it to happen every Wednesday
+then we would say okay what number is
+Wednesday and Sunday is zero Sunday is
+also seven which is you know Annoying or
+whatever but Sunday is zero so that
+means up Monday is one Tuesday is two
+Wednesday is three Thursday is four
+Friday is five Saturday is six and like
+I said Sunday is zero but
+Sunday is also seven over here if you
+wanna if it wraps around for some reason
+anyway so what'd I say I say Wednesday
+or Tuesday I don't remember which day I
+said but we want it to happen every
+Wednesday I'm gonna say now at 2 37 p.m
+so then here we would put three for
+Wednesday and then this is our field
+there's a space between every one of
+these uh you can't necessarily see it
+with my writing but so 37 space 14 space
+asterisk space asterisk space three and
+that is how we spell out in cron every
+Wednesday at 2 37 pm and then you put a
+space and then the command that you want
+it to execute and so every day it will
+execute as you and I'm going to show you
+how to actually edit this file uh in a
+second but that's how we form uh the
+commands to to execute it so
+um the hard part is figuring this out
+because it seems confusing but it's
+really not once you go through it and
+practice a couple times uh you know
+let's say the the first of every month
+at 2 A.M I want something to happen Okay
+I just made that up so now let's spell
+it out the first of every month at 2 A.M
+okay so uh
+2 am means a zero in the first field
+right because it's 2 colon zero zero so
+zero minutes
+2 am is going to be a 2 so space 2. uh
+let's see the next field is what day of
+the month the first day of the month is
+what I said so
+the first day of the month
+um
+what month of the year so month one
+through twelve well every month I want
+it to happen the first of every month so
+this fourth field is going to be an
+asterisk and then the fifth field what
+day of the week this this part can be a
+little confusing of all of the five
+Fields the fifth field is the most
+confusing in some instances if we
+specify a particular day here it will
+only execute if everything matches so if
+I were to put like uh a one here for
+Monday
+this means that it would happen at 2 am
+on the first day of every month that
+also happens to be Monday
+that's not what I want I want it to
+happen every single first of the month
+and so I would actually put an asterisk
+in that field too meaning that every day
+of the week is okay for it to happen
+it's not going to mean it's going to
+execute every day of the week it's going
+to execute
+the first day of uh every month
+regardless of what day it happens to be
+I hope that makes sense that that's
+where it gets a little confusing it's
+always that last field you're like wait
+a minute do I want it to be specific do
+I want it to be asterisk usually you
+want it to be an asterisk unless you're
+wanting to limit it to a particular day
+that's the best way to think about it if
+you want to limit it to executing only
+on a particular day of the week that's
+where that fifth field is going to be
+something other than an asterisk but if
+you want it to happen regardless of what
+day of the week it is put that as an
+asterisk and let the other field
+determine the the
+um interval between when it executes
+okay so that's how you form those five
+Fields the best thing to do is practice
+practice uh this is Saturday I'm going
+to have a weekend assignment for
+tomorrow's live stream if you see this
+month later that's fine but the
+assignment is going to be a bunch of uh
+cron uh configuration things for you to
+help figure out the best way to do it is
+really to just like come up with a
+random time and then spell it out in
+KRON Fields exactly what that means all
+right now let's look and see how we
+actually edit it so the cron Damon is
+running it's it's absolutely running on
+your system I've never known a computer
+that doesn't come with cron already
+installed and to edit your user cron tab
+which which means cron table I actually
+had to Google that I didn't really
+remember what cront tab stood for but
+it's your your cron table uh you edit it
+by saying cron tab Dash e for edit and
+it will open up a file the file actually
+lives in VAR spool cron and your
+username but you don't want to edit it
+directly because because this is another
+one of those tools where cront tab Dash
+e will do some syntax checking when you
+save to make sure that you don't
+accidentally corrupt your your own cront
+tab file and have nothing work right so
+cront tab Dash e offers us some syntax
+checking when we save so I'm going to do
+that press enter the first time it's
+going to ask you what editor you want to
+use and so as usual I recommend that you
+use Nano unless you have a reason to use
+something else like I always use vi just
+because that's my muscle memory from
+Decades of use but this is actually my
+current desktop computer this is my
+cront tab file now I actually set an
+environment variable at the top display
+equals colon 0 because some of the
+things that I do in my cron tab interact
+with my X Windows system and so I have
+to set that environment variable but you
+probably will not see this and you
+definitely won't see it on a on a server
+but you probably won't have that line
+and that's fine that's just like I said
+that's just because this first thing
+that I do cycle my desktop uh that
+interacts with my X Windows system and
+so I have to set that environment
+variable so just ignore that first line
+let's look and see if we can figure out
+what my timing things are here okay so
+we have this is something I didn't
+explain but we have the first field is
+actually this construct here asterisk
+forward slash 15. what that means is
+every 15 minutes okay it's asterisk and
+then like divided by 15 and that's a way
+that we say in the first field I want it
+to be every 15 minutes so you can do
+like asterisk slash two and it will run
+every two minutes so it's kind of cool
+that you you have those shortcuts you
+can do so that's every 15 minutes that's
+how we specify that with cron of uh
+every hour every day of the month every
+month of the year regardless of what day
+of the week it is I put all asterisks
+and the rest of it because I wanted it
+to execute every 15 minutes Around the
+Clock forever okay how about this next
+one this is a PHP script where I
+download the the Bing photo of the day
+which is the stuff that I cycle in the
+background for as my background images
+oh hello puppy
+um so I do this every day let's see so
+the first field is one so that means one
+minute after
+5 a.m so 501 am
+every day of the month every month of
+the year regardless of what day of the
+week it is I run this PHP with the
+argument of this PHP script okay so this
+is what I execute and I do it at 501 am
+uh here we have let's see what does it
+sell this executes my uh so I have a
+Calibre or caliber
+um ebook collection and this generates
+an HTML version of it so I can access it
+remotely on my reading devices
+um anyway what this does is 10 minutes
+after 5 a.m so this one executes the one
+above it executes at 501 am this one
+executes at 5 10 a.m every day of the
+month every month of the year regardless
+of what day of the week it is it
+executes this command and then what I've
+done here is I've redirected the output
+into devinol so I don't want any output
+because it spews out a bunch of stuff as
+it does it but I don't want that
+information anywhere by default cront
+tab will email any output to you so you
+don't want any output if you can help it
+and so I redirect the output into Dev
+null and then here I redirect the
+standard error into standard output so
+no matter what happens I never get
+notified it just goes into devnoll but
+it executes the command at 5 10 am every
+day and like I said every user has a
+cron tab of their own so that's my
+personal s Powers user on my computer
+and I uh execute those as my user now
+there is a system Chron system a
+system-wide KRON Daemon that allows you
+to do things not as your individual user
+you can do them as root or you can do it
+as any user and that lives in the ETC
+folder which makes sense because it's a
+system-wide function so cront tab user
+cront tabs exist for each individual
+user but there's a system con tab when
+you install packages that need to do
+like regular maintenance they will drop
+a file in the ETC cron.d folder and
+that's where we'll go now now more than
+just the ETC cron D or cron.d folder
+there are a couple other things you
+should know so there is an Etc cront tab
+file which is a system-wide cron file
+that is formatted slightly differently
+but there are other things in here as
+well so first of all I guess let's look
+at how a system cront tab is actually
+formatted because it's it's subtly
+different very very similar but enough
+different that you need to understand
+the difference between the personal
+contact Tab and the system-wide cront
+tabs stored in
+ETC cront tab in that file and this
+graphic should look familiar right it's
+almost the exact same graphic that we
+just looked at the difference being here
+the the timing is all the same right
+it's still the same you know minute hour
+day of the month month of the year uh
+day of the week but there's an extra
+field when it's the system-wide cron tab
+username this tells the the cront tab
+the system-wide cron tab who do I
+execute the command to be executed who
+do I execute it as and so there's just
+an extra field in there and you have to
+watch for that you have to think is this
+my personal cron tab that doesn't have
+that field or is this the system-wide
+cron tab that requires me to put a
+username for how this gets executed
+that's the difference and I don't know
+if you can hear my dog whining but I'll
+be right back you won't even notice but
+I'll be right back one eternity later
+okay it's cold outside but I'm back and
+you didn't even know I was gone anyway
+with the system cron the only difference
+is that field where you need to specify
+the username whether that username is
+root or a particular user on your system
+or sometimes it might be like
+www.data like if you wanted to execute
+as your uh your web servers user without
+those users permission
+you could do that as well and there's a
+couple ways that you can do this in our
+system which brings us back to the
+command line now I have to admit I don't
+know of a special way to edit the
+system-wide cront tab file like so that
+you get that format or that syntax
+checking when you save it if there is a
+way please let me know in the comments
+and I'll pin the comment if there is a
+way but generally I if I'm going to edit
+the system-wide cront tab file which I
+have to admit I rarely ever do if I do
+something with root privilege I'll use
+the root user's cront tab file so I'll
+become root and do cront tab Dash e as
+the root user but if I do need to edit
+the system-wide cront tab file for
+something like a www.data user I will
+edit it directly so I'm going to do
+something like VI
+Etc cront Tab and notice I'm the root
+user right now so if I do this it's
+going to show us
+um well first of all it sets a couple
+environment variables and there is a
+very familiar looking uh graphic this is
+like exactly the one that I shared on
+the slides but down here you'll see this
+is set up to use the format that we just
+looked at where we have the five
+different fields so this one the first
+field is 17 and then uh star so it's
+going to happen 17 minutes after every
+hour of every day of the month every
+month of the year every day of the week
+so at 117 217 317 all the way through
+all 24 hours as the root User it's going
+to execute this command it's going to
+actually run the the hourly cron tab
+files which I'll show you in just a
+second but this is the system-wide cront
+tab file
+and not only don't I know a way to get
+the syntax checked honestly you should
+not ever edit this file even if you do
+need to do something like I mentioned
+like for a user that's like a like
+www.data don't edit this file because
+there is a better way uh to do it all
+right so we're gonna we're gonna get out
+of this file all right and I'm going to
+take you into
+a fantasy world now I'm going to take
+you into
+Etc
+Quran dot d now this is a folder
+that contains individual files and this
+is where like if a program that you
+install has to do something periodically
+it will add a file to this because the
+crown Daemon will load every file that's
+in here and that way a program like when
+you install a package it doesn't have to
+like try to edit a single file and keep
+track of like its edits and other
+programs edits so Linux has kind of
+evolved this way where there will be a
+dot d folder and this is you know all
+the files in here are read in so if we
+install a package like it looks like PHP
+we'll look at that in a second a PHP
+installed a crontab file or a crown file
+in in ETC cron.d and let's look at it
+really quick so VI PHP
+uh you'll see that this has the exact
+same format this is a system-wide cron
+file okay cront tab file in the system
+format because you'll notice that field
+specifies a user okay so if it's in here
+it does need that field to say what user
+it executes as but this is where you
+would put something if you wanted to
+have a custom system-wide Crown file or
+Cron job you would put it in a file in
+here rather than editing that Etc cront
+tab file just don't ever touch that Etc
+cront tab file that is the file that it
+that it loads everything else from but
+it's not really designed for users to
+interact with so anyway here we have
+something and I'm glad this is here
+because there's another format that I
+wanted to show you remember we could do
+like Star 15 for every 15 minutes well
+you can also specify in one of the
+fields those five timing Fields a list
+of things so in this case
+it executes at nine minutes after the
+hour and 39 minutes after the hour so
+we've we just have a a comma separated
+list as our first field so this means
+that it executes at well let's go to the
+other fields really quick uh every hour
+of every day of the month every month of
+the year uh every day of the week so it
+happens basically every half hour it
+happens at like 109 and 139 and then at
+209 and 239 and it executes as a root
+and then the thing that executes is the
+rest of this is all one line it word
+like word wrapped around but this is all
+one line it executes all of these things
+and you'll see it strung a couple things
+together using semicolons that's fine
+it's all one line and this is what it
+executes every 30 minutes but that's how
+the timing for every 30 minutes worked
+out is a comma separate thing we could
+do that with hours too right we could
+say what if we wanted it to happen uh at
+the top of every hour every even hour
+well then we would make that first field
+zero and the second field could be two
+comma four comma six comma eight comma
+ten comma twelve comma 14 comma all the
+way to the uh to the end and that would
+happen on even hours or we could do star
+slash two for the hour field there's
+lots of different ways to accomplish it
+uh but it's very very flexible anyway
+but the the important thing is in this
+system crown.d folder we have to specify
+the user in others one more way that
+cron jobs happen and this is another
+like I know I said that fifth field like
+the day of the week can be the most
+confusing for figuring out timing this
+next aspect is really really confusing
+because it doesn't follow
+cron timing at all let me show you what
+I mean I'm gonna go back a folder and
+then let's CD and I'm going to say cron
+I'm going to hit tab a couple times so
+we get this list again now we understand
+the cron D folder is where we can create
+files and any file we create in there we
+create in there is going to be read as a
+system-wide cron file like that PHP file
+we just looked at the cron tab file
+itself Etc cront tab we never want to
+edit right that is the system-wide Chron
+like cront tab file but it's not
+designed for us to edit it that's why
+there's a folder for us to create
+system-wide crime job you know
+specifications in the other ones cron
+weekly cron monthly cron hourly cron
+daily
+these are folders where anything inside
+of them is executed
+every day or every hour or every month
+or every week
+all right so we don't use actual
+um cron timing Fields these are just
+executable scripts let me show you what
+I mean let's go into the cron dot daily
+folder and in here all of these let's do
+LS minus l
+these are executable files these are
+scripts okay and these scripts will
+execute every day because they exist in
+the ETC cron.daily folder but they are
+not Cron
+timing files let's look so apparently
+slack which is installed on my system
+has a daily Cron job that it executes so
+let's look at that
+VI slack uh we'll see this is just uh an
+sh script and this is it's just a script
+that does stuff you'll notice there's no
+timing fields or anything this is just a
+big long script that does stuff okay and
+so I'm gonna get out of here the
+important thing to know is that we don't
+specify timing in these folders these
+folders everything in here is called
+every day
+in fact to be perfectly transparent it's
+timed based on the system-wide cront tab
+file so if we come back
+in here and we look at that file that we
+never edit
+it specifies when those commands get run
+so it says uh this is the the one that
+schedules when cron.daily gets run it
+looks like on our system cron.daily gets
+executed at 6 25 a.m every single day
+and the system when it's set up these
+will randomize a bit and that's
+basically what happens the let's see
+monthly the KRON dot monthly anything
+any script any executable script that
+you put in the cron monthly folder is
+going to execute the first day of every
+month no matter what day of the week it
+is at 6 52 a.m it's going to execute the
+first of every month 6 52 am if it lives
+in the KRON monthly folder hopefully
+that makes sense I know that was kind of
+a lot to cover the at Damon is something
+that it's important to know it exists
+and it might be useful like I said I
+rarely actually use the at Damon but
+it's kind of cool to know that it's
+there and you can skip schedule one-time
+events for a later time period KRON like
+I said is used constantly I use it all
+the time I end up using my personal cron
+tab
+for everything for the most part and
+then I'll also like if there's something
+I need the root user to do regularly I
+will often just Su and I'll become root
+and then do cront tab Dash e as the root
+user and I will use that the root users
+user cron tab so without that field
+specifying the username and I'll do
+things there or you can actually create
+your own system-wide cron jobs in the
+ETC cron.d folder create a file and
+inside there use the five timing fields
+and then that extra field saying what
+user it should execute as and then the
+command that you need to run and of
+course those daily weekly monthly those
+those folders do not contain cron timing
+stuff those are just executable scripts
+that get executed on a regular basis
+based on the name of the the folder
+right I mean the crown.weekly folder
+executes every week anyway that's how it
+works
+um they should be we should have name
+scrolling here thank you to my patreon
+and supporters it's kind of getting to
+be a long video so I don't want to yam
+around too much but the last thing I
+want to leave you with is a way to
+practice those timing fields and to do
+that I highly highly recommend going to
+cront tab dot Guru I'll put a link in
+the description but Chron tab.guru is a
+website that allows you to figure out
+the timing on those five Fields now you
+can do things like hit the random button
+and it will you know do a random thing
+here and it will show you what that
+looks like and what it actually means so
+I like to do this just to see some of
+the random things it comes up with
+otherwise you can specify things in here
+and it will explain to you in real time
+let's let's say we we did 22 comma
+23 then it would say at minute zero past
+hours 22 and 23 on every day of the week
+from Monday through Friday okay so it
+allows you to calculate those things and
+it explains to you what they mean in
+real time there's also a nice little
+cheat sheet down here uh where it can
+give you uh you know any value you can
+separate things by a commas you can do a
+range like I didn't cover that one but
+one through five means Monday through
+Friday which is kind of cool too all
+right so we'll do it every day Monday
+through Friday if you do 1-5 in that
+last field anyway it's a great way to
+figure out how you can time your cron
+tab entries and with that I'll remind
+you to learn everything do what you love
+and most importantly be kind I'll see
+you in the next video and have fun with
+Kron

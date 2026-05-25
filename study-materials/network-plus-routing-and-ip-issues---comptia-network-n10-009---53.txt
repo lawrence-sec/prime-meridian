@@ -1,0 +1,255 @@
+if you're the administrator of routers
+then you're certainly familiar with the
+importance of routing tables we use
+routing tables to determine what the
+best next hop will be when we're
+forwarding traffic through the router so
+if you need to know how to get from
+point A to point B we ask the router the
+best Direction and then it sends the
+information on its way the routing
+information builds a map of where data
+will be forwarded within that router so
+you can look at default gateways so you
+could look at default gateway
+configuration or routes that have been
+statically added to the router it would
+certainly help if you had a map of the
+network that way you could look at the
+routing table compare that to a map and
+make sure that data is being forwarded
+out the correct interface normally when
+troubleshooting routing problems you
+should look at the routing table of
+every router along that path not only
+the route to get from one end of the
+network to the other but you also have
+to confirm that you have proper routes
+to get back to the original workstation
+this routing table is important we need
+to be sure that we have a route for
+every possible location and if we don't
+have a route inside of our routing table
+the router will simply drop that traffic
+sometimes the router will send back a
+message to the station that sent the
+traffic called an icmp host unreachable
+message so you may be informed that that
+information was not able to make its way
+through the network because of this
+issue with the routing table so the
+network we have here has a laptop on one
+side of the network and a laptop on the
+other side of the network and separating
+those two networks are three separate
+routers between each router of course is
+a switch that allows us to connect those
+together so we would need to check the
+routing table in router one and make
+sure that it had a route for the
+destination Network we were trying to
+reach so you might want to check the
+router one routing table and make sure
+that it had a route to the network that
+the laptop is connected to which in this
+case is
+10410
+sl24 so in this example we're trying to
+Ping 10.3.1 .2 from our laptop on this
+side of the network you can see that
+that 10.3.1 10.2 address is located
+right here on the other side of router 2
+so we would need to have a route to this
+particular subnet which is 10310 do0 24
+we would go to router 1 look at the
+routing table in router 1 and confirm
+that it had a route to that particular
+network if it doesn't we'll receive a
+message like this when we try to Ping
+that says the destination host is is
+unreachable as you can imagine on a
+large Network you may have a very large
+routing table but often the router can
+be configured in a way that summarizes
+these routes into one Central default
+route this would be our Gateway of Last
+Resort if there's no other route in the
+routing table that matches the
+destination of the traffic that we're
+sending we could choose to have one
+final route that's used as the default
+if none of those other routes exist this
+is usually added as a static route so
+you would administratively configure
+that route in your router configuration
+and if there's nothing in the routing
+table that matches that destination we
+can always use that static route as our
+Gateway of Last Resort if you have a
+Gateway of Last Resort in your router
+the destination is probably
+0.0.0.0
+sl0 that encompasses every host on every
+Network this way if nothing else matches
+within that routing table we know that
+this final Gateway of last Resort will
+match all other traffic here's a routing
+table from a router that shows a number
+of directly connected routes you can see
+10.10.10
+Z24 we've also got
+101040 Z24 and 101050 sl24 all of these
+are directly connected to this
+particular router there are also some
+routes that have been added with a
+static route to 10.10.20
+Z24 and another route that has been
+learned through rip this is
+101030
+Z24 we don't have any other route in
+this particular router to tell us where
+to go if we don't match any of these
+existing routes in fact you'll see that
+it says that the Gateway of Last Resort
+is not set for this particular router to
+add this Gateway of Last Resort We'll
+add a static route that has a
+destination to
+0.0.0.0
+and if you want to go to that Gateway of
+Last Resort you need to leave via
+101050 do2 if nothing matches in this
+routing table then it will use the
+Gateway of Last Resort and send all
+traffic out 101050 do2 to the next
+router down the
+line if you've turned on your computer
+and you did not receive a DHCP address
+and instead your system was configured
+with an apipa address this could be a
+case where we have run out of addresses
+on our DHCP server if the address pool
+has been exhausted then we'll receive an
+automatic private IP address in IP
+version 4 although an apipa address
+allows you to communicate to other
+devices on your local subnet it is a
+non-routable address and you would not
+be able to communicate outside of your
+local subnet we would certainly check
+the DHCP server and see if it has
+available IP addresses and if we need to
+add additional addresses to that then we
+can do that on the DHCP server itself
+many organizations will have a
+management console for all of their DHCP
+servers this is an IP address management
+device or ipam where you can monitor and
+view all of the available addresses you
+can look at the pools of addresses and
+the availability on each DHCP server if
+this network is one where people are
+only there for a short period of time
+before leaving you might want to
+decrease your lease time so that there's
+no more address pool exhaustion this
+means we'll be able to free up more IP
+addresses in a shorter period of time
+and and therefore minimize the chance of
+an address pull
+exhaustion usually IP address
+information is configured and defined by
+the network administrator they'll add it
+to a DHCP server and you'll receive
+those parameters when you connect to the
+network however sometimes you might
+receive incorrect information there
+might be the wrong IP address subnet
+mask or default gateway so you might
+want to check with the network
+administrator and confirm that the IP
+address values that you've received are
+correct for the interface that you're
+connect connected to sometimes you can
+perform a packet capture to see what
+other devices on your local subnet might
+be configured as and that might give you
+an idea as to the IP address or subnet
+mask for a particular Network you could
+also try looking at other devices that
+are on the same network if you're
+configuring a router and there's a
+different router already connected to
+this network you might want to look at
+that configuration and see what IP
+address it's been assigned and for
+normal troubleshooting we would normally
+start with pinging our local address and
+if that works we would ping our default
+gateway and if that works we would try
+an IP address on the other side of the
+default gateway if we step through this
+process using ping and trace route we
+should be able to put together a map of
+where we are in this network and based
+on that information we should be able to
+determine if we've been assigned an IP
+address that's correct for the interface
+that we're connected
+to even with all the work that goes into
+configuring these DHCP servers we will
+occasionally Ally still see a duplicate
+IP address often this is from a device
+that has been manually configured and
+it's using an IP address that exists in
+an existing DHCP pool or perhaps you've
+configured multiple DHCP servers but
+you've accidentally overlap those pools
+between the servers and each one of
+those is giving out duplicate addresses
+and sometimes a device is added to the
+network with DHCP turned on by default
+and it starts handing out IP addresses
+that are different than the IP addresses
+that you would expect on your network
+with older operating systems we would
+have the two devices fight over which
+one has priority on the network usually
+based on the Mac address table of a
+switch but in most modern operating
+systems this duplicate IP address is
+discovered when a device first connects
+to the network and it prevents any type
+of duplication you'll see an error
+message on the screen and from there you
+can decide what to do next to
+troubleshoot this duplicate problem if
+this is a manually configured device you
+want to look at the config figuration
+you've been given check the IP address
+the subnet mask and the default gateway
+if you have a different workstation that
+you can test with you might want to try
+pinging that IP address before
+statically configuring it inside of a
+device if you receive a response and you
+haven't configure the device yet then
+adding that system to the network would
+certainly cause a conflict if you do
+receive a response to a ping and you
+weren't expecting that IP address to be
+on the network then you'll have to hunt
+down where that workstation happens to
+be an easy way to do this is to Ping the
+IP address and then check the ARP table
+if this device is on your local
+broadcast domain then you now have the
+MAC address of that device and you
+should be able to go to the MAC address
+table of your switch to see which
+interface this device is plugged into
+and if this problem is associated with
+two DHCP servers handing out the same
+address you might want to perform a
+packet capture to see exactly what these
+DHCP servers are offering

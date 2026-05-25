@@ -1,0 +1,99 @@
+if you've connected your computer to a
+wired Network then you're probably using
+ethernet ethernet is the most popular
+networking standard in the world and
+almost any device you use will be able
+to connect to an Ethernet Network there
+are also many different types of
+ethernet they vary in speed the type of
+cabling we use the connectors at the end
+of these cables and the type of
+equipment that's required to connect all
+of these devices together our modern
+ethernet networks have many different
+standards for both Twisted paer copper
+cabling and for fiber optic
+connectivity the reason we're able to
+connect any device in the world to any
+ethernet Network and be able to have
+this connectivity is because there is a
+single set of standards for all of these
+ethernet networks those standards are
+created by the itle E 802.3 committee it
+is the Institute of electrical and
+electronics engineers and they're
+responsible for designing and
+documenting the standards we use to
+connect all of these ethernet networks
+together for example a very common
+ethernet Network would be 1,00 Bas T
+this is a gigabit Ethernet Network that
+operates over twisted pair copper
+cabling and operates at a speed of 1
+gbit per second a newer version of that
+standard is the 10gbase T or the 10 gbit
+ethernet Network this also uses twisted
+pair copper cabling and operates at a
+speed of 10 GB bits per second there are
+also ethernet networks that use fiber
+optics an example of that would be 1000
+Bas SX which is a gigabit Ethernet
+Network that uses fiber optics and
+operates at a speed of 1 gbit per second
+this is just a sample of a few of the
+more popular ethernet standards but
+there are many ethernet standards to
+choose from using different types of
+media and supporting different speeds
+the it has told us that the names they
+use for these standards don't
+necessarily correlate back to the
+details of the standard but there is
+usually some information that we can
+discern from the name itself for example
+if we look at a standard such as 1,00
+base T we should be able to break that
+term apart and determine what type of
+media and technology is used as part of
+that standard for example the number
+that's used in the name of the standard
+is often related to the speed of the
+standard itself for example the 1,000
+Bas T that 1,000 refers to the 1 ,000
+megabits per second or 1 gigabit per
+second overall speed if this standard
+started with 10g then it would be
+related to a 10 gabit per second Network
+we often see the term base in the name
+of the standard and that's referring to
+the term baseband which means there is a
+single frequency that is used to be able
+to send this data over the network this
+is in contrast to something like
+Broadband which uses many different
+frequencies to be able to communicate
+across that Network networ and very
+often you can determine what type of
+media is associated with that standard
+by looking at the additional letters at
+the end of the standard for example 1,00
+base T has a t at the end and we can
+assume that that t means that this is
+twisted pair copper if there was an F at
+the end it's very possible that this
+particular standard would use fiber
+optics there may be additional letters
+at the end of the standard for example
+if there is an SX at the end of the
+standard it might be referring to a
+short wavelength light that is sent over
+that fiber optic connection as mentioned
+previously the i e tries to put the name
+and terms within the standard so that it
+would be recognizable but that is not a
+requirement for the name of the standard
+itself if you were interested in the
+details of what that standard supports
+you would need to read the entire
+standard and not just look at the name
+of the standard

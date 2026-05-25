@@ -1,0 +1,1546 @@
+All
+[Music]
+right then. So last time we started
+talking about software development and
+we covered multiple software development
+life cycle methodologies and it really
+wasn't the most exciting topic. I know
+we have to learn this for the exam, but
+it doesn't really help us understand how
+to code an application in a secure
+manner. So that's precisely what we're
+going to be talking about today. Also,
+apologies for my voice. My sinuses have
+decided not to be YouTube friendly
+today, but hopefully the content is
+still going to be clear. So, thank you.
+So let's talk about coding security or
+how do we write those applications so
+that they are secure and I would like to
+start with one idea and this idea is
+actually so important because how should
+I put this if we manage to fix this one
+single thing in every single application
+that we develop then 90% of all the
+cyber security analysts out there would
+suddenly be without a Bob.
+And that single idea is called input
+validation. And I cannot stress this
+enough. This is the number one method,
+the number one best practice to get rid
+of a lot of vulnerabilities in your code
+because a lot of problems appear when
+you ask for input from your users. And
+if you look over the vulnerability
+databases out there, just randomly
+search for one vulnerability and you're
+going to find in most cases that it's
+going to be about a crafted request, a
+malformed request, a specific type of
+file that is uh is sent to that
+application, a specific crafted packet
+or malformed I don't know protocol
+anomaly that is sent to that application
+and that eventually exploits a
+vulnerability. So, it's all about
+accepting input and not validating it
+properly when it comes from your users.
+And this is where most vulnerabilities
+originate from. And if you're thinking,
+all right, I don't have that much input
+in my application or I don't have any
+input in my application. Well, you do.
+Even if you're just serving static
+pages, even though probably you won't
+call that an application, but even for a
+static page, you're going to accept an
+HTTP request that's going to be
+processed and then it's going to return
+a specific static page. Well, that HTTP
+request is a kind of input. If you allow
+users to submit comments on a on a
+shopping website, for example, that's
+going to be input. If you allow users to
+configure their profiles and upload
+their profile pictures or their resumes,
+for example, on a website, that's going
+to be input. That's going to be a
+vulnerability that can be potentially
+exploited. Now, there are a lot of
+places online where you can find
+documentation about what you should be
+looking for when you plan to do input
+validation. And this is actually because
+it's such a wide topic that it's
+basically impossible to cover in one
+single place especially because it it
+applies in a different manner to web
+application in another manner to mobile
+applications in another way to I don't
+know server side applications for
+example it depends so much on the type
+of application and the type of input
+that you're expecting but it all boils
+down to deciding what type of input you
+expect to receive from your users and
+then making absolutely sure that the
+input that you're receiving is
+thoroughly checked and validated just to
+make sure that you're receiving what you
+expect to receive and not something
+else, not something bigger. Uh not
+something executable when it should be a
+picture or that it's not an office
+document with a macro that it's not a
+number instead of a string. OS points
+for us a couple of things to keep in
+mind. For example, we first have
+syntactic validation which ensures that
+we're actually looking at something that
+is supposed to be looking as a date, as
+an age or as an address or a social
+security number or passport number or
+something like that. Semantic validation
+means that we need to enforce the
+correctness of their values in their
+specific context. That is abnormal dates
+or abnormal quantities for a product or
+negative quantities for a product. Uh
+they're discussing here multiple ways of
+validating based on allow lists or block
+lists. Most of the cases you're going to
+want to rely on allow lists because it's
+much easier to specify what exactly is
+valid for your context rather than
+trying to define everything that isn't
+valid. Regular expressions, for example,
+are very used for situations where you
+know exactly how the input should look
+like or at least how it should be
+structured. They talk about sanitizing
+HTML, verifying every file that gets
+uploaded by your users and it's so much
+to cover simply because most
+applications have multiple points of
+entries. They have multiple interfaces
+with the outside world that accept input
+from your users and it's very important
+to decide what are all the potential
+inputs to your application. Yeah, you
+can have users uh submitting HTTP
+requests, uploading files, submitting
+forms, but you can also have a
+third-party connection with a storage
+cloud service, for example, that you're
+thinking that you're only using that
+interface to communicate with the cloud
+service, but can you be 100% sure that
+an attacker is not going to be able to
+craft a request and send it through that
+same interface as well? And speaking
+about crafting requests, never,
+absolutely never input validate on the
+client side. That is, don't use the
+client application or the client's
+browser to make the necessary checks in
+order to make sure that the data that
+you're receiving from the user is valid
+and doesn't contain any malicious code.
+Kind of obvious why we do this, right?
+Because every check that we expect to do
+on the client side can be easily
+circumvented by an attacker. Let's say
+for example that we have an online store
+and we're running a promotion. We only
+want to let users order one single item
+of a specific category. Well, if you
+make this check on the browser side,
+well, the normal user is going to see
+that when they try to add the second
+item, they're going to get an error and
+the number comes back to one. But an
+attacker can also craft the same request
+that your browser is supposed to be
+sending and can change that request to
+say a 100 items, a million items. If you
+don't make any checks on the server side
+when the request comes in to your
+e-commerce application, you're going to
+end up with an order of 1 million items,
+which is most likely something you don't
+want. So basically, we're never
+validating on the client side because a
+potential attacker has the option of
+choosing their own client to build those
+requests and circumvent any checks that
+we might have in place. So for web forms
+at least, you're going to have to make
+sure that you're checking uh the data
+type that you're receiving. Like the
+person's name only includes letters, a
+date is between a minimum and a maximum.
+So for every piece of information that
+you receive from the client, you should
+check on the server side if it falls
+within a predefined uh numerical range.
+For example, for an age, for a quantity,
+make sure you don't get huge numbers.
+Make sure you don't get negative values.
+uh when users upload files, make sure
+that you're not receiving again huge
+files and also check the files to make
+sure that they're actually uh the valid
+types that you're expecting, right? That
+the profile picture is a JPEG or a PNG
+file and the and I don't know a resume
+is a PDF file and not something else.
+And as mentioned before, it's much
+easier to have a whitelist approach to
+this types of checking because it's much
+easier to decide, well, this is exactly
+what I expect to receive in this field
+right here rather than thinking about
+all the potential junk that your users
+might try to submit or to upload to your
+web application. As mentioned, input
+validation can be as simple as
+validating the HTTP requests that your
+users are sending. So for example, in
+this simple HTTP request here, let's
+assume that I have a website that stores
+some user profiles. And if I'm logged in
+as Andre as my name here, then I should
+be able to access using a specific query
+like this uh my own profile picture. Now
+an improperly coded application might
+allow me to actually try to generate
+some other valid URLs like this. So, for
+example, if I change the file name to
+something something that's Robert's
+profile picture here, and I shouldn't be
+able to access that information, well,
+the application should validate its
+request and deny me access to some other
+users's profile information. This would
+be most likely a way of circumventing
+authentication and a proof of broken
+authentication in our app. Now going one
+step further, instead of just specifying
+the file that I want to access, I could
+try navigating the file system on the
+web server and I could try accessing
+some files I should have no business
+accessing. This one is called directory
+traversal. So it's the ability of the
+user to actually navigate through the
+file system of the web server in order
+to access different types of
+information. I can think about doing
+even more. I mean if directory traversal
+works then I should be able to breach
+any location on the web server as well
+as long as the web server application
+that's hosting the the web application
+is actually has enough privileges to
+access those locations and to open
+specific files. So, for example, I can
+actually read something like XT
+password, which doesn't really store
+passwords as you probably know, but it
+does give me a listing of all the users
+and their privileges on that specific uh
+web server, which is a great first step
+in reconnaissance and preparing to break
+into that web server. And by now you're
+probably thinking, well, this directory
+traversal vulnerability is easily
+mitigated simply by not accepting dots
+and slashes in the path that specifies
+the profile picture, right? Well, what
+if I do this? This one is called HTML
+encoding. As you can probably guess,
+percent 2e is going to be interpreted as
+a dot and percent 2F is going to be
+interpreted as a slash. Now your fancy
+regular expression which just looks for
+dots and slashes has suddenly been
+defeated. Right? This string right here
+is going to be interpreted correctly by
+the web browser but it doesn't match
+your input validation method. So careful
+about this one as well. Think about all
+the possible ways in which the
+characters or the input that comes from
+your users can be encoded. Think about
+the fact that users might submit their
+content in an encrypted format or using
+B 64 encoding or any other type of
+encoding out there that it's not going
+to be detected by your basic input
+validation tools but might be properly
+processed and perhaps even executed by
+the web application. Well, if we have to
+be careful about input, we should also
+be careful about output. And
+applications will generate output. They
+will present back information to the
+user. Well, if that information includes
+some piece of code, for example,
+JavaScript code that gets executed by
+the user's browser and that code is
+malicious, well, we have a problem. We
+have a vulnerability. Well, malicious
+output, of course, doesn't just
+magically appear. Most likely, you're
+going to have malicious output if you
+failed to properly sanitize or validate
+the input. So at some point some
+malicious user, some attacker was able
+to inject that code and manage to bypass
+your input validation procedures so that
+when another users comes in and accesses
+your website, they're going to be
+presented with that malicious code. And
+of course, the code is going to infect
+their browsers or their systems. And
+this is one of the methods for
+mitigating cross-ite scripting. Now,
+we're going to talk about cross-ite
+scripting in a future video, but just to
+keep things short, uh imagine you have a
+uh let's say a commercial website, an
+online store, and you let your users
+submit comments on your products. Right
+now, the comments should normally be
+just a couple of English sentences. But
+let's say that an attacker includes not
+only a couple of English sentences, but
+also a piece of malicious JavaScript
+code in their comment. Now that
+JavaScript code if it's not properly
+sanitized is going to be stored in the
+database along with the main comment. So
+when another user comes in and tries to
+access the list of comments for that
+specific product, well the database is
+going to return the entire list of
+comments and one specific comment is
+going to have a couple of English
+sentences and also a piece of malicious
+JavaScript code which the user is not
+going to see because the JavaScript code
+is supposed to be seen only by the
+browser and executed by the browser. And
+when the browser gets that code along
+with a comment sees oh that this is some
+dynamic piece of code that I need to
+execute on this web page goes ahead and
+executes that code without providing any
+feedback to the user. And if that
+malicious code for example downloads
+some additional uh malware or steals
+some personal data, steals some cookies
+and login credentials or anything else.
+This can happen without the user knowing
+about it at all. So this is the
+definition actually of a stored
+cross-sight scripting attack. And one
+way we can avoid this is to make sure
+that when we are displaying that
+information back to the user, when we're
+rendering the page, we're not processing
+any dynamic code that we find within
+those comment sections. So if we find
+some JavaScript code in there, we're
+going to escape those special characters
+so that the browser is not going to
+recognize those script tags in there and
+it's not going to try to execute them.
+they're simply going to display the code
+just like a regular regular comment. So,
+one way of explaining this is to make
+sure that whenever you're outputting
+some information back to the user, you
+remove or you scan and parse that code
+to remove anything that can be
+potentially executed by the client
+application. Now, communication security
+is kind of obvious, right? If the
+application uh transfers some sort of
+data or accepts some sort of data from
+the users, well, of course, we're going
+to want to secure that data when it is
+moving or another way of saying this is
+secure data in transit. How do we do
+this? Well, in most cases, especially
+for web applications, but also for
+mobile applications nowadays as well,
+we're going to use TLS, which is the
+evolution of SSL. Sometimes you're going
+to see it referenced as SSL, but it's
+not SSL anymore. Hasn't been for a
+couple of years. So it's basically now
+TLS which was the old SSL. Now TLS
+relies on public key cryptography which
+allows us not only to ensure that the
+data can be encrypted so it cannot be uh
+sniffed or intercepted while in transit
+but also allows us to authenticate the
+integrity of the data as well as the
+identity of the entities that are
+communicating. So I can authenticate
+myself to the web server and the web
+server can authenticate itself to me so
+that I'm sure I'm actually talking to
+the right entity and not to an attacker
+who pretends to be that web server. So
+TLS brings us a lot of benefits in one
+package. And one way TLS does this and
+actually one way that uh public key
+cryptography can be easily implemented
+nowadays is by using certificates
+digital certificates. Now, if you're
+using TLS with your websites, then your
+website is actually going to be accessed
+through the HTTPS protocol. So, you're
+going to see an HTTPS col before your
+website address. Ideally, the
+certificate is going to be valid. It's
+going to be uh recognized by a public
+CA. And also make sure on a coding site
+that your application never falls back
+to pure HTTP. So, make sure that a user
+cannot choose to start using HTTP
+instead of HTTPS. Not even for small
+pieces of information like cookies or
+JavaScript or CSS files. There's
+actually a specific type of attack
+technique called protocol downgrade
+which especially for security protocols
+like HTTPS relies on the fact that some
+implementations or some applications
+allow you to choose the security
+protocol or even to choose a protocol
+that doesn't implement security at all.
+So, make sure you don't allow your users
+to fall back to an unsecure version of
+communication. And even if you don't
+allow users to fall back to HTTP, make
+sure you also specify exactly which uh
+encryption algorithms and which key
+lengths are going to be accepted when
+communicating over HTTPS. Because
+protocol downgrade can also rely on the
+fact that the server allows clients to
+negotiate those security parameters. And
+an attacker might attempt to first
+negotiate the lowest possible security
+protocol acceptable by the web server
+because that lowest one is probably
+going to be the easiest one to crack or
+at least to to run some cryp analysis on
+it. Session management is another point
+of interest for developing especially
+web applications. What exactly is a
+session? Well, the session is actually a
+random number, random ID that is
+assigned to you and also stored on the
+server the first time you communicate
+with that server and also probably the
+first time you authenticate with that
+server. The purpose of the session is
+that whenever you're sending some
+subsequent requests to the same web
+server, you're going to include that
+single session ID in all your future
+requests. Well, when web server sees
+that session ID in your request, then
+the web server is going to know that all
+these requests come from the same
+person. So, it's able to store state
+information about yourself. It's going
+to store your uh let's say navigation
+history, maybe your shopping cart and
+everything else that pertains to your
+specific identity when navigating that
+website. So, on the coding side, the
+problem actually is how do you generate
+those session IDs? Ideally, they should
+be generated on a trusted system
+separate from your web application and
+you should be using some good algorithms
+to generate those session IDs so that
+they cannot be guessed by some other
+user or god forbid that they're not
+sequential because the session ID you
+have to treat it actually as a password.
+Think of it as a password because if
+somebody else knows your session ID,
+then any requests that that person or
+that attacker is going to send using
+your session ID are going to be
+processed by the web server as if
+they're coming from you. So basically,
+stealing a session ID is kind of like
+impersonating someone when accessing a
+web application. I probably don't have
+to add that session IDs should not be
+visible. So they shouldn't be included
+in the URL at any point. They shouldn't
+be visible in the profile page. All
+right? And I stress this again, don't
+make them guessable. Don't make them
+easy to guess. A lot of people when
+they're just starting to develop web
+applications are going to think about,
+well, what's an easy way to generate a
+unique value every single time I
+generate a new session ID? Well, I'm
+going to use the time stamp, the current
+second or the current millisecond. Well,
+that's a value that can be easily
+guessed by an attacker, right? If that
+value is guessed by an attacker, then
+the attacker can send requests on your
+behalf and basically impersonate you. Of
+course, sessions should expire. You
+probably see this on all websites. If
+you don't send any requests for a
+specific length of time, you're going to
+be kicked out and you have to
+reauthenticate. Sessions should expire
+because the longer a session is valid,
+the higher the risk of that session ID
+being compromised and used sometime in
+the future by a malicious attacker. Also
+a good practice would be to try to use
+different session ids for different
+level of privileges. So once you might
+be authenticated as a normal user, you
+get a session ID but the moment you
+escalate that privilege, if you
+authenticate yourself as an admin user
+or is a root user for that specific web
+application, a new session ID should be
+generated because you're basically a
+different person now with a different
+set of permissions, different set of
+privileges. And especially if you're
+using privileged accounts, think about
+periodically expiring those sessions.
+Even if you are receiving active input
+from the user because especially for
+very long sessions, if you need to have
+a long session in there, if you generate
+the session for 8 hours, can you be 100%
+sure that during those 8 hours that
+admin hasn't left the the desk and
+somebody else hasn't start using that
+machine in the meantime. So periodically
+try to expire sessions and ask the user
+to reauthenticate just to revalidate
+that they're still who they claim to be.
+Don't forget to implement a logout
+function from your application even if
+90% of users don't use it. But make sure
+it is properly implemented as in it
+completely invalidates all the session
+information. So it deletes everything
+related to active sessions. That's
+basically what the logout function does
+every single time. It deletes the
+session information from the server.
+Think about if you want to allow users
+to have multiple simultaneous sessions
+to your web application at the same
+time. How do you manage sessions in that
+situation or would you rather invalidate
+the old session every single time a new
+user logs in on a new machine? Well,
+think about that depending on your
+security requirements. And when it comes
+to securing session information, most
+web applications are going to rely on
+HTTP cookies for this type of
+information. And we have a couple of
+flags or attributes. two of them being
+secure and HTTP only which help us with
+protecting the information in those
+cookies. Now what they do and this is
+actually important for the exam as well.
+Most likely you're going to be asked
+about this. Well the secure attribute is
+sent to the server only with an
+encrypted request over the HTTPS
+protocol which means that the cookie is
+going to travel over an encrypted
+channel which is ideal right make sure
+you don't send any other piece of
+information outside HTTPS. If you use
+HTTPS, try to send all the information
+through that encrypted tunnel. Now, on
+the other hand, the HTTP only attribute
+makes that cookie inaccessible to any
+JavaScript code, specifically the
+document.cookie property, which means
+that the only way of accessing that
+cookie is to use it in an HTTP request
+that goes to the proper server. So a
+malicious JavaScript code that might be
+injected in the web page cannot read
+that cookie information and cannot
+transmit it to a potential attacker that
+could impersonate you. Now when it comes
+to authentication and authentication is
+basically the process of proving who you
+are. Obviously you should use
+authentication for any access to any
+resource that needs to be protected. So
+if a user tries to access some piece of
+information that is located in some
+place where only authenticated users
+should have access well then make sure
+that user is properly authenticated
+before you know granting access to that
+specific resource or file or or database
+entry. Don't forget about MFA which is
+multiffactor authentication or
+two-factor authentication depending on
+how many factors you have. uh make sure
+that you implement it in your
+applications because this is a great way
+to properly secure your login
+credentials. With MFA, if your username
+and your password get compromised, an
+attacker still cannot gain access to the
+system because they're also going to
+need the second factor. The second
+factor can be a biometric
+authentication. Uh can be something you
+have like a token generator, which can
+also be just an application on your
+smartphone. The idea is that the
+attacker has to have two pieces of
+information. something that you have,
+something that you know or something
+that you are in order to gain access.
+Compromising just one single of these
+factors is not going to be enough to
+provide access to the application. From
+a security perspective, try to have the
+authentication system and the place
+where you store the users, their
+credentials and everything else related
+to authentication on a separate system
+so that it's not going to be exposed in
+case a vulnerability in your web
+application gets exploited. Fail
+gracefully sounds cute, right? actually
+means that in case the user doesn't get
+authenticated or the user receives an
+error while trying to authenticate, make
+sure that you're not providing too much
+information to that user. So, for
+example, if the uh if the user is
+correct but the password is wrong, don't
+tell this to the user. Don't let him or
+her know that they managed to input a
+correct username and they just mistyped
+a password because this is going to help
+someone who's trying to break into your
+system and say, "Oh, look at that. So I
+managed to find a valid username. Let's
+just focus on the password now. And also
+don't forget to detect failed login
+attempts. Too many failed loginins from
+the same user from the same IP address
+using the same session ID even uh should
+have some sort of consequence which can
+be as simple as implementing a backup
+algorithm. Like if you try to input your
+PIN in your smartphone multiple times in
+a row, you make multiple mistakes, then
+you're going to see that the the phone
+actually forces you to wait a couple of
+seconds first and a couple of minutes
+later before you can try again. This
+backup behavior is basically there to
+avoid brute force attempts where a huge
+number of passwords or the or
+combinations is is attempted in a short
+time frame. Don't forget about external
+systems. Your application might use
+additional uh databases, external
+databases or email services or cloud
+storage or even other cloud resources.
+Access to those systems also has to be
+authenticated. So don't accept
+unauthenticated requests on any external
+interface that your application might
+have. What about storing credentials?
+Well, you have to allow users to create
+a profile and then set a password. So
+you'll have to store that password
+somehow. Never ever store the password
+in clear text. And don't even store it
+in an encrypted format. Actually, don't
+even store it in a way that can be
+reversed. So whenever you store the
+password information, store it as a
+hash, a one-way hash. You'll never be
+able to guess the password from the
+hash. Just in case an attacker manages
+to obtain access to your profile
+database that stores those hashes,
+they're still not going to be able to
+retrieve their passwords. So, always use
+something like a securing hash
+algorithm, Shaw, Shaw 256, or any strong
+hashing algorithm that doesn't allow a
+potential attacker to deduce the
+original password from the hash.
+Actually, don't even send the passwords
+in clear text, right? Send them over
+encrypted connections or even better,
+just send the hashes to compare the
+hashes and validate the user identity.
+But don't forget, always authenticate
+over encrypted connections. If you want
+to allow users to reset their own
+passwords and you want to use security
+questions, make sure that the
+information that you require to unlock
+the password reset page doesn't rely on
+some publicly available information on
+the internet. So don't ask them for the
+name of their pets or the name of their
+wives or anything like that which can be
+easily extracted from social media. If
+you want to ask your users to update
+their passwords from time to time, make
+sure you implement also some password
+policies in there especially password
+complexity and also try to implement
+password history and remember password
+history as well for the exam because
+it's a very strong topic in uh in CMTA
+exams every single time. Password
+history basically says that you're not
+allowed to reuse any of your ex previous
+passwords that you've had before on the
+same application on the same website on
+the same system. Again, to implement
+this, you don't actually have to store
+those previous passwords, just their
+hashes. It's very useful if possible to
+report to the user when they first log
+in to your application when was the last
+detected login on their user account.
+This might indicate to the user that
+somebody has stolen their account or
+compromised their credentials. Also, you
+can implement something like how many
+locations are currently logged in to the
+same user account. This can be easily
+done by counting how many session IDs
+have been generated for that specific
+user on the server side. If you can try
+to also tell your users when was the
+last time they were detected as being
+logged in. It's not the best method, but
+it's going to help provide some
+confidence that nobody else has been
+using that account in the meantime. And
+I'm positive that I don't have to insist
+on this. But I'm just going to mention
+here uh don't rely on default
+credentials and remove or replace those
+default user accounts that come
+preconfigured from the factory, from the
+manufacturer, from the vendor. Another
+idea here is that whenever a user tries
+to execute a privileged operation, try
+to reauthenticate that user every single
+time a privileged operation is
+requested. For example, think about
+websites that ask you to provide your
+current password before allowing you to
+change it to change your password.
+Right? That's also a way to
+reauthenticate the user just to make
+sure that right now at that very moment
+the right user is performing the
+operation and not some attacker. And
+like always, whenever you're reusing
+software or libraries or source code
+that you can find online or you can
+import that into your project, make sure
+that the third-party software that you
+decide to use matches the requirements
+of your authentication system. So it's
+not going to act as a backdoor or a way
+to circumvent or to avoid your
+authentication system that you have in
+place. And now about authorization and
+access control. Now, authorization
+usually comes after authentication. And
+the main difference is that while
+authentication's purpose is to for you
+to prove who you are, well,
+authorization on the other hand is
+deciding what privileges you have after
+you've proven your identity. So, first I
+prove that I am Andrew and then as part
+of the authorization process, I receive
+a set of privileges that allow me read,
+write, execute operations on different
+objects or network entities and so on.
+So every single time you have a user
+that's about to perform a specific type
+of operation, always check in your code
+that the operation can be and should be
+performed by that specific user. That
+the user is authorized to perform that
+specific action. And this also applies
+to machineto-achine communication. You
+might have two different applications
+that communicate to each other using an
+API. Well, that API is going to support
+some specific operations. you might not
+want to expose all the operations like a
+root level access to your application to
+another third party app. So make sure
+you first authenticate of course any API
+access but you also authorize any
+request that comes in and have your code
+check it whether it should be allowed or
+not. Just like with authentication, the
+authorization system and all the
+permissions should be stored someplace
+else not on the same place as your main
+application just to be safe in case uh a
+user manages to exploit your application
+so that they won't have the chance to
+access the I know the privileges table
+for example and then escalate their own
+privileges and create users and so on.
+So keep these systems as separate as
+possible and again just like with
+authentication fail securely with
+authorization as well. So if a user
+tries to perform an operation and
+they're not allowed, simply inform them
+that they are not allowed. That's it.
+Don't give them any other information
+regarding their current privileges or
+what privileges or would be required to
+execute that operation and so on. Try to
+keep it to a minimum. And this also
+applies to machine toachine
+communication, right? You're going to
+have error messages generated by APIs as
+well. So make sure you don't expose too
+much of of your internal infrastructure
+and your internal authorization and
+authentication system to the outside
+world. Nobody needs to know how you
+manage your users, what kind of
+permissions you have defined in your
+system, right? Keep it inhouse. And
+another situation where you have to plan
+for failure, right, in authorization is
+what happens if the authorization system
+doesn't answer, doesn't respond, so it's
+unavailable. What do you do then? Well,
+most likely you're not going to just
+allow everyone to do whatever they want.
+You're probably going to fall back to a
+uh restricted set of users with some
+locally defined permissions on that
+machine. So, be careful about this. Be
+make sure that your users don't suddenly
+become privileged whenever the
+authentication system fails. In web
+applications, authorization also refers
+to any attempt of a user to access a
+specific web resource like a file, an
+image, an database entry, anything that
+can be accessed through an HTTP request.
+Make sure that you're not allowing users
+to directly access protected resources.
+So, a user might just know where is a
+specific protected resource located.
+Like let's say they might know where
+exactly on the payroll server is the
+salary table located the salary excel
+file located when when somebody tries to
+access that location well that request
+has to be authorized who are you do you
+have permission to access that folder do
+you have read permission up to that
+specific file and is there an access
+list in there that allows you or denies
+access for for yourself now hiding
+resources and just assuming that users
+are not going to discover them unless
+they're authenticated. That's a way of
+implementing security by obscurity and
+we don't want to do that. That that is
+not security by any means. The number
+and frequency of the operations has also
+to be taken into account because we
+don't we're not only facing exploitation
+attacks but we're also facing denial of
+service attacks. Right? So you might
+have a filter in there that checks every
+operation and if you're not authorized
+then you're going to just receive an
+error. All right, that works just fine.
+But what if 1 million requests come in
+every single second? Well, you're going
+to try to generate 1 million errors,
+perform 1 million checks, but that's
+most likely going to crash your
+authentication system. So make sure that
+as part of the authorization system and
+access control, you're also limiting the
+rate at which you are accepting for
+validation requests that are coming in
+from your users. Now, of course, a very
+basic one is if you don't need an
+account anymore, if nobody uses it
+anymore, even if it's a machine account,
+it might be a service account that was
+previously used by some thirdparty
+application, retire that account.
+Doesn't necessarily mean delete it
+completely, but most operating systems
+allow you to disable a specific account.
+So that in the future if somebody
+realizes that I don't know there were
+some encrypted files that were protected
+by that specific account well you can
+simply reenable that old account and
+decrypt that that content. But still
+don't forget to retire unused accounts.
+And of course something that's most
+likely the first thing we should have
+mentioned on this slide is the principle
+of least privilege. Don't give an
+entity, a user, a machine, an
+application, a service, anything. Don't
+give them more permissions than they
+actually require to do their job because
+all you're doing is just exposing
+yourself to more and more risk. Now, as
+part of a low-level coding discussion,
+of course, this is going to be a lot to
+discuss here. And since this is not a
+programming training, I'm just going to
+mention two of these here. Try avoiding
+direct system calls. So, don't use the
+system calls of the operating system.
+Try using APIs because APIs are going to
+filter a lot of the let's say unwanted
+calls or a lot of the illegal use of
+those system calls. They're going to try
+to normalize and sanitize that input. So
+it's going to be another layer of input
+validation for your own code. Another
+one is of course try to avoid as much as
+possible race conditions. Now race
+condition is also a programming bug or
+programming mistake but can also be
+exploited by an attack. Race condition
+basically means that two processes, two
+entities attempt to access the same
+resource at the same time and at least
+one of them also attempts to change that
+resource. Now the problem and why it's
+called a race condition is that it's
+almost next to impossible or it's very
+hard to predict what the end outcome is
+going to be when those operations happen
+at the same time. So it's basically a
+sort of timing bug in your code. Now in
+order to avoid this locking mechanism
+has to be in place in which the moment
+you try to access a resource you also
+put a lock on that resource and only a
+single process single user single
+application single anything entity can
+access read or change that resource. Now
+after the operation has finished of
+course the lock is released and the
+resource can be used by somebody else.
+And although this is not part of the
+software development process, we still
+have to think about where is our code
+going to run on which server, platform,
+operating system, cloud environment,
+local environments, users phone, and so
+on. And from a security perspective,
+well, we've talked about this before,
+but we're going to have to focus on, you
+know, patching, keeping that platform
+updated, the operating system up to
+date, all the things that we know that
+we were supposed to do in order to keep
+that attack surface minimal. And keep in
+mind that if you're running a web
+application on a web server on an
+operating system, then you actually have
+three platforms, three types of attack
+surfaces that you have to defend. One is
+your application. That's going to be
+your application code where you have to
+protect yourself against, you know,
+buffer overflows, injections, and so on.
+Secondly, you have the web server
+itself, which is an standalone
+application, which is probably not under
+your control, but you still have to keep
+it up to date and monitored for
+vulnerabilities. And third, you have the
+entire operating system that hosts
+everything in there, which also has to
+be updated with the latest security
+patches and a proper security oriented
+configuration so that a potential
+attacker cannot break your code, your
+web server or the operating system
+that's hosting it all. Also, don't
+forget that a web server is just another
+type of application that's running on an
+operating system. If that web server is
+running your web application, then the
+web application is going to run with the
+same privileges on that system as the
+web server. So in case somebody manages
+to break the code of your application,
+perform some code injection, well that
+code is going to be executed with
+whatever permissions the web server has
+on that machine. I've seen several
+situations where people are just lazy
+enough so that you know to avoid any
+conflicts or errors, they simply install
+web servers with root privileges. So the
+web server actually runs as root which
+means that whoever manages to exploit
+any web application hosted by that web
+server can potentially get root access
+on that same machine and that's
+extremely dangerous. So make sure that
+the application doesn't run with any
+system level privileges. So in case
+somebody exploits that application
+they're not going to be able to do
+anything outside that application's
+environment. Another one here, pretty
+much common sense. Don't store tests,
+development, UAT versions of the same
+application on the same system, right?
+Because those are most likely going to
+have, you know, test accounts, test
+data. They're probably going to bypass
+some authentication procedures and just
+in case somebody discovers those on your
+system, they're most likely going to be
+much easier to exploit than the
+production application. Use the robust
+txt file for search engines which is
+going to prevent the disclosure of your
+website structure to any search engines
+that might be crawling or spidering your
+your application. So also make sure that
+all sensitive information is disallowed
+in this file. So don't allow Google to
+index any sensitive areas in your
+application. Also on the chapter of
+input validation, but this time from an
+a system or infrastructure perspective,
+you should also restrict the allowed
+HTTP methods that can be sent towards
+your applications. You're not going to
+accept just any kind of request out
+there. You're just going to accept those
+requests that you know have meaning and
+are useful for your application. Also,
+don't accept anything below TLS 1.0. And
+also on the server side, the responses
+coming in from the web server back to
+the user are usually going to include
+some information in the HTTP header.
+Make sure you inspect that information
+so it doesn't disclose something that
+you would not want to be disclosed to
+your users. For example, make sure that
+you are not displaying the actual type
+of web server or the version or the
+patch level of the web server that
+you're using to host that application
+because that's a gold mine for an
+attacker. and they're going to know
+exactly which exploit to use according
+to the version that you have running in
+there. Well, in most applications,
+you're going to have at least a small
+database. So again, since we're talking
+about data, think about input
+validation. So validate the input before
+you're storing it in the database and
+also output encoding. So how are you
+displaying in a safe manner whatever
+data was stored in the database? And to
+defend ourselves against injection of
+foreign code, which in the database
+world is probably going to be something
+like an SQL injection or SQL injection.
+Well, the best thing we can do is to
+properly prepare our queries, our
+database queries. And we're going to
+find these terms in a lot of places. Uh
+some people call them parameterized
+queries, other call them prepared
+statements, some languages call them
+pre-ompiled statements. And again, these
+are all methods of defending against SQL
+injection. Now, we're going to talk
+about SQL injection in a future episode,
+but for now, just to keep things short,
+uh the idea behind these types of
+queries or statements is that instead of
+just concatenating what the user sends
+to the SQL query, the SQL string, we
+take the user content and we don't
+interpret it in any way. We simply treat
+it as text. That way we can avoid the
+situations where user input gets to be
+treated as SQL or partial SQL
+statements. So what these statements do
+is that they include placeholders for
+these parameters, the parameters that
+come from the user side. So when the
+query is executed, the application binds
+the actual values provided by the users
+to these parameters. So all those
+special characters that you're going to
+find in SQL injection attempts are no
+longer interpreted by the SQL server but
+are taken literally as pure text. I'm
+sure I don't need to mention this here
+again but apply these privileged
+databases as well because you're storing
+data and people should not have access
+to all data in the world. Right? One
+user should have a set of privileges and
+another user should have a different set
+of privileges which dictate which type
+of data they are allowed to access and
+also which type of data they're allowed
+to modify. Don't hardcode database
+credentials in your application code
+because if your application gets
+exploited and somebody gets to read the
+source code files, you've just given
+them access to the database as well. Now
+there are solutions out there that help
+you securely store such authentication
+credentials like Hashi Cororp vault for
+example and many many other solutions
+out there. Long story short just don't
+hardcode usernames and passwords into
+your application. Just like with third
+party code don't forget about default
+databases, default tables, demo data
+that might come from the default
+installation of the database server.
+Don't keep them there because those
+tables, those databases might allow some
+users to perform some unintended
+operations. And the worst part is that
+you might even completely forget about
+those when you're building your
+authentication mechanisms, your
+authorization policies. Disable any
+additional database system functionality
+that might be available by default. Uh
+what I mean by this is that some
+database engines even allow you to
+execute system calls or to run
+executables on the same system as the
+database. If somebody manages to perform
+an SQL injection and to run their own
+queries, well those queries might
+include a command to be executed on the
+database server which leads to privilege
+escalation which of course leads to the
+server being fully compromised under the
+attacker's control. And generally when
+you have multiple applications that are
+using the the same uh database system
+make sure that each application uses
+their own database. Firstly because it's
+much easier to create security policies
+which application has which permissions
+on which database and secondly because
+you isolate let's say vulnerability
+domains. If an attacker manages to crack
+an application and gain access to its
+database, at least it's not going to
+have access to the rest of the data of
+the other applications that are running
+on the same system. And when we're
+talking about pure data information,
+files, of course, the first thing that
+comes into mind is least privilege. Do I
+need to say more about this? No. And the
+main idea here is that when you want to
+protect data, the first thing that
+should come into mind is encryption.
+Encrypt it so that nobody can read that
+information. And a very big benefit of
+encryption is not only the fact that it
+hides information, but it also protects
+that information from outside tampering.
+So somebody else cannot just come in and
+change that information without you
+knowing about this or without corrupting
+it. Because in order to properly change
+a file that has been encrypted, you
+first have to decrypt it. You have to
+have the decryption key in order to
+perform those changes and then you have
+to use probably the same key or another
+key to encrypt it back again. That's
+also one of the benefits of encryption,
+right? Making your data tamperproof.
+Now, the discussion about encryption can
+be a very long one, but some things to
+keep in mind. For example, choose strong
+encryption ciphers as technology
+evolves. Older ciphers get easier and
+easier to crack. So, always make sure
+that you're using something that's
+adequate for the present time and
+perhaps for the next 5 years. Make sure
+you have a process in place for key
+management. How do you store those
+encryption keys? who has access to them
+and how when
+uh which type of uh authentication
+system you're going to use for somebody
+who needs access to such an encryption
+key. And for very very critical systems
+uh careful with random number generators
+because a large part of cryptography
+actually relies on generating very large
+random numbers and computers are
+inherently bad at generating random
+numbers simply because everything is
+deterministic. But this is another talk
+for another time. Careful with caches
+and temporary files that your
+application might be writing to disk
+from time to time, especially if it's
+writing that information on the client's
+desk. So, for example, it's using the
+browser's cache or the mobile phone's
+cache to write some temporary files that
+are currently in use. Those files can
+very easily contain sensitive
+information or at least some information
+that can be used by a potential attacker
+to impersonate you to break into your
+account or to perform some operations on
+your behalf. So make sure that the
+application thoroughly cleans after
+itself and you're not storing sensitive
+data on the user device. Now if your
+application is not open source, make
+sure you protect the source code. Also,
+if you're a web application, make sure
+that users cannot somehow circumvent the
+web server and access the source code
+files directly. Normal users should not
+be able to see the PHP files, the ASP
+files that the application is currently
+executing, that the web server is
+running. They're only supposed to see
+the results generated by those files. As
+a general rule, of course, don't store
+sensitive data in clear text. Actually,
+whenever you're moving data, whenever
+you're storing data, always protect it.
+And coming back to that input validation
+idea at the beginning of this video,
+always validate whatever input, whatever
+data you receive from the users. And
+don't allow anything that has a
+potential of being executable code to
+come in and be processed by your
+application. So validate any user files
+that come in, anything that user
+uploads. Make sure that the file type is
+the one that you expect. And don't just
+look at the extension because anybody
+can change an extension. Look at the
+actual binary representation of the
+file. look for a specific header that
+tells you that that file is uh is either
+an image, a document or an executable
+file hidden within an image. Also
+against code injection attacks, don't
+store user data in the same place as the
+application data. Actually, don't store
+anything that you receive from your
+users in the same place as your
+application code because you might
+receive something very bad from the
+users and you don't want to store
+malware right next to your application
+data. Also on the data protection part,
+think about the data that the
+application has to access. So for
+example, if the application might need
+to load some external libraries, some
+external files and use them in its
+day-to-day operations. Ideally, these
+references should be hard-coded and
+thoroughly checked. So don't just design
+an application that blindly loads any
+type of DL file that it finds in a
+specific folder, but design it so that
+it's looking for a specific type of
+file. And ideally, it's also going to
+check the hash value of that file to
+make sure that the file that's getting
+loaded is actually the one expected by
+the application. Now, this does require
+a lot of additional work on the
+programming side. But the advantage is
+that this is how you avoid injection of
+foreign files into your application
+code. And of course, just in case some
+user, some uh attack succeeds and an
+attacker manages to execute some code in
+your own application, then at least make
+sure that the application itself doesn't
+have right permissions onto its own
+files. So the application cannot change
+itself, cannot overwrite itself. So it
+should only have readonly access to its
+own files. And last but not least, we're
+protecting data, processes, systems,
+application code, and so on. It doesn't
+hurt to run a malware scan from time to
+time on the server that's hosting your
+web app and of course on the server
+that's hosting all the user content that
+gets uploaded by your users. All right,
+this was a long one. We're almost done.
+Still need to talk about software
+fingerprinting, which is basically just
+code signing. That is you publish your
+application. You have a compiled
+application now ready to be published.
+And then you also sign it so that
+whoever downloads your application can
+validate that all right this application
+is coming from a trusted source and was
+actually built and signed by a vendor
+that I trust. How do you do this? Well,
+pretty obviously, right? You're using
+digital signatures. And the way a
+digital signature actually works is not
+that complicated, right? You take the
+code, you take the executable code of
+the application, you hash it, you
+generate a unique hash of that code, you
+encrypt that unique hash with your
+private key as a developer of the
+application. The user that downloads
+your application can easily get the
+public key usually from a certificate or
+can be downloaded in any other manner.
+Uses that public key to decrypt that
+signature, that hash, and then uses the
+hash to compare it with its own
+calculation. So it basically hashes the
+code by itself. The user hashes the code
+and compares it with the hash that was
+extracted from the digital signature.
+Now if they match then the user can be
+sure that nobody else has changed has
+tampered with the application from the
+moment it was published until the moment
+it's reached their hard drive. And also
+they can be sure that the application
+actually comes from yourself from the
+vendor of that application from the
+developer of the application because
+that's what the public key
+infrastructure allows us to validate.
+Nobody else has the private key that
+matches the public key used to decrypt
+that signature which means that the
+application actually comes from the
+vendor that it's pretending to come
+from. And that's exactly the same
+mechanism that happens when you download
+applications from any app store, be it
+Apple, Android or Microsoft or whatever
+app store out there. Those applications
+are signed by the app store, by the
+owner of the app store and by their
+developers as well. So you can validate
+all this information and you can be sure
+that whatever you're downloading hasn't
+been tampered with and it's also the
+product that you're expecting. And in
+most cases, these public keys that
+you'll have to disseminate to your users
+are going to be attached directly to the
+application. So the application when you
+download it actually comes prepackaged
+with the vendor certificate as well.
+You've probably noticed those warnings
+in in Windows at least whenever you try
+to download an executable file that was
+just downloaded for the internet.
+Sometimes Windows is going to complain
+and tell you that this binary hasn't
+been signed or the signature isn't
+recognized by your system. Finally, for
+memory management from a programming
+perspective, this is very important
+because this is where all the buffer
+overflow attacks happen. We're going to
+talk more about buffer overflows in a in
+a different uh episode, but as an
+overview, always whenever you allocate
+memory for inputs and for outputs, be
+sure that you check the memory that
+you're allocating and that you're not
+accepting any piece of data larger than
+the buffer that you've pre-allocated. So
+if you need just truncate the input that
+comes in from the users. Don't just
+allow them to upload a kilobyte input
+into a name field right in a in a web
+form. And make sure you free your memory
+periodically. Don't just leave it to the
+garbage collector. Even if you even if
+you have it depending on the chosen
+programming language, make sure you
+always are aware of how much memory your
+application is consuming and how are the
+buffers being used. And for programmers,
+make sure that they know about which
+functions are considered to be safe and
+which ones aren't. Now, there are a lot
+of interpretations of whatever means to
+be safe from a programming perspective,
+but basically means that a safe function
+or a safe code or a safe programming
+language. It's not going to perform any
+race conditions or buffer overflows or
+run into unintended consequences if your
+code is properly written. For example,
+an uh a safe language is going to
+automatically check for any buffer
+overflows. An unsafe language doesn't
+make these checks automatically. So,
+you'll have to program specific
+functionality for those checks in your
+code. And of course, there's more, but
+we should also end this episode at some
+point. One of these additional ideas is
+about logging. Make sure you are logging
+user behavior and application behavior
+in order to detect abnormalities, detect
+maybe even security incidents or even
+for performance or accounting reasons. A
+good idea would be to also store this
+logging information in a centralized
+location. For example, by using the SIS
+log protocol. Don't forget about
+securing data at rest. That is data that
+is stored on the client side in their
+browser in their mobile phones on their
+operating systems. And you should also
+perform some integrity checking on that
+data as well because data that is
+already in the hands of the user is the
+one that is most easily tampered with by
+an attacker because they already have
+that data, right? Try to validate it
+before reusing it because in the
+meantime an attacker might have, you
+know, performed some changes on it. And
+there are a lot of methods for code
+analysis as well and we're going to talk
+about these in the very next episode
+actually. Uh but long story short, now
+you're going to have static code
+analysis, which just means, you know,
+analyzing the source code for potential
+uh unreachable codes or branches that
+never get executed or branches that
+generate an infinite loop in your code
+that can be detected just by looking at
+the code by human eyes or by an
+automated tool. And they can also help
+you determine if the application can
+reach an undetermined state or an
+unplanned state. Dynamic code analysis
+on the other hand means analyzing how
+the application actually performs in
+production. So it doesn't look at the
+code anymore but it looks at the
+application behavior. Which connections
+are being created? What files are being
+accessed? Uh how many threads are
+running at every single time? Stuff like
+that. What procedures are being executed
+during the authentication process or
+during the normal user behavior or
+whatever the user tries to perform
+something that they are not authorized
+for. And of course, so so much more. As
+you can probably guess, this is a huge
+topic simply because it's so complex due
+to the huge amount of programming
+languages out there, types of
+application, use cases, types of users,
+protocols, environments, local, cloud,
+mobile, and so on. Now, if it were
+possible to design perfectly secure code
+from the very beginning, then cyber
+security wouldn't exist at all because
+what we're doing here is basically
+protecting imperfect code, imperfect
+applications. And we're protecting
+against the mistakes of those that
+programmed those applications, those
+operating systems, those drivers before
+us.
+All right, so that's pretty much it for
+today. Make sure for the exam that you
+remember everything everything that we
+talked about today because we've
+actually covered about 10 or 15% if not
+20 of the entire content of the CIA plus
+exam. Now we're going to come back in
+future episodes and dig some more into
+these topics but we've covered the big
+picture now and try to understand this
+before moving forward. Now, if you found
+this useful, show me with a like and a
+subscribe because this also keeps me
+motivated to do more videos like these
+and help out some more people like you.
+All right. So, thank you so much for
+watching and have a great day.
+[Music]

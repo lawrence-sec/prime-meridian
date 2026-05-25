@@ -1,0 +1,377 @@
+one way to protect data is to make
+policy decisions on where the data is
+located and where you as the user might
+be located we refer to these as
+Geographic restrictions one way to tell
+where someone may be located is to see
+what subnet they might be connected to
+using their IP address this might be
+relatively accurate if someone's
+connected to an internal private Network
+where we know exactly where those
+subnets might be but wireless devices
+are much more difficult to determine
+based on an IP subnet because those
+mobile phones and tablets could be
+located virtually anywhere for those
+devices we might want to provide some
+additional checks of where a person
+might be using geolocation geolocation
+can work with GPS especially on mobile
+devices to get a very accurate
+description of where a person might be
+you might also use 802.11 wireless there
+are Wireless databases that know all of
+the ssids of wireless devices in your
+area and if that's cross tabulated
+against the list of ssids that your
+mobile device can see we can get a
+relatively accurate representation of
+where you may be located and as we've
+mentioned with mobile devices like this
+an IP address may not be the most
+accurate form for providing
+geolocation once you know where a person
+is and where your data is you could
+start making decisions on what type of
+access someone might have to that data
+when you're basing this on location we
+refer to this as Geo fencing for example
+there may be certain types of data that
+should only be accessed if someone is
+inside one of the corporate facilities
+and if they're outside the facility they
+should have no access to that data we
+can make the determination on whether
+somebody's located inside of a building
+or not based around the network location
+or the geol location and then we can
+associate Geo fencing policies to that
+location protecting data is one of the
+primary goals of any IT professional if
+your organiz ation loses its data it
+will effectively be out of business one
+of the challenges around the management
+and protection of this data is that
+there is a lot of data and it's located
+in many different locations it could be
+on a storage drive inside of a laptop or
+a mobile device it might be traversing a
+network either a private Network or the
+public internet or it may be working
+inside of a machine in the CPU and
+memory all of these locations could be
+used as an attack against your data so
+we need to make sure that we're using
+the proper amount of data protection
+regardless of where this data might be
+so a good Security administrator might
+apply some encryption to the data if
+possible or associate security policies
+as the data is traversing the network
+you could also set individual
+permissions of the data so that you
+would only allow access to the data by
+those people who may be
+authorized one common way to protect
+data is by encrypting the data that
+encryption process is one that takes
+data that is open or in the clear and
+makes it into a form that is completely
+unreadable we refer to this in the clear
+data as plain text and once we encrypt
+the data the resulting encryption is
+referred to as Cipher text if you're
+using technology that can encrypt this
+data into something unreadable there's
+also a method to decrypt the data back
+into its original form you need to make
+sure that you're using the proper
+implementation to be able to both
+encrypt and decrypt this data and then
+you also have to make sure that you have
+the proper decryption key one of the
+things you'll notice when you encrypt
+data is that the resulting encryption is
+very different than the original data we
+refer to this difference as confusion
+where your encrypted data has a dramatic
+change over what the original data
+appeared to be for example let's look at
+some data that we can encrypt let's take
+the simple sentence hello world and I'd
+like to provide some encryption of that
+data so I'll use pgp as my encryption
+method in this example and it creates a
+pgp message with all of this information
+on the inside this message contains
+information that helps us with the
+decryption process and it contains an
+encrypted version of our plain text
+hello world it's fair to say that if we
+sent this information to a third party
+they would have no idea what was
+contained within that Cipher
+text another way to protect data is by
+using hashing a hash is a way to
+represent data as a string of text the
+is sometimes referred to as a message
+digest or a fingerprint and a
+fingerprint is probably a good
+description of what a hash is just as
+you can take a fingerprint and tie that
+fingerprint back to an individual you
+can do the same thing with data although
+an individual's fingerprint can tie back
+an individual to a particular print we
+can't somehow recreate an entire person
+if all we have is their fingerprint the
+same thing applies for hashing if we
+have a hash we can't somehow recreate
+create the original data that was used
+to produce that hash because you can't
+somehow recreate that original plane
+text from a hash it makes a perfect
+mechanism for storing certain types of
+data for example we commonly store
+passwords using a hashing function you
+might also see hashes used when you're
+on a page to download a file for example
+if you try to download a Linux
+distribution it's very common that they
+would include a hash right next to the
+distribution this allows you to download
+the file run your own hashing algorithm
+against that file and see if it matches
+the hash that's listed online if both of
+those match then you know the Integrity
+of this file has been maintained all the
+way through the download process we
+could also use hashing in conjunction
+with public key cryptography to create
+digital signatures this allows us to
+authenticate the sender of a particular
+message ensure that the person that sent
+the message really is the person that
+says they're sending the message and
+provides Integrity to be sure that what
+we've received is really what that
+original author sent one general rule of
+hashing is that if you have two
+different inputs and you provide a hash
+of each of those inputs the two outputs
+should be very different if we do happen
+to have two different inputs that create
+exactly the same hash output then we
+have created a collision and in the past
+we have stopped using certain hashing
+algorithms that tend to have problems
+with collisions and instead have opted
+to use newer or better hashing
+algorithms here's an example of how this
+hashing algorithm should work let's use
+an algorithm called The Shaw 256 hashing
+algorithm it provides us with a hashing
+output of 256 bits or what we represent
+on the screen as 64 hexadecimal
+characters here's our first hash it is a
+sentence that says my name is Professor
+Messer and it ends in a period And if we
+use the Sha 256 hashing algorithm we get
+the output that you see here now now
+let's change one character in that
+sentence and see what the resulting hash
+might be the sentence now reads my name
+is Professor Messer but it ends an
+exclamation mark instead of a period and
+you'll notice that the Sha 256 hash
+output is very different than the one
+that was created previously this
+comparison between these two sentences
+shows that these hashing algorithms can
+really help us protect data because
+we're able to create very different
+hashing output even though the input may
+be very
+similar another security technique that
+helps protect data is obfuscation this
+is a process that takes something that
+is perfectly understandable and turns it
+into something that's very difficult for
+humans to recognize for example a
+developer could write some code and it's
+something that's very easy to follow and
+understand as you step through the code
+base but some developers will run that
+code through an obfuscation process and
+then give you the obfuscated code this
+helps them protect their code base but
+still allows them to work with the
+original code both the original code and
+the Opus skated code work exactly the
+same way it's just that one is much
+easier to read than the other you might
+also see attackers use obfuscation to
+hide exactly what's going on within some
+malicious code or malicious script this
+is also why you might see tools that are
+able to deobfuscate certain types of
+code so that you can better understand
+what's happening in that code base
+here's one line of code this code says
+Echo and then inside of quotes it has
+hello world we can see from this very
+simple line of PHP that this is simply
+going to put the words hello world on
+our screen if you applied an obfuscation
+technique to that one line of code you
+can create a script that looks like this
+this is valid PHP code that has taken
+our original on line of PHP and
+obfuscated it into something very
+different just just so you can see that
+this obus does really work I pasted it
+into a PHP shell and you can see that it
+produced the output hello world which is
+exactly the same as that one line of PHP
+that we were looking at earlier another
+type of obfuscation is data masking
+masking takes some original data and
+then hides some of that data to help
+protect it normally this is used to
+protect personally identifiable
+information or perhaps sensitive
+Financial details for example if you
+look at a rece receip where you've paid
+for something with a credit card you'll
+notice that it has a bank card on the
+receipt but it may only show the last
+four digits of that bank card instead
+the rest of the card is Now hidden or
+masked in many cases with asterisks of
+course behind the scenes the company
+that processed the credit card can see
+the entire credit card number but
+anything that is presented to you or to
+the in user would be masked or opusc
+with those asterisks there are many
+different techniques that can be used to
+mask data some of this information may
+be shuffled around or encrypted or it
+may be is simply masking out with as
+risks like we see here if you've ever
+paid for something in a store and you've
+used your phone or your Smartwatch as a
+payment method then you've probably used
+a data protection method referred to as
+tokenization tokenization takes
+sensitive information and replaces that
+information with a token for example you
+could take a social security number that
+you see here and that number is changed
+so that anything sent across the network
+has a completely different set of
+numbers than the original much more
+sensitive social security number if
+you're paying for something in person
+with your phone or your Smartwatch then
+you're using tokenization for the credit
+card number this sends a temporary token
+during the payment process instead of
+transmitting your actual credit card
+number that token is a one-time used
+token so if somebody does capture that
+information being sent across the
+Network they wouldn't be able to replay
+or reuse that token because once it's
+used the first time it can never be used
+again what's interesting about this
+technique is that there's no encryption
+algorithms you don't have to worry about
+hashing any data You're simply sending
+information across the network the way
+that you would send any other type of
+information the difference of course is
+that the data that you're sending across
+the network and your original credit
+card number are two very different
+values and you aren't able to derive one
+number from the other when you first set
+up a credit card on your mobile phone to
+be used for checkout you go through a
+registration process on your local phone
+and then those details are sent to a
+remote token service server once the
+server receives your credit card number
+it creates a series of tokens that are
+then sent down to your phone so that you
+can use them during checkout when you
+then check out at a store and use your
+phone or your Smartwatch using nearfield
+communication it will transfer one of
+those tokens to the store system the
+store will then use that as the default
+credit card and send that credit card
+validation to the remote token service
+server that server knows what tokens
+have been presented to you and then says
+that is a correct token and that is now
+validated and can be used to purchase
+products at that
+store you might have previously heard
+news stories of enormous data breaches
+with very large corporations some of
+those breaches contain a very large
+amount of data for every single one of
+the customers of that company and in
+many of those cases the attackers were
+able to get such a large amount of data
+because it was all collected in one
+single database this means once the
+attacker gets on the inside they
+effectively have access to all of the
+data and they can transfer all of that
+outside the organization and use it as
+they see fit instead of having all of
+your data in one large database you
+might want to consider using
+segmentation this will separate the data
+into smaller pieces and put it into
+different locations this would now make
+it much harder for an attacker because
+they would need to breach each
+individual database to gain access to
+all of the data this might also Ally to
+set different security for these
+different databases depending on the
+information that's contain within for
+example if a database simply contains
+someone's name you could put a minimum
+amount of security on that particular
+database but if the database contains
+Healthcare information or financial
+details you might want to include
+additional Security checks to protect
+that database from any attacker and a
+type of data protection that we use
+every day are permission restrictions
+this means when you provide your
+username and password there's a series
+of Rights and permissions that are
+associated with that particular account
+this starts with the authentication
+process itself we need to be sure that
+we have safe and secure authentication
+so we should have minimum password
+policies maybe there are additional
+authentication factors that have to be
+used during the login process and you
+might have additional checks and
+balances that occur when someone
+initially logs in once someone logs in
+there may be additional security
+associated with that account for example
+there may be groups or file permissions
+that limit the type of data that that
+particular user has once they log
+in

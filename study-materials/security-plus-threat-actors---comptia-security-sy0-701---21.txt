@@ -1,0 +1,284 @@
+a threat actor is an entity that is the
+cause of an event that affects the
+security of others we often refer to
+these actors as malicious actors because
+the actions that they take tend to have
+a negative effect on the security of
+others we'll often describe the
+characteristics of these particular
+threat actors with this series of
+attributes and in this video we'll step
+through these threat actors and how some
+of these attributes may be associated
+with their actions when you refer to an
+attack or you're doing research on an
+attack of your organization it's useful
+to know who the threat actor is this
+might help you get a better
+understanding of why this attack is
+happening and what their ultimate goal
+was in performing this
+attack attackers can come from anywhere
+sometimes the attackers work for your
+organization and they're inside the
+company itself or they may be outside
+the organization trying to gain access
+through a number of different public
+resources the number of available
+resources or Financial Funding is
+another way to characterize a threat
+actor if they don't have any money they
+may have limited access to resources or
+they might be a threat actor that has a
+large amount of money available and can
+provide a number of different attacks
+based on those resources it's also
+useful if we can determine a level of
+sophistication for this particular
+attacker it may be useful to know if
+somebody has no idea the script they
+happen to be running or what the results
+of it might be or if somebody is able to
+build their own tools and provide their
+own capabilities and of course the
+attacker might have a set of skills that
+fits somewhere in the middle between
+those two one of the comments I'll often
+hear from others when describing certain
+attacks against organizations is they'll
+ask why would somebody want to do that
+well the answer is many many many
+different reasons there could be a need
+to find data and be able to exfiltrate
+that data from the organization this may
+be a competitor performing Espionage
+wanting to know what another company may
+be working on on maybe they're just
+trying to disrupt the service in that
+company to create problems for their
+customers and there could be a number of
+different motivations and that simply
+depends on the situation the attacker
+and who's being attacked let's step
+through a number of different thread
+actors and see if we can figure out what
+their motivations might be let's start
+with a threat actor that is usually on
+the outside of your organization this
+would be a nation state this is often
+referenced as an entire government or an
+arm of that government dealing with
+National Security a government might
+have many different motivations for an
+attack or disruption of your services
+these could be things like data
+exfiltration philosophical reasons maybe
+political reasons for performing this
+attack or they may just be trying to
+disrupt the services that you're already
+providing and ultimately a government
+may be trying to pull someone into a war
+as you can imagine a government has
+enormous resources available for these
+attacks a government might use these
+resources to have constant attacks
+against their enemies and be able to
+attack multiple locations at the same
+time very often these types of attacks
+are referred to as apts or advanced
+persistent threats these can be
+especially dangerous threat actors
+because they have the resources of an
+entire government behind them they can
+afford to have the most sophisticated
+developers creating very Advanced attack
+types and they're using these resources
+to attack military control locations
+utilities or to get control of another
+country's finances if you're interested
+in seeing what a combination of
+governments working together can do to
+create a very sophisticated attack you
+might want to look into the stucks net
+worm this is a worm that was created by
+the United States and Israel and it was
+specifically designed to destroy nuclear
+centrifuges we move from attackers that
+are very sophisticated to attackers that
+aren't sophisticated at all these are
+unskilled attackers that may run Scripts
+without any knowledge of what's
+Happening under the surface if the
+script works then the attacker was
+successful but if the script doesn't
+work the attacker doesn't have the
+skills to understand why the attack
+didn't work and what they could do to
+modify these scripts these are attackers
+that are simply motivated by the attack
+itself they may be trying to disrupt
+services or exfiltrate data sometimes
+there is a philosophical or political
+reason behind the attack although it's
+common for these attackers to be on the
+outside of the organization trying to
+gain access there are times when we
+found unskilled attackers on the inside
+of the organization as well as we've
+already mentioned these are generally
+unsophisticated attacks and the
+unskilled attackers generally don't have
+a lot of resources available they
+certainly would not have the backing of
+a government or a large organization and
+that means they're really looking for
+the easiest way in using scripts that
+are readily
+available if you're a hacker who's
+motivated by political reasons a
+philosophical difference maybe you'd
+like to disrupt or damage an
+organization we might categorize you as
+a hactivist this hactivist or hacker
+activist is someone who's commonly
+considered to be outside the
+organization but they could also work
+towards getting hired to be part of the
+organization and become an internal
+threat these are often very
+sophisticated technologists and they can
+use that knowledge to be able to attack
+in very specific ways they might focus
+on denial of service they might be
+trying to get G access to a website so
+they can put their own messages or
+deface the website that's already
+existing or maybe they're looking to
+find private documents that they can
+then release to the public fortunately
+for us activists don't tend to have a
+large amount of finances available to
+perform these hacks but there's some
+organizations that will perform
+fundraising so they will have the money
+to apply towards their
+activism an Insider threat is an
+especially difficult problem to locate
+and even more difficult to stop if they
+want to do something something malicious
+this is more than someone simply writing
+their password down on a yellow sticky
+and keeping it under their keyboard this
+might be someone who's out for revenge
+or financial gain against the
+organization with an Insider Threat all
+of the resources already exist within
+the organization and this individual is
+simply taking advantage of the resources
+that already exist this is why it's so
+important during the hiring process that
+the proper vetting is done to make sure
+that you're not hiring somebody who is
+then going to work inside of your
+organiz ation to attack you you can
+think of this type of attackers having a
+medium level of sophistication but where
+they really Excel is knowing exactly
+where in the organization the data might
+be and how to circumvent the existing
+security controls to gain access to that
+data our perception of organized crime
+might go back to old movies but in
+reality there is a great deal of
+organized crime in the cyber security
+Arena threat actors categorized as
+organized crime are usually motivated by
+money
+everything they're doing is to be able
+to make a profit from the attacks that
+they're performing since organized crime
+is in the business of making money they
+often have a number of resources
+available that they can apply towards
+these types of attacks these
+organizations might have a corporate
+structure where one person will be doing
+the hacking another person is managing
+the different exploits and creating new
+exploits somebody else sells the data to
+a third party and you might even have
+somebody handling customer support
+especially in the cases where the
+organiz GED crime group is targeting
+organizations with ransomware it's
+difficult to fight an attacker that has
+this much money available and they're
+going to find many different ways to try
+to gain access to your
+data a threat actor we don't often
+consider is one that's in our own
+organization and working around the
+existing policies and procedures of the
+IT department we refer to this as Shadow
+it and it's usually a group or
+Department that is working around the
+rules that have been put in place by
+your existing it department they might
+build their own infrastructure install
+their own applications and start using
+them without the IT department even
+realizing what's happening this is a
+group that doesn't have to deal with the
+limitations that come with an IT
+department such as change control or
+budgeting instead they'll use their own
+budget or credit cards to be able to
+purchase their own cloud-based services
+and be able to access those from their
+browser these groups are obviously
+limited by the amount of budget they
+might have but in many cases they can
+create quite an infrastructure using a
+small amount of budget and connecting to
+devices that may be in the cloud in some
+cases none of these people have a
+background in Information Technology
+they don't understand what's required
+for backups or change control and this
+can obviously put a huge risk on the
+organization especially if no one in
+this Shadow it department has any
+consideration of what security should be
+in place let's summarize the threat
+actors into this single table we'll look
+at the nation state unskilled activist
+Insider threat organized crime and
+Shadow it the nation state unskilled
+activist and organized crime tend to be
+external to the organization but Insider
+threats and Shadow it are commonly
+internal the resources for each of these
+different threat actors can vary where
+you might have a nation state with
+extensive resources available an
+unskilled attacker may have very limited
+resources
+we can also see that threat actors like
+organized crime and nation states might
+have a very high level of sophistication
+but if we find a threat actor who may be
+unskilled or be in the shadow it
+department they might have very low or
+limited sophistication and of course all
+of these threat actors have their own
+motivations for performing these attacks
+and if you are a nation state you may
+have a specific goal to be able to
+disrupt or create problems for a
+different government or if you're an
+Insider threat out for revenge or some
+type of financial gain if we understand
+the motivation we can then adjust our
+security to best prevent this type of
+attacker from Gaining access to our
+systems

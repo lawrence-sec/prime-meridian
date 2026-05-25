@@ -1,0 +1,870 @@
+[Music]
+Hi everyone and welcome back. Now, if
+you've been watching this series, you
+know that we've covered so far a lot of
+attacks and mitigation techniques. Now,
+we still have a couple more to cover
+before we can wrap this chapter up. And
+that's exactly what we're going to do
+right now. And because I hate the
+expression, without further ado, I'm
+just going to say let's not waste any
+more time and jump into the first one,
+which is privilege escalation. Now,
+privilege escalation, just like the name
+says, happens when an attacker manages
+somehow to gain access to some
+privileged resources that normally they
+wouldn't have access to. And by resource
+I mean it could be anything like a file,
+a database record, a network location,
+anything that should not be accessible
+by regular users or outside users for
+that matter. And well since normally
+when you access a system as a normal
+user, there is no legitimate way to
+promote yourself to a privileged user
+like a root or admin. And most privilege
+escalation attacks attempt to run some
+code with root or admin privileges by
+exploiting some vulnerability. So
+basically they're looking for a flaw in
+the software itself that might allow
+them to execute operations that would
+normally be allowed just for admins.
+And well as you know applications and
+processes uh run with the privilege of
+some account usually a system account
+and they have certain privileges as they
+need to read and write data uh to
+interact with the system to interact
+with network resources. So they they do
+have some limited uh privileges. Now
+exploiting such an application usually
+means injecting some customized attacker
+code into the application itself so that
+the application is going to execute the
+attacker's code with the application's
+permissions. So basically if you find a
+web server that is running as root on a
+Linux machine and you manage to convince
+that web server to exploit it to execute
+your own code well then your code will
+be executed as root on that specific
+machine.
+Now of course we also have legitimate
+privilege escalation in most operating
+systems and sometimes these are exactly
+those operations that attackers attempt
+to exploit such as pseudo that's super
+user do. It's a command that you can use
+to prefix other commands in a Linux
+environment uh in order to execute those
+commands with uh elevated privileges
+most likely with root privileges. It's
+the equivalent of the run as
+administrator right-click option
+whenever you you try to launch an
+application in Windows. Now, of course,
+not everybody has pseudo or run as admin
+privileges. This is also going to be
+part of the privilege list of a specific
+subset of users. So, basically, we have
+somewhat two layers of security here.
+First of all, we have just a specific
+subset of users that are allowed to
+pseudo or to run as admin. And then
+secondly, those users also need to
+provide some valid credentials either an
+admin password, a root password in order
+to temporarily execute that set of
+operations with increased privilege. Now
+try this on Linux or Windows blocks and
+you will be prompted for an admin or a
+root password or pseudo password just to
+execute a privileged operation. Now how
+do we fight this? How do we mitigate
+this? As you can probably guess, the
+first step would be don't allow the
+application to be exploited as much as
+you can. So, patch it, you know,
+security updates and such. Secondly,
+make sure you use strong passwords or
+even better, try using multifactor
+authentication. So, not just something
+that you know or the admin is supposed
+to know, but also something that you
+have like a smart card or a one-time
+password generator and even sometimes
+accompanied by something that you are
+that is biometric identification. you
+know the face of fingerprint, the retina
+scan and such. Don't forget to implement
+the least privilege principle. That is
+don't provide more privileges to a user
+or to an application more than they
+require to do their jobs because in case
+that user account or that application
+gets compromised, well, the attacker is
+going to inherit all those permissions
+and they most certainly are going to
+abuse those permissions. And of course,
+I cannot stress this enough. Sanitize
+your input, input validation, because
+all that happens as a code injection, as
+a remote exploit. It all comes in as
+some sort of input. It doesn't matter if
+it comes through a web form, if it comes
+through the network, if it comes in an
+email or in a in a file that the
+application is supposed to open. It's
+all input. always validate everything
+that you receive to minimize as much as
+possible the potential for exploits. And
+I don't I don't really think I need to
+mention this here, but but I'll just
+reiterate this one more time. Make sure
+you remove any default credentials or
+you change the default credentials on
+your machines because a lot of
+networking devices, servers,
+applications, they all have demo
+accounts, test accounts, maybe accounts
+that were used during the testing phase
+or doing a PC. Don't forget about those.
+Also, don't forget that default
+passwords can be found all over the
+place online. So, for example, on this
+just an example website here, I want to
+find out what is the default password
+for let's say a linkxis router. Let's
+select links here on the left and let's
+say WRT150N.
+All right. So, its configuration can be
+accessed from this default IP address
+using a blank username and a default
+password of admin. That's a set of
+default credentials. Anybody can access
+this. Don't forget about these. Don't
+let them unsupervised. Don't leave them
+unsupervised in your uh in your
+environment. Now, just to put things
+into perspective, let's see an example
+of privilege escalation combined with
+grabbing the hashes, the password hashes
+from a live Windows system. Now, one
+thing to to remember here in all
+examples like these demonstrations like
+these, they're all based on a specific
+type of vulnerability that we're trying
+to exploit. So, if you try this on the
+latest and the greatest and the most
+up-to-date version of Windows, it's most
+likely not going to work. But not
+everybody is using the latest and the
+greatest updated version of Windows.
+That's how attackers get a real chance
+of hacking live systems. And it makes
+sense not to work on the latest versions
+because old vulnerabilities get patched
+every single day. So you need to
+discover new exploits, new
+vulnerabilities and of course on the
+cyber security analyst side, you need to
+discover new methods of mitigating them.
+Okay. So let's see here an example. Now
+we're going to be using the metas-ploit
+framework which is by default available
+in security distributions like Kal Linux
+or Parrot OS or Parrot Security like the
+one that I'm using right here. Now,
+we're going to be building using MSF
+Venom a malicious payload that is going
+to be delivered to a victim. Then, we
+need to trick that victim into executing
+this file. Now, what this file does is
+going to be uh based on the reverse TCP
+payload as you can see here in the
+command line. What's going to do is it's
+going to attempt to connect back to
+ourselves. So the victim is going to try
+to initiate a connection back to the
+attacker, thus giving us access and a
+solid connection to that victim's
+machine, which we can then try to
+further exploit. And the address that
+we're using here is going to be denoted
+by the Lhost, which is the local host.
+Uh that's our machine right now,
+1010.13.
+All right. So let's uh let's execute
+this. Okay. So we have one valid
+executable file. Uh now we need to push
+this file somehow to the victim's
+machine. So what we can do right now is
+we can upload it to a web location for
+example. So in our lab here we're also
+hosting a uh web server. It's an Apache
+2 web server and just going to move that
+exe file in the root folder of Apache.
+Uh then we're going to start the
+metas-ploit framework and we're going to
+start a handler which is just a piece of
+code that expects connections from
+potential victims. All right. So we need
+to make sure that we have everything in
+place on the attacker side as well. All
+right. So the payload is going to be
+also of type reverse TCP because we
+expect reverse TCP connections to go
+back to us. We're going to be listening
+on our own IP address and we have the
+reverse TCP handler started on port 444.
+All right, let's move over to the
+victim's machine right now. All right,
+we're pushing this executable file now
+to the victim's machine. uh we can give
+them a link to download the file direct
+you can hide this link in an email or in
+an instant message uh just make sure
+that you convince the victim to run that
+executable file. Now once that file is
+run uh back on our metasloit console we
+can see that we have one session that
+has been opened. So we are seeing one
+connection back from our victim. Now the
+victim is 1010.10 10 as you can see here
+on the right starting from port 5389 and
+the connection is created back to port
+4444 on our machine. All right, we can
+now interact with this session. So we
+can basically just run commands just
+like we could directly on that victim's
+machine. Now get UID is going to give us
+the uh the name of the current user. In
+our case, it's going to be admin. Pay
+attention, it's not administrator, it's
+just admin. And just to make our life
+easier, we're going to be using here a
+dedicated tool called Broot. Uh, which
+is just a small utility that is designed
+to look for misconfigurations on a
+Windows system that can be exploited for
+you to become administrator or Broot.
+All right, so that it's simply looking
+for opportunities to escalate our
+privilege. Coming back here to our
+metas-ploit console, we can now upload
+this brute.exe to the victim's machine
+into their uh desktop folder. Right. We
+can then create a shell direct shell or
+cmd shell on that victim's machine just
+by using the command shell. And then
+we're going to be running bu.exe.
+Now we do have some opportunity here for
+privilege escalation. So we're going to
+try to dump the hashes the password
+hashes from this newly compromised
+machine. All right, we're going to run
+smart hash dump for this. And as you can
+see, we don't have enough privileges to
+dump hashes just yet. Remember that the
+admin user was not exactly administrator
+was just admin. Okay. But we do have
+some good news from the Broot executable
+that we can actually elevate our
+privileges. Now, one of the things that
+we found out by running Broot is the
+fact that we can exploit a vulnerability
+that allows us to bypass UAC. That's
+user account control. That's the
+security measure that Windows uses
+whenever you try to execute some
+privileged operation where it's going to
+ask you for permissions or even for your
+admin password. So, we're going to have
+to bypass this by using a different type
+of exploit. All right. So, we're going
+to use this exploit here to bypass UAC.
+So, show options here tells us that we
+already have everything configured here.
+So, local host, that's our IP address.
+Local port, that's our listening
+address. And we also need a valid
+session. And we do have an active
+session as well. Okay. So, let's set
+that session to number one, the exact
+same one that we currently have running.
+Okay. So, we have a target set up from
+the active session and we can just run
+exploit now. All right, you can see UAC
+is enabled. Checking the level.
+Bypass UAC can bypass this setting.
+That's good news, right? Continuing.
+Okay, going to make some changes in the
+registry. And right now, if we type get
+UID, we can see that we are still admin.
+So the same user as before, but we can
+call the bypass UAC exploit by using get
+system. Okay, apparently uh type one is
+not necessary here. So let's just write
+get system like this. All right. So, we
+got system, which means we got root. We
+got admin privileges. Let's type
+actually let's check this out. Get UID
+again. And this time, we're not just the
+administrator user, but we're actually
+the system user. That's the supreme user
+account machine account actually on any
+Windows system. So, we can do anything
+that we want right now, including
+getting all the user password hashes.
+Okay, we can uh run the smart hash dump
+command as well. And there you have it.
+Now these are all the users defined on
+the system starting with the
+administrator user and the first code
+right there the code for 500 tells us
+that that is a real administrator user
+and all the password hashes listed right
+here. So you can just take these Windows
+hashes these antique hashes and just
+dump them in a brute force password
+cracker in a dictionary uh cracker or a
+rainbow table anything that you have at
+your disposal to try to find out what
+the um passwords for these accounts are.
+What even better now since you have
+access administrator access to this
+system you can just create your own user
+that's your own admin user hidden from
+every everybody else so that you have a
+permanent backdoor whenever you want to
+come back and uh you know control this
+machine in the future. One more thing
+that any uh let's say well educated
+attacker should do is of course to clear
+their traces. So clear EV is going to
+clear the logs. So, it's basically
+clearing the system events so that they
+won't be visible. So, there you have it.
+Combine privilege escalation and
+grabbing password hashes from a live
+system. And by the way, that's Windows
+10. So, don't think that we've hacking,
+I don't know, Windows XP or something
+like that. It's just Windows 10 that
+doesn't have the latest and greatest
+security updates. Another type of attack
+which unfortunately is is not among the
+most popular ones nowadays. Uh but it's
+still going to be relevant for the exam
+is called pass the hash or pass the hash
+attack. The main idea behind pass the
+hash or pth is the fact that most
+services will hash your password and
+then check for those two hashes to match
+the one that's calculated and the one
+that's stored in the local database. Now
+some services older versions of
+Kerbrarus especially so so older
+versions of the authentication and
+authorization process in Windows would
+allow an exploit where you would just
+have to present a valid password hash
+without even knowing what the the
+underlying password is and then you
+would be granted access. That's why it's
+called pass the hash. So we're not
+passing over the password. We're passing
+the actual hash which can be harvested
+can be determined if you manage to break
+into one of those devices. You don't
+even have to know what the original
+password is. You just present a hash and
+you are given access. As I said, this is
+only relevant for older versions of
+Windows. But keep in mind that even
+newer versions of Windows still allow
+you to activate a backwards
+compatibility mode with older versions
+of other Windows clients, for example,
+that you might have in your network. If
+somebody's still using Windows XP in
+your network or or even older versions
+of Windows, you will probably have to
+activate those backward compatibility
+features. And this also is going to
+expose you to these legacy types of
+attacks. Now, one more idea here
+regarding Keraros. And we're not going
+to go into too much detail here because
+this is more like Security Plus content.
+This is described in much greater detail
+in Security Plus. But we have the
+concept of a golden ticket. And the
+golden ticket is a type of identifier
+that can grant any permission in an
+active directory domain including admin
+permissions. And the problem is that on
+previous implementations of Keraros uh
+dumping the active directory data store
+provided access to something called the
+Keraros ticket granting ticket hashes.
+So, we're basically dumping something
+similar to a root password of the system
+that we can then use later on and
+provide admin credentials, admin rights
+to any user inside of the domain,
+including of course malicious users.
+Keep in mind this as a concept for the
+exam. You don't need to know how to
+configure it. You don't even know how it
+is implemented for the CYU Plus. I would
+encourage you to read more about
+Keraros, but it's not exactly the focus
+of Cisoplus. As I said, this is much
+greatly covered in security plus. But
+remember the golden ticket what it does
+and that it applies to Keraros. That
+should be enough for decisive plus.
+Finally, another one that you've most
+probably heard about before is called
+man-in-the-middle or the
+man-in-the-middle attack. And in most
+cases, this expression is used in a
+networking environment. So, we're
+talking about network traffic that gets
+intercepted by a third party. Now
+intercepting that traffic of course
+enables the third party the attacker in
+our case to inspect your traffic perhaps
+to make changes into your uh into your
+request or replies. Now on the other
+hand this is still one extra hop in the
+communication path. So optionally for a
+successful man-in-the-middle attack the
+attacker doesn't just grab the traffic
+inspects it and discards it but it also
+forwards it to the proper destination.
+So, so that in an ideal
+man-in-the-middle attack, the attack
+itself is not even going to be visible
+or detectable by the victim. And a
+man-in-the-middle attack doesn't just
+apply to networks in traffic. It can
+also apply to software, which in most
+cases is going to be some sort of code
+injection into an application that
+intercepts whatever the user does. It's
+also called in case of web applications,
+man in the browser. So imagine you have
+a compromised browser because you just
+clicked on some link or executed some
+binary file that you received over email
+or over instant messaging and your
+browser gets infected. Now when you're
+interacting with different websites all
+over the internet, your commands, your
+clicks, whatever you're typing into a
+web form or even screenshots of your
+activity might be forwarded to some
+attacker's computer. That's a man in the
+browser. So basically the attacker
+intercepts your action through an
+infected browser. Also, an example of
+man-in-the-middle attack could be
+considered the actions of key loggers.
+Small programs that run hidden on your
+machine. Again, installed as a result of
+some malicious code execution that grab
+your keystrokes, uh grab all your
+websites that you're visiting, all the
+passwords that you're you're typing at
+the keyboard and uh then saving that
+information or even sending it over the
+network to some attacker's workstation.
+Now a very let's say classic example of
+man-in-the-middle is by performing an
+ARP poisoning. ARP stands for address
+resolution protocol and it's what we use
+in our local networks in our switch
+networks to find out the MAC addresses
+that's the layer 2 addresses of the
+devices we want to communicate with. So
+for example in this simple network here
+let's assume that host A wants to
+communicate with server one. It already
+knows server one's IP address. It's
+right here. But it doesn't know server
+one's MAC address. So it has to perform
+an ARP request to find out this MAC
+address. So host A is going to build a
+small packet here which is going to
+contain something like this who has IP
+address 10001.
+And this packet here since it doesn't
+know who has it is going to be sent as a
+broadcast which means that the switch
+here is going to make sure that the
+message gets received by all the hosts
+in the same network segment including
+server one of course. Now, host B is
+going to ignore it because they don't
+have this IP address. Host C is going to
+ignore it as well. Server one is going
+to accept it and it's going to build a
+reply saying I do.
+All right. And this ID here is going to
+go back to the switch and this time it's
+going to be a uniccast transmission
+directly to the original requesttor that
+is host A. Now host A knows both the IP
+address and the MAC address of server
+one and communication can flow
+seamlessly between the two. Now the
+problem with ARP is that it's a very old
+protocol. It was invented pretty much at
+the same time as the rest of the
+Ethernet technologies which is which is
+almost 50 years ago and nobody was
+thinking about security back then which
+means that ARP has somewhat of a too
+trusting behavior when working inside of
+a network. In fact, it's so trusting
+that if a host receives a message, an
+ARP reply like this blue one here
+generated by the server. If any host
+receives this reply is going to learn
+whatever is written in that reply, even
+though they haven't sent a request from
+the beginning, they did not ask for it.
+They're still going to record the
+information in this ARP reply. Which
+means that for an attacker, this is a
+gold mine. Let's go back to the
+beginning of this and let's assume that
+host C had suddenly become malicious.
+Right? So this one is now red. This one
+is now an attacker. Now as an attacker,
+host C can actually craft its own ARP
+replies and can simply build an ARP
+reply. And this ARP reply here is going
+to say that IP address 10001 has the MAC
+address of CDEF which is actually the
+MAC address of the attacker. Now when
+this packet gets sent over the network,
+it can be a broadcast, can be a
+uniccast, but let's assume that uh the
+attacker is just targeting host A here.
+Now when host A receives this packet,
+the information within the packet will
+tell host A that whenever they need to
+reach server one, they should use the
+MAC address cdef. So host A is going to
+assemble its packets thinking that it's
+communicating with server one. While in
+reality the MAC address that the switch
+is going to use to direct that packet is
+going to be the MAC address of host C.
+So basically all the traffic that leaves
+host A towards server one is going to go
+first through host C which can perform a
+man in the middle. Normally it should
+also forward it to the legitimate
+destination which is server one so that
+host A is not going to even realize the
+fact that its traffic is being
+intercepted. Similarly, if server one is
+going to send their replies back to the
+attacker, the attacker should forward
+them back to host A so that host A can
+see that communication with server one
+still works. Now, unfortunately, it
+does, but host C here in the middle is
+going to intercept all that traffic. And
+this is one is called our poisoning.
+Now, in order to mitigate this, we have
+two technologies that kind of work
+together. The first one is called DAI,
+that is dynamic ARP inspection. And this
+one is configured on the switch, which
+means that the switch is going to now
+look at all the ARP requests and replies
+and determine if they come from their
+legitimate switch ports. How does it
+know which switch port is legitimate or
+not? Well, that's why we said we have
+two technologies here. The second one is
+actually called DHCP snooping which is
+also configured on the switch as well
+and allows the switch to look at all the
+DHCP messages that dynamic host
+configuration protocol. The protocol
+that you use when you connect to a
+network the very first time that allows
+you to receive a valid IP address and
+DNS information and everything else
+looks at those requests right here in
+order to determine where is each IP
+address and each MAC located on its
+switch ports. This way if we have these
+two enabled at the same time, host C
+here would not be able to fake an ARP
+reply pretending to be server one
+because the switch is going to deny it.
+The switch knows that server one is not
+located on this connection right here
+towards host C. So it's not going to
+accept any ARP replies that claim to be
+server one coming from this switch port.
+So these two together here going to
+solve us the problem of our poisoning.
+But you do need to have support for
+these on the switches. So, you're
+probably going to look at managed
+switches, more expensive ones. And also,
+you need someone who knows how to
+configure it and knows about this these
+technologies. You might pay for them,
+but if nobody activates them on a
+switch, you're just as exposed. Now,
+don't forget about DNS either. That's
+the service that resolves the website
+names that we're accessing to real IP
+addresses that we can communicate with.
+Now, traditional attacks against DNS
+servers aren't going to be the
+traditional attacks against any type of
+servers out there, email, web, instant
+messaging, whatever they are. Uh, and
+just like any application that accepts
+some input, there might be some
+vulnerabilities regarding buffer
+overflows. And as we've seen in a
+previous video, a buffer overflow can
+have any number of consequences. can
+allow us to change the information that
+is stored in the web server. It can
+allow us to crash the web server or can
+simply allow us to read some information
+as part of the reconnaissance process
+before an attack. Another type of attack
+that can be performed using DNS is DNS
+amplification. And the amplification
+attacks are actually a specific type of
+attacks that don't just apply to DNS,
+but to any protocol where the initial
+request can be disproportionately small
+in comparison to the reply. Now, think
+about it this way. If you're accessing a
+website, right, you're sending a HTTP
+get request perhaps for a resource on
+that website, which might be a file.
+Well, that file might be one gigabyte in
+size. How small is the request? How big
+is the reply? All right, that's also a
+potential for an amplification attack.
+And this is also a kind of denial of
+service attack. Now with DNS, we can
+kind of obtain the same result here
+because DNS requests are very small, but
+the results from the DNS database of
+that server can be huge. Now, how does
+this help us? Well, at the most, we
+would probably just flood ourselves,
+right? We would probably just perform a
+denial of service on ourselves, right?
+Well, what if we send those DNS requests
+with a spoofed source IP address? So,
+instead of just, you know, sending those
+DNS requests with my IP address as the
+source, I'm going to send those with
+somebody else's IP address as the source
+league. That's not a legitimate packet,
+but unless there is some device in the
+network that can filter my traffic, it's
+going to be allowed. So, I can just send
+a DNS request with your IP source
+address and the response is going to
+come back to you. send a thousand a
+million DNS requests all with the same
+spoofed IP address and you just got a
+denial service receiving 1 million or 1
+billion DNS replies at the same time on
+your you know IP address. How to fight
+against DNS attacks? Well, just like
+with any other service out there, make
+sure it's up to date, all security
+patches installed. Do some penetration
+testing from time to time just to see if
+new vulnerabilities might have been uh
+discovered in the meantime. And also
+since DNS as a service is designed to be
+exposed to be available to everyone out
+there especially for public accessible
+resources or public websites which are
+the most vulnerable implement some sort
+of a block list right that can filter
+out those undesirable sources of
+traffic. If uh if at some point some IP
+address on the internet attempted a
+buffer overflow or attempted a denial of
+service on your server, just ban that IP
+address. Don't allow them to communicate
+with you anymore. Finally, and this is
+the last one for today, root kits.
+Rootkits are a type of kernel level
+malware, and it's usually they're
+usually based on infecting or even
+replacing operating system level files.
+So, you're going to end up with a
+different executable file for cmd.exe
+exe or a different executable file for
+Notepad exe or calculator .exe except
+that the new executable file is infected
+with malware. And if you think, okay,
+those are not necessarily system files.
+All right, then it can infect DL files
+within Windows drivers that get loaded
+whenever you boot your computer. That's
+exactly the same behavior. the same
+driver, the same DL file is going to be
+loaded into memory, but it's going to
+have an added bonus of a malicious code
+in there, which on top of all is going
+to run with root or administrator
+privileges because those files are
+loaded by the operating system when it
+when it starts. Now, the silver lining
+here about rootkits is the fact that in
+order to install such a rootkit, you do
+need to get root access because
+otherwise you won't be able to replace
+operating system level files. So that's
+an extra security measure that makes
+root kits not so easy to be implemented.
+How do you mitigate this? Well, of
+course, since it's malware, it's
+malicious code, use an antivirus, an
+updated antivirus. And secondly, since
+we're talking about changing operating
+system level files, those files should
+be stable at least from one update to
+the next, right? When you update the
+operating system, perhaps a couple of
+those operating system level files are
+going to be changed, but nevertheless,
+they are going to be signed. They're
+going to be pre-authorized and you can
+have a clear picture, a clear image of
+how a clean installation of Windows, of
+Linux should look like, which means that
+in order to protect those files, you can
+simply watch them and see if their
+contents change over time. And we have
+dedicated software that does this. It's
+called FIMM or file integrity
+monitoring, which does exactly that. It
+simply creates some handles and attaches
+them to operating system files. And
+whenever a change, an unauthorized
+change is detected in those operating
+system files, then an alert is
+generated. How do you detect a change in
+a file? Well, we know this already. You
+hash that file. And whenever and
+whenever you detect a change in the hash
+of that file, you can be pretty sure
+that somebody changed the contents of
+the file itself. Now, as far as file
+integrity checkers go, the exam is most
+likely going to ask you about tripwire.
+So, make sure you remember that Ripwire
+is one of these file integrity checkers
+monitoring solutions specially designed
+for Linux and it has a bunch of
+functionality in here. It uses a local
+database to keep track of all the files
+and it monitors not just the hashes of
+the files but also attributes such as
+last time accessed, the last time
+modified, who owns those files and stuff
+like that. Okay, you can see the
+integrity checking mode here. So make
+sure you remember for the exam trip wire
+as the number one example for file
+integrity monitoring. An alternative to
+tripwire is file site. This one is a bit
+more complex and relies on agents
+installed on the workstations which
+communicate to a centralized console.
+The agents are called satellites as you
+can see here. And you can test it by
+creating a secret file adding some
+contents inside of that file and then
+moving over to the admin console. You
+can add a new monitor here specific for
+files. I'm going to choose file
+monitoring
+also to generate actions for each event
+separately
+and as the monitor actions going to
+define our own actions list.
+Let's say we want to add the user to the
+blocked user list. Right? We can run
+this policy now
+and let's make some changes here. add
+more content to the secret txt file.
+Go back to the administration console.
+You're going to see all the detected
+events
+and one of them related to notepad is
+going to be the exact right operation
+that we performed on secret txt. So file
+site successfully detected that the
+contents of the text file have been
+changed. Right now assuming that
+somebody tries to delete that file,
+let's see how file site reacts to this.
+So, let's go back to our administrative
+console here. And in just a few seconds
+here, we should be able to see an alert.
+There it is. User account was added to
+the blocked user list just like we
+specified in the policy. And this is a
+just a very simple example of a much
+more complicated file monitoring
+solution. Now, this really was a pretty
+huge chapter. Congratulations if you
+made it this far. Remember that we
+talked about the man-in-the-middle
+attacks and we exemplified an our
+poisoning attack. Now, that's not going
+to be the only type of man-in-the-middle
+attack, but make sure you understand
+what's going on in there for the exam as
+well. Also talked about DNS and how it
+can be attacked and about root kits.
+Know what they are and at least remember
+trip wire because that's most likely
+going to be a tool that the exam is
+going to ask you about. Make sure you
+understand everything we talked about
+past the hash attack. And remember that
+it also relates to older implementations
+of AD hashes. So, it's all about Windows
+systems. Also, talking about Windows
+systems, don't forget about the golden
+ticket attack. And remember that it
+relates to Keraros. All right. So, for
+next time, we're going to talk about
+IoC's that indicators of compromise. And
+we're going to talk about them in much
+more depth. If you found this
+informative and useful, make sure you
+like and subscribe because that's all I
+need to keep this channel going. Thank
+you so much for watching, and good luck
+until next time.
+[Music]

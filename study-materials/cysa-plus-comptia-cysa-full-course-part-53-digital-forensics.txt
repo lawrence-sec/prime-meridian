@@ -1,0 +1,815 @@
+[Music]
+and here is where we finally get to talk
+about digital forensics now forensics is
+of course a useful topic
+but it can also be fun as well and by
+definition forensics is about
+discovering and collecting evidence
+digital evidence that could be accepted
+in a court of law now digital evidence
+of course is going to require a set of
+computer-based tools to discover to
+collect to preserve that is to properly
+store that information since you cannot
+see
+touch or put digital data inside of a
+plastic bag and as a science i would say
+in itself forensics can be useful for a
+number of scenarios starting with
+explaining or trying to discover how a
+secured incident managed to happen what
+was the root cause of that incident or
+confirming
+if any crime or compliance violation or
+anything else unacceptable has happened
+during that incident it's also helpful
+for collecting incriminatory evidence in
+case a crime has occurred so somebody
+has to be blamed or even you know
+punished or refined or jailed
+also for finding out if sensitive data
+was exposed
+when a breach happened or when an attack
+happened it can also help us determine
+if sensitive data was stolen or
+destroyed
+it can also help us with compliance
+checking that is obtaining proof that a
+company was legally compliant before a
+breach occurred it's very useful for
+insurance purposes or for legal exposure
+you know being able to prove that you
+know we've taken all the necessary
+precautions
+and it still happened right because you
+know it happens but at least we can
+prove that we performed the due
+diligence tasks required to prepare to
+be as prepared as possible for such an
+incident now handling forensics properly
+means following the right procedures so
+that is there is no room for
+interpretation and this is very
+important whenever
+you go inside this legal realm now such
+a procedure might have some of the
+following phases starting with
+identification so that's going to be
+about securing the environment securing
+the crime scene if a crime happened
+making sure that the scene is safe if
+someone's life is in danger try dealing
+with that
+before thinking about forensics
+and this is also where we try to
+identify the scope that is what exactly
+are we going to look for what type of
+digital evidence we're looking for then
+comes the collection phase this is where
+you make sure you have the necessary
+authorizations to collect information
+and that you
+use the right tools that will make that
+collected evidence admissible in court
+analysis then is about making the actual
+copies of everything that you gather for
+analysis of course also this is where
+you have to be sure that you can prove
+that the copies that you're making can
+be related to the original and you have
+to use specific toolkits or
+software specific software or hardware
+combinations to analyze the collected
+data for disk images we're going to have
+to hash those images in order to
+prove that the contents haven't been
+changed since they were were captured
+and we always have to make digital
+copies of the data so we're never going
+to work on originals we're never going
+to dig for information on the only
+storage device that we have like a hard
+drive for example we're going to collect
+information from memory dumps as well in
+here we're going to see a couple more
+places where we can collect information
+later on and this is where we start
+thinking about chain of custody because
+it's required for evidence to be
+admissible in court chain of custody
+means uh who handled the evidence how
+did it pass from one owner to the next
+how it was handled how it was stored so
+that there is no moment between the
+collection of that evidence and the
+moment when the evidence is presented in
+a court of law when that evidence could
+have been altered or modified or
+tampered with and as you probably know
+from i don't know movies and cop shows
+this is where you we're going to use
+things like evidence bags or tamper
+proof seals right and don't forget to
+update that chain of custody list every
+single time the evidence changes
+ownership and finally of course the last
+step is going to be about reporting you
+know what methods did we use what tools
+did we use and of course what did we
+find our findings and our conclusions
+when it comes to forensics data
+collected in a forensic investigation
+might be subject to something called a
+legal hold a legal hold means that
+whatever information might be relevant
+to a court case or in some litigations
+has to be properly preserved now this
+can affect digital information that
+cannot be further modified or destroyed
+or even physical evidence like like
+servers or hard drives that might be
+retained as evidence and you still have
+to comply even if that means i don't
+know maybe downtime perhaps for your
+business
+make sure that whenever you're involved
+in an incident you appoint someone with
+strong legal knowledge to be the contact
+for your forensics team
+incident response team so that you know
+exactly which instructions you must
+follow from a legal standpoint
+now in most cases where a security
+incident has occurred most of the time
+it it's going to have something to do
+with a specific endpoint that was
+compromised a host a workstation or even
+a server
+so data acquisition is a process very
+important process
+for obtaining a forensically clean copy
+of that device's data now in the digital
+world this is not so simple because some
+data might be lost when a computer is
+powered off
+other data might only be obtainable if
+the computer is powered off so the order
+in which data has to be collected from
+an endpoint is done in the order of
+so-called volatility which basically
+says collect the data that's more likely
+to be lost first right and then handle
+everything else and this order of
+volatility basically says that you
+should capture first things like cpu
+registers and cpu caches
+then you're going to look at the memory
+perhaps generate a dump of the contents
+of the memory this is where you'll be
+looking for routing information arp
+tables process lists process table
+kernel statistics and so on the windows
+registry also can be accessed from the
+memory
+even though most of the windows registry
+is also stored on the disk but certain
+sections are memory only so it's best to
+analyze it from a memory dump
+of course we're gonna look inside
+persistent mass storage devices such as
+hard drives
+ssds flash memory flash cart usb sticks
+and so on you should also collect even
+the free space collect information
+stored in the free space because file
+recovery procedures can recover can
+reveal deleted files within that disk
+space
+then we have to look for any kind of
+remote logging and monitoring solutions
+now if you're just capturing information
+from somebody's computer at home you're
+probably not going to have a logic and
+monitoring solution installed there but
+inside of a company you might find one
+the physical configuration of the host
+of the network the network topology of
+course also has to be collected and
+finally we're going to look for archival
+media things that
+don't go anywhere don't become
+obsolete are not volatile
+things like optical media
+tapes
+backup hard drives
+any kind of data that can be stored in a
+drawer for example
+some of the well-known digital forensic
+tools out there that you can use to
+collect this type of evidence just to
+mention a few in case forensic this one
+is a case management product also for
+various other types of investigations
+and include some components for digital
+evidence management also called
+e-discovery sometimes as well as for
+analyzing networks and endpoints
+another one is ftk also known as
+forensics toolkit or the sleuth kit from
+cali it used to be embedded with kelly
+depending on when you're watching this
+video it might or might not be embedded
+with kali but nevertheless it's an open
+source collection of tools for creating
+this images and analyzing files
+now you also have a gui
+for this which is called autopsy
+and it's also available for windows
+well apart from the digital tools out
+there you will need one or more
+computers dedicated for forensics
+investigations now they're going to need
+to be under very strict control they're
+going to be hardened and completely
+isolated ideally from any devices
+involved in the security incident
+sometimes they're even going to be
+isolated from any kind of network
+whatsoever now these workstations
+usually have some above average specs
+you're not going to play any games on
+them but they're going to have a lot of
+processing power a lot of storage space
+you know to store the disk and memory
+images and a wide variety of connectors
+for pretty much any type of data storage
+device as
+weird as they can be that you might find
+out there
+when you're when you're collecting data
+oftentimes these workstations come
+equipped with something called a write
+blocker the right blocker is a small
+hardware device that is mounted between
+the computer and a remote storage device
+that you want to access like a hard
+drive or a usb drive what it's going to
+do is going to disable any right
+operations maybe accidental write
+operations
+making that drive that you're mounting
+read only so we're basically
+not allowing our operating system to
+write anything to that device because if
+we did then we would be tampering with
+that device and it wouldn't be
+admissible anymore
+so that's the definition of a right
+blocker
+the memory the random access memory in a
+computer will be your most valuable
+source of information so capturing the
+memory contents could be critical to an
+investigation now not only it's going to
+store
+valid data applications programs that
+are running
+but it's also going to store some
+sensitive data like cryptographic keys
+or or passwords also most data even if
+it's encrypted on the disk
+you might be able to find it in an
+unencrypted format inside of the memory
+because in order to use that information
+whatever piece of software uses that
+encrypted information it first has to
+decrypt it right so inside of the memory
+inside of the computer's ram you have a
+much better chance of finding that
+content in an unencrypted form at least
+as long as that information is being
+used by some process now among the
+methods that we can use to extract
+memory contents we have a number of them
+starting with live acquisition this one
+requires a special tool that simply
+copies the contents of the memory as the
+system is running now as you probably
+know the contents of the memory are
+constantly changing
+so unfortunately such a tool
+must run with kernel privileges for a
+for a proper capture
+so it has to be installed and it has to
+be running where in memory of course and
+you might not want to tamper with the
+memory before capturing it so running
+such a tool which you with user
+privileges
+would only get you some partial results
+and let me just give you a couple of
+tools to choose from when it comes to
+memory acquisition starting with
+memorize from fireeye
+moving on with tactical from f response
+or magnet ram capture now some of these
+are free as well next method is
+capturing a crash dump memory dump files
+are created by the operating system when
+a critical
+kernel error or a kernel panic or a blue
+screen of death occurs if you wish you
+might not want to cause such a crash
+intentionally because you're going to
+lose a lot of data but you're still
+likely to find previously created dumps
+from previous errors it's still memory
+contents it's still going to be
+unencrypted even if it's waiting for you
+on the disk if hibernation is enabled
+don't forget about the hibernate file
+another type of memory content file that
+is simply waiting on the disk for the
+taking now this file is used to save the
+contents of the memory so it's basically
+a memory dump right
+when the computer is put to hibernation
+just like sleep except it doesn't
+consume any more power that's why we
+save the contents of the memory because
+if we cut the power to the memory it's
+going to lose its data right so we save
+it on disk and then we load it from the
+disk to return the computer to the exact
+previous state
+it was in when when it was shut down the
+page file don't forget about this one as
+well because it's also an extension of
+the memory and it's also stored on the
+hard drive
+it's an extension of memory because this
+is where the programs start
+paging information from the main memory
+when the main memory doesn't allow any
+more data to be stored in it of course
+you're not going to find the entire
+memory contents in here it's just an
+extension but it still might reveal
+useful information when you search this
+page file for some useful strings for
+example and well of course after you
+capture this memory you have to analyze
+it somehow because it's going to be in
+raw format right binary random data in
+there so you need some smart tools to
+analyze that memory content
+one of these tools is the volatility
+tool the volatility framework if you
+wish it's free you can even run it as a
+docker container that's the name here on
+the screen if you want to pull it from
+my own repo just running volatility here
+with a dash age parameter it's going to
+run a docker container and in a couple
+of seconds it's going to show us all the
+supported parameters that we can use
+to analyze a memory dump
+look how many options we have here
+regarding processes
+memory locations
+types of files that might be loaded
+inside the memory specific strings like
+domain names or
+file names that are being loaded inside
+of memory uh command line arguments and
+so on right so we do have a lot of
+flexibility here with this tool and so
+let's try playing with it with just a
+couple of commands to see how it works
+now what i have here is a memory dump
+you can find it online it's very widely
+used in in trainings for demonstration
+purposes it's kind of old you're gonna
+see what kind of operating system is
+inside of it and uh it was basically
+captured a while ago but it's okay right
+for for trading purposes is more than
+okay and it's not even that big it's
+just a couple of uh hundreds of
+megabytes so this is the memory capture
+that we'll be working with inside of
+volatility all right so let's run this
+command again i'm going to run a
+container based on on this image right
+here and i'm also going to mount inside
+of the container the location of my
+memory dump and inside of the container
+it's going to be located somewhere
+inside of the slash dumps directory now
+as part of the command itself the last
+argument here is going to be the command
+that i'm actually sending to the
+volatility framework to be executed in
+this case i'm going to point it to this
+specific file with the dash f parameter
+right and then i'm going to ask for some
+information about the image that i'm
+providing right so let's press enter and
+give it a couple of seconds to analyze
+the memory dump and we can already see
+some information coming in
+the profile of the image as you can see
+it should be based on something like
+windows xp service pack 2 or service
+pack 3. so i i told you this was an old
+image right
+what else do we have here physical
+address extension is enabled uh it was
+captured from a computer with one cpu
+all right and this is a timestamp this
+is when the image was captured right not
+much information so far let's see if we
+can get something more interesting here
+so let's repeat the command and this
+time ask for
+how about the list of processes
+currently running when this image was
+captured that's the ps list parameter so
+let's press enter here
+give it a couple of seconds
+and there you have it that's the list of
+processes inside of the memory that were
+running when
+when the image was was captured notice
+the windows services the
+the applications that were running at
+the moment and their even their process
+ids and the handlers and a lot of
+information that you can
+normally get from the task manager uh
+let's look for some other type of
+information here like for example the
+active connections
+right networking connections that were
+active when this image was captured
+all right we only have one
+but it's still very useful here we can
+see local address and local port that
+was used to connect and the remote
+address so who was this host right here
+from which the memory was captured
+talking to right on port 8080. anyone
+gives us the process id of the process
+that handled this remote connection this
+active connection another one is
+connection scan
+and even though i'm repeating myself
+here one word of advice
+live memory acquisition is difficult to
+implement in real life because it's
+going to rely on running some sort of a
+tool on that specific machine and this
+kind of tempering in most cases makes
+the capture data impossible to prove
+that it's genuine and it's it's not
+modified
+now disk image acquisition is a bit
+easier than live memory acquisition
+since it can be safely done while
+preserving the original consistency of
+the hard drive or the ssd being acquired
+disk imaging is usually done bit by bit
+thus copying all the drive sectors
+including the free space and copying
+just the files is not recommended
+because you might miss some hidden files
+or some deleted files you can also look
+for alternate data streams and deleted
+but recoverable files now alternate data
+streams can be used to hide information
+uh in an ntfs file system for example
+hide a file within another one
+and we can do it a number of ways of
+course starting with live acquisition
+again while the computer is running the
+downside is it's going to take a lot
+longer than with memory so the contents
+might change during the imaging process
+because it takes so long
+or we can perform it statically by
+shutting down the computer first
+there's a small risk that an unexpected
+shutdown might trigger some
+anti-forensics data destruction
+processes right
+doesn't just happen in the movies
+or we can perform aesthetically simply
+by pulling the plug on that computer
+again this is going to be against some
+malware detecting the shutdown of the of
+the host but of course you're going to
+risk corrupting some data
+right blocker so you mentioned this
+already it's a tool that prevents any
+data from the device being copied
+from being contaminated or changed while
+the copy process is running effectively
+it's going to block any write operations
+any system calls that include write
+operations that might come from your
+machine and might attempt to change the
+contents of the device being analyzed
+now this can be a hardware device in
+most cases or it can be a software
+component within the forensic
+workstation like a driver you're going
+to need some imaging utilities of course
+and different tools are going to provide
+different output formats for the
+extracted disk images that they generate
+some use proprietary formats with
+additional metadata some use raw file
+formats like the
+results generated by the dd utility in
+linux this is one way of using this
+utility it's basically performing a bit
+by bit copy from an input device to an
+output device right if you do have a a
+computer with a hard drive connected to
+it you can basically perform a perfect
+mirror of that drive onto another one or
+onto a disk image a special mention here
+about imaging tools uh some furnishing
+tools out there can also directly import
+the virtual disks files
+created by the virtualization software
+so like vmdk files and vmware or
+vhd or vhdx files for hyper-v or
+vdi if i'm not mistaken files for
+virtual virtualbox
+because for virtual machines their disks
+are already
+image files right so you just have to
+grab those that's it you don't have to
+capture anything
+remember that what we're doing when it
+comes to forensics must be admissible in
+court so for any disk image that we
+extract we need to be able to prove that
+it's identical to the original and it
+hasn't not been tampered with how do we
+do this well the standard for ensuring
+integrity of any piece of digital data
+is to use a hashing algorithm that's
+going to generate a cryptographic hash
+also called a fingerprint or a digest of
+that original data now any changes to
+copied data and the hashes will not
+match the original right so making that
+copy unusable in court some common
+hashing algorithms even though i don't
+think i have to reiterate this are going
+to be like sha one shot two and md5
+shot one uh used a 160 bit digest with
+some weaknesses was now replaced by shot
+2 which digests with up to 512 bits md5
+is still found in most tools as it is
+faster and provides some better
+compatibility between tools but it's not
+considered so secure anymore
+and it also uses a 128 bit hash now most
+image acquisition tools are going to
+automatically calculate this hash and
+store it for you but in case you need to
+verify hash or calculate your own there
+are some tools that can help you out on
+windows you get the search util
+tool which if we add a help switch at
+the end is going to give us the uh the
+supported parameters here if we scroll
+up here we should be able to find the
+hash file parameter generate and display
+cryptographic hash over a file so let's
+use this one
+hash file and ask for more information
+here
+and it's going to ask us to provide a
+file and a hashing algorithm and the
+supported algorithms you can find them
+right here at the bottom so let's try
+this with the image that we were just uh
+looking at
+so search detail hash file
+crydex vmam and let's calculate a shot
+256 output
+give it a few seconds here
+and there you have it this right here is
+the resulting hash
+now on linux you do have similar
+utilities here for example md5 sum or
+sha
+256 sha 1 shot 2 shot 384 512 and so on
+so pick whichever you want to use you
+have separate utilities for each hashing
+algorithm
+file carving is worth mentioning it's a
+method for extracting data from a disk
+or a disk image whereas there is no
+explicit file information available
+basically it's similar to some file
+recovery tools that attempt to
+reconstruct the deleted files
+accidentally deleted files on on a hard
+drive now this is made possible by the
+way in which file systems or on hard
+drives or ssds store data the smallest
+unit on a disk is called a sector and
+can range from 512 bytes to
+around 4096 bytes but only the hard disk
+or the ssd knows about the sectors it's
+a low level function of the hardware the
+file system itself cannot reference each
+sector individually but can address
+groups of sectors called blocks or
+clusters now in ntfs the default block
+size is 4k you might have seen this if
+you try to format a drive or or a
+partition or 496 bytes basically so you
+might recognize this window you can see
+for ntfs the default allocation size is
+4k
+right it's already selected here
+so when a file is created on a disk it
+is actually created in a new block
+across one or more sectors now if the
+file is large enough it will take up
+more than one block but if the file is
+much smaller than a block it will still
+reserve the same fixed block size on the
+disk so if we were to look inside the
+properties of a really small file it
+only has 1k
+you can see that even though the size of
+the file is just 1020 bytes in here the
+size on a disk is still going to be 4k
+right it's because that's size of a
+block and you cannot allocate less than
+a block for a file
+so the file system actually needs to
+keep track of which files belong to each
+blocks in a table and that table is
+called the master file table in ntfs
+now what happens when you delete a file
+deleting means that
+the operating system simply removes the
+reference information from this table
+the corresponding blocks and the sectors
+are not deleted on the disk they're
+simply marked as free
+in that table ever notice that deleting
+a 10 gigabyte file happens
+instantaneously but writing it takes
+some time
+even overwriting a file doesn't mean the
+same blocks are used so deleted file
+contents or even replaced file contents
+can actually remain on the disk
+indefinitely and that is what file
+carving tools do they look for useful
+content in those unallocated blocks and
+try to piece that information together
+in an attempt to rebuild those deleted
+files
+one last important topic here is the
+chain of custody it's about keeping
+track of how evidence was handled and by
+whom from its acquisition to its
+presentation in a court of law and the
+purpose of a chain of custody is to
+prove that the integrity of the evidence
+has been preserved that it hasn't been
+altered change destroyed in any way
+since its collection and it's documented
+in a chain of custody form a document
+that clearly describes who has released
+and who has received the evidence so
+every time the evidence changes hands so
+to say
+it does have to show up in that chain of
+custody form and it's really simple it's
+basically a form that looks like this
+the item the quantity description and
+the chain of custody here says that this
+item at this time stamp was released by
+received by and any comments regarding
+the the transfer of information or how
+it was stored and that's basically it
+that's a sample chain of custody form
+from nist
+so it's an official document angina
+custody is very important not just
+because evidence needs to be preserved
+but sometimes it needs to be preserved
+for years until the criminal case or the
+security audit or whatever concludes so
+over time computer hardware can fail
+storage media can become unreadable even
+if it hasn't been used
+and this is a concept much older than
+digital forensics a similar process is
+carried out to preserve things like
+fingerprints on object or biologic
+material from a crime scene or traces of
+gunpowder and so on except that
+tamper-proof bags nowadays might require
+anti-static shielding to protect
+electronic components against
+electrostatic discharge
+and a couple more topics here covered by
+forensics starting with the network now
+in the network you first have to capture
+traffic from a host or a network segment
+so on a host that's probably going to be
+by using some sort of a packet capture
+tool
+or if it's a network traffic then you're
+going to rely on something like port
+mirroring span or a tap device
+sniffing is usually done behind the
+firewall
+for mobile devices we're going to
+encounter some difficulties recovering
+data from them because they pretty much
+all of them have device locks or they
+are encrypted by default nowadays but
+don't forget to look inside cloud
+backups as well because that's where the
+good stuff might be
+a faraday cage can be used when
+collecting information which is going to
+protect that mobile device from any kind
+of wireless communication with the
+outside including remote wipe commands
+that might be sent
+by the person who is being investigated
+call data might be useful as well and
+this type of call information can
+sometimes be also be subpoenaed from the
+carrier itself
+don't forget about the geolocation
+history sometimes this is also backed up
+in some cloud which is going to show you
+when that device
+was at a certain location in the past
+investigating virtualized environments
+can be easier than pure physical
+environments simply because hypervisors
+can already read the memory inside the
+vms that they are managing
+and also when it comes to the disks that
+you're supposed to be collecting
+information stored on the disk as we
+said before
+data is already in an image format
+because virtual machines store their
+disks inside of an image file in some
+shared storage
+now the problem here is that sometimes
+this type of storage is going to be
+highly fragmented
+due to
+thin allocation of virtual machines and
+thin allocation basically means
+allocating the storage space
+as you need it as you require it not
+everything from the very beginning if
+you need another gigabyte you're going
+to extend that storage space on the desk
+and so on which creates a lot of
+fragmentation because you don't have a
+pre-allocated space that looks like a a
+solid block of storage where all your
+files are gonna be stored they're gonna
+be all over the place so it's just gonna
+be another step to take into account
+when performing file carving operations
+for example reconstructing those file
+fragments from the disk
+all right so that's it about digital
+forensics i know that most people don't
+expect a chapter like this in the size
+of plus trainings and exam but you might
+have one or two questions regarding you
+know things like chain of custody
+preserving evidence or
+uh the order in which data should be
+captured from a workstation right so try
+to remember those at least
+in any case thank you so much for
+watching if you found this useful like
+and subscribe and see you next time when
+we're going to be talking about
+technical controls for securing data
+thank you and good luck
+[Music]
+you
