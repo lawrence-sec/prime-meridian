@@ -31,3 +31,9 @@ logs/
 dist/
 .cache/
 ingested.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
