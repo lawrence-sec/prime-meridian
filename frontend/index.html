@@ -1110,7 +1110,7 @@
 
   function getCertFilter() {
     if (!selectedCert) return null;
-    return { source: { '$regex': selectedCert } };
+    return { cert: { '$eq': selectedCert } };
   }
 
   // ── Study Mode ─────────────────────────────────────────────────────────────
